@@ -1,0 +1,594 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Threading;
+using System.Threading.Tasks;
+using BilingualSubtitler.Properties;
+using YandexLinguistics.NET;
+using System.Runtime.InteropServices; //Разукрашивание прогресс-бара
+
+
+namespace BilingualSubtitler
+{
+
+    public partial class Form1 : Form
+    {
+        private OpenFileDialog openFileDialog = new OpenFileDialog();
+        private SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+        private Subtitle[] originalSubs;
+        private Subtitle[] subs;
+        private List<Button> buttons;
+        private int subsLines = 0;
+        private bool flagIsTranslated = false;
+
+        private string yandexTranslatorAPIKey =
+    "trnsl.1.1.20150627T135643Z.b79b9a9564333355.08ab2bf3ca2a0e1d1bacd63175b724f0ff966559";
+
+        private Color currentColor = Color.FromName("Yellow");
+
+        public Form1()
+        {
+            openFileDialog.Title = "Выберите файл";
+            openFileDialog.Filter = "Файлы субтитров SubRip|*.srt";
+
+            //saveFileDialog.InitialDirectory = GO.AppFolders.Temporary;
+            saveFileDialog.Filter = "Файлы субтитров SubRip|*.srt";
+            //saveFileDialog.DefaultExt = GO.Constants.NewsExtension;
+            saveFileDialog.AddExtension = true;
+
+            InitializeComponent();
+
+            backgroundWorkerTranslation.WorkerReportsProgress = true;
+            backgroundWorkerTranslation.WorkerSupportsCancellation = true;
+
+            backgroundWorkerWriteSubsToDataGrid.WorkerReportsProgress = true;
+            backgroundWorkerWriteSubsToDataGrid.WorkerSupportsCancellation = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Size = new Size(583, 530);
+
+            label1.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            progressBar.Hide();
+
+            buttons = new List<Button>();
+
+            //buttonOpenFile.Text = "Открыть \n исходные субтитры";
+            //buttonWriteBilingualSubtitles.Text = "Сохранить \n созданные субтитры";
+
+            buttons.Add(buttonOpenFile);
+            buttons.Add(buttonSubtitlesCreationPanel);
+            buttons.Add(buttonWriteBilingualSubtitles);
+            buttons.Add(buttonSettings);
+            buttons.Add(buttonHelp);
+            buttons.Add(buttonAbout);
+
+            buttons.Add(buttonBackToMainForm);
+            buttons.Add(buttonColorDialog);
+            buttons.Add(buttonTranslate);
+
+            buttons.Add(buttonCurrentColor);
+            buttons.Add(buttonCancelReadingSubs);
+            buttons.Add(buttonCancelTranslation);
+
+            foreach (var btn in buttons)
+            {
+                btn.FlatAppearance.BorderSize = 0;
+                btn.FlatStyle = FlatStyle.Flat;
+            }
+
+            panelSubtitlesCreation.Hide();
+
+            buttonCancelReadingSubs.Location = buttonOpenFile.Location;
+            buttonCancelReadingSubs.Hide();
+
+            buttonCancelTranslation.Location = buttonTranslate.Location;
+            buttonCancelTranslation.Hide();
+
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Columns[0].Width = "999".Length * 12;
+            dataGridView1.Columns[1].Width = "00:00:03,000 -->".Length * 6;
+            dataGridView1.Columns[2].Width = (dataGridView1.Width - dataGridView1.Columns[0].Width - dataGridView1.Columns[1].Width) / 2;
+            dataGridView1.Columns[3].Width = dataGridView1.Columns[2].Width;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True; //Включает перенос строки, целиком не помещающейся в ячейку
+
+        }
+
+        private string YandexTranslateAStringWithChecking(string originalStr, Translator translator)
+        {
+            string output = "";
+            string tempStr = originalStr;
+            int countOfTags = originalStr.Split('<').Length - 1;
+            int[,] tagsIndexes = new int[2, countOfTags];
+            string[] tags = new string[countOfTags];
+
+            for (int i = 0; i != countOfTags; i++) //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+            {
+                tagsIndexes[0, i] = tempStr.IndexOf('<');
+                tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                tags[i] = tempStr.Substring(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+
+                //И крайне весело заменяем символы тэга на какую-то фуйню
+                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
+            }
+
+            try
+            {
+                //labelCurrentLine.Text = str;
+
+                var translation = translator.Translate(originalStr, new LangPair(Lang.En, Lang.Ru), null, false);
+                output += translation.Text + '\n';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Строка " + originalStr +
+                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
+                                "Код ошибки: " + ex.Message);
+                output += originalStr + '\n';
+            }
+
+            tempStr = output;
+
+            for (int i = 0; i != countOfTags; i++) //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+            {
+                tagsIndexes[0, i] = tempStr.IndexOf('<');
+                tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
+            }
+
+            for (int i = 0; i != countOfTags; i++)
+            {
+                output = output.Remove(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+                output = output.Insert(tagsIndexes[0, i], tags[i]);
+            }
+
+            //Если первым в строке идет тэг, то переводчиком он обрабаывается как первая буква предложения, и настоящая первая буква
+            //переводчиком переводится в нижний регистр. Поэтому надо вернуть как было.
+            if (output.IndexOf('<') == 0)
+            {
+                string charToUpper = output[output.IndexOf('>') + 1].ToString().ToUpper();
+                output = output.Remove(output.IndexOf('>') + 1, 1).Insert(output.IndexOf('>') + 1, charToUpper);
+            }
+
+            return output;
+        }
+
+        //public string SendSubsToTranslator(string text)
+        //{
+
+
+        //    return output;
+        //}
+
+
+        private string ReadSubs()
+        {
+            try
+            {
+                string originalText = "";
+
+                foreach (var sub in originalSubs)
+                {
+                    originalText += sub.Text;
+                }
+
+                return originalText;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                return "";
+            }
+
+        }
+
+        private void ConstructRusSub(string translatedText)
+        {
+            try
+            {
+
+                for (int i = 0; i != subs.Length; i++)
+                {
+                    int levels = subs[i].Text.Split('\n').Length - 1; //Т.к. там везде '\n' на конце титра
+                    subs[i].Text = translatedText.Substring(0, translatedText.IndexOf('\n')) + '\n';
+                    translatedText = translatedText.Remove(0, translatedText.IndexOf('\n') + 1);
+                    //Интересно, почему "+1". В предыдущем варианте кода было. Без него не работает. Но ведь \n — это 2 символа? На самом деле, получается, 1.
+
+                    while (levels != 1)
+                    {
+                        subs[i].Text += translatedText.Substring(0, translatedText.IndexOf('\n')) + '\n';
+                        translatedText = translatedText.Remove(0, translatedText.IndexOf('\n') + 1);
+
+                        levels--;
+                    }
+                }
+                int j = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                this.Close();
+            }
+        }
+
+        private void WriteBilingualSubtitles()
+        {
+            string currentHEXColor = String.Format("{0:X2}{1:X2}{2:X2}", currentColor.R, currentColor.G, currentColor.B); //Текущий цвет в HEX представлении
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Сначала пишем русские субтитры
+                StreamWriter sw = new StreamWriter(saveFileDialog.FileName);
+                foreach (var sub in subs)
+                {
+                    sw.WriteLine(sub.ID.ToString());
+                    sw.WriteLine(sub.Timing);
+
+                    int levels = sub.Text.Split('\n').Length - 1; //Т.к. там везде '\n' на конце титра
+                    sw.WriteLine("<font color=" + '"' + '#' + currentHEXColor + '"' + ">" + sub.Text.Substring(0, sub.Text.IndexOf('\n')) + "</font>");
+                    sub.Text = sub.Text.Remove(0, sub.Text.IndexOf('\n') + 1);
+
+                    while (levels != 1)
+                    {
+                        sw.WriteLine("<font color=" + '"' + '#' + currentHEXColor + '"' + ">" + sub.Text.Substring(0, sub.Text.IndexOf('\n')) + "</font>");
+                        sub.Text = sub.Text.Remove(0, sub.Text.IndexOf('\n') + 1);
+
+                        levels--;
+                    }
+
+                    sw.WriteLine("");
+                }
+
+                subsLines++;
+
+                //Затем - английские
+                foreach (var sub in originalSubs)
+                {
+                    sw.WriteLine(subsLines++);
+                    sw.WriteLine(sub.Timing);
+
+                    int levels = sub.Text.Split('\n').Length - 1; //Т.к. там везде '\n' на конце титра
+                    sw.WriteLine(sub.Text.Substring(0, sub.Text.IndexOf('\n')));
+                    sub.Text = sub.Text.Remove(0, sub.Text.IndexOf('\n') + 1);
+
+                    while (levels != 1)
+                    {
+                        sw.WriteLine(sub.Text.Substring(0, sub.Text.IndexOf('\n')));
+                        sub.Text = sub.Text.Remove(0, sub.Text.IndexOf('\n') + 1);
+
+                        levels--;
+                    }
+
+                    sw.WriteLine("");
+                }
+
+
+                sw.Close();
+
+            }
+        }
+
+
+        private void buttonOpenFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ClearDataGrid(dataGridView1);
+                subsLines = 0;
+                string[] readedLines = System.IO.File.ReadAllLines(openFileDialog.FileName); //Читаем из файла оригинальные субтитры
+
+                foreach (string line in readedLines)
+                {
+                    if (line.Contains("-->"))
+                        subsLines++;
+                }
+
+                originalSubs = null;
+                originalSubs = new Subtitle[subsLines];
+                int j = 0;
+
+                for (int i = 0; i < readedLines.Length - 1; i++)
+                {
+                    if (readedLines[i].Contains("-->"))
+                    {
+                        originalSubs[j] = new Subtitle(Int32.Parse(readedLines[i - 1]), readedLines[i], (readedLines[i + 1] + '\n'));
+
+                        i += 2;
+
+                        while ((i < readedLines.Length) && (readedLines[i] != ""))
+                        {
+                            originalSubs[j].Text += readedLines[i] + '\n';
+
+                            i++;
+                        }
+
+                        j++;
+                    }
+                }
+
+                subs = null;
+                subs = new Subtitle[originalSubs.Length];
+
+                for (int i = 0; i != originalSubs.Length; i++)
+                {
+                    subs[i] = new Subtitle(originalSubs[i].ID, originalSubs[i].Timing, originalSubs[i].Text);
+                }
+
+
+                if (backgroundWorkerWriteSubsToDataGrid.IsBusy != true)
+                {
+                    foreach (var btn in buttons)
+                    {
+                        btn.Enabled = false;
+                    }
+                    buttonCancelReadingSubs.Show();
+                    buttonCancelReadingSubs.Enabled = true;
+
+                    progressBar.Value = 0;
+                    ModifyProgressBarColor.SetState(progressBar,1);
+                    progressBar.Show();
+                    // Start the asynchronous operation.
+                    backgroundWorkerWriteSubsToDataGrid.RunWorkerAsync();
+                }
+                }
+
+
+
+                
+            }
+
+        private void backgroundWorkerWriteSubsToDataGrid_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            try
+            {
+                for (int i = 0; i != originalSubs.Length; i++)
+                {
+                    if (worker.CancellationPending == true)
+                    {
+                        e.Cancel = true;
+                        break;
+                    }
+                    else
+                    {
+
+                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows.Add()));
+
+                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[0].Value = originalSubs[i].ID));
+                        this.Invoke(
+                            new MethodInvoker(() => dataGridView1.Rows[i].Cells[1].Value = originalSubs[i].Timing));
+                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[2].Value = originalSubs[i].Text));
+
+                        worker.ReportProgress((int)((float)i / (float)(originalSubs.Length-1) * 100));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void backgroundWorkerWriteSubsToDataGrid_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            this.progressBar.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorkerWriteSubsToDataGrid_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                ModifyProgressBarColor.SetState(progressBar, 2);
+            }
+            else if (e.Error != null)
+            {
+                ModifyProgressBarColor.SetState(progressBar, 3);
+            }
+ 
+                //progressBar.Value = progressBar.Maximum;
+                //progressBar.Hide();
+
+                buttonCancelReadingSubs.Hide();
+
+                foreach (var btn in buttons)
+                {
+                    btn.Enabled = true;
+                }
+        }
+
+
+
+
+
+        private void buttonSubtitlesCreationPanel_Click(object sender, EventArgs e)
+        {
+            panelMain.Visible = false;
+            panelSubtitlesCreation.Location = new Point(0, 0);
+            panelSubtitlesCreation.Parent = this;
+            panelSubtitlesCreation.Visible = true;
+
+            ModifyProgressBarColor.SetState(progressBar, 1);
+            progressBar.Value = 0;
+            progressBar.Hide();
+
+            buttonCurrentColor.BackColor = currentColor;
+        }
+
+        private void buttonWriteBilingualSubtitles_Click(object sender, EventArgs e)
+        {
+            WriteBilingualSubtitles();
+        }
+
+        private void buttonBackToMainForm_Click(object sender, EventArgs e)
+        {
+            ModifyProgressBarColor.SetState(progressBar, 1);
+            progressBar.Value = 0;
+            progressBar.Hide();
+            panelSubtitlesCreation.Visible = false;
+            panelMain.Visible = true;
+            //pan
+        }
+
+        private void buttonTranslate_Click(object sender, EventArgs e)
+        {
+            string text = ReadSubs();
+
+            string[] strings = text.Split(new Char[] { '\n' });
+
+            progressBar.Show();
+            progressBar.Value = 0;
+
+            foreach (var btn in buttons)
+            {
+                btn.Enabled = false;
+            }
+
+            buttonCurrentColor.BackColor = Color.Gray;
+
+            buttonCancelTranslation.Enabled = true;
+            buttonCancelTranslation.Show();
+
+            if (backgroundWorkerTranslation.IsBusy != true)
+            {
+                // Start the asynchronous operation.
+                backgroundWorkerTranslation.RunWorkerAsync(strings);
+            }
+
+            
+        }
+
+        private void buttonColorDialog_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = currentColor;
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                currentColor = colorDialog.Color;
+
+                buttonCurrentColor.BackColor = currentColor;
+            }
+        }
+
+
+        private void backgroundWorkerTranslation_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+                // Perform a time consuming operation and report progress.
+                var translator =
+    new Translator(yandexTranslatorAPIKey);
+
+                string[] strings = (string[])e.Argument;
+                string output = "";
+
+                for(int i=0; i<strings.Length; i++)
+                {
+                    if (worker.CancellationPending == true)
+                    {
+                        e.Cancel = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (strings[i].Length != 0)
+                        {
+                            e.Result += YandexTranslateAStringWithChecking(strings[i], translator);
+                            worker.ReportProgress((int)((float)i/(float)(strings.Length-1)*100));
+                        }
+                        else
+                        {
+                            flagIsTranslated = true;
+                            worker.ReportProgress((int)((float)i / (float)(strings.Length - 1) * 100));
+                            //button1.Text = "Закрыть";
+                            //progressBar.Value = progressBar.Maximum;
+                            //FlashWindow.Flash(this);
+                        }
+                    }
+                }
+
+            }
+        
+
+        private void backgroundWorkerTranslation_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorkerTranslation_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled == true)
+            {
+                ModifyProgressBarColor.SetState(progressBar, 2);
+            }
+            else if (e.Error != null)
+            {
+                ModifyProgressBarColor.SetState(progressBar, 3);
+            }
+            else
+            {
+                ConstructRusSub(e.Result.ToString());
+
+                FlashWindow.Flash(this);
+
+                for (int j = 0; j != subs.Length; j++)
+                {
+                    dataGridView1.Rows[j].Cells[3].Value = subs[j].Text;
+                }
+            }
+            buttonCancelTranslation.Hide();
+            foreach (var btn in buttons)
+            {
+                btn.Enabled = true;
+            }
+            buttonCurrentColor.BackColor = currentColor;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorkerTranslation.WorkerSupportsCancellation == true)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorkerTranslation.CancelAsync();
+            }
+        }
+
+        private void buttonCancelReadingSubs_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorkerWriteSubsToDataGrid.WorkerSupportsCancellation == true)
+            {
+                // Cancel the asynchronous operation.
+                backgroundWorkerWriteSubsToDataGrid.CancelAsync();
+            }
+        }
+
+        public void ClearDataGrid (DataGridView dataGridView)
+        {
+            while (dataGridView.Rows.Count > 1)
+                for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
+                    dataGridView.Rows.Remove(dataGridView.Rows[i]);
+        }
+
+        private void buttonCurrentColor_Click(object sender, EventArgs e)
+        {
+            buttonColorDialog.PerformClick();
+        }
+
+    }
+}

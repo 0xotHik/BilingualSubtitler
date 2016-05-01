@@ -1,0 +1,29 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BilingualSubtitler.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CurrentSecondarySubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Yellow</Value>
+    </Setting>
+    <Setting Name="CurrentPrimarySubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="SecondarySubsInOneLine" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RemoveStylesFromSecondarySubs" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="YandexTranslatorAPIKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">trnsl.1.1.20150627T135643Z.b79b9a9564333355.08ab2bf3ca2a0e1d1bacd63175b724f0ff966559
+
+</Value>
+    </Setting>
+    <Setting Name="PathToMKVToolnixFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\MKVToolNix\</Value>
+    </Setting>
+    <Setting Name="PathTempSubs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e:\Movies\TempSubs\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

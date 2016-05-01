@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6027F57A-5F0A-44AE-9888-5BC3723940BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BilingualSubtitler</RootNamespace>
+    <AssemblyName>BilingualSubtitler</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>опубликовать\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo4_1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v12.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="RestSharp">
+      <HintPath>.\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="YandexLinguistics.NET">
+      <HintPath>.\YandexLinguistics.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FlashWindow.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyProgressBarColor.cs" />
+    <Compile Include="PathToMKVToolnixAndTempForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PathToMKVToolnixAndTempForm.Designer.cs">
+      <DependentUpon>PathToMKVToolnixAndTempForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveHIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveHIForm.Designer.cs">
+      <DependentUpon>RemoveHIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextBoxExtensions.cs" />
+    <Compile Include="Subtitle.cs" />
+    <Compile Include="TrackToExtractFromMKVForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackToExtractFromMKVForm.Designer.cs">
+      <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationInProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TranslationInProgressForm.Designer.cs">
+      <DependentUpon>TranslationInProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YandexTranslatorAPIKeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YandexTranslatorAPIKeyForm.Designer.cs">
+      <DependentUpon>YandexTranslatorAPIKeyForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PathToMKVToolnixAndTempForm.resx">
+      <DependentUpon>PathToMKVToolnixAndTempForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RemoveHIForm.resx">
+      <DependentUpon>RemoveHIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackToExtractFromMKVForm.resx">
+      <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationInProgressForm.resx">
+      <DependentUpon>TranslationInProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YandexTranslatorAPIKeyForm.resx">
+      <DependentUpon>YandexTranslatorAPIKeyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mkvtoolnixLogo.png" />
+    <None Include="YandexTranslateIcon.png" />
+    <None Include="32pxCancelIcon.png" />
+    <None Include="48pxCancelIcon.png" />
+    <None Include="16pxCancelIcon.png" />
+    <None Include="48pxYandexTranslateIcon.png" />
+    <None Include="48pxResetIcon.png" />
+    <None Include="48pxSaveIcon.png" />
+    <None Include="42pxSaveIcon.png" />
+    <None Include="32pxSaveIcon.png" />
+    <None Include="39pxSaveIcon.png" />
+    <None Include="40pxSaveIcon.png" />
+    <None Include="38pxSaveIcon.png" />
+    <None Include="16pxCancelIconAnother.png" />
+    <None Include="16pxOkIcon.png" />
+    <None Include="32pxSRTIcon.png" />
+    <None Include="32pxMKVIcon.png" />
+    <None Include="25pxYandexTranslateIcon.png" />
+    <None Include="25pxMkvtoolnixLogo.png" />
+    <None Include="48pxSubtitlesIconOrange.png" />
+    <None Include="48pxSubtitlesIconBrghtn.png" />
+    <None Include="48pxSubtitlesIconRed.png" />
+    <None Include="48pxSubtitlesIconDarkRed.png" />
+    <None Include="48pxSettingsV2.png" />
+    <None Include="48pxSettingsV3.png" />
+    <None Include="48pxSubtitlesIconBlue.png" />
+    <None Include="48pxSubtitlesIconV2.png" />
+    <None Include="48pxSubtitlesIconYellow.png" />
+    <None Include="48pxSubtitlesIconDarkOrange.png" />
+    <None Include="25pxMkvExtractLogo.png" />
+    <None Include="20pxOpenIcon.png" />
+    <None Include="HelpBookIcon.png" />
+    <None Include="48pxHelpBookIcon.png" />
+    <None Include="48pxRemoveHIIcon.png" />
+    <None Include="48pxSubtitlesIconDarkBlue.png" />
+    <None Include="48pxSubtitlesIconLightDarkBlue.png" />
+    <Content Include="logo4_1.ico" />
+    <None Include="48pxOpenFileIcon.png" />
+    <None Include="48pxWriteFileIcon.png" />
+    <None Include="48pxWriteFileToHDDIcon.png" />
+    <None Include="48pxSettings.png" />
+    <None Include="32pxOpenFileIcon.png" />
+    <None Include="32pxWriteFileToHDDIcon.png" />
+    <None Include="48pxSubtitles.png" />
+    <None Include="48pxBrush.png" />
+    <None Include="48pxBackIcon.png" />
+    <None Include="48pxGREYBackIcon.png" />
+    <None Include="48pxSubtitlesIcon.png" />
+    <None Include="16pxHelpIcon.png" />
+    <None Include="16pxAboutIcon.png" />
+    <None Include="48pxColor.png" />
+    <Content Include="lemmy_simpsons_aN4_icon.ico" />
+    <Content Include="logo %281%29.ico" />
+    <None Include="smallTranslateToRus.png" />
+    <None Include="_smallTranslateToRus.png" />
+    <None Include="Open_file_document_paper_folder_small.png" />
+    <None Include="Open_file_document_paper_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
