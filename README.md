@@ -3,6 +3,9 @@
 <p style="text-align: center;"><strong><span style="color: #999999;">Bilingual</span> <span style="color: #ffd700;">Subtitler</span></strong></p>
 Приложение, позволяющее просто и быстро создать из английских субтитров двуязычные, вторичные субтитры в которых будут переведены с помощью Яндекс.Переводчика.
 О том, зачем могут понадобиться такие субтитры, можно прочитать <a href="https://0xothik.wordpress.com/2016/02/16/about-bilingual-subtitler/">в этой записи</a>
+
+<a href="https://github.com/0xotHik/BilingualSubtitler/releases/latest"><b>Скачать последний релиз →</b></a>
+
 <br><br>
 <a href="https://0xothik.files.wordpress.com/2016/02/screenshot-17-02-2016-12_42_58.png"><img class="alignnone size-full wp-image-1370" src="https://0xothik.files.wordpress.com/2016/02/screenshot-17-02-2016-12_42_58.png" alt="Screenshot - 17.02.2016 , 12_42_58.png" width="575" height="525" /></a>
 
