@@ -92,6 +92,7 @@ namespace BilingualSubtitler
 
         private Subtitle[] ReadSubtitles(string filePath)
         {
+            Subtitle[] subtitles;
             var sourceFileFI = new FileInfo(filePath);
             var extension = sourceFileFI.Extension;
 
@@ -99,7 +100,7 @@ namespace BilingualSubtitler
             {
                 case ".srt":
                     {
-                        ReadSRT(filePath);
+                        subtitles = ReadSRT(filePath);
                         break;
                     }
                 case ".mkv":
@@ -112,10 +113,20 @@ namespace BilingualSubtitler
                         var dialogResult = trackSelectionForm.ShowDialog();
                         if (dialogResult == DialogResult.OK)
                         {
-                            var subtitles = mkvFile.GetSubtitle(trackSelectionForm.SelectedTrackNumber,
+                            var mkvTrackInfo =
+                                tracks.Find(x => x.TrackNumber == trackSelectionForm.SelectedTrackNumber);
+                            var mkvSubtitles = mkvFile.GetSubtitle(trackSelectionForm.SelectedTrackNumber,
                                 (position, total) => { });
 
-                            var ggg = 0;
+                            subtitles = new Subtitle[mkvSubtitles.Count];
+                            for (int i=0; i < mkvSubtitles.Count; i++)
+                            {
+                                var currentMkvSubtitle = mkvSubtitles[i];
+
+                                subtitles[i] = new Subtitle(currentMkvSubtitle.Start,
+                                    currentMkvSubtitle.End,
+                                    currentMkvSubtitle.GetText(mkvTrackInfo));
+                            }
                         }
 
                         break;
@@ -147,7 +158,7 @@ namespace BilingualSubtitler
                 if (readedLines[i].Contains("-->"))
                 {
                     subtitles[currentSubtitleIndex] = new Subtitle(
-                        Int32.Parse(readedLines[i - 1]),
+                        //Int32.Parse(readedLines[i - 1]),
                         readedLines[i],
                         (readedLines[i + 1]));
 
@@ -486,7 +497,7 @@ namespace BilingualSubtitler
                 if (type == "Primary")
                     sw.WriteLine(subsLines++);
                 else if (type == "Secondary")
-                    sw.WriteLine(sub.ID.ToString());
+                    //sw.WriteLine(sub.ID.ToString());
 
                 //sw.WriteLine(sub.Timing);
 
@@ -557,143 +568,144 @@ namespace BilingualSubtitler
 
         private void ReadSubsFromFile(object sender, EventArgs e)
         {
-            disableCheckboxSubsInOneLine = false;
-            disableCheckboxRemoveStylesFromSecondarySubs = false;
-
-            SubtitlesAreNotTranslated(this, e);
-            labelCurrentProcess.Text = "Идёт считывание субтитров";
-
-            ClearDataGrid(dataGridView1);
-            subsLines = 0;
-            string[] readedLines = System.IO.File.ReadAllLines(openFileDialog.FileName); //Читаем из файла оригинальные субтитры
-
-            foreach (string line in readedLines)
-            {
-                if (line.Contains("-->"))
-                    subsLines++;
-            }
-
-            subtitles = null;
-            subtitles = new Subtitle[subsLines];
-            int j = 0;
-
-            for (int i = 0; i < readedLines.Length - 1; i++)
-            {
-                if (readedLines[i].Contains("-->"))
-                {
-                    subtitles[j] = new Subtitle(Int32.Parse(readedLines[i - 1]), readedLines[i], (readedLines[i + 1] + '\n'));
-
-                    i += 2;
-
-                    while ((i < readedLines.Length) && (readedLines[i] != ""))
-                    {
-                        subtitles[j].Text += readedLines[i] + '\n';
-
-                        i++;
-                    }
-
-                    j++;
-                }
-            }
-
-            subs = null;
-            subs = new Subtitle[subtitles.Length];
-
-            for (int i = 0; i != subtitles.Length; i++)
-            {
-                //subs[i] = new Subtitle(subtitles[i].ID, subtitles[i].Timing, subtitles[i].Text);
-            }
-
-            //Находим ID последнего субтитра
-            int lastLine = subtitles[subtitles.Length - 1].ID / 2;
-            //Проверяем, не уже ли двуязычные у нас субтитры
-
-            for (int i = 0; i < lastLine; i++)
-            {
-                //if (subtitles[i].Timing == subtitles[i + lastLine].Timing)
-                //    flagItIsAlreadyBilingualSubtitles = true;
-                //else
-                //{
-                //    flagItIsAlreadyBilingualSubtitles = false;
-                //    break;
-                //}
-            }
-
-            if (flagItIsAlreadyBilingualSubtitles)
-            {
-                Subtitle[] tempSubs = new Subtitle[lastLine];
-                subtitles = new Subtitle[lastLine];
-                for (int i = 0; i < lastLine; i++)
-                {
-                    subtitles[i] = subs[lastLine + i];
-                    subtitles[i].ID = i + 1;
-                }
-
-                for (int i = 0; i < tempSubs.Length; i++)
-                {
-                    tempSubs[i] = subs[i];
-                }
-
-                subs = new Subtitle[lastLine];
-
-                for (int i = 0; i < subs.Length; i++)
-                {
-                    subs[i] = tempSubs[i];
-                }
-
-
-                //Выделяем цвета
-                if (subtitles[0].Text.Contains("<font color="))
-                {
-                    Properties.Settings.Default.CurrentPrimarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(subtitles[0].Text.Substring(subtitles[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
-                    foreach (var sub in subtitles)
-                    {
-                        sub.Text = sub.Text.Remove(sub.Text.IndexOf("<font color="), "<font color=".Length + 10);
-                        sub.Text = sub.Text.Remove(sub.Text.IndexOf("</font>"), "</font>".Length);
-                    }
-                }
-
-                if (subs[0].Text.Contains("<font color="))
-                {
-                    Properties.Settings.Default.CurrentSecondarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(subs[0].Text.Substring(subs[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
-                    foreach (var sub in subs)
-                    {
-                        sub.Text = sub.Text.Remove(sub.Text.IndexOf("<font color="), "<font color=".Length + 10);
-                        sub.Text = sub.Text.Remove(sub.Text.IndexOf("</font>"), "</font>".Length);
-                    }
-                }
-
-                if (flagItIsAlreadyBilingualSubtitles)
-                {
-                    int counterForSubsInOneLine = 0;
-                    int counterForRemoveStyles = 0;
-                    foreach (var sub in subs)
-                    {
-                        if (sub.Text.Contains('<') && sub.Text.Contains('>'))
-                            counterForRemoveStyles++;
-                        if (sub.Text.Substring(0, sub.Text.Length - 1).Contains('\n'))
-                            counterForSubsInOneLine++;
-                    }
-
-                    if (counterForRemoveStyles == 0) disableCheckboxRemoveStylesFromSecondarySubs = true;
-                    if (counterForSubsInOneLine == 0) disableCheckboxSubsInOneLine = true;
-                }
-
-            }
-
-            if (backgroundWorkerWriteSubsToDataGrid.IsBusy != true)
-            {
-                AllToDisable();
-                buttonCancel.Show();
-                buttonCancel.Enabled = true;
-
-                progressBar.Value = 0;
-                ModifyProgressBarColor.SetState(progressBar, 1);
-                progressBar.Show();
-                // Start the asynchronous operation.
-                backgroundWorkerWriteSubsToDataGrid.RunWorkerAsync();
-            }
         }
+        //    disableCheckboxSubsInOneLine = false;
+        //    disableCheckboxRemoveStylesFromSecondarySubs = false;
+
+        //    SubtitlesAreNotTranslated(this, e);
+        //    labelCurrentProcess.Text = "Идёт считывание субтитров";
+
+        //    ClearDataGrid(dataGridView1);
+        //    subsLines = 0;
+        //    string[] readedLines = System.IO.File.ReadAllLines(openFileDialog.FileName); //Читаем из файла оригинальные субтитры
+
+        //    foreach (string line in readedLines)
+        //    {
+        //        if (line.Contains("-->"))
+        //            subsLines++;
+        //    }
+
+        //    subtitles = null;
+        //    subtitles = new Subtitle[subsLines];
+        //    int j = 0;
+
+        //    for (int i = 0; i < readedLines.Length - 1; i++)
+        //    {
+        //        if (readedLines[i].Contains("-->"))
+        //        {
+        //            subtitles[j] = new Subtitle(Int32.Parse(readedLines[i - 1]), readedLines[i], (readedLines[i + 1] + '\n'));
+
+        //            i += 2;
+
+        //            while ((i < readedLines.Length) && (readedLines[i] != ""))
+        //            {
+        //                subtitles[j].Text += readedLines[i] + '\n';
+
+        //                i++;
+        //            }
+
+        //            j++;
+        //        }
+        //    }
+
+        //    subs = null;
+        //    subs = new Subtitle[subtitles.Length];
+
+        //    for (int i = 0; i != subtitles.Length; i++)
+        //    {
+        //        //subs[i] = new Subtitle(subtitles[i].ID, subtitles[i].Timing, subtitles[i].Text);
+        //    }
+
+        //    //Находим ID последнего субтитра
+        //    //int lastLine = subtitles[subtitles.Length - 1].ID / 2;
+        //    //Проверяем, не уже ли двуязычные у нас субтитры
+
+        //    //for (int i = 0; i < lastLine; i++)
+        //    //{
+        //    //    //if (subtitles[i].Timing == subtitles[i + lastLine].Timing)
+        //    //    //    flagItIsAlreadyBilingualSubtitles = true;
+        //    //    //else
+        //    //    //{
+        //    //    //    flagItIsAlreadyBilingualSubtitles = false;
+        //    //    //    break;
+        //    //    //}
+        //    //}
+
+        //    if (flagItIsAlreadyBilingualSubtitles)
+        //    {
+        //        Subtitle[] tempSubs = new Subtitle[lastLine];
+        //        subtitles = new Subtitle[lastLine];
+        //        for (int i = 0; i < lastLine; i++)
+        //        {
+        //            subtitles[i] = subs[lastLine + i];
+        //            subtitles[i].ID = i + 1;
+        //        }
+
+        //        for (int i = 0; i < tempSubs.Length; i++)
+        //        {
+        //            tempSubs[i] = subs[i];
+        //        }
+
+        //        subs = new Subtitle[lastLine];
+
+        //        for (int i = 0; i < subs.Length; i++)
+        //        {
+        //            subs[i] = tempSubs[i];
+        //        }
+
+
+        //        //Выделяем цвета
+        //        if (subtitles[0].Text.Contains("<font color="))
+        //        {
+        //            Properties.Settings.Default.CurrentPrimarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(subtitles[0].Text.Substring(subtitles[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
+        //            foreach (var sub in subtitles)
+        //            {
+        //                sub.Text = sub.Text.Remove(sub.Text.IndexOf("<font color="), "<font color=".Length + 10);
+        //                sub.Text = sub.Text.Remove(sub.Text.IndexOf("</font>"), "</font>".Length);
+        //            }
+        //        }
+
+        //        if (subs[0].Text.Contains("<font color="))
+        //        {
+        //            Properties.Settings.Default.CurrentSecondarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(subs[0].Text.Substring(subs[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
+        //            foreach (var sub in subs)
+        //            {
+        //                sub.Text = sub.Text.Remove(sub.Text.IndexOf("<font color="), "<font color=".Length + 10);
+        //                sub.Text = sub.Text.Remove(sub.Text.IndexOf("</font>"), "</font>".Length);
+        //            }
+        //        }
+
+        //        if (flagItIsAlreadyBilingualSubtitles)
+        //        {
+        //            int counterForSubsInOneLine = 0;
+        //            int counterForRemoveStyles = 0;
+        //            foreach (var sub in subs)
+        //            {
+        //                if (sub.Text.Contains('<') && sub.Text.Contains('>'))
+        //                    counterForRemoveStyles++;
+        //                if (sub.Text.Substring(0, sub.Text.Length - 1).Contains('\n'))
+        //                    counterForSubsInOneLine++;
+        //            }
+
+        //            if (counterForRemoveStyles == 0) disableCheckboxRemoveStylesFromSecondarySubs = true;
+        //            if (counterForSubsInOneLine == 0) disableCheckboxSubsInOneLine = true;
+        //        }
+
+        //    }
+
+        //    if (backgroundWorkerWriteSubsToDataGrid.IsBusy != true)
+        //    {
+        //        AllToDisable();
+        //        buttonCancel.Show();
+        //        buttonCancel.Enabled = true;
+
+        //        progressBar.Value = 0;
+        //        ModifyProgressBarColor.SetState(progressBar, 1);
+        //        progressBar.Show();
+        //        // Start the asynchronous operation.
+        //        backgroundWorkerWriteSubsToDataGrid.RunWorkerAsync();
+        //    }
+        //}
 
         private void backgroundWorkerWriteSubsToDataGrid_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -713,7 +725,7 @@ namespace BilingualSubtitler
 
                         this.Invoke(new MethodInvoker(() => dataGridView1.Rows.Add()));
 
-                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[0].Value = subtitles[i].ID));
+                        //this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[0].Value = subtitles[i].ID));
                         //this.Invoke(
                         //    new MethodInvoker(() => dataGridView1.Rows[i].Cells[1].Value = subtitles[i].Timing));
                         this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[2].Value = subtitles[i].Text));
