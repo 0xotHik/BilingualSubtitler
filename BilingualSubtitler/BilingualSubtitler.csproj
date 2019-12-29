@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BilingualSubtitler</RootNamespace>
     <AssemblyName>BilingualSubtitler</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>опубликовать\</PublishUrl>
     <Install>true</Install>
@@ -37,6 +37,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,17 +48,23 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo4_1.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="libse, Version=3.5.11.9999, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v12.0\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+      <HintPath>..\..\..\subtitleedit\src\bin\Debug\libse.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NonInvasiveKeyboardHookLibrary">
+      <HintPath>..\..\..\NonInvasiveKeyboardHook\source\NonInvasiveKeyboardHook\NonInvasiveKeyboardHookLibrary\bin\Debug\NonInvasiveKeyboardHookLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="RestSharp">
       <HintPath>.\RestSharp.dll</HintPath>
     </Reference>
@@ -70,17 +78,23 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
     <Reference Include="YandexLinguistics.NET">
       <HintPath>.\YandexLinguistics.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FlashWindow.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
@@ -123,8 +137,8 @@
     <Compile Include="YandexTranslatorAPIKeyForm.Designer.cs">
       <DependentUpon>YandexTranslatorAPIKeyForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
@@ -154,6 +168,7 @@
     <EmbeddedResource Include="YandexTranslatorAPIKeyForm.resx">
       <DependentUpon>YandexTranslatorAPIKeyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,69 +178,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\CK_S7j6UkAI2it_.jpg-large" />
+    <None Include="Resources\stock-vector-ear-black-icon-215823883.psd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="mkvtoolnixLogo.png" />
-    <None Include="YandexTranslateIcon.png" />
-    <None Include="32pxCancelIcon.png" />
-    <None Include="48pxCancelIcon.png" />
-    <None Include="16pxCancelIcon.png" />
-    <None Include="48pxYandexTranslateIcon.png" />
-    <None Include="48pxResetIcon.png" />
-    <None Include="48pxSaveIcon.png" />
-    <None Include="42pxSaveIcon.png" />
-    <None Include="32pxSaveIcon.png" />
-    <None Include="39pxSaveIcon.png" />
-    <None Include="40pxSaveIcon.png" />
-    <None Include="38pxSaveIcon.png" />
-    <None Include="16pxCancelIconAnother.png" />
-    <None Include="16pxOkIcon.png" />
-    <None Include="32pxSRTIcon.png" />
-    <None Include="32pxMKVIcon.png" />
-    <None Include="25pxYandexTranslateIcon.png" />
-    <None Include="25pxMkvtoolnixLogo.png" />
-    <None Include="48pxSubtitlesIconOrange.png" />
-    <None Include="48pxSubtitlesIconBrghtn.png" />
-    <None Include="48pxSubtitlesIconRed.png" />
-    <None Include="48pxSubtitlesIconDarkRed.png" />
-    <None Include="48pxSettingsV2.png" />
-    <None Include="48pxSettingsV3.png" />
-    <None Include="48pxSubtitlesIconBlue.png" />
-    <None Include="48pxSubtitlesIconV2.png" />
-    <None Include="48pxSubtitlesIconYellow.png" />
-    <None Include="48pxSubtitlesIconDarkOrange.png" />
-    <None Include="25pxMkvExtractLogo.png" />
-    <None Include="20pxOpenIcon.png" />
-    <None Include="HelpBookIcon.png" />
-    <None Include="48pxHelpBookIcon.png" />
-    <None Include="48pxRemoveHIIcon.png" />
-    <None Include="48pxSubtitlesIconDarkBlue.png" />
-    <None Include="48pxSubtitlesIconLightDarkBlue.png" />
-    <None Include="logo.jpg" />
-    <Content Include="logo4_1.ico" />
-    <None Include="48pxOpenFileIcon.png" />
-    <None Include="48pxWriteFileIcon.png" />
-    <None Include="48pxWriteFileToHDDIcon.png" />
-    <None Include="48pxSettings.png" />
-    <None Include="32pxOpenFileIcon.png" />
-    <None Include="32pxWriteFileToHDDIcon.png" />
-    <None Include="48pxSubtitles.png" />
-    <None Include="48pxBrush.png" />
-    <None Include="48pxBackIcon.png" />
-    <None Include="48pxGREYBackIcon.png" />
-    <None Include="48pxSubtitlesIcon.png" />
-    <None Include="16pxHelpIcon.png" />
-    <None Include="16pxAboutIcon.png" />
-    <None Include="48pxColor.png" />
-    <Content Include="lemmy_simpsons_aN4_icon.ico" />
-    <Content Include="logo %281%29.ico" />
-    <None Include="smallTranslateToRus.png" />
-    <None Include="_smallTranslateToRus.png" />
-    <None Include="Open_file_document_paper_folder_small.png" />
-    <None Include="Open_file_document_paper_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -246,6 +203,115 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\16pxAboutIcon.png" />
+    <Content Include="Resources\16pxCancelIcon.png" />
+    <Content Include="Resources\16pxCancelIconAnother.png" />
+    <Content Include="Resources\16pxHelpIcon.png" />
+    <Content Include="Resources\16pxOkIcon.png" />
+    <Content Include="Resources\20pxOpenIcon.png" />
+    <Content Include="Resources\25pxMkvExtractLogo.png" />
+    <Content Include="Resources\25pxMkvtoolnixLogo.png" />
+    <Content Include="Resources\25pxYandexTranslateIcon.png" />
+    <Content Include="Resources\32pxCancelIcon.png" />
+    <Content Include="Resources\32pxMKVIcon.png" />
+    <Content Include="Resources\32pxOpenFileIcon.png" />
+    <Content Include="Resources\32pxSaveIcon.png" />
+    <Content Include="Resources\32pxSRTIcon.png" />
+    <Content Include="Resources\32pxWriteFileToHDDIcon.png" />
+    <Content Include="Resources\38pxSaveIcon.png" />
+    <Content Include="Resources\39pxSaveIcon.png" />
+    <Content Include="Resources\40pxSaveIcon.png" />
+    <Content Include="Resources\42pxSaveIcon.png" />
+    <Content Include="Resources\48pxBackIcon.png" />
+    <Content Include="Resources\48pxBrush.png" />
+    <Content Include="Resources\48pxCancelIcon.png" />
+    <Content Include="Resources\48pxColor.png" />
+    <Content Include="Resources\48pxGREYBackIcon.png" />
+    <Content Include="Resources\48pxHelpBookIcon.png" />
+    <Content Include="Resources\48pxOpenFileIcon.png" />
+    <Content Include="Resources\48pxRemoveHIIcon.png" />
+    <Content Include="Resources\48pxResetIcon.png" />
+    <Content Include="Resources\48pxSaveIcon.png" />
+    <Content Include="Resources\48pxSettings.png" />
+    <Content Include="Resources\48pxSettingsV2.png" />
+    <Content Include="Resources\48pxSettingsV3.png" />
+    <Content Include="Resources\48pxSubtitles.png" />
+    <Content Include="Resources\48pxSubtitlesIcon.png" />
+    <Content Include="Resources\48pxSubtitlesIconBlue.png" />
+    <Content Include="Resources\48pxSubtitlesIconBrghtn.png" />
+    <Content Include="Resources\48pxSubtitlesIconDarkBlue.png" />
+    <Content Include="Resources\48pxSubtitlesIconDarkOrange.png" />
+    <Content Include="Resources\48pxSubtitlesIconDarkRed.png" />
+    <Content Include="Resources\48pxSubtitlesIconLightDarkBlue.png" />
+    <Content Include="Resources\48pxSubtitlesIconOrange.png" />
+    <Content Include="Resources\48pxSubtitlesIconRed.png" />
+    <Content Include="Resources\48pxSubtitlesIconV2.png" />
+    <Content Include="Resources\48pxSubtitlesIconYellow.png" />
+    <Content Include="Resources\48pxWriteFileIcon.png" />
+    <Content Include="Resources\48pxWriteFileToHDDIcon.png" />
+    <Content Include="Resources\48pxYandexTranslateIcon.png" />
+    <Content Include="Resources\94-settings-streamline.png" />
+    <Content Include="Resources\backIcon.png" />
+    <Content Include="Resources\brush.png" />
+    <Content Include="Resources\business-restore-drive.gif" />
+    <Content Include="Resources\cancel-512.png" />
+    <Content Include="Resources\CancelIcon.png" />
+    <Content Include="Resources\ColorIcon.png" />
+    <Content Include="Resources\extention_file_type_black_76-128.png" />
+    <Content Include="Resources\Google-Translate-icon.png" />
+    <Content Include="Resources\HelpBookIcon.png" />
+    <Content Include="Resources\HelpIcon.jpg" />
+    <Content Include="Resources\HelpIcon.png" />
+    <Content Include="Resources\help_book-icon.gif" />
+    <Content Include="Resources\hls3ZiWTFW0.jpg" />
+    <Content Include="Resources\logo %281%29.ico" />
+    <Content Include="Resources\logo.ico" />
+    <Content Include="Resources\logo.jpg" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\logo2.ico" />
+    <Content Include="Resources\logo2.png" />
+    <Content Include="Resources\logo3.ico" />
+    <Content Include="Resources\logo3.png" />
+    <Content Include="Resources\logo4.ico" />
+    <Content Include="Resources\logo4.png" />
+    <Content Include="Resources\logo4_1.ico" />
+    <Content Include="Resources\logo4_1.png" />
+    <Content Include="Resources\mainthumb3.jpg" />
+    <Content Include="Resources\mkvextract.png" />
+    <Content Include="Resources\MKVLogo.ico" />
+    <Content Include="Resources\MKVLogo.png" />
+    <Content Include="Resources\mkvtoolnixLogo.ico" />
+    <Content Include="Resources\mkvtoolnixLogo.png" />
+    <Content Include="Resources\OkIcon.png" />
+    <Content Include="Resources\Open_file_document_paper_folder.png" />
+    <Content Include="Resources\Open_file_document_paper_folder_small.png" />
+    <Content Include="Resources\Power_-_Restart.png" />
+    <Content Include="Resources\save-icon.png" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\save_teaser.png" />
+    <Content Include="Resources\Settings.png" />
+    <Content Include="Resources\settings01.png" />
+    <Content Include="Resources\smallTranslateToRus.png" />
+    <Content Include="Resources\stock-vector-ear-black-icon-215823883.jpg" />
+    <Content Include="Resources\stock-vector-ear-black-icon-215823883.png" />
+    <Content Include="Resources\stock-vector-ear-icon-on-a-grey-flat-button-201472370.jpg" />
+    <Content Include="Resources\stock-vector-yes-or-no-icons-vector-234561619.jpg" />
+    <Content Include="Resources\Subtitles-icon %281%29.png" />
+    <Content Include="Resources\Subtitles-icon.png" />
+    <Content Include="Resources\subtitles.png" />
+    <Content Include="Resources\SubtitlesIcon.png" />
+    <Content Include="Resources\thin-052_settings_eq_control_panel_preferences-512.png" />
+    <Content Include="Resources\TranslateToRus.png" />
+    <Content Include="Resources\undo_red.png" />
+    <Content Include="Resources\unnamed.png" />
+    <Content Include="Resources\waiting.ico" />
+    <Content Include="Resources\waiting.png" />
+    <Content Include="Resources\WrieFile.png" />
+    <Content Include="Resources\WrieFileToHDD.png" />
+    <Content Include="Resources\YandexTranslateIcon.png" />
+    <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

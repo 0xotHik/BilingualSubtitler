@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
 
 namespace BilingualSubtitler
 {
@@ -14,20 +15,15 @@ namespace BilingualSubtitler
     {
         private List<Button> buttons; 
         private string mkvtollnixOutput;
-        public string selectedID;
         private Color previousButtonColor;
 
-        public TrackToExtractFromMKVForm(string _mkvtoolnixOutput)
-        {
-            mkvtollnixOutput = _mkvtoolnixOutput;
-            InitializeComponent();
-        }
+        public int SelectedTrackNumber;
 
-        private void TrackToExtractFromMKVForm_Load(object sender, EventArgs e)
+        public TrackToExtractFromMKVForm(List<MatroskaTrackInfo> tracks)
         {
-            buttons = new List<Button>();
-            buttons.Add(buttonOk);
-            buttons.Add(buttonCancel);
+            InitializeComponent();
+
+            buttons = new List<Button> {buttonOk, buttonCancel};
 
             foreach (var btn in buttons)
             {
@@ -46,13 +42,64 @@ namespace BilingualSubtitler
             //Синий фон у кнопок при наведении курсора
             foreach (var btn in buttons)
             {
-                btn.MouseEnter += new EventHandler(btn_MouseEnter);
-                btn.MouseLeave += new EventHandler(btn_MouseLeave);
+                btn.MouseEnter += btn_MouseEnter;
+                btn.MouseLeave += btn_MouseLeave;
             }
 
-            this.dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 
-            SeparateSubtitleTracks();
+            for (int i=0; i < tracks.Count; i++)
+            {
+                var track = tracks[i];
+
+                //Пишем всё в датаГрид
+                dataGridViewSubTracks.Rows.Add(track.TrackNumber, track.Language, track.Name);
+                //dataGridViewSubTracks.Rows[i].Cells[0].Value = track.TrackNumber;
+                //dataGridViewSubTracks.Rows[i].Cells[1].Value = track.Language;
+                //dataGridViewSubTracks.Rows[i].Cells[2].Value = track.Name;
+
+                dataGridViewSubTracks.Rows[i].Tag = track.TrackNumber;
+            }
+        }
+
+        //public TrackToExtractFromMKVForm(string _mkvtoolnixOutput)
+        //{
+        //    mkvtollnixOutput = _mkvtoolnixOutput;
+        //    InitializeComponent();
+
+        //    buttons = new List<Button>();
+        //    buttons.Add(buttonOk);
+        //    buttons.Add(buttonCancel);
+
+        //    foreach (var btn in buttons)
+        //    {
+        //        btn.FlatAppearance.BorderSize = 0;
+        //        btn.FlatStyle = FlatStyle.Flat;
+        //    }
+
+        //    dataGridViewSubTracks.RowHeadersVisible = false;
+        //    dataGridViewSubTracks.Columns[0].Width = "99".Length * 20;
+        //    dataGridViewSubTracks.Columns[1].Width = "99".Length * 60;
+        //    dataGridViewSubTracks.Columns[2].Width = (dataGridViewSubTracks.Width - dataGridViewSubTracks.Columns[0].Width - dataGridViewSubTracks.Columns[1].Width);
+        //    dataGridViewSubTracks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        //    dataGridViewSubTracks.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+        //    dataGridViewSubTracks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+        //    //Синий фон у кнопок при наведении курсора
+        //    foreach (var btn in buttons)
+        //    {
+        //        btn.MouseEnter += btn_MouseEnter;
+        //        btn.MouseLeave += btn_MouseLeave;
+        //    }
+
+        //    dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
+
+        //    SeparateSubtitleTracks();
+        //}
+
+        private void TrackToExtractFromMKVForm_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)
@@ -115,7 +162,7 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            selectedID = dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Cells[0].Value.ToString();
+            SelectedTrackNumber = (int)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

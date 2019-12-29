@@ -18,7 +18,7 @@ namespace BilingualSubtitler
         private string[] originalSubs;
         private bool flagIsTranslated = false;
         private int linesInOriginalSubs = 0;
-        private Form1 form1;
+        private MainForm form1;
         private List<Button> buttons;
 
         private string yandexTranslatorAPIKey =
@@ -28,13 +28,13 @@ namespace BilingualSubtitler
 
         public TranslationInProgressForm(object parent_form)
         {
-            form1 = parent_form as Form1;
+            form1 = parent_form as MainForm;
             InitializeComponent();
         }
 
         public TranslationInProgressForm(object parent_form, string[] _originalSubs)
         {
-            form1 = parent_form as Form1;
+            form1 = parent_form as MainForm;
             InitializeComponent();
             originalSubs = _originalSubs;
         }

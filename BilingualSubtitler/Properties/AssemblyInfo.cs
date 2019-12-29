@@ -36,6 +36,9 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("0.91.*")]
 
+// https://github.com/kfirprods/NonInvasiveKeyboardHook
+// https://github.com/michaelnoonan/inputsimulator
+
 //http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-3/1024/Subtitles-icon.png
 
 //Версия 0.1 от 27.06.2015 — Первый прототип. Принимает небольшие субтитры, перекрашивает подстрочник в желтый.

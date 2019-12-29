@@ -1,32 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
-using System.Threading;
-using System.Threading.Tasks;
-using BilingualSubtitler.Properties;
+using WindowsInput;
+using WindowsInput.Native;
+using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
+using NonInvasiveKeyboardHookLibrary;
 using YandexLinguistics.NET;
-using System.Runtime.InteropServices; //Разукрашивание прогресс-бара
-
+using Application = System.Windows.Forms.Application;
+using MessageBox = System.Windows.Forms.MessageBox;
+using Point = System.Drawing.Point;
+using Size = System.Drawing.Size;
+using SystemColors = System.Drawing.SystemColors;
 
 namespace BilingualSubtitler
 {
-
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
+        private KeyboardHookManager m_keyboardHookManager = new KeyboardHookManager();
+        private InputSimulator m_inputSimulator;
+
+
+
         private string mkvtoolnixOutput;
         private string formTitle = "Создание двуязычных субтитров";
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-        private Subtitle[] originalSubs;
+        private Subtitle[] subtitles;
         private Subtitle[] subs;
         private List<Button> buttons;
         private List<Button> buttonsForSaving;
@@ -43,11 +50,11 @@ namespace BilingualSubtitler
         private Color previousButtonColor;
         public event SubtitlesAreNotTranslatedHandler SubtitlesAreNotTranslated;
         public event SubtitlesAreTranslatedHandler SubtitlesAreTranslated;
-        
+
         public delegate void SubtitlesAreNotTranslatedHandler(object sender, EventArgs eventArgs);
         public delegate void SubtitlesAreTranslatedHandler(object sender, EventArgs eventArgs);
 
-        public Form1()
+        public MainForm()
         {
             openFileDialog.Title = "Выберите файл";
             openFileDialog.Filter = "Файлы субтитров SubRip|*.srt";
@@ -65,15 +72,160 @@ namespace BilingualSubtitler
             backgroundWorkerWriteSubsToDataGrid.WorkerReportsProgress = true;
             backgroundWorkerWriteSubsToDataGrid.WorkerSupportsCancellation = true;
 
-            SubtitlesAreNotTranslated += new SubtitlesAreNotTranslatedHandler(Subtitles_Are_Not_Translated);
-            SubtitlesAreTranslated += new SubtitlesAreTranslatedHandler(Subtitles_Are_Translated);
-
             panelSubtitlesCreation.Location = new Point(0, 0);
             panelSettings.Location = new Point(0, 0);
 
             labelCurrentProcess.AutoEllipsis = true;
 
+            m_keyboardHookManager.Start();
+            m_inputSimulator = new InputSimulator();
+
+            // Register virtual key code 0x60 = NumPad0
+            m_keyboardHookManager.RegisterHotkey(
+                (int)VirtualKeyCode.SPACE,
+                () =>
+                {
+                    m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
+                });
+
         }
+
+        private Subtitle[] ReadSubtitles(string filePath)
+        {
+            var sourceFileFI = new FileInfo(filePath);
+            var extension = sourceFileFI.Extension;
+
+            switch (extension)
+            {
+                case ".srt":
+                    {
+                        ReadSRT(filePath);
+                        break;
+                    }
+                case ".mkv":
+                    {
+                        var mkvFile = new MatroskaFile(filePath);
+                        var tracks = mkvFile.GetTracks(true);
+
+                        // Вызов формы для выбора трека субтитров
+                        using var trackSelectionForm = new TrackToExtractFromMKVForm(tracks);
+                        var dialogResult = trackSelectionForm.ShowDialog();
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            var subtitles = mkvFile.GetSubtitle(trackSelectionForm.SelectedTrackNumber,
+                                (position, total) => { });
+
+                            var ggg = 0;
+                        }
+
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+
+            return null;
+        }
+
+        private Subtitle[] ReadSRT(string pathToSRTFile)
+        {
+            subsLines = 0;
+            string[] readedLines = File.ReadAllLines(pathToSRTFile); //Читаем из файла субтитры
+
+            foreach (string line in readedLines)
+            {
+                if (line.Contains("-->"))
+                    subsLines++;
+            }
+
+            var subtitles = new Subtitle[subsLines];
+            int currentSubtitleIndex = 0;
+            for (int i = 0; i < readedLines.Length - 1; i++)
+            {
+                if (readedLines[i].Contains("-->"))
+                {
+                    subtitles[currentSubtitleIndex] = new Subtitle(
+                        Int32.Parse(readedLines[i - 1]),
+                        readedLines[i],
+                        (readedLines[i + 1]));
+
+                    i += 2;
+
+                    while ((i < readedLines.Length) && (!string.IsNullOrWhiteSpace(readedLines[i])))
+                    {
+                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
+
+                        i++;
+                    }
+
+                    currentSubtitleIndex++;
+                }
+            }
+
+            return subtitles;
+        }
+
+        private StringBuilder GenerateASS(Tuple<Subtitle[], Color>[] subtitleStreams)
+        {
+            var assSB = new StringBuilder();
+
+            //[Script Info]
+            //; This is an Advanced Sub Station Alpha v4+script.
+            //    Title: 
+            //ScriptType: v4.00 +
+            //    Collisions: Normal
+            //PlayDepth: 0
+
+            //    [V4 + Styles]
+            //Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+            //    [Events]
+            assSB.Append(
+                "[Script Info]\r\n" +
+                "; This is an Advanced Sub Station Alpha v4+ script.\r\n" +
+                "Title: \r\n" +
+                "ScriptType: v4.00+\r\n" +
+                "Collisions: Normal\r\n" +
+                "PlayDepth: 0\r\n" +
+                "\r\n" +
+                "[V4+ Styles]\r\n" +
+                "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, " +
+                "Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, " +
+                "MarginL, MarginR, MarginV, Encoding\r\n");
+
+            //Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
+            //Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
+            //Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
+            for (int i = 0; i < subtitleStreams.Length; i++)
+            {
+                var color = subtitleStreams[i].Item2;
+
+                assSB.AppendLine(
+                    $"Style: {i} sub stream," +
+                    $"Arial," +
+                    $"20," +
+                    $"&H00{color.B}{color.G}{color.R}," +
+                    $"&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1");
+            }
+
+            //    [Events]
+            //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
+            assSB.Append("[Events]\r\n" +
+                         "Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text\r\n");
+
+            // Dialogue: 0,0:01:25.29,0:01:28.52,Копировать из Копировать из Default,,0,0,0,,Эй! Сюда! Тут человек!
+            foreach (var subtitleStream in subtitleStreams)
+            {
+                assSB.AppendLine($"Dialogue: 0");
+            }
+
+            return assSB;
+        }
+
+
+
+        // Былое
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -181,14 +333,14 @@ namespace BilingualSubtitler
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            previousButtonColor = ((Button) sender).BackColor;
+            previousButtonColor = ((Button)sender).BackColor;
             ((Button)sender).BackColor = SystemColors.GradientInactiveCaption;
-            
+
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            ((Button) sender).BackColor = previousButtonColor;
+            ((Button)sender).BackColor = previousButtonColor;
         }
 
         private void Subtitles_Are_Not_Translated(object sender, EventArgs eventArgs)
@@ -305,7 +457,7 @@ namespace BilingualSubtitler
 
         private void WriteSubtitles(StreamWriter sw, string type)
         {
-            subsLines = originalSubs.Length + 1;
+            subsLines = subtitles.Length + 1;
             Subtitle[] currentSubtitles = null;
             string currentSubtitlesHEXColor = "";
 
@@ -316,7 +468,7 @@ namespace BilingualSubtitler
                     Properties.Settings.Default.CurrentPrimarySubtitlesColor.G,
                     Properties.Settings.Default.CurrentPrimarySubtitlesColor.B); //Текущий цвет в HEX представлении
 
-                currentSubtitles = originalSubs;
+                currentSubtitles = subtitles;
             }
             else if (type == "Secondary")
             {
@@ -336,7 +488,7 @@ namespace BilingualSubtitler
                 else if (type == "Secondary")
                     sw.WriteLine(sub.ID.ToString());
 
-                sw.WriteLine(sub.Timing);
+                //sw.WriteLine(sub.Timing);
 
                 str = sub.Text.Substring(0, sub.Text.Length - 1);
 
@@ -421,21 +573,21 @@ namespace BilingualSubtitler
                     subsLines++;
             }
 
-            originalSubs = null;
-            originalSubs = new Subtitle[subsLines];
+            subtitles = null;
+            subtitles = new Subtitle[subsLines];
             int j = 0;
 
             for (int i = 0; i < readedLines.Length - 1; i++)
             {
                 if (readedLines[i].Contains("-->"))
                 {
-                    originalSubs[j] = new Subtitle(Int32.Parse(readedLines[i - 1]), readedLines[i], (readedLines[i + 1] + '\n'));
+                    subtitles[j] = new Subtitle(Int32.Parse(readedLines[i - 1]), readedLines[i], (readedLines[i + 1] + '\n'));
 
                     i += 2;
 
                     while ((i < readedLines.Length) && (readedLines[i] != ""))
                     {
-                        originalSubs[j].Text += readedLines[i] + '\n';
+                        subtitles[j].Text += readedLines[i] + '\n';
 
                         i++;
                     }
@@ -445,36 +597,36 @@ namespace BilingualSubtitler
             }
 
             subs = null;
-            subs = new Subtitle[originalSubs.Length];
+            subs = new Subtitle[subtitles.Length];
 
-            for (int i = 0; i != originalSubs.Length; i++)
+            for (int i = 0; i != subtitles.Length; i++)
             {
-                subs[i] = new Subtitle(originalSubs[i].ID, originalSubs[i].Timing, originalSubs[i].Text);
+                //subs[i] = new Subtitle(subtitles[i].ID, subtitles[i].Timing, subtitles[i].Text);
             }
 
             //Находим ID последнего субтитра
-            int lastLine = originalSubs[originalSubs.Length - 1].ID / 2;
+            int lastLine = subtitles[subtitles.Length - 1].ID / 2;
             //Проверяем, не уже ли двуязычные у нас субтитры
 
             for (int i = 0; i < lastLine; i++)
             {
-                if (originalSubs[i].Timing == originalSubs[i + lastLine].Timing)
-                    flagItIsAlreadyBilingualSubtitles = true;
-                else
-                {
-                    flagItIsAlreadyBilingualSubtitles = false;
-                    break;
-                }
+                //if (subtitles[i].Timing == subtitles[i + lastLine].Timing)
+                //    flagItIsAlreadyBilingualSubtitles = true;
+                //else
+                //{
+                //    flagItIsAlreadyBilingualSubtitles = false;
+                //    break;
+                //}
             }
 
             if (flagItIsAlreadyBilingualSubtitles)
             {
                 Subtitle[] tempSubs = new Subtitle[lastLine];
-                originalSubs = new Subtitle[lastLine];
+                subtitles = new Subtitle[lastLine];
                 for (int i = 0; i < lastLine; i++)
                 {
-                    originalSubs[i] = subs[lastLine + i];
-                    originalSubs[i].ID = i + 1;
+                    subtitles[i] = subs[lastLine + i];
+                    subtitles[i].ID = i + 1;
                 }
 
                 for (int i = 0; i < tempSubs.Length; i++)
@@ -491,10 +643,10 @@ namespace BilingualSubtitler
 
 
                 //Выделяем цвета
-                if (originalSubs[0].Text.Contains("<font color="))
+                if (subtitles[0].Text.Contains("<font color="))
                 {
-                    Properties.Settings.Default.CurrentPrimarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(originalSubs[0].Text.Substring(originalSubs[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
-                    foreach (var sub in originalSubs)
+                    Properties.Settings.Default.CurrentPrimarySubtitlesColor = System.Drawing.ColorTranslator.FromHtml(subtitles[0].Text.Substring(subtitles[0].Text.IndexOf("<font color=") + "<font color=".Length + 1, 7));
+                    foreach (var sub in subtitles)
                     {
                         sub.Text = sub.Text.Remove(sub.Text.IndexOf("<font color="), "<font color=".Length + 10);
                         sub.Text = sub.Text.Remove(sub.Text.IndexOf("</font>"), "</font>".Length);
@@ -549,7 +701,7 @@ namespace BilingualSubtitler
 
             try
             {
-                for (int i = 0; i != originalSubs.Length; i++)
+                for (int i = 0; i != subtitles.Length; i++)
                 {
                     if (worker.CancellationPending == true)
                     {
@@ -561,14 +713,14 @@ namespace BilingualSubtitler
 
                         this.Invoke(new MethodInvoker(() => dataGridView1.Rows.Add()));
 
-                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[0].Value = originalSubs[i].ID));
-                        this.Invoke(
-                            new MethodInvoker(() => dataGridView1.Rows[i].Cells[1].Value = originalSubs[i].Timing));
-                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[2].Value = originalSubs[i].Text));
+                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[0].Value = subtitles[i].ID));
+                        //this.Invoke(
+                        //    new MethodInvoker(() => dataGridView1.Rows[i].Cells[1].Value = subtitles[i].Timing));
+                        this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[2].Value = subtitles[i].Text));
                         if (flagItIsAlreadyBilingualSubtitles)
                             this.Invoke(new MethodInvoker(() => dataGridView1.Rows[i].Cells[3].Value = subs[i].Text));
 
-                        worker.ReportProgress((int)((float)i / (float)(originalSubs.Length - 1) * 100));
+                        worker.ReportProgress((int)((float)i / (float)(subtitles.Length - 1) * 100));
                     }
                 }
             }
@@ -594,7 +746,7 @@ namespace BilingualSubtitler
                 labelCurrentProcess.Text = "Считывание субтитров было отменено.";
                 labelProcessPercenage.Text = "";
                 subs = null;
-                originalSubs = null;
+                subtitles = null;
             }
             else if (e.Error != null)
             {
@@ -812,7 +964,7 @@ namespace BilingualSubtitler
                 checkBoxRemoveStylesFromSecondarySubs.Enabled = false;
             else
                 checkBoxRemoveStylesFromSecondarySubs.Enabled = true;
-                
+
 
             //Возвращаем цвета кнопкам выбора цвета
             buttonCurrentPrimarySubtitlesColor.BackColor = Properties.Settings.Default.CurrentPrimarySubtitlesColor;
@@ -923,9 +1075,6 @@ namespace BilingualSubtitler
 
             buttonBackToMainForm.Location = new Point(panelSubtitlesCreation.Width - buttonBackToMainForm.Width, buttonBackToMainForm.Top);
             buttonWriteBilingualSubtitlesAfterTranlation.Location = new Point(buttonBackToMainForm.Left - buttonWriteBilingualSubtitlesAfterTranlation.Width - 0, buttonWriteBilingualSubtitlesAfterTranlation.Top);
-
-            lineShapeSettingsPanel.X2 = panelSettings.Width;
-            lineShapeSettingsPanelBottom.X2 = panelSettings.Width;
 
             buttonResetToDefault.Location = new Point(panelSettings.Right - buttonResetToDefault.Width, buttonResetToDefault.Top);
             buttonSaveAndBackToTheMainFormOnSettingsPanel.Location = new Point(buttonResetToDefault.Left - buttonSaveAndBackToTheMainFormOnSettingsPanel.Width, buttonSaveAndBackToTheMainFormOnSettingsPanel.Top);
@@ -1138,67 +1287,73 @@ namespace BilingualSubtitler
 
         private void buttonOpenMKV_Click(object sender, EventArgs e)
         {
-            if (openFileDialogMKV.ShowDialog() == DialogResult.OK)
-            {
+            var openFileDialog = new OpenFileDialog();
+            var result = openFileDialog.ShowDialog();
+            ReadSubtitles(openFileDialog.FileName);
 
-                if (!System.IO.File.Exists(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvmerge.exe") || (!System.IO.File.Exists(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvextract.exe")))
-                {
-                    PathToMKVToolnixAndTempForm form = new PathToMKVToolnixAndTempForm();
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        buttonOpenFile_Click(this, e);
-                    }
-                }
-                else
-                {
-                    ClearDataGrid(dataGridView1);
-                    mkvtoolnixOutput = "";
-                    ModifyProgressBarColor.SetState(progressBar, "green");
-                    this.Text = formTitle + " || " + openFileDialogMKV.SafeFileName;
-                    flagSubsAreExtractingSuccessfully = true;
-                    AllToDisable();
-                    buttonCancel.Show();
 
-                    ReadFromMKV(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvmerge.exe",
-                        "-I " + '"' + openFileDialogMKV.FileName + '"');
-                }
-            }
+
+            //if (openFileDialogMKV.ShowDialog() == DialogResult.OK)
+            //{
+
+            //    if (!System.IO.File.Exists(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvmerge.exe") || (!System.IO.File.Exists(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvextract.exe")))
+            //    {
+            //        PathToMKVToolnixAndTempForm form = new PathToMKVToolnixAndTempForm();
+            //        if (form.ShowDialog() == DialogResult.OK)
+            //        {
+            //            buttonOpenFile_Click(this, e);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        ClearDataGrid(dataGridView1);
+            //        mkvtoolnixOutput = "";
+            //        ModifyProgressBarColor.SetState(progressBar, "green");
+            //        this.Text = formTitle + " || " + openFileDialogMKV.SafeFileName;
+            //        flagSubsAreExtractingSuccessfully = true;
+            //        AllToDisable();
+            //        buttonCancel.Show();
+
+            //        ReadFromMKV(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvmerge.exe",
+            //            "-I " + '"' + openFileDialogMKV.FileName + '"');
+            //    }
+            //}
         }
 
-        private void ReadFromMKV(string utilityName, string arguments)
-        {
-            try
-            {
-                //создаем новый процесс, который будет работать с консолью
-                var pr = new Process();
-                //задаем имя запускного файла
-                pr.StartInfo.FileName = utilityName;
-                //задаем аргументы для этого файла
-                pr.StartInfo.Arguments = arguments;
-                //отключаем использование оболочки, чтобы можно было читать данные вывода
-                pr.StartInfo.UseShellExecute = false;
-                //перенаправляем данные вовода
-                pr.StartInfo.RedirectStandardOutput = true;
-                //задаем кодировку, чтобы читать кириллические символы
-                pr.StartInfo.StandardOutputEncoding = Encoding.UTF8;
-                //запрещаем создавать окно для запускаемой программы                
-                pr.StartInfo.CreateNoWindow = true;
-                //подписываемся на событие, которые возвращает данные
-                pr.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandlerReadingFromMKV);
-                //включаем возможность определять когда происходит выход из программы, которую будем запускать
-                pr.EnableRaisingEvents = true;
-                //подписываемся на событие, когда процесс завершит работу
-                pr.Exited += new EventHandler(WhenExitProcessOfReadingFromMKV);
-                //запускаем процесс
-                pr.Start();
-                //начинаем читать стандартный вывод
-                pr.BeginOutputReadLine();
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Ошибка при запуске!\n" + error.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //private void ReadFromMKV(string utilityName, string arguments)
+        //{
+        //    try
+        //    {
+        //        //создаем новый процесс, который будет работать с консолью
+        //        var pr = new Process();
+        //        //задаем имя запускного файла
+        //        pr.StartInfo.FileName = utilityName;
+        //        //задаем аргументы для этого файла
+        //        pr.StartInfo.Arguments = arguments;
+        //        //отключаем использование оболочки, чтобы можно было читать данные вывода
+        //        pr.StartInfo.UseShellExecute = false;
+        //        //перенаправляем данные вовода
+        //        pr.StartInfo.RedirectStandardOutput = true;
+        //        //задаем кодировку, чтобы читать кириллические символы
+        //        pr.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+        //        //запрещаем создавать окно для запускаемой программы                
+        //        pr.StartInfo.CreateNoWindow = true;
+        //        //подписываемся на событие, которые возвращает данные
+        //        pr.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandlerReadingFromMKV);
+        //        //включаем возможность определять когда происходит выход из программы, которую будем запускать
+        //        pr.EnableRaisingEvents = true;
+        //        //подписываемся на событие, когда процесс завершит работу
+        //        pr.Exited += new EventHandler(WhenExitProcessOfReadingFromMKV);
+        //        //запускаем процесс
+        //        pr.Start();
+        //        //начинаем читать стандартный вывод
+        //        pr.BeginOutputReadLine();
+        //    }
+        //    catch (Exception error)
+        //    {
+        //        MessageBox.Show("Ошибка при запуске!\n" + error.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void SortOutputHandlerReadingFromMKV(object sendingProcess, DataReceivedEventArgs outLine)
         {
@@ -1213,24 +1368,24 @@ namespace BilingualSubtitler
             }));
         }
 
-        private void WhenExitProcessOfReadingFromMKV(Object sender, EventArgs e)
-        {
-            TrackToExtractFromMKVForm trackToExtractFrom = new TrackToExtractFromMKVForm(mkvtoolnixOutput);
+        //private void WhenExitProcessOfReadingFromMKV(Object sender, EventArgs e)
+        //{
+        //    TrackToExtractFromMKVForm trackToExtractFrom = new TrackToExtractFromMKVForm(mkvtoolnixOutput);
 
-            if ((trackToExtractFrom.ShowDialog() == DialogResult.OK) && (trackToExtractFrom.selectedID != null))
-            {
-                this.Invoke(new MethodInvoker(() => buttonCancel.Enabled = true));
-                string selectedID = trackToExtractFrom.selectedID;
-                ExtractFromMKV(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvextract.exe",
-                    " tracks " + '"' + openFileDialogMKV.FileName + '"' + " " + selectedID + ":" +
-                    Properties.Settings.Default.PathTempSubs + "temp.srt", selectedID);
-            }
-            else
-            {
-                this.Invoke(new MethodInvoker(() => AllToEnable()));
-                this.Invoke(new MethodInvoker(() => buttonCancel.Hide()));
-            }
-        }
+        //    if ((trackToExtractFrom.ShowDialog() == DialogResult.OK) && (trackToExtractFrom.selectedID != null))
+        //    {
+        //        this.Invoke(new MethodInvoker(() => buttonCancel.Enabled = true));
+        //        string selectedID = trackToExtractFrom.selectedID;
+        //        ExtractFromMKV(Properties.Settings.Default.PathToMKVToolnixFolder + "mkvextract.exe",
+        //            " tracks " + '"' + openFileDialogMKV.FileName + '"' + " " + selectedID + ":" +
+        //            Properties.Settings.Default.PathTempSubs + "temp.srt", selectedID);
+        //    }
+        //    else
+        //    {
+        //        this.Invoke(new MethodInvoker(() => AllToEnable()));
+        //        this.Invoke(new MethodInvoker(() => buttonCancel.Hide()));
+        //    }
+        //}
 
         private void ExtractFromMKV(string utilityName, string arguments, string selectedID)
         {
@@ -1445,7 +1600,7 @@ namespace BilingualSubtitler
 
         private void buttonHelpOnSettingsPanel_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://0xothik.wordpress.com/bilingual-subtitler/"); 
+            System.Diagnostics.Process.Start("https://0xothik.wordpress.com/bilingual-subtitler/");
         }
 
         private void buttonHelp_Click(object sender, EventArgs e)

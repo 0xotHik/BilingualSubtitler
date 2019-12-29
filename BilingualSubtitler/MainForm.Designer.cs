@@ -1,6 +1,6 @@
 ﻿namespace BilingualSubtitler
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -40,11 +40,6 @@
             this.OrigSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RusSub = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape7 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape5 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panelSubtitlesCreation = new System.Windows.Forms.Panel();
             this.checkBoxRemoveStylesFromSecondarySubs = new System.Windows.Forms.CheckBox();
             this.checkBoxSecondarySubsInOneLine = new System.Windows.Forms.CheckBox();
@@ -52,9 +47,6 @@
             this.buttonCurrentPrimarySubtitlesColor = new System.Windows.Forms.Button();
             this.buttonCurrentSecondarySubtitlesColor = new System.Windows.Forms.Button();
             this.labelCurrentSecondarySubtitlesColor = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.backgroundWorkerTranslation = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorkerWriteSubsToDataGrid = new System.ComponentModel.BackgroundWorker();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -74,9 +66,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonCurrentSecondarySubtitlesColorOnSettingsPanel = new System.Windows.Forms.Button();
             this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel = new System.Windows.Forms.Button();
-            this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShapeSettingsPanelBottom = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShapeSettingsPanel = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.openFileDialogMKV = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialogMKVToolnixFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.labelCurrentProcess = new System.Windows.Forms.Label();
@@ -195,57 +184,10 @@
             this.panelMain.Controls.Add(this.buttonHelp);
             this.panelMain.Controls.Add(this.label1);
             this.panelMain.Controls.Add(this.buttonSettings);
-            this.panelMain.Controls.Add(this.shapeContainer2);
             this.panelMain.Location = new System.Drawing.Point(3, 3);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(564, 107);
             this.panelMain.TabIndex = 12;
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape7,
-            this.lineShape5,
-            this.lineShape2,
-            this.lineShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(564, 107);
-            this.shapeContainer2.TabIndex = 12;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lineShape7
-            // 
-            this.lineShape7.Name = "lineShape7";
-            this.lineShape7.X1 = 282;
-            this.lineShape7.X2 = 282;
-            this.lineShape7.Y1 = 8;
-            this.lineShape7.Y2 = 98;
-            // 
-            // lineShape5
-            // 
-            this.lineShape5.Name = "lineShape5";
-            this.lineShape5.X1 = 398;
-            this.lineShape5.X2 = 398;
-            this.lineShape5.Y1 = 7;
-            this.lineShape5.Y2 = 97;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 316;
-            this.lineShape2.X2 = 316;
-            this.lineShape2.Y1 = 7;
-            this.lineShape2.Y2 = 97;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 188;
-            this.lineShape1.X2 = 188;
-            this.lineShape1.Y1 = 7;
-            this.lineShape1.Y2 = 97;
             // 
             // panelSubtitlesCreation
             // 
@@ -328,34 +270,6 @@
             this.labelCurrentSecondarySubtitlesColor.TabIndex = 10;
             this.labelCurrentSecondarySubtitlesColor.Text = "Текущий цвет вторичных субтитров";
             // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape4,
-            this.lineShape3});
-            this.shapeContainer1.Size = new System.Drawing.Size(1168, 502);
-            this.shapeContainer1.TabIndex = 8;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape4
-            // 
-            this.lineShape4.Name = "lineShape4";
-            this.lineShape4.X1 = 283;
-            this.lineShape4.X2 = 283;
-            this.lineShape4.Y1 = 193;
-            this.lineShape4.Y2 = 283;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 283;
-            this.lineShape3.X2 = 283;
-            this.lineShape3.Y1 = 193;
-            this.lineShape3.Y2 = 284;
-            // 
             // backgroundWorkerTranslation
             // 
             this.backgroundWorkerTranslation.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerTranslation_DoWork);
@@ -402,7 +316,6 @@
             this.panelSettings.Controls.Add(this.label3);
             this.panelSettings.Controls.Add(this.buttonCurrentSecondarySubtitlesColorOnSettingsPanel);
             this.panelSettings.Controls.Add(this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel);
-            this.panelSettings.Controls.Add(this.shapeContainer3);
             this.panelSettings.Location = new System.Drawing.Point(573, 0);
             this.panelSettings.Name = "panelSettings";
             this.panelSettings.Size = new System.Drawing.Size(564, 489);
@@ -561,34 +474,6 @@
             this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel.TabIndex = 22;
             this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel.UseVisualStyleBackColor = true;
             this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel.Click += new System.EventHandler(this.buttonCurrentPrimarySubtitlesColorOnSettingsPanel_Click);
-            // 
-            // shapeContainer3
-            // 
-            this.shapeContainer3.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer3.Name = "shapeContainer3";
-            this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShapeSettingsPanelBottom,
-            this.lineShapeSettingsPanel});
-            this.shapeContainer3.Size = new System.Drawing.Size(564, 489);
-            this.shapeContainer3.TabIndex = 27;
-            this.shapeContainer3.TabStop = false;
-            // 
-            // lineShapeSettingsPanelBottom
-            // 
-            this.lineShapeSettingsPanelBottom.Name = "lineShapeSettingsPanelBottom";
-            this.lineShapeSettingsPanelBottom.X1 = 12;
-            this.lineShapeSettingsPanelBottom.X2 = 552;
-            this.lineShapeSettingsPanelBottom.Y1 = 282;
-            this.lineShapeSettingsPanelBottom.Y2 = 282;
-            // 
-            // lineShapeSettingsPanel
-            // 
-            this.lineShapeSettingsPanel.Name = "lineShapeSettingsPanel";
-            this.lineShapeSettingsPanel.X1 = 12;
-            this.lineShapeSettingsPanel.X2 = 552;
-            this.lineShapeSettingsPanel.Y1 = 121;
-            this.lineShapeSettingsPanel.Y2 = 121;
             // 
             // openFileDialogMKV
             // 
@@ -906,7 +791,6 @@
             this.Controls.Add(this.panelSubtitlesCreation);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.shapeContainer1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -941,13 +825,9 @@
         private System.Windows.Forms.Button buttonHelp;
         private System.Windows.Forms.Button buttonAbout;
         private System.Windows.Forms.Panel panelMain;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private System.Windows.Forms.Panel panelSubtitlesCreation;
         private System.Windows.Forms.Button buttonBackToMainForm;
         private System.Windows.Forms.Button buttonTranslate;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private System.Windows.Forms.Label labelCurrentSecondarySubtitlesColor;
         private System.Windows.Forms.Button buttonCurrentSecondarySubtitlesColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
@@ -971,8 +851,6 @@
         private System.Windows.Forms.Button buttonCurrentSecondarySubtitlesColorOnSettingsPanel;
         private System.Windows.Forms.Button buttonCurrentPrimarySubtitlesColorOnSettingsPanel;
         private System.Windows.Forms.Button buttonSaveAndBackToTheMainFormOnSettingsPanel;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShapeSettingsPanel;
         private System.Windows.Forms.RichTextBox richTextBoxForYandexAPIKey;
         private System.Windows.Forms.RichTextBox richTextBoxLabelEnterYandexAPIKey;
         private System.Windows.Forms.Button buttonResetToDefault;
@@ -981,7 +859,6 @@
         private System.Windows.Forms.Button buttonOpenMKV;
         private System.Windows.Forms.OpenFileDialog openFileDialogMKV;
         private System.Windows.Forms.PictureBox pictureBoxMKVToolnix;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShapeSettingsPanelBottom;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogMKVToolnixFolder;
         private System.Windows.Forms.Label labelCurrentProcess;
         private System.Windows.Forms.Label labelProcessPercenage;
@@ -998,10 +875,6 @@
         private System.Windows.Forms.LinkLabel linkLabelYandexAPIKeysList;
         private System.Windows.Forms.Button buttonHelpOnSettingsPanel;
         private System.Windows.Forms.Button buttonRemoveHI;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape7;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape5;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
     }
 }
 
