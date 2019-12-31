@@ -96,11 +96,30 @@ namespace BilingualSubtitler
             var sourceFileFI = new FileInfo(filePath);
             var extension = sourceFileFI.Extension;
 
+            var translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
+
             switch (extension)
             {
                 case ".srt":
                     {
                         subtitles = ReadSRT(filePath);
+
+                        var rusSubtitles = new Subtitle[subtitles.Length];
+                        for(int i=0; i < subtitles.Length; i++)
+                        {
+                            rusSubtitles[i] = new Subtitle
+                            (long.Parse(subtitles[i].Start.TotalMilliseconds.ToString()),
+                                long.Parse(subtitles[i].End.TotalMilliseconds.ToString()),
+                                YandexTranslateAStringWithChecking(subtitles[i].Text, translator));
+                        }
+
+
+                        var ass = GenerateASSMarkedupDocument(new Tuple<Subtitle[], Color>[]
+                        {
+                            new Tuple<Subtitle[], Color>(subtitles, Color.Aqua),
+                            new Tuple<Subtitle[], Color>(rusSubtitles, Color.Red), 
+                        });
+                        File.WriteAllText(@"D:\Movies\!BS\Airheads.1994.720p.BluRay.Rus.Eng.HDCLUB.ass", ass.ToString());
                         break;
                     }
                 case ".mkv":
@@ -158,7 +177,6 @@ namespace BilingualSubtitler
                 if (readedLines[i].Contains("-->"))
                 {
                     subtitles[currentSubtitleIndex] = new Subtitle(
-                        //Int32.Parse(readedLines[i - 1]),
                         readedLines[i],
                         (readedLines[i + 1]));
 
@@ -178,7 +196,7 @@ namespace BilingualSubtitler
             return subtitles;
         }
 
-        private StringBuilder GenerateASS(Tuple<Subtitle[], Color>[] subtitleStreams)
+        private StringBuilder GenerateASSMarkedupDocument(Tuple<Subtitle[], Color>[] subtitlesColorPairs)
         {
             var assSB = new StringBuilder();
 
@@ -208,15 +226,20 @@ namespace BilingualSubtitler
             //Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
             //Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
             //Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
-            for (int i = 0; i < subtitleStreams.Length; i++)
+            var subtitleStyleNamePostfix = " sub stream";
+
+            for (int i = 0; i < subtitlesColorPairs.Length; i++)
             {
-                var color = subtitleStreams[i].Item2;
+                var color = subtitlesColorPairs[i].Item2;
 
                 assSB.AppendLine(
-                    $"Style: {i} sub stream," +
+                    $"Style: {i}{subtitleStyleNamePostfix}," +
                     $"Arial," +
                     $"20," +
-                    $"&H00{color.B}{color.G}{color.R}," +
+                    $"&H00" +
+                    $"{color.B.ToString("X2")}" +
+                    $"{color.G.ToString("X2")}" +
+                    $"{color.R.ToString("X2")}," +
                     $"&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1");
             }
 
@@ -226,14 +249,92 @@ namespace BilingualSubtitler
                          "Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text\r\n");
 
             // Dialogue: 0,0:01:25.29,0:01:28.52,Копировать из Копировать из Default,,0,0,0,,Эй! Сюда! Тут человек!
-            foreach (var subtitleStream in subtitleStreams)
+            var assTimeFormat = @"h\:mm\:ss\.ff";
+            for (int i=0; i<subtitlesColorPairs.Length; i++)
             {
-                assSB.AppendLine($"Dialogue: 0");
+                var subtitles = subtitlesColorPairs[i].Item1;
+                foreach (var subtitle in subtitles)
+                {
+                    // Перенос
+                    if (subtitle.Text.Contains("\n"))
+                        subtitle.Text = subtitle.Text.Replace("\n", "\\N");
+
+
+                    assSB.AppendLine($"Dialogue: 0," +
+                                     $"{subtitle.Start.ToString(assTimeFormat)}," +
+                                     $"{subtitle.End.ToString(assTimeFormat)}," +
+                                     $"{i}{subtitleStyleNamePostfix}," +
+                                     $",0,0,0,," + 
+                                     $"{subtitle.Text}");
+                }
             }
 
             return assSB;
         }
 
+        private string YandexTranslateAStringWithChecking(string originalStr, Translator translator)
+        {
+            string output = "";
+            string tempStr = originalStr;
+            int countOfTags = originalStr.Split('<').Length - 1;
+            int[,] tagsIndexes = new int[2, countOfTags];
+            string[] tags = new string[countOfTags];
+
+            //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+            for (int i = 0; i != countOfTags; i++) 
+            {
+                tagsIndexes[0, i] = tempStr.IndexOf('<');
+                tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                tags[i] = tempStr.Substring(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+
+                //И крайне весело заменяем символы тэга на какую-то фуйню
+                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
+            }
+
+            try
+            {
+                var translation = translator.Translate(originalStr, new LangPair(Lang.En, Lang.Ru), null, false);
+                output += translation.Text + '\n';
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Строка " + originalStr +
+                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
+                                "Код ошибки: " + ex.Message);
+                output += originalStr + '\n';
+            }
+
+
+            tempStr = output;
+
+            //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+            for (int i = 0; i != countOfTags; i++) 
+            {
+                tagsIndexes[0, i] = tempStr.IndexOf('<');
+                tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
+            }
+
+            for (int i = 0; i != countOfTags; i++)
+            {
+                output = output.Remove(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+                output = output.Insert(tagsIndexes[0, i], tags[i]);
+            }
+
+            //Если первым в строке идет тэг, то переводчиком он обрабаывается как первая буква предложения, и настоящая первая буква
+            //переводчиком переводится в нижний регистр. Поэтому надо вернуть как было.
+            if (output.IndexOf('<') == 0)
+            {
+                string charToUpper = output[output.IndexOf('>') + 1].ToString().ToUpper();
+                output = output.Remove(output.IndexOf('>') + 1, 1).Insert(output.IndexOf('>') + 1, charToUpper);
+            }
+
+            return output;
+        }
 
 
         // Былое
@@ -376,71 +477,7 @@ namespace BilingualSubtitler
             flagSubsAreSaved = false;
         }
 
-        private string YandexTranslateAStringWithChecking(string originalStr, Translator translator)
-        {
-            string output = "";
-            string tempStr = originalStr;
-            int countOfTags = originalStr.Split('<').Length - 1;
-            int[,] tagsIndexes = new int[2, countOfTags];
-            string[] tags = new string[countOfTags];
-
-            for (int i = 0; i != countOfTags; i++) //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
-            {
-                tagsIndexes[0, i] = tempStr.IndexOf('<');
-                tagsIndexes[1, i] = tempStr.IndexOf('>');
-
-                tags[i] = tempStr.Substring(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
-
-                //И крайне весело заменяем символы тэга на какую-то фуйню
-                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
-                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
-            }
-
-            try
-            {
-                //labelCurrentLine.Text = str;
-
-                var translation = translator.Translate(originalStr, new LangPair(Lang.En, Lang.Ru), null, false);
-                output += translation.Text + '\n';
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Строка " + originalStr +
-                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
-                                "Код ошибки: " + ex.Message);
-                output += originalStr + '\n';
-            }
-
-
-            tempStr = output;
-
-            for (int i = 0; i != countOfTags; i++) //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
-            {
-                tagsIndexes[0, i] = tempStr.IndexOf('<');
-                tagsIndexes[1, i] = tempStr.IndexOf('>');
-
-                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
-                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
-            }
-
-            for (int i = 0; i != countOfTags; i++)
-            {
-                output = output.Remove(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
-                output = output.Insert(tagsIndexes[0, i], tags[i]);
-            }
-
-            //Если первым в строке идет тэг, то переводчиком он обрабаывается как первая буква предложения, и настоящая первая буква
-            //переводчиком переводится в нижний регистр. Поэтому надо вернуть как было.
-            if (output.IndexOf('<') == 0)
-            {
-                string charToUpper = output[output.IndexOf('>') + 1].ToString().ToUpper();
-                output = output.Remove(output.IndexOf('>') + 1, 1).Insert(output.IndexOf('>') + 1, charToUpper);
-            }
-
-            return output;
-        }
-
-
+        
         private void WriteBilingualSubtitles()
         {
             string currentSecondarySubtitlesHEXColor = String.Format("{0:X2}{1:X2}{2:X2}", Properties.Settings.Default.CurrentSecondarySubtitlesColor.R,

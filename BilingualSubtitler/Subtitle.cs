@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BilingualSubtitler
@@ -17,21 +19,25 @@ namespace BilingualSubtitler
 
         public Subtitle(string timing, string text)
         {
-            Text = text;
+            Text = ParseText(text);
 
             // 00:00:42,292-- > 00:00:43,377
             var timingStringComponents = timing.Split(new string[] { " --> "} , StringSplitOptions.RemoveEmptyEntries);
             Start = TimeSpan.Parse(timingStringComponents[0]);
-            //End = DateTime.ParseExact(timingStringComponents[1], "HH:mm:ss,fff", CultureInfo.InvariantCulture);
             End = TimeSpan.Parse(timingStringComponents[1]);
         }
 
         public Subtitle(long start, long end, string text)
         {
-            Text = text;
+            Text = ParseText(text);
 
             Start = TimeSpan.FromMilliseconds(start);
             End = TimeSpan.FromMilliseconds(end);
+        }
+
+        private string ParseText(string originalText)
+        {
+            return Regex.Replace(originalText, "<*>", "");
         }
 
         //public Subtitle(int _id, string _timing, Color _color, string _text)
