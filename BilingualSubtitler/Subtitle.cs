@@ -19,7 +19,7 @@ namespace BilingualSubtitler
 
         public Subtitle(string timing, string text)
         {
-            Text = ParseText(text);
+            Text = RemoveTags(text);
 
             // 00:00:42,292-- > 00:00:43,377
             var timingStringComponents = timing.Split(new string[] { " --> "} , StringSplitOptions.RemoveEmptyEntries);
@@ -29,15 +29,23 @@ namespace BilingualSubtitler
 
         public Subtitle(long start, long end, string text)
         {
-            Text = ParseText(text);
+            Text = RemoveTags(text);
 
             Start = TimeSpan.FromMilliseconds(start);
             End = TimeSpan.FromMilliseconds(end);
         }
 
-        private string ParseText(string originalText)
+        public Subtitle(TimeSpan start, TimeSpan end, string text)
         {
-            return Regex.Replace(originalText, "<*>", "");
+            Text = RemoveTags(text);
+
+            Start = start;
+            End = end;
+        }
+
+        private string RemoveTags(string originalText)
+        {
+            return Regex.Replace(originalText, "[<].{1,2}[>]", "");
         }
 
         //public Subtitle(int _id, string _timing, Color _color, string _text)

@@ -29,85 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PathToMKVToolnixAndTempForm));
-            this.linkLabelDownloadMKVToolnix = new System.Windows.Forms.LinkLabel();
-            this.labelPathToTemp = new System.Windows.Forms.Label();
-            this.buttonBrowsePathToTemp = new System.Windows.Forms.Button();
-            this.textBoxPathToMKVToolnix = new System.Windows.Forms.TextBox();
-            this.textBoxPathToTemp = new System.Windows.Forms.TextBox();
-            this.labelPathToMKVToolnix = new System.Windows.Forms.Label();
-            this.labelReason = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonBrowsePathToMKVToolnix = new System.Windows.Forms.Button();
-            this.pictureBoxMKVExtractLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMKVToolnix = new System.Windows.Forms.PictureBox();
             this.folderBrowserDialogMKVToolnix = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialogTempSubs = new System.Windows.Forms.FolderBrowserDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMKVExtractLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMKVToolnix)).BeginInit();
+            this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
+            this.pictureBoxYandexTranslator = new System.Windows.Forms.PictureBox();
+            this.linkLabelGetYandexAPIKey = new System.Windows.Forms.LinkLabel();
+            this.richTextBoxLabelEnterYandexAPIKey = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxForYandexAPIKey = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYandexTranslator)).BeginInit();
             this.SuspendLayout();
-            // 
-            // linkLabelDownloadMKVToolnix
-            // 
-            this.linkLabelDownloadMKVToolnix.AutoSize = true;
-            this.linkLabelDownloadMKVToolnix.Location = new System.Drawing.Point(7, 102);
-            this.linkLabelDownloadMKVToolnix.Name = "linkLabelDownloadMKVToolnix";
-            this.linkLabelDownloadMKVToolnix.Size = new System.Drawing.Size(108, 13);
-            this.linkLabelDownloadMKVToolnix.TabIndex = 51;
-            this.linkLabelDownloadMKVToolnix.TabStop = true;
-            this.linkLabelDownloadMKVToolnix.Text = "Скачать MKVToolnix";
-            // 
-            // labelPathToTemp
-            // 
-            this.labelPathToTemp.AutoSize = true;
-            this.labelPathToTemp.Location = new System.Drawing.Point(41, 130);
-            this.labelPathToTemp.Name = "labelPathToTemp";
-            this.labelPathToTemp.Size = new System.Drawing.Size(343, 13);
-            this.labelPathToTemp.TabIndex = 50;
-            this.labelPathToTemp.Text = "Выберите папку, в которой будут содержаться временные файлы";
-            // 
-            // buttonBrowsePathToTemp
-            // 
-            this.buttonBrowsePathToTemp.Image = global::BilingualSubtitler.Properties.Resources._20pxOpenIcon;
-            this.buttonBrowsePathToTemp.Location = new System.Drawing.Point(524, 160);
-            this.buttonBrowsePathToTemp.Name = "buttonBrowsePathToTemp";
-            this.buttonBrowsePathToTemp.Size = new System.Drawing.Size(20, 20);
-            this.buttonBrowsePathToTemp.TabIndex = 49;
-            this.buttonBrowsePathToTemp.UseVisualStyleBackColor = true;
-            this.buttonBrowsePathToTemp.Click += new System.EventHandler(this.buttonBrowsePathToTemp_Click);
-            // 
-            // textBoxPathToMKVToolnix
-            // 
-            this.textBoxPathToMKVToolnix.Location = new System.Drawing.Point(10, 79);
-            this.textBoxPathToMKVToolnix.Name = "textBoxPathToMKVToolnix";
-            this.textBoxPathToMKVToolnix.Size = new System.Drawing.Size(508, 20);
-            this.textBoxPathToMKVToolnix.TabIndex = 48;
-            // 
-            // textBoxPathToTemp
-            // 
-            this.textBoxPathToTemp.Location = new System.Drawing.Point(10, 161);
-            this.textBoxPathToTemp.Name = "textBoxPathToTemp";
-            this.textBoxPathToTemp.Size = new System.Drawing.Size(508, 20);
-            this.textBoxPathToTemp.TabIndex = 46;
-            // 
-            // labelPathToMKVToolnix
-            // 
-            this.labelPathToMKVToolnix.AutoSize = true;
-            this.labelPathToMKVToolnix.Location = new System.Drawing.Point(41, 46);
-            this.labelPathToMKVToolnix.Name = "labelPathToMKVToolnix";
-            this.labelPathToMKVToolnix.Size = new System.Drawing.Size(366, 26);
-            this.labelPathToMKVToolnix.TabIndex = 45;
-            this.labelPathToMKVToolnix.Text = "Выберите папку, в которой установлен mkvtoolnix \r\n(в папке должны содержаться при" +
-    "ложения \"mkvmerge\" и \"mkvextract\")";
-            // 
-            // labelReason
-            // 
-            this.labelReason.AutoSize = true;
-            this.labelReason.Location = new System.Drawing.Point(9, 13);
-            this.labelReason.Name = "labelReason";
-            this.labelReason.Size = new System.Drawing.Size(35, 13);
-            this.labelReason.TabIndex = 54;
-            this.labelReason.Text = "label1";
             // 
             // buttonOk
             // 
@@ -135,35 +67,55 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonBrowsePathToMKVToolnix
+            // linkLabelYandexAPIKeysList
             // 
-            this.buttonBrowsePathToMKVToolnix.Image = global::BilingualSubtitler.Properties.Resources._20pxOpenIcon;
-            this.buttonBrowsePathToMKVToolnix.Location = new System.Drawing.Point(524, 79);
-            this.buttonBrowsePathToMKVToolnix.Name = "buttonBrowsePathToMKVToolnix";
-            this.buttonBrowsePathToMKVToolnix.Size = new System.Drawing.Size(20, 20);
-            this.buttonBrowsePathToMKVToolnix.TabIndex = 47;
-            this.buttonBrowsePathToMKVToolnix.UseVisualStyleBackColor = true;
-            this.buttonBrowsePathToMKVToolnix.Click += new System.EventHandler(this.buttonBrowsePathToMKVToolnix_Click);
+            this.linkLabelYandexAPIKeysList.AutoSize = true;
+            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(311, 142);
+            this.linkLabelYandexAPIKeysList.Name = "linkLabelYandexAPIKeysList";
+            this.linkLabelYandexAPIKeysList.Size = new System.Drawing.Size(243, 13);
+            this.linkLabelYandexAPIKeysList.TabIndex = 58;
+            this.linkLabelYandexAPIKeysList.TabStop = true;
+            this.linkLabelYandexAPIKeysList.Text = "Открыть список уже полученных вами ключей";
             // 
-            // pictureBoxMKVExtractLogo
+            // pictureBoxYandexTranslator
             // 
-            this.pictureBoxMKVExtractLogo.Image = global::BilingualSubtitler.Properties.Resources._25pxMkvExtractLogo;
-            this.pictureBoxMKVExtractLogo.Location = new System.Drawing.Point(10, 130);
-            this.pictureBoxMKVExtractLogo.Name = "pictureBoxMKVExtractLogo";
-            this.pictureBoxMKVExtractLogo.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxMKVExtractLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMKVExtractLogo.TabIndex = 44;
-            this.pictureBoxMKVExtractLogo.TabStop = false;
+            this.pictureBoxYandexTranslator.Enabled = false;
+            this.pictureBoxYandexTranslator.Image = global::BilingualSubtitler.Properties.Resources._25pxYandexTranslateIcon;
+            this.pictureBoxYandexTranslator.Location = new System.Drawing.Point(5, 6);
+            this.pictureBoxYandexTranslator.Name = "pictureBoxYandexTranslator";
+            this.pictureBoxYandexTranslator.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxYandexTranslator.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxYandexTranslator.TabIndex = 57;
+            this.pictureBoxYandexTranslator.TabStop = false;
             // 
-            // pictureBoxMKVToolnix
+            // linkLabelGetYandexAPIKey
             // 
-            this.pictureBoxMKVToolnix.Image = global::BilingualSubtitler.Properties.Resources._25pxMkvtoolnixLogo;
-            this.pictureBoxMKVToolnix.Location = new System.Drawing.Point(10, 46);
-            this.pictureBoxMKVToolnix.Name = "pictureBoxMKVToolnix";
-            this.pictureBoxMKVToolnix.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxMKVToolnix.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMKVToolnix.TabIndex = 43;
-            this.pictureBoxMKVToolnix.TabStop = false;
+            this.linkLabelGetYandexAPIKey.AutoSize = true;
+            this.linkLabelGetYandexAPIKey.Location = new System.Drawing.Point(5, 142);
+            this.linkLabelGetYandexAPIKey.Name = "linkLabelGetYandexAPIKey";
+            this.linkLabelGetYandexAPIKey.Size = new System.Drawing.Size(234, 13);
+            this.linkLabelGetYandexAPIKey.TabIndex = 56;
+            this.linkLabelGetYandexAPIKey.TabStop = true;
+            this.linkLabelGetYandexAPIKey.Text = "Получить ключ для API Яндекс.Переводчика";
+            // 
+            // richTextBoxLabelEnterYandexAPIKey
+            // 
+            this.richTextBoxLabelEnterYandexAPIKey.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.richTextBoxLabelEnterYandexAPIKey.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxLabelEnterYandexAPIKey.Location = new System.Drawing.Point(34, 12);
+            this.richTextBoxLabelEnterYandexAPIKey.Name = "richTextBoxLabelEnterYandexAPIKey";
+            this.richTextBoxLabelEnterYandexAPIKey.ReadOnly = true;
+            this.richTextBoxLabelEnterYandexAPIKey.Size = new System.Drawing.Size(237, 21);
+            this.richTextBoxLabelEnterYandexAPIKey.TabIndex = 55;
+            this.richTextBoxLabelEnterYandexAPIKey.Text = "Введите ключ для API Яндекс.Переводчика";
+            // 
+            // richTextBoxForYandexAPIKey
+            // 
+            this.richTextBoxForYandexAPIKey.Location = new System.Drawing.Point(5, 39);
+            this.richTextBoxForYandexAPIKey.Name = "richTextBoxForYandexAPIKey";
+            this.richTextBoxForYandexAPIKey.Size = new System.Drawing.Size(540, 96);
+            this.richTextBoxForYandexAPIKey.TabIndex = 54;
+            this.richTextBoxForYandexAPIKey.Text = "";
             // 
             // PathToMKVToolnixAndTempForm
             // 
@@ -171,44 +123,32 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(554, 248);
-            this.Controls.Add(this.labelReason);
+            this.Controls.Add(this.linkLabelYandexAPIKeysList);
+            this.Controls.Add(this.pictureBoxYandexTranslator);
+            this.Controls.Add(this.linkLabelGetYandexAPIKey);
+            this.Controls.Add(this.richTextBoxLabelEnterYandexAPIKey);
+            this.Controls.Add(this.richTextBoxForYandexAPIKey);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.linkLabelDownloadMKVToolnix);
-            this.Controls.Add(this.buttonBrowsePathToMKVToolnix);
-            this.Controls.Add(this.labelPathToTemp);
-            this.Controls.Add(this.buttonBrowsePathToTemp);
-            this.Controls.Add(this.textBoxPathToMKVToolnix);
-            this.Controls.Add(this.textBoxPathToTemp);
-            this.Controls.Add(this.labelPathToMKVToolnix);
-            this.Controls.Add(this.pictureBoxMKVExtractLogo);
-            this.Controls.Add(this.pictureBoxMKVToolnix);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PathToMKVToolnixAndTempForm";
             this.Text = "PathToMKVToolnixAndTempForm";
             this.Load += new System.EventHandler(this.PathToMKVToolnixAndTempForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMKVExtractLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMKVToolnix)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYandexTranslator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel linkLabelDownloadMKVToolnix;
-        private System.Windows.Forms.Button buttonBrowsePathToMKVToolnix;
-        private System.Windows.Forms.Label labelPathToTemp;
-        private System.Windows.Forms.Button buttonBrowsePathToTemp;
-        private System.Windows.Forms.TextBox textBoxPathToMKVToolnix;
-        private System.Windows.Forms.TextBox textBoxPathToTemp;
-        private System.Windows.Forms.Label labelPathToMKVToolnix;
-        private System.Windows.Forms.PictureBox pictureBoxMKVExtractLogo;
-        private System.Windows.Forms.PictureBox pictureBoxMKVToolnix;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Label labelReason;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogMKVToolnix;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogTempSubs;
+        private System.Windows.Forms.LinkLabel linkLabelYandexAPIKeysList;
+        private System.Windows.Forms.PictureBox pictureBoxYandexTranslator;
+        private System.Windows.Forms.LinkLabel linkLabelGetYandexAPIKey;
+        private System.Windows.Forms.RichTextBox richTextBoxLabelEnterYandexAPIKey;
+        private System.Windows.Forms.RichTextBox richTextBoxForYandexAPIKey;
     }
 }
