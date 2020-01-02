@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Forms;
@@ -58,15 +59,25 @@ namespace BilingualSubtitler
         private bool disableCheckboxRemoveStylesFromSecondarySubs;
         private Color tempCurrentPrimarySubtitlesColor;
         private Color tempCurrentSecondarySubtitlesColor;
-        private Color previousButtonColor;
+        private Color m_previousButtonColor;
         public event SubtitlesAreNotTranslatedHandler SubtitlesAreNotTranslated;
         public event SubtitlesAreTranslatedHandler SubtitlesAreTranslated;
 
         public delegate void SubtitlesAreNotTranslatedHandler(object sender, EventArgs eventArgs);
         public delegate void SubtitlesAreTranslatedHandler(object sender, EventArgs eventArgs);
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+
+        
+
         public MainForm()
         {
+            InitializeComponent();
+
             openFileDialog.Title = "Выберите файл";
             openFileDialog.Filter = "Файлы субтитров SubRip|*.srt";
 
@@ -75,8 +86,16 @@ namespace BilingualSubtitler
             //saveFileDialog.DefaultExt = GO.Constants.NewsExtension;
             saveFileDialog.AddExtension = true;
 
-            InitializeComponent();
+            buttons = new List<Button>();
+            buttons.Add(button1);
+            buttons.Add(button2);
 
+            foreach (var button in buttons)
+            {
+                button.MouseEnter += button_MouseEnter;
+                button.MouseLeave += button_MouseLeave;
+            }
+            
             backgroundWorkerTranslation.WorkerReportsProgress = true;
             backgroundWorkerTranslation.WorkerSupportsCancellation = true;
 
@@ -86,56 +105,56 @@ namespace BilingualSubtitler
             m_keyboardHookManager.Start();
             m_inputSimulator = new InputSimulator();
 
-            m_keyboardHookManager.RegisterHotkey(
-                (int)VirtualKeyCode.SPACE,
-                () =>
-                {
-                    switch (m_videoState)
-                    {
-                        case VideoState.PlayingWithOriginalSubtitles:
-                            {
-                                m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
-                                m_videoState = VideoState.PausedWithBilingualSubtitles;
-                                break;
-                            }
-                        case VideoState.PausedWithBilingualSubtitles:
-                            {
-                                m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                                    VirtualKeyCode.SHIFT,
-                                    VirtualKeyCode.VK_S);
-                                m_videoState = VideoState.PlayingWithOriginalSubtitles;
-                                break;
-                            }
+            m_keyboardHookManager.RegisterHotkey((int) VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
 
-                    }
-                });
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.UP, ActionForHotkeyThatAreNotPauseButton);
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.DOWN, ActionForHotkeyThatAreNotPauseButton);
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.LEFT, ActionForHotkeyThatAreNotPauseButton);
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.RIGHT, ActionForHotkeyThatAreNotPauseButton);
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.CONTROL, ActionForHotkeyThatAreNotPauseButton);
 
-            // Register virtual key code 0x60 = NumPad0
-            m_keyboardHookManager.RegisterHotkey(
-                 (int)VirtualKeyCode.UP,
-                 () =>
-                 {
-                     m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
-                 });
-            m_keyboardHookManager.RegisterHotkey(
-                (int)VirtualKeyCode.DOWN,
-                () =>
-                {
-                    m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
-                });
-            m_keyboardHookManager.RegisterHotkey(
-                (int)VirtualKeyCode.LEFT,
-                () =>
-                {
-                    m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
-                });
-            m_keyboardHookManager.RegisterHotkey(
-                (int)VirtualKeyCode.RIGHT,
-                () =>
-                {
-                    m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
-                });
+        }
 
+        private void ActionForHotkeyThatAreNotPauseButton()
+        {
+            if (GetActiveProcessFileName() != "mpc-hc64")
+                return;
+
+            m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
+        }
+
+        private void ActionForHotkeyThatArePauseButton()
+        {
+            if (GetActiveProcessFileName() != "mpc-hc64")
+                return;
+
+            switch (m_videoState)
+            {
+                case VideoState.PlayingWithOriginalSubtitles:
+                {
+                    m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
+                    m_videoState = VideoState.PausedWithBilingualSubtitles;
+                    break;
+                }
+                case VideoState.PausedWithBilingualSubtitles:
+                {
+                    m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                        VirtualKeyCode.SHIFT,
+                        VirtualKeyCode.VK_S);
+                    m_videoState = VideoState.PlayingWithOriginalSubtitles;
+                    break;
+                }
+
+            }
+        }
+
+        string GetActiveProcessFileName()
+        {
+            IntPtr hwnd = GetForegroundWindow();
+            uint pid;
+            GetWindowThreadProcessId(hwnd, out pid);
+            Process p = Process.GetProcessById((int)pid);
+            return p.ProcessName;
         }
 
         private Subtitle[] ReadSubtitles(string filePath)
@@ -263,16 +282,21 @@ namespace BilingualSubtitler
             for (int i = 0; i < subtitlesColorPairs.Length; i++)
             {
                 var color = subtitlesColorPairs[i].Item2;
+                var transparency = i == 0 ? "00" : "64";
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
                     $"Arial," +
                     $"20," +
-                    $"&H00" +
+                    $"&H" +
+                    $"{transparency}" +
                     $"{color.B.ToString("X2")}" +
                     $"{color.G.ToString("X2")}" +
                     $"{color.R.ToString("X2")}," +
-                    $"&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10," +
+                    $"&H{transparency}00FFFF," +
+                    $"&H{transparency}000000," +
+                    $"&H{transparency}000000," +
+                    $"0,0,0,0,100,100,0,0,1,2,1,2,10,10," +
                     $"{20 + i*(2*20 + 5)}," +
                     $"1");
             }
@@ -414,16 +438,16 @@ namespace BilingualSubtitler
             //}
         }
 
-        private void btn_MouseEnter(object sender, EventArgs e)
+        private void button_MouseEnter(object sender, EventArgs e)
         {
-            previousButtonColor = ((Button)sender).BackColor;
-            ((Button)sender).BackColor = SystemColors.GradientInactiveCaption;
+            m_previousButtonColor = ((Button)sender).BackColor;
+            ((Button)sender).BackColor = Color.Gold;
 
         }
 
-        private void btn_MouseLeave(object sender, EventArgs e)
+        private void button_MouseLeave(object sender, EventArgs e)
         {
-            ((Button)sender).BackColor = previousButtonColor;
+            ((Button)sender).BackColor = m_previousButtonColor;
         }
 
 

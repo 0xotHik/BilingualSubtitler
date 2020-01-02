@@ -96,6 +96,7 @@
             // 
             // openPrimarySubtitlesButton
             // 
+            this.openPrimarySubtitlesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openPrimarySubtitlesButton.Location = new System.Drawing.Point(342, 19);
             this.openPrimarySubtitlesButton.Name = "openPrimarySubtitlesButton";
             this.openPrimarySubtitlesButton.Size = new System.Drawing.Size(62, 49);
