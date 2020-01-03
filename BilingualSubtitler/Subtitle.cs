@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BilingualSubtitler
 {
-    class Subtitle
+    public class Subtitle
     {
         public TimeSpan Start { get; private set; }
         public TimeSpan End { get; private set; }
