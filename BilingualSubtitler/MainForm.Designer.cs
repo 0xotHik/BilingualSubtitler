@@ -69,6 +69,8 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.videoStateComboBox = new System.Windows.Forms.ComboBox();
+            this.subtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -479,12 +481,32 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "label9";
             // 
+            // videoStateComboBox
+            // 
+            this.videoStateComboBox.FormattingEnabled = true;
+            this.videoStateComboBox.Location = new System.Drawing.Point(119, 444);
+            this.videoStateComboBox.Name = "videoStateComboBox";
+            this.videoStateComboBox.Size = new System.Drawing.Size(121, 21);
+            this.videoStateComboBox.TabIndex = 11;
+            this.videoStateComboBox.SelectedValueChanged += new System.EventHandler(this.videoStateComboBox_SelectedValueChanged);
+            // 
+            // subtitlesStateComboBox
+            // 
+            this.subtitlesStateComboBox.FormattingEnabled = true;
+            this.subtitlesStateComboBox.Location = new System.Drawing.Point(340, 443);
+            this.subtitlesStateComboBox.Name = "subtitlesStateComboBox";
+            this.subtitlesStateComboBox.Size = new System.Drawing.Size(121, 21);
+            this.subtitlesStateComboBox.TabIndex = 12;
+            this.subtitlesStateComboBox.SelectedValueChanged += new System.EventHandler(this.subtitlesStateComboBox_SelectedValueChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(668, 502);
+            this.Controls.Add(this.subtitlesStateComboBox);
+            this.Controls.Add(this.videoStateComboBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -494,7 +516,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Bilingual Subtitler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -552,6 +574,8 @@
         private System.Windows.Forms.Label firstRussianSubtitlesActionLabel;
         private System.Windows.Forms.Label secondRussianSubtitlesActionLabel;
         private System.Windows.Forms.Label thirdRussianSubtitlesActionLabel;
+        private System.Windows.Forms.ComboBox videoStateComboBox;
+        private System.Windows.Forms.ComboBox subtitlesStateComboBox;
     }
 }
 

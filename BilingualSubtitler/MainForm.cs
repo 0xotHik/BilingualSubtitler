@@ -25,10 +25,6 @@ namespace BilingualSubtitler
         ThirdRussian
     }
 
-    public class SubtitlesBackgroundWorker : BackgroundWorker
-    {
-        public SubtitlesType SubtitlesType;
-    }
 
     public partial class MainForm : Form
     {
@@ -66,7 +62,7 @@ namespace BilingualSubtitler
                 OutputTextBox = outputTextBox;
             }
 
-            public void SetBackgroundWorker (SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
+            public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
             {
                 BackgroundWorker = backgroundWorker;
                 BackgroundWorker.SubtitlesType = subtitlesType;
@@ -75,8 +71,14 @@ namespace BilingualSubtitler
 
         enum VideoState
         {
-            PlayingWithOriginalSubtitles,
-            PausedWithBilingualSubtitles
+            Playing,
+            Paused
+        }
+
+        enum SubtitlesState
+        {
+            Original,
+            Bilingual
         }
 
         private const string SUBTITLES_ARE_OPENING = "Субтитры считываются...";
@@ -97,10 +99,15 @@ namespace BilingualSubtitler
         private Translator m_translator;
         private KeyboardHookManager m_keyboardHookManager = new KeyboardHookManager();
         private InputSimulator m_inputSimulator;
-        private VideoState m_videoState = VideoState.PlayingWithOriginalSubtitles;
+        private VideoState m_videoState;
+        private SubtitlesState m_subtitlesState;
 
+        private MainForm m_mainForm;
         private List<Button> m_buttons;
         private Color m_previousButtonColor;
+
+        private delegate void AddListItem(ComboBox comboBox, int index);
+        private AddListItem MyDelegate;
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
@@ -112,7 +119,17 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
-            //openFileDialog.Filter = "Файлы субтитров SubRip|*.srt";
+            var playingComboBoxItem = new ComboboxItem { Text = "воспроизводится", Value = VideoState.Playing };
+            var pausedComboBoxItem = new ComboboxItem { Text = "на паузе", Value = VideoState.Paused };
+            videoStateComboBox.Items.Add(playingComboBoxItem);
+            videoStateComboBox.Items.Add(pausedComboBoxItem);
+            videoStateComboBox.SelectedIndex = 0;
+
+            var originalSubtitlesComboBoxItem = new ComboboxItem { Text = "оригинальными субтитрами", Value = SubtitlesState.Original };
+            var bilingualSubtitlesComboBoxItem = new ComboboxItem { Text = "двуязычными субтитрами", Value = SubtitlesState.Bilingual };
+            subtitlesStateComboBox.Items.Add(originalSubtitlesComboBoxItem);
+            subtitlesStateComboBox.Items.Add(bilingualSubtitlesComboBoxItem);
+            subtitlesStateComboBox.SelectedIndex = 0;
 
             m_subtitles = new Dictionary<SubtitlesType, SubtitlesRigging>
             {
@@ -171,6 +188,8 @@ namespace BilingualSubtitler
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.RIGHT, ActionForHotkeyThatAreNotPauseButton);
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.CONTROL, ActionForHotkeyThatAreNotPauseButton);
 
+            m_mainForm = this;
+            MyDelegate = new AddListItem(AddListItemMethod);
         }
 
         private void ActionForHotkeyThatAreNotPauseButton()
@@ -186,25 +205,47 @@ namespace BilingualSubtitler
             if (GetActiveProcessName() != "mpc-hc64")
                 return;
 
+            // Я так понимаю, сюда мы попадаем еще до переключения паузы/воспроизведения
             switch (m_videoState)
             {
-                case VideoState.PlayingWithOriginalSubtitles:
+                case VideoState.Playing:
                     {
-                        m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
-                        m_videoState = VideoState.PausedWithBilingualSubtitles;
+                        if (m_subtitlesState == SubtitlesState.Original)
+                        {
+                            // Переключаемся на двуязычные
+                            m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
+                            m_mainForm.BeginInvoke(MyDelegate, new object[] { subtitlesStateComboBox, 1});
+                        }
+
+                        // Ставим Paused в КомбоБоксе
+                        m_mainForm.BeginInvoke(MyDelegate, new object[] { videoStateComboBox, 1});
                         break;
                     }
-                case VideoState.PausedWithBilingualSubtitles:
+                case VideoState.Paused:
                     {
-                        m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                            VirtualKeyCode.SHIFT,
-                            VirtualKeyCode.VK_S);
-                        m_videoState = VideoState.PlayingWithOriginalSubtitles;
+                        if (m_subtitlesState == SubtitlesState.Bilingual)
+                        {
+                            // Переключаемся на оригинальные
+                            m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                                VirtualKeyCode.SHIFT,
+                                VirtualKeyCode.VK_S);
+                            m_mainForm.BeginInvoke(MyDelegate, new object[] { subtitlesStateComboBox, 0});
+                        }
+
+                        // Ставим Playing в КомбоБоксе
+                        m_mainForm.BeginInvoke(MyDelegate, new object[] {videoStateComboBox, 0});
                         break;
                     }
 
             }
         }
+
+        private void AddListItemMethod(ComboBox comboBox, int index)
+        {
+            comboBox.SelectedIndex = index;
+        }
+
+
 
         string GetActiveProcessName()
         {
@@ -527,7 +568,7 @@ namespace BilingualSubtitler
 
             if (result == DialogResult.OK)
             {
-                var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker {WorkerReportsProgress = true};
+                var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
                 readSubtitlesBackgroundWorker.DoWork += ReadSubtitles;
                 readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
                 readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
@@ -702,6 +743,31 @@ namespace BilingualSubtitler
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
             //    thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel, thirdRussianSubtitlesActionLabel,
             //    thirdRussianSubtitlesTextBox, openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton);
+        }
+
+        private void videoStateComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            m_videoState = (VideoState)((ComboboxItem)((ComboBox)sender).SelectedItem).Value;
+        }
+
+        private void subtitlesStateComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            m_subtitlesState = (SubtitlesState)((ComboboxItem)((ComboBox)sender).SelectedItem).Value;
+        }
+    }
+    public class SubtitlesBackgroundWorker : BackgroundWorker
+    {
+        public SubtitlesType SubtitlesType;
+    }
+
+    public class ComboboxItem
+    {
+        public string Text { get; set; }
+        public object Value { get; set; }
+
+        public override string ToString()
+        {
+            return Text;
         }
     }
 }
