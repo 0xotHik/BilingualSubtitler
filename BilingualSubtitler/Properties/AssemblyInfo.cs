@@ -37,7 +37,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.91.*")]
 
 // https://github.com/kfirprods/NonInvasiveKeyboardHook
+
 // https://github.com/michaelnoonan/inputsimulator
+// https://stackoverflow.com/questions/3047375/simulating-key-press-c-sharp
+// https://stackoverflow.com/questions/16076681/wpf-enqueue-and-replay-key-events/16255097#16255097
 
 //http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-3/1024/Subtitles-icon.png
 
