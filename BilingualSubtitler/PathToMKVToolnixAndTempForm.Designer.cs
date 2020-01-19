@@ -134,6 +134,7 @@
             this.Name = "PathToMKVToolnixAndTempForm";
             this.Text = "PathToMKVToolnixAndTempForm";
             this.Load += new System.EventHandler(this.PathToMKVToolnixAndTempForm_Load);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PathToMKVToolnixAndTempForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxYandexTranslator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
