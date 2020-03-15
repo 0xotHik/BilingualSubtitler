@@ -217,6 +217,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libs\libse.dll" />
+    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
     <Content Include="Resources\16pxAboutIcon.png" />
     <Content Include="Resources\16pxCancelIcon.png" />
     <Content Include="Resources\16pxCancelIconAnother.png" />
@@ -325,6 +327,7 @@
     <Content Include="Resources\YandexTranslateIcon.png" />
     <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

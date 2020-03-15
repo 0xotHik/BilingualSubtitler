@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BilingualSubtitler.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="CurrentSecondarySubtitlesColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Yellow</Value>
+    <Setting Name="FirstRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Gold</Value>
     </Setting>
-    <Setting Name="CurrentPrimarySubtitlesColor" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="PrimarySubtitlesColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="SecondarySubsInOneLine" Type="System.Boolean" Scope="User">
@@ -24,6 +24,12 @@
     </Setting>
     <Setting Name="PathTempSubs" Type="System.String" Scope="User">
       <Value Profile="(Default)">e:\Movies\TempSubs\</Value>
+    </Setting>
+    <Setting Name="SecondRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">0, 192, 192</Value>
+    </Setting>
+    <Setting Name="ThirdRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Silver</Value>
     </Setting>
   </Settings>
 </SettingsFile>

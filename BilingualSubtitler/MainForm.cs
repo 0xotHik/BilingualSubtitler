@@ -215,12 +215,18 @@ namespace BilingualSubtitler
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.LEFT, ActionForHotkeyThatAreNotPauseButton);
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.RIGHT, ActionForHotkeyThatAreNotPauseButton);
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.CONTROL, ActionForHotkeyThatAreNotPauseButton);
+            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.NUMPAD0, ActionForHotkeyThatAreNotPauseButton);
 
             m_mainForm = this;
             MyDelegate = new AddListItem(ChangeVideoAndSubtitlesComboBoxes);
 
-            m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
-                               "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
+            primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
+            firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
+            secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
+            thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
+
+            //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
+            //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
 
         }
 
@@ -386,6 +392,7 @@ namespace BilingualSubtitler
             {
                 var color = subtitlesColorPairs[i].Item2;
                 var transparency = i == 0 ? "00" : "64";
+                var marginV = i == subtitlesColorPairs.Length - 1 ? 0 : 45 + i * (2 * 20 + 5);
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
@@ -400,7 +407,8 @@ namespace BilingualSubtitler
                     $"&H{transparency}000000," +
                     $"&H{transparency}000000," +
                     $"0,0,0,0,100,100,0,0,1,2,1,2,10,10," +
-                    $"{20 + i * (2 * 20 + 5)}," +
+                    // Отсуп снизу
+                    $"{marginV}," +
                     $"1");
             }
 
@@ -752,6 +760,11 @@ namespace BilingualSubtitler
 
             ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
             File.WriteAllText(@"D:\Movies\!BS\xxxx.ruseng.ass", ass.ToString());
+
+            Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
+            Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
+            Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
+            Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
         }
 
 

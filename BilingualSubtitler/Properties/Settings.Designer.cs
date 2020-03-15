@@ -25,25 +25,25 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
-        public global::System.Drawing.Color CurrentSecondarySubtitlesColor {
+        [global::System.Configuration.DefaultSettingValueAttribute("Gold")]
+        public global::System.Drawing.Color FirstRussianSubtitlesColor {
             get {
-                return ((global::System.Drawing.Color)(this["CurrentSecondarySubtitlesColor"]));
+                return ((global::System.Drawing.Color)(this["FirstRussianSubtitlesColor"]));
             }
             set {
-                this["CurrentSecondarySubtitlesColor"] = value;
+                this["FirstRussianSubtitlesColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("White")]
-        public global::System.Drawing.Color CurrentPrimarySubtitlesColor {
+        public global::System.Drawing.Color PrimarySubtitlesColor {
             get {
-                return ((global::System.Drawing.Color)(this["CurrentPrimarySubtitlesColor"]));
+                return ((global::System.Drawing.Color)(this["PrimarySubtitlesColor"]));
             }
             set {
-                this["CurrentPrimarySubtitlesColor"] = value;
+                this["PrimarySubtitlesColor"] = value;
             }
         }
         
@@ -105,6 +105,30 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["PathTempSubs"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 192, 192")]
+        public global::System.Drawing.Color SecondRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["SecondRussianSubtitlesColor"]));
+            }
+            set {
+                this["SecondRussianSubtitlesColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Silver")]
+        public global::System.Drawing.Color ThirdRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ThirdRussianSubtitlesColor"]));
+            }
+            set {
+                this["ThirdRussianSubtitlesColor"] = value;
             }
         }
     }
