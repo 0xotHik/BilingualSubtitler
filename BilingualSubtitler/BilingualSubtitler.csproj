@@ -59,9 +59,9 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="libse, Version=3.5.11.9999, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="libse, Version=3.5.14.9999, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\subtitleedit\src\bin\Debug\libse.dll</HintPath>
+      <HintPath>..\..\..\subtitleedit\libse\bin\Release\net40\libse.dll</HintPath>
     </Reference>
     <Reference Include="NonInvasiveKeyboardHookLibrary">
       <HintPath>..\..\..\NonInvasiveKeyboardHook\source\NonInvasiveKeyboardHook\NonInvasiveKeyboardHookLibrary\bin\Debug\NonInvasiveKeyboardHookLibrary.dll</HintPath>
@@ -217,8 +217,18 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Libs\libse.dll" />
-    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
+    <Content Include="Libs\libse.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\UtfUnknown.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\zlib.net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\16pxAboutIcon.png" />
     <Content Include="Resources\16pxCancelIcon.png" />
     <Content Include="Resources\16pxCancelIconAnother.png" />

@@ -65,7 +65,7 @@
             this.translateToThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
             this.thirdRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.thirdRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
-            this.button8 = new System.Windows.Forms.Button();
+            this.createOriginalAndBilingualSubtitlesFilesButton = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -449,15 +449,15 @@
             this.thirdRussianSubtitlesProgressBar.Size = new System.Drawing.Size(329, 10);
             this.thirdRussianSubtitlesProgressBar.TabIndex = 3;
             // 
-            // button8
+            // createOriginalAndBilingualSubtitlesFilesButton
             // 
-            this.button8.Location = new System.Drawing.Point(354, 360);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(215, 46);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.createOriginalAndBilingualSubtitlesFilesButton.Location = new System.Drawing.Point(354, 360);
+            this.createOriginalAndBilingualSubtitlesFilesButton.Name = "button8";
+            this.createOriginalAndBilingualSubtitlesFilesButton.Size = new System.Drawing.Size(215, 46);
+            this.createOriginalAndBilingualSubtitlesFilesButton.TabIndex = 8;
+            this.createOriginalAndBilingualSubtitlesFilesButton.Text = "button8";
+            this.createOriginalAndBilingualSubtitlesFilesButton.UseVisualStyleBackColor = true;
+            this.createOriginalAndBilingualSubtitlesFilesButton.Click += new System.EventHandler(this.createOriginalAndBilingualSubtitlesFilesButton_Click);
             // 
             // textBox5
             // 
@@ -522,7 +522,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.createOriginalAndBilingualSubtitlesFilesButton);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -575,7 +575,7 @@
         private System.Windows.Forms.Button translateToThirdRussianSubtitlesButton;
         private System.Windows.Forms.Label thirdRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar thirdRussianSubtitlesProgressBar;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button createOriginalAndBilingualSubtitlesFilesButton;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label9;

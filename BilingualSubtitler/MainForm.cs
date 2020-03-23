@@ -360,15 +360,15 @@ namespace BilingualSubtitler
         {
             var assSB = new StringBuilder();
 
-            //[Script Info]
-            //; This is an Advanced Sub Station Alpha v4+script.
+            // [Script Info]
+            // ; This is an Advanced Sub Station Alpha v4+script.
             //    Title: 
-            //ScriptType: v4.00 +
+            // ScriptType: v4.00 +
             //    Collisions: Normal
-            //PlayDepth: 0
+            // PlayDepth: 0
 
             //    [V4 + Styles]
-            //Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //    [Events]
             assSB.Append(
                 "[Script Info]\r\n" +
@@ -383,16 +383,17 @@ namespace BilingualSubtitler
                 "Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, " +
                 "MarginL, MarginR, MarginV, Encoding\r\n");
 
-            //Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
-            //Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
-            //Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
+            // Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
+            // Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
+            // Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
             var subtitleStyleNamePostfix = " sub stream";
 
             for (int i = 0; i < subtitlesColorPairs.Length; i++)
             {
                 var color = subtitlesColorPairs[i].Item2;
                 var transparency = i == 0 ? "00" : "64";
-                var marginV = i == subtitlesColorPairs.Length - 1 ? 0 : 45 + i * (2 * 20 + 5);
+                var marginV = i == 3 ? 0 
+                    : 45 + i * (2 * 20 + 5);
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
@@ -422,19 +423,22 @@ namespace BilingualSubtitler
             for (int i = 0; i < subtitlesColorPairs.Length; i++)
             {
                 var subtitles = subtitlesColorPairs[i].Item1;
-                foreach (var subtitle in subtitles)
+                if (subtitles != null)
                 {
-                    // Перенос
-                    if (subtitle.Text.Contains("\n"))
-                        subtitle.Text = subtitle.Text.Replace("\n", "\\N");
+                    foreach (var subtitle in subtitles)
+                    {
+                        // Перенос
+                        if (subtitle.Text.Contains("\n"))
+                            subtitle.Text = subtitle.Text.Replace("\n", "\\N");
 
 
-                    assSB.AppendLine($"Dialogue: 0," +
-                                     $"{subtitle.Start.ToString(assTimeFormat)}," +
-                                     $"{subtitle.End.ToString(assTimeFormat)}," +
-                                     $"{i}{subtitleStyleNamePostfix}," +
-                                     $",0,0,0,," +
-                                     $"{subtitle.Text}");
+                        assSB.AppendLine($"Dialogue: 0," +
+                                         $"{subtitle.Start.ToString(assTimeFormat)}," +
+                                         $"{subtitle.End.ToString(assTimeFormat)}," +
+                                         $"{i}{subtitleStyleNamePostfix}," +
+                                         $",0,0,0,," +
+                                         $"{subtitle.Text}");
+                    }
                 }
             }
 
@@ -733,7 +737,7 @@ namespace BilingualSubtitler
             // TODO Ошибки?
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void createOriginalAndBilingualSubtitlesFilesButton_Click(object sender, EventArgs e)
         {
             var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
             var firstRussianSubtitles = m_subtitles[SubtitlesType.FirstRussian].Subtitles;
@@ -751,11 +755,11 @@ namespace BilingualSubtitler
             {
                 new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor)
             };
-            if (firstRussianSubtitles != null)
+            // if (firstRussianSubtitles != null)
                 listSubsPairs.Add(new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor));
-            if (secondRussianSubtitles != null)
+            // if (secondRussianSubtitles != null)
                 listSubsPairs.Add(new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor));
-            if (thirdRussianSubtitles != null)
+            // if (thirdRussianSubtitles != null)
                 listSubsPairs.Add(new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor));
 
             ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
@@ -765,6 +769,7 @@ namespace BilingualSubtitler
             Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
             Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
             Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
+            Properties.Settings.Default.Save();
         }
 
 
