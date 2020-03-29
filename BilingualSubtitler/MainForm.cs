@@ -27,7 +27,7 @@ namespace BilingualSubtitler
 
     public partial class MainForm : Form
     {
-        public class SubtitlesRigging
+        public class SubtitlesInfo
         {
             public Subtitle[] Subtitles;
 
@@ -50,7 +50,7 @@ namespace BilingualSubtitler
             public string TrackName;
 
 
-            public SubtitlesRigging(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate,
+            public SubtitlesInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate,
                Label actionLabel, TextBox outputTextBox)
             {
                 ProgressBar = progressBar;
@@ -85,7 +85,7 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATING = "Субтитры переводятся...";
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
-        private Dictionary<SubtitlesType, SubtitlesRigging> m_subtitles;
+        private Dictionary<SubtitlesType, SubtitlesInfo> m_subtitles;
 
         private Translator m_translator;
 
@@ -157,28 +157,28 @@ namespace BilingualSubtitler
                 { SubtitlesState.Bilingual, m_subtitlesBilingualSubtitlesComboBoxItem}
             };
 
-            m_subtitles = new Dictionary<SubtitlesType, SubtitlesRigging>
+            m_subtitles = new Dictionary<SubtitlesType, SubtitlesInfo>
             {
                 {
-                    SubtitlesType.Original, new SubtitlesRigging(
+                    SubtitlesType.Original, new SubtitlesInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
                         openPrimarySubtitlesButton, null,
                         primarySubtitlesActionLabel, primarySubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.FirstRussian, new SubtitlesRigging(
+                    SubtitlesType.FirstRussian, new SubtitlesInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
                         openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton,
                         firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.SecondRussian, new SubtitlesRigging(
+                    SubtitlesType.SecondRussian, new SubtitlesInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
                         openSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton,
                         secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.ThirdRussian, new SubtitlesRigging(
+                    SubtitlesType.ThirdRussian, new SubtitlesInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
                         openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton,
                         thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox)
@@ -447,7 +447,7 @@ namespace BilingualSubtitler
 
         private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType)
         {
-            var subtitlesRigger = m_subtitles[subtitlesType];
+            var subtitlesInfo = m_subtitles[subtitlesType];
 
             var yandexTranslateSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker();
             yandexTranslateSubtitlesBackgroundWorker.DoWork += YandexTranslateSubtitles;
@@ -455,14 +455,14 @@ namespace BilingualSubtitler
             yandexTranslateSubtitlesBackgroundWorker.ProgressChanged += yandexTranslateSubtitlesBackgroundWorker_ProgressChanged;
             yandexTranslateSubtitlesBackgroundWorker.RunWorkerCompleted += yandexTranslateSubtitlesBackgroundWorker_RunWorkerCompleted;
 
-            subtitlesRigger.SetBackgroundWorker(yandexTranslateSubtitlesBackgroundWorker, subtitlesType);
+            subtitlesInfo.SetBackgroundWorker(yandexTranslateSubtitlesBackgroundWorker, subtitlesType);
 
-            subtitlesRigger.ProgressBar.Value = subtitlesRigger.ProgressBar.Minimum;
-            subtitlesRigger.ProgressLabel.Text = $"0%";
-            subtitlesRigger.ButtonOpen.Enabled = false;
-            if (subtitlesRigger.ButtonTranslate != null)
-                subtitlesRigger.ButtonTranslate.Enabled = false;
-            subtitlesRigger.ActionLabel.Text = SUBTITLES_ARE_TRANSLATING;
+            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
+            subtitlesInfo.ProgressLabel.Text = $"0%";
+            subtitlesInfo.ButtonOpen.Enabled = false;
+            if (subtitlesInfo.ButtonTranslate != null)
+                subtitlesInfo.ButtonTranslate.Enabled = false;
+            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_TRANSLATING;
 
             yandexTranslateSubtitlesBackgroundWorker.RunWorkerAsync();
         }
@@ -472,13 +472,13 @@ namespace BilingualSubtitler
             var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
 
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            subtitlesRigger.Subtitles = new Subtitle[originalSubtitles.Length];
+            subtitlesInfo.Subtitles = new Subtitle[originalSubtitles.Length];
 
             for (int i = 0; i < originalSubtitles.Length; i++)
             {
-                subtitlesRigger.Subtitles[i] = new Subtitle
+                subtitlesInfo.Subtitles[i] = new Subtitle
                 (originalSubtitles[i].Start,
                     originalSubtitles[i].End,
                     YandexTranslateAStringWithChecking(originalSubtitles[i].Text, m_translator)
@@ -491,24 +491,24 @@ namespace BilingualSubtitler
         private void yandexTranslateSubtitlesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            subtitlesRigger.ProgressBar.Value = eventArgs.ProgressPercentage;
-            subtitlesRigger.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
+            subtitlesInfo.ProgressBar.Value = eventArgs.ProgressPercentage;
+            subtitlesInfo.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
         }
 
         private void yandexTranslateSubtitlesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            subtitlesRigger.ProgressBar.Value = subtitlesRigger.ProgressBar.Maximum;
-            subtitlesRigger.ProgressLabel.Text = $"100%";
-            subtitlesRigger.ButtonOpen.Enabled = true;
-            if (subtitlesRigger.ButtonTranslate != null)
-                subtitlesRigger.ButtonTranslate.Enabled = true;
+            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
+            subtitlesInfo.ProgressLabel.Text = $"100%";
+            subtitlesInfo.ButtonOpen.Enabled = true;
+            if (subtitlesInfo.ButtonTranslate != null)
+                subtitlesInfo.ButtonTranslate.Enabled = true;
 
-            subtitlesRigger.ActionLabel.Text = SUBTITLES_ARE_TRANSLATED;
+            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_TRANSLATED;
             // TODO Ошибки?
         }
 
@@ -602,6 +602,7 @@ namespace BilingualSubtitler
 
         private void button3_Click(object sender, EventArgs e)
         {
+            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.FirstRussian);
 
             //StartYandexTranslateSubtitles(m_originalSubtitles, m_firstRussianSubtitles,
@@ -611,6 +612,7 @@ namespace BilingualSubtitler
 
         private void button5_Click(object sender, EventArgs e)
         {
+            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.SecondRussian);
 
             //StartYandexTranslateSubtitles(m_originalSubtitles, m_secondRussianSubtitles,
@@ -620,6 +622,7 @@ namespace BilingualSubtitler
 
         private void button7_Click(object sender, EventArgs e)
         {
+            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
 
             //StartYandexTranslateSubtitles(m_originalSubtitles, m_thirdRussianSubtitles,
@@ -629,7 +632,7 @@ namespace BilingualSubtitler
 
         private void OpenFileAndReadSubtitlesFromFile(SubtitlesType subtitlesType)
         {
-            var subtitlesRigger = m_subtitles[subtitlesType];
+            var subtitlesInfo = m_subtitles[subtitlesType];
 
             var openFileDialog = new OpenFileDialog();
             var result = openFileDialog.ShowDialog();
@@ -637,30 +640,41 @@ namespace BilingualSubtitler
             if (result == DialogResult.OK)
             {
                 var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
-                readSubtitlesBackgroundWorker.DoWork += ReadSubtitles;
+                readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
                 readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
                 readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
 
-                subtitlesRigger.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
+                subtitlesInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
 
-                subtitlesRigger.ProgressBar.Value = subtitlesRigger.ProgressBar.Minimum;
-                subtitlesRigger.ProgressLabel.Text = $"0%";
-                subtitlesRigger.ButtonOpen.Enabled = false;
-                if (subtitlesRigger.ButtonTranslate != null)
-                    subtitlesRigger.ButtonTranslate.Enabled = false;
-                subtitlesRigger.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+                subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
+                subtitlesInfo.ProgressLabel.Text = $"0%";
+                subtitlesInfo.ButtonOpen.Enabled = false;
+                if (subtitlesInfo.ButtonTranslate != null)
+                    subtitlesInfo.ButtonTranslate.Enabled = false;
+                subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
 
-                subtitlesRigger.BackgroundWorker.RunWorkerAsync(openFileDialog.FileName);
+                if (subtitlesType == SubtitlesType.Original)
+                {
+                    var originalSubtitlesFileFI = new FileInfo(openFileDialog.FileName);
+                    var extension = originalSubtitlesFileFI.Extension;
+                    var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
+                        originalSubtitlesFileFI.FullName.Length - 
+                       (extension.Length - 1));
+
+                    finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
+                }
+
+                subtitlesInfo.BackgroundWorker.RunWorkerAsync(openFileDialog.FileName);
             }
 
         }
 
-        private void ReadSubtitles(object sender, DoWorkEventArgs eventArgs)
+        private void readSubtitlesBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
         {
             var filePath = (string)eventArgs.Argument;
 
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
             var sourceFileFI = new FileInfo(filePath);
             var extension = sourceFileFI.Extension;
@@ -671,7 +685,7 @@ namespace BilingualSubtitler
             {
                 case ".srt":
                     {
-                        subtitlesRigger.Subtitles = ReadSRT(filePath);
+                        subtitlesInfo.Subtitles = ReadSRT(filePath);
 
                         break;
                     }
@@ -693,12 +707,12 @@ namespace BilingualSubtitler
                                     parentBgW.ReportProgress((int)(100 * position / total));
                                 });
 
-                            subtitlesRigger.Subtitles = new Subtitle[mkvSubtitles.Count];
+                            subtitlesInfo.Subtitles = new Subtitle[mkvSubtitles.Count];
                             for (int i = 0; i < mkvSubtitles.Count; i++)
                             {
                                 var currentMkvSubtitle = mkvSubtitles[i];
 
-                                subtitlesRigger.Subtitles[i] = new Subtitle(currentMkvSubtitle.Start,
+                                subtitlesInfo.Subtitles[i] = new Subtitle(currentMkvSubtitle.Start,
                                     currentMkvSubtitle.End,
                                     currentMkvSubtitle.GetText(mkvTrackInfo));
                             }
@@ -716,24 +730,25 @@ namespace BilingualSubtitler
         private void readSubtitlesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            subtitlesRigger.ProgressBar.Value = eventArgs.ProgressPercentage;
-            subtitlesRigger.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
+            subtitlesInfo.ProgressBar.Value = eventArgs.ProgressPercentage;
+            subtitlesInfo.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
         }
 
         private void readSubtitlesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesRigger = m_subtitles[parentBgW.SubtitlesType];
+            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            subtitlesRigger.ProgressBar.Value = subtitlesRigger.ProgressBar.Maximum;
-            subtitlesRigger.ProgressLabel.Text = $"100%";
-            subtitlesRigger.ButtonOpen.Enabled = true;
-            if (subtitlesRigger.ButtonTranslate != null)
-                subtitlesRigger.ButtonTranslate.Enabled = true;
+            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
+            subtitlesInfo.ProgressLabel.Text = $"100%";
+            subtitlesInfo.ButtonOpen.Enabled = true;
+            if (subtitlesInfo.ButtonTranslate != null)
+                subtitlesInfo.ButtonTranslate.Enabled = true;
 
-            subtitlesRigger.ActionLabel.Text = SUBTITLES_ARE_OPENED;
+            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
+
             // TODO Ошибки?
         }
 
@@ -749,7 +764,7 @@ namespace BilingualSubtitler
             {
                 new Tuple<Subtitle[], Color>(originalSubtitles, Color.White),
             });
-            File.WriteAllText(@"D:\Movies\!BS\xxxx.eng.ass", ass.ToString());
+            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesPathTextBox.Text, ass.ToString());
 
             List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
             {
@@ -763,7 +778,7 @@ namespace BilingualSubtitler
                 listSubsPairs.Add(new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor));
 
             ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
-            File.WriteAllText(@"D:\Movies\!BS\xxxx.ruseng.ass", ass.ToString());
+            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesPathTextBox.Text, ass.ToString());
 
             Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
             Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
@@ -787,7 +802,9 @@ namespace BilingualSubtitler
 
         private void openPrimarySubtitlesButton_Click(object sender, EventArgs e)
         {
+            primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.Original);
+
             //OpenFileAndReadSubtitlesFromFile(ref m_originalSubtitles,
             //    primarySubtitlesProgressBar, primarySubtitlesProgressLabel, primarySubtitlesActionLabel, primarySubtitlesTextBox,
             //    openPrimarySubtitlesButton);
@@ -795,6 +812,7 @@ namespace BilingualSubtitler
 
         private void openFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
+            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.FirstRussian);
             //OpenFileAndReadSubtitlesFromFile(ref m_firstRussianSubtitles,
             //    firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel, firstRussianSubtitlesActionLabel,
@@ -803,6 +821,7 @@ namespace BilingualSubtitler
 
         private void openSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
+            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.SecondRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_secondRussianSubtitles,
@@ -812,6 +831,7 @@ namespace BilingualSubtitler
 
         private void openThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
+            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.ThirdRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
