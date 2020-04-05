@@ -37,8 +37,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "KeySettingForm";
             this.Text = "KeySettingForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeySettingForm_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeySettingForm_KeyPress);
+            this.Load += new System.EventHandler(this.KeySettingForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeySettingForm_KeyUp);
             this.ResumeLayout(false);
 
         }

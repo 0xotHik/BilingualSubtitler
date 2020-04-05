@@ -49,30 +49,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool SecondarySubsInOneLine {
-            get {
-                return ((bool)(this["SecondarySubsInOneLine"]));
-            }
-            set {
-                this["SecondarySubsInOneLine"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RemoveStylesFromSecondarySubs {
-            get {
-                return ((bool)(this["RemoveStylesFromSecondarySubs"]));
-            }
-            set {
-                this["RemoveStylesFromSecondarySubs"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("trnsl.1.1.20150627T135643Z.b79b9a9564333355.08ab2bf3ca2a0e1d1bacd63175b724f0ff966" +
             "559\r\n\r\n")]
         public string YandexTranslatorAPIKey {
@@ -81,30 +57,6 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["YandexTranslatorAPIKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\MKVToolNix\\")]
-        public string PathToMKVToolnixFolder {
-            get {
-                return ((string)(this["PathToMKVToolnixFolder"]));
-            }
-            set {
-                this["PathToMKVToolnixFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("e:\\Movies\\TempSubs\\")]
-        public string PathTempSubs {
-            get {
-                return ((string)(this["PathTempSubs"]));
-            }
-            set {
-                this["PathTempSubs"] = value;
             }
         }
         
@@ -129,6 +81,29 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["ThirdRussianSubtitlesColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>UP|38</string>
+  <string>DOWN|40</string>
+  <string>LEFT|37</string>
+  <string>RIGHT|39</string>
+  <string>CONTROL|17</string>
+  <string>NUMPAD0|96</string>
+  <string>SUBTRACT|109</string>
+  <string>SUBTRACT|107</string>
+  <string>SUBTRACT|13</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Hotkeys {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Hotkeys"]));
+            }
+            set {
+                this["Hotkeys"] = value;
             }
         }
     }

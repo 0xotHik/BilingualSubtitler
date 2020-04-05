@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -106,12 +107,18 @@ namespace BilingualSubtitler
         private Dictionary<VideoState, ComboboxItem> m_videoStatesAndRelatedComboBoxItems;
         private Dictionary<SubtitlesState, ComboboxItem> m_subtitlesStatesAndRelatedComboBoxItems;
 
-        private MainForm m_mainForm;
         private List<Button> m_buttons;
         private Color m_previousButtonColor;
 
-        private delegate void AddListItem();
-        private AddListItem MyDelegate;
+        private delegate void ChangeVideoAndSubtitlesComboBoxes();
+        private ChangeVideoAndSubtitlesComboBoxes m_changeVideoAndSubtitlesComboBoxesDelegate;
+
+        private delegate void ChangeSubtitlesToBilingual();
+        private ChangeSubtitlesToBilingual m_changeSubtitlesToBilingualDelegate;
+
+        private delegate void ChangeSubtitlesToOriginal();
+        private ChangeSubtitlesToOriginal m_changeSubtitlesToOriginalDelegate;
+
 
         const UInt32 WM_KEYDOWN = 0x0100;
         const int VK_F5 = 0x74;
@@ -210,24 +217,72 @@ namespace BilingualSubtitler
 
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
 
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.UP, ActionForHotkeyThatAreNotPauseButton);
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.DOWN, ActionForHotkeyThatAreNotPauseButton);
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.LEFT, ActionForHotkeyThatAreNotPauseButton);
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.RIGHT, ActionForHotkeyThatAreNotPauseButton);
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.CONTROL, ActionForHotkeyThatAreNotPauseButton);
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.NUMPAD0, ActionForHotkeyThatAreNotPauseButton);
+            Properties.Settings.Default.Hotkeys = new StringCollection();
+            Properties.Settings.Default.Hotkeys.Add($"UP|{(int)VirtualKeyCode.UP}");
+            Properties.Settings.Default.Hotkeys.Add($"DOWN|{(int)VirtualKeyCode.DOWN}");
+            Properties.Settings.Default.Hotkeys.Add($"LEFT|{(int)VirtualKeyCode.LEFT}");
+            Properties.Settings.Default.Hotkeys.Add($"RIGHT|{(int)VirtualKeyCode.RIGHT}");
+            Properties.Settings.Default.Hotkeys.Add($"CONTROL|{(int)VirtualKeyCode.CONTROL}");
+            Properties.Settings.Default.Hotkeys.Add($"NUMPAD0|{(int)VirtualKeyCode.NUMPAD0}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.SUBTRACT}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.ADD}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.RETURN}");
+            Properties.Settings.Default.Save();
 
-            m_mainForm = this;
-            MyDelegate = new AddListItem(ChangeVideoAndSubtitlesComboBoxes);
+            Da();
+
+            m_changeVideoAndSubtitlesComboBoxesDelegate = new ChangeVideoAndSubtitlesComboBoxes(ChangeVideoAndSubtitlesComboBoxesHandler);
+            m_changeSubtitlesToBilingualDelegate = new ChangeSubtitlesToBilingual(ChangeSubtitlesToBilingualHandler);
+            m_changeSubtitlesToOriginalDelegate = new ChangeSubtitlesToOriginal(ChangeSubtitlesToOriginalHandler);
+            
+
+            //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
+            //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
+
+        }
+
+        private void Da()
+        {
+            m_keyboardHookManager.Stop();
+            m_keyboardHookManager.UnregisterAll();
+
+            foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
+            {
+                var keyAndCode = hotkeyString.Split('|');
+
+                m_keyboardHookManager.RegisterHotkey(int.Parse(keyAndCode[1]), ActionForHotkeyThatAreNotPauseButton);
+            }
+
+            m_keyboardHookManager.Start();
 
             primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
             firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
             secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
             thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
+        }
 
-            //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
-            //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
+        private void ChangeVideoAndSubtitlesComboBoxesHandler()
+        {
+            videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
+            subtitlesStateComboBox.SelectedValueChanged -= subtitlesStateComboBox_SelectedValueChanged;
 
+            videoStateComboBox.SelectedItem = m_videoStatesAndRelatedComboBoxItems[m_videoState];
+            subtitlesStateComboBox.SelectedItem = m_subtitlesStatesAndRelatedComboBoxItems[m_subtitlesState];
+
+            videoStateComboBox.SelectedValueChanged += videoStateComboBox_SelectedValueChanged;
+            subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
+        }
+
+        private void ChangeSubtitlesToBilingualHandler()
+        {
+            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.VK_S, 0);
+        }
+
+        private void ChangeSubtitlesToOriginalHandler()
+        {
+            m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                        VirtualKeyCode.SHIFT,
+                        VirtualKeyCode.VK_S);
         }
 
         private void ActionForHotkeyThatAreNotPauseButton()
@@ -261,8 +316,8 @@ namespace BilingualSubtitler
 
                     //m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
 
-                    PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.VK_S, 0);
-
+                    m_changeSubtitlesToBilingualDelegate.BeginInvoke(null, null);
+                    
                     m_subtitlesState = SubtitlesState.Bilingual;
                 }
 
@@ -275,9 +330,7 @@ namespace BilingualSubtitler
                 {
                     // Переключаемся на оригинальные
 
-                    m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                        VirtualKeyCode.SHIFT,
-                        VirtualKeyCode.VK_S);
+                    m_changeSubtitlesToOriginalDelegate.BeginInvoke(null, null);
 
                     //Process process = Process.GetProcessesByName("mpc-hc64")[0];
 
@@ -292,22 +345,8 @@ namespace BilingualSubtitler
                 m_videoState = VideoState.Playing;
             }
 
-            m_mainForm.BeginInvoke(MyDelegate);
+            this.BeginInvoke(m_changeVideoAndSubtitlesComboBoxesDelegate);
         }
-
-        private void ChangeVideoAndSubtitlesComboBoxes()
-        {
-            videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
-            subtitlesStateComboBox.SelectedValueChanged -= subtitlesStateComboBox_SelectedValueChanged;
-
-            videoStateComboBox.SelectedItem = m_videoStatesAndRelatedComboBoxItems[m_videoState];
-            subtitlesStateComboBox.SelectedItem = m_subtitlesStatesAndRelatedComboBoxItems[m_subtitlesState];
-
-            videoStateComboBox.SelectedValueChanged += videoStateComboBox_SelectedValueChanged;
-            subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
-        }
-
-
 
         string GetActiveProcessName()
         {
@@ -445,7 +484,7 @@ namespace BilingualSubtitler
             return assSB;
         }
 
-        private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType)
+        private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType, bool byWord = false)
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
 
@@ -464,11 +503,12 @@ namespace BilingualSubtitler
                 subtitlesInfo.ButtonTranslate.Enabled = false;
             subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_TRANSLATING;
 
-            yandexTranslateSubtitlesBackgroundWorker.RunWorkerAsync();
+            yandexTranslateSubtitlesBackgroundWorker.RunWorkerAsync(byWord);
         }
 
         private void YandexTranslateSubtitles(object sender, DoWorkEventArgs eventArgs)
         {
+            var byWord = (bool)eventArgs.Argument;
             var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
 
             var parentBgW = (SubtitlesBackgroundWorker)sender;
@@ -481,7 +521,7 @@ namespace BilingualSubtitler
                 subtitlesInfo.Subtitles[i] = new Subtitle
                 (originalSubtitles[i].Start,
                     originalSubtitles[i].End,
-                    YandexTranslateAStringWithChecking(originalSubtitles[i].Text, m_translator)
+                    YandexTranslateAStringWithChecking(originalSubtitles[i].Text, m_translator, byWord)
                 );
 
                 parentBgW.ReportProgress(100 * i / originalSubtitles.Length);
@@ -512,11 +552,11 @@ namespace BilingualSubtitler
             // TODO Ошибки?
         }
 
-        private string YandexTranslateAStringWithChecking(string originalStr, Translator translator)
+        private string YandexTranslateAStringWithChecking(string originalText, Translator translator, bool byWord = false)
         {
             string output = "";
-            string tempStr = originalStr;
-            int countOfTags = originalStr.Split('<').Length - 1;
+            string tempStr = originalText;
+            int countOfTags = originalText.Split('<').Length - 1;
             int[,] tagsIndexes = new int[2, countOfTags];
             string[] tags = new string[countOfTags];
 
@@ -535,15 +575,27 @@ namespace BilingualSubtitler
 
             try
             {
-                var translation = translator.Translate(originalStr, new LangPair(Lang.En, Lang.Ru), null, false);
-                output += translation.Text + '\n';
+                if (byWord == false)
+                {
+                    var translation = translator.Translate(originalText, new LangPair(Lang.En, Lang.Ru), null, false);
+                    output += translation.Text + '\n';
+                }
+                else
+                {
+                    var words = originalText.Split(' ');
+                    foreach (var word in words)
+                    {
+                        var translation = translator.Translate(word, new LangPair(Lang.En, Lang.Ru), null, false);
+                        output += translation.Text + ' ';
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Строка " + originalStr +
+                MessageBox.Show("Строка " + originalText +
                                 "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
                                 "Код ошибки: " + ex.Message);
-                output += originalStr + '\n';
+                output += originalText + '\n';
             }
 
 
@@ -659,7 +711,7 @@ namespace BilingualSubtitler
                     var extension = originalSubtitlesFileFI.Extension;
                     var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
                         originalSubtitlesFileFI.FullName.Length - 
-                       (extension.Length - 1));
+                       (extension.Length));
 
                     finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
                 }
@@ -854,10 +906,28 @@ namespace BilingualSubtitler
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void settingsButton_Click(object sender, EventArgs e)
         {
-            var keySettingForm = new KeySettingForm();
-            keySettingForm.Show();
+            var keySettingForm = new SettingsForm();
+            keySettingForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = true;
+            StartYandexTranslateSubtitles(SubtitlesType.FirstRussian, true);
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = true;
+            StartYandexTranslateSubtitles(SubtitlesType.SecondRussian, true);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = true;
+            StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian, true);
         }
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker

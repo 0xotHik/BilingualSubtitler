@@ -39,6 +39,9 @@
             this.primarySubtitlesColorButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.firstRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
             this.firstRussianSubtitlesColorButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +51,10 @@
             this.firstRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.firstRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.secondRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.secondRussianSubtitlesColorButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.secondRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
@@ -57,7 +63,10 @@
             this.secondRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.secondRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.thirdRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
             this.thirdRussianSubtitlesColorButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.thirdRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
@@ -70,7 +79,7 @@
             this.bilingualSubtitlesPathTextBox = new System.Windows.Forms.TextBox();
             this.videoStateComboBox = new System.Windows.Forms.ComboBox();
             this.subtitlesStateComboBox = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.finalSubtitlesFilesPathBeginningRichTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -145,7 +154,7 @@
             this.groupBox1.Controls.Add(this.primarySubtitlesProgressBar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(557, 81);
+            this.groupBox1.Size = new System.Drawing.Size(654, 81);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Оригинальные субтитры";
@@ -164,7 +173,7 @@
             // 
             this.primarySubtitlesColorButton.BackColor = System.Drawing.Color.White;
             this.primarySubtitlesColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.primarySubtitlesColorButton.Location = new System.Drawing.Point(481, 19);
+            this.primarySubtitlesColorButton.Location = new System.Drawing.Point(554, 19);
             this.primarySubtitlesColorButton.Name = "primarySubtitlesColorButton";
             this.primarySubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.primarySubtitlesColorButton.TabIndex = 7;
@@ -173,7 +182,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(478, 55);
+            this.label2.Location = new System.Drawing.Point(551, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 6;
@@ -183,6 +192,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.firstRussianSubtitlesActionLabel);
             this.groupBox2.Controls.Add(this.firstRussianSubtitlesColorButton);
             this.groupBox2.Controls.Add(this.label3);
@@ -193,10 +205,41 @@
             this.groupBox2.Controls.Add(this.firstRussianSubtitlesProgressBar);
             this.groupBox2.Location = new System.Drawing.Point(12, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(557, 81);
+            this.groupBox2.Size = new System.Drawing.Size(654, 81);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "1-й поток русских субтитров";
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(480, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 49);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Перевести";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(480, 19);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 49);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Перевести";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(480, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(65, 49);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Перевести";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // firstRussianSubtitlesActionLabel
             // 
@@ -212,7 +255,7 @@
             // 
             this.firstRussianSubtitlesColorButton.BackColor = System.Drawing.Color.Silver;
             this.firstRussianSubtitlesColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.firstRussianSubtitlesColorButton.Location = new System.Drawing.Point(481, 19);
+            this.firstRussianSubtitlesColorButton.Location = new System.Drawing.Point(554, 19);
             this.firstRussianSubtitlesColorButton.Name = "firstRussianSubtitlesColorButton";
             this.firstRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.firstRussianSubtitlesColorButton.TabIndex = 8;
@@ -221,7 +264,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(478, 55);
+            this.label3.Location = new System.Drawing.Point(551, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 6;
@@ -277,7 +320,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.secondRussianSubtitlesActionLabel);
+            this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.secondRussianSubtitlesColorButton);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.secondRussianSubtitlesTextBox);
@@ -287,10 +333,31 @@
             this.groupBox3.Controls.Add(this.secondRussianSubtitlesProgressBar);
             this.groupBox3.Location = new System.Drawing.Point(12, 186);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(557, 81);
+            this.groupBox3.Size = new System.Drawing.Size(654, 81);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "2-й поток русских субтитров";
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(480, 19);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(65, 49);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Перевести";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // button6
+            // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(480, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(65, 49);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Перевести";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // secondRussianSubtitlesActionLabel
             // 
@@ -302,11 +369,21 @@
             this.secondRussianSubtitlesActionLabel.Text = "1";
             this.secondRussianSubtitlesActionLabel.Visible = false;
             // 
+            // button7
+            // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(480, 19);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(65, 49);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Перевести";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // secondRussianSubtitlesColorButton
             // 
             this.secondRussianSubtitlesColorButton.BackColor = System.Drawing.Color.Cyan;
             this.secondRussianSubtitlesColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.secondRussianSubtitlesColorButton.Location = new System.Drawing.Point(481, 19);
+            this.secondRussianSubtitlesColorButton.Location = new System.Drawing.Point(554, 19);
             this.secondRussianSubtitlesColorButton.Name = "secondRussianSubtitlesColorButton";
             this.secondRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.secondRussianSubtitlesColorButton.TabIndex = 9;
@@ -315,7 +392,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(478, 55);
+            this.label5.Location = new System.Drawing.Point(551, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 6;
@@ -371,7 +448,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button8);
+            this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.thirdRussianSubtitlesActionLabel);
+            this.groupBox4.Controls.Add(this.button10);
             this.groupBox4.Controls.Add(this.thirdRussianSubtitlesColorButton);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.thirdRussianSubtitlesTextBox);
@@ -381,10 +461,31 @@
             this.groupBox4.Controls.Add(this.thirdRussianSubtitlesProgressBar);
             this.groupBox4.Location = new System.Drawing.Point(12, 273);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(557, 81);
+            this.groupBox4.Size = new System.Drawing.Size(654, 81);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "3-й поток русских субтитров";
+            // 
+            // button8
+            // 
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(480, 19);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(65, 49);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "Перевести";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(480, 19);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(65, 49);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "Перевести";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // thirdRussianSubtitlesActionLabel
             // 
@@ -396,11 +497,21 @@
             this.thirdRussianSubtitlesActionLabel.Text = "1";
             this.thirdRussianSubtitlesActionLabel.Visible = false;
             // 
+            // button10
+            // 
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(480, 19);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(65, 49);
+            this.button10.TabIndex = 18;
+            this.button10.Text = "Перевести";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
             // thirdRussianSubtitlesColorButton
             // 
             this.thirdRussianSubtitlesColorButton.BackColor = System.Drawing.Color.Gold;
             this.thirdRussianSubtitlesColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.thirdRussianSubtitlesColorButton.Location = new System.Drawing.Point(481, 19);
+            this.thirdRussianSubtitlesColorButton.Location = new System.Drawing.Point(554, 19);
             this.thirdRussianSubtitlesColorButton.Name = "thirdRussianSubtitlesColorButton";
             this.thirdRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.thirdRussianSubtitlesColorButton.TabIndex = 8;
@@ -409,7 +520,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(478, 55);
+            this.label7.Location = new System.Drawing.Point(551, 55);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 6;
@@ -479,7 +590,7 @@
             this.originalSubtitlesPathTextBox.Name = "originalSubtitlesPathTextBox";
             this.originalSubtitlesPathTextBox.Size = new System.Drawing.Size(129, 20);
             this.originalSubtitlesPathTextBox.TabIndex = 7;
-            this.originalSubtitlesPathTextBox.Text = "eng.ass";
+            this.originalSubtitlesPathTextBox.Text = ".eng.ass";
             // 
             // bilingualSubtitlesPathTextBox
             // 
@@ -487,7 +598,7 @@
             this.bilingualSubtitlesPathTextBox.Name = "bilingualSubtitlesPathTextBox";
             this.bilingualSubtitlesPathTextBox.Size = new System.Drawing.Size(130, 20);
             this.bilingualSubtitlesPathTextBox.TabIndex = 9;
-            this.bilingualSubtitlesPathTextBox.Text = "ruseng.ass";
+            this.bilingualSubtitlesPathTextBox.Text = ".ruseng.ass";
             // 
             // videoStateComboBox
             // 
@@ -507,16 +618,15 @@
             this.subtitlesStateComboBox.TabIndex = 12;
             this.subtitlesStateComboBox.SelectedValueChanged += new System.EventHandler(this.subtitlesStateComboBox_SelectedValueChanged);
             // 
-            // button1
+            // settingsButton
             // 
-            this.button1.Location = new System.Drawing.Point(422, 509);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 46);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.settingsButton.Location = new System.Drawing.Point(422, 509);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(244, 46);
+            this.settingsButton.TabIndex = 13;
+            this.settingsButton.Text = "Настройки";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // label1
             // 
@@ -589,14 +699,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(621, 586);
+            this.ClientSize = new System.Drawing.Size(923, 586);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.finalSubtitlesFilesPathBeginningRichTextBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.bilingualSubtitlesPathTextBox);
             this.Controls.Add(this.originalSubtitlesPathTextBox);
             this.Controls.Add(this.createOriginalAndBilingualSubtitlesFilesButton);
@@ -667,7 +777,7 @@
         private System.Windows.Forms.Label thirdRussianSubtitlesActionLabel;
         private System.Windows.Forms.ComboBox videoStateComboBox;
         private System.Windows.Forms.ComboBox subtitlesStateComboBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox finalSubtitlesFilesPathBeginningRichTextBox;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -675,6 +785,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 

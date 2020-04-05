@@ -10,42 +10,43 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
-    public partial class YandexTranslatorAPIKeyForm : Form
+    public partial class SettingsForm : Form
     {
-        private List<Button> buttons; 
-        private DialogResult dr;
-        private Color previousButtonColor;
-        private bool flagKeyIsInvalid = false;
-        public YandexTranslatorAPIKeyForm()
+        private List<Button> m_buttons; 
+        private Color m_previousButtonColor;
+        private bool m_flagKeyIsInvalid = false;
+
+        public SettingsForm()
         {
             InitializeComponent();
+
+            m_flagKeyIsInvalid = true;
+
+            foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
+            {
+                AddKeyToHotkeysDataGridView(hotkeyString);
+            }
         }
 
-        public YandexTranslatorAPIKeyForm(bool keyIsInvalid)
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
-            flagKeyIsInvalid = true;
-            InitializeComponent();
-        }
+            m_buttons = new List<Button>();
+            m_buttons.Add(buttonOk);
+            m_buttons.Add(buttonCancel);
 
-        private void YandexTranslatorAPIKeyForm_Load(object sender, EventArgs e)
-        {
-            buttons = new List<Button>();
-            buttons.Add(buttonOk);
-            buttons.Add(buttonCancel);
-
-            foreach (var btn in buttons)
+            foreach (var btn in m_buttons)
             {
                 btn.FlatAppearance.BorderSize = 0;
                 btn.FlatStyle = FlatStyle.Flat;
             }
 
-            if (flagKeyIsInvalid)
+            if (m_flagKeyIsInvalid)
                 richTextBoxLabelYouNeedToGetAPIKey.Text = "Введенный ключ неверен. Для использования данного приложения необходимо ввести валидный ключ к API сервиса " + '"' + "Яндекс.Переводчик" + '"' + ".";
 
             richTextBoxForYandexApiKeyInSeparateForm.Text = Properties.Settings.Default.YandexTranslatorAPIKey;
 
             //Синий фон у кнопок при наведении курсора
-            foreach (var btn in buttons)
+            foreach (var btn in m_buttons)
             {
                 btn.MouseEnter += new EventHandler(btn_MouseEnter);
                 btn.MouseLeave += new EventHandler(btn_MouseLeave);
@@ -55,16 +56,30 @@ namespace BilingualSubtitler
 
         }
 
+        private void AddKeyToHotkeysDataGridView(string keyAndCodeString)
+        {
+            var keyAndCode = keyAndCodeString.Split('|');
+
+            var rowIndex = hotkeysDataGridView.Rows.Add(keyAndCode[0]);
+            hotkeysDataGridView.Rows[rowIndex].Tag = keyAndCode[1];
+        }
+
+        private void AddKeyToHotkeysDataGridView(string key, int code)
+        {
+            var rowIndex = hotkeysDataGridView.Rows.Add(key);
+            hotkeysDataGridView.Rows[rowIndex].Tag = code.ToString();
+        }
+
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            previousButtonColor = ((Button)sender).BackColor;
+            m_previousButtonColor = ((Button)sender).BackColor;
             ((Button)sender).BackColor = SystemColors.GradientInactiveCaption;
 
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            ((Button)sender).BackColor = previousButtonColor;
+            ((Button)sender).BackColor = m_previousButtonColor;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -115,6 +130,46 @@ namespace BilingualSubtitler
             System.Diagnostics.Process.Start("https://tech.yandex.ru/keys/");
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var keySettingForm = new KeySettingForm();
+            var dialogResult = keySettingForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
 
+            }
+        }
     }
+
+    //public partial class SettingsForm : Form
+    //{
+    //    [DllImport("user32.dll")]
+    //    static extern bool SetKeyboardState(byte[] lpKeyState);
+    //    [DllImport("user32.dll")]
+    //    static extern bool GetKeyboardState(byte[] lpKeyState);
+
+    //    public SettingsForm()
+    //    {
+    //        InitializeComponent();
+    //    }
+
+    //    private void KeySettingForm_KeyPress(object sender, KeyPressEventArgs e)
+    //    {
+    //        var shift = new byte[256];
+    //        GetKeyboardState(shift);
+
+    //        File.WriteAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
+    //                           "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shift.dat", shift);
+
+    //    }
+
+    //    private void KeySettingForm_KeyDown(object sender, KeyEventArgs e)
+    //    {
+    //        var shift = new byte[256];
+    //        GetKeyboardState(shift);
+
+    //        File.WriteAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
+    //                           "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat", shift);
+    //    }
+    //}
 }
