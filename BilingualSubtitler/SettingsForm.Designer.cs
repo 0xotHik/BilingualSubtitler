@@ -38,13 +38,17 @@
             this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.hotkeysDataGridView = new System.Windows.Forms.DataGridView();
+            this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBoxLabelYouNeedToGetAPIKey
@@ -145,8 +149,15 @@
             this.keyColumn});
             this.hotkeysDataGridView.Location = new System.Drawing.Point(16, 30);
             this.hotkeysDataGridView.Name = "hotkeysDataGridView";
-            this.hotkeysDataGridView.Size = new System.Drawing.Size(244, 357);
+            this.hotkeysDataGridView.Size = new System.Drawing.Size(199, 357);
             this.hotkeysDataGridView.TabIndex = 45;
+            // 
+            // keyColumn
+            // 
+            this.keyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.keyColumn.HeaderText = "Клавиши";
+            this.keyColumn.Name = "keyColumn";
+            this.keyColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -171,6 +182,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(592, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(479, 403);
@@ -178,11 +192,32 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
             // 
-            // keyColumn
+            // groupBox4
             // 
-            this.keyColumn.HeaderText = "Клавиши";
-            this.keyColumn.Name = "keyColumn";
-            this.keyColumn.ReadOnly = true;
+            this.groupBox4.Location = new System.Drawing.Point(18, 71);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(98, 187);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Оригинальные\nсубтитры";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Шрифт:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(249, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Русские:";
             // 
             // SettingsForm
             // 
@@ -204,6 +239,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -223,5 +260,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyColumn;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

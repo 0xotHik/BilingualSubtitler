@@ -218,18 +218,18 @@ namespace BilingualSubtitler
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
 
             Properties.Settings.Default.Hotkeys = new StringCollection();
-            Properties.Settings.Default.Hotkeys.Add($"UP|{(int)VirtualKeyCode.UP}");
-            Properties.Settings.Default.Hotkeys.Add($"DOWN|{(int)VirtualKeyCode.DOWN}");
-            Properties.Settings.Default.Hotkeys.Add($"LEFT|{(int)VirtualKeyCode.LEFT}");
-            Properties.Settings.Default.Hotkeys.Add($"RIGHT|{(int)VirtualKeyCode.RIGHT}");
-            Properties.Settings.Default.Hotkeys.Add($"CONTROL|{(int)VirtualKeyCode.CONTROL}");
-            Properties.Settings.Default.Hotkeys.Add($"NUMPAD0|{(int)VirtualKeyCode.NUMPAD0}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.SUBTRACT}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.ADD}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT|{(int)VirtualKeyCode.RETURN}");
+            Properties.Settings.Default.Hotkeys.Add($"UP@{(int)VirtualKeyCode.UP}");
+            Properties.Settings.Default.Hotkeys.Add($"DOWN@{(int)VirtualKeyCode.DOWN}");
+            Properties.Settings.Default.Hotkeys.Add($"LEFT@{(int)VirtualKeyCode.LEFT}");
+            Properties.Settings.Default.Hotkeys.Add($"RIGHT@{(int)VirtualKeyCode.RIGHT}");
+            Properties.Settings.Default.Hotkeys.Add($"CONTROL@{(int)VirtualKeyCode.CONTROL}");
+            Properties.Settings.Default.Hotkeys.Add($"NUMPAD0@{(int)VirtualKeyCode.NUMPAD0}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.SUBTRACT}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.ADD}");
+            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.RETURN}");
             Properties.Settings.Default.Save();
 
-            Da();
+            SetProgramSettings();
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = new ChangeVideoAndSubtitlesComboBoxes(ChangeVideoAndSubtitlesComboBoxesHandler);
             m_changeSubtitlesToBilingualDelegate = new ChangeSubtitlesToBilingual(ChangeSubtitlesToBilingualHandler);
@@ -241,16 +241,16 @@ namespace BilingualSubtitler
 
         }
 
-        private void Da()
+        private void SetProgramSettings()
         {
             m_keyboardHookManager.Stop();
             m_keyboardHookManager.UnregisterAll();
 
             foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
             {
-                var keyAndCode = hotkeyString.Split('|');
+                var hotkey = new Hotkey(hotkeyString);
 
-                m_keyboardHookManager.RegisterHotkey(int.Parse(keyAndCode[1]), ActionForHotkeyThatAreNotPauseButton);
+                m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatAreNotPauseButton);
             }
 
             m_keyboardHookManager.Start();

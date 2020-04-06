@@ -56,12 +56,12 @@ namespace BilingualSubtitler
 
         }
 
-        private void AddKeyToHotkeysDataGridView(string keyAndCodeString)
+        private void AddKeyToHotkeysDataGridView(string hotkeyString)
         {
-            var keyAndCode = keyAndCodeString.Split('|');
+            var hotkey = new Hotkey(hotkeyString);
 
-            var rowIndex = hotkeysDataGridView.Rows.Add(keyAndCode[0]);
-            hotkeysDataGridView.Rows[rowIndex].Tag = keyAndCode[1];
+            var rowIndex = hotkeysDataGridView.Rows.Add(hotkey.KeyData);
+            hotkeysDataGridView.Rows[rowIndex].Tag = hotkey.KeyCode;
         }
 
         private void AddKeyToHotkeysDataGridView(string key, int code)

@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FlashWindow.cs" />
+    <Compile Include="Hotkey.cs" />
     <Compile Include="KeySettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
