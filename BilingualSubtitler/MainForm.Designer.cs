@@ -75,8 +75,8 @@
             this.thirdRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.thirdRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.createOriginalAndBilingualSubtitlesFilesButton = new System.Windows.Forms.Button();
-            this.originalSubtitlesPathTextBox = new System.Windows.Forms.TextBox();
-            this.bilingualSubtitlesPathTextBox = new System.Windows.Forms.TextBox();
+            this.originalSubtitlesFileNameEnding = new System.Windows.Forms.TextBox();
+            this.bilingualSubtitlesFileNameEnding = new System.Windows.Forms.TextBox();
             this.videoStateComboBox = new System.Windows.Forms.ComboBox();
             this.subtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.settingsButton = new System.Windows.Forms.Button();
@@ -85,8 +85,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.originalSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
+            this.bilingualSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -584,21 +584,23 @@
             this.createOriginalAndBilingualSubtitlesFilesButton.UseVisualStyleBackColor = true;
             this.createOriginalAndBilingualSubtitlesFilesButton.Click += new System.EventHandler(this.createOriginalAndBilingualSubtitlesFilesButton_Click);
             // 
-            // originalSubtitlesPathTextBox
+            // originalSubtitlesFileNameEnding
             // 
-            this.originalSubtitlesPathTextBox.Location = new System.Drawing.Point(313, 384);
-            this.originalSubtitlesPathTextBox.Name = "originalSubtitlesPathTextBox";
-            this.originalSubtitlesPathTextBox.Size = new System.Drawing.Size(129, 20);
-            this.originalSubtitlesPathTextBox.TabIndex = 7;
-            this.originalSubtitlesPathTextBox.Text = ".eng.ass";
+            this.originalSubtitlesFileNameEnding.Location = new System.Drawing.Point(313, 384);
+            this.originalSubtitlesFileNameEnding.Name = "originalSubtitlesFileNameEnding";
+            this.originalSubtitlesFileNameEnding.ReadOnly = true;
+            this.originalSubtitlesFileNameEnding.Size = new System.Drawing.Size(129, 20);
+            this.originalSubtitlesFileNameEnding.TabIndex = 7;
+            this.originalSubtitlesFileNameEnding.Text = ".eng.ass";
             // 
-            // bilingualSubtitlesPathTextBox
+            // bilingualSubtitlesFileNameEnding
             // 
-            this.bilingualSubtitlesPathTextBox.Location = new System.Drawing.Point(312, 439);
-            this.bilingualSubtitlesPathTextBox.Name = "bilingualSubtitlesPathTextBox";
-            this.bilingualSubtitlesPathTextBox.Size = new System.Drawing.Size(130, 20);
-            this.bilingualSubtitlesPathTextBox.TabIndex = 9;
-            this.bilingualSubtitlesPathTextBox.Text = ".ruseng.ass";
+            this.bilingualSubtitlesFileNameEnding.Location = new System.Drawing.Point(312, 439);
+            this.bilingualSubtitlesFileNameEnding.Name = "bilingualSubtitlesFileNameEnding";
+            this.bilingualSubtitlesFileNameEnding.ReadOnly = true;
+            this.bilingualSubtitlesFileNameEnding.Size = new System.Drawing.Size(130, 20);
+            this.bilingualSubtitlesFileNameEnding.TabIndex = 9;
+            this.bilingualSubtitlesFileNameEnding.Text = ".ruseng.ass";
             // 
             // videoStateComboBox
             // 
@@ -676,23 +678,23 @@
             this.label6.Text = "+";
             this.label6.Visible = false;
             // 
-            // label8
+            // originalSubtitlesFileNameEndingLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(309, 363);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "оригинальные субтитры:";
+            this.originalSubtitlesFileNameEndingLabel.AutoSize = true;
+            this.originalSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(309, 363);
+            this.originalSubtitlesFileNameEndingLabel.Name = "originalSubtitlesFileNameEndingLabel";
+            this.originalSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(133, 13);
+            this.originalSubtitlesFileNameEndingLabel.TabIndex = 18;
+            this.originalSubtitlesFileNameEndingLabel.Text = "оригинальные субтитры:";
             // 
-            // label9
+            // bilingualSubtitlesFileNameEndingLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(310, 414);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 13);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "двуязычные субтитры:";
+            this.bilingualSubtitlesFileNameEndingLabel.AutoSize = true;
+            this.bilingualSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(310, 414);
+            this.bilingualSubtitlesFileNameEndingLabel.Name = "bilingualSubtitlesFileNameEndingLabel";
+            this.bilingualSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(122, 13);
+            this.bilingualSubtitlesFileNameEndingLabel.TabIndex = 19;
+            this.bilingualSubtitlesFileNameEndingLabel.Text = "двуязычные субтитры:";
             // 
             // MainForm
             // 
@@ -700,15 +702,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(923, 586);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.bilingualSubtitlesFileNameEndingLabel);
+            this.Controls.Add(this.originalSubtitlesFileNameEndingLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.finalSubtitlesFilesPathBeginningRichTextBox);
             this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.bilingualSubtitlesPathTextBox);
-            this.Controls.Add(this.originalSubtitlesPathTextBox);
+            this.Controls.Add(this.bilingualSubtitlesFileNameEnding);
+            this.Controls.Add(this.originalSubtitlesFileNameEnding);
             this.Controls.Add(this.createOriginalAndBilingualSubtitlesFilesButton);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -765,8 +767,8 @@
         private System.Windows.Forms.Label thirdRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar thirdRussianSubtitlesProgressBar;
         private System.Windows.Forms.Button createOriginalAndBilingualSubtitlesFilesButton;
-        private System.Windows.Forms.TextBox originalSubtitlesPathTextBox;
-        private System.Windows.Forms.TextBox bilingualSubtitlesPathTextBox;
+        private System.Windows.Forms.TextBox originalSubtitlesFileNameEnding;
+        private System.Windows.Forms.TextBox bilingualSubtitlesFileNameEnding;
         private System.Windows.Forms.Button primarySubtitlesColorButton;
         private System.Windows.Forms.Button firstRussianSubtitlesColorButton;
         private System.Windows.Forms.Button secondRussianSubtitlesColorButton;
@@ -783,8 +785,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
+        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

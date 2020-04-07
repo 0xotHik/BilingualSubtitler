@@ -25,6 +25,9 @@ namespace BilingualSubtitler
         private void KeySettingForm_KeyUp(object sender, KeyEventArgs e)
         {
             var gg = 0;
+
+            //TODO
+            // На данный момент поддерживается только одна клавиша-модификатор. Если у вас есть потребность в нексокльких — пожалуйста, напишите автору программы. 
         }
     }
 }

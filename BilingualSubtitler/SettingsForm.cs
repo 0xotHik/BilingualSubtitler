@@ -26,6 +26,10 @@ namespace BilingualSubtitler
             {
                 AddKeyToHotkeysDataGridView(hotkeyString);
             }
+
+            videoPlayerPauseButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerPauseButtonString).KeyData;
+            videoPlayerChangeToNextSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).KeyData;
+            videoPlayerChangeToPreviousSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).KeyData;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)

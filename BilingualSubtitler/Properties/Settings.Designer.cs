@@ -106,5 +106,77 @@ namespace BilingualSubtitler.Properties {
                 this["Hotkeys"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".eng.ass")]
+        public string OriginalSubtitlesFileNameEnding {
+            get {
+                return ((string)(this["OriginalSubtitlesFileNameEnding"]));
+            }
+            set {
+                this["OriginalSubtitlesFileNameEnding"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".ruseng.ass")]
+        public string BilingualSubtitlesFileNameEnding {
+            get {
+                return ((string)(this["BilingualSubtitlesFileNameEnding"]));
+            }
+            set {
+                this["BilingualSubtitlesFileNameEnding"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CreateOriginalSubtitlesFile {
+            get {
+                return ((bool)(this["CreateOriginalSubtitlesFile"]));
+            }
+            set {
+                this["CreateOriginalSubtitlesFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VideoPlayerChangeToBilingualSubtitlesHotkeyString {
+            get {
+                return ((string)(this["VideoPlayerChangeToBilingualSubtitlesHotkeyString"]));
+            }
+            set {
+                this["VideoPlayerChangeToBilingualSubtitlesHotkeyString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VideoPlayerChangeToOriginalSubtitlesHotkeyString {
+            get {
+                return ((string)(this["VideoPlayerChangeToOriginalSubtitlesHotkeyString"]));
+            }
+            set {
+                this["VideoPlayerChangeToOriginalSubtitlesHotkeyString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VideoPlayerPauseButtonString {
+            get {
+                return ((string)(this["VideoPlayerPauseButtonString"]));
+            }
+            set {
+                this["VideoPlayerPauseButtonString"] = value;
+            }
+        }
     }
 }

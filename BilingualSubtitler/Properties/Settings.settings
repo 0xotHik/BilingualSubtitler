@@ -33,5 +33,23 @@
   &lt;string&gt;SUBTRACT|13&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="OriginalSubtitlesFileNameEnding" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.eng.ass</Value>
+    </Setting>
+    <Setting Name="BilingualSubtitlesFileNameEnding" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.ruseng.ass</Value>
+    </Setting>
+    <Setting Name="CreateOriginalSubtitlesFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="VideoPlayerChangeToBilingualSubtitlesHotkeyString" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VideoPlayerChangeToOriginalSubtitlesHotkeyString" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VideoPlayerPauseButtonString" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

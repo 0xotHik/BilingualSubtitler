@@ -15,6 +15,8 @@ using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
 using NonInvasiveKeyboardHookLibrary;
 using YandexLinguistics.NET;
 using MessageBox = System.Windows.Forms.MessageBox;
+using Settings = BilingualSubtitler.Properties.Settings;
+using VirtualKeyCode = WindowsInput.Native.VirtualKeyCode;
 
 namespace BilingualSubtitler
 {
@@ -92,6 +94,15 @@ namespace BilingualSubtitler
 
         private KeyboardHookManager m_keyboardHookManager;
         private InputSimulator m_inputSimulator;
+
+        private int m_changeSubtitlesToBilingualHotkeyCode;
+        private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode;
+        private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyVirtualKeyCode;
+        private int m_changeSubtitlesToOriginalHotkeyCode;
+        private VirtualKeyCode? m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode;
+        private VirtualKeyCode? m_changeSubtitlesToOriginalHotkeyVirtualKeyCode;
+
+        private int m_videoplayerPauseHotkey;
 
         private VideoState m_videoState;
         private SubtitlesState m_subtitlesState;
@@ -217,24 +228,27 @@ namespace BilingualSubtitler
 
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
 
-            Properties.Settings.Default.Hotkeys = new StringCollection();
-            Properties.Settings.Default.Hotkeys.Add($"UP@{(int)VirtualKeyCode.UP}");
-            Properties.Settings.Default.Hotkeys.Add($"DOWN@{(int)VirtualKeyCode.DOWN}");
-            Properties.Settings.Default.Hotkeys.Add($"LEFT@{(int)VirtualKeyCode.LEFT}");
-            Properties.Settings.Default.Hotkeys.Add($"RIGHT@{(int)VirtualKeyCode.RIGHT}");
-            Properties.Settings.Default.Hotkeys.Add($"CONTROL@{(int)VirtualKeyCode.CONTROL}");
-            Properties.Settings.Default.Hotkeys.Add($"NUMPAD0@{(int)VirtualKeyCode.NUMPAD0}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.SUBTRACT}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.ADD}");
-            Properties.Settings.Default.Hotkeys.Add($"SUBTRACT@{(int)VirtualKeyCode.RETURN}");
+            Properties.Settings.Default.Hotkeys = new StringCollection
+            {
+                $"UP@{(int) VirtualKeyCode.UP}",
+                $"DOWN@{(int) VirtualKeyCode.DOWN}",
+                $"LEFT@{(int) VirtualKeyCode.LEFT}",
+                $"RIGHT@{(int) VirtualKeyCode.RIGHT}",
+                $"CONTROL@{(int) VirtualKeyCode.CONTROL}",
+                $"NUMPAD0@{(int) VirtualKeyCode.NUMPAD0}",
+                $"SUBTRACT@{(int) VirtualKeyCode.SUBTRACT}",
+                $"SUBTRACT@{(int) VirtualKeyCode.ADD}",
+                $"SUBTRACT@{(int) VirtualKeyCode.RETURN}"
+            };
+            Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S).ToString();
+            Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S, VirtualKeyCode.SHIFT).ToString();
+            Settings.Default.VideoPlayerPauseButtonString = new Hotkey(VirtualKeyCode.SPACE).ToString();
+
             Properties.Settings.Default.Save();
 
             SetProgramSettings();
 
-            m_changeVideoAndSubtitlesComboBoxesDelegate = new ChangeVideoAndSubtitlesComboBoxes(ChangeVideoAndSubtitlesComboBoxesHandler);
-            m_changeSubtitlesToBilingualDelegate = new ChangeSubtitlesToBilingual(ChangeSubtitlesToBilingualHandler);
-            m_changeSubtitlesToOriginalDelegate = new ChangeSubtitlesToOriginal(ChangeSubtitlesToOriginalHandler);
-            
+            m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
             //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
             //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
@@ -243,22 +257,79 @@ namespace BilingualSubtitler
 
         private void SetProgramSettings()
         {
+            // Хоткеи программы
             m_keyboardHookManager.Stop();
             m_keyboardHookManager.UnregisterAll();
-
             foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
             {
                 var hotkey = new Hotkey(hotkeyString);
-
                 m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatAreNotPauseButton);
             }
-
             m_keyboardHookManager.Start();
+
+            // Хоткеи видеоплеера
+            var videoPlayerChangeToBilingualSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString);
+            var videoPlayerChangeToOriginalSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString);
+            //
+            switch (videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey)
+            {
+                case null:
+                    {
+                        m_changeSubtitlesToBilingualHotkeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
+                        m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByPostMessage;
+
+                        m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = null;
+                        m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = null;
+                        break;
+                    }
+                default:
+                    {
+                        m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
+                        m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey;
+
+                        m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByInputSimulator;
+                        m_changeSubtitlesToBilingualHotkeyCode = -1;
+                        break;
+                    }
+            }
+
+            switch (videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey)
+            {
+                case null:
+                {
+                    m_changeSubtitlesToOriginalHotkeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
+                    m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByPostMessage;
+
+                    m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = null;
+                    m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = null;
+                    break;
+                }
+                default:
+                {
+                    m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
+                    m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey;
+
+                    m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByInputSimulator;
+                    m_changeSubtitlesToOriginalHotkeyCode = -1;
+                    break;
+                }
+            }
+            //
+            m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
+
 
             primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
             firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
             secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
             thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
+
+            originalSubtitlesFileNameEnding.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+            bilingualSubtitlesFileNameEnding.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
+
+            originalSubtitlesFileNameEnding.Visible =
+                originalSubtitlesFileNameEndingLabel.Visible =
+                    Settings.Default.CreateOriginalSubtitlesFile;
+
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -273,16 +344,28 @@ namespace BilingualSubtitler
             subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
         }
 
-        private void ChangeSubtitlesToBilingualHandler()
+        private void ChangeSubtitlesToBilingualByPostMessage()
         {
-            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.VK_S, 0);
+            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToBilingualHotkeyCode, 0);
         }
 
-        private void ChangeSubtitlesToOriginalHandler()
+        private void ChangeSubtitlesToBilingualByInputSimulator()
         {
             m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                        VirtualKeyCode.SHIFT,
-                        VirtualKeyCode.VK_S);
+                m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode.Value,
+                m_changeSubtitlesToBilingualHotkeyVirtualKeyCode.Value);
+        }
+
+        private void ChangeSubtitlesToOriginalByPostMessage()
+        {
+            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToOriginalHotkeyCode, 0);
+        }
+
+        private void ChangeSubtitlesToOriginalByInputSimulator()
+        {
+            m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode.Value,
+                m_changeSubtitlesToOriginalHotkeyVirtualKeyCode.Value);
         }
 
         private void ActionForHotkeyThatAreNotPauseButton()
@@ -293,7 +376,7 @@ namespace BilingualSubtitler
             //m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
 
             m_videoPlayerProcess = Process.GetProcessesByName("mpc-hc64")[0];
-            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.SPACE, 0);
+            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
             SwitchSubtitles();
         }
 
@@ -314,10 +397,8 @@ namespace BilingualSubtitler
                 {
                     // Переключаемся на двуязычные
 
-                    //m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.VK_S);
-
                     m_changeSubtitlesToBilingualDelegate.BeginInvoke(null, null);
-                    
+
                     m_subtitlesState = SubtitlesState.Bilingual;
                 }
 
@@ -332,12 +413,6 @@ namespace BilingualSubtitler
 
                     m_changeSubtitlesToOriginalDelegate.BeginInvoke(null, null);
 
-                    //Process process = Process.GetProcessesByName("mpc-hc64")[0];
-
-                    ////PostMessage(process.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.VK_D, 0);
-                    //SetKeyboardState(m_shiftState); // set stored keyboard state
-                    //PostMessage(process.MainWindowHandle, WM_KEYDOWN, (int)VirtualKeyCode.VK_S, 0);
-
                     m_subtitlesState = SubtitlesState.Original;
                 }
 
@@ -345,7 +420,7 @@ namespace BilingualSubtitler
                 m_videoState = VideoState.Playing;
             }
 
-            this.BeginInvoke(m_changeVideoAndSubtitlesComboBoxesDelegate);
+            BeginInvoke(m_changeVideoAndSubtitlesComboBoxesDelegate);
         }
 
         string GetActiveProcessName()
@@ -431,7 +506,7 @@ namespace BilingualSubtitler
             {
                 var color = subtitlesColorPairs[i].Item2;
                 var transparency = i == 0 ? "00" : "64";
-                var marginV = i == 3 ? 0 
+                var marginV = i == 3 ? 0
                     : 45 + i * (2 * 20 + 5);
 
                 assSB.AppendLine(
@@ -710,7 +785,7 @@ namespace BilingualSubtitler
                     var originalSubtitlesFileFI = new FileInfo(openFileDialog.FileName);
                     var extension = originalSubtitlesFileFI.Extension;
                     var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
-                        originalSubtitlesFileFI.FullName.Length - 
+                        originalSubtitlesFileFI.FullName.Length -
                        (extension.Length));
 
                     finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
@@ -816,21 +891,21 @@ namespace BilingualSubtitler
             {
                 new Tuple<Subtitle[], Color>(originalSubtitles, Color.White),
             });
-            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesPathTextBox.Text, ass.ToString());
+            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEnding.Text, ass.ToString());
 
             List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
             {
                 new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor)
             };
             // if (firstRussianSubtitles != null)
-                listSubsPairs.Add(new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor));
+            listSubsPairs.Add(new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor));
             // if (secondRussianSubtitles != null)
-                listSubsPairs.Add(new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor));
+            listSubsPairs.Add(new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor));
             // if (thirdRussianSubtitles != null)
-                listSubsPairs.Add(new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor));
+            listSubsPairs.Add(new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor));
 
             ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
-            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesPathTextBox.Text, ass.ToString());
+            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEnding.Text, ass.ToString());
 
             Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
             Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
