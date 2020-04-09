@@ -576,12 +576,14 @@
             // 
             // createOriginalAndBilingualSubtitlesFilesButton
             // 
+            this.createOriginalAndBilingualSubtitlesFilesButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.createOriginalAndBilingualSubtitlesFilesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createOriginalAndBilingualSubtitlesFilesButton.Location = new System.Drawing.Point(462, 363);
             this.createOriginalAndBilingualSubtitlesFilesButton.Name = "createOriginalAndBilingualSubtitlesFilesButton";
             this.createOriginalAndBilingualSubtitlesFilesButton.Size = new System.Drawing.Size(107, 97);
             this.createOriginalAndBilingualSubtitlesFilesButton.TabIndex = 8;
             this.createOriginalAndBilingualSubtitlesFilesButton.Text = "Создать\r\nсубтитры";
-            this.createOriginalAndBilingualSubtitlesFilesButton.UseVisualStyleBackColor = true;
+            this.createOriginalAndBilingualSubtitlesFilesButton.UseVisualStyleBackColor = false;
             this.createOriginalAndBilingualSubtitlesFilesButton.Click += new System.EventHandler(this.createOriginalAndBilingualSubtitlesFilesButton_Click);
             // 
             // originalSubtitlesFileNameEnding
@@ -622,12 +624,14 @@
             // 
             // settingsButton
             // 
+            this.settingsButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Location = new System.Drawing.Point(422, 509);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(244, 46);
             this.settingsButton.TabIndex = 13;
             this.settingsButton.Text = "Настройки";
-            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // label1
@@ -666,7 +670,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 13);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Пути итоговых файлов субтитров:";
+            this.label4.Text = "Путь итоговых файлов субтитров:";
             // 
             // label6
             // 

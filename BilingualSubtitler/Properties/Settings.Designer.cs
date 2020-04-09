@@ -133,7 +133,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CreateOriginalSubtitlesFile {
             get {
                 return ((bool)(this["CreateOriginalSubtitlesFile"]));
@@ -176,6 +176,18 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["VideoPlayerPauseButtonString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mpc-hc64")]
+        public string VideoPlayerProcessName {
+            get {
+                return ((string)(this["VideoPlayerProcessName"]));
+            }
+            set {
+                this["VideoPlayerProcessName"] = value;
             }
         }
     }

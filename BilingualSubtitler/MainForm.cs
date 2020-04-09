@@ -132,9 +132,8 @@ namespace BilingualSubtitler
 
 
         const UInt32 WM_KEYDOWN = 0x0100;
-        const int VK_F5 = 0x74;
 
-        private byte[] m_shiftState;
+        private string m_videoPlayerProcessName;
         private Process m_videoPlayerProcess;
 
         [DllImport("user32.dll")]
@@ -145,10 +144,6 @@ namespace BilingualSubtitler
 
         [DllImport("user32.dll")]
         static extern bool PostMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        static extern bool SetKeyboardState(byte[] lpKeyState);
-        [DllImport("user32.dll")]
-        static extern bool GetKeyboardState(byte[] lpKeyState);
 
 
         public MainForm()
@@ -212,7 +207,9 @@ namespace BilingualSubtitler
                 translateToPrimarySubtitlesButton,
                 translateToFirstRussianSubtitlesButton,
                 translateToSecondRussianSubtitlesButton,
-                translateToThirdRussianSubtitlesButton
+                translateToThirdRussianSubtitlesButton,
+                createOriginalAndBilingualSubtitlesFilesButton,
+                settingsButton
             };
 
             foreach (var button in m_buttons)
@@ -330,6 +327,8 @@ namespace BilingualSubtitler
                 originalSubtitlesFileNameEndingLabel.Visible =
                     Settings.Default.CreateOriginalSubtitlesFile;
 
+            m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
+
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -370,7 +369,7 @@ namespace BilingualSubtitler
 
         private void ActionForHotkeyThatAreNotPauseButton()
         {
-            if (GetActiveProcessName() != "mpc-hc64")
+            if (GetActiveProcessName() != m_videoPlayerProcessName)
                 return;
 
             //m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
@@ -382,7 +381,7 @@ namespace BilingualSubtitler
 
         private void ActionForHotkeyThatArePauseButton()
         {
-            if (GetActiveProcessName() != "mpc-hc64")
+            if (GetActiveProcessName() != m_videoPlayerProcessName)
                 return;
 
             SwitchSubtitles();

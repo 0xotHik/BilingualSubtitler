@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -27,9 +28,9 @@ namespace BilingualSubtitler
                 AddKeyToHotkeysDataGridView(hotkeyString);
             }
 
-            videoPlayerPauseButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerPauseButtonString).KeyData;
-            videoPlayerChangeToNextSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).KeyData;
-            videoPlayerChangeToPreviousSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).KeyData;
+            videoPlayerPauseButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerPauseButtonString).KeyValue;
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).ToString();
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).ToString();
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -64,20 +65,20 @@ namespace BilingualSubtitler
         {
             var hotkey = new Hotkey(hotkeyString);
 
-            var rowIndex = hotkeysDataGridView.Rows.Add(hotkey.KeyData);
-            hotkeysDataGridView.Rows[rowIndex].Tag = hotkey.KeyCode;
+            var rowIndex = hotkeysDataGridView.Rows.Add(hotkey.KeyValue);
+            hotkeysDataGridView.Rows[rowIndex].Tag = hotkeyString;
         }
 
-        private void AddKeyToHotkeysDataGridView(string key, int code)
+        private void AddKeyToHotkeysDataGridView(Hotkey hotkey)
         {
-            var rowIndex = hotkeysDataGridView.Rows.Add(key);
-            hotkeysDataGridView.Rows[rowIndex].Tag = code.ToString();
+            var rowIndex = hotkeysDataGridView.Rows.Add(hotkey.KeyValue);
+            hotkeysDataGridView.Rows[rowIndex].Tag = hotkey.ToString();
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
             m_previousButtonColor = ((Button)sender).BackColor;
-            ((Button)sender).BackColor = SystemColors.GradientInactiveCaption;
+            ((Button)sender).BackColor = Color.Gold;
 
         }
 
@@ -98,8 +99,22 @@ namespace BilingualSubtitler
             int carrySymbols = richTextBoxForYandexApiKeyInSeparateForm.Text.Split('\n').Length - 1;
             int spaceSymbols = richTextBoxForYandexApiKeyInSeparateForm.Text.Split(' ').Length - 1;
 
+            Properties.Settings.Default.Hotkeys = new StringCollection();
+            foreach (DataGridViewRow hotkeyRow in hotkeysDataGridView.Rows)
+            {
+                Properties.Settings.Default.Hotkeys.Add((string) hotkeyRow.Tag);
+            }
+
+            Properties.Settings.Default.VideoPlayerPauseButtonString = (string)videoPlayerPauseButtonTextBox.Tag;
+            Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString = (string)videoPlayerChangeToBilingualSubtitlesButtonTextBox.Tag;
+            Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString = (string)videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag;
+            Properties.Settings.Default.CreateOriginalSubtitlesFile = CreateOriginalSubtitlesFileCheckBox.Checked;
+            Properties.Settings.Default.OriginalSubtitlesFileNameEnding = originalSubtitlesPathEndingTextBox.Text;
+            Properties.Settings.Default.BilingualSubtitlesFileNameEnding = bilingualSubtitlesPathEndingTextBox.Text;
+
             Properties.Settings.Default.YandexTranslatorAPIKey = richTextBoxForYandexApiKeyInSeparateForm.Text.Substring(0,richTextBoxForYandexApiKeyInSeparateForm.Text.Length-spaceSymbols-carrySymbols);
             Properties.Settings.Default.Save();
+
             this.DialogResult = DialogResult.OK;
             this.Close();
             
@@ -136,11 +151,11 @@ namespace BilingualSubtitler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var keySettingForm = new KeySettingForm();
-            var dialogResult = keySettingForm.ShowDialog();
+            var hotkeySettingForm = new HotkeySettingForm();
+            var dialogResult = hotkeySettingForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-
+                AddKeyToHotkeysDataGridView(hotkeySettingForm.SettedHotkey);
             }
         }
     }

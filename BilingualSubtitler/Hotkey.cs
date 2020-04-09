@@ -8,30 +8,62 @@ using WindowsInput.Native;
 
 namespace BilingualSubtitler
 {
-    class Hotkey
+    public class Hotkey
     {
-        public string KeyData;
+        public string KeyValue;
         public int KeyCode;
-        public VirtualKeyCode? ModifierKey;
+        public VirtualKeyCode? ModifierKey = null;
 
         public Hotkey(string hotkeyString)
         {
             var hotkeyInfo = hotkeyString.Split('@');
 
-            KeyData = hotkeyInfo[0];
+            KeyValue = hotkeyInfo[0];
             KeyCode = int.Parse(hotkeyInfo[1]);
+
+            if ((hotkeyInfo.Length == 3) && (!string.IsNullOrWhiteSpace(hotkeyInfo[2])))
+            {
+                switch (hotkeyInfo[2])
+                {
+                    case "SHIFT":
+                        {
+                            ModifierKey = VirtualKeyCode.SHIFT;
+                            break;
+                        }
+                    case "MENU": // Alt
+                        {
+                            ModifierKey = VirtualKeyCode.MENU;
+                            break;
+                        }
+                    case "CONTROL":
+                        {
+                            ModifierKey = VirtualKeyCode.CONTROL;
+                            break;
+                        }
+                }
+
+
+            }
+
         }
 
         public Hotkey(VirtualKeyCode hotkey, VirtualKeyCode? modifierKey = null)
         {
-            KeyData = hotkey.ToString();
-            KeyCode = (int) hotkey;
+            KeyValue = hotkey.ToString();
+            KeyCode = (int)hotkey;
+            ModifierKey = modifierKey;
+        }
+
+        public Hotkey(string keyValue, int keyCode, VirtualKeyCode? modifierKey = null)
+        {
+            KeyValue = keyValue;
+            KeyCode = (int)keyCode;
             ModifierKey = modifierKey;
         }
 
         public override string ToString()
         {
-            return $"{KeyData}@{KeyCode}@{ModifierKey}";
+            return $"{KeyValue}@{KeyCode}@{ModifierKey}";
         }
     }
 }

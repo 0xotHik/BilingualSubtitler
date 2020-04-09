@@ -94,11 +94,11 @@
   <ItemGroup>
     <Compile Include="FlashWindow.cs" />
     <Compile Include="Hotkey.cs" />
-    <Compile Include="KeySettingForm.cs">
+    <Compile Include="HotkeySettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KeySettingForm.Designer.cs">
-      <DependentUpon>KeySettingForm.cs</DependentUpon>
+    <Compile Include="HotkeySettingForm.Designer.cs">
+      <DependentUpon>HotkeySettingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -138,8 +138,8 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeySettingForm.resx">
-      <DependentUpon>KeySettingForm.cs</DependentUpon>
+    <EmbeddedResource Include="HotkeySettingForm.resx">
+      <DependentUpon>HotkeySettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

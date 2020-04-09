@@ -40,7 +40,7 @@
       <Value Profile="(Default)">.ruseng.ass</Value>
     </Setting>
     <Setting Name="CreateOriginalSubtitlesFile" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="VideoPlayerChangeToBilingualSubtitlesHotkeyString" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -50,6 +50,9 @@
     </Setting>
     <Setting Name="VideoPlayerPauseButtonString" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VideoPlayerProcessName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mpc-hc64</Value>
     </Setting>
   </Settings>
 </SettingsFile>
