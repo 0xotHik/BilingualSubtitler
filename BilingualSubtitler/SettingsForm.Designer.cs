@@ -48,9 +48,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
+            this.bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
+            this.originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.videoplayerProcessNameTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox = new System.Windows.Forms.TextBox();
@@ -62,11 +67,6 @@
             this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
-            this.bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
-            this.originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -271,6 +271,7 @@
             this.button5.Text = "Вернуться к настройкам по умолчанию";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox5
             // 
@@ -285,143 +286,6 @@
             this.groupBox5.TabIndex = 69;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Создавать файлы:";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.textBox4);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Controls.Add(this.videoPlayerChangeToOriginalSubtitlesButtonTextBox);
-            this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.button3);
-            this.groupBox6.Controls.Add(this.videoPlayerChangeToBilingualSubtitlesButtonTextBox);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.button2);
-            this.groupBox6.Controls.Add(this.videoPlayerPauseButtonTextBox);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Location = new System.Drawing.Point(288, 13);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(298, 242);
-            this.groupBox6.TabIndex = 70;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Настройки видеоплеера";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 183);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 13);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "Название процесса видеоплеера:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(90, 199);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(98, 20);
-            this.textBox4.TabIndex = 79;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 148);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 78;
-            this.label9.Text = "предыдущие:";
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(219, 143);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(64, 23);
-            this.button4.TabIndex = 77;
-            this.button4.Text = "Задать";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // videoPlayerChangeToOriginalSubtitlesButtonTextBox
-            // 
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(106, 145);
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Size = new System.Drawing.Size(98, 20);
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.TabIndex = 76;
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = ".eng.ass";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 119);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "следующие:";
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(219, 114);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(64, 23);
-            this.button3.TabIndex = 74;
-            this.button3.Text = "Задать";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // videoPlayerChangeToBilingualSubtitlesButtonTextBox
-            // 
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(106, 116);
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Size = new System.Drawing.Size(98, 20);
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.TabIndex = 73;
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = ".eng.ass";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 13);
-            this.label7.TabIndex = 72;
-            this.label7.Text = "Смены субтитров на:";
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(219, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 23);
-            this.button2.TabIndex = 71;
-            this.button2.Text = "Задать";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // videoPlayerPauseButtonTextBox
-            // 
-            this.videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(106, 58);
-            this.videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
-            this.videoPlayerPauseButtonTextBox.Size = new System.Drawing.Size(98, 20);
-            this.videoPlayerPauseButtonTextBox.TabIndex = 70;
-            this.videoPlayerPauseButtonTextBox.Text = ".eng.ass";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Паузы:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 13);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Горячие клавиши в видеоплеере:";
             // 
             // label4
             // 
@@ -470,6 +334,146 @@
             this.originalSubtitlesPathEndingTextBox.Name = "originalSubtitlesPathEndingTextBox";
             this.originalSubtitlesPathEndingTextBox.Size = new System.Drawing.Size(100, 20);
             this.originalSubtitlesPathEndingTextBox.TabIndex = 55;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.videoplayerProcessNameTextBox);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.button4);
+            this.groupBox6.Controls.Add(this.videoPlayerChangeToOriginalSubtitlesButtonTextBox);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.button3);
+            this.groupBox6.Controls.Add(this.videoPlayerChangeToBilingualSubtitlesButtonTextBox);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.videoPlayerPauseButtonTextBox);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Location = new System.Drawing.Point(288, 13);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(298, 242);
+            this.groupBox6.TabIndex = 70;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Настройки видеоплеера";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(46, 183);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(180, 13);
+            this.label10.TabIndex = 80;
+            this.label10.Text = "Название процесса видеоплеера:";
+            // 
+            // videoplayerProcessNameTextBox
+            // 
+            this.videoplayerProcessNameTextBox.Location = new System.Drawing.Point(90, 199);
+            this.videoplayerProcessNameTextBox.Name = "videoplayerProcessNameTextBox";
+            this.videoplayerProcessNameTextBox.Size = new System.Drawing.Size(98, 20);
+            this.videoplayerProcessNameTextBox.TabIndex = 79;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 148);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.TabIndex = 78;
+            this.label9.Text = "предыдущие:";
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(219, 143);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(64, 23);
+            this.button4.TabIndex = 77;
+            this.button4.Text = "Задать";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.videoPlayerChangeToOriginalSubtitlesHotkeySetButton_Click);
+            // 
+            // videoPlayerChangeToOriginalSubtitlesButtonTextBox
+            // 
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(106, 145);
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Size = new System.Drawing.Size(98, 20);
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.TabIndex = 76;
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = ".eng.ass";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(24, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 13);
+            this.label8.TabIndex = 75;
+            this.label8.Text = "следующие:";
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(219, 114);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(64, 23);
+            this.button3.TabIndex = 74;
+            this.button3.Text = "Задать";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.videoplayerNextSubtitlesHotkeySetButton_Click);
+            // 
+            // videoPlayerChangeToBilingualSubtitlesButtonTextBox
+            // 
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(106, 116);
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Size = new System.Drawing.Size(98, 20);
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.TabIndex = 73;
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = ".eng.ass";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 13);
+            this.label7.TabIndex = 72;
+            this.label7.Text = "Смены субтитров на:";
+            // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(219, 56);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(64, 23);
+            this.button2.TabIndex = 71;
+            this.button2.Text = "Задать";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.videoplayerPauseHotkeySetButton_Click);
+            // 
+            // videoPlayerPauseButtonTextBox
+            // 
+            this.videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(106, 58);
+            this.videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
+            this.videoPlayerPauseButtonTextBox.Size = new System.Drawing.Size(98, 20);
+            this.videoPlayerPauseButtonTextBox.TabIndex = 70;
+            this.videoPlayerPauseButtonTextBox.Text = ".eng.ass";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 69;
+            this.label6.Text = "Паузы:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(176, 13);
+            this.label5.TabIndex = 68;
+            this.label5.Text = "Горячие клавиши в видеоплеере:";
             // 
             // SettingsForm
             // 
@@ -532,7 +536,7 @@
         private System.Windows.Forms.TextBox originalSubtitlesPathEndingTextBox;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox videoplayerProcessNameTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox videoPlayerChangeToOriginalSubtitlesButtonTextBox;

@@ -21,7 +21,7 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
-            m_flagKeyIsInvalid = true;
+            //m_flagKeyIsInvalid = true;
 
             foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
             {
@@ -29,8 +29,19 @@ namespace BilingualSubtitler
             }
 
             videoPlayerPauseButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerPauseButtonString).KeyValue;
+            videoPlayerPauseButtonTextBox.Tag = Properties.Settings.Default.VideoPlayerPauseButtonString;
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).ToString();
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Tag =
+                Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString;
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).ToString();
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag = Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString;
+
+            originalSubtitlesPathEndingTextBox.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+            bilingualSubtitlesPathEndingTextBox.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
+
+            CreateOriginalSubtitlesFileCheckBox.Checked = Properties.Settings.Default.CreateOriginalSubtitlesFile;
+
+            videoplayerProcessNameTextBox.Text = Properties.Settings.Default.VideoPlayerProcessName;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -46,7 +57,9 @@ namespace BilingualSubtitler
             }
 
             if (m_flagKeyIsInvalid)
-                richTextBoxLabelYouNeedToGetAPIKey.Text = "Введенный ключ неверен. Для использования данного приложения необходимо ввести валидный ключ к API сервиса " + '"' + "Яндекс.Переводчик" + '"' + ".";
+                richTextBoxLabelYouNeedToGetAPIKey.Text = "Введенный ключ неверен. " +
+                                                          "Для использования данного приложения необходимо ввести валидный ключ к API сервиса " 
+                                                          + '"' + "Яндекс.Переводчик" + '"' + ".";
 
             richTextBoxForYandexApiKeyInSeparateForm.Text = Properties.Settings.Default.YandexTranslatorAPIKey;
 
@@ -102,7 +115,8 @@ namespace BilingualSubtitler
             Properties.Settings.Default.Hotkeys = new StringCollection();
             foreach (DataGridViewRow hotkeyRow in hotkeysDataGridView.Rows)
             {
-                Properties.Settings.Default.Hotkeys.Add((string) hotkeyRow.Tag);
+                if (hotkeyRow.Tag != null)
+                    Properties.Settings.Default.Hotkeys.Add((string) hotkeyRow.Tag);
             }
 
             Properties.Settings.Default.VideoPlayerPauseButtonString = (string)videoPlayerPauseButtonTextBox.Tag;
@@ -133,16 +147,6 @@ namespace BilingualSubtitler
 
         }
 
-        private void buttonOk_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCancel_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabelYandexAPIKeysList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.linkLabelYandexAPIKeysList.LinkVisited = true;
@@ -157,6 +161,55 @@ namespace BilingualSubtitler
             {
                 AddKeyToHotkeysDataGridView(hotkeySettingForm.SettedHotkey);
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Вы уверены? Все настройки будут сброшены к настройкам по умолчанию!", "",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Properties.Settings.Default.Reset();
+                Properties.Settings.Default.Save();
+                Close();
+            }
+        }
+
+        private void videoplayerPauseHotkeySetButton_Click(object sender, EventArgs e)
+        {
+            var hotkeySettingForm = new HotkeySettingForm();
+            var dialogResult = hotkeySettingForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                videoPlayerPauseButtonTextBox.Text = hotkeySettingForm.SettedHotkey.KeyValue;
+                videoPlayerPauseButtonTextBox.Tag = hotkeySettingForm.SettedHotkey.ToString();
+            }
+            hotkeySettingForm.Dispose();
+        }
+
+        private void videoplayerNextSubtitlesHotkeySetButton_Click(object sender, EventArgs e)
+        {
+            var hotkeySettingForm = new HotkeySettingForm();
+            var dialogResult = hotkeySettingForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = hotkeySettingForm.SettedHotkey.KeyValue;
+                videoPlayerChangeToBilingualSubtitlesButtonTextBox.Tag = hotkeySettingForm.SettedHotkey.ToString();
+            }
+            hotkeySettingForm.Dispose();
+        }
+
+        private void videoPlayerChangeToOriginalSubtitlesHotkeySetButton_Click(object sender, EventArgs e)
+        {
+            var hotkeySettingForm = new HotkeySettingForm();
+            var dialogResult = hotkeySettingForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = hotkeySettingForm.SettedHotkey.KeyValue;
+                videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag = hotkeySettingForm.SettedHotkey.ToString();
+            }
+            hotkeySettingForm.Dispose();
         }
     }
 

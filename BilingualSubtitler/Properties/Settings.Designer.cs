@@ -88,15 +88,12 @@ namespace BilingualSubtitler.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>UP|38</string>
-  <string>DOWN|40</string>
-  <string>LEFT|37</string>
-  <string>RIGHT|39</string>
-  <string>CONTROL|17</string>
-  <string>NUMPAD0|96</string>
-  <string>SUBTRACT|109</string>
-  <string>SUBTRACT|107</string>
-  <string>SUBTRACT|13</string>
+  <string>UP@38</string>
+  <string>DOWN@40</string>
+  <string>LEFT@37</string>
+  <string>RIGHT@39</string>
+  <string>CONTROL@17</string>
+  <string>NUMPAD0@96</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Hotkeys {
             get {
@@ -145,7 +142,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("S@83@")]
         public string VideoPlayerChangeToBilingualSubtitlesHotkeyString {
             get {
                 return ((string)(this["VideoPlayerChangeToBilingualSubtitlesHotkeyString"]));
@@ -157,7 +154,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("S, Shift@83@SHIFT")]
         public string VideoPlayerChangeToOriginalSubtitlesHotkeyString {
             get {
                 return ((string)(this["VideoPlayerChangeToOriginalSubtitlesHotkeyString"]));
@@ -169,7 +166,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Space@32@")]
         public string VideoPlayerPauseButtonString {
             get {
                 return ((string)(this["VideoPlayerPauseButtonString"]));

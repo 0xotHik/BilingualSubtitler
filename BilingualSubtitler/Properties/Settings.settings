@@ -22,15 +22,12 @@
     <Setting Name="Hotkeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;UP|38&lt;/string&gt;
-  &lt;string&gt;DOWN|40&lt;/string&gt;
-  &lt;string&gt;LEFT|37&lt;/string&gt;
-  &lt;string&gt;RIGHT|39&lt;/string&gt;
-  &lt;string&gt;CONTROL|17&lt;/string&gt;
-  &lt;string&gt;NUMPAD0|96&lt;/string&gt;
-  &lt;string&gt;SUBTRACT|109&lt;/string&gt;
-  &lt;string&gt;SUBTRACT|107&lt;/string&gt;
-  &lt;string&gt;SUBTRACT|13&lt;/string&gt;
+  &lt;string&gt;UP@38&lt;/string&gt;
+  &lt;string&gt;DOWN@40&lt;/string&gt;
+  &lt;string&gt;LEFT@37&lt;/string&gt;
+  &lt;string&gt;RIGHT@39&lt;/string&gt;
+  &lt;string&gt;CONTROL@17&lt;/string&gt;
+  &lt;string&gt;NUMPAD0@96&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="OriginalSubtitlesFileNameEnding" Type="System.String" Scope="User">
@@ -43,13 +40,13 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="VideoPlayerChangeToBilingualSubtitlesHotkeyString" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">S@83@</Value>
     </Setting>
     <Setting Name="VideoPlayerChangeToOriginalSubtitlesHotkeyString" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">S, Shift@83@SHIFT</Value>
     </Setting>
     <Setting Name="VideoPlayerPauseButtonString" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Space@32@</Value>
     </Setting>
     <Setting Name="VideoPlayerProcessName" Type="System.String" Scope="User">
       <Value Profile="(Default)">mpc-hc64</Value>

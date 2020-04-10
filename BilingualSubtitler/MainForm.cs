@@ -225,23 +225,23 @@ namespace BilingualSubtitler
 
             m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
 
-            Properties.Settings.Default.Hotkeys = new StringCollection
-            {
-                $"UP@{(int) VirtualKeyCode.UP}",
-                $"DOWN@{(int) VirtualKeyCode.DOWN}",
-                $"LEFT@{(int) VirtualKeyCode.LEFT}",
-                $"RIGHT@{(int) VirtualKeyCode.RIGHT}",
-                $"CONTROL@{(int) VirtualKeyCode.CONTROL}",
-                $"NUMPAD0@{(int) VirtualKeyCode.NUMPAD0}",
-                $"SUBTRACT@{(int) VirtualKeyCode.SUBTRACT}",
-                $"SUBTRACT@{(int) VirtualKeyCode.ADD}",
-                $"SUBTRACT@{(int) VirtualKeyCode.RETURN}"
-            };
-            Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S).ToString();
-            Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S, VirtualKeyCode.SHIFT).ToString();
-            Settings.Default.VideoPlayerPauseButtonString = new Hotkey(VirtualKeyCode.SPACE).ToString();
+            //Properties.Settings.Default.Hotkeys = new StringCollection
+            //{
+            //    $"UP@{(int) VirtualKeyCode.UP}",
+            //    $"DOWN@{(int) VirtualKeyCode.DOWN}",
+            //    $"LEFT@{(int) VirtualKeyCode.LEFT}",
+            //    $"RIGHT@{(int) VirtualKeyCode.RIGHT}",
+            //    $"CONTROL@{(int) VirtualKeyCode.CONTROL}",
+            //    $"NUMPAD0@{(int) VirtualKeyCode.NUMPAD0}",
+            //    $"SUBTRACT@{(int) VirtualKeyCode.SUBTRACT}",
+            //    $"SUBTRACT@{(int) VirtualKeyCode.ADD}",
+            //    $"SUBTRACT@{(int) VirtualKeyCode.RETURN}"
+            //};
+            //Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S).ToString();
+            //Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S, VirtualKeyCode.SHIFT).ToString();
+            //Settings.Default.VideoPlayerPauseButtonString = new Hotkey(VirtualKeyCode.SPACE).ToString();
 
-            Properties.Settings.Default.Save();
+            //Properties.Settings.Default.Save();
 
             SetProgramSettings();
 
@@ -343,6 +343,8 @@ namespace BilingualSubtitler
             subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
         }
 
+        #region Эмуляция инпута
+
         private void ChangeSubtitlesToBilingualByPostMessage()
         {
             PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToBilingualHotkeyCode, 0);
@@ -396,7 +398,8 @@ namespace BilingualSubtitler
                 {
                     // Переключаемся на двуязычные
 
-                    m_changeSubtitlesToBilingualDelegate.BeginInvoke(null, null);
+                    m_changeSubtitlesToBilingualDelegate.Invoke();
+                    //m_changeSubtitlesToBilingualDelegate.BeginInvoke(null, null);
 
                     m_subtitlesState = SubtitlesState.Bilingual;
                 }
@@ -410,7 +413,8 @@ namespace BilingualSubtitler
                 {
                     // Переключаемся на оригинальные
 
-                    m_changeSubtitlesToOriginalDelegate.BeginInvoke(null, null);
+                    m_changeSubtitlesToOriginalDelegate.Invoke();
+                    //m_changeSubtitlesToOriginalDelegate.BeginInvoke(null, null);
 
                     m_subtitlesState = SubtitlesState.Original;
                 }
@@ -430,6 +434,8 @@ namespace BilingualSubtitler
             Process p = Process.GetProcessById((int)pid);
             return p.ProcessName;
         }
+
+        #endregion
 
 
         private Subtitle[] ReadSRT(string pathToSRTFile)
@@ -984,6 +990,9 @@ namespace BilingualSubtitler
         {
             var keySettingForm = new SettingsForm();
             keySettingForm.ShowDialog();
+            keySettingForm.Dispose();
+
+            SetProgramSettings();
         }
 
         private void button2_Click(object sender, EventArgs e)
