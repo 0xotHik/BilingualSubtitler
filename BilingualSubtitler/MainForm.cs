@@ -134,7 +134,7 @@ namespace BilingualSubtitler
         const UInt32 WM_KEYDOWN = 0x0100;
 
         private string m_videoPlayerProcessName;
-        private Process m_videoPlayerProcess;
+        private IntPtr m_videoPlayerProcessMainWindowHandle;
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
@@ -345,46 +345,32 @@ namespace BilingualSubtitler
 
         #region Эмуляция инпута
 
-        private void ChangeSubtitlesToBilingualByPostMessage()
-        {
-            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToBilingualHotkeyCode, 0);
-        }
-
-        private void ChangeSubtitlesToBilingualByInputSimulator()
-        {
-            m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode.Value,
-                m_changeSubtitlesToBilingualHotkeyVirtualKeyCode.Value);
-        }
-
-        private void ChangeSubtitlesToOriginalByPostMessage()
-        {
-            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToOriginalHotkeyCode, 0);
-        }
-
-        private void ChangeSubtitlesToOriginalByInputSimulator()
-        {
-            m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode.Value,
-                m_changeSubtitlesToOriginalHotkeyVirtualKeyCode.Value);
-        }
+        
 
         private void ActionForHotkeyThatAreNotPauseButton()
         {
-            if (GetActiveProcessName() != m_videoPlayerProcessName)
+            //if (GetActiveProcessName() != m_videoPlayerProcessName)
+            //    return;
+            //m_videoPlayerProcess = Process.GetProcessesByName("mpc-hc64")[0];
+
+            var activeProcess = GetActiveProcess();
+            if (activeProcess.ProcessName != m_videoPlayerProcessName)
                 return;
+            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
 
-            //m_inputSimulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
-
-            m_videoPlayerProcess = Process.GetProcessesByName("mpc-hc64")[0];
-            PostMessage(m_videoPlayerProcess.MainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
+            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
             SwitchSubtitles();
         }
 
         private void ActionForHotkeyThatArePauseButton()
         {
-            if (GetActiveProcessName() != m_videoPlayerProcessName)
+            //if (GetActiveProcessName() != m_videoPlayerProcessName)
+            //    return;
+
+            var activeProcess = GetActiveProcess();
+            if (activeProcess.ProcessName != m_videoPlayerProcessName)
                 return;
+            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
 
             SwitchSubtitles();
         }
@@ -426,6 +412,30 @@ namespace BilingualSubtitler
             BeginInvoke(m_changeVideoAndSubtitlesComboBoxesDelegate);
         }
 
+        private void ChangeSubtitlesToBilingualByPostMessage()
+        {
+            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToBilingualHotkeyCode, 0);
+        }
+
+        private void ChangeSubtitlesToBilingualByInputSimulator()
+        {
+            m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode.Value,
+                m_changeSubtitlesToBilingualHotkeyVirtualKeyCode.Value);
+        }
+
+        private void ChangeSubtitlesToOriginalByPostMessage()
+        {
+            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToOriginalHotkeyCode, 0);
+        }
+
+        private void ChangeSubtitlesToOriginalByInputSimulator()
+        {
+            m_inputSimulator.Keyboard.ModifiedKeyStroke(
+                m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode.Value,
+                m_changeSubtitlesToOriginalHotkeyVirtualKeyCode.Value);
+        }
+
         string GetActiveProcessName()
         {
             IntPtr hwnd = GetForegroundWindow();
@@ -433,6 +443,14 @@ namespace BilingualSubtitler
             GetWindowThreadProcessId(hwnd, out pid);
             Process p = Process.GetProcessById((int)pid);
             return p.ProcessName;
+        }
+
+        Process GetActiveProcess()
+        {
+            IntPtr hwnd = GetForegroundWindow();
+            uint pid;
+            GetWindowThreadProcessId(hwnd, out pid);
+            return Process.GetProcessById((int)pid);
         }
 
         #endregion
