@@ -187,5 +187,29 @@ namespace BilingualSubtitler.Properties {
                 this["VideoPlayerProcessName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SecondRussianSubtitlesIsVisible {
+            get {
+                return ((bool)(this["SecondRussianSubtitlesIsVisible"]));
+            }
+            set {
+                this["SecondRussianSubtitlesIsVisible"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ThirdRussianSubtitlesIsVisible {
+            get {
+                return ((bool)(this["ThirdRussianSubtitlesIsVisible"]));
+            }
+            set {
+                this["ThirdRussianSubtitlesIsVisible"] = value;
+            }
+        }
     }
 }

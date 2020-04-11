@@ -51,5 +51,11 @@
     <Setting Name="VideoPlayerProcessName" Type="System.String" Scope="User">
       <Value Profile="(Default)">mpc-hc64</Value>
     </Setting>
+    <Setting Name="SecondRussianSubtitlesIsVisible" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ThirdRussianSubtitlesIsVisible" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -329,6 +329,14 @@ namespace BilingualSubtitler
 
             m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
 
+            secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
+                Settings.Default.SecondRussianSubtitlesIsVisible;
+            showSecondRussianSubtitlesButton.Visible = !Settings.Default.SecondRussianSubtitlesIsVisible;
+
+            thirdRussianSubtitlesGroupBox.Visible = hideThirdRussianSubtitlesButton.Visible =
+                Settings.Default.ThirdRussianSubtitlesIsVisible;
+            showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
+
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -582,9 +590,14 @@ namespace BilingualSubtitler
             return assSB;
         }
 
-        private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType, bool byWord = false)
+        private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType, bool wordByWord = false)
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
+
+            subtitlesInfo.OutputTextBox.Text = $"Переведенные ";
+            if (wordByWord)
+                subtitlesInfo.OutputTextBox.Text += "пословно ";
+            subtitlesInfo.OutputTextBox.Text += "оригинальные субтитры";
 
             var yandexTranslateSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker();
             yandexTranslateSubtitlesBackgroundWorker.DoWork += YandexTranslateSubtitles;
@@ -601,7 +614,7 @@ namespace BilingualSubtitler
                 subtitlesInfo.ButtonTranslate.Enabled = false;
             subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_TRANSLATING;
 
-            yandexTranslateSubtitlesBackgroundWorker.RunWorkerAsync(byWord);
+            yandexTranslateSubtitlesBackgroundWorker.RunWorkerAsync(wordByWord);
         }
 
         private void YandexTranslateSubtitles(object sender, DoWorkEventArgs eventArgs)
@@ -835,6 +848,9 @@ namespace BilingualSubtitler
             {
                 case ".srt":
                     {
+                        BeginInvoke((Action)((() =>
+                            { subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name; })));
+
                         subtitlesInfo.Subtitles = ReadSRT(filePath);
 
                         break;
@@ -849,6 +865,13 @@ namespace BilingualSubtitler
                         var dialogResult = trackSelectionForm.ShowDialog();
                         if (dialogResult == DialogResult.OK)
                         {
+                            BeginInvoke((Action)((() => 
+                                { 
+                                    subtitlesInfo.OutputTextBox.Text = 
+                                    $"{trackSelectionForm.SelectedTrackTitle} из {new FileInfo(filePath).Name}";
+
+                                })));
+
                             var mkvTrackInfo =
                                 tracks.Find(x => x.TrackNumber == trackSelectionForm.SelectedTrackNumber);
                             var mkvSubtitles = mkvFile.GetSubtitle(trackSelectionForm.SelectedTrackNumber,
@@ -1029,6 +1052,55 @@ namespace BilingualSubtitler
         {
             thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian, true);
+        }
+
+        private void selectVideoFileToGetPathForSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void hideThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            thirdRussianSubtitlesGroupBox.Hide();
+            thirdRussianSubtitlesColorButton.Hide();
+            hideThirdRussianSubtitlesButton.Hide();
+            showThirdRussianSubtitlesButton.Show();
+
+            Settings.Default.ThirdRussianSubtitlesIsVisible = false;
+            Settings.Default.Save();
+        }
+
+        private void hideSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            secondRussianSubtitlesGroupBox.Hide();
+            secondRussianSubtitlesColorButton.Hide();
+            hideSecondRussianSubtitlesButton.Hide();
+            showSecondRussianSubtitlesButton.Show();
+
+            Settings.Default.SecondRussianSubtitlesIsVisible = false;
+            Settings.Default.Save();
+        }
+
+        private void showSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            secondRussianSubtitlesGroupBox.Show();
+            secondRussianSubtitlesColorButton.Show();
+            hideSecondRussianSubtitlesButton.Show();
+            showSecondRussianSubtitlesButton.Hide();
+
+            Settings.Default.SecondRussianSubtitlesIsVisible = true;
+            Settings.Default.Save();
+        }
+
+        private void showThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            thirdRussianSubtitlesGroupBox.Show();
+            thirdRussianSubtitlesColorButton.Show();
+            hideThirdRussianSubtitlesButton.Show();
+            showThirdRussianSubtitlesButton.Hide();
+
+            Settings.Default.ThirdRussianSubtitlesIsVisible = true;
+            Settings.Default.Save();
         }
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
