@@ -211,6 +211,32 @@ namespace BilingualSubtitler
             }
             hotkeySettingForm.Dispose();
         }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in hotkeysDataGridView.SelectedRows)
+            {
+                hotkeysDataGridView.Rows.RemoveAt(row.Index);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            for (int i = hotkeysDataGridView.RowCount; i == 0; i--)
+            {
+                hotkeysDataGridView.Rows.RemoveAt(i);
+            }
+        }
     }
 
     //public partial class SettingsForm : Form

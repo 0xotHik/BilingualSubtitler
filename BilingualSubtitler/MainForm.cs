@@ -519,7 +519,9 @@ namespace BilingualSubtitler
             // PlayDepth: 0
 
             //    [V4 + Styles]
-            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline,
+            // StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle,
+            // Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //    [Events]
             assSB.Append(
                 "[Script Info]\r\n" +
@@ -541,10 +543,34 @@ namespace BilingualSubtitler
 
             for (int i = 0; i < subtitlesColorPairs.Length; i++)
             {
-                var color = subtitlesColorPairs[i].Item2;
+                switch (i)
+                {
+                    case 0:
+                    {
+                        var styleComponents = Settings.Default.OriginalSubtitlesStyleString.Split(';');
+                        break;
+                    }
+                    case 1:
+                    {
+                        break;
+                    }
+                    case 2:
+                    {
+                        break;
+                    }
+                    case 3:
+                    {
+                        break;
+                    }
+                }
+
                 var transparency = i == 0 ? "00" : "64";
                 var marginV = i == 3 ? 0
                     : 45 + i * (2 * 20 + 5);
+                var outline = 2;
+                var shadow = 1;
+
+                var color = subtitlesColorPairs[i].Item2;
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
@@ -558,7 +584,12 @@ namespace BilingualSubtitler
                     $"&H{transparency}00FFFF," +
                     $"&H{transparency}000000," +
                     $"&H{transparency}000000," +
-                    $"0,0,0,0,100,100,0,0,1,2,1,2,10,10," +
+                    $"0,0,0,0,100,100,0,0,1," +
+                    // Обводка
+                    $"{outline}," +
+                    // Тень
+                    $"{shadow}," +
+                    $"2,10,10," +
                     // Отсуп снизу
                     $"{marginV}," +
                     $"1");

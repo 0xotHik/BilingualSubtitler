@@ -211,5 +211,53 @@ namespace BilingualSubtitler.Properties {
                 this["ThirdRussianSubtitlesIsVisible"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OriginalSubtitlesStyleString {
+            get {
+                return ((string)(this["OriginalSubtitlesStyleString"]));
+            }
+            set {
+                this["OriginalSubtitlesStyleString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string FirstRussianSubtitlesStyleString {
+            get {
+                return ((string)(this["FirstRussianSubtitlesStyleString"]));
+            }
+            set {
+                this["FirstRussianSubtitlesStyleString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SecondRussianSubtitlesStyleString {
+            get {
+                return ((string)(this["SecondRussianSubtitlesStyleString"]));
+            }
+            set {
+                this["SecondRussianSubtitlesStyleString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ThirdRussianSubtitlesStyleString {
+            get {
+                return ((string)(this["ThirdRussianSubtitlesStyleString"]));
+            }
+            set {
+                this["ThirdRussianSubtitlesStyleString"] = value;
+            }
+        }
     }
 }

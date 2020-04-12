@@ -123,11 +123,11 @@
             // settingsButton
             // 
             this.settingsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.settingsButton.Location = new System.Drawing.Point(419, 560);
+            this.settingsButton.Location = new System.Drawing.Point(24, 541);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(244, 79);
+            this.settingsButton.Size = new System.Drawing.Size(642, 37);
             this.settingsButton.TabIndex = 13;
-            this.settingsButton.Text = "Настройки\r\nпрограммы";
+            this.settingsButton.Text = "Настройки программы";
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
@@ -145,7 +145,7 @@
             this.groupBox5.Controls.Add(this.subtitlesStateComboBox);
             this.groupBox5.Controls.Add(this.videoStateComboBox);
             this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Location = new System.Drawing.Point(18, 560);
+            this.groupBox5.Location = new System.Drawing.Point(24, 596);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(381, 79);
             this.groupBox5.TabIndex = 16;
@@ -753,7 +753,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(700, 658);
+            this.ClientSize = new System.Drawing.Size(700, 705);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.settingsButton);
