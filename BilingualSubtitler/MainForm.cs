@@ -257,10 +257,16 @@ namespace BilingualSubtitler
             // Хоткеи программы
             m_keyboardHookManager.Stop();
             m_keyboardHookManager.UnregisterAll();
+            //
+            var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
             foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
             {
                 var hotkey = new Hotkey(hotkeyString);
-                m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatAreNotPauseButton);
+
+                if (hotkey.KeyCode != videoPlayerPauseHotkey.KeyCode)
+                    m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatAreNotPauseButton);
+                else
+                    m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatArePauseButton);
             }
             m_keyboardHookManager.Start();
 
