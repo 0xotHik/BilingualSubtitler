@@ -259,5 +259,17 @@ namespace BilingualSubtitler.Properties {
                 this["ThirdRussianSubtitlesStyleString"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChangeRussianSubtitlesStylesAccordingToOriginal {
+            get {
+                return ((bool)(this["ChangeRussianSubtitlesStylesAccordingToOriginal"]));
+            }
+            set {
+                this["ChangeRussianSubtitlesStylesAccordingToOriginal"] = value;
+            }
+        }
     }
 }

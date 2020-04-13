@@ -46,25 +46,25 @@
             // 
             // clearButton
             // 
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.clearButton.Location = new System.Drawing.Point(12, 147);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(181, 43);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Другая\r\n(очистить теущее назначение)";
-            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Visible = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // okButton
             // 
-            this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.okButton.Location = new System.Drawing.Point(419, 147);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(47, 43);
             this.okButton.TabIndex = 2;
             this.okButton.Text = "Ok";
-            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Visible = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 

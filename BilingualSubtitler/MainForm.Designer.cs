@@ -188,6 +188,7 @@
             this.showSecondRussianSubtitlesButton.TabIndex = 37;
             this.showSecondRussianSubtitlesButton.Text = "+ 2-й поток русских субтитров";
             this.showSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
+            this.showSecondRussianSubtitlesButton.Click += new System.EventHandler(this.showSecondRussianSubtitlesButton_Click);
             // 
             // hideSecondRussianSubtitlesButton
             // 
@@ -198,6 +199,7 @@
             this.hideSecondRussianSubtitlesButton.TabIndex = 39;
             this.hideSecondRussianSubtitlesButton.Text = "-";
             this.hideSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
+            this.hideSecondRussianSubtitlesButton.Click += new System.EventHandler(this.hideSecondRussianSubtitlesButton_Click);
             // 
             // hideThirdRussianSubtitlesButton
             // 
@@ -208,6 +210,7 @@
             this.hideThirdRussianSubtitlesButton.TabIndex = 40;
             this.hideThirdRussianSubtitlesButton.Text = "-";
             this.hideThirdRussianSubtitlesButton.UseVisualStyleBackColor = false;
+            this.hideThirdRussianSubtitlesButton.Click += new System.EventHandler(this.hideThirdRussianSubtitlesButton_Click);
             // 
             // showThirdRussianSubtitlesButton
             // 
@@ -218,6 +221,7 @@
             this.showThirdRussianSubtitlesButton.TabIndex = 38;
             this.showThirdRussianSubtitlesButton.Text = "+ 3-й поток русских субтитров";
             this.showThirdRussianSubtitlesButton.UseVisualStyleBackColor = false;
+            this.showThirdRussianSubtitlesButton.Click += new System.EventHandler(this.showThirdRussianSubtitlesButton_Click);
             // 
             // label8
             // 
@@ -239,6 +243,7 @@
             this.selectVideoFileToGetPathForSubtitlesButton.TabIndex = 33;
             this.selectVideoFileToGetPathForSubtitlesButton.Text = "Выбрать";
             this.selectVideoFileToGetPathForSubtitlesButton.UseVisualStyleBackColor = false;
+            this.selectVideoFileToGetPathForSubtitlesButton.Click += new System.EventHandler(this.selectVideoFileToGetPathForSubtitlesButton_Click_1);
             // 
             // bilingualSubtitlesFileNameEndingLabel
             // 

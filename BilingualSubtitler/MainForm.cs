@@ -1091,10 +1091,6 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian, true);
         }
 
-        private void selectVideoFileToGetPathForSubtitlesButton_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void hideThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
@@ -1139,6 +1135,29 @@ namespace BilingualSubtitler
             Settings.Default.ThirdRussianSubtitlesIsVisible = true;
             Settings.Default.Save();
         }
+
+        private void selectVideoFileToGetPathForSubtitlesButton_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            string formats = "Все видео файлы |*.dat; *.wmv; *.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.asf;  *.avi; *.bin; *.cue; *.divx; *.dv; *.flv; *.gxf; *.iso; " +
+                             "*.m1v; *.m2v; *.m2t; *.m2ts; *.m4v; " +
+                             " *.mkv; *.mov; *.mp2; *.mp2v; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg; *.mpeg1; *.mpeg2; *.mpeg4; " +
+                             "*.mpg; *.mpv2; *.mts; *.nsv; *.nuv; *.ogg; *.ogm; *.ogv; *.ogx; *.ps; *.rec; *.rm; *.rmvb; *.tod; *.ts; *.tts; *.vob; *.vro; *.webm";
+
+            openFileDialog.Filter = formats;
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var finalSubtitlesFilesPathFileInfo = new FileInfo(openFileDialog.FileName);
+                finalSubtitlesFilesPathBeginningRichTextBox.Text = finalSubtitlesFilesPathFileInfo.FullName.Substring(0,
+                    finalSubtitlesFilesPathFileInfo.FullName.Length - finalSubtitlesFilesPathFileInfo.Extension.Length);
+            }
+
+            openFileDialog.Dispose();
+        }
+
+       
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
     {

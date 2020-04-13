@@ -45,12 +45,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown19 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown20 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.thirdRussianSubtitlesTransparencyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.thirdRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.thirdRussianSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.thirdRussianSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.thirdRussianSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.thirdRussianSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -58,12 +58,12 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.secondRussianSubtitlesTransparencyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.secondRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.secondRussianSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.secondRussianSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.secondRussianSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.secondRussianSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -71,27 +71,27 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.firstRussianSubtitlesTransparencyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.firstRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.firstRussianSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.firstRussianSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.firstRussianSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.firstRussianSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.originalSubtitlesTransparencyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.originalSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.originalSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.originalSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.originalSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.originalSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -125,29 +125,29 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesTransparencyNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesShadowNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesOutlineNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesSizeNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesMarginNumericUpDown)).BeginInit();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesTransparencyNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesShadowNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesOutlineNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesSizeNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesMarginNumericUpDown)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesTransparencyNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesShadowNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesOutlineNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesSizeNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesMarginNumericUpDown)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesTransparencyNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesShadowNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesOutlineNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesSizeNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesMarginNumericUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -252,7 +252,9 @@
             this.hotkeysDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.keyColumn});
             this.hotkeysDataGridView.Location = new System.Drawing.Point(16, 57);
+            this.hotkeysDataGridView.MultiSelect = false;
             this.hotkeysDataGridView.Name = "hotkeysDataGridView";
+            this.hotkeysDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hotkeysDataGridView.Size = new System.Drawing.Size(240, 290);
             this.hotkeysDataGridView.TabIndex = 45;
             // 
@@ -314,7 +316,7 @@
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox7);
-            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(592, 12);
@@ -326,12 +328,12 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.numericUpDown16);
-            this.groupBox9.Controls.Add(this.numericUpDown17);
-            this.groupBox9.Controls.Add(this.numericUpDown18);
-            this.groupBox9.Controls.Add(this.numericUpDown19);
-            this.groupBox9.Controls.Add(this.numericUpDown20);
-            this.groupBox9.Controls.Add(this.comboBox4);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesTransparencyNumericUpDown);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesShadowNumericUpDown);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesOutlineNumericUpDown);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesSizeNumericUpDown);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesMarginNumericUpDown);
+            this.groupBox9.Controls.Add(this.thirdRussianSubtitlesFontComboBox);
             this.groupBox9.Controls.Add(this.label27);
             this.groupBox9.Controls.Add(this.label28);
             this.groupBox9.Controls.Add(this.label29);
@@ -345,48 +347,54 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "1-е субтитры";
             // 
-            // numericUpDown16
+            // thirdRussianSubtitlesTransparencyNumericUpDown
             // 
-            this.numericUpDown16.Location = new System.Drawing.Point(9, 225);
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown16.TabIndex = 92;
+            this.thirdRussianSubtitlesTransparencyNumericUpDown.Enabled = false;
+            this.thirdRussianSubtitlesTransparencyNumericUpDown.Location = new System.Drawing.Point(9, 225);
+            this.thirdRussianSubtitlesTransparencyNumericUpDown.Name = "thirdRussianSubtitlesTransparencyNumericUpDown";
+            this.thirdRussianSubtitlesTransparencyNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.thirdRussianSubtitlesTransparencyNumericUpDown.TabIndex = 92;
             // 
-            // numericUpDown17
+            // thirdRussianSubtitlesShadowNumericUpDown
             // 
-            this.numericUpDown17.Location = new System.Drawing.Point(9, 188);
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown17.TabIndex = 91;
+            this.thirdRussianSubtitlesShadowNumericUpDown.Enabled = false;
+            this.thirdRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(9, 188);
+            this.thirdRussianSubtitlesShadowNumericUpDown.Name = "thirdRussianSubtitlesShadowNumericUpDown";
+            this.thirdRussianSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.thirdRussianSubtitlesShadowNumericUpDown.TabIndex = 91;
             // 
-            // numericUpDown18
+            // thirdRussianSubtitlesOutlineNumericUpDown
             // 
-            this.numericUpDown18.Location = new System.Drawing.Point(9, 151);
-            this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown18.TabIndex = 90;
+            this.thirdRussianSubtitlesOutlineNumericUpDown.Enabled = false;
+            this.thirdRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(9, 151);
+            this.thirdRussianSubtitlesOutlineNumericUpDown.Name = "thirdRussianSubtitlesOutlineNumericUpDown";
+            this.thirdRussianSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.thirdRussianSubtitlesOutlineNumericUpDown.TabIndex = 90;
             // 
-            // numericUpDown19
+            // thirdRussianSubtitlesSizeNumericUpDown
             // 
-            this.numericUpDown19.Location = new System.Drawing.Point(9, 114);
-            this.numericUpDown19.Name = "numericUpDown19";
-            this.numericUpDown19.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown19.TabIndex = 89;
+            this.thirdRussianSubtitlesSizeNumericUpDown.Enabled = false;
+            this.thirdRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(9, 114);
+            this.thirdRussianSubtitlesSizeNumericUpDown.Name = "thirdRussianSubtitlesSizeNumericUpDown";
+            this.thirdRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.thirdRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
             // 
-            // numericUpDown20
+            // thirdRussianSubtitlesMarginNumericUpDown
             // 
-            this.numericUpDown20.Location = new System.Drawing.Point(9, 77);
-            this.numericUpDown20.Name = "numericUpDown20";
-            this.numericUpDown20.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown20.TabIndex = 88;
+            this.thirdRussianSubtitlesMarginNumericUpDown.Enabled = false;
+            this.thirdRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.thirdRussianSubtitlesMarginNumericUpDown.Name = "thirdRussianSubtitlesMarginNumericUpDown";
+            this.thirdRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.thirdRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
             // 
-            // comboBox4
+            // thirdRussianSubtitlesFontComboBox
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(9, 39);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(91, 21);
-            this.comboBox4.TabIndex = 87;
+            this.thirdRussianSubtitlesFontComboBox.Enabled = false;
+            this.thirdRussianSubtitlesFontComboBox.FormattingEnabled = true;
+            this.thirdRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(9, 39);
+            this.thirdRussianSubtitlesFontComboBox.Name = "thirdRussianSubtitlesFontComboBox";
+            this.thirdRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
+            this.thirdRussianSubtitlesFontComboBox.TabIndex = 87;
             // 
             // label27
             // 
@@ -444,12 +452,12 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.numericUpDown11);
-            this.groupBox8.Controls.Add(this.numericUpDown12);
-            this.groupBox8.Controls.Add(this.numericUpDown13);
-            this.groupBox8.Controls.Add(this.numericUpDown14);
-            this.groupBox8.Controls.Add(this.numericUpDown15);
-            this.groupBox8.Controls.Add(this.comboBox3);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesTransparencyNumericUpDown);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesShadowNumericUpDown);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesOutlineNumericUpDown);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesSizeNumericUpDown);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesMarginNumericUpDown);
+            this.groupBox8.Controls.Add(this.secondRussianSubtitlesFontComboBox);
             this.groupBox8.Controls.Add(this.label21);
             this.groupBox8.Controls.Add(this.label22);
             this.groupBox8.Controls.Add(this.label23);
@@ -463,48 +471,54 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "1-е субтитры";
             // 
-            // numericUpDown11
+            // secondRussianSubtitlesTransparencyNumericUpDown
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(9, 225);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown11.TabIndex = 92;
+            this.secondRussianSubtitlesTransparencyNumericUpDown.Enabled = false;
+            this.secondRussianSubtitlesTransparencyNumericUpDown.Location = new System.Drawing.Point(9, 225);
+            this.secondRussianSubtitlesTransparencyNumericUpDown.Name = "secondRussianSubtitlesTransparencyNumericUpDown";
+            this.secondRussianSubtitlesTransparencyNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.secondRussianSubtitlesTransparencyNumericUpDown.TabIndex = 92;
             // 
-            // numericUpDown12
+            // secondRussianSubtitlesShadowNumericUpDown
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(9, 188);
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown12.TabIndex = 91;
+            this.secondRussianSubtitlesShadowNumericUpDown.Enabled = false;
+            this.secondRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(9, 188);
+            this.secondRussianSubtitlesShadowNumericUpDown.Name = "secondRussianSubtitlesShadowNumericUpDown";
+            this.secondRussianSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.secondRussianSubtitlesShadowNumericUpDown.TabIndex = 91;
             // 
-            // numericUpDown13
+            // secondRussianSubtitlesOutlineNumericUpDown
             // 
-            this.numericUpDown13.Location = new System.Drawing.Point(9, 151);
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown13.TabIndex = 90;
+            this.secondRussianSubtitlesOutlineNumericUpDown.Enabled = false;
+            this.secondRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(9, 151);
+            this.secondRussianSubtitlesOutlineNumericUpDown.Name = "secondRussianSubtitlesOutlineNumericUpDown";
+            this.secondRussianSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.secondRussianSubtitlesOutlineNumericUpDown.TabIndex = 90;
             // 
-            // numericUpDown14
+            // secondRussianSubtitlesSizeNumericUpDown
             // 
-            this.numericUpDown14.Location = new System.Drawing.Point(9, 114);
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown14.TabIndex = 89;
+            this.secondRussianSubtitlesSizeNumericUpDown.Enabled = false;
+            this.secondRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(9, 114);
+            this.secondRussianSubtitlesSizeNumericUpDown.Name = "secondRussianSubtitlesSizeNumericUpDown";
+            this.secondRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.secondRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
             // 
-            // numericUpDown15
+            // secondRussianSubtitlesMarginNumericUpDown
             // 
-            this.numericUpDown15.Location = new System.Drawing.Point(9, 77);
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown15.TabIndex = 88;
+            this.secondRussianSubtitlesMarginNumericUpDown.Enabled = false;
+            this.secondRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.secondRussianSubtitlesMarginNumericUpDown.Name = "secondRussianSubtitlesMarginNumericUpDown";
+            this.secondRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.secondRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
             // 
-            // comboBox3
+            // secondRussianSubtitlesFontComboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(9, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(91, 21);
-            this.comboBox3.TabIndex = 87;
+            this.secondRussianSubtitlesFontComboBox.Enabled = false;
+            this.secondRussianSubtitlesFontComboBox.FormattingEnabled = true;
+            this.secondRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(9, 39);
+            this.secondRussianSubtitlesFontComboBox.Name = "secondRussianSubtitlesFontComboBox";
+            this.secondRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
+            this.secondRussianSubtitlesFontComboBox.TabIndex = 87;
             // 
             // label21
             // 
@@ -562,12 +576,12 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.numericUpDown6);
-            this.groupBox7.Controls.Add(this.numericUpDown7);
-            this.groupBox7.Controls.Add(this.numericUpDown8);
-            this.groupBox7.Controls.Add(this.numericUpDown9);
-            this.groupBox7.Controls.Add(this.numericUpDown10);
-            this.groupBox7.Controls.Add(this.comboBox2);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesTransparencyNumericUpDown);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesShadowNumericUpDown);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesOutlineNumericUpDown);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesSizeNumericUpDown);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesMarginNumericUpDown);
+            this.groupBox7.Controls.Add(this.firstRussianSubtitlesFontComboBox);
             this.groupBox7.Controls.Add(this.label15);
             this.groupBox7.Controls.Add(this.label16);
             this.groupBox7.Controls.Add(this.label17);
@@ -581,48 +595,54 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "1-е субтитры";
             // 
-            // numericUpDown6
+            // firstRussianSubtitlesTransparencyNumericUpDown
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(9, 225);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown6.TabIndex = 92;
+            this.firstRussianSubtitlesTransparencyNumericUpDown.Enabled = false;
+            this.firstRussianSubtitlesTransparencyNumericUpDown.Location = new System.Drawing.Point(9, 225);
+            this.firstRussianSubtitlesTransparencyNumericUpDown.Name = "firstRussianSubtitlesTransparencyNumericUpDown";
+            this.firstRussianSubtitlesTransparencyNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.firstRussianSubtitlesTransparencyNumericUpDown.TabIndex = 92;
             // 
-            // numericUpDown7
+            // firstRussianSubtitlesShadowNumericUpDown
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(9, 188);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown7.TabIndex = 91;
+            this.firstRussianSubtitlesShadowNumericUpDown.Enabled = false;
+            this.firstRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(9, 188);
+            this.firstRussianSubtitlesShadowNumericUpDown.Name = "firstRussianSubtitlesShadowNumericUpDown";
+            this.firstRussianSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.firstRussianSubtitlesShadowNumericUpDown.TabIndex = 91;
             // 
-            // numericUpDown8
+            // firstRussianSubtitlesOutlineNumericUpDown
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(9, 151);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown8.TabIndex = 90;
+            this.firstRussianSubtitlesOutlineNumericUpDown.Enabled = false;
+            this.firstRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(9, 151);
+            this.firstRussianSubtitlesOutlineNumericUpDown.Name = "firstRussianSubtitlesOutlineNumericUpDown";
+            this.firstRussianSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.firstRussianSubtitlesOutlineNumericUpDown.TabIndex = 90;
             // 
-            // numericUpDown9
+            // firstRussianSubtitlesSizeNumericUpDown
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(9, 114);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown9.TabIndex = 89;
+            this.firstRussianSubtitlesSizeNumericUpDown.Enabled = false;
+            this.firstRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(9, 114);
+            this.firstRussianSubtitlesSizeNumericUpDown.Name = "firstRussianSubtitlesSizeNumericUpDown";
+            this.firstRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.firstRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
             // 
-            // numericUpDown10
+            // firstRussianSubtitlesMarginNumericUpDown
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(9, 77);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown10.TabIndex = 88;
+            this.firstRussianSubtitlesMarginNumericUpDown.Enabled = false;
+            this.firstRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.firstRussianSubtitlesMarginNumericUpDown.Name = "firstRussianSubtitlesMarginNumericUpDown";
+            this.firstRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.firstRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
             // 
-            // comboBox2
+            // firstRussianSubtitlesFontComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(9, 39);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(91, 21);
-            this.comboBox2.TabIndex = 87;
+            this.firstRussianSubtitlesFontComboBox.Enabled = false;
+            this.firstRussianSubtitlesFontComboBox.FormattingEnabled = true;
+            this.firstRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(9, 39);
+            this.firstRussianSubtitlesFontComboBox.Name = "firstRussianSubtitlesFontComboBox";
+            this.firstRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
+            this.firstRussianSubtitlesFontComboBox.TabIndex = 87;
             // 
             // label15
             // 
@@ -678,17 +698,18 @@
             this.label20.TabIndex = 82;
             this.label20.Text = "Отступ снизу";
             // 
-            // checkBox3
+            // changeRussianSubtitlesStylesAccordingToOriginalCheckBox
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(30, 367);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(151, 17);
-            this.checkBox3.TabIndex = 68;
-            this.checkBox3.Text = "менять соответствующе";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.AutoSize = true;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked = true;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Location = new System.Drawing.Point(30, 367);
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Name = "changeRussianSubtitlesStylesAccordingToOriginalCheckBox";
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Size = new System.Drawing.Size(151, 17);
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.TabIndex = 68;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = "менять соответствующе";
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.UseVisualStyleBackColor = true;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckedChanged += new System.EventHandler(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged);
             // 
             // label2
             // 
@@ -701,12 +722,12 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.numericUpDown5);
-            this.groupBox4.Controls.Add(this.numericUpDown4);
-            this.groupBox4.Controls.Add(this.numericUpDown3);
-            this.groupBox4.Controls.Add(this.numericUpDown2);
-            this.groupBox4.Controls.Add(this.numericUpDown1);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.originalSubtitlesTransparencyNumericUpDown);
+            this.groupBox4.Controls.Add(this.originalSubtitlesShadowNumericUpDown);
+            this.groupBox4.Controls.Add(this.originalSubtitlesOutlineNumericUpDown);
+            this.groupBox4.Controls.Add(this.originalSubtitlesSizeNumericUpDown);
+            this.groupBox4.Controls.Add(this.originalSubtitlesMarginNumericUpDown);
+            this.groupBox4.Controls.Add(this.originalSubtitlesFontComboBox);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
@@ -720,48 +741,54 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Оригинальные\nсубтитры";
             // 
-            // numericUpDown5
+            // originalSubtitlesTransparencyNumericUpDown
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(9, 241);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown5.TabIndex = 92;
+            this.originalSubtitlesTransparencyNumericUpDown.Location = new System.Drawing.Point(9, 241);
+            this.originalSubtitlesTransparencyNumericUpDown.Name = "originalSubtitlesTransparencyNumericUpDown";
+            this.originalSubtitlesTransparencyNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.originalSubtitlesTransparencyNumericUpDown.TabIndex = 92;
+            this.originalSubtitlesTransparencyNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesTransparencyNumericUpDown_ValueChanged);
             // 
-            // numericUpDown4
+            // originalSubtitlesShadowNumericUpDown
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(9, 203);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown4.TabIndex = 91;
+            this.originalSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(9, 203);
+            this.originalSubtitlesShadowNumericUpDown.Name = "originalSubtitlesShadowNumericUpDown";
+            this.originalSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.originalSubtitlesShadowNumericUpDown.TabIndex = 91;
+            this.originalSubtitlesShadowNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesShadowNumericUpDown_ValueChanged);
             // 
-            // numericUpDown3
+            // originalSubtitlesOutlineNumericUpDown
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(9, 167);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown3.TabIndex = 90;
+            this.originalSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(9, 167);
+            this.originalSubtitlesOutlineNumericUpDown.Name = "originalSubtitlesOutlineNumericUpDown";
+            this.originalSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.originalSubtitlesOutlineNumericUpDown.TabIndex = 90;
+            this.originalSubtitlesOutlineNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesOutlineNumericUpDown_ValueChanged);
             // 
-            // numericUpDown2
+            // originalSubtitlesSizeNumericUpDown
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(9, 130);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown2.TabIndex = 89;
+            this.originalSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(9, 130);
+            this.originalSubtitlesSizeNumericUpDown.Name = "originalSubtitlesSizeNumericUpDown";
+            this.originalSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.originalSubtitlesSizeNumericUpDown.TabIndex = 89;
+            this.originalSubtitlesSizeNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesSizeNumericUpDown_ValueChanged);
             // 
-            // numericUpDown1
+            // originalSubtitlesMarginNumericUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(9, 93);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown1.TabIndex = 88;
+            this.originalSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 93);
+            this.originalSubtitlesMarginNumericUpDown.Name = "originalSubtitlesMarginNumericUpDown";
+            this.originalSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
+            this.originalSubtitlesMarginNumericUpDown.TabIndex = 88;
+            this.originalSubtitlesMarginNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesMarginNumericUpDown_ValueChanged);
             // 
-            // comboBox1
+            // originalSubtitlesFontComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(91, 21);
-            this.comboBox1.TabIndex = 87;
+            this.originalSubtitlesFontComboBox.FormattingEnabled = true;
+            this.originalSubtitlesFontComboBox.Location = new System.Drawing.Point(9, 55);
+            this.originalSubtitlesFontComboBox.Name = "originalSubtitlesFontComboBox";
+            this.originalSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
+            this.originalSubtitlesFontComboBox.TabIndex = 87;
+            this.originalSubtitlesFontComboBox.TextChanged += new System.EventHandler(this.originalSubtitlesFontComboBox_TextChanged);
             // 
             // label14
             // 
@@ -926,6 +953,7 @@
             this.button6.TabIndex = 81;
             this.button6.Text = "Выбрать \r\nисполняемый файл";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label10
             // 
@@ -1072,32 +1100,32 @@
             this.groupBox3.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesTransparencyNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesShadowNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesOutlineNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesSizeNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesMarginNumericUpDown)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesTransparencyNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesShadowNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesOutlineNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesSizeNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesMarginNumericUpDown)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesTransparencyNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesShadowNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesOutlineNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesSizeNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesMarginNumericUpDown)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesTransparencyNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesShadowNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesOutlineNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesSizeNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesMarginNumericUpDown)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1124,7 +1152,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox changeRussianSubtitlesStylesAccordingToOriginalCheckBox;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label4;
@@ -1154,16 +1182,16 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown originalSubtitlesSizeNumericUpDown;
+        private System.Windows.Forms.NumericUpDown originalSubtitlesMarginNumericUpDown;
+        private System.Windows.Forms.ComboBox originalSubtitlesFontComboBox;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.NumericUpDown numericUpDown16;
-        private System.Windows.Forms.NumericUpDown numericUpDown17;
-        private System.Windows.Forms.NumericUpDown numericUpDown18;
-        private System.Windows.Forms.NumericUpDown numericUpDown19;
-        private System.Windows.Forms.NumericUpDown numericUpDown20;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.NumericUpDown thirdRussianSubtitlesTransparencyNumericUpDown;
+        private System.Windows.Forms.NumericUpDown thirdRussianSubtitlesShadowNumericUpDown;
+        private System.Windows.Forms.NumericUpDown thirdRussianSubtitlesOutlineNumericUpDown;
+        private System.Windows.Forms.NumericUpDown thirdRussianSubtitlesSizeNumericUpDown;
+        private System.Windows.Forms.NumericUpDown thirdRussianSubtitlesMarginNumericUpDown;
+        private System.Windows.Forms.ComboBox thirdRussianSubtitlesFontComboBox;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -1171,12 +1199,12 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.NumericUpDown numericUpDown12;
-        private System.Windows.Forms.NumericUpDown numericUpDown13;
-        private System.Windows.Forms.NumericUpDown numericUpDown14;
-        private System.Windows.Forms.NumericUpDown numericUpDown15;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.NumericUpDown secondRussianSubtitlesTransparencyNumericUpDown;
+        private System.Windows.Forms.NumericUpDown secondRussianSubtitlesShadowNumericUpDown;
+        private System.Windows.Forms.NumericUpDown secondRussianSubtitlesOutlineNumericUpDown;
+        private System.Windows.Forms.NumericUpDown secondRussianSubtitlesSizeNumericUpDown;
+        private System.Windows.Forms.NumericUpDown secondRussianSubtitlesMarginNumericUpDown;
+        private System.Windows.Forms.ComboBox secondRussianSubtitlesFontComboBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -1184,20 +1212,20 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.NumericUpDown firstRussianSubtitlesTransparencyNumericUpDown;
+        private System.Windows.Forms.NumericUpDown firstRussianSubtitlesShadowNumericUpDown;
+        private System.Windows.Forms.NumericUpDown firstRussianSubtitlesOutlineNumericUpDown;
+        private System.Windows.Forms.NumericUpDown firstRussianSubtitlesSizeNumericUpDown;
+        private System.Windows.Forms.NumericUpDown firstRussianSubtitlesMarginNumericUpDown;
+        private System.Windows.Forms.ComboBox firstRussianSubtitlesFontComboBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown originalSubtitlesTransparencyNumericUpDown;
+        private System.Windows.Forms.NumericUpDown originalSubtitlesShadowNumericUpDown;
+        private System.Windows.Forms.NumericUpDown originalSubtitlesOutlineNumericUpDown;
     }
 }
