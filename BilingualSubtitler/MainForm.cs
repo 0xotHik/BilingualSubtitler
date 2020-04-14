@@ -581,7 +581,7 @@ namespace BilingualSubtitler
 
                 //var transparency = i == 0 ? "00" : "64";
                 //var marginV = i == 3 ? 0
-                //    : 45 + i * (2 * 20 + 5);
+                //    : (2*20 + 5) + i * (2 * 20 + 5);
                 //var outline = 2;
                 //var shadow = 1;
 

@@ -384,6 +384,11 @@
             // 
             this.thirdRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.thirdRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.thirdRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.thirdRussianSubtitlesMarginNumericUpDown.Name = "thirdRussianSubtitlesMarginNumericUpDown";
             this.thirdRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.thirdRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
@@ -508,6 +513,11 @@
             // 
             this.secondRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.secondRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.secondRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.secondRussianSubtitlesMarginNumericUpDown.Name = "secondRussianSubtitlesMarginNumericUpDown";
             this.secondRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.secondRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
@@ -598,11 +608,11 @@
             // 
             // firstRussianSubtitlesTransparencyPercentageNumericUpDown
             // 
-            this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled = false;
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(9, 225);
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "firstRussianSubtitlesTransparencyPercentageNumericUpDown";
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.TabIndex = 92;
+            this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.ValueChanged += new System.EventHandler(this.firstRussianSubtitlesTransparencyPercentageNumericUpDown_ValueChanged);
             // 
             // firstRussianSubtitlesShadowNumericUpDown
             // 
@@ -632,6 +642,11 @@
             // 
             this.firstRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.firstRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 77);
+            this.firstRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.firstRussianSubtitlesMarginNumericUpDown.Name = "firstRussianSubtitlesMarginNumericUpDown";
             this.firstRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.firstRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
@@ -779,6 +794,11 @@
             // originalSubtitlesMarginNumericUpDown
             // 
             this.originalSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(9, 93);
+            this.originalSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.originalSubtitlesMarginNumericUpDown.Name = "originalSubtitlesMarginNumericUpDown";
             this.originalSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.originalSubtitlesMarginNumericUpDown.TabIndex = 88;
