@@ -130,6 +130,8 @@ namespace BilingualSubtitler
             thirdRussianSubtitlesOutlineNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[3]);
             thirdRussianSubtitlesShadowNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[4]);
             thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[5]);
+
+            richTextBoxForYandexApiKeyInSeparateForm.Text = Properties.Settings.Default.YandexTranslatorAPIKey;
         }
 
         private void changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -444,12 +446,15 @@ namespace BilingualSubtitler
             {
                 firstRussianSubtitlesMarginNumericUpDown.Value =
                     originalSubtitlesMarginNumericUpDown.Value +
-                    (2 * originalSubtitlesSizeNumericUpDown.Value + 5);
+                    (2 * originalSubtitlesSizeNumericUpDown.Value +
+                     originalSubtitlesSizeNumericUpDown.Value / 10);
                 secondRussianSubtitlesMarginNumericUpDown.Value = originalSubtitlesMarginNumericUpDown.Value +
-                                                                  (2 * originalSubtitlesSizeNumericUpDown.Value + 5) * 2;
+                                                                  (2 * originalSubtitlesSizeNumericUpDown.Value + 
+                                                                   originalSubtitlesSizeNumericUpDown.Value / 10) * 2;
 
                 var thirdRussianSubtitlesMargin = originalSubtitlesMarginNumericUpDown.Value -
-                                                  (2 * originalSubtitlesSizeNumericUpDown.Value + 5) * (0 + 1);
+                                                  (2 * originalSubtitlesSizeNumericUpDown.Value +
+                                                   originalSubtitlesSizeNumericUpDown.Value / 10);
                 thirdRussianSubtitlesMarginNumericUpDown.Value =
                     thirdRussianSubtitlesMargin < 0 ? 0 : thirdRussianSubtitlesMargin;
 
