@@ -214,7 +214,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;40;20;2;1;80")]
         public string OriginalSubtitlesStyleString {
             get {
                 return ((string)(this["OriginalSubtitlesStyleString"]));
@@ -226,7 +226,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("FirstRussian;1;1;1;1;1")]
         public string FirstRussianSubtitlesStyleString {
             get {
                 return ((string)(this["FirstRussianSubtitlesStyleString"]));
@@ -238,7 +238,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SecondRussian;2;2;2;2;2")]
         public string SecondRussianSubtitlesStyleString {
             get {
                 return ((string)(this["SecondRussianSubtitlesStyleString"]));
@@ -250,7 +250,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ThirdRussian;3;3;3;3;3")]
         public string ThirdRussianSubtitlesStyleString {
             get {
                 return ((string)(this["ThirdRussianSubtitlesStyleString"]));
