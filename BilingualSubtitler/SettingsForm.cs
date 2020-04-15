@@ -302,7 +302,7 @@ namespace BilingualSubtitler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var hotkeySettingForm = new HotkeySettingForm();
+            var hotkeySettingForm = new HotkeySettingForm(true);
             var dialogResult = hotkeySettingForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
@@ -327,7 +327,7 @@ namespace BilingualSubtitler
 
         private void videoplayerPauseHotkeySetButton_Click(object sender, EventArgs e)
         {
-            var hotkeySettingForm = new HotkeySettingForm();
+            var hotkeySettingForm = new HotkeySettingForm(true);
             var dialogResult = hotkeySettingForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {

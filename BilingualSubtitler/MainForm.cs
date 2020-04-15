@@ -54,14 +54,14 @@ namespace BilingualSubtitler
             public string TrackName;
 
 
-            public SubtitlesInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button translateWordByWord,
+            public SubtitlesInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
                Label actionLabel, TextBox outputTextBox)
             {
                 ProgressBar = progressBar;
                 ProgressLabel = progressLabel;
                 ButtonOpen = buttonOpen;
                 ButtonTranslate = buttonTranslate;
-                ButtonTranslateWordByWord = ButtonTranslateWordByWord;
+                ButtonTranslateWordByWord = buttonTranslateWordByWord;
                 ActionLabel = actionLabel;
                 OutputTextBox = outputTextBox;
             }
@@ -577,7 +577,7 @@ namespace BilingualSubtitler
                 var shadow = styleComponents[4];
 
                 var transparencyPercentage = styleComponents[5];
-                var transparency =  (int.Parse(transparencyPercentage)*255 / 100).ToString("X");
+                var transparency = (int.Parse(transparencyPercentage) * 255 / 100).ToString("X");
 
                 //var transparency = i == 0 ? "00" : "64";
                 //var marginV = i == 3 ? 0
@@ -645,6 +645,30 @@ namespace BilingualSubtitler
         private void StartYandexTranslateSubtitles(SubtitlesType subtitlesType, bool wordByWord = false)
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
+
+            if (!CheckYandexTranslatorIsGoodToGo(m_translator))
+            {
+                return;
+            }
+
+            switch (subtitlesType)
+            {
+                case SubtitlesType.FirstRussian:
+                {
+                    firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                    break;
+                }
+                case SubtitlesType.SecondRussian:
+                {
+                    secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                    break;
+                }
+                case SubtitlesType.ThirdRussian:
+                {
+                    thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                    break;
+                }
+            }
 
             subtitlesInfo.OutputTextBox.Text = $"Переведенные ";
             if (wordByWord)
@@ -762,10 +786,11 @@ namespace BilingualSubtitler
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Строка " + originalText +
-                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
-                                "Код ошибки: " + ex.Message);
-                output += originalText + '\n';
+                
+                    MessageBox.Show("Строка " + originalText +
+                                    "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
+                                    "Код ошибки: " + ex.Message);
+                    output += originalText + '\n';
             }
 
 
@@ -798,6 +823,29 @@ namespace BilingualSubtitler
             return output;
         }
 
+        private bool CheckYandexTranslatorIsGoodToGo(Translator translator)
+        {
+            try
+            {
+                var translation = translator.Translate("Hello world", new LangPair(Lang.En, Lang.Ru), null, false);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "API key is invalid")
+                {
+                    MessageBox.Show("Ключ API Яндекс.Переводчика неверен!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"Проблема с Яндекс.Переводчиком!\n{ex}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                return false;
+            }
+
+            return true;
+        }
+
 
         private void button_MouseEnter(object sender, EventArgs e)
         {
@@ -824,32 +872,17 @@ namespace BilingualSubtitler
 
         private void button3_Click(object sender, EventArgs e)
         {
-            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.FirstRussian);
-
-            //StartYandexTranslateSubtitles(m_originalSubtitles, m_firstRussianSubtitles,
-            //    firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel, firstRussianSubtitlesActionLabel,
-            //    firstRussianSubtitlesTextBox, openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible =secondRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.SecondRussian);
-
-            //StartYandexTranslateSubtitles(m_originalSubtitles, m_secondRussianSubtitles,
-            //    secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel, secondRussianSubtitlesActionLabel,
-            //    secondRussianSubtitlesTextBox, openSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible =  thirdRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
-
-            //StartYandexTranslateSubtitles(m_originalSubtitles, m_thirdRussianSubtitles,
-            //    thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel, thirdRussianSubtitlesActionLabel,
-            //    thirdRussianSubtitlesTextBox, openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton);
         }
 
         private void OpenFileAndReadSubtitlesFromFile(SubtitlesType subtitlesType)
@@ -911,7 +944,33 @@ namespace BilingualSubtitler
                 case ".srt":
                     {
                         BeginInvoke((Action)((() =>
-                            { subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name; })));
+                        {
+                            switch (parentBgW.SubtitlesType)
+                            {
+                                case SubtitlesType.Original:
+                                    {
+                                        primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.FirstRussian:
+                                    {
+                                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.SecondRussian:
+                                    {
+                                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.ThirdRussian:
+                                    {
+                                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                            }
+
+                            subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name;
+                        })));
 
                         subtitlesInfo.Subtitles = ReadSRT(filePath);
 
@@ -929,6 +988,30 @@ namespace BilingualSubtitler
                         {
                             BeginInvoke((Action)((() =>
                                 {
+                                    switch (parentBgW.SubtitlesType)
+                                    {
+                                        case SubtitlesType.Original:
+                                        {
+                                            primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
+                                            break;
+                                        }
+                                        case SubtitlesType.FirstRussian:
+                                        {
+                                            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                                            break;
+                                        }
+                                        case SubtitlesType.SecondRussian:
+                                        {
+                                            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                                            break;
+                                        }
+                                        case SubtitlesType.ThirdRussian:
+                                        {
+                                            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                                            break;
+                                        }
+                                    }
+
                                     subtitlesInfo.OutputTextBox.Text =
                                     $"{trackSelectionForm.SelectedTrackTitle} из {new FileInfo(filePath).Name}";
 
@@ -976,6 +1059,9 @@ namespace BilingualSubtitler
             var parentBgW = (SubtitlesBackgroundWorker)sender;
             var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
+            if (subtitlesInfo.Subtitles == null)
+                return;
+
             subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
             subtitlesInfo.ProgressLabel.Text = $"100%";
             subtitlesInfo.ButtonOpen.Enabled = true;
@@ -997,31 +1083,149 @@ namespace BilingualSubtitler
 
         private void createOriginalAndBilingualSubtitlesFilesButton_Click(object sender, EventArgs e)
         {
+            var originalSubtitlesPath =
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEnding.Text;
+            var bilingualSubtitlesPath =
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEnding.Text;
+            var bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
+
+            switch (Settings.Default.CreateOriginalSubtitlesFile)
+            {
+                case true:
+                    {
+                        var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
+
+
+                        if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файлы\n{originalSubtitlesPath}\nи\n{bilingualSubtitlesPath}\nуже существуют! Перезаписать их?",
+                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        else if (originalSubtitlesFileExist)
+                        {
+                            var result = MessageBox.Show($"Файл\n{originalSubtitlesPath}\nуже существует! Перезаписать его?",
+                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        else if (bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуже существует! Перезаписать его?",
+                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+
+                        break;
+                    }
+                case false:
+                    {
+                        if (bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуже существует! Перезаписать его?",
+                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        break;
+                    }
+            }
+
             var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
             var firstRussianSubtitles = m_subtitles[SubtitlesType.FirstRussian].Subtitles;
             var secondRussianSubtitles = m_subtitles[SubtitlesType.SecondRussian].Subtitles;
             var thirdRussianSubtitles = m_subtitles[SubtitlesType.ThirdRussian].Subtitles;
 
+            StringBuilder ass;
 
-            var ass = GenerateASSMarkedupDocument(new Tuple<Subtitle[], Color>[]
+            if (Settings.Default.CreateOriginalSubtitlesFile)
             {
-                new Tuple<Subtitle[], Color>(originalSubtitles, Color.White),
-            });
-            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEnding.Text, ass.ToString());
+                ass = GenerateASSMarkedupDocument(new[]
+                {
+                    new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor),
+                });
+
+                try
+                {
+                    File.WriteAllText(
+                        originalSubtitlesPath,
+                        ass.ToString());
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Записать файл\n{originalSubtitlesPath}\nне удалось! Исключение:\n{exception}");
+                    return;
+                }
+                
+            }
 
             List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
             {
-                new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor)
+                new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor),
+                new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor),
+                new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor),
+                new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor)
             };
-            // if (firstRussianSubtitles != null)
-            listSubsPairs.Add(new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor));
-            // if (secondRussianSubtitles != null)
-            listSubsPairs.Add(new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor));
-            // if (thirdRussianSubtitles != null)
-            listSubsPairs.Add(new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor));
-
             ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
-            File.WriteAllText(finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEnding.Text, ass.ToString());
+
+            try
+            {
+                File.WriteAllText(bilingualSubtitlesPath, ass.ToString());
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Записать файл\n{bilingualSubtitlesPath}\nне удалось! Исключение:\n{exception}");
+                return;
+            }
+
+            // Проверка существования итоговых файлов субтитров
+            bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
+
+            switch (Settings.Default.CreateOriginalSubtitlesFile)
+            {
+                case true:
+                    {
+                        var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
+
+
+                        if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файлы\n{originalSubtitlesPath}\nи\n{bilingualSubtitlesPath}\nуспешно записаны!",
+                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        else if (originalSubtitlesFileExist)
+                        {
+                            var result = MessageBox.Show($"Файл\n{originalSubtitlesPath}\nуспешно записан!",
+                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        else if (bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуспешно записан!",
+                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+
+                        break;
+                    }
+                case false:
+                    {
+                        if (bilingualSubtitlesFileExists)
+                        {
+                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (result != DialogResult.OK)
+                                return;
+                        }
+                        break;
+                    }
+            }
 
             Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
             Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
@@ -1050,7 +1254,6 @@ namespace BilingualSubtitler
                     translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
                         false;
 
-            primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.Original);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_originalSubtitles,
@@ -1060,7 +1263,6 @@ namespace BilingualSubtitler
 
         private void openFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.FirstRussian);
             //OpenFileAndReadSubtitlesFromFile(ref m_firstRussianSubtitles,
             //    firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel, firstRussianSubtitlesActionLabel,
@@ -1069,7 +1271,6 @@ namespace BilingualSubtitler
 
         private void openSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.SecondRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_secondRussianSubtitles,
@@ -1079,7 +1280,6 @@ namespace BilingualSubtitler
 
         private void openThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
             OpenFileAndReadSubtitlesFromFile(SubtitlesType.ThirdRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
@@ -1113,19 +1313,16 @@ namespace BilingualSubtitler
 
         private void button2_Click(object sender, EventArgs e)
         {
-            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.FirstRussian, true);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.SecondRussian, true);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian, true);
         }
 

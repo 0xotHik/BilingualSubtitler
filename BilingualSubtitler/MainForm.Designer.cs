@@ -400,6 +400,7 @@
             this.firstRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.firstRussianSubtitlesColorButton.TabIndex = 8;
             this.firstRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
+            this.firstRussianSubtitlesColorButton.Click += new System.EventHandler(this.colorPickingButton_Click);
             // 
             // label3
             // 
@@ -614,6 +615,7 @@
             this.secondRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.secondRussianSubtitlesColorButton.TabIndex = 9;
             this.secondRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
+            this.secondRussianSubtitlesColorButton.Click += new System.EventHandler(this.colorPickingButton_Click);
             // 
             // label5
             // 
@@ -732,6 +734,7 @@
             this.thirdRussianSubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.thirdRussianSubtitlesColorButton.TabIndex = 8;
             this.thirdRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
+            this.thirdRussianSubtitlesColorButton.Click += new System.EventHandler(this.colorPickingButton_Click);
             // 
             // label7
             // 

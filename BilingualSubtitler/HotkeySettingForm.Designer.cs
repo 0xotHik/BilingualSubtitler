@@ -38,10 +38,10 @@
             this.labelInfo.AutoSize = true;
             this.labelInfo.Location = new System.Drawing.Point(12, 57);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(454, 26);
+            this.labelInfo.Size = new System.Drawing.Size(486, 26);
             this.labelInfo.TabIndex = 0;
-            this.labelInfo.Text = "На данный момент поддерживается только одна клавиша-модификатор.\r\nЕсли у вас есть" +
-    " потребность в нескольких — пожалуйста, напишите автору программы.";
+            this.labelInfo.Text = "На данный момент для данной горячей клавиши не поддерживаются клавиши-модификатор" +
+    "ы\r\nЕсли у вас есть в этом потребность — пожалуйста, напишите автору программы";
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // clearButton
@@ -59,7 +59,7 @@
             // okButton
             // 
             this.okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.okButton.Location = new System.Drawing.Point(419, 147);
+            this.okButton.Location = new System.Drawing.Point(451, 147);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(47, 43);
             this.okButton.TabIndex = 2;
@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(475, 202);
+            this.ClientSize = new System.Drawing.Size(511, 202);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.labelInfo);

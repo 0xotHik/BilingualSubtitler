@@ -58,16 +58,16 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="OriginalSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;40;20;2;1;80</Value>
+      <Value Profile="(Default)">Arial;42;20;2;1;0</Value>
     </Setting>
     <Setting Name="FirstRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">FirstRussian;1;1;1;1;1</Value>
+      <Value Profile="(Default)">Arial;84;20;2;1;30</Value>
     </Setting>
     <Setting Name="SecondRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SecondRussian;2;2;2;2;2</Value>
+      <Value Profile="(Default)">Arial;126;20;2;1;30</Value>
     </Setting>
     <Setting Name="ThirdRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ThirdRussian;3;3;3;3;3</Value>
+      <Value Profile="(Default)">Arial;0;20;2;1;30</Value>
     </Setting>
     <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

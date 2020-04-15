@@ -16,11 +16,16 @@ namespace BilingualSubtitler
     {
         private const string DEFAULT_TEXT = "Нажмите клавишу / сочетание клавиш";
 
+        private bool m_onlyKeyWithoutModifiers;
+
         public Hotkey SettedHotkey = null;
 
-        public HotkeySettingForm()
+        public HotkeySettingForm(bool onlyKeyWithoutModifiers = false)
         {
             InitializeComponent();
+
+            m_onlyKeyWithoutModifiers = onlyKeyWithoutModifiers;
+
             labelInfo.Text = DEFAULT_TEXT;
             this.KeyUp += KeySettingForm_KeyUpKeySetting;
             this.Select();
@@ -39,22 +44,45 @@ namespace BilingualSubtitler
                     }
                 case Keys.Shift:
                     {
-                        SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.SHIFT);
+                        if (m_onlyKeyWithoutModifiers)
+                        {
+                            labelInfo.Text =
+                                "На данный момент для данной горячей клавиши не поддерживаются клавиши-модификаторы.\n" +
+                                "Если у вас есть в этом потребность — пожалуйста, напишите автору программы.";
+                            clearButton.Visible = true;
+                        }
+                        else
+                            SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.SHIFT);
                         break;
                     }
                 case Keys.Alt:
                     {
-                        SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.MENU);
+                        if (m_onlyKeyWithoutModifiers)
+                        {
+                            labelInfo.Text =
+                                "На данный момент для данной горячей клавиши не поддерживаются клавиши-модификаторы.\n" +
+                                "Если у вас есть в этом потребность — пожалуйста, напишите автору программы.";
+                            clearButton.Visible = true;
+                        }
+                        else
+                            SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.MENU);
                         break;
                     }
                 case Keys.Control:
                     {
-                        SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.CONTROL);
+                        if (m_onlyKeyWithoutModifiers)
+                        {
+                            labelInfo.Text =
+                                "На данный момент для данной горячей клавиши не поддерживаются клавиши-модификаторы.\n" +
+                                "Если у вас есть в этом потребность — пожалуйста, напишите автору программы.";
+                            clearButton.Visible = true;
+                        }
+                        else
+                            SetHotkey(e.KeyData, e.KeyValue, VirtualKeyCode.CONTROL);
                         break;
                     }
                 default:
                     {
-                        //TODO
                         labelInfo.Text =
                             "На данный момент поддерживается только одна клавиша-модификатор.\n" +
                             "Если у вас есть потребность в нескольких — пожалуйста, напишите автору программы.";
@@ -73,21 +101,18 @@ namespace BilingualSubtitler
             labelInfo.Text = hotkey.ToString();
 
             clearButton.Visible = okButton.Visible = true;
-            this.KeyUp += KeySettingForm_KeyUpFormClosing;
+            okButton.Select();
+            //this.KeyUp += KeySettingForm_KeyUpFormClosing;
         }
 
-        private void KeySettingForm_KeyUpFormClosing(object sender, KeyEventArgs e)
-        {
-            if ((e.KeyData == Keys.Enter) && (labelInfo.Text != DEFAULT_TEXT))
-                okButton_Click(null, null);
-        }
+
 
         private void clearButton_Click(object sender, EventArgs e)
         {
             clearButton.Visible = okButton.Visible = false;
             SettedHotkey = null;
             labelInfo.Text = DEFAULT_TEXT;
-            this.KeyUp -= KeySettingForm_KeyUpFormClosing;
+            //this.KeyUp -= KeySettingForm_KeyUpFormClosing;
             this.KeyUp += KeySettingForm_KeyUpKeySetting;
 
             this.Select();
@@ -98,6 +123,12 @@ namespace BilingualSubtitler
         {
             DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void KeySettingForm_KeyUpFormClosing(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyData == Keys.Enter) && (labelInfo.Text != DEFAULT_TEXT))
+                okButton_Click(null, null);
         }
     }
 }
