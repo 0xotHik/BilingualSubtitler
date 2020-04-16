@@ -152,6 +152,13 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
+            if (Settings.Default.UpgradeRequired)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.UpgradeRequired = false;
+                Settings.Default.Save();
+            }
+
             videoStateComboBox.Items.Add(m_videoPlayingComboBoxItem);
             videoStateComboBox.Items.Add(m_videoPausedComboBoxItem);
             videoStateComboBox.SelectedIndex = 0;
@@ -1098,21 +1105,21 @@ namespace BilingualSubtitler
 
                         if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файлы\n{originalSubtitlesPath}\nи\n{bilingualSubtitlesPath}\nуже существуют! Перезаписать их?",
+                            var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
                                 String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                             if (result != DialogResult.OK)
                                 return;
                         }
                         else if (originalSubtitlesFileExist)
                         {
-                            var result = MessageBox.Show($"Файл\n{originalSubtitlesPath}\nуже существует! Перезаписать его?",
+                            var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
                                 String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                             if (result != DialogResult.OK)
                                 return;
                         }
                         else if (bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуже существует! Перезаписать его?",
+                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
                                 String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                             if (result != DialogResult.OK)
                                 return;
@@ -1124,7 +1131,7 @@ namespace BilingualSubtitler
                     {
                         if (bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуже существует! Перезаписать его?",
+                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
                                 String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                             if (result != DialogResult.OK)
                                 return;
@@ -1155,7 +1162,7 @@ namespace BilingualSubtitler
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show($"Записать файл\n{originalSubtitlesPath}\nне удалось! Исключение:\n{exception}");
+                    MessageBox.Show($"Записать файл\n\n{originalSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
                     return;
                 }
                 
@@ -1176,7 +1183,7 @@ namespace BilingualSubtitler
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Записать файл\n{bilingualSubtitlesPath}\nне удалось! Исключение:\n{exception}");
+                MessageBox.Show($"Записать файл\n\n{bilingualSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
                 return;
             }
 
@@ -1192,21 +1199,21 @@ namespace BilingualSubtitler
 
                         if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файлы\n{originalSubtitlesPath}\nи\n{bilingualSubtitlesPath}\nуспешно записаны!",
+                            var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуспешно записаны!",
                                 String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (result != DialogResult.OK)
                                 return;
                         }
                         else if (originalSubtitlesFileExist)
                         {
-                            var result = MessageBox.Show($"Файл\n{originalSubtitlesPath}\nуспешно записан!",
+                            var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
                                 String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (result != DialogResult.OK)
                                 return;
                         }
                         else if (bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\nуспешно записан!",
+                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
                                 String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (result != DialogResult.OK)
                                 return;
@@ -1218,7 +1225,7 @@ namespace BilingualSubtitler
                     {
                         if (bilingualSubtitlesFileExists)
                         {
-                            var result = MessageBox.Show($"Файл\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
                                 String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             if (result != DialogResult.OK)
                                 return;

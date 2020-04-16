@@ -52,8 +52,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\logo4_1.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
@@ -94,6 +93,12 @@
   <ItemGroup>
     <Compile Include="FlashWindow.cs" />
     <Compile Include="Hotkey.cs" />
+    <Compile Include="HotkeysToAuthorsExtendedDefaultsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotkeysToAuthorsExtendedDefaultsForm.Designer.cs">
+      <DependentUpon>HotkeysToAuthorsExtendedDefaultsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotkeySettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotkeysToAuthorsExtendedDefaultsForm.resx">
+      <DependentUpon>HotkeysToAuthorsExtendedDefaultsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HotkeySettingForm.resx">
       <DependentUpon>HotkeySettingForm.cs</DependentUpon>
@@ -200,18 +208,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Libs\libse.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Libs\UtfUnknown.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Libs\zlib.net.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Libs\libse.dll" />
+    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
+    <Content Include="Libs\UtfUnknown.dll" />
+    <Content Include="Libs\zlib.net.dll" />
     <Content Include="Resources\16pxAboutIcon.png" />
     <Content Include="Resources\16pxCancelIcon.png" />
     <Content Include="Resources\16pxCancelIconAnother.png" />
@@ -273,6 +273,7 @@
     <Content Include="Resources\HelpIcon.png" />
     <Content Include="Resources\help_book-icon.gif" />
     <Content Include="Resources\hls3ZiWTFW0.jpg" />
+    <None Include="Resources\hotkeys-default.jpg" />
     <Content Include="Resources\logo %281%29.ico" />
     <Content Include="Resources\logo.ico" />
     <Content Include="Resources\logo.jpg" />

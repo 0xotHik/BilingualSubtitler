@@ -9,9 +9,7 @@
       <Value Profile="(Default)">White</Value>
     </Setting>
     <Setting Name="YandexTranslatorAPIKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">trnsl.1.1.20150627T135643Z.b79b9a9564333355.08ab2bf3ca2a0e1d1bacd63175b724f0ff966559
-
-</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SecondRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">0, 192, 192</Value>
@@ -22,12 +20,11 @@
     <Setting Name="Hotkeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;UP@38&lt;/string&gt;
-  &lt;string&gt;DOWN@40&lt;/string&gt;
-  &lt;string&gt;LEFT@37&lt;/string&gt;
-  &lt;string&gt;RIGHT@39&lt;/string&gt;
-  &lt;string&gt;CONTROL@17&lt;/string&gt;
-  &lt;string&gt;NUMPAD0@96&lt;/string&gt;
+  &lt;string&gt;NumPad0@96@&lt;/string&gt;
+  &lt;string&gt;Decimal@110@&lt;/string&gt;
+  &lt;string&gt;Return@13@&lt;/string&gt;
+  &lt;string&gt;F3@114@&lt;/string&gt;
+  &lt;string&gt;Space@32@&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="OriginalSubtitlesFileNameEnding" Type="System.String" Scope="User">
@@ -70,6 +67,9 @@
       <Value Profile="(Default)">Arial;0;20;2;1;30</Value>
     </Setting>
     <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

@@ -16,15 +16,17 @@ namespace BilingualSubtitler
     {
         private const string DEFAULT_TEXT = "Нажмите клавишу / сочетание клавиш";
 
+        private bool m_settingHotkeyForBilingualSubtitler;
         private bool m_onlyKeyWithoutModifiers;
 
         public Hotkey SettedHotkey = null;
 
-        public HotkeySettingForm(bool onlyKeyWithoutModifiers = false)
+        public HotkeySettingForm(bool onlyKeyWithoutModifiers = false, bool settingHotkeyForBilingualSubtitler = false)
         {
             InitializeComponent();
 
             m_onlyKeyWithoutModifiers = onlyKeyWithoutModifiers;
+            m_settingHotkeyForBilingualSubtitler = settingHotkeyForBilingualSubtitler;
 
             labelInfo.Text = DEFAULT_TEXT;
             this.KeyUp += KeySettingForm_KeyUpKeySetting;
@@ -102,6 +104,10 @@ namespace BilingualSubtitler
 
             clearButton.Visible = okButton.Visible = true;
             okButton.Select();
+
+            if (m_settingHotkeyForBilingualSubtitler)
+                warningLabel.Visible = true;
+
             //this.KeyUp += KeySettingForm_KeyUpFormClosing;
         }
 
@@ -121,6 +127,19 @@ namespace BilingualSubtitler
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
+            {
+                if (SettedHotkey.ToString() == hotkeyString)
+                {
+                    MessageBox.Show("Данная горячая клавиша уже установлена! Пожалуйста, выберите другую", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    clearButton.Select();
+
+                    return;
+
+                }
+            }
             DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="warningLabel.Text" xml:space="preserve">
-    <value>Важно! Назначая горячую клавишу в Bilingual Subtitler — убедитесь, что эта же горячая клавиша не задана в вашем видеоплеере, иначе выполняться будет и пауза/переключение субтитров в Bilingual Subtitler, и действие, заданное в видеоплеере</value>
-  </data>
 </root>

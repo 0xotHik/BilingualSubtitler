@@ -12,7 +12,7 @@ namespace BilingualSubtitler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -49,8 +49,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("trnsl.1.1.20150627T135643Z.b79b9a9564333355.08ab2bf3ca2a0e1d1bacd63175b724f0ff966" +
-            "559\r\n\r\n")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string YandexTranslatorAPIKey {
             get {
                 return ((string)(this["YandexTranslatorAPIKey"]));
@@ -88,12 +87,11 @@ namespace BilingualSubtitler.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>UP@38</string>
-  <string>DOWN@40</string>
-  <string>LEFT@37</string>
-  <string>RIGHT@39</string>
-  <string>CONTROL@17</string>
-  <string>NUMPAD0@96</string>
+  <string>NumPad0@96@</string>
+  <string>Decimal@110@</string>
+  <string>Return@13@</string>
+  <string>F3@114@</string>
+  <string>Space@32@</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Hotkeys {
             get {
@@ -269,6 +267,18 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["ChangeRussianSubtitlesStylesAccordingToOriginal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpgradeRequired {
+            get {
+                return ((bool)(this["UpgradeRequired"]));
+            }
+            set {
+                this["UpgradeRequired"] = value;
             }
         }
     }

@@ -139,7 +139,7 @@ namespace BilingualSubtitler
             firstRussianSubtitlesFontComboBox.Enabled = firstRussianSubtitlesMarginNumericUpDown.Enabled =
                 firstRussianSubtitlesShadowNumericUpDown.Enabled =
                     firstRussianSubtitlesOutlineNumericUpDown.Enabled = firstRussianSubtitlesSizeNumericUpDown.Enabled =
-                        // firstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+                            // firstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
                             // Вторые
                             secondRussianSubtitlesFontComboBox.Enabled =
                                 secondRussianSubtitlesMarginNumericUpDown.Enabled =
@@ -302,7 +302,7 @@ namespace BilingualSubtitler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var hotkeySettingForm = new HotkeySettingForm(true);
+            var hotkeySettingForm = new HotkeySettingForm(true, true);
             var dialogResult = hotkeySettingForm.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
@@ -449,7 +449,7 @@ namespace BilingualSubtitler
                     (2 * originalSubtitlesSizeNumericUpDown.Value +
                      originalSubtitlesSizeNumericUpDown.Value / 10);
                 secondRussianSubtitlesMarginNumericUpDown.Value = originalSubtitlesMarginNumericUpDown.Value +
-                                                                  (2 * originalSubtitlesSizeNumericUpDown.Value + 
+                                                                  (2 * originalSubtitlesSizeNumericUpDown.Value +
                                                                    originalSubtitlesSizeNumericUpDown.Value / 10) * 2;
 
                 var thirdRussianSubtitlesMargin = originalSubtitlesMarginNumericUpDown.Value -
@@ -504,7 +504,7 @@ namespace BilingualSubtitler
 
         private void originalSubtitlesTransparencyNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void firstRussianSubtitlesTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -512,6 +512,39 @@ namespace BilingualSubtitler
             secondRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
                 thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
                     firstRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            using var hotkeysToAuthorsExtendedDefaultsForm = new HotkeysToAuthorsExtendedDefaultsForm();
+            var result = hotkeysToAuthorsExtendedDefaultsForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                Properties.Settings.Default.Hotkeys = new StringCollection
+                {
+                    "Left@37@",
+                    "Up@38@",
+                    "Down@40@",
+                    "Right@39@",
+                    "NumPad0@96@",
+                    "Decimal@110@",
+                    "Return@13@",
+                    "Add@107@",
+                    "Subtract@109@",
+                    "Multiply@106@",
+                    "Divide@111@",
+                    "F3@114@",
+                    "Space@32@"
+                };
+
+
+                Clear(hotkeysDataGridView);
+                foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
+                {
+                    AddKeyToHotkeysDataGridView(hotkeyString);
+                }
+            }
         }
 
 

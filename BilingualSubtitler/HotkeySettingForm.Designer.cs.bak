@@ -1,6 +1,6 @@
 ﻿namespace BilingualSubtitler
 {
-    partial class HotkeySettingForm
+    partial class HotkeysToAuthorExtendedLayoutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HotkeySettingForm));
             this.labelInfo = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
-            this.warningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelInfo
             // 
-            this.labelInfo.Location = new System.Drawing.Point(12, 40);
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Location = new System.Drawing.Point(12, 57);
             this.labelInfo.Name = "labelInfo";
             this.labelInfo.Size = new System.Drawing.Size(486, 26);
             this.labelInfo.TabIndex = 0;
@@ -69,30 +68,19 @@
             this.okButton.Visible = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // warningLabel
-            // 
-            this.warningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.warningLabel.Location = new System.Drawing.Point(12, 88);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(486, 43);
-            this.warningLabel.TabIndex = 3;
-            this.warningLabel.Text = resources.GetString("warningLabel.Text");
-            this.warningLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.warningLabel.Visible = false;
-            // 
-            // HotkeySettingForm
+            // HotkeysToAuthorExtendedLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(511, 202);
-            this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.labelInfo);
-            this.Name = "HotkeySettingForm";
+            this.Name = "HotkeysToAuthorExtendedLayoutForm";
             this.Text = "KeySettingForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -101,6 +89,5 @@
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.Label warningLabel;
     }
 }

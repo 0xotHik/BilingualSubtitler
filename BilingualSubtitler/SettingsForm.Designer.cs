@@ -120,6 +120,7 @@
             this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -238,7 +239,7 @@
             this.groupBox1.Controls.Add(this.linkLabelGetAPIKey);
             this.groupBox1.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
             this.groupBox1.Controls.Add(this.labelAPIInfo);
-            this.groupBox1.Location = new System.Drawing.Point(15, 421);
+            this.groupBox1.Location = new System.Drawing.Point(15, 461);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1056, 152);
             this.groupBox1.TabIndex = 44;
@@ -268,13 +269,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button9);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.hotkeysDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(15, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 403);
+            this.groupBox2.Size = new System.Drawing.Size(180, 443);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Горячие клавиши программы";
@@ -1096,6 +1098,17 @@
             this.label5.TabIndex = 68;
             this.label5.Text = "Горячие клавиши в видеоплеере:";
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button9.Location = new System.Drawing.Point(16, 390);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(145, 47);
+            this.button9.TabIndex = 49;
+            this.button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1250,5 +1263,6 @@
         private System.Windows.Forms.NumericUpDown originalSubtitlesTransparencyPercentageNumericUpDown;
         private System.Windows.Forms.NumericUpDown originalSubtitlesShadowNumericUpDown;
         private System.Windows.Forms.NumericUpDown originalSubtitlesOutlineNumericUpDown;
+        private System.Windows.Forms.Button button9;
     }
 }
