@@ -883,4 +883,3 @@
         private System.Windows.Forms.Button createOriginalAndBilingualSubtitlesFilesButton;
     }
 }
-

@@ -120,6 +120,11 @@
     <Compile Include="ModifyProgressBarColor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Subtitle.cs" />
     <Compile Include="TrackToExtractFromMKVForm.cs">
@@ -154,14 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="TrackToExtractFromMKVForm.resx">
       <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +171,9 @@
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Additional\mpc-hc-keys.reg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,8 +184,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\CK_S7j6UkAI2it_.jpg-large" />
-    <None Include="Resources\stock-vector-ear-black-icon-215823883.psd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -212,112 +213,24 @@
     <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
     <Content Include="Libs\UtfUnknown.dll" />
     <Content Include="Libs\zlib.net.dll" />
-    <Content Include="Resources\16pxAboutIcon.png" />
     <Content Include="Resources\16pxCancelIcon.png" />
     <Content Include="Resources\16pxCancelIconAnother.png" />
-    <Content Include="Resources\16pxHelpIcon.png" />
     <Content Include="Resources\16pxOkIcon.png" />
-    <Content Include="Resources\20pxOpenIcon.png" />
-    <Content Include="Resources\25pxMkvExtractLogo.png" />
-    <Content Include="Resources\25pxMkvtoolnixLogo.png" />
     <Content Include="Resources\25pxYandexTranslateIcon.png" />
     <Content Include="Resources\32pxCancelIcon.png" />
-    <Content Include="Resources\32pxMKVIcon.png" />
-    <Content Include="Resources\32pxOpenFileIcon.png" />
-    <Content Include="Resources\32pxSaveIcon.png" />
-    <Content Include="Resources\32pxSRTIcon.png" />
-    <Content Include="Resources\32pxWriteFileToHDDIcon.png" />
-    <Content Include="Resources\38pxSaveIcon.png" />
-    <Content Include="Resources\39pxSaveIcon.png" />
-    <Content Include="Resources\40pxSaveIcon.png" />
-    <Content Include="Resources\42pxSaveIcon.png" />
     <Content Include="Resources\48pxBackIcon.png" />
-    <Content Include="Resources\48pxBrush.png" />
     <Content Include="Resources\48pxCancelIcon.png" />
-    <Content Include="Resources\48pxColor.png" />
-    <Content Include="Resources\48pxGREYBackIcon.png" />
-    <Content Include="Resources\48pxHelpBookIcon.png" />
-    <Content Include="Resources\48pxOpenFileIcon.png" />
-    <Content Include="Resources\48pxRemoveHIIcon.png" />
-    <Content Include="Resources\48pxResetIcon.png" />
-    <Content Include="Resources\48pxSaveIcon.png" />
-    <Content Include="Resources\48pxSettings.png" />
-    <Content Include="Resources\48pxSettingsV2.png" />
-    <Content Include="Resources\48pxSettingsV3.png" />
-    <Content Include="Resources\48pxSubtitles.png" />
-    <Content Include="Resources\48pxSubtitlesIcon.png" />
-    <Content Include="Resources\48pxSubtitlesIconBlue.png" />
-    <Content Include="Resources\48pxSubtitlesIconBrghtn.png" />
-    <Content Include="Resources\48pxSubtitlesIconDarkBlue.png" />
-    <Content Include="Resources\48pxSubtitlesIconDarkOrange.png" />
-    <Content Include="Resources\48pxSubtitlesIconDarkRed.png" />
-    <Content Include="Resources\48pxSubtitlesIconLightDarkBlue.png" />
-    <Content Include="Resources\48pxSubtitlesIconOrange.png" />
-    <Content Include="Resources\48pxSubtitlesIconRed.png" />
-    <Content Include="Resources\48pxSubtitlesIconV2.png" />
-    <Content Include="Resources\48pxSubtitlesIconYellow.png" />
-    <Content Include="Resources\48pxWriteFileIcon.png" />
-    <Content Include="Resources\48pxWriteFileToHDDIcon.png" />
     <Content Include="Resources\48pxYandexTranslateIcon.png" />
-    <Content Include="Resources\94-settings-streamline.png" />
-    <Content Include="Resources\backIcon.png" />
-    <Content Include="Resources\brush.png" />
-    <Content Include="Resources\business-restore-drive.gif" />
-    <Content Include="Resources\cancel-512.png" />
-    <Content Include="Resources\CancelIcon.png" />
-    <Content Include="Resources\ColorIcon.png" />
-    <Content Include="Resources\extention_file_type_black_76-128.png" />
-    <Content Include="Resources\Google-Translate-icon.png" />
-    <Content Include="Resources\HelpBookIcon.png" />
-    <Content Include="Resources\HelpIcon.jpg" />
-    <Content Include="Resources\HelpIcon.png" />
-    <Content Include="Resources\help_book-icon.gif" />
-    <Content Include="Resources\hls3ZiWTFW0.jpg" />
     <None Include="Resources\hotkeys-default.jpg" />
-    <Content Include="Resources\logo %281%29.ico" />
-    <Content Include="Resources\logo.ico" />
+    <None Include="Resources\hotkeys-authors-default.png" />
+    <None Include="Resources\logo.ico" />
+    <None Include="Resources\logo %281%29.ico" />
     <Content Include="Resources\logo.jpg" />
-    <Content Include="Resources\logo.png" />
-    <Content Include="Resources\logo2.ico" />
-    <Content Include="Resources\logo2.png" />
-    <Content Include="Resources\logo3.ico" />
-    <Content Include="Resources\logo3.png" />
-    <Content Include="Resources\logo4.ico" />
-    <Content Include="Resources\logo4.png" />
-    <Content Include="Resources\logo4_1.ico" />
-    <Content Include="Resources\logo4_1.png" />
-    <Content Include="Resources\mainthumb3.jpg" />
-    <Content Include="Resources\mkvextract.png" />
-    <Content Include="Resources\MKVLogo.ico" />
-    <Content Include="Resources\MKVLogo.png" />
-    <Content Include="Resources\mkvtoolnixLogo.ico" />
-    <Content Include="Resources\mkvtoolnixLogo.png" />
-    <Content Include="Resources\OkIcon.png" />
-    <Content Include="Resources\Open_file_document_paper_folder.png" />
-    <Content Include="Resources\Open_file_document_paper_folder_small.png" />
-    <Content Include="Resources\Power_-_Restart.png" />
-    <Content Include="Resources\save-icon.png" />
-    <Content Include="Resources\save.png" />
-    <Content Include="Resources\save_teaser.png" />
-    <Content Include="Resources\Settings.png" />
-    <Content Include="Resources\settings01.png" />
+    <None Include="Resources\logo4_1.ico" />
+    <None Include="Resources\logo4.ico" />
+    <None Include="Resources\logo3.ico" />
+    <None Include="Resources\logo2.ico" />
     <Content Include="Resources\smallTranslateToRus.png" />
-    <Content Include="Resources\stock-vector-ear-black-icon-215823883.jpg" />
-    <Content Include="Resources\stock-vector-ear-black-icon-215823883.png" />
-    <Content Include="Resources\stock-vector-ear-icon-on-a-grey-flat-button-201472370.jpg" />
-    <Content Include="Resources\stock-vector-yes-or-no-icons-vector-234561619.jpg" />
-    <Content Include="Resources\Subtitles-icon %281%29.png" />
-    <Content Include="Resources\Subtitles-icon.png" />
-    <Content Include="Resources\subtitles.png" />
-    <Content Include="Resources\SubtitlesIcon.png" />
-    <Content Include="Resources\thin-052_settings_eq_control_panel_preferences-512.png" />
-    <Content Include="Resources\TranslateToRus.png" />
-    <Content Include="Resources\undo_red.png" />
-    <Content Include="Resources\unnamed.png" />
-    <Content Include="Resources\waiting.ico" />
-    <Content Include="Resources\waiting.png" />
-    <Content Include="Resources\WrieFile.png" />
-    <Content Include="Resources\WrieFileToHDD.png" />
     <Content Include="Resources\YandexTranslateIcon.png" />
     <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>

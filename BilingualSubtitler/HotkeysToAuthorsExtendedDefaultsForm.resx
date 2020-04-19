@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>При такой раскладке можно пользоваться либо лежащими под правой рукой стрелочками/нижними Num-клавишами, 
+либо положить клавиатуру на колени и пользоваться верхними Num-клавишами. 
+Однако — часть из этих клавиш могут быть по умолчанию задействованы под горячие клавиши вашего медиаплеера 
+(например, это так в случае Media Player Classic HomeCinema), 
+и при их назначении в Bilingual Subtitler выполняются и пауза/смена субтитров, и действия видеоплеера.
+Как легко решить эту проблему для Media Player Classic HomeCinema — смотрите</value>
+  </data>
 </root>

@@ -150,7 +150,7 @@ namespace BilingualSubtitler
 
             foreach (var btn in buttons)
             {
-                btn.Image = Resources._48pxGREYBackIcon;
+                //btn.Image = Resources._48pxGREYBackIcon;
             }
 
             this.Refresh();

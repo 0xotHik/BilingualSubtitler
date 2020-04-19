@@ -26,11 +26,11 @@ namespace BilingualSubtitler
 
             buttons = new List<Button> {buttonOk, buttonCancel};
 
-            foreach (var btn in buttons)
-            {
-                btn.FlatAppearance.BorderSize = 0;
-                btn.FlatStyle = FlatStyle.Flat;
-            }
+            //foreach (var btn in buttons)
+            //{
+            //    btn.FlatAppearance.BorderSize = 0;
+            //    btn.FlatStyle = FlatStyle.Flat;
+            //}
 
             dataGridViewSubTracks.RowHeadersVisible = false;
             dataGridViewSubTracks.Columns[0].Width = "99".Length * 20;
@@ -40,12 +40,12 @@ namespace BilingualSubtitler
             dataGridViewSubTracks.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridViewSubTracks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //Синий фон у кнопок при наведении курсора
-            foreach (var btn in buttons)
-            {
-                btn.MouseEnter += btn_MouseEnter;
-                btn.MouseLeave += btn_MouseLeave;
-            }
+            ////Синий фон у кнопок при наведении курсора
+            //foreach (var btn in buttons)
+            //{
+            //    btn.MouseEnter += btn_MouseEnter;
+            //    btn.MouseLeave += btn_MouseLeave;
+            //}
 
             dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 

@@ -45,11 +45,11 @@ namespace BilingualSubtitler
                 new Hotkey(Properties.Settings.Default.VideoPlayerPauseButtonString).KeyValue;
             videoPlayerPauseButtonTextBox.Tag = Properties.Settings.Default.VideoPlayerPauseButtonString;
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text =
-                new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).ToString();
+                new Hotkey(Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).KeyValue;
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.Tag =
                 Properties.Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString;
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text =
-                new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).ToString();
+                new Hotkey(Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).KeyValue;
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag =
                 Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString;
 

@@ -159,6 +159,14 @@ namespace BilingualSubtitler
                 Settings.Default.Save();
             }
 
+            if (Settings.Default.FirstLaunch)
+            {
+                MessageBox.Show("", "Первый запуск Bilingual Subtitler", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                Settings.Default.FirstLaunch = false;
+                Settings.Default.Save();
+            }
+
             videoStateComboBox.Items.Add(m_videoPlayingComboBoxItem);
             videoStateComboBox.Items.Add(m_videoPausedComboBoxItem);
             videoStateComboBox.SelectedIndex = 0;
@@ -352,6 +360,7 @@ namespace BilingualSubtitler
                 Settings.Default.ThirdRussianSubtitlesIsVisible;
             showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
 
+            m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -840,7 +849,14 @@ namespace BilingualSubtitler
             {
                 if (ex.Message == "API key is invalid")
                 {
-                    MessageBox.Show("Ключ API Яндекс.Переводчика неверен!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (string.IsNullOrWhiteSpace(Properties.Settings.Default.YandexTranslatorAPIKey))
+                    {
+                        MessageBox.Show("Для выполнения перевода оригинальных субтитров нужно ввести ключ для API Яндекс.Переводчика" +
+                                        "в разделе \"Ключ Яндекс.Переводчика\" в настройках программы!", 
+                            "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                        MessageBox.Show("Ключ API Яндекс.Переводчика неверен!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -943,8 +959,6 @@ namespace BilingualSubtitler
 
             var sourceFileFI = new FileInfo(filePath);
             var extension = sourceFileFI.Extension;
-
-            m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
 
             switch (extension)
             {
@@ -1066,11 +1080,12 @@ namespace BilingualSubtitler
             var parentBgW = (SubtitlesBackgroundWorker)sender;
             var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
 
-            if (subtitlesInfo.Subtitles == null)
-                return;
+            if (subtitlesInfo.Subtitles != null)
+            {
+                subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
+                subtitlesInfo.ProgressLabel.Text = $"100%";
+            }
 
-            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
-            subtitlesInfo.ProgressLabel.Text = $"100%";
             subtitlesInfo.ButtonOpen.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;

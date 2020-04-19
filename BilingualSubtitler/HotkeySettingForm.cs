@@ -100,7 +100,7 @@ namespace BilingualSubtitler
             var hotkey = modifierKey == null ? new Hotkey(keyData.ToString(), keyValue)
                 : new Hotkey(keyData.ToString(), keyValue, modifierKey);
             SettedHotkey = hotkey;
-            labelInfo.Text = hotkey.ToString();
+            labelInfo.Text = hotkey.KeyValue;
 
             clearButton.Visible = okButton.Visible = true;
             okButton.Select();

@@ -118,56 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="48pxResetIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxResetIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconRed1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxResetIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxResetIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="25pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\25pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxSubtitles2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxOpenFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxOpenFileIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_smallTranslateToRus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconDarkRed2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconDarkRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="16pxCancelIconAnother" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16pxCancelIconAnother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxSubtitlesIconBrghtn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconBrghtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxSRTIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxSRTIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxWriteFileToHDDIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxWriteFileToHDDIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="25pxMkvtoolnixLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\25pxMkvtoolnixLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="32pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\32pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16pxHelpIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxHelpIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="48pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\48pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,89 +139,8 @@
   <data name="YandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\YandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="42pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\42pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxMKVIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxMKVIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxColor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSettingsV3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSettingsV3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxRemoveHIIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxRemoveHIIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconDarkOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconDarkOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitles" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxWriteFileToHDDIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxWriteFileToHDDIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="39pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\39pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconYellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="20pxOpenIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\20pxOpenIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSaveIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxWriteFileToHDDIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxWriteFileToHDDIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mkvtoolnixLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mkvtoolnixLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="smallTranslateToRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxBackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxBackIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconOrange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconOrange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconDarkBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconDarkBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconDarkRed1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconDarkRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxHelpBookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxHelpBookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="25pxMkvExtractLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\25pxMkvExtractLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxOpenFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxOpenFileIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Open_file_document_paper_folder_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Open_file_document_paper_folder_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitles1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hotkeys-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hotkeys-default.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="48pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\48pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,61 +148,31 @@
   <data name="_smallTranslateToRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxSubtitlesIconDarkRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconDarkRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16pxAboutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxAboutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSettingsV2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSettingsV2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="40pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\40pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="16pxOkIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16pxOkIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="16pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\16pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="16pxOkIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxOkIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hotkeys-authors-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hotkeys-authors-default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Open_file_document_paper_folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Open_file_document_paper_folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxSubtitlesIconLightDarkBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconLightDarkBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxBrush" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxBrush.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="16pxHelpIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxHelpIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="48pxGREYBackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxGREYBackIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo4_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="16pxHelpIcon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxHelpIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HelpBookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HelpBookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="38pxSaveIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\38pxSaveIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxWriteFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxWriteFileIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconBrghtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconBrghtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxSubtitlesIconV2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxSubtitlesIconV2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hotkeys-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hotkeys-default.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo (1).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

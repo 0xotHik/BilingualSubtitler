@@ -34,6 +34,9 @@ namespace BilingualSubtitler
             this.Close();
         }
 
-
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://0xothik.wordpress.com/bilingual-subtitler#mpchc");
+        }
     }
 }

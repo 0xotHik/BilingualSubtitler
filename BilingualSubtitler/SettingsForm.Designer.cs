@@ -40,6 +40,7 @@
             this.hotkeysDataGridView = new System.Windows.Forms.DataGridView();
             this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -120,7 +121,6 @@
             this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -280,6 +280,17 @@
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Горячие клавиши программы";
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button9.Location = new System.Drawing.Point(16, 390);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(145, 47);
+            this.button9.TabIndex = 49;
+            this.button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -878,7 +889,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 48;
-            this.button5.Text = "📖  Вернуться к настройкам по умолчанию";
+            this.button5.Text = "📖  Сбросить все настройки программы\r\n к настройкам по умолчанию";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -1097,17 +1108,6 @@
             this.label5.Size = new System.Drawing.Size(176, 13);
             this.label5.TabIndex = 68;
             this.label5.Text = "Горячие клавиши в видеоплеере:";
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button9.Location = new System.Drawing.Point(16, 390);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(145, 47);
-            this.button9.TabIndex = 49;
-            this.button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // SettingsForm
             // 

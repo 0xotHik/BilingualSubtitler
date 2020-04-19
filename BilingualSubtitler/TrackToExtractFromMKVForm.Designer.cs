@@ -50,15 +50,18 @@
             // 
             // dataGridViewSubTracks
             // 
-            this.dataGridViewSubTracks.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridViewSubTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSubTracks.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
             this.dataGridViewSubTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSubTracks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Language,
             this.TrackName});
             this.dataGridViewSubTracks.Location = new System.Drawing.Point(16, 30);
+            this.dataGridViewSubTracks.MultiSelect = false;
             this.dataGridViewSubTracks.Name = "dataGridViewSubTracks";
             this.dataGridViewSubTracks.ReadOnly = true;
+            this.dataGridViewSubTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSubTracks.Size = new System.Drawing.Size(410, 198);
             this.dataGridViewSubTracks.TabIndex = 1;
             // 
@@ -82,6 +85,7 @@
             // 
             // buttonOk
             // 
+            this.buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOk.Image = global::BilingualSubtitler.Properties.Resources._16pxOkIcon;
             this.buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonOk.Location = new System.Drawing.Point(321, 244);
@@ -90,11 +94,12 @@
             this.buttonOk.TabIndex = 7;
             this.buttonOk.Text = "Использовать";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.UseVisualStyleBackColor = false;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
+            this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCancel.Location = new System.Drawing.Point(16, 244);
@@ -103,7 +108,7 @@
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // TrackToExtractFromMKVForm
