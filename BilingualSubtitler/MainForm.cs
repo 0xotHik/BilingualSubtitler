@@ -161,8 +161,28 @@ namespace BilingualSubtitler
 
             if (Settings.Default.FirstLaunch)
             {
-                MessageBox.Show("", "Первый запуск Bilingual Subtitler", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                var videoplayerPauseKey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyValue;
+                var videoplayerNextSubtitles = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).KeyValue;
+                var videoplayerPreviousSubtitles = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).KeyValue;
+
+                var bilingualSubtitlesHotkeys = string.Empty;
+                foreach (var hotkeyString in Settings.Default.Hotkeys)
+                {
+                    if (string.IsNullOrWhiteSpace(bilingualSubtitlesHotkeys))
+                        bilingualSubtitlesHotkeys += $"{new Hotkey(hotkeyString).KeyValue}";
+                    else
+                        bilingualSubtitlesHotkeys += $", {new Hotkey(hotkeyString).KeyValue}";
+                }
+
+
+                MessageBox.Show("Вас приветствует Bilingual Subtitler!\n\n" +
+                                "Параметры видеоплеера (для просмотра с динамически подключаемыми русскими субтитрами) сейчас таковы:\n" +
+                                $"Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
+                                $"Горячие клавиши видеоплеера:\n" +
+                                $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
+                                $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}", 
+                    "Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 Settings.Default.FirstLaunch = false;
                 Settings.Default.Save();
             }
@@ -1414,6 +1434,11 @@ namespace BilingualSubtitler
             openFileDialog.Dispose();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using var formAbout = new FormAbout();
+            formAbout.ShowDialog();
+        }
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
     {
