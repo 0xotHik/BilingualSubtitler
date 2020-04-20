@@ -97,6 +97,8 @@ namespace BilingualSubtitler
         private KeyboardHookManager m_keyboardHookManager;
         private InputSimulator m_inputSimulator;
 
+        private int[] m_biligualSubtitlersHotkeys;
+
         private int m_changeSubtitlesToBilingualHotkeyCode;
         private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode;
         private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyVirtualKeyCode;
@@ -180,7 +182,8 @@ namespace BilingualSubtitler
                                 $"Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
                                 $"Горячие клавиши видеоплеера:\n" +
                                 $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
-                                $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}", 
+                                $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}\n\n" +
+                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!", 
                     "Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Settings.Default.FirstLaunch = false;
@@ -296,15 +299,23 @@ namespace BilingualSubtitler
             m_keyboardHookManager.UnregisterAll();
             //
             var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
-            foreach (var hotkeyString in Properties.Settings.Default.Hotkeys)
-            {
-                var hotkey = new Hotkey(hotkeyString);
 
-                if (hotkey.KeyCode != videoPlayerPauseHotkey.KeyCode)
-                    m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatAreNotPauseButton);
-                else
-                    m_keyboardHookManager.RegisterHotkey(hotkey.KeyCode, ActionForHotkeyThatArePauseButton);
+            m_biligualSubtitlersHotkeys = new int[Settings.Default.Hotkeys.Count];
+            for(int i=0; i < Settings.Default.Hotkeys.Count; i++)
+            {
+                var hotkey = new Hotkey(Settings.Default.Hotkeys[i]);
+                m_biligualSubtitlersHotkeys[i] = hotkey.KeyCode;
+                
             }
+
+            foreach (var keyCode in m_biligualSubtitlersHotkeys)
+            {
+                if (keyCode != videoPlayerPauseHotkey.KeyCode)
+                    m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatAreNotPauseButton);
+                else
+                    m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatArePauseButton);
+            }
+
             m_keyboardHookManager.Start();
 
             // Хоткеи видеоплеера
