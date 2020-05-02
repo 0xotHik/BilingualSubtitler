@@ -275,6 +275,8 @@ namespace BilingualSubtitler
                                                                        $"{thirdRussianSubtitlesShadowNumericUpDown.Value};" +
                                                                        $"{thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value}";
 
+            Properties.Settings.Default.VideoPlayerProcessName = videoplayerProcessNameTextBox.Text;
+
             Properties.Settings.Default.Save();
             this.DialogResult = DialogResult.OK;
             this.Close();

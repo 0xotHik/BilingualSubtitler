@@ -181,10 +181,13 @@ namespace BilingualSubtitler
                                 "Параметры видеоплеера (для просмотра с динамически подключаемыми русскими субтитрами) сейчас таковы:\n" +
                                 $"Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
                                 $"Горячие клавиши видеоплеера:\n" +
-                                $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
+                                $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, " +
+                                $"на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
                                 $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}\n\n" +
-                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!", 
-                    "Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!\n"+
+                                $"Проверьте, возможно параметры вашего видеоплеера отличаются от заданных по умолчанию " +
+                                $"(параметры по умолчанию — для немодифицированного 64-разрядного Media Player Classic Homecinema.",
+                                $"Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Settings.Default.FirstLaunch = false;
                 Settings.Default.Save();
@@ -283,7 +286,7 @@ namespace BilingualSubtitler
 
             //Properties.Settings.Default.Save();
 
-            SetProgramSettings();
+            SetProgramAccordingToSettings();
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
@@ -292,7 +295,7 @@ namespace BilingualSubtitler
 
         }
 
-        private void SetProgramSettings()
+        private void SetProgramAccordingToSettings()
         {
             // Хоткеи программы
             m_keyboardHookManager.Stop();
@@ -301,11 +304,11 @@ namespace BilingualSubtitler
             var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
 
             m_biligualSubtitlersHotkeys = new int[Settings.Default.Hotkeys.Count];
-            for(int i=0; i < Settings.Default.Hotkeys.Count; i++)
+            for (int i = 0; i < Settings.Default.Hotkeys.Count; i++)
             {
                 var hotkey = new Hotkey(Settings.Default.Hotkeys[i]);
                 m_biligualSubtitlersHotkeys[i] = hotkey.KeyCode;
-                
+
             }
 
             foreach (var keyCode in m_biligualSubtitlersHotkeys)
@@ -556,7 +559,7 @@ namespace BilingualSubtitler
             return subtitles;
         }
 
-        private StringBuilder GenerateASSMarkedupDocument(Tuple<Subtitle[], Color>[] subtitlesColorPairs)
+        private StringBuilder GenerateASSMarkedupDocument(Tuple<Subtitle[], Color>[] subtitlesAndTheirColorsPairs)
         {
             var assSB = new StringBuilder();
 
@@ -591,7 +594,7 @@ namespace BilingualSubtitler
             var subtitleStyleNamePostfix = " sub stream";
 
             string[] styleComponents = null;
-            for (int i = 0; i < subtitlesColorPairs.Length; i++)
+            for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
             {
                 switch (i)
                 {
@@ -632,7 +635,7 @@ namespace BilingualSubtitler
                 //var outline = 2;
                 //var shadow = 1;
 
-                var color = subtitlesColorPairs[i].Item2;
+                var color = subtitlesAndTheirColorsPairs[i].Item2;
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
@@ -664,15 +667,28 @@ namespace BilingualSubtitler
 
             // Dialogue: 0,0:01:25.29,0:01:28.52,Копировать из Копировать из Default,,0,0,0,,Эй! Сюда! Тут человек!
             var assTimeFormat = @"h\:mm\:ss\.ff";
-            for (int i = 0; i < subtitlesColorPairs.Length; i++)
+            for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
             {
-                var subtitles = subtitlesColorPairs[i].Item1;
+                var subtitles = subtitlesAndTheirColorsPairs[i].Item1;
                 if (subtitles != null)
                 {
                     foreach (var subtitle in subtitles)
                     {
+                        if (subtitle.Text.Contains("Спутники на связи"))
+                        {
+                            int gg;
+                            gg = 0;
+                        }
+
                         // Перенос
+                        if (subtitle.Text.Contains("\r\n"))
+                            // TODO Убирание переносов строк в рус сабах
+                            subtitle.Text = subtitle.Text.Replace("\r\n", "\\N");
+                        //subtitle.Text = subtitle.Text.Replace("\r\n", i == 0 ? "\\N" : " ");
+                        else
                         if (subtitle.Text.Contains("\n"))
+                            // TODO Убирание переносов строк в рус сабах
+                            //subtitle.Text = subtitle.Text.Replace("\n", i == 0 ? "\\N" : " ");
                             subtitle.Text = subtitle.Text.Replace("\n", "\\N");
 
 
@@ -701,20 +717,20 @@ namespace BilingualSubtitler
             switch (subtitlesType)
             {
                 case SubtitlesType.FirstRussian:
-                {
-                    firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
-                    break;
-                }
+                    {
+                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
                 case SubtitlesType.SecondRussian:
-                {
-                    secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
-                    break;
-                }
+                    {
+                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
                 case SubtitlesType.ThirdRussian:
-                {
-                    thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
-                    break;
-                }
+                    {
+                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
             }
 
             subtitlesInfo.OutputTextBox.Text = $"Переведенные ";
@@ -833,11 +849,11 @@ namespace BilingualSubtitler
             }
             catch (Exception ex)
             {
-                
-                    MessageBox.Show("Строка " + originalText +
-                                    "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
-                                    "Код ошибки: " + ex.Message);
-                    output += originalText + '\n';
+
+                MessageBox.Show("Строка " + originalText +
+                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
+                                "Код ошибки: " + ex.Message);
+                output += originalText + '\n';
             }
 
 
@@ -883,7 +899,7 @@ namespace BilingualSubtitler
                     if (string.IsNullOrWhiteSpace(Properties.Settings.Default.YandexTranslatorAPIKey))
                     {
                         MessageBox.Show("Для выполнения перевода оригинальных субтитров нужно ввести ключ для API Яндекс.Переводчика" +
-                                        "в разделе \"Ключ Яндекс.Переводчика\" в настройках программы!", 
+                                        "в разделе \"Ключ Яндекс.Переводчика\" в настройках программы!",
                             "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
@@ -1043,25 +1059,25 @@ namespace BilingualSubtitler
                                     switch (parentBgW.SubtitlesType)
                                     {
                                         case SubtitlesType.Original:
-                                        {
-                                            primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
-                                            break;
-                                        }
+                                            {
+                                                primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
+                                                break;
+                                            }
                                         case SubtitlesType.FirstRussian:
-                                        {
-                                            firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
-                                            break;
-                                        }
+                                            {
+                                                firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                                                break;
+                                            }
                                         case SubtitlesType.SecondRussian:
-                                        {
-                                            secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
-                                            break;
-                                        }
+                                            {
+                                                secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                                                break;
+                                            }
                                         case SubtitlesType.ThirdRussian:
-                                        {
-                                            thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
-                                            break;
-                                        }
+                                            {
+                                                thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                                                break;
+                                            }
                                     }
 
                                     subtitlesInfo.OutputTextBox.Text =
@@ -1211,7 +1227,7 @@ namespace BilingualSubtitler
                     MessageBox.Show($"Записать файл\n\n{originalSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
                     return;
                 }
-                
+
             }
 
             List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
@@ -1361,7 +1377,7 @@ namespace BilingualSubtitler
             keySettingForm.ShowDialog();
             keySettingForm.Dispose();
 
-            SetProgramSettings();
+            SetProgramAccordingToSettings();
         }
 
         private void button2_Click(object sender, EventArgs e)

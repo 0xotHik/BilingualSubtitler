@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Bilingual Subtitler"
-#define MyAppVersion "2.1"
+#define MyAppVersion "2.2"
 #define MyAppPublisher "0xotHik"
 #define MyAppURL "https://0xothik.wordpress.com/bilingual-subtitler/"
 #define MyAppExeName "BilingualSubtitler.exe"
