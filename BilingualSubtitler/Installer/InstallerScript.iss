@@ -62,5 +62,5 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Fil
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-Filename: "https://0xothik.wordpress.com/bilingual-subtitler/"; Flags: shellexec runasoriginaluser postinstall; Description: "Открыть сайт программы с русководством по использованию"
+Filename: "https://0xothik.wordpress.com/bilingual-subtitler/"; Flags: shellexec runasoriginaluser postinstall; Description: "Открыть сайт программы с руководством по использованию"
 
