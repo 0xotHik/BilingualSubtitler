@@ -1,4 +1,5 @@
-<img class=" size-medium wp-image-1366 alignleft" src="https://0xothik.files.wordpress.com/2016/02/logo.jpg?w=300" alt="logo" width="300" height="262" />
+[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplashyt-2.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
+
 
 <p style="text-align: center;"><strong><span style="color: #999999;">Bilingual</span> <span style="color: #ffd700;">Subtitler</span></strong></p>
 Программа для повышения удобства и результативности просмотра кино и сериалов на английском языке с английскими субтитрами при помощи динамически подключаемых (или постоянно постоянно подключенных к английским) русских субтитров.
