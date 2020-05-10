@@ -1,4 +1,4 @@
-[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplashyt-2.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
+[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplash-v-3.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
 
 
 <p style="text-align: center;"><strong><span style="color: #999999;">Bilingual</span> <span style="color: #ffd700;">Subtitler</span></strong></p>
