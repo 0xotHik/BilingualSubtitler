@@ -850,7 +850,9 @@
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Name = "changeRussianSubtitlesStylesAccordingToOriginalCheckBox";
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Size = new System.Drawing.Size(473, 43);
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.TabIndex = 68;
-            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = resources.GetString("changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text");
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = "Изменять параметры вида всех потоков переведенных субтитров соответственно \nнастр" +
+    "ойкам вида оригинальных субтитров \n(и прозрачности 2 и 3 переведенных — соответс" +
+    "твенно прозрачностям 1 переведенных)\n";
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.UseVisualStyleBackColor = true;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckedChanged += new System.EventHandler(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged);
             // 
@@ -1257,11 +1259,11 @@
             this.gotTheYandexTranslatorAPIKeyCheckBox.AutoSize = true;
             this.gotTheYandexTranslatorAPIKeyCheckBox.Checked = true;
             this.gotTheYandexTranslatorAPIKeyCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(18, 32);
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(16, 30);
             this.gotTheYandexTranslatorAPIKeyCheckBox.Name = "gotTheYandexTranslatorAPIKeyCheckBox";
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(257, 17);
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(269, 17);
             this.gotTheYandexTranslatorAPIKeyCheckBox.TabIndex = 97;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ к API Яндекс.Переводчика";
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ для API Яндекс.Переводчика";
             this.gotTheYandexTranslatorAPIKeyCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
