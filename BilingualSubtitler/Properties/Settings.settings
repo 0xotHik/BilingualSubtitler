@@ -55,16 +55,16 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="OriginalSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;42;20;2;1;0</Value>
+      <Value Profile="(Default)">Arial;42;20;2;1;0;50;0</Value>
     </Setting>
     <Setting Name="FirstRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;84;20;2;1;30</Value>
+      <Value Profile="(Default)">Arial;84;20;2;1;30;50;0</Value>
     </Setting>
     <Setting Name="SecondRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;126;20;2;1;30</Value>
+      <Value Profile="(Default)">Arial;126;20;2;1;30;50;1</Value>
     </Setting>
     <Setting Name="ThirdRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;0;20;2;1;30</Value>
+      <Value Profile="(Default)">Arial;0;20;2;1;30;50;1</Value>
     </Setting>
     <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -74,6 +74,12 @@
     </Setting>
     <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="YandexTranslatorAPIEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

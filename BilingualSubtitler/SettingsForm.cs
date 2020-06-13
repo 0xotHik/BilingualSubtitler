@@ -132,6 +132,7 @@ namespace BilingualSubtitler
             thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[5]);
 
             richTextBoxForYandexApiKeyInSeparateForm.Text = Properties.Settings.Default.YandexTranslatorAPIKey;
+            gotTheYandexTranslatorAPIKeyCheckBox.Checked = Properties.Settings.Default.YandexTranslatorAPIEnabled;
         }
 
         private void changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -276,6 +277,8 @@ namespace BilingualSubtitler
                                                                        $"{thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value}";
 
             Properties.Settings.Default.VideoPlayerProcessName = videoplayerProcessNameTextBox.Text;
+
+            Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
 
             Properties.Settings.Default.Save();
             this.DialogResult = DialogResult.OK;

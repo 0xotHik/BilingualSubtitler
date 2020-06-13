@@ -12,7 +12,7 @@ namespace BilingualSubtitler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -212,7 +212,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;42;20;2;1;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;42;20;2;1;0;50;0")]
         public string OriginalSubtitlesStyleString {
             get {
                 return ((string)(this["OriginalSubtitlesStyleString"]));
@@ -224,7 +224,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;84;20;2;1;30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;84;20;2;1;30;50;0")]
         public string FirstRussianSubtitlesStyleString {
             get {
                 return ((string)(this["FirstRussianSubtitlesStyleString"]));
@@ -236,7 +236,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;126;20;2;1;30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;126;20;2;1;30;50;1")]
         public string SecondRussianSubtitlesStyleString {
             get {
                 return ((string)(this["SecondRussianSubtitlesStyleString"]));
@@ -248,7 +248,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;0;20;2;1;30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;0;20;2;1;30;50;1")]
         public string ThirdRussianSubtitlesStyleString {
             get {
                 return ((string)(this["ThirdRussianSubtitlesStyleString"]));
@@ -291,6 +291,30 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["FirstLaunch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SecondAndThirdRussianSubtitlesAtTopOfTheScreen {
+            get {
+                return ((bool)(this["SecondAndThirdRussianSubtitlesAtTopOfTheScreen"]));
+            }
+            set {
+                this["SecondAndThirdRussianSubtitlesAtTopOfTheScreen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool YandexTranslatorAPIEnabled {
+            get {
+                return ((bool)(this["YandexTranslatorAPIEnabled"]));
+            }
+            set {
+                this["YandexTranslatorAPIEnabled"] = value;
             }
         }
     }

@@ -17,6 +17,8 @@ using YandexLinguistics.NET;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Settings = BilingualSubtitler.Properties.Settings;
 using VirtualKeyCode = WindowsInput.Native.VirtualKeyCode;
+using Xceed.Words.NET;
+using Nikse.SubtitleEdit.Core;
 
 namespace BilingualSubtitler
 {
@@ -149,10 +151,14 @@ namespace BilingualSubtitler
         [DllImport("user32.dll")]
         static extern bool PostMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
 
+        private string m_playVideoButtonDefaultText;
+
 
         public MainForm()
         {
             InitializeComponent();
+
+            m_playVideoButtonDefaultText = playVideoButton.Text;
 
             if (Settings.Default.UpgradeRequired)
             {
@@ -184,7 +190,7 @@ namespace BilingualSubtitler
                                 $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, " +
                                 $"на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
                                 $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}\n\n" +
-                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!\n"+
+                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!\n" +
                                 $"Проверьте, возможно параметры вашего видеоплеера отличаются от заданных по умолчанию " +
                                 $"(параметры по умолчанию — для немодифицированного 64-разрядного Media Player Classic Homecinema.",
                                 $"Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -247,7 +253,7 @@ namespace BilingualSubtitler
                 openFirstRussianSubtitlesButton,
                 openSecondRussianSubtitlesButton,
                 openThirdRussianSubtitlesButton,
-                translateToPrimarySubtitlesButton,
+                //translateToPrimarySubtitlesButton,
                 translateToFirstRussianSubtitlesButton,
                 translateToSecondRussianSubtitlesButton,
                 translateToThirdRussianSubtitlesButton,
@@ -395,6 +401,13 @@ namespace BilingualSubtitler
             showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
 
             m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
+
+            translateToFirstRussianSubtitlesGroupBox.Visible =
+                translateToSecondRussianSubtitlesGroupBox.Visible =
+                translateToThirdRussianSubtitlesGroupBox.Visible =
+                Settings.Default.YandexTranslatorAPIEnabled;
+
+            //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -521,11 +534,33 @@ namespace BilingualSubtitler
 
         #endregion
 
+        private Subtitle[] ReadDocx(string pathToDOCXFile)
+        {
+            DocX doc = null;
+            try
+            {
+                doc = DocX.Load(pathToDOCXFile);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Произошла ошибка во время считывания DocX", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return null;
+            }
+
+            return ReadSRTMarkupInDocx(doc.Paragraphs);
+        }
+
 
         private Subtitle[] ReadSRT(string pathToSRTFile)
         {
+            return ReadSRTMarkup(File.ReadAllLines(pathToSRTFile));
+        }
+
+        private Subtitle[] ReadSRTMarkup(string[] readedLines)
+        {
             var subsLines = 0;
-            string[] readedLines = File.ReadAllLines(pathToSRTFile); //Читаем из файла субтитры
 
             foreach (string line in readedLines)
             {
@@ -546,6 +581,50 @@ namespace BilingualSubtitler
                     i += 2;
 
                     while ((i < readedLines.Length) && (!string.IsNullOrWhiteSpace(readedLines[i])))
+                    {
+                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
+
+                        i++;
+                    }
+
+                    currentSubtitleIndex++;
+                }
+            }
+
+            return subtitles;
+        }
+
+        private Subtitle[] ReadSRTMarkupInDocx(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        {
+            var subsLines = 0;
+
+            foreach (var line in readedLines)
+            {
+                if (line.Text.Contains("->"))
+                    subsLines++;
+            }
+
+            var subtitles = new Subtitle[subsLines];
+            int currentSubtitleIndex = 0;
+            for (int i = 0; i < readedLines.Count - 1; i++)
+            {
+                if (readedLines[i].Text.Contains("->"))
+                {
+                    try
+                    {
+                        subtitles[currentSubtitleIndex] = new Subtitle(
+                            readedLines[i].Text,
+                            (readedLines[i + 1].Text));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Не удался парсинг субтитра из\n{readedLines[i].Text}\n{readedLines[i + 1].Text}\n!\n\nОшибка:{ex.ToString()}",
+                            "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                    }
+
+                    i += 2;
+
+                    while ((i < readedLines.Count) && (!string.IsNullOrWhiteSpace(readedLines[i].Text)))
                     {
                         subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
 
@@ -594,6 +673,7 @@ namespace BilingualSubtitler
             var subtitleStyleNamePostfix = " sub stream";
 
             string[] styleComponents = null;
+            bool subtitleInOneLine = false;
             for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
             {
                 switch (i)
@@ -627,7 +707,16 @@ namespace BilingualSubtitler
                 var shadow = styleComponents[4];
 
                 var transparencyPercentage = styleComponents[5];
-                var transparency = (int.Parse(transparencyPercentage) * 255 / 100).ToString("X");
+                var transparency = ((int)(float.Parse(transparencyPercentage) / 100f * 255f)).ToString("X2");
+                var shadowTransparencyPercentage = styleComponents[6];
+                var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
+
+                subtitleInOneLine = styleComponents[7] == "1";
+
+                //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
+                //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
+                //* float.Parse(shadowTransparencyPercentage) / 100f
+                //* 255f)).ToString("X2");
 
                 //var transparency = i == 0 ? "00" : "64";
                 //var marginV = i == 3 ? 0
@@ -648,7 +737,7 @@ namespace BilingualSubtitler
                     $"{color.R.ToString("X2")}," +
                     $"&H{transparency}00FFFF," +
                     $"&H{transparency}000000," +
-                    $"&H{transparency}000000," +
+                    $"&H{shadowTransparency}000000," +
                     $"0,0,0,0,100,100,0,0,1," +
                     // Обводка
                     $"{outline}," +
@@ -674,30 +763,24 @@ namespace BilingualSubtitler
                 {
                     foreach (var subtitle in subtitles)
                     {
-                        if (subtitle.Text.Contains("Спутники на связи"))
+                        if (subtitle != null)
                         {
-                            int gg;
-                            gg = 0;
+                            // Перенос
+                            if (subtitle.Text.Contains("\r\n"))
+                                subtitle.Text = subtitle.Text.Replace("\r\n", subtitleInOneLine ? " " : "\\N");
+                            else
+                            if (subtitle.Text.Contains("\n"))
+                                subtitle.Text = subtitle.Text.Replace("\n", subtitleInOneLine ? " " : "\\N");
+                            //subtitle.Text = subtitle.Text.Replace("\n", "\\N");
+
+
+                            assSB.AppendLine($"Dialogue: 0," +
+                                             $"{subtitle.Start.ToString(assTimeFormat)}," +
+                                             $"{subtitle.End.ToString(assTimeFormat)}," +
+                                             $"{i}{subtitleStyleNamePostfix}," +
+                                             $",0,0,0,," +
+                                             $"{subtitle.Text}");
                         }
-
-                        // Перенос
-                        if (subtitle.Text.Contains("\r\n"))
-                            // TODO Убирание переносов строк в рус сабах
-                            subtitle.Text = subtitle.Text.Replace("\r\n", "\\N");
-                        //subtitle.Text = subtitle.Text.Replace("\r\n", i == 0 ? "\\N" : " ");
-                        else
-                        if (subtitle.Text.Contains("\n"))
-                            // TODO Убирание переносов строк в рус сабах
-                            //subtitle.Text = subtitle.Text.Replace("\n", i == 0 ? "\\N" : " ");
-                            subtitle.Text = subtitle.Text.Replace("\n", "\\N");
-
-
-                        assSB.AppendLine($"Dialogue: 0," +
-                                         $"{subtitle.Start.ToString(assTimeFormat)}," +
-                                         $"{subtitle.End.ToString(assTimeFormat)}," +
-                                         $"{i}{subtitleStyleNamePostfix}," +
-                                         $",0,0,0,," +
-                                         $"{subtitle.Text}");
                     }
                 }
             }
@@ -957,9 +1040,7 @@ namespace BilingualSubtitler
 
         private void OpenFileAndReadSubtitlesFromFile(SubtitlesType subtitlesType)
         {
-            var subtitlesInfo = m_subtitles[subtitlesType];
-
-            string formats = "Файлы Matroska Video (.mkv), файлы SubRip Text (.srt) |*.mkv; *.srt";
+            string formats = "Файлы Matroska Video (.mkv), файлы SubRip Text (.srt), файлы DocX (.docx) |*.mkv; *.srt; *.docx";
 
             using var openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = formats;
@@ -967,34 +1048,47 @@ namespace BilingualSubtitler
 
             if (result == DialogResult.OK)
             {
-                var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
-                readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
-                readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
-                readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
-
-                subtitlesInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
-
-                subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
-                subtitlesInfo.ProgressLabel.Text = $"0%";
-                subtitlesInfo.ButtonOpen.Enabled = false;
-                if (subtitlesInfo.ButtonTranslate != null)
-                    subtitlesInfo.ButtonTranslate.Enabled = false;
-                subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
-
-                if (subtitlesType == SubtitlesType.Original)
-                {
-                    var originalSubtitlesFileFI = new FileInfo(openFileDialog.FileName);
-                    var extension = originalSubtitlesFileFI.Extension;
-                    var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
-                        originalSubtitlesFileFI.FullName.Length -
-                       (extension.Length));
-
-                    finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
-                }
-
-                subtitlesInfo.BackgroundWorker.RunWorkerAsync(openFileDialog.FileName);
+                ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
             }
 
+        }
+
+        private void ReadSubtitlesFromFile(string fileName, SubtitlesType subtitlesType)
+        {
+            var subtitlesInfo = m_subtitles[subtitlesType];
+
+            var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
+            readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
+            readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
+            readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
+
+            subtitlesInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
+
+            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
+            subtitlesInfo.ProgressLabel.Text = $"0%";
+            subtitlesInfo.ButtonOpen.Enabled = false;
+            if (subtitlesInfo.ButtonTranslate != null)
+                subtitlesInfo.ButtonTranslate.Enabled = false;
+            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+
+            if (subtitlesType == SubtitlesType.Original)
+            {
+                var originalSubtitlesFileFI = new FileInfo(fileName);
+                var extension = originalSubtitlesFileFI.Extension;
+                var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
+                    originalSubtitlesFileFI.FullName.Length -
+                   (extension.Length));
+
+                finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
+
+                if (extension == ".mkv")
+                {
+                    finalSubtitlesFilesPathBeginningRichTextBox.Tag = extension;
+                    playVideoButton.Text = $"{m_playVideoButtonDefaultText}\n({extension})";
+                }
+            }
+
+            subtitlesInfo.BackgroundWorker.RunWorkerAsync(fileName);
         }
 
         private void readSubtitlesBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
@@ -1041,6 +1135,41 @@ namespace BilingualSubtitler
                         })));
 
                         subtitlesInfo.Subtitles = ReadSRT(filePath);
+
+                        break;
+                    }
+                case ".docx":
+                    {
+                        BeginInvoke((Action)((() =>
+                        {
+                            switch (parentBgW.SubtitlesType)
+                            {
+                                case SubtitlesType.Original:
+                                    {
+                                        primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.FirstRussian:
+                                    {
+                                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.SecondRussian:
+                                    {
+                                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                                case SubtitlesType.ThirdRussian:
+                                    {
+                                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                                        break;
+                                    }
+                            }
+
+                            subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name;
+                        })));
+
+                        subtitlesInfo.Subtitles = ReadDocx(filePath);
 
                         break;
                     }
@@ -1309,11 +1438,47 @@ namespace BilingualSubtitler
             var senderButton = (Button)sender;
 
             var colorPickingDialog = new ColorDialog();
+            colorPickingDialog.CustomColors = new int[] { ColorTranslator.ToOle(Color.Gold) };
             var dialogResult = colorPickingDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 senderButton.BackColor = colorPickingDialog.Color;
             }
+        }
+
+        private void openSubtitles_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void openPrimarySubtitles_DragDrop(object sender, DragEventArgs e)
+        {
+            translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
+                translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
+                    translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                        false;
+
+            var fileName = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            ReadSubtitlesFromFile(fileName, SubtitlesType.Original);
+        }
+
+        private void openFirstRussianSubtitles_DragDrop(object sender, DragEventArgs e)
+        {
+            var fileName = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            ReadSubtitlesFromFile(fileName, SubtitlesType.FirstRussian);
+        }
+
+        private void openSecondRussianSubtitles_DragDrop(object sender, DragEventArgs e)
+        {
+            var fileName = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            ReadSubtitlesFromFile(fileName, SubtitlesType.SecondRussian);
+        }
+
+        private void openThirdRussianSubtitles_DragDrop(object sender, DragEventArgs e)
+        {
+            var fileName = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            ReadSubtitlesFromFile(fileName, SubtitlesType.ThirdRussian);
         }
 
         private void openPrimarySubtitlesButton_Click(object sender, EventArgs e)
@@ -1456,6 +1621,9 @@ namespace BilingualSubtitler
                 var finalSubtitlesFilesPathFileInfo = new FileInfo(openFileDialog.FileName);
                 finalSubtitlesFilesPathBeginningRichTextBox.Text = finalSubtitlesFilesPathFileInfo.FullName.Substring(0,
                     finalSubtitlesFilesPathFileInfo.FullName.Length - finalSubtitlesFilesPathFileInfo.Extension.Length);
+                finalSubtitlesFilesPathBeginningRichTextBox.Tag = finalSubtitlesFilesPathFileInfo.Extension;
+
+                playVideoButton.Text = $"{m_playVideoButtonDefaultText}\n({finalSubtitlesFilesPathFileInfo.Extension})";
             }
 
             openFileDialog.Dispose();
@@ -1465,6 +1633,61 @@ namespace BilingualSubtitler
         {
             using var formAbout = new FormAbout();
             formAbout.ShowDialog();
+        }
+
+        private void playVideoButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(finalSubtitlesFilesPathBeginningRichTextBox.Text +
+                // В тэге ТекстБокса должно лежать расширение
+                finalSubtitlesFilesPathBeginningRichTextBox.Tag);
+        }
+
+        private void primarySubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.Original);
+        }
+
+        private void ExportSubtitlesToDocx(SubtitlesType subtitlesType)
+        {
+            var subtitlesInfo = m_subtitles[subtitlesType];
+
+            string formats = "Файл DocX |*.docx";
+
+            using var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = formats;
+            var result = saveFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var timeFormat = @"hh\:mm\:ss\,fff";
+
+                var doc = DocX.Create(saveFileDialog.FileName);
+                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                {
+                    var subtitle = subtitlesInfo.Subtitles[i];
+
+                    doc.InsertParagraph((i + 1).ToString());
+                    doc.InsertParagraph($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                    doc.InsertParagraph(subtitle.Text);
+                    doc.InsertParagraph("");
+                }
+                doc.Save();
+            }
+        }
+
+        private void firstRussianSubtitlesTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://translate.yandex.ru/doc");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=translate&sl=en&tl=ru");
         }
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
