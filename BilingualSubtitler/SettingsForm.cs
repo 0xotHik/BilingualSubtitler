@@ -280,6 +280,8 @@ namespace BilingualSubtitler
 
             Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
 
+            Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
+
             Properties.Settings.Default.Save();
             this.DialogResult = DialogResult.OK;
             this.Close();
