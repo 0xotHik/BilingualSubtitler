@@ -264,6 +264,8 @@ namespace BilingualSubtitler
                 richTextBoxForYandexApiKeyInSeparateForm.Text.Substring(0,
                     richTextBoxForYandexApiKeyInSeparateForm.Text.Length - spaceSymbols - carrySymbols);
 
+            Properties.Settings.Default.VideoPlayerProcessName = videoplayerProcessNameTextBox.Text;
+
             Properties.Settings.Default.OriginalSubtitlesStyleString = $"{originalSubtitlesFontComboBox.Text};" +
                                                                        $"{originalSubtitlesMarginNumericUpDown.Value};" +
                                                                        $"{originalSubtitlesSizeNumericUpDown.Value};" +

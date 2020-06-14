@@ -7,6 +7,7 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace BilingualSubtitler
 {
@@ -22,7 +23,17 @@ namespace BilingualSubtitler
             Text = RemoveTags(text);
 
             // 00:00:42,292-- > 00:00:43,377
-            var timingStringComponents = timing.Split(new string[] { " --> "} , StringSplitOptions.RemoveEmptyEntries);
+            string[] timingStringComponents = null;
+            if (timing.Contains(" --> "))
+                timingStringComponents = timing.Split(new string[] { " --> " }, StringSplitOptions.RemoveEmptyEntries);
+            else // Гугл Транслэйт
+            {
+                timingStringComponents = timing.Split(new string[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
+
+                timingStringComponents[0] = timingStringComponents[0].Replace(" ", "");
+                timingStringComponents[1] = timingStringComponents[1].Replace(" ", "");
+            }
+
             Start = TimeSpan.Parse(timingStringComponents[0]);
             End = TimeSpan.Parse(timingStringComponents[1]);
         }

@@ -118,61 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="25pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\25pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_smallTranslateToRus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16pxCancelIconAnother" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxCancelIconAnother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="32pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\32pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="YandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\YandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hotkeys-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hotkeys-default.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="48pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\48pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_smallTranslateToRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16pxOkIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxOkIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hotkeys-authors-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hotkeys-authors-default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo (1).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo4.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo2.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="16pxCancelIconAnother" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16pxCancelIconAnother.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_smallTranslateToRus1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="16pxOkIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16pxOkIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hotkeys-authors-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hotkeys-authors-default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hotkeys-default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hotkeys-default.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="48pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="16pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="25pxYandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\25pxYandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo4_1.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo (1).ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="48pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="32pxCancelIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\32pxCancelIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_smallTranslateToRus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_smallTranslateToRus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YandexTranslateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YandexTranslateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

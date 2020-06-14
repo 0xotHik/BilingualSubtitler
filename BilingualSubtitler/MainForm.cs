@@ -1647,6 +1647,21 @@ namespace BilingualSubtitler
             ExportSubtitlesToDocx(SubtitlesType.Original);
         }
 
+        private void firstRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FirstRussian);
+        }
+
+        private void secondRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.SecondRussian);
+        }
+
+        private void thirdRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.ThirdRussian);
+        }
+
         private void ExportSubtitlesToDocx(SubtitlesType subtitlesType)
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
@@ -1687,8 +1702,10 @@ namespace BilingualSubtitler
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=translate&sl=en&tl=ru");
+            System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
         }
+
+
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
     {

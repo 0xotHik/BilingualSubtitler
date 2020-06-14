@@ -232,6 +232,7 @@
     <None Include="Resources\hotkeys-authors-default.png" />
     <None Include="Resources\logo.ico" />
     <None Include="Resources\logo %281%29.ico" />
+    <None Include="Resources\68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667.png" />
     <Content Include="Resources\logo.jpg" />
     <None Include="Resources\logo4_1.ico" />
     <None Include="Resources\logo4.ico" />

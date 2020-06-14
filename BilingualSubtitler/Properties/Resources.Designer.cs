@@ -133,6 +133,17 @@ namespace BilingualSubtitler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667 {
+            get {
+                object obj = ResourceManager.GetObject("68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702" +
+                        "e4170692e436c69656e742e737667", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _smallTranslateToRus {
             get {
                 object obj = ResourceManager.GetObject("_smallTranslateToRus", resourceCulture);

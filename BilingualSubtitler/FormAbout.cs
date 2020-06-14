@@ -61,5 +61,10 @@ namespace BilingualSubtitler
         {
             System.Diagnostics.Process.Start("https://0xothik.wordpress.com/2016/02/16/about-bilingual-subtitler/"); 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://yasobe.ru/na/0xothik");
+        }
     }
 }

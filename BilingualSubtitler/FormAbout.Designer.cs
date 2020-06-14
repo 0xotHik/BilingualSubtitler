@@ -36,7 +36,9 @@
             this.linkLabel0xothiksHut = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -52,17 +54,17 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(260, 12);
+            this.label1.Location = new System.Drawing.Point(260, -18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 65);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Bilingual Subtitler\r\nПрограмма для создания \r\nдвуязычных субтитров\r\n\r\n";
+            this.label1.Text = "Bilingual Subtitler";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(260, 77);
+            this.labelVersion.Location = new System.Drawing.Point(260, 48);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(47, 13);
             this.labelVersion.TabIndex = 2;
@@ -71,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 163);
+            this.label3.Location = new System.Drawing.Point(260, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(241, 13);
             this.label3.TabIndex = 4;
@@ -80,7 +82,7 @@
             // linkLabel0xothiksHut
             // 
             this.linkLabel0xothiksHut.AutoSize = true;
-            this.linkLabel0xothiksHut.Location = new System.Drawing.Point(260, 187);
+            this.linkLabel0xothiksHut.Location = new System.Drawing.Point(260, 158);
             this.linkLabel0xothiksHut.Name = "linkLabel0xothiksHut";
             this.linkLabel0xothiksHut.Size = new System.Drawing.Size(119, 13);
             this.linkLabel0xothiksHut.TabIndex = 33;
@@ -91,7 +93,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(260, 102);
+            this.linkLabel1.Location = new System.Drawing.Point(260, 73);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(193, 52);
             this.linkLabel1.TabIndex = 40;
@@ -111,11 +113,23 @@
             this.buttonOk.UseVisualStyleBackColor = false;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BilingualSubtitler.Properties.Resources._68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667;
+            this.pictureBox2.Location = new System.Drawing.Point(263, 196);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(144, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 43;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // FormAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 227);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel0xothiksHut);
@@ -125,9 +139,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAbout";
-            this.Text = "FormAbout";
+            this.Text = "О программе";
             this.Load += new System.EventHandler(this.FormAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +157,6 @@
         private System.Windows.Forms.LinkLabel linkLabel0xothiksHut;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

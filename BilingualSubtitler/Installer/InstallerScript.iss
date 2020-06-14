@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Bilingual Subtitler"
-#define MyAppVersion "2.2"
+#define MyAppVersion "3.0"
 #define MyAppPublisher "0xotHik"
 #define MyAppURL "https://0xothik.wordpress.com/bilingual-subtitler/"
 #define MyAppExeName "BilingualSubtitler.exe"
@@ -50,6 +50,8 @@ Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Relea
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\WindowsBase.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\WindowsInput.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\WindowsInput.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\Xceed.Document.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\Additional\mpc-hc-keys.reg"; DestDir: "{app}"; Flags: ignoreversion

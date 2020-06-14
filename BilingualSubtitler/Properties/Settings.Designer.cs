@@ -85,25 +85,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>NumPad0@96@</string>
-  <string>Decimal@110@</string>
-  <string>Return@13@</string>
-  <string>F3@114@</string>
-  <string>Space@32@</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Hotkeys {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Hotkeys"]));
-            }
-            set {
-                this["Hotkeys"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(".eng.ass")]
         public string OriginalSubtitlesFileNameEnding {
             get {
@@ -212,7 +193,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;42;20;2;1;0;50;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;42;20;2;2;0;50;0")]
         public string OriginalSubtitlesStyleString {
             get {
                 return ((string)(this["OriginalSubtitlesStyleString"]));
@@ -224,7 +205,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;84;20;2;1;30;50;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;0;20;2;2;0;50;0")]
         public string FirstRussianSubtitlesStyleString {
             get {
                 return ((string)(this["FirstRussianSubtitlesStyleString"]));
@@ -236,7 +217,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;126;20;2;1;30;50;1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;206;20;2;2;40;50;0")]
         public string SecondRussianSubtitlesStyleString {
             get {
                 return ((string)(this["SecondRussianSubtitlesStyleString"]));
@@ -248,7 +229,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;0;20;2;1;30;50;1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial;248;20;2;2;40;50;0")]
         public string ThirdRussianSubtitlesStyleString {
             get {
                 return ((string)(this["ThirdRussianSubtitlesStyleString"]));
@@ -315,6 +296,25 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["YandexTranslatorAPIEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>NumPad0@96@</string>
+  <string>Decimal@110@</string>
+  <string>Return@13@</string>
+  <string>F3@114@</string>
+  <string>Space@32@</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Hotkeys {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Hotkeys"]));
+            }
+            set {
+                this["Hotkeys"] = value;
             }
         }
     }
