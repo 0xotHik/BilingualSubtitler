@@ -43,6 +43,6 @@ Bilingual Subtitler же работает с любыми видео, котор
 
 - Большое спасибо компании **Яндекс** за предоставление бесплатного доступа Яндекс.Переводчику.
 <br>
-<br>
-Автор будет рад [откликам о программе в любом виде](https://0xothik.wordpress.com/bilingual-subtitler#ContactMe).
+
+Автор будет рад [откликам о программе в любом виде](https://0xothik.wordpress.com/bilingual-subtitler#ContactMe)
 
