@@ -1,6 +1,7 @@
 [![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplash-v-3.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
-
-
+<br>
+<br>
+<a href="https://yasobe.ru/na/0xothik" target="_blank" rel="noopener"><img class="alignnone size-full wp-image-5000" src="https://0xothik.files.wordpress.com/2020/06/ya-thx-20.png" alt="Спасибо, которое намажешь на хлеб" width="134" height="20" /></a>
 <a href="https://0xothik.wordpress.com/bilingual-subtitler/"><p style="text-align: center;"><strong><span style="color: #999999;">Bilingual</span> <span style="color: #ffd700;">Subtitler</span></strong></p></a>
 Программа для повышения удобства и результативности просмотра кино и сериалов на английском языке с английскими субтитрами при помощи динамически подключаемых (или постоянно постоянно подключенных к английским) русских субтитров → https://0xothik.wordpress.com/bilingual-subtitler/
 
