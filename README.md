@@ -38,7 +38,11 @@ Bilingual Subtitler же работает с любыми видео, котор
 *   [Библиотеку **LibSE**](https://github.com/SubtitleEdit/subtitleedit/tree/master/libse) из состава приложения [Subtitle Edit](https://0xothik.wordpress.com/bilingual-subtitler#SubtitleEdit) — с её помощью осуществляется считывание субтитров из файлов .mkv.
 *   [Библиотеку **Windows Input Simulator**](https://github.com/michaelnoonan/inputsimulator) (с неправильными примерами кода в разделе Example :))
 *   [Библиотеку **NonInvasiveKeyboardHook**](https://github.com/kfirprods/NonInvasiveKeyboardHook)
+*   [Библиотеку **DocX**](https://github.com/xceedsoftware/DocX)
 *   Установщик создан через [программу **Inno Setup**](https://jrsoftware.org/isinfo.php)
 
-- Большое спасибо компании **Яндекс** за предоставление бесплатного доступа к своим API Автор будет рад [откликам о программе в любом виде](https://0xothik.wordpress.com/bilingual-subtitler#ContactMe).
+- Большое спасибо компании **Яндекс** за предоставление бесплатного доступа Яндекс.Переводчику.
+<br>
+
+Автор будет рад [откликам о программе в любом виде](https://0xothik.wordpress.com/bilingual-subtitler#ContactMe)
 
