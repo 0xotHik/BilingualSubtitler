@@ -559,6 +559,7 @@
             this.primarySubtitlesColorButton.Size = new System.Drawing.Size(63, 36);
             this.primarySubtitlesColorButton.TabIndex = 7;
             this.primarySubtitlesColorButton.UseVisualStyleBackColor = false;
+            this.primarySubtitlesColorButton.Click += new System.EventHandler(this.colorPickingButton_Click);
             // 
             // label2
             // 

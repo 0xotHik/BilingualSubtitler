@@ -62,7 +62,8 @@ namespace BilingualSubtitler
 
             changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked =
                 Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal;
-            secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Checked = Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen;
+            secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen;
+            secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled;
 
             var originalSubtitlesStyle = Properties.Settings.Default.OriginalSubtitlesStyleString.Split(';');
             foreach (var fontItem in originalSubtitlesFontComboBox.Items)
@@ -146,7 +147,7 @@ namespace BilingualSubtitler
 
         private void changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Enabled =
+            secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled =
             //
             firstRussianSubtitlesFontComboBox.Enabled = firstRussianSubtitlesMarginNumericUpDown.Enabled =
                 firstRussianSubtitlesShadowNumericUpDown.Enabled =
@@ -172,6 +173,8 @@ namespace BilingualSubtitler
                                                                                 .Enabled =
                                                                             //
                                                                             !changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked;
+
+            secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -258,7 +261,8 @@ namespace BilingualSubtitler
             Properties.Settings.Default.OriginalSubtitlesFileNameEnding = originalSubtitlesPathEndingTextBox.Text;
             Properties.Settings.Default.BilingualSubtitlesFileNameEnding = bilingualSubtitlesPathEndingTextBox.Text;
             Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal = changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked;
-            Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen = secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Checked;
+            Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen = secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked;
+            Properties.Settings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled = secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled;
 
             Properties.Settings.Default.YandexTranslatorAPIKey =
                 richTextBoxForYandexApiKeyInSeparateForm.Text.Substring(0,
@@ -473,7 +477,7 @@ namespace BilingualSubtitler
         {
             if (changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked)
             {
-                if (secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Checked)
+                if (secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled && secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked)
                 {
                     var firstRussianSubtitlesMargin = originalSubtitlesMarginNumericUpDown.Value -
                                                       (2 * originalSubtitlesSizeNumericUpDown.Value +

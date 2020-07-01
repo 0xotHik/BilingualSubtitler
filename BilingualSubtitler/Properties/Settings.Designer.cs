@@ -317,5 +317,17 @@ namespace BilingualSubtitler.Properties {
                 this["Hotkeys"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled {
+            get {
+                return ((bool)(this["SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled"]));
+            }
+            set {
+                this["SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled"] = value;
+            }
+        }
     }
 }

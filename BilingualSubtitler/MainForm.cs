@@ -292,7 +292,43 @@ namespace BilingualSubtitler
 
             //Properties.Settings.Default.Save();
 
-            SetProgramAccordingToSettings();
+            try
+            {
+                SetProgramAccordingToSettings();
+                using var settingsForm = new SettingsForm();
+            }
+            catch (Exception e)
+            {
+                var result = MessageBox.Show($"Во время считывания настроек произошла ошибка. Сбросить настройки к значениям по умолчанию и попытаться " +
+                    $"считать их вновь?\nКнопка \"Нет\" завершит программу\n\n\nОшибка: {e}", "Во время считывания настроек произошла ошибка", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Error);
+
+                if (result == DialogResult.No)
+                    this.Close();
+                else
+                {
+                    Properties.Settings.Default.Reset();
+                    Properties.Settings.Default.Save();
+
+                    try
+                    {
+                        SetProgramAccordingToSettings();
+                        using var settingsForm = new SettingsForm();
+                    }
+                    catch (Exception ex)
+                    {
+                        result = MessageBox.Show($"Во время считывания настроек вновь произошла ошибка. " +
+                            $"По нажатию \"Ок\" можно попытаться продолжить работу программы. По кнопке \"Отмена\" программа будет закрыта.\n\n\n" +
+                            $"Ошибка: {ex}",
+                            "Во время считывания настроек произошла ошибка",
+                            MessageBoxButtons.OKCancel,
+                            MessageBoxIcon.Error);
+
+                        if (result == DialogResult.Cancel)
+                            this.Close();
+                    }
+                }
+            }
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
@@ -895,75 +931,87 @@ namespace BilingualSubtitler
         private string YandexTranslateAStringWithChecking(string originalText, Translator translator, bool byWord = false)
         {
             string output = "";
-            string tempStr = originalText;
-            int countOfTags = originalText.Split('<').Length - 1;
-            int[,] tagsIndexes = new int[2, countOfTags];
-            string[] tags = new string[countOfTags];
-
-            //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
-            for (int i = 0; i != countOfTags; i++)
-            {
-                tagsIndexes[0, i] = tempStr.IndexOf('<');
-                tagsIndexes[1, i] = tempStr.IndexOf('>');
-
-                tags[i] = tempStr.Substring(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
-
-                //И крайне весело заменяем символы тэга на какую-то фуйню
-                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
-                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
-            }
 
             try
             {
-                if (byWord == false)
+                string tempStr = originalText;
+                int countOfTags = originalText.Split('<').Length - 1;
+                int[,] tagsIndexes = new int[2, countOfTags];
+                string[] tags = new string[countOfTags];
+
+                //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+                for (int i = 0; i != countOfTags; i++)
                 {
-                    var translation = translator.Translate(originalText, new LangPair(Lang.En, Lang.Ru), null, false);
-                    output += translation.Text + '\n';
+                    tagsIndexes[0, i] = tempStr.IndexOf('<');
+                    tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                    tags[i] = tempStr.Substring(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+
+                    //И крайне весело заменяем символы тэга на какую-то фуйню
+                    tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                    tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
                 }
-                else
+
+                try
                 {
-                    var words = originalText.Split(' ');
-                    foreach (var word in words)
+                    if (byWord == false)
                     {
-                        var translation = translator.Translate(word, new LangPair(Lang.En, Lang.Ru), null, false);
-                        output += translation.Text + ' ';
+                        var translation = translator.Translate(originalText, new LangPair(Lang.En, Lang.Ru), null, false);
+                        output += translation.Text + '\n';
                     }
+                    else
+                    {
+                        var words = originalText.Split(' ');
+                        foreach (var word in words)
+                        {
+                            var translation = translator.Translate(word, new LangPair(Lang.En, Lang.Ru), null, false);
+                            output += translation.Text + ' ';
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Строка " + originalText +
+                                    "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
+                                    "Код ошибки: " + ex.Message);
+                    output += originalText + '\n';
+                }
+
+
+
+                tempStr = output;
+
+                //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
+                for (int i = 0; i != countOfTags; i++)
+                {
+                    tagsIndexes[0, i] = tempStr.IndexOf('<');
+                    tagsIndexes[1, i] = tempStr.IndexOf('>');
+
+                    tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
+                    tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
+                }
+
+                for (int i = 0; i != countOfTags; i++)
+                {
+                    output = output.Remove(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
+                    output = output.Insert(tagsIndexes[0, i], tags[i]);
+                }
+
+                //Если первым в строке идет тэг, то переводчиком он обрабаывается как первая буква предложения, и настоящая первая буква
+                //переводчиком переводится в нижний регистр. Поэтому надо вернуть как было.
+                if (output.IndexOf('<') == 0)
+                {
+                    string charToUpper = output[output.IndexOf('>') + 1].ToString().ToUpper();
+                    output = output.Remove(output.IndexOf('>') + 1, 1).Insert(output.IndexOf('>') + 1, charToUpper);
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show($"При обработке переведенного текста возникла ошибка. Будет записан оригинальный текст:\n«{originalText}»\n\n" +
+                    $"Ошибка: {ex.ToString()}", "При обработке переведенного текста возникла ошибка", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
 
-                MessageBox.Show("Строка " + originalText +
-                                "была обработана неверно. \n Вместо перевода будет записан оригинальный текст. \n " +
-                                "Код ошибки: " + ex.Message);
-                output += originalText + '\n';
-            }
-
-
-            tempStr = output;
-
-            //Если в строке содержатся символы тэгов, записываем в массив индексы начала и конца тегов
-            for (int i = 0; i != countOfTags; i++)
-            {
-                tagsIndexes[0, i] = tempStr.IndexOf('<');
-                tagsIndexes[1, i] = tempStr.IndexOf('>');
-
-                tempStr = tempStr.Remove(tagsIndexes[0, i], 1).Insert(tagsIndexes[0, i], '|'.ToString());
-                tempStr = tempStr.Remove(tagsIndexes[1, i], 1).Insert(tagsIndexes[1, i], '|'.ToString());
-            }
-
-            for (int i = 0; i != countOfTags; i++)
-            {
-                output = output.Remove(tagsIndexes[0, i], (tagsIndexes[1, i] - tagsIndexes[0, i] + 1));
-                output = output.Insert(tagsIndexes[0, i], tags[i]);
-            }
-
-            //Если первым в строке идет тэг, то переводчиком он обрабаывается как первая буква предложения, и настоящая первая буква
-            //переводчиком переводится в нижний регистр. Поэтому надо вернуть как было.
-            if (output.IndexOf('<') == 0)
-            {
-                string charToUpper = output[output.IndexOf('>') + 1].ToString().ToUpper();
-                output = output.Remove(output.IndexOf('>') + 1, 1).Insert(output.IndexOf('>') + 1, charToUpper);
+                return originalText;
             }
 
             return output;
@@ -1424,12 +1472,7 @@ namespace BilingualSubtitler
                         break;
                     }
             }
-
-            Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
-            Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
-            Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
-            Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
-            Properties.Settings.Default.Save();
+                        
         }
 
 
@@ -1439,10 +1482,17 @@ namespace BilingualSubtitler
 
             var colorPickingDialog = new ColorDialog();
             colorPickingDialog.CustomColors = new int[] { ColorTranslator.ToOle(Color.Gold) };
+            colorPickingDialog.FullOpen = true;
             var dialogResult = colorPickingDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 senderButton.BackColor = colorPickingDialog.Color;
+
+                Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
+                Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
+                Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
+                Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -1704,8 +1754,6 @@ namespace BilingualSubtitler
         {
             System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
         }
-
-
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker
     {

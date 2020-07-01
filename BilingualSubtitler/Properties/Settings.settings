@@ -81,5 +81,8 @@
   &lt;string&gt;Space@32@&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -44,7 +44,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox = new System.Windows.Forms.CheckBox();
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.thirdRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             this.thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -332,7 +332,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox);
+            this.groupBox3.Controls.Add(this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox);
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox7);
@@ -348,15 +348,15 @@
             // 
             // secondAndThirdSubtitlesAtTheTopOfScreenCheckBox
             // 
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.AutoSize = true;
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Checked = true;
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 425);
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdSubtitlesAtTheTopOfScreenCheckBox";
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(262, 17);
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.TabIndex = 96;
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.Text = "2 и 3 переведенные субтитры — сверху экрана";
-            this.secondAndThirdSubtitlesAtTheTopOfScreenCheckBox.UseVisualStyleBackColor = true;
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.AutoSize = true;
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = true;
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 425);
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdSubtitlesAtTheTopOfScreenCheckBox";
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(262, 17);
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.TabIndex = 96;
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Text = "2 и 3 переведенные субтитры — сверху экрана";
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.UseVisualStyleBackColor = true;
             // 
             // groupBox9
             // 
@@ -1435,7 +1435,7 @@
         private System.Windows.Forms.CheckBox originalSubtitlesInOneLineCheckBox;
         private System.Windows.Forms.NumericUpDown originalSubtitlesShadowTransparencyPercentageNumericUpDown;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.CheckBox secondAndThirdSubtitlesAtTheTopOfScreenCheckBox;
+        private System.Windows.Forms.CheckBox secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox;
         private System.Windows.Forms.CheckBox gotTheYandexTranslatorAPIKeyCheckBox;
     }
 }
