@@ -18,7 +18,7 @@ namespace BilingualSubtitler
     public partial class SettingsForm : Form
     {
         private Dictionary<string, ProcessPriorityClass> m_processPriorityNamesAndValues;
-        private Dictionary<string, ProcessPriorityClass> m_processPriorityValuesAndNames;
+        private Dictionary<ProcessPriorityClass, string> m_processPriorityValuesAndNames;
 
         private List<Button> m_buttons;
         private Color m_previousButtonColor;
@@ -40,15 +40,26 @@ namespace BilingualSubtitler
 
             m_processPriorityNamesAndValues = new Dictionary<string, ProcessPriorityClass>
             {
-                { "Низкий", ProcessPriorityClass.Idle}
+                { "Низкий", ProcessPriorityClass.Idle},
+                { "Ниже среднего", ProcessPriorityClass.BelowNormal},
+                { "Обычный", ProcessPriorityClass.Normal},
+                { "Выше среднего", ProcessPriorityClass.AboveNormal},
+                { "Высокий", ProcessPriorityClass.High},
+                { "Реального времени", ProcessPriorityClass.RealTime},
             };
 
+            m_processPriorityValuesAndNames = new Dictionary<ProcessPriorityClass, string>(m_processPriorityNamesAndValues.Count);
+            //
+            foreach (var key in m_processPriorityNamesAndValues.Keys)
+                m_processPriorityValuesAndNames.Add(m_processPriorityNamesAndValues[key], key);
+
+            // Лэйбл текущего приоритета процесса
             //using (var p = Process.GetCurrentProcess())
             //    var r = p.PriorityClass;
 
-            foreach(var prioprityName in m_processPriorityNamesAndValues.Keys)
+            foreach (var prioprityName in m_processPriorityNamesAndValues.Keys)
             {
-
+                // Заполняем КомбоБокс
             }
 
         }
