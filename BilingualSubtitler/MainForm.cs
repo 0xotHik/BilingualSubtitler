@@ -272,8 +272,8 @@ namespace BilingualSubtitler
             m_keyboardHookManager = new KeyboardHookManager();
             m_keyboardHookManager.Start();
 
-            m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
-
+            //m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
+            //
             //Properties.Settings.Default.Hotkeys = new StringCollection
             //{
             //    $"UP@{(int) VirtualKeyCode.UP}",
@@ -295,12 +295,13 @@ namespace BilingualSubtitler
             try
             {
                 SetProgramAccordingToSettings();
+
                 using var settingsForm = new SettingsForm();
             }
-            catch (Exception e)
+            catch (BilingualSubtitlerPropertiesLoadingException e)
             {
                 var result = MessageBox.Show($"Во время считывания настроек произошла ошибка. Сбросить настройки к значениям по умолчанию и попытаться " +
-                    $"считать их вновь?\nКнопка \"Нет\" завершит программу\n\n\nОшибка: {e}", "Во время считывания настроек произошла ошибка", MessageBoxButtons.YesNo,
+                    $"считать их вновь?\nКнопка \"Нет\" завершит программу\n\n\nОшибка: {e.InnerException}", "Во время считывания настроек произошла ошибка", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Error);
 
                 if (result == DialogResult.No)
@@ -313,13 +314,14 @@ namespace BilingualSubtitler
                     try
                     {
                         SetProgramAccordingToSettings();
+
                         using var settingsForm = new SettingsForm();
                     }
-                    catch (Exception ex)
+                    catch (BilingualSubtitlerPropertiesLoadingException ex)
                     {
                         result = MessageBox.Show($"Во время считывания настроек вновь произошла ошибка. " +
                             $"По нажатию \"Ок\" можно попытаться продолжить работу программы. По кнопке \"Отмена\" программа будет закрыта.\n\n\n" +
-                            $"Ошибка: {ex}",
+                            $"Ошибка: {ex.InnerException}",
                             "Во время считывания настроек произошла ошибка",
                             MessageBoxButtons.OKCancel,
                             MessageBoxIcon.Error);
@@ -339,111 +341,118 @@ namespace BilingualSubtitler
 
         private void SetProgramAccordingToSettings()
         {
-            // Хоткеи программы
-            m_keyboardHookManager.Stop();
-            m_keyboardHookManager.UnregisterAll();
-            //
-            var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
-
-            m_biligualSubtitlersHotkeys = new int[Settings.Default.Hotkeys.Count];
-            for (int i = 0; i < Settings.Default.Hotkeys.Count; i++)
+            try
             {
-                var hotkey = new Hotkey(Settings.Default.Hotkeys[i]);
-                m_biligualSubtitlersHotkeys[i] = hotkey.KeyCode;
+                // Хоткеи программы
+                m_keyboardHookManager.Stop();
+                m_keyboardHookManager.UnregisterAll();
+                //
+                var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
 
+                m_biligualSubtitlersHotkeys = new int[Settings.Default.Hotkeys.Count];
+                for (int i = 0; i < Settings.Default.Hotkeys.Count; i++)
+                {
+                    var hotkey = new Hotkey(Settings.Default.Hotkeys[i]);
+                    m_biligualSubtitlersHotkeys[i] = hotkey.KeyCode;
+
+                }
+
+                foreach (var keyCode in m_biligualSubtitlersHotkeys)
+                {
+                    if (keyCode != videoPlayerPauseHotkey.KeyCode)
+                        m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatAreNotPauseButton);
+                    else
+                        m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatArePauseButton);
+                }
+
+                m_keyboardHookManager.Start();
+
+                // Хоткеи видеоплеера
+                var videoPlayerChangeToBilingualSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString);
+                var videoPlayerChangeToOriginalSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString);
+                //
+                switch (videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey)
+                {
+                    case null:
+                        {
+                            m_changeSubtitlesToBilingualHotkeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
+                            m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByPostMessage;
+
+                            m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = null;
+                            m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = null;
+                            break;
+                        }
+                    default:
+                        {
+                            m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
+                            m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey;
+
+                            m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByInputSimulator;
+                            m_changeSubtitlesToBilingualHotkeyCode = -1;
+                            break;
+                        }
+                }
+
+                switch (videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey)
+                {
+                    case null:
+                        {
+                            m_changeSubtitlesToOriginalHotkeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
+                            m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByPostMessage;
+
+                            m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = null;
+                            m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = null;
+                            break;
+                        }
+                    default:
+                        {
+                            m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
+                            m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey;
+
+                            m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByInputSimulator;
+                            m_changeSubtitlesToOriginalHotkeyCode = -1;
+                            break;
+                        }
+                }
+                //
+                m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
+
+
+                primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
+                firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
+                secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
+                thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
+
+                originalSubtitlesFileNameEnding.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+                bilingualSubtitlesFileNameEnding.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
+
+                originalSubtitlesFileNameEnding.Visible =
+                    originalSubtitlesFileNameEndingLabel.Visible =
+                        Settings.Default.CreateOriginalSubtitlesFile;
+
+                m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
+
+                secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
+                    Settings.Default.SecondRussianSubtitlesIsVisible;
+                showSecondRussianSubtitlesButton.Visible = !Settings.Default.SecondRussianSubtitlesIsVisible;
+
+                thirdRussianSubtitlesGroupBox.Visible = hideThirdRussianSubtitlesButton.Visible =
+                    Settings.Default.ThirdRussianSubtitlesIsVisible;
+                showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
+
+                m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
+
+                translateToFirstRussianSubtitlesGroupBox.Visible =
+                    translateToSecondRussianSubtitlesGroupBox.Visible =
+                    translateToThirdRussianSubtitlesGroupBox.Visible =
+                    Settings.Default.YandexTranslatorAPIEnabled;
+
+                //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
             }
-
-            foreach (var keyCode in m_biligualSubtitlersHotkeys)
+            catch (Exception e)
             {
-                if (keyCode != videoPlayerPauseHotkey.KeyCode)
-                    m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatAreNotPauseButton);
-                else
-                    m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatArePauseButton);
+                throw new BilingualSubtitlerPropertiesLoadingException(e);
             }
-
-            m_keyboardHookManager.Start();
-
-            // Хоткеи видеоплеера
-            var videoPlayerChangeToBilingualSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString);
-            var videoPlayerChangeToOriginalSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString);
-            //
-            switch (videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey)
-            {
-                case null:
-                    {
-                        m_changeSubtitlesToBilingualHotkeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
-                        m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByPostMessage;
-
-                        m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = null;
-                        m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = null;
-                        break;
-                    }
-                default:
-                    {
-                        m_changeSubtitlesToBilingualHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToBilingualSubtitlesHotkey.KeyCode;
-                        m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToBilingualSubtitlesHotkey.ModifierKey;
-
-                        m_changeSubtitlesToBilingualDelegate = ChangeSubtitlesToBilingualByInputSimulator;
-                        m_changeSubtitlesToBilingualHotkeyCode = -1;
-                        break;
-                    }
-            }
-
-            switch (videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey)
-            {
-                case null:
-                    {
-                        m_changeSubtitlesToOriginalHotkeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
-                        m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByPostMessage;
-
-                        m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = null;
-                        m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = null;
-                        break;
-                    }
-                default:
-                    {
-                        m_changeSubtitlesToOriginalHotkeyVirtualKeyCode = (VirtualKeyCode)videoPlayerChangeToOriginalSubtitlesHotkey.KeyCode;
-                        m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode = videoPlayerChangeToOriginalSubtitlesHotkey.ModifierKey;
-
-                        m_changeSubtitlesToOriginalDelegate = ChangeSubtitlesToOriginalByInputSimulator;
-                        m_changeSubtitlesToOriginalHotkeyCode = -1;
-                        break;
-                    }
-            }
-            //
-            m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
-
-
-            primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
-            firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
-            secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
-            thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
-
-            originalSubtitlesFileNameEnding.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
-            bilingualSubtitlesFileNameEnding.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
-
-            originalSubtitlesFileNameEnding.Visible =
-                originalSubtitlesFileNameEndingLabel.Visible =
-                    Settings.Default.CreateOriginalSubtitlesFile;
-
-            m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
-
-            secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
-                Settings.Default.SecondRussianSubtitlesIsVisible;
-            showSecondRussianSubtitlesButton.Visible = !Settings.Default.SecondRussianSubtitlesIsVisible;
-
-            thirdRussianSubtitlesGroupBox.Visible = hideThirdRussianSubtitlesButton.Visible =
-                Settings.Default.ThirdRussianSubtitlesIsVisible;
-            showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
-
-            m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
-
-            translateToFirstRussianSubtitlesGroupBox.Visible =
-                translateToSecondRussianSubtitlesGroupBox.Visible =
-                translateToThirdRussianSubtitlesGroupBox.Visible =
-                Settings.Default.YandexTranslatorAPIEnabled;
-
-            //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
         }
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
@@ -1472,7 +1481,7 @@ namespace BilingualSubtitler
                         break;
                     }
             }
-                        
+
         }
 
 
@@ -1768,6 +1777,13 @@ namespace BilingualSubtitler
         public override string ToString()
         {
             return Text;
+        }
+    }
+
+    public class BilingualSubtitlerPropertiesLoadingException : Exception
+    {
+        public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+        {
         }
     }
 }

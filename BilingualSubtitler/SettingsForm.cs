@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
@@ -13,8 +14,12 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
+
     public partial class SettingsForm : Form
     {
+        private Dictionary<string, ProcessPriorityClass> m_processPriorityNamesAndValues;
+        private Dictionary<string, ProcessPriorityClass> m_processPriorityValuesAndNames;
+
         private List<Button> m_buttons;
         private Color m_previousButtonColor;
         private bool m_flagKeyIsInvalid = false;
@@ -23,6 +28,33 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
+            try
+            {
+                SetFormAccordingToSettings();
+            }
+            catch (Exception e)
+            {
+                throw new BilingualSubtitlerPropertiesLoadingException(e);
+            }
+
+
+            m_processPriorityNamesAndValues = new Dictionary<string, ProcessPriorityClass>
+            {
+                { "Низкий", ProcessPriorityClass.Idle}
+            };
+
+            //using (var p = Process.GetCurrentProcess())
+            //    var r = p.PriorityClass;
+
+            foreach(var prioprityName in m_processPriorityNamesAndValues.Keys)
+            {
+
+            }
+
+        }
+
+        public void SetFormAccordingToSettings()
+        {
             // Системные шрифты
             using InstalledFontCollection fontsCollection = new InstalledFontCollection();
             FontFamily[] fontFamilies = fontsCollection.Families;
