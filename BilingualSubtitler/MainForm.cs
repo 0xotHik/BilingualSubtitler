@@ -343,6 +343,20 @@ namespace BilingualSubtitler
         {
             try
             {
+                using (var p = Process.GetCurrentProcess())
+                {
+                    p.PriorityClass = Properties.Settings.Default.ProcessPriority;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Выставление приоритета процесса не удалось.\n\n\nОшибка:{ex}", "Выставление приоритета процесса не удалось",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
                 // Хоткеи программы
                 m_keyboardHookManager.Stop();
                 m_keyboardHookManager.UnregisterAll();

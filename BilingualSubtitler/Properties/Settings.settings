@@ -84,5 +84,8 @@
     <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ProcessPriority" Type="System.Diagnostics.ProcessPriorityClass" Scope="User">
+      <Value Profile="(Default)">High</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

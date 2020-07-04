@@ -36,6 +36,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
             this.hotkeysDataGridView = new System.Windows.Forms.DataGridView();
             this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -133,7 +134,11 @@
             this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
+            this.targetProcessPriorityTextBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -168,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesMarginNumericUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // linkLabelGetAPIKey
@@ -203,7 +209,7 @@
             this.buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOk.Image = global::BilingualSubtitler.Properties.Resources._16pxOkIcon;
             this.buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOk.Location = new System.Drawing.Point(958, 623);
+            this.buttonOk.Location = new System.Drawing.Point(958, 730);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(95, 35);
             this.buttonOk.TabIndex = 5;
@@ -217,7 +223,7 @@
             this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancel.Location = new System.Drawing.Point(15, 623);
+            this.buttonCancel.Location = new System.Drawing.Point(15, 730);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(74, 35);
             this.buttonCancel.TabIndex = 4;
@@ -244,12 +250,24 @@
             this.groupBox1.Controls.Add(this.linkLabelGetAPIKey);
             this.groupBox1.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
             this.groupBox1.Controls.Add(this.labelAPIInfo);
-            this.groupBox1.Location = new System.Drawing.Point(15, 461);
+            this.groupBox1.Location = new System.Drawing.Point(15, 568);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1056, 152);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ключ Яндекс.Переводчика";
+            // 
+            // gotTheYandexTranslatorAPIKeyCheckBox
+            // 
+            this.gotTheYandexTranslatorAPIKeyCheckBox.AutoSize = true;
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Checked = true;
+            this.gotTheYandexTranslatorAPIKeyCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(16, 30);
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Name = "gotTheYandexTranslatorAPIKeyCheckBox";
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(269, 17);
+            this.gotTheYandexTranslatorAPIKeyCheckBox.TabIndex = 97;
+            this.gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ для API Яндекс.Переводчика";
+            this.gotTheYandexTranslatorAPIKeyCheckBox.UseVisualStyleBackColor = true;
             // 
             // hotkeysDataGridView
             // 
@@ -346,13 +364,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройки вида субтитров";
             // 
-            // secondAndThirdSubtitlesAtTheTopOfScreenCheckBox
+            // secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox
             // 
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.AutoSize = true;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = true;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 425);
-            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdSubtitlesAtTheTopOfScreenCheckBox";
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox";
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(262, 17);
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.TabIndex = 96;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Text = "2 и 3 переведенные субтитры — сверху экрана";
@@ -1030,7 +1048,7 @@
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(431, 623);
+            this.button5.Location = new System.Drawing.Point(431, 730);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 48;
@@ -1254,24 +1272,61 @@
             this.label5.TabIndex = 68;
             this.label5.Text = "Горячие клавиши в видеоплеере:";
             // 
-            // gotTheYandexTranslatorAPIKeyCheckBox
+            // groupBox10
             // 
-            this.gotTheYandexTranslatorAPIKeyCheckBox.AutoSize = true;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Checked = true;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(16, 30);
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Name = "gotTheYandexTranslatorAPIKeyCheckBox";
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(269, 17);
-            this.gotTheYandexTranslatorAPIKeyCheckBox.TabIndex = 97;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ для API Яндекс.Переводчика";
-            this.gotTheYandexTranslatorAPIKeyCheckBox.UseVisualStyleBackColor = true;
+            this.groupBox10.Controls.Add(this.targetProcessPriorityTextBox);
+            this.groupBox10.Controls.Add(this.currentProcessPriorityTextBox);
+            this.groupBox10.Controls.Add(this.label38);
+            this.groupBox10.Controls.Add(this.label37);
+            this.groupBox10.Location = new System.Drawing.Point(15, 461);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(559, 101);
+            this.groupBox10.TabIndex = 98;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Приоритет";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(13, 34);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(244, 13);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "Текущий приоритет процесса Bilingual Subtitler:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(283, 34);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(256, 13);
+            this.label38.TabIndex = 4;
+            this.label38.Text = "Желаемый приоритет процесса Bilingual Subtitler:";
+            // 
+            // currentProcessPriorityTextBox
+            // 
+            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(51, 62);
+            this.currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
+            this.currentProcessPriorityTextBox.ReadOnly = true;
+            this.currentProcessPriorityTextBox.Size = new System.Drawing.Size(175, 20);
+            this.currentProcessPriorityTextBox.TabIndex = 82;
+            this.currentProcessPriorityTextBox.TextChanged += new System.EventHandler(this.currentProcessPriorityTextBox_TextChanged);
+            // 
+            // targetProcessPriorityTextBox
+            // 
+            this.targetProcessPriorityTextBox.FormattingEnabled = true;
+            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(323, 61);
+            this.targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
+            this.targetProcessPriorityTextBox.Size = new System.Drawing.Size(175, 21);
+            this.targetProcessPriorityTextBox.TabIndex = 96;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1083, 668);
+            this.ClientSize = new System.Drawing.Size(1083, 851);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button5);
@@ -1327,6 +1382,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1437,5 +1494,10 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.CheckBox secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox;
         private System.Windows.Forms.CheckBox gotTheYandexTranslatorAPIKeyCheckBox;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.ComboBox targetProcessPriorityTextBox;
+        private System.Windows.Forms.TextBox currentProcessPriorityTextBox;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
     }
 }

@@ -54,14 +54,21 @@ namespace BilingualSubtitler
                 m_processPriorityValuesAndNames.Add(m_processPriorityNamesAndValues[key], key);
 
             // Лэйбл текущего приоритета процесса
-            //using (var p = Process.GetCurrentProcess())
-            //    var r = p.PriorityClass;
-
-            foreach (var prioprityName in m_processPriorityNamesAndValues.Keys)
+            using (var p = Process.GetCurrentProcess())
             {
-                // Заполняем КомбоБокс
+                currentProcessPriorityTextBox.Text = m_processPriorityValuesAndNames[p.PriorityClass];
             }
 
+            // Заполняем КомбоБокс
+            int indexForCurrentProcessPriority = 0;
+            foreach (var prioprityName in m_processPriorityNamesAndValues.Keys)
+            {
+                var index = targetProcessPriorityTextBox.Items.Add(prioprityName);
+
+                if (prioprityName == currentProcessPriorityTextBox.Text)
+                    indexForCurrentProcessPriority = index;
+            }
+            targetProcessPriorityTextBox.SelectedIndex = indexForCurrentProcessPriority;
         }
 
         public void SetFormAccordingToSettings()
@@ -284,6 +291,27 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            bool processPriorityChangedSuccessfully;
+            try
+            {
+                using (var p = Process.GetCurrentProcess())
+                {
+                    p.PriorityClass = m_processPriorityNamesAndValues[targetProcessPriorityTextBox.Text];
+                    
+                }
+                processPriorityChangedSuccessfully = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Смена приоритета процесса не удалась.\n\n\nОшибка:{ex}", "Смена приоритета процесса не удалась", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                processPriorityChangedSuccessfully = false;
+            }
+            //
+            if (processPriorityChangedSuccessfully)
+                Properties.Settings.Default.ProcessPriority = m_processPriorityNamesAndValues[targetProcessPriorityTextBox.Text];
+
+
             //Вычищаем символы переноса строки и пробелы из ключа
             int carrySymbols = richTextBoxForYandexApiKeyInSeparateForm.Text.Split('\n').Length - 1;
             int spaceSymbols = richTextBoxForYandexApiKeyInSeparateForm.Text.Split(' ').Length - 1;
@@ -651,6 +679,11 @@ namespace BilingualSubtitler
                 thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value =
                     firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
             }
+        }
+
+        private void currentProcessPriorityTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

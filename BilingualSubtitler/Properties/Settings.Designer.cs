@@ -329,5 +329,17 @@ namespace BilingualSubtitler.Properties {
                 this["SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("High")]
+        public global::System.Diagnostics.ProcessPriorityClass ProcessPriority {
+            get {
+                return ((global::System.Diagnostics.ProcessPriorityClass)(this["ProcessPriority"]));
+            }
+            set {
+                this["ProcessPriority"] = value;
+            }
+        }
     }
 }
