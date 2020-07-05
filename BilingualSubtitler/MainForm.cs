@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using WindowsInput;
-using WindowsInput.Native;
 using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
 using NonInvasiveKeyboardHookLibrary;
 using YandexLinguistics.NET;
@@ -18,7 +15,8 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using Settings = BilingualSubtitler.Properties.Settings;
 using VirtualKeyCode = WindowsInput.Native.VirtualKeyCode;
 using Xceed.Words.NET;
-using Nikse.SubtitleEdit.Core;
+using Octokit;
+using Label = System.Windows.Forms.Label;
 
 namespace BilingualSubtitler
 {
@@ -166,6 +164,13 @@ namespace BilingualSubtitler
                 Settings.Default.UpgradeRequired = false;
                 Settings.Default.Save();
             }
+
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+            var currentVersion = Version.Parse(fvi.FileVersion);
+            //
+            if (currentVersion > Properties.Settings.Default.LatestSeenVersion)
+                Settings.Default.LatestSeenVersion = currentVersion;
 
             if (Settings.Default.FirstLaunch)
             {
@@ -334,6 +339,11 @@ namespace BilingualSubtitler
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
+            GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
+            var latestRelease = client.Repository.Release.GetLatest(56989530);
+            MessageBox.Show(latestRelease.Result.TagName);
+
+            
             //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
             //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
 
@@ -739,22 +749,22 @@ namespace BilingualSubtitler
                 {
                     case 0:
                         {
-                            styleComponents = Settings.Default.OriginalSubtitlesStyleString.Split(';');
+                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
                             break;
                         }
                     case 1:
                         {
-                            styleComponents = Settings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
                             break;
                         }
                     case 2:
                         {
-                            styleComponents = Settings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
                             break;
                         }
                     case 3:
                         {
-                            styleComponents = Settings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
                             break;
                         }
                 }

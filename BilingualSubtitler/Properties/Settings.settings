@@ -44,18 +44,6 @@
     <Setting Name="ThirdRussianSubtitlesIsVisible" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="OriginalSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;42;20;2;2;0;50;0</Value>
-    </Setting>
-    <Setting Name="FirstRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;0;20;2;2;0;50;0</Value>
-    </Setting>
-    <Setting Name="SecondRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;206;20;2;2;40;50;0</Value>
-    </Setting>
-    <Setting Name="ThirdRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Arial;248;20;2;2;40;50;0</Value>
-    </Setting>
     <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -63,9 +51,6 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="YandexTranslatorAPIEnabled" Type="System.Boolean" Scope="User">
@@ -81,11 +66,14 @@
   &lt;string&gt;Space@32@&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="ProcessPriority" Type="System.Diagnostics.ProcessPriorityClass" Scope="User">
       <Value Profile="(Default)">High</Value>
+    </Setting>
+    <Setting Name="CheckUpdates" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LatestSeenVersion" Type="System.Version" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

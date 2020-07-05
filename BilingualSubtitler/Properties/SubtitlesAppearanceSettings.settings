@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BilingualSubtitler.Properties" GeneratedClassName="SubtitlesAppearanceSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FirstRussianSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial;0;20;2;2;0;50;0</Value>
+    </Setting>
+    <Setting Name="SecondRussianSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial;206;20;2;2;40;50;0</Value>
+    </Setting>
+    <Setting Name="ThirdRussianSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial;248;20;2;2;40;50;0</Value>
+    </Setting>
+    <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="OriginalSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial;42;20;2;2;0;50;0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -193,54 +193,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;42;20;2;2;0;50;0")]
-        public string OriginalSubtitlesStyleString {
-            get {
-                return ((string)(this["OriginalSubtitlesStyleString"]));
-            }
-            set {
-                this["OriginalSubtitlesStyleString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;0;20;2;2;0;50;0")]
-        public string FirstRussianSubtitlesStyleString {
-            get {
-                return ((string)(this["FirstRussianSubtitlesStyleString"]));
-            }
-            set {
-                this["FirstRussianSubtitlesStyleString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;206;20;2;2;40;50;0")]
-        public string SecondRussianSubtitlesStyleString {
-            get {
-                return ((string)(this["SecondRussianSubtitlesStyleString"]));
-            }
-            set {
-                this["SecondRussianSubtitlesStyleString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Arial;248;20;2;2;40;50;0")]
-        public string ThirdRussianSubtitlesStyleString {
-            get {
-                return ((string)(this["ThirdRussianSubtitlesStyleString"]));
-            }
-            set {
-                this["ThirdRussianSubtitlesStyleString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ChangeRussianSubtitlesStylesAccordingToOriginal {
             get {
@@ -277,18 +229,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SecondAndThirdRussianSubtitlesAtTopOfTheScreen {
-            get {
-                return ((bool)(this["SecondAndThirdRussianSubtitlesAtTopOfTheScreen"]));
-            }
-            set {
-                this["SecondAndThirdRussianSubtitlesAtTopOfTheScreen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool YandexTranslatorAPIEnabled {
             get {
@@ -320,18 +260,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled {
-            get {
-                return ((bool)(this["SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled"]));
-            }
-            set {
-                this["SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("High")]
         public global::System.Diagnostics.ProcessPriorityClass ProcessPriority {
             get {
@@ -339,6 +267,29 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["ProcessPriority"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CheckUpdates {
+            get {
+                return ((bool)(this["CheckUpdates"]));
+            }
+            set {
+                this["CheckUpdates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Version LatestSeenVersion {
+            get {
+                return ((global::System.Version)(this["LatestSeenVersion"]));
+            }
+            set {
+                this["LatestSeenVersion"] = value;
             }
         }
     }
