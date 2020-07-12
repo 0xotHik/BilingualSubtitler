@@ -135,10 +135,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
             this.targetProcessPriorityTextBox = new System.Windows.Forms.ComboBox();
+            this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.currentAppVersionLabel = new System.Windows.Forms.Label();
+            this.lastAppVersionLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -174,6 +181,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // linkLabelGetAPIKey
@@ -350,6 +358,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button10);
             this.groupBox3.Controls.Add(this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox);
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
@@ -359,7 +368,7 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(510, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(561, 450);
+            this.groupBox3.Size = new System.Drawing.Size(561, 480);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройки вида субтитров";
@@ -1052,7 +1061,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 48;
-            this.button5.Text = "📖  Сбросить все настройки программы\r\n к настройкам по умолчанию";
+            this.button5.Text = "📖  Сбросить все настройки программы\r\n к значениям по умолчанию";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -1280,52 +1289,130 @@
             this.groupBox10.Controls.Add(this.label37);
             this.groupBox10.Location = new System.Drawing.Point(15, 461);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(559, 101);
+            this.groupBox10.Size = new System.Drawing.Size(306, 101);
             this.groupBox10.TabIndex = 98;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Приоритет";
+            this.groupBox10.Text = "Приоритет процесса Bilingual Subtitler";
+            // 
+            // targetProcessPriorityTextBox
+            // 
+            this.targetProcessPriorityTextBox.FormattingEnabled = true;
+            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(160, 61);
+            this.targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
+            this.targetProcessPriorityTextBox.Size = new System.Drawing.Size(129, 21);
+            this.targetProcessPriorityTextBox.TabIndex = 96;
+            this.targetProcessPriorityTextBox.Text = "Реального времени";
+            // 
+            // currentProcessPriorityTextBox
+            // 
+            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(16, 62);
+            this.currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
+            this.currentProcessPriorityTextBox.ReadOnly = true;
+            this.currentProcessPriorityTextBox.Size = new System.Drawing.Size(117, 20);
+            this.currentProcessPriorityTextBox.TabIndex = 82;
+            this.currentProcessPriorityTextBox.Text = "Реального времени";
+            this.currentProcessPriorityTextBox.TextChanged += new System.EventHandler(this.currentProcessPriorityTextBox_TextChanged);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(157, 34);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(67, 13);
+            this.label38.TabIndex = 4;
+            this.label38.Text = "Желаемый:";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(13, 34);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(244, 13);
+            this.label37.Size = new System.Drawing.Size(55, 13);
             this.label37.TabIndex = 3;
-            this.label37.Text = "Текущий приоритет процесса Bilingual Subtitler:";
+            this.label37.Text = "Текущий:";
             // 
-            // label38
+            // button10
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(283, 34);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(256, 13);
-            this.label38.TabIndex = 4;
-            this.label38.Text = "Желаемый приоритет процесса Bilingual Subtitler:";
+            this.button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.Location = new System.Drawing.Point(9, 448);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(542, 26);
+            this.button10.TabIndex = 97;
+            this.button10.Text = "📖  Сбросить настройки вида субтитров к значениям по умолчанию";
+            this.button10.UseVisualStyleBackColor = false;
             // 
-            // currentProcessPriorityTextBox
+            // groupBox11
             // 
-            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(51, 62);
-            this.currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
-            this.currentProcessPriorityTextBox.ReadOnly = true;
-            this.currentProcessPriorityTextBox.Size = new System.Drawing.Size(175, 20);
-            this.currentProcessPriorityTextBox.TabIndex = 82;
-            this.currentProcessPriorityTextBox.TextChanged += new System.EventHandler(this.currentProcessPriorityTextBox_TextChanged);
+            this.groupBox11.Controls.Add(this.lastAppVersionLabel);
+            this.groupBox11.Controls.Add(this.currentAppVersionLabel);
+            this.groupBox11.Controls.Add(this.label39);
+            this.groupBox11.Controls.Add(this.checkUpdatesOnAppStartCheckBox);
+            this.groupBox11.Controls.Add(this.label40);
+            this.groupBox11.Location = new System.Drawing.Point(327, 498);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(744, 64);
+            this.groupBox11.TabIndex = 99;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Обновления программы";
             // 
-            // targetProcessPriorityTextBox
+            // label40
             // 
-            this.targetProcessPriorityTextBox.FormattingEnabled = true;
-            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(323, 61);
-            this.targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
-            this.targetProcessPriorityTextBox.Size = new System.Drawing.Size(175, 21);
-            this.targetProcessPriorityTextBox.TabIndex = 96;
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(318, 11);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(94, 13);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Текущая версия:";
+            // 
+            // checkUpdatesOnAppStartCheckBox
+            // 
+            this.checkUpdatesOnAppStartCheckBox.AutoSize = true;
+            this.checkUpdatesOnAppStartCheckBox.Checked = true;
+            this.checkUpdatesOnAppStartCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkUpdatesOnAppStartCheckBox.Location = new System.Drawing.Point(6, 28);
+            this.checkUpdatesOnAppStartCheckBox.Name = "checkUpdatesOnAppStartCheckBox";
+            this.checkUpdatesOnAppStartCheckBox.Size = new System.Drawing.Size(264, 17);
+            this.checkUpdatesOnAppStartCheckBox.TabIndex = 98;
+            this.checkUpdatesOnAppStartCheckBox.Text = "Проверять обновления при старте программы";
+            this.checkUpdatesOnAppStartCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(556, 11);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(105, 13);
+            this.label39.TabIndex = 99;
+            this.label39.Text = "Последняя версия:";
+            // 
+            // currentAppVersionLabel
+            // 
+            this.currentAppVersionLabel.AutoSize = true;
+            this.currentAppVersionLabel.Location = new System.Drawing.Point(318, 37);
+            this.currentAppVersionLabel.Name = "currentAppVersionLabel";
+            this.currentAppVersionLabel.Size = new System.Drawing.Size(94, 13);
+            this.currentAppVersionLabel.TabIndex = 100;
+            this.currentAppVersionLabel.Text = "Текущая версия:";
+            // 
+            // lastAppVersionLabel
+            // 
+            this.lastAppVersionLabel.AutoSize = true;
+            this.lastAppVersionLabel.Location = new System.Drawing.Point(459, 32);
+            this.lastAppVersionLabel.Name = "lastAppVersionLabel";
+            this.lastAppVersionLabel.Size = new System.Drawing.Size(281, 26);
+            this.lastAppVersionLabel.TabIndex = 101;
+            this.lastAppVersionLabel.Text = "Не удалось получить информацию о новых версиях :( \r\n(Подробности — по клику)";
+            this.lastAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lastAppVersionLabel.Click += new System.EventHandler(this.lastAppVersionLabel_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1083, 851);
+            this.ClientSize = new System.Drawing.Size(1083, 781);
+            this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -1384,6 +1471,8 @@
             this.groupBox6.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1499,5 +1588,12 @@
         private System.Windows.Forms.TextBox currentProcessPriorityTextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label lastAppVersionLabel;
+        private System.Windows.Forms.Label currentAppVersionLabel;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.CheckBox checkUpdatesOnAppStartCheckBox;
+        private System.Windows.Forms.Label label40;
     }
 }

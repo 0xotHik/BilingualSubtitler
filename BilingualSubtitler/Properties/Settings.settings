@@ -72,8 +72,8 @@
     <Setting Name="CheckUpdates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="LatestSeenVersion" Type="System.Version" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="LatestSeenVersion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -163,14 +163,10 @@ namespace BilingualSubtitler
                 Settings.Default.Upgrade();
                 Settings.Default.UpgradeRequired = false;
                 Settings.Default.Save();
-            }
 
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            var currentVersion = Version.Parse(fvi.FileVersion);
-            //
-            if (currentVersion > Properties.Settings.Default.LatestSeenVersion)
-                Settings.Default.LatestSeenVersion = currentVersion;
+                Properties.SubtitlesAppearanceSettings.Default.Upgrade();
+                Properties.SubtitlesAppearanceSettings.Default.Save();
+            }
 
             if (Settings.Default.FirstLaunch)
             {
@@ -339,11 +335,28 @@ namespace BilingualSubtitler
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
-            GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
-            var latestRelease = client.Repository.Release.GetLatest(56989530);
-            MessageBox.Show(latestRelease.Result.TagName);
+            // Проверяем наличие новой версии
+            if (Settings.Default.CheckUpdates)
+            {
+                try
+                {
+                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
+                    var latestRelease = client.Repository.Release.GetLatest(56989530);
+                    var latestVersionOnGitHub = latestRelease.Result.Name;
+                }
+                catch
+                { }
 
-            
+                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
+                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
+
+
+                
+                //MessageBox.Show($"{latestVersionOnGitHub}, {Settings.Default.LatestSeenVersion}");
+            }
+
+
             //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
             //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
 

@@ -284,9 +284,10 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Version LatestSeenVersion {
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0")]
+        public string LatestSeenVersion {
             get {
-                return ((global::System.Version)(this["LatestSeenVersion"]));
+                return ((string)(this["LatestSeenVersion"]));
             }
             set {
                 this["LatestSeenVersion"] = value;
