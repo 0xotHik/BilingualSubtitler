@@ -45,6 +45,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.thirdRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
@@ -139,13 +140,12 @@
             this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.currentAppVersionLabel = new System.Windows.Forms.Label();
             this.lastAppVersionLabel = new System.Windows.Forms.Label();
+            this.currentAppVersionLabel = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -372,6 +372,17 @@
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройки вида субтитров";
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.Location = new System.Drawing.Point(9, 448);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(542, 26);
+            this.button10.TabIndex = 97;
+            this.button10.Text = "📖  Сбросить настройки вида субтитров к значениям по умолчанию";
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox
             // 
@@ -1331,17 +1342,6 @@
             this.label37.TabIndex = 3;
             this.label37.Text = "Текущий:";
             // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(9, 448);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(542, 26);
-            this.button10.TabIndex = 97;
-            this.button10.Text = "📖  Сбросить настройки вида субтитров к значениям по умолчанию";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.lastAppVersionLabel);
@@ -1356,14 +1356,33 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Обновления программы";
             // 
-            // label40
+            // lastAppVersionLabel
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(318, 11);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(94, 13);
-            this.label40.TabIndex = 3;
-            this.label40.Text = "Текущая версия:";
+            this.lastAppVersionLabel.Location = new System.Drawing.Point(459, 32);
+            this.lastAppVersionLabel.Name = "lastAppVersionLabel";
+            this.lastAppVersionLabel.Size = new System.Drawing.Size(281, 26);
+            this.lastAppVersionLabel.TabIndex = 101;
+            this.lastAppVersionLabel.Text = "Не удалось получить информацию о новых версиях :( \r\n(Подробности — по клику)";
+            this.lastAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lastAppVersionLabel.Click += new System.EventHandler(this.lastAppVersionLabel_Click);
+            // 
+            // currentAppVersionLabel
+            // 
+            this.currentAppVersionLabel.AutoSize = true;
+            this.currentAppVersionLabel.Location = new System.Drawing.Point(318, 40);
+            this.currentAppVersionLabel.Name = "currentAppVersionLabel";
+            this.currentAppVersionLabel.Size = new System.Drawing.Size(94, 13);
+            this.currentAppVersionLabel.TabIndex = 100;
+            this.currentAppVersionLabel.Text = "Текущая версия:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(548, 11);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(105, 13);
+            this.label39.TabIndex = 99;
+            this.label39.Text = "Последняя версия:";
             // 
             // checkUpdatesOnAppStartCheckBox
             // 
@@ -1377,34 +1396,14 @@
             this.checkUpdatesOnAppStartCheckBox.Text = "Проверять обновления при старте программы";
             this.checkUpdatesOnAppStartCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label39
+            // label40
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(556, 11);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(105, 13);
-            this.label39.TabIndex = 99;
-            this.label39.Text = "Последняя версия:";
-            // 
-            // currentAppVersionLabel
-            // 
-            this.currentAppVersionLabel.AutoSize = true;
-            this.currentAppVersionLabel.Location = new System.Drawing.Point(318, 37);
-            this.currentAppVersionLabel.Name = "currentAppVersionLabel";
-            this.currentAppVersionLabel.Size = new System.Drawing.Size(94, 13);
-            this.currentAppVersionLabel.TabIndex = 100;
-            this.currentAppVersionLabel.Text = "Текущая версия:";
-            // 
-            // lastAppVersionLabel
-            // 
-            this.lastAppVersionLabel.AutoSize = true;
-            this.lastAppVersionLabel.Location = new System.Drawing.Point(459, 32);
-            this.lastAppVersionLabel.Name = "lastAppVersionLabel";
-            this.lastAppVersionLabel.Size = new System.Drawing.Size(281, 26);
-            this.lastAppVersionLabel.TabIndex = 101;
-            this.lastAppVersionLabel.Text = "Не удалось получить информацию о новых версиях :( \r\n(Подробности — по клику)";
-            this.lastAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lastAppVersionLabel.Click += new System.EventHandler(this.lastAppVersionLabel_Click);
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(318, 11);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(94, 13);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Текущая версия:";
             // 
             // SettingsForm
             // 

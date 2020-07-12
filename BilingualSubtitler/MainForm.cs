@@ -17,6 +17,7 @@ using VirtualKeyCode = WindowsInput.Native.VirtualKeyCode;
 using Xceed.Words.NET;
 using Octokit;
 using Label = System.Windows.Forms.Label;
+using System.Threading;
 
 namespace BilingualSubtitler
 {
@@ -335,26 +336,8 @@ namespace BilingualSubtitler
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
-            // Проверяем наличие новой версии
-            if (Settings.Default.CheckUpdates)
-            {
-                try
-                {
-                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
-                    var latestRelease = client.Repository.Release.GetLatest(56989530);
-                    var latestVersionOnGitHub = latestRelease.Result.Name;
-                }
-                catch
-                { }
-
-                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
-                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
-
-
-                
-                //MessageBox.Show($"{latestVersionOnGitHub}, {Settings.Default.LatestSeenVersion}");
-            }
+            //MessageBox.Show($"{latestVersionOnGitHub}, {Settings.Default.LatestSeenVersion}");
+            //}
 
 
             //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
@@ -489,6 +472,54 @@ namespace BilingualSubtitler
             catch (Exception e)
             {
                 throw new BilingualSubtitlerPropertiesLoadingException(e);
+            }
+        }
+
+        public void CheckUpdates()
+        {
+            // Проверяем наличие новой версии
+            if (Settings.Default.CheckUpdates)
+            {
+                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
+                {
+                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
+                    Settings.Default.Save();
+                }
+
+                bool infoFromGitHubIsGet = false;
+                string latestVersionOnGitHub = null;
+                Release latestReleaseOnGitHub = null;
+                try
+                {
+                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
+                    latestReleaseOnGitHub = client.Repository.Release.GetLatest(56989530).Result;
+                    var latestReleaseOnGitHubName = latestReleaseOnGitHub.Name;
+                    latestVersionOnGitHub = latestReleaseOnGitHubName.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHubName.Length - "Bilingual Subtitler ".Length);
+                    infoFromGitHubIsGet = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОШибка:{ex.Message}",
+                        "Не удалось получить информацию о новых версиях",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (infoFromGitHubIsGet)
+                {
+                    if (Version.Parse(latestVersionOnGitHub) > Version.Parse(Settings.Default.LatestSeenVersion))
+                    {
+                        var result = MessageBox.Show($"Появилась новая версия программы — {latestVersionOnGitHub}!\n\n" +
+                            $"Изменения:\n{latestReleaseOnGitHub.Body}\n\n" +
+                            "Перейти на страницу скачки?", "Появилась новая версия программы", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
+                        }
+
+                    }
+                }
             }
         }
 

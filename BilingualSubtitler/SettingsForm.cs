@@ -71,17 +71,24 @@ namespace BilingualSubtitler
             }
             targetProcessPriorityTextBox.SelectedIndex = indexForCurrentProcessPriority;
 
+            bool InfoFromGitHubIsGet = false;
+            string latestVersionOnGitHub = null;
             // Версии
             try
             {
                 GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
                 var latestRelease = client.Repository.Release.GetLatest(56989530);
-                var latestVersionOnGitHub = latestRelease.Result.Name;
+                var latestReleaseOnGitHub = latestRelease.Result.Name;
+                latestVersionOnGitHub = latestReleaseOnGitHub.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHub.Length - "Bilingual Subtitler ".Length);
+                InfoFromGitHubIsGet = true;
             }
-            catch
+            catch (Exception ex)
             {
                 lastAppVersionLabel.Text = "Не удалось получить информацию\nо новых версиях :( (Подробности — по клику)";
+                lastAppVersionLabel.Tag = ex;
             }
+            if ((InfoFromGitHubIsGet) && (latestVersionOnGitHub != null))
+                lastAppVersionLabel.Text = latestVersionOnGitHub;
             //
             var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             currentAppVersionLabel.Text = currentVersion.ToString();
