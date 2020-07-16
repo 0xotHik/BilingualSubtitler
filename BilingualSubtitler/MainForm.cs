@@ -157,7 +157,11 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
+            // Графика
             m_playVideoButtonDefaultText = playVideoButton.Text;
+            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] {
+                new MenuItem("Exit", ((sender, e) => System.Windows.Forms.Application.Exit()))
+            });
 
             if (Settings.Default.UpgradeRequired)
             {

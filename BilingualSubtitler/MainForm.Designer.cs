@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.videoStateComboBox = new System.Windows.Forms.ComboBox();
             this.subtitlesStateComboBox = new System.Windows.Forms.ComboBox();
@@ -100,6 +101,7 @@
             this.thirdRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.playVideoButton = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -914,6 +916,12 @@
             this.playVideoButton.UseVisualStyleBackColor = false;
             this.playVideoButton.Click += new System.EventHandler(this.playVideoButton_Click);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Bilingual Subtitler";
+            this.notifyIcon.Visible = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1027,5 +1035,6 @@
         private System.Windows.Forms.GroupBox docXTranslationGroupBox;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
