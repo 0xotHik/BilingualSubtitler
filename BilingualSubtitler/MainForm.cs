@@ -160,7 +160,23 @@ namespace BilingualSubtitler
             // Графика
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] {
-                new MenuItem("Exit", ((sender, e) => System.Windows.Forms.Application.Exit()))
+                new MenuItem("Свернуть в трей", ((sender, e) =>
+                {
+                    // прячем наше окно из панели
+                this.ShowInTaskbar = false; 
+                //сворачиваем окно
+                WindowState = FormWindowState.Minimized;
+            })),
+
+                new MenuItem("Развернуть", ((sender, e) =>
+                {
+                    // возвращаем отображение окна в панели
+            this.ShowInTaskbar = true;
+            //разворачиваем окно
+            WindowState = FormWindowState.Normal;
+                })),
+
+                new MenuItem("Завершить работу Bilingual Subtitler", ((sender, e) => System.Windows.Forms.Application.Exit()))
             });
 
             if (Settings.Default.UpgradeRequired)
@@ -316,6 +332,9 @@ namespace BilingualSubtitler
                 {
                     Properties.Settings.Default.Reset();
                     Properties.Settings.Default.Save();
+
+                    Properties.SubtitlesAppearanceSettings.Default.Reset();
+                    Properties.SubtitlesAppearanceSettings.Default.Save();
 
                     try
                     {
@@ -1834,6 +1853,14 @@ namespace BilingualSubtitler
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // возвращаем отображение окна в панели
+            this.ShowInTaskbar = true;
+            //разворачиваем окно
+            WindowState = FormWindowState.Normal;
         }
     }
     public class SubtitlesBackgroundWorker : BackgroundWorker

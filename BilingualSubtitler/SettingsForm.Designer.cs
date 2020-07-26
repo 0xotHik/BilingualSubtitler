@@ -383,6 +383,7 @@
             this.button10.TabIndex = 97;
             this.button10.Text = "📖  Сбросить настройки вида субтитров к значениям по умолчанию";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox
             // 
