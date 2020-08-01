@@ -146,6 +146,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -819,12 +820,12 @@
             // 
             // firstRussianSubtitlesFontComboBox
             // 
-            this.firstRussianSubtitlesFontComboBox.Enabled = false;
             this.firstRussianSubtitlesFontComboBox.FormattingEnabled = true;
             this.firstRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(9, 39);
             this.firstRussianSubtitlesFontComboBox.Name = "firstRussianSubtitlesFontComboBox";
             this.firstRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
             this.firstRussianSubtitlesFontComboBox.TabIndex = 87;
+            this.firstRussianSubtitlesFontComboBox.TextChanged += new System.EventHandler(this.firstRussianSubtitlesFontComboBox_TextChanged);
             // 
             // label15
             // 
@@ -887,11 +888,9 @@
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Location = new System.Drawing.Point(5, 377);
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Name = "changeRussianSubtitlesStylesAccordingToOriginalCheckBox";
-            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Size = new System.Drawing.Size(473, 43);
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Size = new System.Drawing.Size(472, 43);
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.TabIndex = 68;
-            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = "Изменять параметры вида всех потоков переведенных субтитров соответственно \nнастр" +
-    "ойкам вида оригинальных субтитров \n(и прозрачности 2 и 3 переведенных — соответс" +
-    "твенно прозрачностям 1 переведенных)\n";
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = resources.GetString("changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text");
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.UseVisualStyleBackColor = true;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckedChanged += new System.EventHandler(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged);
             // 
@@ -1345,6 +1344,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.linkLabel1);
             this.groupBox11.Controls.Add(this.lastAppVersionLabel);
             this.groupBox11.Controls.Add(this.currentAppVersionLabel);
             this.groupBox11.Controls.Add(this.label39);
@@ -1390,7 +1390,7 @@
             this.checkUpdatesOnAppStartCheckBox.AutoSize = true;
             this.checkUpdatesOnAppStartCheckBox.Checked = true;
             this.checkUpdatesOnAppStartCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkUpdatesOnAppStartCheckBox.Location = new System.Drawing.Point(6, 28);
+            this.checkUpdatesOnAppStartCheckBox.Location = new System.Drawing.Point(6, 18);
             this.checkUpdatesOnAppStartCheckBox.Name = "checkUpdatesOnAppStartCheckBox";
             this.checkUpdatesOnAppStartCheckBox.Size = new System.Drawing.Size(264, 17);
             this.checkUpdatesOnAppStartCheckBox.TabIndex = 98;
@@ -1405,6 +1405,17 @@
             this.label40.Size = new System.Drawing.Size(94, 13);
             this.label40.TabIndex = 3;
             this.label40.Text = "Текущая версия:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 40);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(162, 13);
+            this.linkLabel1.TabIndex = 102;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Страница релизов программы";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // SettingsForm
             // 
@@ -1595,5 +1606,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.CheckBox checkUpdatesOnAppStartCheckBox;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

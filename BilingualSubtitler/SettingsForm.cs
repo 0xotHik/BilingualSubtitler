@@ -230,7 +230,8 @@ namespace BilingualSubtitler
         {
             secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled =
             //
-            firstRussianSubtitlesFontComboBox.Enabled = firstRussianSubtitlesMarginNumericUpDown.Enabled =
+            //firstRussianSubtitlesFontComboBox.Enabled = 
+            firstRussianSubtitlesMarginNumericUpDown.Enabled =
                 firstRussianSubtitlesShadowNumericUpDown.Enabled =
                     firstRussianSubtitlesOutlineNumericUpDown.Enabled = firstRussianSubtitlesSizeNumericUpDown.Enabled =
                             // firstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
@@ -574,11 +575,21 @@ namespace BilingualSubtitler
 
         private void originalSubtitlesFontComboBox_TextChanged(object sender, EventArgs e)
         {
+            //if (changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked)
+            //{
+            //    firstRussianSubtitlesFontComboBox.Text = secondRussianSubtitlesFontComboBox.Text =
+            //        thirdRussianSubtitlesFontComboBox.Text =
+            //            originalSubtitlesFontComboBox.Text;
+            //}
+        }
+
+        private void firstRussianSubtitlesFontComboBox_TextChanged(object sender, EventArgs e)
+        {
             if (changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked)
             {
-                firstRussianSubtitlesFontComboBox.Text = secondRussianSubtitlesFontComboBox.Text =
+                secondRussianSubtitlesFontComboBox.Text =
                     thirdRussianSubtitlesFontComboBox.Text =
-                        originalSubtitlesFontComboBox.Text;
+                        firstRussianSubtitlesFontComboBox.Text;
             }
         }
 
@@ -739,6 +750,13 @@ namespace BilingualSubtitler
 
             SetFormAccordingToSubtitlesAppearanceSettings();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases");
+        }
+
+
 
 
 
