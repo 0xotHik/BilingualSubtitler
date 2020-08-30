@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Bilingual Subtitler"
-#define MyAppVersion "3.1"
+#define MyAppVersion "4.0"
 #define MyAppPublisher "0xotHik"
 #define MyAppURL "https://0xothik.wordpress.com/bilingual-subtitler/"
 #define MyAppExeName "BilingualSubtitler.exe"
@@ -45,6 +45,8 @@ Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Relea
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\BilingualSubtitler.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\libse.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\NonInvasiveKeyboardHookLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\Octokit.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\Octokit.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\RestSharp.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\UtfUnknown.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Release\WindowsBase.dll"; DestDir: "{app}"; Flags: ignoreversion

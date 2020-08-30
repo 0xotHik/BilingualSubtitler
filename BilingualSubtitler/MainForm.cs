@@ -541,6 +541,7 @@ namespace BilingualSubtitler
                             System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
                         }
 
+                        Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
                     }
                 }
             }

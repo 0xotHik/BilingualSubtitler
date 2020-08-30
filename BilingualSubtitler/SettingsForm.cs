@@ -374,7 +374,7 @@ namespace BilingualSubtitler
             Properties.Settings.Default.VideoPlayerProcessName = videoplayerProcessNameTextBox.Text;
 
             Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString = $"{originalSubtitlesFontComboBox.Text};" +
-                                                                       $"{originalSubtitlesMarginNumericUpDown.Value};" +
+                                                                       $"{originalSubtitlesMarginNumericUpDown.Text};" +
                                                                        $"{originalSubtitlesSizeNumericUpDown.Value};" +
                                                                        $"{originalSubtitlesOutlineNumericUpDown.Value};" +
                                                                        $"{originalSubtitlesShadowNumericUpDown.Value};" +
@@ -383,7 +383,7 @@ namespace BilingualSubtitler
                                                                        $"{(originalSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
 
             Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString = $"{firstRussianSubtitlesFontComboBox.Text};" +
-                                                                       $"{firstRussianSubtitlesMarginNumericUpDown.Value};" +
+                                                                       $"{firstRussianSubtitlesMarginNumericUpDown.Text};" +
                                                                        $"{firstRussianSubtitlesSizeNumericUpDown.Value};" +
                                                                        $"{firstRussianSubtitlesOutlineNumericUpDown.Value};" +
                                                                        $"{firstRussianSubtitlesShadowNumericUpDown.Value};" +
@@ -392,7 +392,7 @@ namespace BilingualSubtitler
                                                                        $"{(firstRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
 
             Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString = $"{secondRussianSubtitlesFontComboBox.Text};" +
-                                                                       $"{secondRussianSubtitlesMarginNumericUpDown.Value};" +
+                                                                       $"{secondRussianSubtitlesMarginNumericUpDown.Text};" +
                                                                        $"{secondRussianSubtitlesSizeNumericUpDown.Value};" +
                                                                        $"{secondRussianSubtitlesOutlineNumericUpDown.Value};" +
                                                                        $"{secondRussianSubtitlesShadowNumericUpDown.Value};" +
@@ -401,7 +401,7 @@ namespace BilingualSubtitler
                                                                        $"{(secondRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
 
             Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString = $"{thirdRussianSubtitlesFontComboBox.Text};" +
-                                                                       $"{thirdRussianSubtitlesMarginNumericUpDown.Value};" +
+                                                                       $"{thirdRussianSubtitlesMarginNumericUpDown.Text};" +
                                                                        $"{thirdRussianSubtitlesSizeNumericUpDown.Value};" +
                                                                        $"{thirdRussianSubtitlesOutlineNumericUpDown.Value};" +
                                                                        $"{thirdRussianSubtitlesShadowNumericUpDown.Value};" +
