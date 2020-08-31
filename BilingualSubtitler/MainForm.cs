@@ -542,6 +542,7 @@ namespace BilingualSubtitler
                         }
 
                         Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
+                        Settings.Default.Save();
                     }
                 }
             }
