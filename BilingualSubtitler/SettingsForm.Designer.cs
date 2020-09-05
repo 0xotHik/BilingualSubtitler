@@ -141,12 +141,12 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lastAppVersionLabel = new System.Windows.Forms.Label();
             this.currentAppVersionLabel = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -1357,6 +1357,17 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Обновления программы";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(6, 40);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(162, 13);
+            this.linkLabel1.TabIndex = 102;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Страница релизов программы";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // lastAppVersionLabel
             // 
             this.lastAppVersionLabel.Location = new System.Drawing.Point(459, 32);
@@ -1369,12 +1380,12 @@
             // 
             // currentAppVersionLabel
             // 
-            this.currentAppVersionLabel.AutoSize = true;
-            this.currentAppVersionLabel.Location = new System.Drawing.Point(318, 40);
+            this.currentAppVersionLabel.Location = new System.Drawing.Point(293, 40);
             this.currentAppVersionLabel.Name = "currentAppVersionLabel";
-            this.currentAppVersionLabel.Size = new System.Drawing.Size(94, 13);
+            this.currentAppVersionLabel.Size = new System.Drawing.Size(145, 13);
             this.currentAppVersionLabel.TabIndex = 100;
             this.currentAppVersionLabel.Text = "Текущая версия:";
+            this.currentAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label39
             // 
@@ -1405,17 +1416,6 @@
             this.label40.Size = new System.Drawing.Size(94, 13);
             this.label40.TabIndex = 3;
             this.label40.Text = "Текущая версия:";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(6, 40);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(162, 13);
-            this.linkLabel1.TabIndex = 102;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Страница релизов программы";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // SettingsForm
             // 

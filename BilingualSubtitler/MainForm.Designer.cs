@@ -102,6 +102,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.playVideoButton = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.appNotRunningAsAdministratorPanel = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.appIsRunningsAsAdministratorPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -113,6 +122,9 @@
             this.translateToSecondRussianSubtitlesGroupBox.SuspendLayout();
             this.thirdRussianSubtitlesGroupBox.SuspendLayout();
             this.translateToThirdRussianSubtitlesGroupBox.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.appNotRunningAsAdministratorPanel.SuspendLayout();
+            this.appIsRunningsAsAdministratorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoStateComboBox
@@ -136,9 +148,9 @@
             // settingsButton
             // 
             this.settingsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.settingsButton.Location = new System.Drawing.Point(518, 572);
+            this.settingsButton.Location = new System.Drawing.Point(543, 578);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(223, 79);
+            this.settingsButton.Size = new System.Drawing.Size(198, 162);
             this.settingsButton.TabIndex = 13;
             this.settingsButton.Text = "⚙️\r\nНастройки программы";
             this.settingsButton.UseVisualStyleBackColor = false;
@@ -158,7 +170,7 @@
             this.groupBox5.Controls.Add(this.subtitlesStateComboBox);
             this.groupBox5.Controls.Add(this.videoStateComboBox);
             this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Location = new System.Drawing.Point(131, 572);
+            this.groupBox5.Location = new System.Drawing.Point(119, 19);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(381, 79);
             this.groupBox5.TabIndex = 16;
@@ -462,10 +474,9 @@
             // 
             // firstRussianSubtitlesProgressLabel
             // 
-            this.firstRussianSubtitlesProgressLabel.AutoSize = true;
-            this.firstRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(205, 42);
+            this.firstRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(186, 42);
             this.firstRussianSubtitlesProgressLabel.Name = "firstRussianSubtitlesProgressLabel";
-            this.firstRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(127, 13);
+            this.firstRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(146, 13);
             this.firstRussianSubtitlesProgressLabel.TabIndex = 2;
             this.firstRussianSubtitlesProgressLabel.Text = "firstRussianSubtitlesLabel";
             this.firstRussianSubtitlesProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -599,10 +610,9 @@
             // 
             // primarySubtitlesProgressLabel
             // 
-            this.primarySubtitlesProgressLabel.AutoSize = true;
-            this.primarySubtitlesProgressLabel.Location = new System.Drawing.Point(297, 42);
+            this.primarySubtitlesProgressLabel.Location = new System.Drawing.Point(186, 42);
             this.primarySubtitlesProgressLabel.Name = "primarySubtitlesProgressLabel";
-            this.primarySubtitlesProgressLabel.Size = new System.Drawing.Size(35, 13);
+            this.primarySubtitlesProgressLabel.Size = new System.Drawing.Size(146, 13);
             this.primarySubtitlesProgressLabel.TabIndex = 2;
             this.primarySubtitlesProgressLabel.Text = "label1";
             this.primarySubtitlesProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -738,7 +748,6 @@
             // 
             // secondRussianSubtitlesProgressLabel
             // 
-            this.secondRussianSubtitlesProgressLabel.AutoSize = true;
             this.secondRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(186, 42);
             this.secondRussianSubtitlesProgressLabel.Name = "secondRussianSubtitlesProgressLabel";
             this.secondRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(146, 13);
@@ -876,10 +885,9 @@
             // 
             // thirdRussianSubtitlesProgressLabel
             // 
-            this.thirdRussianSubtitlesProgressLabel.AutoSize = true;
-            this.thirdRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(201, 42);
+            this.thirdRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(186, 42);
             this.thirdRussianSubtitlesProgressLabel.Name = "thirdRussianSubtitlesProgressLabel";
-            this.thirdRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(131, 13);
+            this.thirdRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(146, 13);
             this.thirdRussianSubtitlesProgressLabel.TabIndex = 2;
             this.thirdRussianSubtitlesProgressLabel.Text = "thirdRussianSubtitlesLabel";
             this.thirdRussianSubtitlesProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -896,9 +904,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.Location = new System.Drawing.Point(747, 572);
+            this.button1.Location = new System.Drawing.Point(747, 578);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 79);
+            this.button1.Size = new System.Drawing.Size(87, 163);
             this.button1.TabIndex = 24;
             this.button1.Text = "ℹ️\r\n\r\nО\r\nпрограмме";
             this.button1.UseVisualStyleBackColor = false;
@@ -908,7 +916,7 @@
             // 
             this.playVideoButton.AutoSize = true;
             this.playVideoButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.playVideoButton.Location = new System.Drawing.Point(27, 572);
+            this.playVideoButton.Location = new System.Drawing.Point(15, 19);
             this.playVideoButton.Name = "playVideoButton";
             this.playVideoButton.Size = new System.Drawing.Size(95, 79);
             this.playVideoButton.TabIndex = 47;
@@ -923,16 +931,116 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.appNotRunningAsAdministratorPanel);
+            this.groupBox6.Controls.Add(this.appIsRunningsAsAdministratorPanel);
+            this.groupBox6.Controls.Add(this.playVideoButton);
+            this.groupBox6.Controls.Add(this.groupBox5);
+            this.groupBox6.Location = new System.Drawing.Point(12, 572);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(512, 169);
+            this.groupBox6.TabIndex = 17;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "🎥 Сейчас видео:";
+            // 
+            // appNotRunningAsAdministratorPanel
+            // 
+            this.appNotRunningAsAdministratorPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.appNotRunningAsAdministratorPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label12);
+            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label13);
+            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label14);
+            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(18, 103);
+            this.appNotRunningAsAdministratorPanel.Name = "appNotRunningAsAdministratorPanel";
+            this.appNotRunningAsAdministratorPanel.Size = new System.Drawing.Size(482, 53);
+            this.appNotRunningAsAdministratorPanel.TabIndex = 49;
+            this.appNotRunningAsAdministratorPanel.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(11, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(447, 13);
+            this.label12.TabIndex = 42;
+            this.label12.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler должен быть доступ" +
+    "ен";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(128, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(169, 14);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "не от имени администратора";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Location = new System.Drawing.Point(11, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(119, 13);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Программа запущена";
+            // 
+            // appIsRunningsAsAdministratorPanel
+            // 
+            this.appIsRunningsAsAdministratorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(255)))), ((int)(((byte)(152)))));
+            this.appIsRunningsAsAdministratorPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label11);
+            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label10);
+            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label9);
+            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(18, 103);
+            this.appIsRunningsAsAdministratorPanel.Name = "appIsRunningsAsAdministratorPanel";
+            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(482, 53);
+            this.appIsRunningsAsAdministratorPanel.TabIndex = 48;
+            this.appIsRunningsAsAdministratorPanel.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(11, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(447, 13);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler должен быть доступ" +
+    "ен";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(128, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(152, 14);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "от имени администратора";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(11, 8);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 13);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "Программа запущена";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(850, 661);
-            this.Controls.Add(this.playVideoButton);
+            this.ClientSize = new System.Drawing.Size(850, 752);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.settingsButton);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -959,8 +1067,13 @@
             this.thirdRussianSubtitlesGroupBox.ResumeLayout(false);
             this.thirdRussianSubtitlesGroupBox.PerformLayout();
             this.translateToThirdRussianSubtitlesGroupBox.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.appNotRunningAsAdministratorPanel.ResumeLayout(false);
+            this.appNotRunningAsAdministratorPanel.PerformLayout();
+            this.appIsRunningsAsAdministratorPanel.ResumeLayout(false);
+            this.appIsRunningsAsAdministratorPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1037,5 +1150,14 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Panel appIsRunningsAsAdministratorPanel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel appNotRunningAsAdministratorPanel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

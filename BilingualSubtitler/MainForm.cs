@@ -18,6 +18,7 @@ using Xceed.Words.NET;
 using Octokit;
 using Label = System.Windows.Forms.Label;
 using System.Threading;
+using System.Security.Principal;
 
 namespace BilingualSubtitler
 {
@@ -365,6 +366,11 @@ namespace BilingualSubtitler
 
             //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
             //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
+
+            appIsRunningsAsAdministratorPanel.Visible = AppIsRunningAsAdministrator();
+            appNotRunningAsAdministratorPanel.Visible = !AppIsRunningAsAdministrator();
+
+            MessageBox.Show(AppIsRunningAsAdministrator().ToString());
 
         }
 
@@ -808,7 +814,7 @@ namespace BilingualSubtitler
             // Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
             // Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
             // Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
-            var subtitleStyleNamePostfix = " sub stream";
+            var subtitleStyleNamePostfix = "_sub_stream";
 
             string[] styleComponents = null;
             bool subtitleInOneLine = false;
@@ -1864,7 +1870,14 @@ namespace BilingualSubtitler
             //разворачиваем окно
             WindowState = FormWindowState.Normal;
         }
+
+        public static bool AppIsRunningAsAdministrator()
+        {
+            return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
+                      .IsInRole(WindowsBuiltInRole.Administrator);
+        }
     }
+
     public class SubtitlesBackgroundWorker : BackgroundWorker
     {
         public SubtitlesType SubtitlesType;
@@ -1887,4 +1900,6 @@ namespace BilingualSubtitler
         {
         }
     }
+
+
 }
