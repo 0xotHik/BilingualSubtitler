@@ -51,9 +51,11 @@ namespace BilingualSubtitler
             public Label ActionLabel { get; private set; }
             public TextBox OutputTextBox { get; private set; }
 
-            public int TrackNumber;
+            public string TrackNumber;
             public string TrackLanguage;
             public string TrackName;
+            public string FileNameWithoutExtention { get; set; }
+            public string FileExtention { get; set; }
 
 
             public SubtitlesInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
@@ -369,9 +371,6 @@ namespace BilingualSubtitler
 
             appIsRunningsAsAdministratorPanel.Visible = AppIsRunningAsAdministrator();
             appNotRunningAsAdministratorPanel.Visible = !AppIsRunningAsAdministrator();
-
-            MessageBox.Show(AppIsRunningAsAdministrator().ToString());
-
         }
 
         private void SetProgramAccordingToSettings()
@@ -1287,7 +1286,14 @@ namespace BilingualSubtitler
                                     }
                             }
 
-                            subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name;
+                            var fileName = new FileInfo(filePath).Name;
+                            var fileExt = new FileInfo(filePath).Extension;
+
+                            subtitlesInfo.OutputTextBox.Text = fileName;
+
+                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
+                            subtitlesInfo.FileExtention = fileExt;
+                            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
                         })));
 
                         subtitlesInfo.Subtitles = ReadSRT(filePath);
@@ -1322,7 +1328,14 @@ namespace BilingualSubtitler
                                     }
                             }
 
-                            subtitlesInfo.OutputTextBox.Text = new FileInfo(filePath).Name;
+                            var fileName = new FileInfo(filePath).Name;
+                            var fileExt = new FileInfo(filePath).Extension;
+
+                            subtitlesInfo.OutputTextBox.Text = fileName;
+
+                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length-fileExt.Length);
+                            subtitlesInfo.FileExtention = fileExt;
+                            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
                         })));
 
                         subtitlesInfo.Subtitles = ReadDocx(filePath);
@@ -1365,8 +1378,24 @@ namespace BilingualSubtitler
                                             }
                                     }
 
+                                    // Заполняеми информацию
+                                    var fileName = new FileInfo(filePath).Name;
+                                    var fileExt = new FileInfo(filePath).Extension;
+
+                                    var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
+                                    if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
+                                        trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";
+
                                     subtitlesInfo.OutputTextBox.Text =
-                                    $"{trackSelectionForm.SelectedTrackTitle} из {new FileInfo(filePath).Name}";
+                                    $"{trackInfo} из {fileName}";
+
+                                    
+                                    subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
+                                    subtitlesInfo.FileExtention = fileExt;
+
+                                    subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
+                                    subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
+                                    subtitlesInfo.TrackName = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
 
                                 })));
 
@@ -1416,21 +1445,27 @@ namespace BilingualSubtitler
             {
                 subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
                 subtitlesInfo.ProgressLabel.Text = $"100%";
+
+                if (parentBgW.SubtitlesType == SubtitlesType.Original)
+                {
+                    translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
+                        translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
+                            translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                                true;
+                }
+
+                subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
+            }
+            else
+            {
+                subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
+                subtitlesInfo.ProgressLabel.Text = $"0%";
+                subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время открытия субтитров";
             }
 
             subtitlesInfo.ButtonOpen.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;
-
-            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
-
-            if (parentBgW.SubtitlesType == SubtitlesType.Original)
-            {
-                translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
-                    translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                        translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
-                            true;
-            }
 
             // TODO Ошибки?
         }
@@ -1825,9 +1860,14 @@ namespace BilingualSubtitler
             var subtitlesInfo = m_subtitles[subtitlesType];
 
             string formats = "Файл DocX |*.docx";
+            var defaultFileName = string.IsNullOrWhiteSpace(subtitlesInfo.TrackLanguage) ? subtitlesInfo.FileNameWithoutExtention
+                : $"{subtitlesInfo.FileNameWithoutExtention}.Track{subtitlesInfo.TrackNumber}.Subtitles." +
+                $"{subtitlesInfo.TrackLanguage.ToUpper()}.BilingualSubtitlerExport";
 
             using var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = formats;
+            saveFileDialog.FileName = defaultFileName;
+
             var result = saveFileDialog.ShowDialog();
 
             if (result == DialogResult.OK)

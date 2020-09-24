@@ -18,7 +18,7 @@ namespace BilingualSubtitler
         private Color previousButtonColor;
 
         public int SelectedTrackNumber;
-        public string SelectedTrackTitle;
+        public Tuple<string, string, string> SelectedTrackIdLangTitle;
 
         public TrackToExtractFromMKVForm(List<MatroskaTrackInfo> tracks)
         {
@@ -166,9 +166,7 @@ namespace BilingualSubtitler
             SelectedTrackNumber = (int)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag;
 
             var cells = dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Cells;
-            SelectedTrackTitle = $"Трек {cells[0].Value}, {cells[1].Value}";
-            if (!string.IsNullOrWhiteSpace((string) cells[2].Value))
-                SelectedTrackTitle += $", \"{cells[2].Value}\"";
+            SelectedTrackIdLangTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
 
             this.DialogResult = DialogResult.OK;
             this.Close();

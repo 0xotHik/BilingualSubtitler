@@ -933,10 +933,10 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.appNotRunningAsAdministratorPanel);
-            this.groupBox6.Controls.Add(this.appIsRunningsAsAdministratorPanel);
             this.groupBox6.Controls.Add(this.playVideoButton);
             this.groupBox6.Controls.Add(this.groupBox5);
+            this.groupBox6.Controls.Add(this.appNotRunningAsAdministratorPanel);
+            this.groupBox6.Controls.Add(this.appIsRunningsAsAdministratorPanel);
             this.groupBox6.Location = new System.Drawing.Point(12, 572);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(512, 169);
@@ -951,9 +951,9 @@
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label12);
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label13);
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label14);
-            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(18, 103);
+            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(15, 103);
             this.appNotRunningAsAdministratorPanel.Name = "appNotRunningAsAdministratorPanel";
-            this.appNotRunningAsAdministratorPanel.Size = new System.Drawing.Size(482, 53);
+            this.appNotRunningAsAdministratorPanel.Size = new System.Drawing.Size(485, 53);
             this.appNotRunningAsAdministratorPanel.TabIndex = 49;
             this.appNotRunningAsAdministratorPanel.Visible = false;
             // 
@@ -995,9 +995,9 @@
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label11);
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label10);
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label9);
-            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(18, 103);
+            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(15, 103);
             this.appIsRunningsAsAdministratorPanel.Name = "appIsRunningsAsAdministratorPanel";
-            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(482, 53);
+            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(485, 53);
             this.appIsRunningsAsAdministratorPanel.TabIndex = 48;
             this.appIsRunningsAsAdministratorPanel.Visible = false;
             // 
