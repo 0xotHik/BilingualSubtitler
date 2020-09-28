@@ -1,4 +1,4 @@
-[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplash-v-3.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
+[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/09/bisubwhiplash-v-4_.jpg)](https://www.youtube.com/watch?v=7TSPPbmpXsw "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
 <br>
 <br>
 <a href="https://yasobe.ru/na/0xothik" target="_blank" rel="noopener"><img class="alignnone size-full wp-image-5000" src="https://0xothik.files.wordpress.com/2020/06/ya-thx-20.png" alt="Спасибо, которое намажешь на хлеб" width="134" height="20" /></a>
