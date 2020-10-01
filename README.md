@@ -1,4 +1,4 @@
-[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/05/bisubwhiplash-v-3.jpg)](https://www.youtube.com/watch?v=QpmaY9CAaWU "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
+[![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2020/09/bisubwhiplash-v-4_.jpg)](https://www.youtube.com/watch?v=7TSPPbmpXsw "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
 <br>
 <br>
 <a href="https://yasobe.ru/na/0xothik" target="_blank" rel="noopener"><img class="alignnone size-full wp-image-5000" src="https://0xothik.files.wordpress.com/2020/06/ya-thx-20.png" alt="Спасибо, которое намажешь на хлеб" width="134" height="20" /></a>
@@ -21,9 +21,12 @@ Bilingual Subtitler же работает с любыми видео, котор
 
 <hr>
 
-<a href="https://0xothik.wordpress.com/bilingual-subtitler/"><b>Страница программы, с полным описанием</b></a>
+<a href="https://0xothik.wordpress.com/bilingual-subtitler/"><b>Страница программы, с полным описанием→</b></a>
 <hr><br/>
-<a href="https://github.com/0xotHik/BilingualSubtitler/releases/latest"><b>Скачать последний релиз →</b></a><br/>
+<a href="https://github.com/0xotHik/BilingualSubtitler/releases/latest"><b>Скачать последний релиз →</b></a>
+<hr><br/>
+<a href="https://www.youtube.com/watch?v=7TSPPbmpXsw"><b>Видеогайд по программе и просмотру с подключаемыми русскими субтитрами →</b></a>
+<hr><br/>
 
 **Как работает программа:** <br/>
 1. Создание двуязычных субтитров: <br/>
@@ -39,6 +42,7 @@ Bilingual Subtitler же работает с любыми видео, котор
 *   [Библиотеку **Windows Input Simulator**](https://github.com/michaelnoonan/inputsimulator) (с неправильными примерами кода в разделе Example :))
 *   [Библиотеку **NonInvasiveKeyboardHook**](https://github.com/kfirprods/NonInvasiveKeyboardHook)
 *   [Библиотеку **DocX**](https://github.com/xceedsoftware/DocX)
+*   [Библиотеку **OctoKit**](https://github.com/octokit/octokit.net)
 *   Установщик создан через [программу **Inno Setup**](https://jrsoftware.org/isinfo.php)
 
 - Большое спасибо компании **Яндекс** за предоставление бесплатного доступа Яндекс.Переводчику.
