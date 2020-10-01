@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="labelAPIInfo.Text" xml:space="preserve">
-    <value>API бесплатно переводит до 10 миллионов символов в месяц 
-(≈200 субтитров к полнометражному фильму) и не более 1 миллиона символов
- в сутки(≈20 субтитров к полнометражному фильму). 
-При достижении этих лимитов перевод автоматически прекращается. </value>
-  </data>
   <metadata name="keyColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -963,10 +963,10 @@
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label12.Location = new System.Drawing.Point(11, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(447, 13);
+            this.label12.Size = new System.Drawing.Size(454, 13);
             this.label12.TabIndex = 42;
-            this.label12.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler должен быть доступ" +
-    "ен";
+            this.label12.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler может быть недосту" +
+    "пен";
             // 
             // label13
             // 

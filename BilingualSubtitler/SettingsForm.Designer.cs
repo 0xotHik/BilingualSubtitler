@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.linkLabelGetAPIKey = new System.Windows.Forms.LinkLabel();
             this.richTextBoxForYandexApiKeyInSeparateForm = new System.Windows.Forms.RichTextBox();
-            this.labelAPIInfo = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
@@ -185,40 +183,20 @@
             this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
-            // linkLabelGetAPIKey
-            // 
-            this.linkLabelGetAPIKey.AutoSize = true;
-            this.linkLabelGetAPIKey.Location = new System.Drawing.Point(13, 59);
-            this.linkLabelGetAPIKey.Name = "linkLabelGetAPIKey";
-            this.linkLabelGetAPIKey.Size = new System.Drawing.Size(222, 13);
-            this.linkLabelGetAPIKey.TabIndex = 1;
-            this.linkLabelGetAPIKey.TabStop = true;
-            this.linkLabelGetAPIKey.Text = "Получить ключ к API Яндекс.Переводчика";
-            this.linkLabelGetAPIKey.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGetAPIKey_LinkClicked);
-            // 
             // richTextBoxForYandexApiKeyInSeparateForm
             // 
-            this.richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(595, 19);
+            this.richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(291, 19);
             this.richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
-            this.richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(443, 108);
+            this.richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(747, 55);
             this.richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
             this.richTextBoxForYandexApiKeyInSeparateForm.Text = "";
-            // 
-            // labelAPIInfo
-            // 
-            this.labelAPIInfo.AutoSize = true;
-            this.labelAPIInfo.Location = new System.Drawing.Point(13, 88);
-            this.labelAPIInfo.Name = "labelAPIInfo";
-            this.labelAPIInfo.Size = new System.Drawing.Size(411, 52);
-            this.labelAPIInfo.TabIndex = 3;
-            this.labelAPIInfo.Text = resources.GetString("labelAPIInfo.Text");
             // 
             // buttonOk
             // 
             this.buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOk.Image = global::BilingualSubtitler.Properties.Resources._16pxOkIcon;
             this.buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOk.Location = new System.Drawing.Point(958, 730);
+            this.buttonOk.Location = new System.Drawing.Point(975, 677);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(95, 35);
             this.buttonOk.TabIndex = 5;
@@ -232,7 +210,7 @@
             this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancel.Location = new System.Drawing.Point(15, 730);
+            this.buttonCancel.Location = new System.Drawing.Point(15, 677);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(74, 35);
             this.buttonCancel.TabIndex = 4;
@@ -244,7 +222,7 @@
             // linkLabelYandexAPIKeysList
             // 
             this.linkLabelYandexAPIKeysList.AutoSize = true;
-            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(255, 59);
+            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(13, 61);
             this.linkLabelYandexAPIKeysList.Name = "linkLabelYandexAPIKeysList";
             this.linkLabelYandexAPIKeysList.Size = new System.Drawing.Size(243, 13);
             this.linkLabelYandexAPIKeysList.TabIndex = 43;
@@ -256,12 +234,10 @@
             // 
             this.groupBox1.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
             this.groupBox1.Controls.Add(this.linkLabelYandexAPIKeysList);
-            this.groupBox1.Controls.Add(this.linkLabelGetAPIKey);
             this.groupBox1.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.groupBox1.Controls.Add(this.labelAPIInfo);
             this.groupBox1.Location = new System.Drawing.Point(15, 568);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1056, 152);
+            this.groupBox1.Size = new System.Drawing.Size(1056, 94);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ключ Яндекс.Переводчика";
@@ -1068,7 +1044,7 @@
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(431, 730);
+            this.button5.Location = new System.Drawing.Point(415, 677);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 48;
@@ -1422,7 +1398,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1083, 781);
+            this.ClientSize = new System.Drawing.Size(1083, 724);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox6);
@@ -1489,9 +1465,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.LinkLabel linkLabelGetAPIKey;
         private System.Windows.Forms.RichTextBox richTextBoxForYandexApiKeyInSeparateForm;
-        private System.Windows.Forms.Label labelAPIInfo;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.LinkLabel linkLabelYandexAPIKeysList;

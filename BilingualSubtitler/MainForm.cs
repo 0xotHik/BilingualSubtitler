@@ -1624,6 +1624,7 @@ namespace BilingualSubtitler
             var senderButton = (Button)sender;
 
             var colorPickingDialog = new ColorDialog();
+            colorPickingDialog.Color = senderButton.BackColor;
             colorPickingDialog.CustomColors = new int[] { ColorTranslator.ToOle(Color.Gold) };
             colorPickingDialog.FullOpen = true;
             var dialogResult = colorPickingDialog.ShowDialog();

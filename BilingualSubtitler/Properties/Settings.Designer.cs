@@ -260,7 +260,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("High")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AboveNormal")]
         public global::System.Diagnostics.ProcessPriorityClass ProcessPriority {
             get {
                 return ((global::System.Diagnostics.ProcessPriorityClass)(this["ProcessPriority"]));

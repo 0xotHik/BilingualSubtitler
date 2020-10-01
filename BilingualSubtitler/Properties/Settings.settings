@@ -67,7 +67,7 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="ProcessPriority" Type="System.Diagnostics.ProcessPriorityClass" Scope="User">
-      <Value Profile="(Default)">High</Value>
+      <Value Profile="(Default)">AboveNormal</Value>
     </Setting>
     <Setting Name="CheckUpdates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

@@ -422,8 +422,8 @@ namespace BilingualSubtitler
 
         private void linkLabelGetAPIKey_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabelGetAPIKey.LinkVisited = true;
-            System.Diagnostics.Process.Start("https://tech.yandex.ru/keys/get/?service=trnsl");
+            //this.linkLabelGetAPIKey.LinkVisited = true;
+            //System.Diagnostics.Process.Start("https://tech.yandex.ru/keys/get/?service=trnsl");
         }
 
 
