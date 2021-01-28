@@ -19,6 +19,7 @@ using Octokit;
 using Label = System.Windows.Forms.Label;
 using System.Threading;
 using System.Security.Principal;
+using System.Drawing.Text;
 
 namespace BilingualSubtitler
 {
@@ -371,6 +372,81 @@ namespace BilingualSubtitler
 
             appIsRunningsAsAdministratorPanel.Visible = AppIsRunningAsAdministrator();
             appNotRunningAsAdministratorPanel.Visible = !AppIsRunningAsAdministrator();
+
+            // Проверка обновлений
+            var checkUpdatesBgW = new BackgroundWorker();
+            checkUpdatesBgW.DoWork += CheckUpdatesBgW_DoWork;
+            checkUpdatesBgW.RunWorkerCompleted += CheckUpdatesBgW_RunWorkerCompleted;
+            checkUpdatesBgW.RunWorkerAsync();
+        }
+
+        private void CheckUpdatesBgW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Result is Tuple<string, Octokit.Release>)
+            {
+                var latestVersionOnGitHub = ((Tuple<string, Octokit.Release>)e.Result).Item1;
+                var latestReleaseOnGitHub = ((Tuple<string, Octokit.Release>)e.Result).Item2;
+
+
+                if (Version.Parse(latestVersionOnGitHub) > Version.Parse(Settings.Default.LatestSeenVersion))
+                {
+                    var result = MessageBox.Show($"Появилась новая версия программы — {latestVersionOnGitHub}!\n\n" +
+                        $"Изменения:\n{latestReleaseOnGitHub.Body}\n\n" +
+                        "Перейти на страницу скачки?", "Появилась новая версия программы", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
+                    }
+
+                    Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
+                    Settings.Default.Save();
+                }
+            }
+            else if (e.Result is Exception)
+            {
+                var exception = (Exception)e.Result;
+                MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОШибка:{exception.Message}",
+                        "Не удалось получить информацию о новых версиях",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Проверяем наличие новой версии
+            if (Settings.Default.CheckUpdates)
+            {
+                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
+                {
+                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
+                    Settings.Default.Save();
+                }
+
+                bool infoFromGitHubIsGet = false;
+                string latestVersionOnGitHub = null;
+                Release latestReleaseOnGitHub = null;
+                try
+                {
+                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
+                    latestReleaseOnGitHub = client.Repository.Release.GetLatest(56989530).Result;
+                    var latestReleaseOnGitHubName = latestReleaseOnGitHub.Name;
+                    latestVersionOnGitHub = latestReleaseOnGitHubName.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHubName.Length - "Bilingual Subtitler ".Length);
+                    infoFromGitHubIsGet = true;
+                }
+                catch (Exception ex)
+                {
+                    e.Result = ex;
+                }
+
+                if (infoFromGitHubIsGet)
+                {
+                    e.Result = new Tuple<string, Octokit.Release> (latestVersionOnGitHub, latestReleaseOnGitHub);
+                }
+            }
         }
 
         private void SetProgramAccordingToSettings()
@@ -496,10 +572,117 @@ namespace BilingualSubtitler
                     Settings.Default.YandexTranslatorAPIEnabled;
 
                 //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
+
+                // Настройки вида субтитров:
+                // Системные шрифты
+                using InstalledFontCollection fontsCollection = new InstalledFontCollection();
+                FontFamily[] fontFamilies = fontsCollection.Families;
+                foreach (FontFamily font in fontFamilies)
+                {
+                    originalSubtitlesFontComboBox.Items.Add(font.Name);
+                    firstRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                    secondRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                    thirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                }
+
+                changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked =
+               Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal;
+                secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen;
+                secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled;
+
+                var originalSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
+                foreach (var fontItem in originalSubtitlesFontComboBox.Items)
+                {
+                    if ((string)fontItem == originalSubtitlesStyle[0])
+                    {
+                        originalSubtitlesFontComboBox.SelectedItem = fontItem;
+                        break;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(originalSubtitlesFontComboBox.Text))
+                    originalSubtitlesFontComboBox.Text = originalSubtitlesStyle[0];
+                originalSubtitlesMarginNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[1]);
+                originalSubtitlesSizeNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[2]);
+                originalSubtitlesOutlineNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[3]);
+                originalSubtitlesShadowNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[4]);
+                originalSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[5]);
+                originalSubtitlesShadowTransparencyPercentageNumericUpDown.Value = decimal.Parse(originalSubtitlesStyle[6]);
+                originalSubtitlesInOneLineCheckBox.Checked = originalSubtitlesStyle[7] == "1";
+
+                var firstRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                foreach (var fontItem in firstRussianSubtitlesFontComboBox.Items)
+                {
+                    if ((string)fontItem == firstRussianSubtitlesStyle[0])
+                    {
+                        firstRussianSubtitlesFontComboBox.SelectedItem = fontItem;
+                        break;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(firstRussianSubtitlesFontComboBox.Text))
+                    firstRussianSubtitlesFontComboBox.Text = firstRussianSubtitlesStyle[0];
+                firstRussianSubtitlesMarginNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[1]);
+                firstRussianSubtitlesSizeNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[2]);
+                firstRussianSubtitlesOutlineNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[3]);
+                firstRussianSubtitlesShadowNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[4]);
+                firstRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[5]);
+                firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value = decimal.Parse(firstRussianSubtitlesStyle[6]);
+                firstRussianSubtitlesInOneLineCheckBox.Checked = firstRussianSubtitlesStyle[7] == "1";
+
+                var secondRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                foreach (var fontItem in secondRussianSubtitlesFontComboBox.Items)
+                {
+                    if ((string)fontItem == secondRussianSubtitlesStyle[0])
+                    {
+                        secondRussianSubtitlesFontComboBox.SelectedItem = fontItem;
+                        break;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(secondRussianSubtitlesFontComboBox.Text))
+                    secondRussianSubtitlesFontComboBox.Text = secondRussianSubtitlesStyle[0];
+                secondRussianSubtitlesMarginNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[1]);
+                secondRussianSubtitlesSizeNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[2]);
+                secondRussianSubtitlesOutlineNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[3]);
+                secondRussianSubtitlesShadowNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[4]);
+                secondRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[5]);
+                secondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value = decimal.Parse(secondRussianSubtitlesStyle[6]);
+                secondRussianSubtitlesInOneLineCheckBox.Checked = secondRussianSubtitlesStyle[7] == "1";
+
+                var thirdRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                foreach (var fontItem in thirdRussianSubtitlesFontComboBox.Items)
+                {
+                    if ((string)fontItem == thirdRussianSubtitlesStyle[0])
+                    {
+                        thirdRussianSubtitlesFontComboBox.SelectedItem = fontItem;
+                        break;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(thirdRussianSubtitlesFontComboBox.Text))
+                    thirdRussianSubtitlesFontComboBox.Text = thirdRussianSubtitlesStyle[0];
+                thirdRussianSubtitlesMarginNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[1]);
+                thirdRussianSubtitlesSizeNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[2]);
+                thirdRussianSubtitlesOutlineNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[3]);
+                thirdRussianSubtitlesShadowNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[4]);
+                thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[5]);
+                thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[6]);
+                thirdRussianSubtitlesInOneLineCheckBox.Checked = thirdRussianSubtitlesStyle[7] == "1";
+
+                SetRedefineSubtitlesAppearanceSettingsFormState(Settings.Default.RedefineSubtitlesAppearanceSettings);
             }
             catch (Exception e)
             {
                 throw new BilingualSubtitlerPropertiesLoadingException(e);
+            }
+        }
+
+        private void SetRedefineSubtitlesAppearanceSettingsFormState (bool newRedefineSubtitlesAppearanceSettings)
+        {
+            redefineSubtitlesAppearanceSettingsCheckBox.Checked = subtitlesAppearanceGroupBox.Visible = newRedefineSubtitlesAppearanceSettings;
+            this.Width = newRedefineSubtitlesAppearanceSettings ? 1427 : 866;
+
+            if (newRedefineSubtitlesAppearanceSettings != Settings.Default.RedefineSubtitlesAppearanceSettings)
+            {
+                Settings.Default.RedefineSubtitlesAppearanceSettings = newRedefineSubtitlesAppearanceSettings;
+                Settings.Default.Save();
             }
         }
 
@@ -528,7 +711,7 @@ namespace BilingualSubtitler
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОШибка:{ex.Message}",
+                    MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОшибка: {ex.Message}",
                         "Не удалось получить информацию о новых версиях",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -1333,7 +1516,7 @@ namespace BilingualSubtitler
 
                             subtitlesInfo.OutputTextBox.Text = fileName;
 
-                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length-fileExt.Length);
+                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
                             subtitlesInfo.FileExtention = fileExt;
                             subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
                         })));
@@ -1389,7 +1572,7 @@ namespace BilingualSubtitler
                                     subtitlesInfo.OutputTextBox.Text =
                                     $"{trackInfo} из {fileName}";
 
-                                    
+
                                     subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
                                     subtitlesInfo.FileExtention = fileExt;
 
@@ -1625,7 +1808,10 @@ namespace BilingualSubtitler
 
             var colorPickingDialog = new ColorDialog();
             colorPickingDialog.Color = senderButton.BackColor;
-            colorPickingDialog.CustomColors = new int[] { ColorTranslator.ToOle(Color.Gold) };
+            colorPickingDialog.CustomColors = new int[] {
+                ColorTranslator.ToOle(Color.Gold),
+                ColorTranslator.ToOle(Color.DeepSkyBlue)
+            };
             colorPickingDialog.FullOpen = true;
             var dialogResult = colorPickingDialog.ShowDialog();
             if (dialogResult == DialogResult.OK)
@@ -1916,6 +2102,11 @@ namespace BilingualSubtitler
         {
             return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
                       .IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        private void redefineSubtitlesAppearanceSettingsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SetRedefineSubtitlesAppearanceSettingsFormState(((CheckBox)sender).Checked);
         }
     }
 

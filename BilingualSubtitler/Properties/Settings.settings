@@ -12,7 +12,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SecondRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">0, 192, 192</Value>
+      <Value Profile="(Default)">DeepSkyBlue</Value>
     </Setting>
     <Setting Name="ThirdRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Silver</Value>
@@ -74,6 +74,9 @@
     </Setting>
     <Setting Name="LatestSeenVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="RedefineSubtitlesAppearanceSettings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -61,7 +61,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 192, 192")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DeepSkyBlue")]
         public global::System.Drawing.Color SecondRussianSubtitlesColor {
             get {
                 return ((global::System.Drawing.Color)(this["SecondRussianSubtitlesColor"]));
@@ -291,6 +291,18 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["LatestSeenVersion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RedefineSubtitlesAppearanceSettings {
+            get {
+                return ((bool)(this["RedefineSubtitlesAppearanceSettings"]));
+            }
+            set {
+                this["RedefineSubtitlesAppearanceSettings"] = value;
             }
         }
     }

@@ -17,9 +17,7 @@ namespace BilingualSubtitler
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var mainForm = new MainForm();
-            mainForm.CheckUpdates();
             Application.Run(mainForm);
-
         }
     }
 }
