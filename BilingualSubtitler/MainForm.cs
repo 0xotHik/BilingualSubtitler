@@ -322,7 +322,7 @@ namespace BilingualSubtitler
             {
                 SetProgramAccordingToSettings();
 
-                using var settingsForm = new SettingsForm();
+                using var settingsForm = new SettingsForm(this);
             }
             catch (BilingualSubtitlerPropertiesLoadingException e)
             {
@@ -344,7 +344,7 @@ namespace BilingualSubtitler
                     {
                         SetProgramAccordingToSettings();
 
-                        using var settingsForm = new SettingsForm();
+                        using var settingsForm = new SettingsForm(this);
                     }
                     catch (BilingualSubtitlerPropertiesLoadingException ex)
                     {
@@ -378,6 +378,41 @@ namespace BilingualSubtitler
             checkUpdatesBgW.DoWork += CheckUpdatesBgW_DoWork;
             checkUpdatesBgW.RunWorkerCompleted += CheckUpdatesBgW_RunWorkerCompleted;
             checkUpdatesBgW.RunWorkerAsync();
+        }
+
+        public void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Проверяем наличие новой версии
+            if (Settings.Default.CheckUpdates)
+            {
+                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
+                {
+                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
+                    Settings.Default.Save();
+                }
+
+                bool infoFromGitHubIsGet = false;
+                string latestVersionOnGitHub = null;
+                Release latestReleaseOnGitHub = null;
+                try
+                {
+                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
+                    latestReleaseOnGitHub = client.Repository.Release.GetLatest(56989530).Result;
+                    var latestReleaseOnGitHubName = latestReleaseOnGitHub.Name;
+                    latestVersionOnGitHub = latestReleaseOnGitHubName.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHubName.Length - "Bilingual Subtitler ".Length);
+                    infoFromGitHubIsGet = true;
+                }
+                catch (Exception ex)
+                {
+                    e.Result = ex;
+                }
+
+                if (infoFromGitHubIsGet)
+                {
+                    e.Result = new Tuple<string, Octokit.Release>(latestVersionOnGitHub, latestReleaseOnGitHub);
+                }
+            }
         }
 
         private void CheckUpdatesBgW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -414,40 +449,7 @@ namespace BilingualSubtitler
 
         }
 
-        private void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
-        {
-            // Проверяем наличие новой версии
-            if (Settings.Default.CheckUpdates)
-            {
-                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                if (currentVersion > Version.Parse(Properties.Settings.Default.LatestSeenVersion))
-                {
-                    Settings.Default.LatestSeenVersion = currentVersion.ToString();
-                    Settings.Default.Save();
-                }
-
-                bool infoFromGitHubIsGet = false;
-                string latestVersionOnGitHub = null;
-                Release latestReleaseOnGitHub = null;
-                try
-                {
-                    GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
-                    latestReleaseOnGitHub = client.Repository.Release.GetLatest(56989530).Result;
-                    var latestReleaseOnGitHubName = latestReleaseOnGitHub.Name;
-                    latestVersionOnGitHub = latestReleaseOnGitHubName.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHubName.Length - "Bilingual Subtitler ".Length);
-                    infoFromGitHubIsGet = true;
-                }
-                catch (Exception ex)
-                {
-                    e.Result = ex;
-                }
-
-                if (infoFromGitHubIsGet)
-                {
-                    e.Result = new Tuple<string, Octokit.Release> (latestVersionOnGitHub, latestReleaseOnGitHub);
-                }
-            }
-        }
+      
 
         private void SetProgramAccordingToSettings()
         {
@@ -1918,7 +1920,7 @@ namespace BilingualSubtitler
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var keySettingForm = new SettingsForm();
+            var keySettingForm = new SettingsForm(this);
             keySettingForm.ShowDialog();
             keySettingForm.Dispose();
 

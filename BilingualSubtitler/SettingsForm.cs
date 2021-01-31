@@ -25,7 +25,7 @@ namespace BilingualSubtitler
         private Color m_previousButtonColor;
         private bool m_flagKeyIsInvalid = false;
 
-        public SettingsForm()
+        public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
 
@@ -72,26 +72,32 @@ namespace BilingualSubtitler
             targetProcessPriorityTextBox.SelectedIndex = indexForCurrentProcessPriority;
 
             // Версии
-            bool InfoFromGitHubIsGet = false;
-            string latestVersionOnGitHub = null;
-            try
-            {
-                GitHubClient client = new GitHubClient(new ProductHeaderValue("BilingualSubtitler"));
-                var latestRelease = client.Repository.Release.GetLatest(56989530);
-                var latestReleaseOnGitHub = latestRelease.Result.Name;
-                latestVersionOnGitHub = latestReleaseOnGitHub.Substring("Bilingual Subtitler ".Length, latestReleaseOnGitHub.Length - "Bilingual Subtitler ".Length);
-                InfoFromGitHubIsGet = true;
-            }
-            catch (Exception ex)
-            {
-                lastAppVersionLabel.Text = "Не удалось получить информацию\nо новых версиях :( (Подробности — по клику)";
-                lastAppVersionLabel.Tag = ex;
-            }
-            if ((InfoFromGitHubIsGet) && (latestVersionOnGitHub != null))
-                lastAppVersionLabel.Text = latestVersionOnGitHub;
-            //
             var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             currentAppVersionLabel.Text = currentVersion.ToString();
+            // Проверка обновлений
+            var checkUpdatesBgW = new BackgroundWorker();
+            checkUpdatesBgW.DoWork += mainForm.CheckUpdatesBgW_DoWork;
+            checkUpdatesBgW.RunWorkerCompleted += CheckUpdatesBgW_RunWorkerCompleted;
+            lastAppVersionLabel.Text = "Идет проверка...";
+            checkUpdatesBgW.RunWorkerAsync();
+        }
+
+        private void CheckUpdatesBgW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Result is Tuple<string, Octokit.Release>)
+            {
+                var latestVersionOnGitHub = ((Tuple<string, Octokit.Release>)e.Result).Item1;
+                var latestReleaseOnGitHub = ((Tuple<string, Octokit.Release>)e.Result).Item2;
+
+                lastAppVersionLabel.Text = latestVersionOnGitHub;
+            }
+            else if (e.Result is Exception)
+            {
+                var exception = (Exception)e.Result;
+                lastAppVersionLabel.Text = "Не удалось получить информацию\nо новых версиях :( (Подробности — по клику)";
+                lastAppVersionLabel.Tag = exception;
+            }
+
 
         }
 
