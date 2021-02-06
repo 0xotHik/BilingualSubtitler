@@ -321,6 +321,7 @@
             this.button2.TabIndex = 47;
             this.button2.Text = "Открыть субтитры";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // groupBox4
             // 
@@ -1182,8 +1183,9 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(542, 26);
             this.button10.TabIndex = 97;
-            this.button10.Text = "📖  Сбросить настройки вида субтитров к значениям по умолчанию";
+            this.button10.Text = "📖  Сбросить текущие настройки вида субтитров к сохраненным значениям";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox
             // 
