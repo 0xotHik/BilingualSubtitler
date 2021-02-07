@@ -67,4 +67,32 @@ namespace BilingualSubtitler
         //    Text = _text;
         //}
     }
+
+    public class SubtitlesStyle
+    {
+        public string Font;
+        public int Align;
+        public int Size;
+        public int OutlineSize;
+        public int ShadowSize;
+        public int TransparencyPercentage;
+        public int ShadowTransparencyPercentage;
+        public Color Color;
+
+
+        public SubtitlesStyle (string subtitlesStyleString)
+        {
+            //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
+
+            var components = subtitlesStyleString.Split(',');
+            Font = components[1];
+            Size = int.Parse(components[2]);
+
+            //var transparencyPercentage = styleComponents[5];
+            //var transparency = ((int)(float.Parse(transparencyPercentage) / 100f * 255f)).ToString("X2");
+            //var shadowTransparencyPercentage = styleComponents[6];
+            //var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
+        }
+
+    }
 }

@@ -994,7 +994,7 @@ namespace BilingualSubtitler
             //Style: 1_sub_stream,Times New Roman,20,&H000000FF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,0,1
             //Style: 2_sub_stream,Times New Roman,20,&H668000FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,206,1
             //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
-            var originalSubtitlesStyle = lines[currentStringIndex].Split(',');
+            var originalSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
             currentStringIndex++;
             if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
             {
