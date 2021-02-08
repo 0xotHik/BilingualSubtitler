@@ -1624,7 +1624,7 @@ namespace BilingualSubtitler
                             var mkvSubtitles = mkvFile.GetSubtitle(trackSelectionForm.SelectedTrackNumber,
                                 (position, total) =>
                                 {
-                                    parentBgW.ReportProgress((int)(100 * position / total));
+                                    parentBgW.ReportProgress((int)((100 * position) / total));
                                 });
 
                             subtitlesInfo.Subtitles = new Subtitle[mkvSubtitles.Count];
