@@ -92,6 +92,18 @@ namespace BilingualSubtitler
             //var transparency = ((int)(float.Parse(transparencyPercentage) / 100f * 255f)).ToString("X2");
             //var shadowTransparencyPercentage = styleComponents[6];
             //var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
+            TransparencyPercentage = ToDec(components[3].Substring(2, 2)) * 100 / 255;
+            Color = Color.FromArgb(
+                int.Parse((components[3].Substring(4, 2))),
+                int.Parse((components[3].Substring(6, 2))),
+                int.Parse((components[3].Substring(8, 2))));
+
+
+        }
+
+        public int ToDec(string hexValue)
+        {
+            return int.Parse(hexValue, System.Globalization.NumberStyles.HexNumber);
         }
 
     }
