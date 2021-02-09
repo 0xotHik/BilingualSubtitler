@@ -71,7 +71,7 @@ namespace BilingualSubtitler
     public class SubtitlesStyle
     {
         public string Font;
-        public int Align;
+        public int MarginV;
         public int Size;
         public int OutlineSize;
         public int ShadowSize;
@@ -82,9 +82,10 @@ namespace BilingualSubtitler
 
         public SubtitlesStyle (string subtitlesStyleString)
         {
-            //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
+        // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+        //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
 
-            var components = subtitlesStyleString.Split(',');
+        var components = subtitlesStyleString.Split(',');
             Font = components[1];
             Size = int.Parse(components[2]);
 
@@ -94,11 +95,15 @@ namespace BilingualSubtitler
             //var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
             TransparencyPercentage = ToDec(components[3].Substring(2, 2)) * 100 / 255;
             Color = Color.FromArgb(
-                int.Parse((components[3].Substring(4, 2))),
-                int.Parse((components[3].Substring(6, 2))),
-                int.Parse((components[3].Substring(8, 2))));
+                (ToDec(components[3].Substring(4, 2))),
+                (ToDec(components[3].Substring(6, 2))),
+                (ToDec(components[3].Substring(8, 2))));
 
+            ShadowTransparencyPercentage = (int)((float)ToDec(components[5].Substring(2, 2)) * 100f / 255f);
 
+            OutlineSize = int.Parse(components[16]);
+            ShadowSize = int.Parse(components[17]);
+            MarginV = int.Parse(components[21]);
         }
 
         public int ToDec(string hexValue)

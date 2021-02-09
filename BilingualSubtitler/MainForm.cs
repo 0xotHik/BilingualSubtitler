@@ -990,11 +990,18 @@ namespace BilingualSubtitler
             currentStringIndex += m_assHeader.Count;
 
             // Стили
+            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //Style: 0_sub_stream,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,42,1
             //Style: 1_sub_stream,Times New Roman,20,&H000000FF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,0,1
             //Style: 2_sub_stream,Times New Roman,20,&H668000FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,206,1
             //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
-            var originalSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+
+            SubtitlesStyle originalSubtitlesStyle = null;
+            SubtitlesStyle firstRussianSubtitlesStyle = null;
+            SubtitlesStyle secondRussianSubtitlesStyle = null;
+            SubtitlesStyle thirdRussianSubtitlesStyle = null;
+
+            originalSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
             currentStringIndex++;
             if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
             {
@@ -1002,13 +1009,126 @@ namespace BilingualSubtitler
             }
             else
             {
-
+                firstRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+                currentStringIndex++;
+                if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
+                {
+                    currentStringIndex++;
+                }
+                else
+                {
+                    secondRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+                    currentStringIndex++;
+                    if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
+                    {
+                        currentStringIndex++;
+                    }
+                    else
+                    {
+                        thirdRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+                        currentStringIndex++;
+                    }
+                }
             }
+
+            WriteSubtitlesStyleToFormControls(originalSubtitlesStyle, SubtitlesType.Original);
+            if (firstRussianSubtitlesStyle != null)
+                WriteSubtitlesStyleToFormControls(firstRussianSubtitlesStyle, SubtitlesType.FirstRussian);
+            if (secondRussianSubtitlesStyle != null)
+                WriteSubtitlesStyleToFormControls(secondRussianSubtitlesStyle, SubtitlesType.SecondRussian);
+            if (thirdRussianSubtitlesStyle != null)
+                WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
 
             //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
             currentStringIndex++;
 
             // Начался текст
+        }
+
+        private void WriteSubtitlesStyleToFormControls(SubtitlesStyle style, SubtitlesType subtitlesType)
+        {
+
+            ComboBox targetSubtitlesFontComboBox = null;
+            NumericUpDown targetSubtitlesMarginNumericUpDown = null;
+            NumericUpDown targetSubtitlesSizeNumericUpDown = null;
+            NumericUpDown targetSubtitlesOutlineNumericUpDown = null;
+            NumericUpDown targetSubtitlesShadowNumericUpDown = null;
+            NumericUpDown targetSubtitlesTransparencyPercentageNumericUpDown = null;
+            NumericUpDown targetSubtitlesShadowTransparencyPercentageNumericUpDown = null;
+            CheckBox targetSubtitlesInOneLineCheckBox = null;
+
+            switch (subtitlesType)
+            {
+                case SubtitlesType.Original:
+                    {
+                        targetSubtitlesFontComboBox = originalSubtitlesFontComboBox;
+                        targetSubtitlesMarginNumericUpDown = originalSubtitlesMarginNumericUpDown;
+                        targetSubtitlesSizeNumericUpDown = originalSubtitlesSizeNumericUpDown;
+                        targetSubtitlesOutlineNumericUpDown = originalSubtitlesOutlineNumericUpDown;
+                        targetSubtitlesShadowNumericUpDown = originalSubtitlesShadowNumericUpDown;
+                        targetSubtitlesTransparencyPercentageNumericUpDown = originalSubtitlesTransparencyPercentageNumericUpDown;
+                        targetSubtitlesShadowTransparencyPercentageNumericUpDown = originalSubtitlesShadowTransparencyPercentageNumericUpDown;
+                        targetSubtitlesInOneLineCheckBox = originalSubtitlesInOneLineCheckBox;
+
+                        break;
+                    }
+                case SubtitlesType.FirstRussian:
+                    {
+                        targetSubtitlesFontComboBox = firstRussianSubtitlesFontComboBox;
+                        targetSubtitlesMarginNumericUpDown = firstRussianSubtitlesMarginNumericUpDown;
+                        targetSubtitlesSizeNumericUpDown = firstRussianSubtitlesSizeNumericUpDown;
+                        targetSubtitlesOutlineNumericUpDown = firstRussianSubtitlesOutlineNumericUpDown;
+                        targetSubtitlesShadowNumericUpDown = firstRussianSubtitlesShadowNumericUpDown;
+                        targetSubtitlesTransparencyPercentageNumericUpDown = firstRussianSubtitlesTransparencyPercentageNumericUpDown;
+                        targetSubtitlesShadowTransparencyPercentageNumericUpDown = firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
+                        targetSubtitlesInOneLineCheckBox = firstRussianSubtitlesInOneLineCheckBox;
+
+                        break;
+                    }
+                case SubtitlesType.SecondRussian:
+                    {
+                        targetSubtitlesFontComboBox = secondRussianSubtitlesFontComboBox;
+                        targetSubtitlesMarginNumericUpDown = secondRussianSubtitlesMarginNumericUpDown;
+                        targetSubtitlesSizeNumericUpDown = secondRussianSubtitlesSizeNumericUpDown;
+                        targetSubtitlesOutlineNumericUpDown = secondRussianSubtitlesOutlineNumericUpDown;
+                        targetSubtitlesShadowNumericUpDown = secondRussianSubtitlesShadowNumericUpDown;
+                        targetSubtitlesTransparencyPercentageNumericUpDown = secondRussianSubtitlesTransparencyPercentageNumericUpDown;
+                        targetSubtitlesShadowTransparencyPercentageNumericUpDown = secondRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
+                        targetSubtitlesInOneLineCheckBox = secondRussianSubtitlesInOneLineCheckBox;
+
+                        break;
+                    }
+                case SubtitlesType.ThirdRussian:
+                    {
+                        targetSubtitlesFontComboBox = thirdRussianSubtitlesFontComboBox;
+                        targetSubtitlesMarginNumericUpDown = thirdRussianSubtitlesMarginNumericUpDown;
+                        targetSubtitlesSizeNumericUpDown = thirdRussianSubtitlesSizeNumericUpDown;
+                        targetSubtitlesOutlineNumericUpDown = thirdRussianSubtitlesOutlineNumericUpDown;
+                        targetSubtitlesShadowNumericUpDown = thirdRussianSubtitlesShadowNumericUpDown;
+                        targetSubtitlesTransparencyPercentageNumericUpDown = thirdRussianSubtitlesTransparencyPercentageNumericUpDown;
+                        targetSubtitlesShadowTransparencyPercentageNumericUpDown = thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
+                        targetSubtitlesInOneLineCheckBox = thirdRussianSubtitlesInOneLineCheckBox;
+
+                        break;
+                    }
+            }
+
+            foreach (var fontItem in targetSubtitlesFontComboBox.Items)
+            {
+                if ((string)fontItem == style.Font)
+                {
+                    targetSubtitlesFontComboBox.SelectedItem = fontItem;
+                    break;
+                }
+            }
+            if (string.IsNullOrWhiteSpace(targetSubtitlesFontComboBox.Text))
+                targetSubtitlesFontComboBox.Text = style.Font;
+            targetSubtitlesMarginNumericUpDown.Value = style.MarginV;
+            targetSubtitlesSizeNumericUpDown.Value = style.Size;
+            targetSubtitlesOutlineNumericUpDown.Value = style.OutlineSize;
+            targetSubtitlesShadowNumericUpDown.Value = style.ShadowSize;
+            targetSubtitlesTransparencyPercentageNumericUpDown.Value = style.TransparencyPercentage;
+            targetSubtitlesShadowTransparencyPercentageNumericUpDown.Value = style.ShadowTransparencyPercentage;
         }
 
         private StringBuilder GenerateASSMarkedupDocument(Tuple<Subtitle[], Color>[] subtitlesAndTheirColorsPairs)
@@ -1035,59 +1155,165 @@ namespace BilingualSubtitler
             // Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
             var subtitleStyleNamePostfix = "_sub_stream";
 
-            string[] styleComponents = null;
-            bool subtitleInOneLine = false;
+            var subtitleInOneLine = new bool[4];
             for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
             {
-                switch (i)
+                string font = null;
+                string marginV = null;
+                string size = null;
+                string outline = null;
+                string shadow = null;
+
+                decimal transparencyPercentage = 0;
+                string transparency = null;
+                decimal shadowTransparencyPercentage = 0;
+                string shadowTransparency = null;
+
+                Color? color = null;
+
+                if (redefineSubtitlesAppearanceSettingsCheckBox.Checked)
                 {
-                    case 0:
-                        {
-                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
-                            break;
-                        }
-                    case 1:
-                        {
-                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
-                            break;
-                        }
-                    case 2:
-                        {
-                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
-                            break;
-                        }
-                    case 3:
-                        {
-                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
-                            break;
-                        }
+                    switch (i)
+                    {
+                        case 0: //Оригинальные
+                            {
+                                font = originalSubtitlesFontComboBox.Text;
+                                marginV = originalSubtitlesMarginNumericUpDown.Text;
+                                size = originalSubtitlesSizeNumericUpDown.Value.ToString();
+                                outline = originalSubtitlesOutlineNumericUpDown.Value.ToString();
+                                shadow = originalSubtitlesShadowNumericUpDown.Value.ToString();
+
+                                transparencyPercentage = originalSubtitlesTransparencyPercentageNumericUpDown.Value;
+                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparencyPercentage = originalSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
+                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+
+                                color = primarySubtitlesColorButton.BackColor;
+
+                                break;
+                            }
+                        case 1: //1-е переведенные
+                            {
+                                font = firstRussianSubtitlesFontComboBox.Text;
+                                marginV = firstRussianSubtitlesMarginNumericUpDown.Text;
+                                size = firstRussianSubtitlesSizeNumericUpDown.Value.ToString();
+                                outline = firstRussianSubtitlesOutlineNumericUpDown.Value.ToString();
+                                shadow = firstRussianSubtitlesShadowNumericUpDown.Value.ToString();
+
+                                transparencyPercentage = firstRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
+                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparencyPercentage = firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
+                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+
+                                color = firstRussianSubtitlesColorButton.BackColor;
+
+                                break;
+                            }
+                        case 2: //2-е переведенные
+                            {
+                                font = secondRussianSubtitlesFontComboBox.Text;
+                                marginV = secondRussianSubtitlesMarginNumericUpDown.Text;
+                                size = secondRussianSubtitlesSizeNumericUpDown.Value.ToString();
+                                outline = secondRussianSubtitlesOutlineNumericUpDown.Value.ToString();
+                                shadow = secondRussianSubtitlesShadowNumericUpDown.Value.ToString();
+
+                                transparencyPercentage = secondRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
+                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparencyPercentage = secondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
+                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+
+                                color = secondRussianSubtitlesColorButton.BackColor;
+
+                                break;
+                            }
+                        case 3: //3-и переведенные
+                            {
+                                font = thirdRussianSubtitlesFontComboBox.Text;
+                                marginV = thirdRussianSubtitlesMarginNumericUpDown.Text;
+                                size = thirdRussianSubtitlesSizeNumericUpDown.Value.ToString();
+                                outline = thirdRussianSubtitlesOutlineNumericUpDown.Value.ToString();
+                                shadow = thirdRussianSubtitlesShadowNumericUpDown.Value.ToString();
+
+                                transparencyPercentage = thirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
+                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparencyPercentage = thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
+                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+
+                                color = thirdRussianSubtitlesColorButton.BackColor;
+
+                                break;
+                            }
+                    }
+
+                    subtitleInOneLine[i] = (originalSubtitlesInOneLineCheckBox.Checked ? true : false);
+
+
+                    //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
+                    //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
+                    //* float.Parse(shadowTransparencyPercentage) / 100f
+                    //* 255f)).ToString("X2");
+
+                    //var transparency = i == 0 ? "00" : "64";
+                    //var marginV = i == 3 ? 0
+                    //    : (2*20 + 5) + i * (2 * 20 + 5);
+                    //var outline = 2;
+                    //var shadow = 1;
+
                 }
+                else
+                {
+                    string[] styleComponents = null;
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
+                                break;
+                            }
+                        case 1:
+                            {
+                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                                break;
+                            }
+                        case 2:
+                            {
+                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                                break;
+                            }
+                        case 3:
+                            {
+                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                                break;
+                            }
+                    }
 
-                var font = styleComponents[0];
-                var marginV = styleComponents[1];
-                var size = styleComponents[2];
-                var outline = styleComponents[3];
-                var shadow = styleComponents[4];
+                    font = styleComponents[0];
+                    marginV = styleComponents[1];
+                    size = styleComponents[2];
+                    outline = styleComponents[3];
+                    shadow = styleComponents[4];
 
-                var transparencyPercentage = styleComponents[5];
-                var transparency = ((int)(float.Parse(transparencyPercentage) / 100f * 255f)).ToString("X2");
-                var shadowTransparencyPercentage = styleComponents[6];
-                var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
+                    transparencyPercentage = decimal.Parse(styleComponents[5]);
+                    transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                    shadowTransparencyPercentage = decimal.Parse(styleComponents[6]);
+                    shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
 
-                subtitleInOneLine = styleComponents[7] == "1";
+                    subtitleInOneLine[i] = (styleComponents[7] == "1");
 
-                //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
-                //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
-                //* float.Parse(shadowTransparencyPercentage) / 100f
-                //* 255f)).ToString("X2");
+                    //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
+                    //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
+                    //* float.Parse(shadowTransparencyPercentage) / 100f
+                    //* 255f)).ToString("X2");
 
-                //var transparency = i == 0 ? "00" : "64";
-                //var marginV = i == 3 ? 0
-                //    : (2*20 + 5) + i * (2 * 20 + 5);
-                //var outline = 2;
-                //var shadow = 1;
+                    //var transparency = i == 0 ? "00" : "64";
+                    //var marginV = i == 3 ? 0
+                    //    : (2*20 + 5) + i * (2 * 20 + 5);
+                    //var outline = 2;
+                    //var shadow = 1;
 
-                var color = subtitlesAndTheirColorsPairs[i].Item2;
+                    color = subtitlesAndTheirColorsPairs[i].Item2;
+
+                }
 
                 assSB.AppendLine(
                     $"Style: {i}{subtitleStyleNamePostfix}," +
@@ -1095,9 +1321,9 @@ namespace BilingualSubtitler
                     $"{size}," +
                     $"&H" +
                     $"{transparency}" +
-                    $"{color.B.ToString("X2")}" +
-                    $"{color.G.ToString("X2")}" +
-                    $"{color.R.ToString("X2")}," +
+                    $"{color.Value.B.ToString("X2")}" +
+                    $"{color.Value.G.ToString("X2")}" +
+                    $"{color.Value.R.ToString("X2")}," +
                     $"&H{transparency}00FFFF," +
                     $"&H{transparency}000000," +
                     $"&H{shadowTransparency}000000," +
@@ -1111,6 +1337,8 @@ namespace BilingualSubtitler
                     $"{marginV}," +
                     $"1");
             }
+
+
 
             //    [Events]
             //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
@@ -1130,10 +1358,10 @@ namespace BilingualSubtitler
                         {
                             // Перенос
                             if (subtitle.Text.Contains("\r\n"))
-                                subtitle.Text = subtitle.Text.Replace("\r\n", subtitleInOneLine ? " " : "\\N");
+                                subtitle.Text = subtitle.Text.Replace("\r\n", subtitleInOneLine[i] ? " " : "\\N");
                             else
                             if (subtitle.Text.Contains("\n"))
-                                subtitle.Text = subtitle.Text.Replace("\n", subtitleInOneLine ? " " : "\\N");
+                                subtitle.Text = subtitle.Text.Replace("\n", subtitleInOneLine[i] ? " " : "\\N");
                             //subtitle.Text = subtitle.Text.Replace("\n", "\\N");
 
 
