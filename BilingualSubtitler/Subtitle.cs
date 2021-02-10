@@ -2,15 +2,77 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Schema;
 
 namespace BilingualSubtitler
 {
+
+    public class SubtitlesAndInfo
+    {
+        public Subtitle[] Subtitles;
+
+        public SubtitlesBackgroundWorker BackgroundWorker
+        {
+            get;
+            private set;
+        }
+
+        public ProgressBar ProgressBar { get; private set; }
+        public Label ProgressLabel { get; private set; }
+        public Button ButtonOpen { get; private set; }
+        public Button ButtonTranslate { get; private set; }
+        public Button ButtonTranslateWordByWord { get; private set; }
+
+        public Label ActionLabel { get; private set; }
+        public TextBox OutputTextBox { get; private set; }
+
+        public string TrackNumber;
+        public string TrackLanguage;
+        public string TrackName;
+        public string FileNameWithoutExtention { get; set; }
+        public string FileExtention { get; set; }
+
+
+        public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
+           Label actionLabel, TextBox outputTextBox)
+        {
+            ProgressBar = progressBar;
+            ProgressLabel = progressLabel;
+            ButtonOpen = buttonOpen;
+            ButtonTranslate = buttonTranslate;
+            ButtonTranslateWordByWord = buttonTranslateWordByWord;
+            ActionLabel = actionLabel;
+            OutputTextBox = outputTextBox;
+        }
+
+        public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
+        {
+            BackgroundWorker = backgroundWorker;
+            BackgroundWorker.SubtitlesType = subtitlesType;
+        }
+
+        public void SetOriginalFile(string filePath, bool fromMKV)
+        {
+            var fileName = new FileInfo(filePath).Name;
+            var fileExt = new FileInfo(filePath).Extension;
+
+            OutputTextBox.Text = fileName;
+
+            FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
+            FileExtention = fileExt;
+
+            if (!fromMKV)
+                TrackLanguage = TrackNumber = TrackName = null;
+        }
+    }
+
     public class Subtitle
     {
         public TimeSpan Start { get; private set; }

@@ -33,50 +33,7 @@ namespace BilingualSubtitler
 
     public partial class MainForm : Form
     {
-        public class SubtitlesInfo
-        {
-            public Subtitle[] Subtitles;
 
-            public SubtitlesBackgroundWorker BackgroundWorker
-            {
-                get;
-                private set;
-            }
-
-            public ProgressBar ProgressBar { get; private set; }
-            public Label ProgressLabel { get; private set; }
-            public Button ButtonOpen { get; private set; }
-            public Button ButtonTranslate { get; private set; }
-            public Button ButtonTranslateWordByWord { get; private set; }
-
-            public Label ActionLabel { get; private set; }
-            public TextBox OutputTextBox { get; private set; }
-
-            public string TrackNumber;
-            public string TrackLanguage;
-            public string TrackName;
-            public string FileNameWithoutExtention { get; set; }
-            public string FileExtention { get; set; }
-
-
-            public SubtitlesInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
-               Label actionLabel, TextBox outputTextBox)
-            {
-                ProgressBar = progressBar;
-                ProgressLabel = progressLabel;
-                ButtonOpen = buttonOpen;
-                ButtonTranslate = buttonTranslate;
-                ButtonTranslateWordByWord = buttonTranslateWordByWord;
-                ActionLabel = actionLabel;
-                OutputTextBox = outputTextBox;
-            }
-
-            public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
-            {
-                BackgroundWorker = backgroundWorker;
-                BackgroundWorker.SubtitlesType = subtitlesType;
-            }
-        }
 
         enum VideoState
         {
@@ -95,7 +52,7 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATING = "Субтитры переводятся...";
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
-        private Dictionary<SubtitlesType, SubtitlesInfo> m_subtitles;
+        private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitles;
 
         private Translator m_translator;
 
@@ -151,6 +108,7 @@ namespace BilingualSubtitler
                 "[V4+ Styles]\r\n",
                 "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
     };
+        private string m_subtitleStyleNamePostfix = "_sub_stream";
 
 
         const UInt32 WM_KEYDOWN = 0x0100;
@@ -258,28 +216,28 @@ namespace BilingualSubtitler
                 { SubtitlesState.Bilingual, m_subtitlesBilingualSubtitlesComboBoxItem}
             };
 
-            m_subtitles = new Dictionary<SubtitlesType, SubtitlesInfo>
+            m_subtitles = new Dictionary<SubtitlesType, SubtitlesAndInfo>
             {
                 {
-                    SubtitlesType.Original, new SubtitlesInfo(
+                    SubtitlesType.Original, new SubtitlesAndInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
                         openPrimarySubtitlesButton, null, null,
                         primarySubtitlesActionLabel, primarySubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.FirstRussian, new SubtitlesInfo(
+                    SubtitlesType.FirstRussian, new SubtitlesAndInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
                         openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
                         firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.SecondRussian, new SubtitlesInfo(
+                    SubtitlesType.SecondRussian, new SubtitlesAndInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
                         openSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
                         secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox)
                 },
                 {
-                    SubtitlesType.ThirdRussian, new SubtitlesInfo(
+                    SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
                         openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
                         thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox)
@@ -1039,10 +997,100 @@ namespace BilingualSubtitler
             if (thirdRussianSubtitlesStyle != null)
                 WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
 
+            //[Events]
+            currentStringIndex++;
+
             //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
             currentStringIndex++;
 
             // Начался текст
+            var originalSubStream = new List<Subtitle>();
+            var firstRussianSubStream = new List<Subtitle>();
+            var secondRussianSubStream = new List<Subtitle>();
+            var thirdRussianSubStream = new List<Subtitle>();
+            // Dialogue: 0, --0
+            //0:00:04.96, --1
+            //    0:00:06.28, --2
+            //    0_sub_stream, --3
+            //,
+            //    0,
+            //    0,
+            //    0,
+            //,
+            //Why today? --9+
+            for (int i = currentStringIndex; i < lines.Length; i++)
+            {
+                var line = lines[i];
+                var components = line.Split(',');
+
+                // Собираем текст
+                var subtitleTextSB = new StringBuilder();
+                for (int j = 9; j < components.Length; j++)
+                {
+                    subtitleTextSB.Append(components[j]);
+                }
+
+                var subtitle = new Subtitle
+                    (TimeSpan.Parse(components[1]),
+                    TimeSpan.Parse(components[2]),
+                    subtitleTextSB.ToString());
+
+                var originalSubStreamName = "0" + m_subtitleStyleNamePostfix;
+                var firstRussianSubStreamName = $"1{m_subtitleStyleNamePostfix}";
+                var secondRussianSubStreamName = $"2{m_subtitleStyleNamePostfix}";
+                var thirdRussianSubStreamName = $"3{m_subtitleStyleNamePostfix}";
+
+                if (components[3] == originalSubStreamName)
+                    originalSubStream.Add(subtitle);
+                else if (components[3] == firstRussianSubStreamName)
+                    firstRussianSubStream.Add(subtitle);
+                else if (components[3] == secondRussianSubStreamName)
+                    secondRussianSubStream.Add(subtitle);
+                else if (components[3] == thirdRussianSubStreamName)
+                    thirdRussianSubStream.Add(subtitle);
+
+            }
+
+            if (originalSubStream.Count != 0)
+            {
+                var originalSubtitlesFileFI = new FileInfo(filePath);
+                var extension = originalSubtitlesFileFI.Extension;
+                var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
+                    originalSubtitlesFileFI.FullName.Length -
+                   (extension.Length));
+
+                finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
+
+                WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.Original, originalSubStream, filePath);
+            }
+            if (firstRussianSubStream.Count != 0)
+            {
+                WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.FirstRussian, firstRussianSubStream, filePath);
+            }
+            if (secondRussianSubStream.Count != 0)
+            {
+                WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.SecondRussian, secondRussianSubStream, filePath);
+            }
+            if (thirdRussianSubStream.Count != 0)
+            {
+                WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.ThirdRussian, thirdRussianSubStream, filePath);
+            }
+
+
+        }
+
+        private void WriteReadFromAssSubtitlesIntoStructure(SubtitlesType type, List<Subtitle> listOfSubtitles, string filePath)
+        {
+            var subtitlesAndInfo = m_subtitles[type];
+
+            subtitlesAndInfo.Subtitles = listOfSubtitles.ToArray();
+
+            subtitlesAndInfo.ProgressLabel.Visible = subtitlesAndInfo.ProgressBar.Visible = subtitlesAndInfo.ActionLabel.Visible = true;
+            subtitlesAndInfo.ProgressBar.Value = primarySubtitlesProgressBar.Maximum;
+            subtitlesAndInfo.ProgressLabel.Text = $"100%";
+            subtitlesAndInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
+
+            subtitlesAndInfo.SetOriginalFile(filePath, false);
         }
 
         private void WriteSubtitlesStyleToFormControls(SubtitlesStyle style, SubtitlesType subtitlesType)
@@ -1147,13 +1195,14 @@ namespace BilingualSubtitler
             // StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle,
             // Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //    [Events]
-            assSB.Append(m_assHeader);
+            foreach (var line in m_assHeader)
+                assSB.AppendLine(line);
 
 
             // Style: Default,Arial,20,&H00FFFFFF,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,10,1
             // Style: Копировать из Default,Arial,20,&H00C26F03,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,55,1
             // Style: Копировать из Копировать из Default,Arial,20,&H000C15DC,&H0300FFFF,&H00000000,&H02000000,0,0,0,0,100,100,0,0,1,2,1,2,10,10,100,1
-            var subtitleStyleNamePostfix = "_sub_stream";
+
 
             var subtitleInOneLine = new bool[4];
             for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
@@ -1316,7 +1365,7 @@ namespace BilingualSubtitler
                 }
 
                 assSB.AppendLine(
-                    $"Style: {i}{subtitleStyleNamePostfix}," +
+                    $"Style: {i}{m_subtitleStyleNamePostfix}," +
                     $"{font}," +
                     $"{size}," +
                     $"&H" +
@@ -1368,7 +1417,7 @@ namespace BilingualSubtitler
                             assSB.AppendLine($"Dialogue: 0," +
                                              $"{subtitle.Start.ToString(assTimeFormat)}," +
                                              $"{subtitle.End.ToString(assTimeFormat)}," +
-                                             $"{i}{subtitleStyleNamePostfix}," +
+                                             $"{i}{m_subtitleStyleNamePostfix}," +
                                              $",0,0,0,," +
                                              $"{subtitle.Text}");
                         }
