@@ -1563,6 +1563,7 @@
             this.firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown";
             this.firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.TabIndex = 94;
+            this.firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.ValueChanged += new System.EventHandler(this.firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged);
             // 
             // label34
             // 
@@ -1579,6 +1580,7 @@
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "firstRussianSubtitlesTransparencyPercentageNumericUpDown";
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.TabIndex = 92;
+            this.firstRussianSubtitlesTransparencyPercentageNumericUpDown.ValueChanged += new System.EventHandler(this.firstRussianSubtitlesTransparencyPercentageNumericUpDown_ValueChanged);
             // 
             // firstRussianSubtitlesShadowNumericUpDown
             // 
@@ -1624,6 +1626,7 @@
             this.firstRussianSubtitlesFontComboBox.Name = "firstRussianSubtitlesFontComboBox";
             this.firstRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(91, 21);
             this.firstRussianSubtitlesFontComboBox.TabIndex = 87;
+            this.firstRussianSubtitlesFontComboBox.TextChanged += new System.EventHandler(this.firstRussianSubtitlesFontComboBox_TextChanged);
             // 
             // label15
             // 
@@ -1690,6 +1693,7 @@
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.TabIndex = 68;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text = resources.GetString("changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text");
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.UseVisualStyleBackColor = true;
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckedChanged += new System.EventHandler(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged);
             // 
             // label33
             // 
@@ -1765,6 +1769,7 @@
             this.originalSubtitlesShadowNumericUpDown.Name = "originalSubtitlesShadowNumericUpDown";
             this.originalSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.originalSubtitlesShadowNumericUpDown.TabIndex = 91;
+            this.originalSubtitlesShadowNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesShadowNumericUpDown_ValueChanged);
             // 
             // originalSubtitlesOutlineNumericUpDown
             // 
@@ -1772,6 +1777,7 @@
             this.originalSubtitlesOutlineNumericUpDown.Name = "originalSubtitlesOutlineNumericUpDown";
             this.originalSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.originalSubtitlesOutlineNumericUpDown.TabIndex = 90;
+            this.originalSubtitlesOutlineNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesOutlineNumericUpDown_ValueChanged);
             // 
             // originalSubtitlesSizeNumericUpDown
             // 
@@ -1779,6 +1785,7 @@
             this.originalSubtitlesSizeNumericUpDown.Name = "originalSubtitlesSizeNumericUpDown";
             this.originalSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.originalSubtitlesSizeNumericUpDown.TabIndex = 89;
+            this.originalSubtitlesSizeNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesSizeNumericUpDown_ValueChanged);
             // 
             // originalSubtitlesMarginNumericUpDown
             // 
@@ -1791,6 +1798,7 @@
             this.originalSubtitlesMarginNumericUpDown.Name = "originalSubtitlesMarginNumericUpDown";
             this.originalSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(91, 20);
             this.originalSubtitlesMarginNumericUpDown.TabIndex = 88;
+            this.originalSubtitlesMarginNumericUpDown.ValueChanged += new System.EventHandler(this.originalSubtitlesMarginNumericUpDown_ValueChanged);
             // 
             // originalSubtitlesFontComboBox
             // 

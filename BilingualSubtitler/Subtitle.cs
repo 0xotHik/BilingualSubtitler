@@ -157,9 +157,10 @@ namespace BilingualSubtitler
             //var shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage) / 100f * 255f)).ToString("X2");
             TransparencyPercentage = ToDec(components[3].Substring(2, 2)) * 100 / 255;
             Color = Color.FromArgb(
-                (ToDec(components[3].Substring(4, 2))),
+                (ToDec(components[3].Substring(8, 2))),
                 (ToDec(components[3].Substring(6, 2))),
-                (ToDec(components[3].Substring(8, 2))));
+                (ToDec(components[3].Substring(4, 2))));
+            // В ASS цвет пишется в BGR, не забываем
 
             ShadowTransparencyPercentage = (int)((float)ToDec(components[5].Substring(2, 2)) * 100f / 255f);
 
