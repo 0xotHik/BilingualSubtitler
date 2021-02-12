@@ -52,6 +52,8 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATING = "Субтитры переводятся...";
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
+        private int m_initialFormWidth;
+
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitles;
 
         private Translator m_translator;
@@ -133,6 +135,8 @@ namespace BilingualSubtitler
             InitializeComponent();
 
             // Графика
+            m_initialFormWidth = Width;
+
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] {
                 new MenuItem("Свернуть в трей", ((sender, e) =>
@@ -652,7 +656,7 @@ namespace BilingualSubtitler
         private void SetRedefineSubtitlesAppearanceSettingsFormState(bool newRedefineSubtitlesAppearanceSettingsValue)
         {
             redefineSubtitlesAppearanceSettingsCheckBox.Checked = subtitlesAppearanceGroupBox.Visible = newRedefineSubtitlesAppearanceSettingsValue;
-            this.Width = newRedefineSubtitlesAppearanceSettingsValue ? 1427 : 866;
+            this.Width = newRedefineSubtitlesAppearanceSettingsValue ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
 
             if (newRedefineSubtitlesAppearanceSettingsValue != Settings.Default.RedefineSubtitlesAppearanceSettings)
             {
@@ -990,13 +994,16 @@ namespace BilingualSubtitler
                 }
             }
 
-            WriteSubtitlesStyleToFormControls(originalSubtitlesStyle, SubtitlesType.Original);
-            if (firstRussianSubtitlesStyle != null)
-                WriteSubtitlesStyleToFormControls(firstRussianSubtitlesStyle, SubtitlesType.FirstRussian);
-            if (secondRussianSubtitlesStyle != null)
-                WriteSubtitlesStyleToFormControls(secondRussianSubtitlesStyle, SubtitlesType.SecondRussian);
-            if (thirdRussianSubtitlesStyle != null)
-                WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
+            if (redefineSubtitlesAppearanceSettingsCheckBox.Checked)
+            {
+                WriteSubtitlesStyleToFormControls(originalSubtitlesStyle, SubtitlesType.Original);
+                if (firstRussianSubtitlesStyle != null)
+                    WriteSubtitlesStyleToFormControls(firstRussianSubtitlesStyle, SubtitlesType.FirstRussian);
+                if (secondRussianSubtitlesStyle != null)
+                    WriteSubtitlesStyleToFormControls(secondRussianSubtitlesStyle, SubtitlesType.SecondRussian);
+                if (thirdRussianSubtitlesStyle != null)
+                    WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
+            }
 
             //[Events]
             currentStringIndex++;
@@ -2443,7 +2450,7 @@ namespace BilingualSubtitler
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string formats = "Субтитры, созданные через Bilingual Subtitler (.ass) |*.ass; *.srt; *.docx";
+            string formats = "Субтитры, созданные через Bilingual Subtitler (.ass) |*.ass";
 
             using var openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = formats;

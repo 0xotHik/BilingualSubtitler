@@ -306,20 +306,21 @@
             this.redefineSubtitlesAppearanceSettingsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.redefineSubtitlesAppearanceSettingsCheckBox.Location = new System.Drawing.Point(335, 505);
             this.redefineSubtitlesAppearanceSettingsCheckBox.Name = "redefineSubtitlesAppearanceSettingsCheckBox";
-            this.redefineSubtitlesAppearanceSettingsCheckBox.Size = new System.Drawing.Size(205, 17);
+            this.redefineSubtitlesAppearanceSettingsCheckBox.Size = new System.Drawing.Size(251, 43);
             this.redefineSubtitlesAppearanceSettingsCheckBox.TabIndex = 97;
-            this.redefineSubtitlesAppearanceSettingsCheckBox.Text = "RedefineSubtitlesAppearanceSettings";
+            this.redefineSubtitlesAppearanceSettingsCheckBox.Text = "Переопределить настройки вида субтитров \r\n(и в том числе считывать их \r\nиз файла " +
+    "субтитров от Bilingual Subttiler)\r\n";
             this.redefineSubtitlesAppearanceSettingsCheckBox.UseVisualStyleBackColor = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.CheckedChanged += new System.EventHandler(this.redefineSubtitlesAppearanceSettingsCheckBox_CheckedChanged);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Gold;
-            this.button2.Location = new System.Drawing.Point(648, 504);
+            this.button2.BackColor = System.Drawing.Color.Goldenrod;
+            this.button2.Location = new System.Drawing.Point(592, 504);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 46);
+            this.button2.Size = new System.Drawing.Size(212, 46);
             this.button2.TabIndex = 47;
-            this.button2.Text = "Открыть субтитры";
+            this.button2.Text = "Открыть субтитры. \r\nранее созданные в Bilingual Subtitler\r\n";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -674,7 +675,7 @@
             this.primarySubtitlesExportAsDocx.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.primarySubtitlesExportAsDocx.Location = new System.Drawing.Point(490, 19);
             this.primarySubtitlesExportAsDocx.Name = "primarySubtitlesExportAsDocx";
-            this.primarySubtitlesExportAsDocx.Size = new System.Drawing.Size(119, 49);
+            this.primarySubtitlesExportAsDocx.Size = new System.Drawing.Size(118, 49);
             this.primarySubtitlesExportAsDocx.TabIndex = 9;
             this.primarySubtitlesExportAsDocx.Text = "📄\r\nСохранить субтитры\r\nкак файл .docx\r\n";
             this.primarySubtitlesExportAsDocx.UseVisualStyleBackColor = false;
