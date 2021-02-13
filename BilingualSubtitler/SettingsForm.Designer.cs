@@ -145,6 +145,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -1320,6 +1321,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.linkLabel2);
             this.groupBox11.Controls.Add(this.linkLabel1);
             this.groupBox11.Controls.Add(this.lastAppVersionLabel);
             this.groupBox11.Controls.Add(this.currentAppVersionLabel);
@@ -1336,7 +1338,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(6, 40);
+            this.linkLabel1.Location = new System.Drawing.Point(156, 40);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(162, 13);
             this.linkLabel1.TabIndex = 102;
@@ -1356,7 +1358,7 @@
             // 
             // currentAppVersionLabel
             // 
-            this.currentAppVersionLabel.Location = new System.Drawing.Point(293, 40);
+            this.currentAppVersionLabel.Location = new System.Drawing.Point(315, 40);
             this.currentAppVersionLabel.Name = "currentAppVersionLabel";
             this.currentAppVersionLabel.Size = new System.Drawing.Size(145, 13);
             this.currentAppVersionLabel.TabIndex = 100;
@@ -1387,11 +1389,22 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(318, 11);
+            this.label40.Location = new System.Drawing.Point(340, 11);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(94, 13);
             this.label40.TabIndex = 3;
             this.label40.Text = "Текущая версия:";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(3, 40);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(132, 13);
+            this.linkLabel2.TabIndex = 103;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Канал новостей проекта";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // SettingsForm
             // 
@@ -1581,5 +1594,6 @@
         private System.Windows.Forms.CheckBox checkUpdatesOnAppStartCheckBox;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

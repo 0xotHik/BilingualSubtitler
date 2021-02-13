@@ -762,6 +762,11 @@ namespace BilingualSubtitler
             System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases");
         }
 
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://t.me/bilingualsubtitler");
+        }
+
 
 
 

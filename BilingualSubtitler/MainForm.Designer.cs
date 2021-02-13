@@ -315,7 +315,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Goldenrod;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
             this.button2.Location = new System.Drawing.Point(592, 504);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(212, 46);

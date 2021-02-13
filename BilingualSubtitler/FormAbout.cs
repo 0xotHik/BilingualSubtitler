@@ -66,5 +66,10 @@ namespace BilingualSubtitler
         {
             System.Diagnostics.Process.Start("https://yasobe.ru/na/0xothik");
         }
+
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://t.me/bilingualsubtitler");
+        }
     }
 }

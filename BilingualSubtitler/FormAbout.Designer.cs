@@ -38,6 +38,7 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelTextBox = new System.Windows.Forms.TextBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -133,11 +134,23 @@
             this.labelTextBox.Size = new System.Drawing.Size(146, 20);
             this.labelTextBox.TabIndex = 56;
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(260, 171);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(132, 13);
+            this.linkLabel2.TabIndex = 104;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Канал новостей проекта";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
+            // 
             // FormAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 227);
+            this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.labelTextBox);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonOk);
@@ -169,5 +182,6 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox labelTextBox;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
