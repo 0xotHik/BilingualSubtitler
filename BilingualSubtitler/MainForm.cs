@@ -1038,10 +1038,7 @@ namespace BilingualSubtitler
                     subtitleTextSB.Append(components[j]);
                 }
 
-                var subtitle = new Subtitle
-                    (TimeSpan.Parse(components[1]),
-                    TimeSpan.Parse(components[2]),
-                    subtitleTextSB.ToString());
+                var subtitle = new Subtitle(components[1], components[2], subtitleTextSB.ToString());
 
                 var originalSubStreamName = "0" + m_subtitleStyleNamePostfix;
                 var firstRussianSubStreamName = $"1{m_subtitleStyleNamePostfix}";
