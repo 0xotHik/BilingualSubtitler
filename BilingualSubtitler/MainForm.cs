@@ -225,35 +225,35 @@ namespace BilingualSubtitler
                 {
                     SubtitlesType.Original, new SubtitlesAndInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
-                        openPrimarySubtitlesButton, null, null,
+                        openOrClosePrimarySubtitlesButton, null, null,
                         primarySubtitlesActionLabel, primarySubtitlesTextBox)
                 },
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
-                        openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
+                        openOrCloseFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
                         firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox)
                 },
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
-                        openSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
+                        openOrCloseSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
                         secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox)
                 },
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
-                        openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
+                        openOrCloseThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
                         thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox)
                 }
             };
 
             m_buttons = new List<Button>
             {
-                openPrimarySubtitlesButton,
-                openFirstRussianSubtitlesButton,
-                openSecondRussianSubtitlesButton,
-                openThirdRussianSubtitlesButton,
+                openOrClosePrimarySubtitlesButton,
+                openOrCloseFirstRussianSubtitlesButton,
+                openOrCloseSecondRussianSubtitlesButton,
+                openOrCloseThirdRussianSubtitlesButton,
                 //translateToPrimarySubtitlesButton,
                 translateToFirstRussianSubtitlesButton,
                 translateToSecondRussianSubtitlesButton,
@@ -1701,38 +1701,58 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
         }
 
-        private void OpenFileAndReadSubtitlesFromFile(SubtitlesType subtitlesType)
+        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType)
         {
-            string formats = "Файлы Matroska Video (.mkv), файлы SubRip Text (.srt), файлы DocX (.docx) |*.mkv; *.srt; *.docx";
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            using var openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = formats;
-            var result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (subtitlesWithInfo.Subtitles == null) //Открываем субтитры
             {
-                ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
+                string formats = "Файлы Matroska Video (.mkv), файлы SubRip Text (.srt), файлы DocX (.docx) |*.mkv; *.srt; *.docx";
+
+                using var openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = formats;
+                var result = openFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
+                }
+            }
+            else // Закрываем поток
+            {
+                var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);;
+
+                if (result == DialogResult.Yes)
+                {
+                    subtitlesWithInfo.Subtitles = null;
+                    subtitlesWithInfo.ButtonOpen.Text = $"📁\nОткрыть\nиз файла";
+                    subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+                    subtitlesWithInfo.ProgressLabel.Text = $"0%";
+                    subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
+                    subtitlesWithInfo.OutputTextBox.Text = string.Empty;
+                }
             }
 
         }
 
         private void ReadSubtitlesFromFile(string fileName, SubtitlesType subtitlesType)
         {
-            var subtitlesInfo = m_subtitles[subtitlesType];
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
+
 
             var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
             readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
             readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
             readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
 
-            subtitlesInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
+            subtitlesWithInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
 
-            subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
-            subtitlesInfo.ProgressLabel.Text = $"0%";
-            subtitlesInfo.ButtonOpen.Enabled = false;
-            if (subtitlesInfo.ButtonTranslate != null)
-                subtitlesInfo.ButtonTranslate.Enabled = false;
-            subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            subtitlesWithInfo.ButtonOpen.Enabled = false;
+            if (subtitlesWithInfo.ButtonTranslate != null)
+                subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
 
             if (subtitlesType == SubtitlesType.Original)
             {
@@ -1751,7 +1771,8 @@ namespace BilingualSubtitler
                 }
             }
 
-            subtitlesInfo.BackgroundWorker.RunWorkerAsync(fileName);
+            subtitlesWithInfo.BackgroundWorker.RunWorkerAsync(fileName);
+
         }
 
         private void readSubtitlesBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
@@ -1963,6 +1984,7 @@ namespace BilingualSubtitler
                 }
 
                 subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
+                subtitlesInfo.ButtonOpen.Text = $"x\nУбрать поток\nсубтитров";
             }
             else
             {
@@ -2186,40 +2208,40 @@ namespace BilingualSubtitler
             ReadSubtitlesFromFile(fileName, SubtitlesType.ThirdRussian);
         }
 
-        private void openPrimarySubtitlesButton_Click(object sender, EventArgs e)
+        private void openOrClosePrimarySubtitlesButton_Click(object sender, EventArgs e)
         {
             translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                 translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
                     translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
                         false;
 
-            OpenFileAndReadSubtitlesFromFile(SubtitlesType.Original);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_originalSubtitles,
             //    primarySubtitlesProgressBar, primarySubtitlesProgressLabel, primarySubtitlesActionLabel, primarySubtitlesTextBox,
             //    openPrimarySubtitlesButton);
         }
 
-        private void openFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
+        private void openOrCloseFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFile(SubtitlesType.FirstRussian);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian);
             //OpenFileAndReadSubtitlesFromFile(ref m_firstRussianSubtitles,
             //    firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel, firstRussianSubtitlesActionLabel,
             //    firstRussianSubtitlesTextBox, openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton);
         }
 
-        private void openSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
+        private void openOrCloseSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFile(SubtitlesType.SecondRussian);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_secondRussianSubtitles,
             //    secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel, secondRussianSubtitlesActionLabel,
             //    secondRussianSubtitlesTextBox, openSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton);
         }
 
-        private void openThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
+        private void openOrCloseThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFile(SubtitlesType.ThirdRussian);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
             //    thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel, thirdRussianSubtitlesActionLabel,
