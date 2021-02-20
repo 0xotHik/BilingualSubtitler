@@ -139,13 +139,16 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lastAppVersionLabel = new System.Windows.Forms.Label();
             this.currentAppVersionLabel = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
+            this.advancedModeRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -182,6 +185,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
@@ -266,7 +270,7 @@
             this.hotkeysDataGridView.Name = "hotkeysDataGridView";
             this.hotkeysDataGridView.RowHeadersVisible = false;
             this.hotkeysDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.hotkeysDataGridView.Size = new System.Drawing.Size(145, 283);
+            this.hotkeysDataGridView.Size = new System.Drawing.Size(145, 317);
             this.hotkeysDataGridView.TabIndex = 45;
             // 
             // keyColumn
@@ -283,9 +287,9 @@
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.hotkeysDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(15, 12);
+            this.groupBox2.Location = new System.Drawing.Point(326, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 450);
+            this.groupBox2.Size = new System.Drawing.Size(180, 480);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Горячие клавиши программы";
@@ -293,7 +297,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button9.Location = new System.Drawing.Point(16, 390);
+            this.button9.Location = new System.Drawing.Point(16, 424);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(145, 47);
             this.button9.TabIndex = 49;
@@ -304,7 +308,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Location = new System.Drawing.Point(16, 361);
+            this.button8.Location = new System.Drawing.Point(16, 395);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(145, 23);
             this.button8.TabIndex = 48;
@@ -315,7 +319,7 @@
             // button7
             // 
             this.button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(16, 337);
+            this.button7.Location = new System.Drawing.Point(16, 371);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(145, 23);
             this.button7.TabIndex = 47;
@@ -1061,9 +1065,9 @@
             this.groupBox5.Controls.Add(this.CreateOriginalSubtitlesFileCheckBox);
             this.groupBox5.Controls.Add(this.bilingualSubtitlesPathEndingTextBox);
             this.groupBox5.Controls.Add(this.originalSubtitlesPathEndingTextBox);
-            this.groupBox5.Location = new System.Drawing.Point(206, 278);
+            this.groupBox5.Location = new System.Drawing.Point(15, 356);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(298, 137);
+            this.groupBox5.Size = new System.Drawing.Size(298, 126);
             this.groupBox5.TabIndex = 69;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Создавать файлы:";
@@ -1133,7 +1137,7 @@
             this.groupBox6.Controls.Add(this.videoPlayerPauseButtonTextBox);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Location = new System.Drawing.Point(206, 13);
+            this.groupBox6.Location = new System.Drawing.Point(15, 107);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(298, 246);
             this.groupBox6.TabIndex = 70;
@@ -1275,9 +1279,9 @@
             this.groupBox10.Controls.Add(this.currentProcessPriorityTextBox);
             this.groupBox10.Controls.Add(this.label38);
             this.groupBox10.Controls.Add(this.label37);
-            this.groupBox10.Location = new System.Drawing.Point(15, 461);
+            this.groupBox10.Location = new System.Drawing.Point(15, 487);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(306, 101);
+            this.groupBox10.Size = new System.Drawing.Size(298, 75);
             this.groupBox10.TabIndex = 98;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Приоритет процесса Bilingual Subtitler";
@@ -1285,7 +1289,7 @@
             // targetProcessPriorityTextBox
             // 
             this.targetProcessPriorityTextBox.FormattingEnabled = true;
-            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(160, 61);
+            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(152, 39);
             this.targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
             this.targetProcessPriorityTextBox.Size = new System.Drawing.Size(129, 21);
             this.targetProcessPriorityTextBox.TabIndex = 96;
@@ -1293,7 +1297,7 @@
             // 
             // currentProcessPriorityTextBox
             // 
-            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(16, 62);
+            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(16, 40);
             this.currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
             this.currentProcessPriorityTextBox.ReadOnly = true;
             this.currentProcessPriorityTextBox.Size = new System.Drawing.Size(117, 20);
@@ -1304,7 +1308,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(157, 34);
+            this.label38.Location = new System.Drawing.Point(149, 19);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(67, 13);
             this.label38.TabIndex = 4;
@@ -1313,7 +1317,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(13, 34);
+            this.label37.Location = new System.Drawing.Point(13, 19);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(55, 13);
             this.label37.TabIndex = 3;
@@ -1334,6 +1338,17 @@
             this.groupBox11.TabIndex = 99;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Обновления программы";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(3, 40);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(132, 13);
+            this.linkLabel2.TabIndex = 103;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Канал новостей проекта";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -1395,16 +1410,40 @@
             this.label40.TabIndex = 3;
             this.label40.Text = "Текущая версия:";
             // 
-            // linkLabel2
+            // groupBox12
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(3, 40);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(132, 13);
-            this.linkLabel2.TabIndex = 103;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Канал новостей проекта";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.groupBox12.Controls.Add(this.advancedModeRadioButton);
+            this.groupBox12.Controls.Add(this.notAdvancedModeRadioButton);
+            this.groupBox12.Location = new System.Drawing.Point(15, 12);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(298, 89);
+            this.groupBox12.TabIndex = 82;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Главное окно Bilingual Subtitler";
+            // 
+            // notAdvancedModeRadioButton
+            // 
+            this.notAdvancedModeRadioButton.AutoSize = true;
+            this.notAdvancedModeRadioButton.Location = new System.Drawing.Point(13, 28);
+            this.notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
+            this.notAdvancedModeRadioButton.Size = new System.Drawing.Size(130, 17);
+            this.notAdvancedModeRadioButton.TabIndex = 60;
+            this.notAdvancedModeRadioButton.TabStop = true;
+            this.notAdvancedModeRadioButton.Text = "Облегченный режим";
+            this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
+            this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
+            // 
+            // advancedModeRadioButton
+            // 
+            this.advancedModeRadioButton.AutoSize = true;
+            this.advancedModeRadioButton.Location = new System.Drawing.Point(13, 52);
+            this.advancedModeRadioButton.Name = "advancedModeRadioButton";
+            this.advancedModeRadioButton.Size = new System.Drawing.Size(133, 17);
+            this.advancedModeRadioButton.TabIndex = 61;
+            this.advancedModeRadioButton.TabStop = true;
+            this.advancedModeRadioButton.Text = "Расширенный режим";
+            this.advancedModeRadioButton.UseVisualStyleBackColor = true;
+            this.advancedModeRadioButton.CheckedChanged += new System.EventHandler(this.advancedModeRadioButton_CheckedChanged);
             // 
             // SettingsForm
             // 
@@ -1412,6 +1451,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1083, 724);
+            this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox6);
@@ -1473,6 +1513,8 @@
             this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1595,5 +1637,8 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.RadioButton advancedModeRadioButton;
+        private System.Windows.Forms.RadioButton notAdvancedModeRadioButton;
     }
 }

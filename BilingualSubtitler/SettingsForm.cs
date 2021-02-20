@@ -145,6 +145,11 @@ namespace BilingualSubtitler
 
             checkUpdatesOnAppStartCheckBox.Checked = Properties.Settings.Default.CheckUpdates;
 
+            if (Properties.Settings.Default.AdvancedMode)
+                advancedModeRadioButton.Checked = true;
+            else
+                notAdvancedModeRadioButton.Checked = true;
+
             SetFormAccordingToSubtitlesAppearanceSettings();
         }
 
@@ -418,6 +423,8 @@ namespace BilingualSubtitler
             Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
+
+            Properties.Settings.Default.AdvancedMode = advancedModeRadioButton.Checked;
 
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
@@ -765,6 +772,16 @@ namespace BilingualSubtitler
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://t.me/bilingualsubtitler");
+        }
+
+        private void notAdvancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            advancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
+        }
+
+        private void advancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            notAdvancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
         }
 
 

@@ -53,6 +53,11 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
         private int m_initialFormWidth;
+        private int m_initialFirstRussianSubtitlesGroupBoxWidth;
+        private int m_initialSecondRussianSubtitlesGroupBoxWidth;
+        private int m_initialThirdRussianSubtitlesGroupBoxWidth;
+        private int m_initialSecondRussianSubtitlesHideButtonX;
+        private int m_initialThirdRussianSubtitlesHideButtonX;
 
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitles;
 
@@ -127,7 +132,12 @@ namespace BilingualSubtitler
         [DllImport("user32.dll")]
         static extern bool PostMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
 
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(IntPtr hWnd);
+
         private string m_playVideoButtonDefaultText;
+
+        private bool m_redefineSubtitlesAppearanceSettings => redefineSubtitlesAppearanceSettingsCheckBox.Visible & redefineSubtitlesAppearanceSettingsCheckBox.Checked;
 
 
         public MainForm()
@@ -136,6 +146,11 @@ namespace BilingualSubtitler
 
             // Графика
             m_initialFormWidth = Width;
+            m_initialFirstRussianSubtitlesGroupBoxWidth = firstRussianSubtitlesGroupBox.Width;
+            m_initialSecondRussianSubtitlesGroupBoxWidth = secondRussianSubtitlesGroupBox.Width;
+            m_initialThirdRussianSubtitlesGroupBoxWidth = thirdRussianSubtitlesGroupBox.Width;
+            m_initialSecondRussianSubtitlesHideButtonX = hideSecondRussianSubtitlesButton.Location.X;
+            m_initialThirdRussianSubtitlesHideButtonX = hideThirdRussianSubtitlesButton.Location.X;
 
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] {
@@ -558,10 +573,49 @@ namespace BilingualSubtitler
                     thirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
                 }
 
-                if (atLaunch || !redefineSubtitlesAppearanceSettingsCheckBox.Checked)
+                if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
                     SetSubtitlesAppearanceBoxesAccordingToSettings();
 
-                SetRedefineSubtitlesAppearanceSettingsFormState(Settings.Default.RedefineSubtitlesAppearanceSettings);
+                SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
+
+                // Advanced Mode
+                var advancedMode = Settings.Default.AdvancedMode;
+
+                firstRussianSubtitlesExportAsDocx.Visible =
+                    secondRussianSubtitlesExportAsDocx.Visible =
+                    thirdRussianSubtitlesExportAsDocx.Visible =
+                    googleTranslatorLinkLabel.Visible =
+                    redefineSubtitlesAppearanceSettingsCheckBox.Visible =
+                    subtitlesAppearanceGroupBox.Visible =
+                    advancedMode;
+
+                if (!advancedMode)
+                {
+                    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
+                    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
+                    //    secondRussianSubtitlesExportAsDocx.Width + 40;
+
+                    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
+                    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
+
+                    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
+                    // firstRussianSubtitlesExportAsDocx.Width + 40;
+
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocx.Right;
+
+                    hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - 20, hideThirdRussianSubtitlesButton.Location.Y);
+                    hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - 20, hideSecondRussianSubtitlesButton.Location.Y);
+                }
+                else
+                {
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = m_initialFirstRussianSubtitlesGroupBoxWidth;
+
+                    hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
+                    hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
+                }
+
+                this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
+
             }
             catch (Exception e)
             {
@@ -653,10 +707,10 @@ namespace BilingualSubtitler
             thirdRussianSubtitlesInOneLineCheckBox.Checked = thirdRussianSubtitlesStyle[7] == "1";
         }
 
-        private void SetRedefineSubtitlesAppearanceSettingsFormState(bool newRedefineSubtitlesAppearanceSettingsValue)
+        private void SetNewRedefineSubtitlesAppearanceSettingsSetting(bool newRedefineSubtitlesAppearanceSettingsValue)
         {
-            redefineSubtitlesAppearanceSettingsCheckBox.Checked = subtitlesAppearanceGroupBox.Visible = newRedefineSubtitlesAppearanceSettingsValue;
-            this.Width = newRedefineSubtitlesAppearanceSettingsValue ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
+            redefineSubtitlesAppearanceSettingsCheckBox.Checked = subtitlesAppearanceGroupBox.Enabled = newRedefineSubtitlesAppearanceSettingsValue;
+            redefineSubtitlesAppearanceSettingsCheckBox.Enabled = true;
 
             if (newRedefineSubtitlesAppearanceSettingsValue != Settings.Default.RedefineSubtitlesAppearanceSettings)
             {
@@ -994,7 +1048,7 @@ namespace BilingualSubtitler
                 }
             }
 
-            if (redefineSubtitlesAppearanceSettingsCheckBox.Checked)
+            if (m_redefineSubtitlesAppearanceSettings)
             {
                 WriteSubtitlesStyleToFormControls(originalSubtitlesStyle, SubtitlesType.Original);
                 if (firstRussianSubtitlesStyle != null)
@@ -1231,7 +1285,7 @@ namespace BilingualSubtitler
 
                 Color? color = null;
 
-                if (redefineSubtitlesAppearanceSettingsCheckBox.Checked)
+                if (m_redefineSubtitlesAppearanceSettings)
                 {
                     switch (i)
                     {
@@ -1720,7 +1774,7 @@ namespace BilingualSubtitler
             }
             else // Закрываем поток
             {
-                var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);;
+                var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
 
                 if (result == DialogResult.Yes)
                 {
@@ -2459,7 +2513,7 @@ namespace BilingualSubtitler
 
         private void redefineSubtitlesAppearanceSettingsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            SetRedefineSubtitlesAppearanceSettingsFormState(((CheckBox)sender).Checked);
+            SetNewRedefineSubtitlesAppearanceSettingsSetting(((CheckBox)sender).Checked);
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -2620,6 +2674,11 @@ namespace BilingualSubtitler
                 thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value =
                     firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
             }
+        }
+
+        private void subtitlesFileNameEnding_Enter(object sender, EventArgs e)
+        {
+            HideCaret(this.Handle);
         }
     }
 
