@@ -131,7 +131,7 @@
             this.labelTextBox.Location = new System.Drawing.Point(307, 45);
             this.labelTextBox.Name = "labelTextBox";
             this.labelTextBox.ReadOnly = true;
-            this.labelTextBox.Size = new System.Drawing.Size(146, 20);
+            this.labelTextBox.Size = new System.Drawing.Size(194, 20);
             this.labelTextBox.TabIndex = 56;
             // 
             // linkLabel2

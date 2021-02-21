@@ -19,7 +19,7 @@ namespace BilingualSubtitler
 
         private void FormAbout_Load(object sender, EventArgs e)
         {
-            labelTextBox.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            labelTextBox.Text = $"Bilingual Subtitler {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
         private void linkLabel0xothiksHut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
