@@ -1316,6 +1316,8 @@ namespace BilingualSubtitler
                                 shadowTransparencyPercentage = originalSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
                                 shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
 
+                                subtitleInOneLine[i] = (originalSubtitlesInOneLineCheckBox.Checked ? true : false);
+
                                 color = primarySubtitlesColorButton.BackColor;
 
                                 break;
@@ -1332,6 +1334,8 @@ namespace BilingualSubtitler
                                 transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
                                 shadowTransparencyPercentage = firstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
                                 shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+
+                                subtitleInOneLine[i] = (firstRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
 
                                 color = firstRussianSubtitlesColorButton.BackColor;
 
@@ -1350,6 +1354,8 @@ namespace BilingualSubtitler
                                 shadowTransparencyPercentage = secondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
                                 shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
 
+                                subtitleInOneLine[i] = (secondRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
+
                                 color = secondRussianSubtitlesColorButton.BackColor;
 
                                 break;
@@ -1367,15 +1373,15 @@ namespace BilingualSubtitler
                                 shadowTransparencyPercentage = thirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
                                 shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
 
+                                subtitleInOneLine[i] = (thirdRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
+
                                 color = thirdRussianSubtitlesColorButton.BackColor;
 
                                 break;
                             }
                     }
 
-                    subtitleInOneLine[i] = (originalSubtitlesInOneLineCheckBox.Checked ? true : false);
-
-
+                    
                     //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
                     //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
                     //* float.Parse(shadowTransparencyPercentage) / 100f
@@ -1484,13 +1490,26 @@ namespace BilingualSubtitler
                     {
                         if (subtitle != null)
                         {
+                            string subtitleText;
+
                             // Перенос
-                            if (subtitle.Text.Contains("\r\n"))
-                                subtitle.Text = subtitle.Text.Replace("\r\n", subtitleInOneLine[i] ? " " : "\\N");
-                            else
                             if (subtitle.Text.Contains("\n"))
-                                subtitle.Text = subtitle.Text.Replace("\n", subtitleInOneLine[i] ? " " : "\\N");
-                            //subtitle.Text = subtitle.Text.Replace("\n", "\\N");
+                            {
+                                subtitleText = (string)subtitle.Text.Clone();
+
+                                if (subtitleInOneLine[i])
+                                {
+                                    subtitleText = subtitleText.Replace("\n", " ");
+                                }
+                                else
+                                {
+                                    subtitleText = subtitleText.Replace("\n", "\\N");
+                                }
+                            }
+                            else
+                            {
+                                subtitleText = subtitle.Text;
+                            }
 
 
                             assSB.AppendLine($"Dialogue: 0," +
@@ -1498,7 +1517,7 @@ namespace BilingualSubtitler
                                              $"{subtitle.End.ToString(assTimeFormat)}," +
                                              $"{i}{m_subtitleStyleNamePostfix}," +
                                              $",0,0,0,," +
-                                             $"{subtitle.Text}");
+                                             $"{subtitleText}");
                         }
                     }
                 }

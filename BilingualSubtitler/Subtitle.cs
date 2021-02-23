@@ -18,11 +18,14 @@ namespace BilingualSubtitler
         public TimeSpan Start { get; private set; }
         public TimeSpan End { get; private set; }
 
+        /// <summary>
+        /// Здесь должен лежать текст в обычном виде, чтобы нормально переводился через Яндекс.Переводчик
+        /// </summary>
         public string Text { get; set; }
 
         public Subtitle(string timing, string text)
         {
-            Text = RemoveTags(text);
+            Text = RemoveOneLetterTagsAndUnifyNewStrings(text);
 
             // 00:00:42,292-- > 00:00:43,377
             string[] timingStringComponents = null;
@@ -42,7 +45,7 @@ namespace BilingualSubtitler
 
         public Subtitle(long start, long end, string text)
         {
-            Text = RemoveTags(text);
+            Text = RemoveOneLetterTagsAndUnifyNewStrings(text);
 
             Start = TimeSpan.FromMilliseconds(start);
             End = TimeSpan.FromMilliseconds(end);
@@ -50,7 +53,7 @@ namespace BilingualSubtitler
 
         public Subtitle(TimeSpan start, TimeSpan end, string text)
         {
-            Text = RemoveTags(text);
+            Text = RemoveOneLetterTagsAndUnifyNewStrings(text);
 
             Start = start;
             End = end;
@@ -58,14 +61,22 @@ namespace BilingualSubtitler
 
         public Subtitle(string startTiming, string endTiming, string text)
         {
-            Text = RemoveTags(text);
+            Text = RemoveOneLetterTagsAndUnifyNewStrings(text);
 
             Start = TimeSpan.Parse(startTiming, CultureInfo.GetCultureInfo("ru-ru"));
             End = TimeSpan.Parse(endTiming, CultureInfo.GetCultureInfo("ru-ru")); ;
         }
 
-        private string RemoveTags(string originalText)
+        private string RemoveOneLetterTagsAndUnifyNewStrings(string originalText)
         {
+            // Перенос
+            if (originalText.Contains("\r\n"))
+                originalText = originalText.Replace("\r\n", "\n");
+            else
+            if (originalText.Contains("\\N"))
+                originalText = originalText.Replace("\\N", "\n");
+            //subtitle.Text = subtitle.Text.Replace("\n", "\\N");
+
             return Regex.Replace(originalText, "[<].{1,2}[>]", "");
         }
 

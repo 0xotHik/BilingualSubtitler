@@ -1021,7 +1021,7 @@
             this.redefineSubtitlesAppearanceSettingsCheckBox.AutoSize = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.Checked = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.redefineSubtitlesAppearanceSettingsCheckBox.Location = new System.Drawing.Point(9, 17);
+            this.redefineSubtitlesAppearanceSettingsCheckBox.Location = new System.Drawing.Point(840, 14);
             this.redefineSubtitlesAppearanceSettingsCheckBox.Name = "redefineSubtitlesAppearanceSettingsCheckBox";
             this.redefineSubtitlesAppearanceSettingsCheckBox.Size = new System.Drawing.Size(372, 30);
             this.redefineSubtitlesAppearanceSettingsCheckBox.TabIndex = 97;
@@ -1163,7 +1163,6 @@
             // 
             // subtitlesAppearanceGroupBox
             // 
-            this.subtitlesAppearanceGroupBox.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.subtitlesAppearanceGroupBox.Controls.Add(this.button10);
             this.subtitlesAppearanceGroupBox.Controls.Add(this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox);
             this.subtitlesAppearanceGroupBox.Controls.Add(this.groupBox9);
@@ -1172,9 +1171,9 @@
             this.subtitlesAppearanceGroupBox.Controls.Add(this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox);
             this.subtitlesAppearanceGroupBox.Controls.Add(this.label33);
             this.subtitlesAppearanceGroupBox.Controls.Add(this.groupBox11);
-            this.subtitlesAppearanceGroupBox.Location = new System.Drawing.Point(840, 16);
+            this.subtitlesAppearanceGroupBox.Location = new System.Drawing.Point(840, 50);
             this.subtitlesAppearanceGroupBox.Name = "subtitlesAppearanceGroupBox";
-            this.subtitlesAppearanceGroupBox.Size = new System.Drawing.Size(561, 509);
+            this.subtitlesAppearanceGroupBox.Size = new System.Drawing.Size(561, 475);
             this.subtitlesAppearanceGroupBox.TabIndex = 48;
             this.subtitlesAppearanceGroupBox.TabStop = false;
             this.subtitlesAppearanceGroupBox.Text = "Настройки вида субтитров";
@@ -1183,7 +1182,7 @@
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(9, 470);
+            this.button10.Location = new System.Drawing.Point(9, 441);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(542, 26);
             this.button10.TabIndex = 97;
@@ -1196,7 +1195,7 @@
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.AutoSize = true;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = true;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 447);
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 418);
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox";
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(262, 17);
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.TabIndex = 96;
@@ -1220,7 +1219,7 @@
             this.groupBox9.Controls.Add(this.label30);
             this.groupBox9.Controls.Add(this.label31);
             this.groupBox9.Controls.Add(this.label32);
-            this.groupBox9.Location = new System.Drawing.Point(442, 66);
+            this.groupBox9.Location = new System.Drawing.Point(442, 37);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(109, 327);
             this.groupBox9.TabIndex = 95;
@@ -1381,7 +1380,7 @@
             this.groupBox8.Controls.Add(this.label24);
             this.groupBox8.Controls.Add(this.label25);
             this.groupBox8.Controls.Add(this.label26);
-            this.groupBox8.Location = new System.Drawing.Point(323, 66);
+            this.groupBox8.Location = new System.Drawing.Point(323, 37);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(109, 327);
             this.groupBox8.TabIndex = 94;
@@ -1542,7 +1541,7 @@
             this.groupBox10.Controls.Add(this.label18);
             this.groupBox10.Controls.Add(this.label19);
             this.groupBox10.Controls.Add(this.label20);
-            this.groupBox10.Location = new System.Drawing.Point(205, 66);
+            this.groupBox10.Location = new System.Drawing.Point(205, 37);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(109, 327);
             this.groupBox10.TabIndex = 93;
@@ -1691,7 +1690,7 @@
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.AutoSize = true;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked = true;
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Location = new System.Drawing.Point(5, 399);
+            this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Location = new System.Drawing.Point(5, 370);
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Name = "changeRussianSubtitlesStylesAccordingToOriginalCheckBox";
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Size = new System.Drawing.Size(472, 43);
             this.changeRussianSubtitlesStylesAccordingToOriginalCheckBox.TabIndex = 68;
@@ -1702,7 +1701,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(330, 46);
+            this.label33.Location = new System.Drawing.Point(330, 17);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(86, 13);
             this.label33.TabIndex = 2;
@@ -1725,7 +1724,7 @@
             this.groupBox11.Controls.Add(this.label41);
             this.groupBox11.Controls.Add(this.label42);
             this.groupBox11.Controls.Add(this.label43);
-            this.groupBox11.Location = new System.Drawing.Point(9, 50);
+            this.groupBox11.Location = new System.Drawing.Point(9, 21);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(190, 343);
             this.groupBox11.TabIndex = 1;
@@ -1885,6 +1884,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1411, 752);
+            this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.Controls.Add(this.translateToRussianSubtitlesGroupBox);
             this.Controls.Add(this.subtitlesAppearanceGroupBox);
             this.Controls.Add(this.groupBox6);
@@ -1958,6 +1958,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesMarginNumericUpDown)).EndInit();
             this.translateToRussianSubtitlesGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
