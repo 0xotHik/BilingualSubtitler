@@ -366,22 +366,22 @@
             // 
             this.bilingualSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(210)))), ((int)(((byte)(171)))));
             this.bilingualSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.bilingualSubtitlesFileNameEnding.Location = new System.Drawing.Point(489, 96);
+            this.bilingualSubtitlesFileNameEnding.Location = new System.Drawing.Point(474, 96);
             this.bilingualSubtitlesFileNameEnding.Name = "bilingualSubtitlesFileNameEnding";
-            this.bilingualSubtitlesFileNameEnding.Size = new System.Drawing.Size(130, 20);
+            this.bilingualSubtitlesFileNameEnding.Size = new System.Drawing.Size(159, 20);
             this.bilingualSubtitlesFileNameEnding.TabIndex = 48;
-            this.bilingualSubtitlesFileNameEnding.Text = ".ruseng.ass";
+            this.bilingualSubtitlesFileNameEnding.Text = ".ruseng.BilingualSubtitler.ass";
             this.bilingualSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // originalSubtitlesFileNameEnding
             // 
             this.originalSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(210)))), ((int)(((byte)(171)))));
             this.originalSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.originalSubtitlesFileNameEnding.Location = new System.Drawing.Point(489, 53);
+            this.originalSubtitlesFileNameEnding.Location = new System.Drawing.Point(474, 54);
             this.originalSubtitlesFileNameEnding.Name = "originalSubtitlesFileNameEnding";
-            this.originalSubtitlesFileNameEnding.Size = new System.Drawing.Size(130, 20);
+            this.originalSubtitlesFileNameEnding.Size = new System.Drawing.Size(159, 20);
             this.originalSubtitlesFileNameEnding.TabIndex = 47;
-            this.originalSubtitlesFileNameEnding.Text = ".eng.ass";
+            this.originalSubtitlesFileNameEnding.Text = ".eng.BilingualSubtitler.ass";
             this.originalSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // bilingualSubtitlesFileNameEndingLabel

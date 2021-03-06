@@ -114,7 +114,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.CreateBilingualSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             this.CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             this.bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             this.originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
@@ -147,8 +147,8 @@
             this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             this.label40 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
             this.advancedModeRadioButton = new System.Windows.Forms.RadioButton();
+            this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -1061,7 +1061,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.checkBox2);
+            this.groupBox5.Controls.Add(this.CreateBilingualSubtitlesFileCheckBox);
             this.groupBox5.Controls.Add(this.CreateOriginalSubtitlesFileCheckBox);
             this.groupBox5.Controls.Add(this.bilingualSubtitlesPathEndingTextBox);
             this.groupBox5.Controls.Add(this.originalSubtitlesPathEndingTextBox);
@@ -1082,18 +1082,17 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "с окончанием имени:";
             // 
-            // checkBox2
+            // CreateBilingualSubtitlesFileCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(168, 23);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(87, 30);
-            this.checkBox2.TabIndex = 59;
-            this.checkBox2.Text = "двуязычных\r\nсубтитров";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.CreateBilingualSubtitlesFileCheckBox.AutoSize = true;
+            this.CreateBilingualSubtitlesFileCheckBox.Checked = true;
+            this.CreateBilingualSubtitlesFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CreateBilingualSubtitlesFileCheckBox.Location = new System.Drawing.Point(168, 23);
+            this.CreateBilingualSubtitlesFileCheckBox.Name = "CreateBilingualSubtitlesFileCheckBox";
+            this.CreateBilingualSubtitlesFileCheckBox.Size = new System.Drawing.Size(87, 30);
+            this.CreateBilingualSubtitlesFileCheckBox.TabIndex = 59;
+            this.CreateBilingualSubtitlesFileCheckBox.Text = "двуязычных\r\nсубтитров";
+            this.CreateBilingualSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
             // 
             // CreateOriginalSubtitlesFileCheckBox
             // 
@@ -1421,18 +1420,6 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Главное окно Bilingual Subtitler";
             // 
-            // notAdvancedModeRadioButton
-            // 
-            this.notAdvancedModeRadioButton.AutoSize = true;
-            this.notAdvancedModeRadioButton.Location = new System.Drawing.Point(13, 28);
-            this.notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
-            this.notAdvancedModeRadioButton.Size = new System.Drawing.Size(130, 17);
-            this.notAdvancedModeRadioButton.TabIndex = 60;
-            this.notAdvancedModeRadioButton.TabStop = true;
-            this.notAdvancedModeRadioButton.Text = "Облегченный режим";
-            this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
-            this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
-            // 
             // advancedModeRadioButton
             // 
             this.advancedModeRadioButton.AutoSize = true;
@@ -1444,6 +1431,18 @@
             this.advancedModeRadioButton.Text = "Расширенный режим";
             this.advancedModeRadioButton.UseVisualStyleBackColor = true;
             this.advancedModeRadioButton.CheckedChanged += new System.EventHandler(this.advancedModeRadioButton_CheckedChanged);
+            // 
+            // notAdvancedModeRadioButton
+            // 
+            this.notAdvancedModeRadioButton.AutoSize = true;
+            this.notAdvancedModeRadioButton.Location = new System.Drawing.Point(13, 28);
+            this.notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
+            this.notAdvancedModeRadioButton.Size = new System.Drawing.Size(130, 17);
+            this.notAdvancedModeRadioButton.TabIndex = 60;
+            this.notAdvancedModeRadioButton.TabStop = true;
+            this.notAdvancedModeRadioButton.Text = "Облегченный режим";
+            this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
+            this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
             // 
             // SettingsForm
             // 
@@ -1537,7 +1536,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox CreateBilingualSubtitlesFileCheckBox;
         private System.Windows.Forms.CheckBox CreateOriginalSubtitlesFileCheckBox;
         private System.Windows.Forms.TextBox bilingualSubtitlesPathEndingTextBox;
         private System.Windows.Forms.TextBox originalSubtitlesPathEndingTextBox;

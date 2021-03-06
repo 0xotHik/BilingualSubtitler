@@ -536,18 +536,24 @@ namespace BilingualSubtitler
                 //
                 m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
 
-
+                
                 primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
                 firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
                 secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
                 thirdRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.ThirdRussianSubtitlesColor;
 
+                // Файлы субтитров
                 originalSubtitlesFileNameEnding.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
                 bilingualSubtitlesFileNameEnding.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
-
+                //
                 originalSubtitlesFileNameEnding.Visible =
                     originalSubtitlesFileNameEndingLabel.Visible =
                         Settings.Default.CreateOriginalSubtitlesFile;
+                //
+                bilingualSubtitlesFileNameEnding.Visible =
+                     bilingualSubtitlesFileNameEndingLabel.Visible =
+                        Settings.Default.CreateBilingualSubtitlesFile;
+
 
                 m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
 
@@ -1128,10 +1134,10 @@ namespace BilingualSubtitler
 
                 finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
 
-                    translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
-                        translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                            translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
-                                true;
+                translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
+                    translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
+                        translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                            true;
 
                 WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.Original, originalSubStream, filePath);
             }
@@ -1381,7 +1387,7 @@ namespace BilingualSubtitler
                             }
                     }
 
-                    
+
                     //((int)((int.Parse(transparencyPercentage) == 0 ? 100f : float.Parse(transparencyPercentage)) / 100f
                     //// Иначе при прозрачности в 0 и тень становится полностью непрозрачной
                     //* float.Parse(shadowTransparencyPercentage) / 100f
@@ -2094,49 +2100,51 @@ namespace BilingualSubtitler
             var bilingualSubtitlesPath =
                 finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEnding.Text;
             var bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
+            var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
 
-            switch (Settings.Default.CreateOriginalSubtitlesFile)
+            if (Settings.Default.CreateOriginalSubtitlesFile && Settings.Default.CreateBilingualSubtitlesFile)
             {
-                case true:
-                    {
-                        var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
-
-
-                        if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
-                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        else if (originalSubtitlesFileExist)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        else if (bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-
-                        break;
-                    }
-                case false:
-                    {
-                        if (bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                                String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        break;
-                    }
+                if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
+                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+                else if (originalSubtitlesFileExist)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+                else if (bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+            }
+            else if (Settings.Default.CreateOriginalSubtitlesFile && !Settings.Default.CreateBilingualSubtitlesFile)
+            {
+                if (originalSubtitlesFileExist)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+            }
+            else if (Settings.Default.CreateBilingualSubtitlesFile && !Settings.Default.CreateOriginalSubtitlesFile)
+            {
+                if (bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result != DialogResult.OK)
+                        return;
+                }
             }
 
             var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
@@ -2167,70 +2175,75 @@ namespace BilingualSubtitler
 
             }
 
-            List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
+            if (Settings.Default.CreateBilingualSubtitlesFile)
+            {
+                List<Tuple<Subtitle[], Color>> listSubsPairs = new List<Tuple<Subtitle[], Color>>
             {
                 new Tuple<Subtitle[], Color>(originalSubtitles, primarySubtitlesColorButton.BackColor),
                 new Tuple<Subtitle[], Color>(firstRussianSubtitles, firstRussianSubtitlesColorButton.BackColor),
                 new Tuple<Subtitle[], Color>(secondRussianSubtitles, secondRussianSubtitlesColorButton.BackColor),
                 new Tuple<Subtitle[], Color>(thirdRussianSubtitles, thirdRussianSubtitlesColorButton.BackColor)
             };
-            ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
+                ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
 
-            try
-            {
-                File.WriteAllText(bilingualSubtitlesPath, ass.ToString());
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show($"Записать файл\n\n{bilingualSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
-                return;
+                try
+                {
+                    File.WriteAllText(bilingualSubtitlesPath, ass.ToString());
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Записать файл\n\n{bilingualSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
+                    return;
+                }
             }
 
             // Проверка существования итоговых файлов субтитров
+            originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
             bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
-
-            switch (Settings.Default.CreateOriginalSubtitlesFile)
+            //
+            if (Settings.Default.CreateOriginalSubtitlesFile && Settings.Default.CreateBilingualSubtitlesFile)
             {
-                case true:
-                    {
-                        var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
-
-
-                        if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуспешно записаны!",
-                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        else if (originalSubtitlesFileExist)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
-                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        else if (bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
-                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-
-                        break;
-                    }
-                case false:
-                    {
-                        if (bilingualSubtitlesFileExists)
-                        {
-                            var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
-                                String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (result != DialogResult.OK)
-                                return;
-                        }
-                        break;
-                    }
+                if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуспешно записаны!",
+                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+                else if (originalSubtitlesFileExist)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
+                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+                else if (bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+            }
+            else if (Settings.Default.CreateOriginalSubtitlesFile && !Settings.Default.CreateBilingualSubtitlesFile)
+            {
+                if (originalSubtitlesFileExist)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
+                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result != DialogResult.OK)
+                        return;
+                }
+            }
+            else if (Settings.Default.CreateBilingualSubtitlesFile && !Settings.Default.CreateOriginalSubtitlesFile)
+            {
+                if (bilingualSubtitlesFileExists)
+                {
+                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result != DialogResult.OK)
+                        return;
+                }
             }
 
         }

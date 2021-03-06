@@ -133,10 +133,12 @@ namespace BilingualSubtitler
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag =
                 Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString;
 
+            // Файлы субтитров
             originalSubtitlesPathEndingTextBox.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
             bilingualSubtitlesPathEndingTextBox.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
-
+            //
             CreateOriginalSubtitlesFileCheckBox.Checked = Properties.Settings.Default.CreateOriginalSubtitlesFile;
+            CreateBilingualSubtitlesFileCheckBox.Checked = Properties.Settings.Default.CreateBilingualSubtitlesFile;
 
             videoplayerProcessNameTextBox.Text = Properties.Settings.Default.VideoPlayerProcessName;
 
@@ -372,6 +374,7 @@ namespace BilingualSubtitler
             Properties.Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString =
                 (string)videoPlayerChangeToOriginalSubtitlesButtonTextBox.Tag;
             Properties.Settings.Default.CreateOriginalSubtitlesFile = CreateOriginalSubtitlesFileCheckBox.Checked;
+            Properties.Settings.Default.CreateBilingualSubtitlesFile = CreateBilingualSubtitlesFileCheckBox.Checked;
             Properties.Settings.Default.OriginalSubtitlesFileNameEnding = originalSubtitlesPathEndingTextBox.Text;
             Properties.Settings.Default.BilingualSubtitlesFileNameEnding = bilingualSubtitlesPathEndingTextBox.Text;
             Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal = changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked;
