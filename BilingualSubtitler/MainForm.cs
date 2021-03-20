@@ -1036,7 +1036,6 @@ namespace BilingualSubtitler
             currentStringIndex++;
             if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
             {
-                currentStringIndex++;
             }
             else
             {
@@ -1044,7 +1043,6 @@ namespace BilingualSubtitler
                 currentStringIndex++;
                 if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
                 {
-                    currentStringIndex++;
                 }
                 else
                 {
@@ -1052,7 +1050,6 @@ namespace BilingualSubtitler
                     currentStringIndex++;
                     if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
                     {
-                        currentStringIndex++;
                     }
                     else
                     {
@@ -1104,6 +1101,11 @@ namespace BilingualSubtitler
                 for (int j = 9; j < components.Length; j++)
                 {
                     subtitleTextSB.Append(components[j]);
+
+                    if (j+1 < components.Length)
+                    {
+                        subtitleTextSB.Append(",");
+                    }
                 }
 
                 var subtitle = new Subtitle(components[1], components[2], subtitleTextSB.ToString());
@@ -1516,7 +1518,6 @@ namespace BilingualSubtitler
                             {
                                 subtitleText = subtitle.Text;
                             }
-
 
                             assSB.AppendLine($"Dialogue: 0," +
                                              $"{subtitle.Start.ToString(assTimeFormat)}," +

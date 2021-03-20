@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 ; !!!
-#define MyAppVersion "6.0"
+#define MyAppVersion "6.1"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
