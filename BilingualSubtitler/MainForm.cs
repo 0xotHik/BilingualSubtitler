@@ -1169,7 +1169,7 @@ namespace BilingualSubtitler
             subtitlesAndInfo.ProgressBar.Value = primarySubtitlesProgressBar.Maximum;
             subtitlesAndInfo.ProgressLabel.Text = $"100%";
             subtitlesAndInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
-            subtitlesAndInfo.ButtonOpen.Text = $"x\nУбрать поток\nсубтитров";
+            subtitlesAndInfo.ButtonOpenOrClose.Text = $"x\nУбрать поток\nсубтитров";
 
             subtitlesAndInfo.SetOriginalFile(filePath, false);
         }
@@ -1576,7 +1576,7 @@ namespace BilingualSubtitler
 
             subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
             subtitlesInfo.ProgressLabel.Text = $"0%";
-            subtitlesInfo.ButtonOpen.Enabled = false;
+            subtitlesInfo.ButtonOpenOrClose.Enabled = false;
             if (subtitlesInfo.ButtonTranslate != null) // В случае оригинальных, я так полагаю
             {
                 subtitlesInfo.ButtonTranslate.Enabled = false;
@@ -1626,7 +1626,7 @@ namespace BilingualSubtitler
 
             subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
             subtitlesInfo.ProgressLabel.Text = $"100%";
-            subtitlesInfo.ButtonOpen.Enabled = true;
+            subtitlesInfo.ButtonOpenOrClose.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
             {
                 subtitlesInfo.ButtonTranslate.Enabled = true;
@@ -1814,19 +1814,44 @@ namespace BilingualSubtitler
             }
             else // Закрываем поток
             {
-                var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
+                // Создаем кнопки для подтверждения / отмены
+                var closeButton = new Button();
+                closeButton.Tag = subtitlesType;
+                closeButton.Size = subtitlesWithInfo.ButtonOpenOrClose.Size;
+                closeButton.Location = subtitlesWithInfo.ButtonOpenOrClose.Location;
+                closeButton.BackColor = Color.Red;
+                subtitlesWithInfo.ButtonOpenOrClose.Hide();
+                closeButton.Click += CloseButton_Click;
+                subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeButton);
+                closeButton.Show();
 
-                if (result == DialogResult.Yes)
-                {
-                    subtitlesWithInfo.Subtitles = null;
-                    subtitlesWithInfo.ButtonOpen.Text = $"📁\nОткрыть\nиз файла";
-                    subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
-                    subtitlesWithInfo.ProgressLabel.Text = $"0%";
-                    subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
-                    subtitlesWithInfo.OutputTextBox.Text = string.Empty;
-                }
+                //var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
+
+                //if (result == DialogResult.Yes)
+                //{
+                //    subtitlesWithInfo.Subtitles = null;
+                //    subtitlesWithInfo.ButtonOpen.Text = $"📁\nОткрыть\nиз файла";
+                //    subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+                //    subtitlesWithInfo.ProgressLabel.Text = $"0%";
+                //    subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
+                //    subtitlesWithInfo.OutputTextBox.Text = string.Empty;
+                //}
             }
 
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            var closeButton = (Button)sender;
+            var subtitlesType = (SubtitlesType)closeButton.Tag;
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
+
+            subtitlesWithInfo.Subtitles = null;
+            subtitlesWithInfo.ButtonOpenOrClose.Text = $"📁\nОткрыть\nиз файла";
+            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
+            subtitlesWithInfo.OutputTextBox.Text = string.Empty;
         }
 
         private void ReadSubtitlesFromFile(string fileName, SubtitlesType subtitlesType)
@@ -1843,7 +1868,7 @@ namespace BilingualSubtitler
 
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
-            subtitlesWithInfo.ButtonOpen.Enabled = false;
+            subtitlesWithInfo.ButtonOpenOrClose.Enabled = false;
             if (subtitlesWithInfo.ButtonTranslate != null)
                 subtitlesWithInfo.ButtonTranslate.Enabled = false;
             subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
@@ -2078,7 +2103,7 @@ namespace BilingualSubtitler
                 }
 
                 subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
-                subtitlesInfo.ButtonOpen.Text = $"x\nУбрать поток\nсубтитров";
+                subtitlesInfo.ButtonOpenOrClose.Text = $"x\nУбрать поток\nсубтитров";
             }
             else
             {
@@ -2087,7 +2112,7 @@ namespace BilingualSubtitler
                 subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время открытия субтитров";
             }
 
-            subtitlesInfo.ButtonOpen.Enabled = true;
+            subtitlesInfo.ButtonOpenOrClose.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;
 

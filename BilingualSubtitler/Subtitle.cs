@@ -100,7 +100,7 @@ namespace BilingualSubtitler
 
         public ProgressBar ProgressBar { get; private set; }
         public Label ProgressLabel { get; private set; }
-        public Button ButtonOpen { get; private set; }
+        public Button ButtonOpenOrClose { get; private set; }
         public Button ButtonTranslate { get; private set; }
         public Button ButtonTranslateWordByWord { get; private set; }
 
@@ -119,7 +119,7 @@ namespace BilingualSubtitler
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
-            ButtonOpen = buttonOpen;
+            ButtonOpenOrClose = buttonOpen;
             ButtonTranslate = buttonTranslate;
             ButtonTranslateWordByWord = buttonTranslateWordByWord;
             ActionLabel = actionLabel;
