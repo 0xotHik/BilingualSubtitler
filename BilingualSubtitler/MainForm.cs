@@ -183,12 +183,6 @@ namespace BilingualSubtitler
                 Properties.SubtitlesAppearanceSettings.Default.Save();
             }
 
-            //if (Properties.Settings.Default.FirstLaunch == false)
-            //{
-            //    Properties.Settings.Default.AdvancedMode = true;
-            //    Properties.Settings.Default.Save();
-            //}
-
             if (Settings.Default.FirstLaunch)
             {
                 var videoplayerPauseKey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyValue;
@@ -247,25 +241,25 @@ namespace BilingualSubtitler
                     SubtitlesType.Original, new SubtitlesAndInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
                         openOrClosePrimarySubtitlesButton, null, null,
-                        primarySubtitlesActionLabel, primarySubtitlesTextBox)
+                        primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton)
                 },
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
                         openOrCloseFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
-                        firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox)
+                        firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton)
                 },
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
                         openOrCloseSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
-                        secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox)
+                        secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton)
                 },
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
                         openOrCloseThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
-                        thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox)
+                        thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton)
                 }
             };
 
@@ -360,13 +354,6 @@ namespace BilingualSubtitler
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
-            //MessageBox.Show($"{latestVersionOnGitHub}, {Settings.Default.LatestSeenVersion}");
-            //}
-
-
-            //m_shiftState = File.ReadAllBytes("C:\\Users\\jenek\\source\\repos\\0xotHik\\" +
-            //                   "BilingualSubtitler\\BilingualSubtitler\\bin\\Debug\\shiftDown.dat");
-
             appIsRunningsAsAdministratorPanel.Visible = AppIsRunningAsAdministrator();
             appNotRunningAsAdministratorPanel.Visible = !AppIsRunningAsAdministrator();
 
@@ -375,6 +362,9 @@ namespace BilingualSubtitler
             checkUpdatesBgW.DoWork += CheckUpdatesBgW_DoWork;
             checkUpdatesBgW.RunWorkerCompleted += CheckUpdatesBgW_RunWorkerCompleted;
             checkUpdatesBgW.RunWorkerAsync();
+
+            openOrClosePrimarySubtitlesButton.Focus();
+            openOrClosePrimarySubtitlesButton.Select();
         }
 
         public void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
@@ -1815,15 +1805,37 @@ namespace BilingualSubtitler
             else // Закрываем поток
             {
                 // Создаем кнопки для подтверждения / отмены
-                var closeButton = new Button();
-                closeButton.Tag = subtitlesType;
-                closeButton.Size = subtitlesWithInfo.ButtonOpenOrClose.Size;
-                closeButton.Location = subtitlesWithInfo.ButtonOpenOrClose.Location;
-                closeButton.BackColor = Color.Red;
+                var closeSubtitleStreamConfimationButton = new Button
+                {
+                    Tag = subtitlesType,
+                    Size = subtitlesWithInfo.ButtonOpenOrClose.Size,
+                    Location = subtitlesWithInfo.ButtonOpenOrClose.Location,
+                    BackColor = Color.Red,
+                    Text = "🗑\nТочно убрать?",
+                    ForeColor = Color.White
+                };
                 subtitlesWithInfo.ButtonOpenOrClose.Hide();
-                closeButton.Click += CloseButton_Click;
-                subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeButton);
-                closeButton.Show();
+                closeSubtitleStreamConfimationButton.Click += CloseSubtitleStreamConfimationButton_Click;
+                subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeSubtitleStreamConfimationButton);
+                closeSubtitleStreamConfimationButton.Show();
+                //
+                var closeSubtitleStreamCancellationButton = new Button
+                {
+                    Tag = subtitlesType,
+                    Size = new Size(subtitlesWithInfo.ColorPickingButton.Width, subtitlesWithInfo.ButtonOpenOrClose.Size.Height),
+                    Location = subtitlesWithInfo.ColorPickingButton.Location,
+                    BackColor = Color.LightGreen,
+                    Text = "↩\nОтмена",
+                    //ForeColor = Color.White
+                };
+                subtitlesWithInfo.ColorPickingButton.Hide();
+                closeSubtitleStreamCancellationButton.Click += CloseSubtitleStreamCancellationButton_Click;
+                subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeSubtitleStreamCancellationButton);
+                closeSubtitleStreamCancellationButton.Show();
+                closeSubtitleStreamCancellationButton.BringToFront();
+                //
+                subtitlesWithInfo.CloseSubtitleStreamConfimationButton = closeSubtitleStreamConfimationButton;
+                subtitlesWithInfo.CloseSubtitleStreamCancellationButton = closeSubtitleStreamCancellationButton;
 
                 //var result = MessageBox.Show($"Вы уверены, что хотите убрать поток субтитров \"{subtitlesWithInfo.OutputTextBox.Text}\"?", "Убрать поток субтитров?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); ;
 
@@ -1840,10 +1852,10 @@ namespace BilingualSubtitler
 
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void CloseSubtitleStreamConfimationButton_Click(object sender, EventArgs e)
         {
-            var closeButton = (Button)sender;
-            var subtitlesType = (SubtitlesType)closeButton.Tag;
+            var closeSubtitleStreamConfimationButton = (Button)sender;
+            var subtitlesType = (SubtitlesType)closeSubtitleStreamConfimationButton.Tag;
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
             subtitlesWithInfo.Subtitles = null;
@@ -1852,7 +1864,31 @@ namespace BilingualSubtitler
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
             subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
             subtitlesWithInfo.OutputTextBox.Text = string.Empty;
+
+            CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
+
+        private void CloseSubtitleStreamCancellationButton_Click(object sender, EventArgs e)
+        {
+            var closeSubtitleStreamConfimationButton = (Button)sender;
+            var subtitlesType = (SubtitlesType)closeSubtitleStreamConfimationButton.Tag;
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
+
+            CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
+        }
+
+        private void CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(SubtitlesAndInfo subtitlesWithInfo)
+        {
+            subtitlesWithInfo.ButtonOpenOrClose.Show();
+            subtitlesWithInfo.ColorPickingButton.Show();
+
+            subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Remove(subtitlesWithInfo.CloseSubtitleStreamConfimationButton);
+            subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Remove(subtitlesWithInfo.CloseSubtitleStreamCancellationButton);
+
+            subtitlesWithInfo.CloseSubtitleStreamConfimationButton = null;
+            subtitlesWithInfo.CloseSubtitleStreamCancellationButton = null;
+        }
+            
 
         private void ReadSubtitlesFromFile(string fileName, SubtitlesType subtitlesType)
         {

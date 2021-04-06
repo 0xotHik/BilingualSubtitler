@@ -106,16 +106,19 @@ namespace BilingualSubtitler
 
         public Label ActionLabel { get; private set; }
         public TextBox OutputTextBox { get; private set; }
+        public Button ColorPickingButton;
+
+        public Button CloseSubtitleStreamConfimationButton;
+        public Button CloseSubtitleStreamCancellationButton;
 
         public string TrackNumber;
         public string TrackLanguage;
         public string TrackName;
         public string FileNameWithoutExtention { get; set; }
         public string FileExtention { get; set; }
-
-
+        
         public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
-           Label actionLabel, TextBox outputTextBox)
+           Label actionLabel, TextBox outputTextBox, Button colorPickingButton)
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
@@ -124,6 +127,7 @@ namespace BilingualSubtitler
             ButtonTranslateWordByWord = buttonTranslateWordByWord;
             ActionLabel = actionLabel;
             OutputTextBox = outputTextBox;
+            ColorPickingButton = colorPickingButton;
         }
 
         public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
