@@ -494,6 +494,7 @@
             this.finalSubtitlesFilesPathBeginningRichTextBox.Size = new System.Drawing.Size(441, 74);
             this.finalSubtitlesFilesPathBeginningRichTextBox.TabIndex = 42;
             this.finalSubtitlesFilesPathBeginningRichTextBox.Text = "";
+            this.finalSubtitlesFilesPathBeginningRichTextBox.Leave += new System.EventHandler(this.finalSubtitlesFilesPathBeginningRichTextBox_Leave);
             // 
             // createOriginalAndBilingualSubtitlesFilesButton
             // 

@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -143,6 +144,12 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Subtitle.cs" />
+    <Compile Include="FileToUseFromZipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileToUseFromZipForm.Designer.cs">
+      <DependentUpon>FileToUseFromZipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrackToExtractFromMKVForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +184,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileToUseFromZipForm.resx">
+      <DependentUpon>FileToUseFromZipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrackToExtractFromMKVForm.resx">
       <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>

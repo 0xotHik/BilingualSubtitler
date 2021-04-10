@@ -1,6 +1,6 @@
 ﻿namespace BilingualSubtitler
 {
-    partial class TrackToExtractFromMKVForm
+    partial class FileToUseFromZipForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackToExtractFromMKVForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileToUseFromZipForm));
             this.labelTrackToOpen = new System.Windows.Forms.Label();
-            this.dataGridViewSubTracks = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Language = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrackName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewFilesInAcrhive = new System.Windows.Forms.DataGridView();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubTracks)).BeginInit();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extentions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilesInAcrhive)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTrackToOpen
@@ -50,41 +49,22 @@
             // 
             // dataGridViewSubTracks
             // 
-            this.dataGridViewSubTracks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewFilesInAcrhive.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSubTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSubTracks.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
-            this.dataGridViewSubTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubTracks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewFilesInAcrhive.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewFilesInAcrhive.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
+            this.dataGridViewFilesInAcrhive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFilesInAcrhive.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Language,
-            this.TrackName});
-            this.dataGridViewSubTracks.Location = new System.Drawing.Point(16, 30);
-            this.dataGridViewSubTracks.MultiSelect = false;
-            this.dataGridViewSubTracks.Name = "dataGridViewSubTracks";
-            this.dataGridViewSubTracks.ReadOnly = true;
-            this.dataGridViewSubTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSubTracks.Size = new System.Drawing.Size(410, 198);
-            this.dataGridViewSubTracks.TabIndex = 1;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID трека";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Language
-            // 
-            this.Language.HeaderText = "Язык субтитров";
-            this.Language.Name = "Language";
-            this.Language.ReadOnly = true;
-            // 
-            // TrackName
-            // 
-            this.TrackName.HeaderText = "Название трека";
-            this.TrackName.Name = "TrackName";
-            this.TrackName.ReadOnly = true;
+            this.Extentions});
+            this.dataGridViewFilesInAcrhive.Location = new System.Drawing.Point(16, 30);
+            this.dataGridViewFilesInAcrhive.MultiSelect = false;
+            this.dataGridViewFilesInAcrhive.Name = "dataGridViewSubTracks";
+            this.dataGridViewFilesInAcrhive.ReadOnly = true;
+            this.dataGridViewFilesInAcrhive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFilesInAcrhive.Size = new System.Drawing.Size(410, 198);
+            this.dataGridViewFilesInAcrhive.TabIndex = 1;
             // 
             // buttonOk
             // 
@@ -116,7 +96,19 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // TrackToExtractFromMKVForm
+            // ID
+            // 
+            this.ID.HeaderText = "Имена файлов в архиве";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Extentions
+            // 
+            this.Extentions.HeaderText = "Расширения";
+            this.Extentions.Name = "Extentions";
+            this.Extentions.ReadOnly = true;
+            // 
+            // FileToUseFromZipForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,13 +116,13 @@
             this.ClientSize = new System.Drawing.Size(437, 290);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.dataGridViewSubTracks);
+            this.Controls.Add(this.dataGridViewFilesInAcrhive);
             this.Controls.Add(this.labelTrackToOpen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "TrackToExtractFromMKVForm";
-            this.Text = "Выберите трек субтитров";
+            this.Name = "FileToUseFromZipForm";
+            this.Text = "Выберите файл субтитров";
             this.Load += new System.EventHandler(this.TrackToExtractFromMKVForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubTracks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilesInAcrhive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,11 +131,10 @@
         #endregion
 
         private System.Windows.Forms.Label labelTrackToOpen;
-        private System.Windows.Forms.DataGridView dataGridViewSubTracks;
+        private System.Windows.Forms.DataGridView dataGridViewFilesInAcrhive;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Language;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrackName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Extentions;
     }
 }
