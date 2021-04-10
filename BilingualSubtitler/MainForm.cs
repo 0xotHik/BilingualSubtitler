@@ -526,7 +526,7 @@ namespace BilingualSubtitler
                 //
                 m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
 
-                
+
                 primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;
                 firstRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FirstRussianSubtitlesColor;
                 secondRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.SecondRussianSubtitlesColor;
@@ -1092,7 +1092,7 @@ namespace BilingualSubtitler
                 {
                     subtitleTextSB.Append(components[j]);
 
-                    if (j+1 < components.Length)
+                    if (j + 1 < components.Length)
                     {
                         subtitleTextSB.Append(",");
                     }
@@ -1124,7 +1124,7 @@ namespace BilingualSubtitler
                     originalSubtitlesFileFI.FullName.Length -
                    (extension.Length));
 
-                finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
+                SetSubtitlesAndVideoFilePaths(originalFilePathPart, false);
 
                 translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                     translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
@@ -1888,7 +1888,7 @@ namespace BilingualSubtitler
             subtitlesWithInfo.CloseSubtitleStreamConfimationButton = null;
             subtitlesWithInfo.CloseSubtitleStreamCancellationButton = null;
         }
-            
+
 
         private void ReadSubtitlesFromFile(string fileName, SubtitlesType subtitlesType)
         {
@@ -1911,19 +1911,9 @@ namespace BilingualSubtitler
 
             if (subtitlesType == SubtitlesType.Original)
             {
-                var originalSubtitlesFileFI = new FileInfo(fileName);
-                var extension = originalSubtitlesFileFI.Extension;
-                var originalFilePathPart = originalSubtitlesFileFI.FullName.Substring(0,
-                    originalSubtitlesFileFI.FullName.Length -
-                   (extension.Length));
+                var extension = new FileInfo(fileName).Extension;
 
-                finalSubtitlesFilesPathBeginningRichTextBox.Text = originalFilePathPart;
-
-                if (extension == ".mkv")
-                {
-                    finalSubtitlesFilesPathBeginningRichTextBox.Tag = extension;
-                    playVideoButton.Text = $"{m_playVideoButtonDefaultText}\n({extension})";
-                }
+                SetSubtitlesAndVideoFilePaths(fileName, extension == ".mkv" ? true : false);
             }
 
             subtitlesWithInfo.BackgroundWorker.RunWorkerAsync(fileName);
@@ -1944,40 +1934,16 @@ namespace BilingualSubtitler
             {
                 case ".srt":
                     {
+                        // Заполняеми информацию
+                        FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+                        //GUI
+                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+                        //
                         BeginInvoke((Action)((() =>
                         {
-                            switch (parentBgW.SubtitlesType)
-                            {
-                                case SubtitlesType.Original:
-                                    {
-                                        primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.FirstRussian:
-                                    {
-                                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.SecondRussian:
-                                    {
-                                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.ThirdRussian:
-                                    {
-                                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                            }
-
-                            var fileName = new FileInfo(filePath).Name;
-                            var fileExt = new FileInfo(filePath).Extension;
-
-                            subtitlesInfo.OutputTextBox.Text = fileName;
-
-                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
-                            subtitlesInfo.FileExtention = fileExt;
-                            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+                            DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
                         })));
 
                         subtitlesInfo.Subtitles = ReadSRT(filePath);
@@ -1986,40 +1952,16 @@ namespace BilingualSubtitler
                     }
                 case ".docx":
                     {
+                        // Заполняеми информацию
+                        FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+                        //GUI
+                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+                        //
                         BeginInvoke((Action)((() =>
                         {
-                            switch (parentBgW.SubtitlesType)
-                            {
-                                case SubtitlesType.Original:
-                                    {
-                                        primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.FirstRussian:
-                                    {
-                                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.SecondRussian:
-                                    {
-                                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                                case SubtitlesType.ThirdRussian:
-                                    {
-                                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
-                                        break;
-                                    }
-                            }
-
-                            var fileName = new FileInfo(filePath).Name;
-                            var fileExt = new FileInfo(filePath).Extension;
-
-                            subtitlesInfo.OutputTextBox.Text = fileName;
-
-                            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
-                            subtitlesInfo.FileExtention = fileExt;
-                            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+                            DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
                         })));
 
                         subtitlesInfo.Subtitles = ReadDocx(filePath);
@@ -2036,52 +1978,24 @@ namespace BilingualSubtitler
                         var dialogResult = trackSelectionForm.ShowDialog();
                         if (dialogResult == DialogResult.OK)
                         {
+                            // Заполняеми информацию
+                            FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                            //
+                            var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
+                            if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
+                                trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";                            
+                            //
+                            subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
+                            subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
+                            subtitlesInfo.TrackName = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
+
+                            //GUI
+                            var outputTextBoxText = $"{trackInfo} из {subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention}";
+                            //
                             BeginInvoke((Action)((() =>
-                                {
-                                    switch (parentBgW.SubtitlesType)
-                                    {
-                                        case SubtitlesType.Original:
-                                            {
-                                                primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
-                                                break;
-                                            }
-                                        case SubtitlesType.FirstRussian:
-                                            {
-                                                firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
-                                                break;
-                                            }
-                                        case SubtitlesType.SecondRussian:
-                                            {
-                                                secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
-                                                break;
-                                            }
-                                        case SubtitlesType.ThirdRussian:
-                                            {
-                                                thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
-                                                break;
-                                            }
-                                    }
-
-                                    // Заполняеми информацию
-                                    var fileName = new FileInfo(filePath).Name;
-                                    var fileExt = new FileInfo(filePath).Extension;
-
-                                    var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
-                                    if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
-                                        trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";
-
-                                    subtitlesInfo.OutputTextBox.Text =
-                                    $"{trackInfo} из {fileName}";
-
-
-                                    subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
-                                    subtitlesInfo.FileExtention = fileExt;
-
-                                    subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
-                                    subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
-                                    subtitlesInfo.TrackName = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
-
-                                })));
+                            {
+                                DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
+                            })));
 
                             var mkvTrackInfo =
                                 tracks.Find(x => x.TrackNumber == trackSelectionForm.SelectedTrackNumber);
@@ -2109,6 +2023,46 @@ namespace BilingualSubtitler
                         throw new Exception();
                     }
             }
+        }
+
+        private void FillTheBasicSubtitlesInformation(string filePath, SubtitlesAndInfo subtitlesInfo)
+        {
+            // Заполняеми информацию
+            var fileName = new FileInfo(filePath).Name;
+            var fileExt = new FileInfo(filePath).Extension;
+            //
+            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
+            subtitlesInfo.FileExtention = fileExt;
+        }
+
+        private void DoGUIActions(SubtitlesType subtitlesType, string outputTextBoxText)
+        {
+            switch (subtitlesType)
+            {
+                case SubtitlesType.Original:
+                    {
+                        primarySubtitlesActionLabel.Visible = primarySubtitlesProgressLabel.Visible = primarySubtitlesProgressBar.Visible = true;
+                        break;
+                    }
+                case SubtitlesType.FirstRussian:
+                    {
+                        firstRussianSubtitlesActionLabel.Visible = firstRussianSubtitlesProgressLabel.Visible = firstRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
+                case SubtitlesType.SecondRussian:
+                    {
+                        secondRussianSubtitlesActionLabel.Visible = secondRussianSubtitlesProgressLabel.Visible = secondRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
+                case SubtitlesType.ThirdRussian:
+                    {
+                        thirdRussianSubtitlesActionLabel.Visible = thirdRussianSubtitlesProgressLabel.Visible = thirdRussianSubtitlesProgressBar.Visible = true;
+                        break;
+                    }
+            }
+
+            subtitlesInfo.OutputTextBox.Text =
+                                    $"{trackInfo} из {fileName}";
         }
 
         private void readSubtitlesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
@@ -2155,6 +2109,57 @@ namespace BilingualSubtitler
             // TODO Ошибки?
         }
 
+        private void SetSubtitlesAndVideoFilePaths(string fileName, bool videoFile)
+        {
+            var finalSubtitlesFilesPathFileInfo = new FileInfo(fileName);
+
+            if (!string.IsNullOrWhiteSpace(finalSubtitlesFilesPathBeginningRichTextBox.Text))
+            {
+                var rewritePathDialogResult = MessageBox.Show("Путь итоговых файлов субтитров / путь до файла видео уже задан! Перезаписать?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (rewritePathDialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            SetSubtitlesAndVideoFilePathBeginnging(finalSubtitlesFilesPathFileInfo.FullName.Substring(0,
+                    finalSubtitlesFilesPathFileInfo.FullName.Length - finalSubtitlesFilesPathFileInfo.Extension.Length));
+
+            if (videoFile)
+                SetVideoFileExtention(finalSubtitlesFilesPathFileInfo.Extension);
+        }
+
+        /// <summary>
+        /// Внутряк
+        /// </summary>
+        /// <param name="subtitlesAndVideoFilePathBeginnging"></param>
+        private void SetSubtitlesAndVideoFilePathBeginnging(string subtitlesAndVideoFilePathBeginnging)
+        {
+            finalSubtitlesFilesPathBeginningRichTextBox.Text = subtitlesAndVideoFilePathBeginnging;
+        }
+
+
+
+        private void SetVideoFileExtention(string extention)
+        {
+            videoFileExtentionTextBox.Text = extention.Substring(1);
+
+            // Былое
+            //
+            //finalSubtitlesFilesPathBeginningRichTextBox.Tag = extension;
+            //playVideoButton.Text = $"{m_playVideoButtonDefaultText}\n({extension})";
+        }
+
+        private string GetVideoFileExtention()
+        {
+            return $".{videoFileExtentionTextBox.Text}";
+
+            // Былое
+            //
+            //finalSubtitlesFilesPathBeginningRichTextBox.Tag
+        }
+
         private void createOriginalAndBilingualSubtitlesFilesButton_Click(object sender, EventArgs e)
         {
             var originalSubtitlesPath =
@@ -2164,25 +2169,26 @@ namespace BilingualSubtitler
             var bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
             var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
 
+            // Проверки
             if (Settings.Default.CreateOriginalSubtitlesFile && Settings.Default.CreateBilingualSubtitlesFile)
             {
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
+                    var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
                         String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
                         String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
                         String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result != DialogResult.OK)
                         return;
@@ -2192,7 +2198,7 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
                         String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result != DialogResult.OK)
                         return;
@@ -2202,7 +2208,7 @@ namespace BilingualSubtitler
             {
                 if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
                         String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (result != DialogResult.OK)
                         return;
@@ -2231,7 +2237,7 @@ namespace BilingualSubtitler
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show($"Записать файл\n\n{originalSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
+                    MessageBox.Show($"Записать файл\n\n• {originalSubtitlesPath}\n\nне удалось! Исключение:\n• {exception}");
                     return;
                 }
 
@@ -2254,7 +2260,7 @@ namespace BilingualSubtitler
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show($"Записать файл\n\n{bilingualSubtitlesPath}\n\nне удалось! Исключение:\n{exception}");
+                    MessageBox.Show($"Записать файл\n\n• {bilingualSubtitlesPath}\n\nне удалось! Исключение:\n• {exception}");
                     return;
                 }
             }
@@ -2267,21 +2273,21 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файлы\n\n{originalSubtitlesPath}\n\nи\n\n{bilingualSubtitlesPath}\n\nуспешно записаны!",
+                    var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуспешно записаны!",
                         String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
+                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
                         String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
                         String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result != DialogResult.OK)
                         return;
@@ -2291,7 +2297,7 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{originalSubtitlesPath}\n\nуспешно записан!",
+                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
                         String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result != DialogResult.OK)
                         return;
@@ -2301,7 +2307,7 @@ namespace BilingualSubtitler
             {
                 if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n{bilingualSubtitlesPath}\n\nуспешно записан!",
+                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
                         String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result != DialogResult.OK)
                         return;
@@ -2511,12 +2517,7 @@ namespace BilingualSubtitler
 
             if (result == DialogResult.OK)
             {
-                var finalSubtitlesFilesPathFileInfo = new FileInfo(openFileDialog.FileName);
-                finalSubtitlesFilesPathBeginningRichTextBox.Text = finalSubtitlesFilesPathFileInfo.FullName.Substring(0,
-                    finalSubtitlesFilesPathFileInfo.FullName.Length - finalSubtitlesFilesPathFileInfo.Extension.Length);
-                finalSubtitlesFilesPathBeginningRichTextBox.Tag = finalSubtitlesFilesPathFileInfo.Extension;
-
-                playVideoButton.Text = $"{m_playVideoButtonDefaultText}\n({finalSubtitlesFilesPathFileInfo.Extension})";
+                SetSubtitlesAndVideoFilePaths(openFileDialog.FileName, true);
             }
 
             openFileDialog.Dispose();
@@ -2530,15 +2531,15 @@ namespace BilingualSubtitler
 
         private void playVideoButton_Click(object sender, EventArgs e)
         {
+            var videoFileName = finalSubtitlesFilesPathBeginningRichTextBox.Text +
+                    GetVideoFileExtention();
             try
             {
-                System.Diagnostics.Process.Start(finalSubtitlesFilesPathBeginningRichTextBox.Text +
-                    // В тэге ТекстБокса должно лежать расширение
-                    finalSubtitlesFilesPathBeginningRichTextBox.Tag);
+                System.Diagnostics.Process.Start(videoFileName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Попытка открытия файла не удалась!\n\n\nОшибка: {ex}", "Попытка открытия файла не удалась", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Попытка открытия файла\n• {videoFileName}\n\n не удалась!\n\n\nВы можете запустить воспроизведение видео обычным способом, не из Bilingual Subtitler — динамически подключаемые субтитры все равно будут работать.\n\n\nОшибка: {ex.Message}", "Попытка открытия файла не удалась", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

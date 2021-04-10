@@ -374,9 +374,9 @@
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Location = new System.Drawing.Point(5, 425);
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Name = "secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox";
-            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(262, 17);
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Size = new System.Drawing.Size(453, 17);
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.TabIndex = 96;
-            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Text = "2 и 3 переведенные субтитры — сверху экрана";
+            this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Text = "При изменении параметров, 2 и 3 переведенные субтитры остаются сверху экрана";
             this.secondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.UseVisualStyleBackColor = true;
             // 
             // groupBox9
