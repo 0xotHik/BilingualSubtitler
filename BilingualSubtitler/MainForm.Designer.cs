@@ -343,6 +343,7 @@
             this.videoFileExtentionTextBox.Name = "videoFileExtentionTextBox";
             this.videoFileExtentionTextBox.Size = new System.Drawing.Size(51, 20);
             this.videoFileExtentionTextBox.TabIndex = 44;
+            this.videoFileExtentionTextBox.Text = "mkv";
             // 
             // selectVideoFileToGetPathForSubtitlesButton
             // 
@@ -1173,7 +1174,7 @@
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label9);
             this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(15, 103);
             this.appIsRunningsAsAdministratorPanel.Name = "appIsRunningsAsAdministratorPanel";
-            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(485, 53);
+            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(547, 53);
             this.appIsRunningsAsAdministratorPanel.TabIndex = 48;
             this.appIsRunningsAsAdministratorPanel.Visible = false;
             // 

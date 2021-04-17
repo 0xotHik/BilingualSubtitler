@@ -1125,7 +1125,7 @@ namespace BilingualSubtitler
                     originalSubtitlesFileFI.FullName.Length -
                    (extension.Length));
 
-                SetSubtitlesAndVideoFilePaths(originalFilePathPart, false);
+                SetSubtitlesAndVideoFilePaths(originalSubtitlesFileFI.FullName, false);
 
                 translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                     translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
