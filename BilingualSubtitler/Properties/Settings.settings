@@ -56,16 +56,6 @@
     <Setting Name="YandexTranslatorAPIEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Hotkeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;NumPad0@96@&lt;/string&gt;
-  &lt;string&gt;Decimal@110@&lt;/string&gt;
-  &lt;string&gt;Return@13@&lt;/string&gt;
-  &lt;string&gt;F3@114@&lt;/string&gt;
-  &lt;string&gt;Space@32@&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
-    </Setting>
     <Setting Name="ProcessPriority" Type="System.Diagnostics.ProcessPriorityClass" Scope="User">
       <Value Profile="(Default)">AboveNormal</Value>
     </Setting>
@@ -83,6 +73,28 @@
     </Setting>
     <Setting Name="CreateBilingualSubtitlesFile" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Hotkeys" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;NumPad0@96@&lt;/string&gt;
+  &lt;string&gt;Decimal@110@&lt;/string&gt;
+  &lt;string&gt;Return@13@&lt;/string&gt;
+  &lt;string&gt;F3@114@&lt;/string&gt;
+  &lt;string&gt;Space@32@&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="OpenFilesByDefaultFromSetFolder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FolderToOpenFilesByDefaultFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Movies\</Value>
+    </Setting>
+    <Setting Name="SaveFilesByDefaultToSetFolder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FolderToSaveFilesByDefaultFrom" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Movies\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

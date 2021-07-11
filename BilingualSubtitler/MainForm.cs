@@ -606,7 +606,7 @@ namespace BilingualSubtitler
                     //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
                     // firstRussianSubtitlesExportAsDocx.Width + 40;
 
-                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocx.Right;
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocxButton.Right;
 
                     hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
                     hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
@@ -1786,8 +1786,16 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
         }
 
-        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType)
+        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType, bool fromDownloads = false)
         {
+            if (subtitlesType == SubtitlesType.Original)
+            {
+                translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
+                translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
+                    translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                        false;
+            }
+
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
             if (subtitlesWithInfo.Subtitles == null) //Открываем субтитры
@@ -1796,6 +1804,16 @@ namespace BilingualSubtitler
 
                 using var openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = formats;
+
+                // Папки по умолчанию
+                if (fromDownloads)
+                {
+                    string downloadsFolderPath = KnownFolders.GetPath(KnownFolder.Downloads);
+                    openFileDialog.InitialDirectory = downloadsFolderPath;
+                }
+                else if (Properties.Settings.Default.OpenFilesByDefaultFromSetFolder)
+                    openFileDialog.InitialDirectory = Settings.Default.FolderToOpenFilesByDefaultFrom;
+
                 var result = openFileDialog.ShowDialog();
 
                 if (result == DialogResult.OK)
@@ -1984,7 +2002,7 @@ namespace BilingualSubtitler
                             //
                             var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
                             if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
-                                trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";                            
+                                trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";
                             //
                             subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
                             subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
@@ -2077,7 +2095,7 @@ namespace BilingualSubtitler
 
                             subtitlesInfo.Subtitles = ReadSRTMarkup(lines);
                         }
-                        
+
 
                         break;
                     }
@@ -2447,11 +2465,6 @@ namespace BilingualSubtitler
 
         private void openOrClosePrimarySubtitlesButton_Click(object sender, EventArgs e)
         {
-            translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
-                translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                    translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
-                        false;
-
             OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_originalSubtitles,
@@ -2627,7 +2640,7 @@ namespace BilingualSubtitler
             ExportSubtitlesToDocx(SubtitlesType.ThirdRussian);
         }
 
-        private void ExportSubtitlesToDocx(SubtitlesType subtitlesType)
+        private void ExportSubtitlesToDocx(SubtitlesType subtitlesType, bool intoDownloads = false)
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
 
@@ -2636,17 +2649,35 @@ namespace BilingualSubtitler
                 : $"{subtitlesInfo.FileNameWithoutExtention}.Track{subtitlesInfo.TrackNumber}.Subtitles." +
                 $"{subtitlesInfo.TrackLanguage.ToUpper()}.BilingualSubtitlerExport";
 
-            using var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = formats;
-            saveFileDialog.FileName = defaultFileName;
+            bool goodToGo = false;
+            string resultingDocXFileName = string.Empty;
 
-            var result = saveFileDialog.ShowDialog();
+            if (intoDownloads)
+            {
+                goodToGo = true;
+                string downloadsFolderPath = KnownFolders.GetPath(KnownFolder.Downloads);
+                resultingDocXFileName = Path.Combine(downloadsFolderPath, $"{defaultFileName}.docx");
+            }
+            else
+            {
+                using var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = formats;
+                saveFileDialog.FileName = defaultFileName;
 
-            if (result == DialogResult.OK)
+                var result = saveFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    goodToGo = true;
+                    resultingDocXFileName = saveFileDialog.FileName;
+                }
+            }
+
+            if (goodToGo == true)
             {
                 var timeFormat = @"hh\:mm\:ss\,fff";
 
-                var doc = DocX.Create(saveFileDialog.FileName);
+                var doc = DocX.Create(resultingDocXFileName);
                 for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
                 {
                     var subtitle = subtitlesInfo.Subtitles[i];
@@ -2658,6 +2689,13 @@ namespace BilingualSubtitler
                 }
                 doc.Save();
             }
+
+            if (intoDownloads)
+            {
+                if (File.Exists(resultingDocXFileName))
+                    MessageBox.Show($"Субтитры были сохранены в файл {resultingDocXFileName}", "Субтитры были сохранены успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void firstRussianSubtitlesTextBox_TextChanged(object sender, EventArgs e)
@@ -2863,6 +2901,46 @@ namespace BilingualSubtitler
         {
             var textBox = (RichTextBox)sender;
             textBox.Text = textBox.Text.Replace("\r\n", "").Replace("\n", "");
+        }
+
+        private void openPrimarySubtitlesFromDownloadsButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, true);
+        }
+
+        private void primarySubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.Original, true);
+        }
+
+        private void firstRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, true);
+        }
+
+        private void secondRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, true);
+        }
+
+        private void thirdRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, true);
+        }
+
+        private void firstRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FirstRussian, true);
+        }
+
+        private void secondRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.SecondRussian, true);
+        }
+
+        private void thirdRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.ThirdRussian, true);
         }
     }
 

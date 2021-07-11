@@ -241,25 +241,6 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>NumPad0@96@</string>
-  <string>Decimal@110@</string>
-  <string>Return@13@</string>
-  <string>F3@114@</string>
-  <string>Space@32@</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection Hotkeys {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Hotkeys"]));
-            }
-            set {
-                this["Hotkeys"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("AboveNormal")]
         public global::System.Diagnostics.ProcessPriorityClass ProcessPriority {
             get {
@@ -327,6 +308,73 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["CreateBilingualSubtitlesFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>NumPad0@96@</string>
+  <string>Decimal@110@</string>
+  <string>Return@13@</string>
+  <string>F3@114@</string>
+  <string>Space@32@</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Hotkeys {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Hotkeys"]));
+            }
+            set {
+                this["Hotkeys"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpenFilesByDefaultFromSetFolder {
+            get {
+                return ((bool)(this["OpenFilesByDefaultFromSetFolder"]));
+            }
+            set {
+                this["OpenFilesByDefaultFromSetFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Movies\\")]
+        public string FolderToOpenFilesByDefaultFrom {
+            get {
+                return ((string)(this["FolderToOpenFilesByDefaultFrom"]));
+            }
+            set {
+                this["FolderToOpenFilesByDefaultFrom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveFilesByDefaultToSetFolder {
+            get {
+                return ((bool)(this["SaveFilesByDefaultToSetFolder"]));
+            }
+            set {
+                this["SaveFilesByDefaultToSetFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Movies\\")]
+        public string FolderToSaveFilesByDefaultFrom {
+            get {
+                return ((string)(this["FolderToSaveFilesByDefaultFrom"]));
+            }
+            set {
+                this["FolderToSaveFilesByDefaultFrom"] = value;
             }
         }
     }
