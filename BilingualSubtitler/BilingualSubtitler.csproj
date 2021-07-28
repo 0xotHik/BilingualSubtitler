@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BilingualSubtitler</RootNamespace>
     <AssemblyName>BilingualSubtitler</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>опубликовать\</PublishUrl>
     <Install>true</Install>
@@ -58,15 +58,15 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="libse, Version=3.5.14.9999, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="libse, Version=3.6.0.26, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\libse.3.6.0\lib\net472\libse.dll</HintPath>
+    </Reference>
+    <Reference Include="NonInvasiveKeyboardHookLibrary, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\subtitleedit\libse\bin\Release\net40\libse.dll</HintPath>
+      <HintPath>Libs\NonInvasiveKeyboardHookLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="NonInvasiveKeyboardHookLibrary">
-      <HintPath>..\..\..\NonInvasiveKeyboardHook\source\NonInvasiveKeyboardHook\NonInvasiveKeyboardHookLibrary\bin\Debug\NonInvasiveKeyboardHookLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Octokit, Version=0.48.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Octokit.0.48.0\lib\net46\Octokit.dll</HintPath>
+    <Reference Include="Octokit, Version=0.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.50.0\lib\net46\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -85,20 +85,28 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UtfUnknown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90217ce7a23260d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\UTF.Unknown.2.3.0\lib\net40\UtfUnknown.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
     </Reference>
     <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
       <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Document.NET, Version=1.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.6.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    <Reference Include="Xceed.Document.NET, Version=1.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.8.0\lib\net40\Xceed.Document.NET.dll</HintPath>
     </Reference>
-    <Reference Include="Xceed.Words.NET, Version=1.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.6.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    <Reference Include="Xceed.Words.NET, Version=1.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.8.0\lib\net40\Xceed.Words.NET.dll</HintPath>
     </Reference>
     <Reference Include="YandexLinguistics.NET">
       <HintPath>.\YandexLinguistics.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\zlib.net-mutliplatform.1.0.4\lib\net47\zlib.net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +136,9 @@
     </Compile>
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.InputHandling.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModifyProgressBarColor.cs" />
     <Compile Include="Program.cs" />
@@ -237,7 +248,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer\InstallerScript.iss" />
-    <Content Include="Libs\libse.dll" />
     <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
     <Content Include="Libs\UtfUnknown.dll" />
     <Content Include="Libs\zlib.net.dll" />

@@ -78,19 +78,50 @@ namespace BilingualSubtitler
 
         private int m_videoplayerPauseHotkey;
 
+        // Состояния видео и субтитров
         private VideoState m_videoState;
         private SubtitlesState m_subtitlesState;
-        private ComboboxItem m_videoPlayingComboBoxItem = new ComboboxItem
-        { Text = "воспроизводится", Value = VideoState.Playing };
-        private ComboboxItem m_videoPausedComboBoxItem = new ComboboxItem
-        { Text = "на паузе", Value = VideoState.Paused };
-        private ComboboxItem m_subtitlesOriginalSubtitlesComboBoxItem = new ComboboxItem
-        { Text = "оригинальными субтитрами", Value = SubtitlesState.Original };
-        private ComboboxItem m_subtitlesBilingualSubtitlesComboBoxItem = new ComboboxItem
-        { Text = "двуязычными субтитрами", Value = SubtitlesState.Bilingual };
-
-        private Dictionary<VideoState, ComboboxItem> m_videoStatesAndRelatedComboBoxItems;
-        private Dictionary<SubtitlesState, ComboboxItem> m_subtitlesStatesAndRelatedComboBoxItems;
+        //
+        // Былое
+        //
+        //private ComboboxItem m_videoPlayingComboBoxItem = new ComboboxItem
+        //{ Text = "воспроизводится", Value = VideoState.Playing };
+        //private ComboboxItem m_videoPausedComboBoxItem = new ComboboxItem
+        //{ Text = "на паузе", Value = VideoState.Paused };
+        //private ComboboxItem m_subtitlesOriginalSubtitlesComboBoxItem = new ComboboxItem
+        //{ Text = "оригинальными субтитрами", Value = SubtitlesState.Original };
+        //private ComboboxItem m_subtitlesBilingualSubtitlesComboBoxItem = new ComboboxItem
+        //{ Text = "двуязычными субтитрами", Value = SubtitlesState.Bilingual };
+        //private Dictionary<VideoState, ComboboxItem> m_videoStatesAndRelatedComboBoxItems;
+        //private Dictionary<SubtitlesState, ComboboxItem> m_subtitlesStatesAndRelatedComboBoxItems;
+        //
+        /// <summary>
+        /// воспроизводится с оригинальными субтитрами
+        /// </summary>
+        private Tuple<VideoState, SubtitlesState> m_videoPlayingWithOriginalSubtitlesState;
+        //
+        private ComboboxItem m_videoPlayingWithOriginalSubtitlesComboBoxItem;
+        /// <summary>
+        /// воспроизводится с двуязычными субтитрами
+        /// </summary>
+        private Tuple<VideoState, SubtitlesState> m_videoPlayingWithBilingualSubtitlesState;
+        //
+        private ComboboxItem m_videoPlayingWithBilingualSubtitlesComboBoxItem;
+        /// <summary>
+        /// на паузе с оригинальными субтитрами
+        /// </summary>
+        private Tuple<VideoState, SubtitlesState> m_videoPausedWithOriginalSubtitlesState;
+        //
+        private ComboboxItem m_videoPausedWithOriginalSubtitlesComboBoxItem;
+        /// <summary>
+        /// на паузе с двуязычными субтитрами
+        /// </summary>
+        private Tuple<VideoState, SubtitlesState> m_videoPausedWithBilingualSubtitlesState;
+        //
+        private ComboboxItem m_videoPausedWithBilingualSubtitlesComboBoxItem;
+        //
+        //
+        //private Dictionary<Tuple<VideoState, SubtitlesState>, ComboboxItem> m_videoAndSubtitlesStatesAndRelatedComboBoxItems;
 
         private List<Button> m_buttons;
         private Color m_previousButtonColor;
@@ -144,6 +175,32 @@ namespace BilingualSubtitler
         public MainForm()
         {
             InitializeComponent();
+
+            // Состояния видео / субтитров:
+            // воспроизводится с оригинальными субтитрами
+            m_videoPlayingWithOriginalSubtitlesState = new Tuple<VideoState, SubtitlesState>
+            (VideoState.Playing, SubtitlesState.Original);
+            //
+            m_videoPlayingWithOriginalSubtitlesComboBoxItem = new ComboboxItem
+            { Text = "воспроизводится с оригинальными субтитрами", Value = m_videoPlayingWithOriginalSubtitlesState };
+            // воспроизводится с двуязычными субтитрами
+            m_videoPlayingWithBilingualSubtitlesState = new Tuple<VideoState, SubtitlesState>
+                (VideoState.Playing, SubtitlesState.Bilingual);
+            //
+            m_videoPlayingWithBilingualSubtitlesComboBoxItem = new ComboboxItem
+            { Text = "воспроизводится с двуязычными субтитрами", Value = m_videoPlayingWithBilingualSubtitlesState };
+            // на паузе с оригинальными субтитрами
+            m_videoPausedWithOriginalSubtitlesState = new Tuple<VideoState, SubtitlesState>
+                (VideoState.Paused, SubtitlesState.Original);
+            //
+            m_videoPausedWithOriginalSubtitlesComboBoxItem = new ComboboxItem
+            { Text = "на паузе с оригинальными субтитрами", Value = m_videoPausedWithOriginalSubtitlesState };
+            // на паузе с двуязычными субтитрами
+            m_videoPausedWithBilingualSubtitlesState =
+                new Tuple<VideoState, SubtitlesState>(VideoState.Paused, SubtitlesState.Bilingual);
+            //
+            m_videoPausedWithBilingualSubtitlesComboBoxItem = new ComboboxItem
+            { Text = "на паузе с двуязычными субтитрами", Value = m_videoPausedWithBilingualSubtitlesState };
 
             // Графика
             m_initialFormWidth = Width;
@@ -216,25 +273,41 @@ namespace BilingualSubtitler
                 Settings.Default.Save();
             }
 
-            videoStateComboBox.Items.Add(m_videoPlayingComboBoxItem);
-            videoStateComboBox.Items.Add(m_videoPausedComboBoxItem);
-            videoStateComboBox.SelectedIndex = 0;
+            // Состояния видео и субтитров
+            videoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithOriginalSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithBilingualSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithOriginalSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithBilingualSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBox.SelectedIndex = 0;
+            //
+            //m_videoAndSubtitlesStatesAndRelatedComboBoxItems = new Dictionary<Tuple<VideoState, SubtitlesState>, ComboboxItem>
+            //{
+            //    { m_videoPlayingWithOriginalSubtitlesState, m_videoPlayingWithOriginalSubtitlesComboBoxItem},
+            //    { m_videoPlayingWithBilingualSubtitlesState, m_videoPlayingWithBilingualSubtitlesComboBoxItem},
+            //    { m_videoPausedWithOriginalSubtitlesState, m_videoPausedWithOriginalSubtitlesComboBoxItem},
+            //    { m_videoPausedWithBilingualSubtitlesState, m_videoPausedWithBilingualSubtitlesComboBoxItem}
+            //};
+            #region Былое
+            //videoStateComboBox.Items.Add(m_videoPlayingComboBoxItem);
+            //videoStateComboBox.Items.Add(m_videoPausedComboBoxItem);
+            //videoStateComboBox.SelectedIndex = 0;
 
-            subtitlesStateComboBox.Items.Add(m_subtitlesOriginalSubtitlesComboBoxItem);
-            subtitlesStateComboBox.Items.Add(m_subtitlesBilingualSubtitlesComboBoxItem);
-            subtitlesStateComboBox.SelectedIndex = 0;
+            //subtitlesStateComboBox.Items.Add(m_subtitlesOriginalSubtitlesComboBoxItem);
+            //subtitlesStateComboBox.Items.Add(m_subtitlesBilingualSubtitlesComboBoxItem);
+            //subtitlesStateComboBox.SelectedIndex = 0;
 
-            m_videoStatesAndRelatedComboBoxItems = new Dictionary<VideoState, ComboboxItem>
-            {
-                {VideoState.Playing, m_videoPlayingComboBoxItem},
-                { VideoState.Paused, m_videoPausedComboBoxItem}
-            };
+            //m_videoStatesAndRelatedComboBoxItems = new Dictionary<VideoState, ComboboxItem>
+            //{
+            //    {VideoState.Playing, m_videoPlayingComboBoxItem},
+            //    { VideoState.Paused, m_videoPausedComboBoxItem}
+            //};
 
-            m_subtitlesStatesAndRelatedComboBoxItems = new Dictionary<SubtitlesState, ComboboxItem>
-            {
-                {SubtitlesState.Original, m_subtitlesOriginalSubtitlesComboBoxItem},
-                { SubtitlesState.Bilingual, m_subtitlesBilingualSubtitlesComboBoxItem}
-            };
+            //m_subtitlesStatesAndRelatedComboBoxItems = new Dictionary<SubtitlesState, ComboboxItem>
+            //{
+            //    {SubtitlesState.Original, m_subtitlesOriginalSubtitlesComboBoxItem},
+            //    { SubtitlesState.Bilingual, m_subtitlesBilingualSubtitlesComboBoxItem}
+            //};
+            #endregion
 
             m_subtitles = new Dictionary<SubtitlesType, SubtitlesAndInfo>
             {
@@ -776,127 +849,41 @@ namespace BilingualSubtitler
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
         {
-            videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
-            subtitlesStateComboBox.SelectedValueChanged -= subtitlesStateComboBox_SelectedValueChanged;
+            videoAndSubtitlesStateComboBox.SelectedValueChanged -= videoAndSubtitlesStateComboBox_SelectedValueChanged;
 
-            videoStateComboBox.SelectedItem = m_videoStatesAndRelatedComboBoxItems[m_videoState];
-            subtitlesStateComboBox.SelectedItem = m_subtitlesStatesAndRelatedComboBoxItems[m_subtitlesState];
-
-            videoStateComboBox.SelectedValueChanged += videoStateComboBox_SelectedValueChanged;
-            subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
-        }
-
-        #region Эмуляция инпута
-
-
-
-        private void ActionForHotkeyThatAreNotPauseButton()
-        {
-            //if (GetActiveProcessName() != m_videoPlayerProcessName)
-            //    return;
-            //m_videoPlayerProcess = Process.GetProcessesByName("mpc-hc64")[0];
-
-            var activeProcess = GetActiveProcess();
-            if (activeProcess.ProcessName != m_videoPlayerProcessName)
-                return;
-            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
-
-            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
-            SwitchSubtitles();
-        }
-
-        private void ActionForHotkeyThatArePauseButton()
-        {
-            //if (GetActiveProcessName() != m_videoPlayerProcessName)
-            //    return;
-
-            var activeProcess = GetActiveProcess();
-            if (activeProcess.ProcessName != m_videoPlayerProcessName)
-                return;
-            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
-
-            SwitchSubtitles();
-        }
-
-        private void SwitchSubtitles()
-        {
-            // Я так понимаю, сюда мы попадаем еще до переключения паузы/воспроизведения
+            // Ну вот здесь по-хорошему, если с точки зрения верности кода, надо по-другому написать, наверное. Примерно как было.
+            // Но у меня приоритет в скорости, структура состояний видео/субтитров у меня не поменяется (не должна).
+            // Так что напишем так
             if (m_videoState == VideoState.Playing)
             {
                 if (m_subtitlesState == SubtitlesState.Original)
-                {
-                    // Переключаемся на двуязычные
-
-                    m_changeSubtitlesToBilingualDelegate.Invoke();
-                    //m_changeSubtitlesToBilingualDelegate.BeginInvoke(null, null);
-
-                    m_subtitlesState = SubtitlesState.Bilingual;
-                }
-
-                // Ставим Paused в КомбоБоксе
-                m_videoState = VideoState.Paused;
+                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithOriginalSubtitlesComboBoxItem;
+                else
+                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithBilingualSubtitlesComboBoxItem;
             }
-            else
+            else // На паузе
             {
-                if (m_subtitlesState == SubtitlesState.Bilingual)
-                {
-                    // Переключаемся на оригинальные
-
-                    m_changeSubtitlesToOriginalDelegate.Invoke();
-                    //m_changeSubtitlesToOriginalDelegate.BeginInvoke(null, null);
-
-                    m_subtitlesState = SubtitlesState.Original;
-                }
-
-                // Ставим Playing в КомбоБоксе
-                m_videoState = VideoState.Playing;
+                if (m_subtitlesState == SubtitlesState.Original)
+                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithOriginalSubtitlesComboBoxItem;
+                else
+                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithBilingualSubtitlesComboBoxItem;
             }
 
-            BeginInvoke(m_changeVideoAndSubtitlesComboBoxesDelegate);
-        }
+            videoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
 
-        private void ChangeSubtitlesToBilingualByPostMessage()
-        {
-            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToBilingualHotkeyCode, 0);
-        }
+            #region Былое
+            //videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
+            //subtitlesStateComboBox.SelectedValueChanged -= subtitlesStateComboBox_SelectedValueChanged;
 
-        private void ChangeSubtitlesToBilingualByInputSimulator()
-        {
-            m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode.Value,
-                m_changeSubtitlesToBilingualHotkeyVirtualKeyCode.Value);
-        }
+            //if (m_videoState == VideoState.Playing)
 
-        private void ChangeSubtitlesToOriginalByPostMessage()
-        {
-            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_changeSubtitlesToOriginalHotkeyCode, 0);
-        }
+            //    videoStateComboBox.SelectedItem = m_videoStatesAndRelatedComboBoxItems[m_videoState];
+            //subtitlesStateComboBox.SelectedItem = m_subtitlesStatesAndRelatedComboBoxItems[m_subtitlesState];
 
-        private void ChangeSubtitlesToOriginalByInputSimulator()
-        {
-            m_inputSimulator.Keyboard.ModifiedKeyStroke(
-                m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode.Value,
-                m_changeSubtitlesToOriginalHotkeyVirtualKeyCode.Value);
+            //videoStateComboBox.SelectedValueChanged += videoStateComboBox_SelectedValueChanged;
+            //subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
+            #endregion
         }
-
-        string GetActiveProcessName()
-        {
-            IntPtr hwnd = GetForegroundWindow();
-            uint pid;
-            GetWindowThreadProcessId(hwnd, out pid);
-            Process p = Process.GetProcessById((int)pid);
-            return p.ProcessName;
-        }
-
-        Process GetActiveProcess()
-        {
-            IntPtr hwnd = GetForegroundWindow();
-            uint pid;
-            GetWindowThreadProcessId(hwnd, out pid);
-            return Process.GetProcessById((int)pid);
-        }
-
-        #endregion
 
         private Subtitle[] ReadDocx(string pathToDOCXFile)
         {
@@ -2941,6 +2928,12 @@ namespace BilingualSubtitler
         private void thirdRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToDocx(SubtitlesType.ThirdRussian, true);
+        }
+
+        private void videoAndSubtitlesStateComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            m_videoState = ((Tuple<VideoState,SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item1;
+            m_subtitlesState = ((Tuple<VideoState, SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item2;
         }
     }
 

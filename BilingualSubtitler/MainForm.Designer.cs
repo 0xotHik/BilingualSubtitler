@@ -35,6 +35,8 @@
             this.settingsButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.videoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -196,6 +198,7 @@
             this.label43 = new System.Windows.Forms.Label();
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
@@ -282,6 +285,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox7);
             this.groupBox5.Controls.Add(this.subtitlesStateComboBox);
             this.groupBox5.Controls.Add(this.videoStateComboBox);
             this.groupBox5.Controls.Add(this.label1);
@@ -290,7 +294,26 @@
             this.groupBox5.Size = new System.Drawing.Size(381, 79);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "🎥 Сейчас видео:";
+            this.groupBox5.Text = "🎥 Сейчас видео: //Старый";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.videoAndSubtitlesStateComboBox);
+            this.groupBox7.Location = new System.Drawing.Point(0, 0);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(381, 79);
+            this.groupBox7.TabIndex = 17;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "🎥 Сейчас видео:";
+            // 
+            // videoAndSubtitlesStateComboBox
+            // 
+            this.videoAndSubtitlesStateComboBox.FormattingEnabled = true;
+            this.videoAndSubtitlesStateComboBox.Location = new System.Drawing.Point(20, 41);
+            this.videoAndSubtitlesStateComboBox.Name = "videoAndSubtitlesStateComboBox";
+            this.videoAndSubtitlesStateComboBox.Size = new System.Drawing.Size(329, 21);
+            this.videoAndSubtitlesStateComboBox.TabIndex = 11;
+            this.videoAndSubtitlesStateComboBox.SelectedValueChanged += new System.EventHandler(this.videoAndSubtitlesStateComboBox_SelectedValueChanged);
             // 
             // groupBox3
             // 
@@ -2062,6 +2085,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -2292,5 +2316,7 @@
         private System.Windows.Forms.Button secondRussianSubtitlesOpenFromDownloadsButton;
         private System.Windows.Forms.Button thirdRussianSubtitlesExportAsDocxIntoDownloadsButton;
         private System.Windows.Forms.Button thirdRussianSubtitlesOpenFromDownloadsButton;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ComboBox videoAndSubtitlesStateComboBox;
     }
 }
