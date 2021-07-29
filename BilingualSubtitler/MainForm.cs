@@ -182,25 +182,25 @@ namespace BilingualSubtitler
             (VideoState.Playing, SubtitlesState.Original);
             //
             m_videoPlayingWithOriginalSubtitlesComboBoxItem = new ComboboxItem
-            { Text = "воспроизводится с оригинальными субтитрами", Value = m_videoPlayingWithOriginalSubtitlesState };
+            { Text = "воспроизводится & с оригинальными субтитрами", Value = m_videoPlayingWithOriginalSubtitlesState };
             // воспроизводится с двуязычными субтитрами
             m_videoPlayingWithBilingualSubtitlesState = new Tuple<VideoState, SubtitlesState>
                 (VideoState.Playing, SubtitlesState.Bilingual);
             //
             m_videoPlayingWithBilingualSubtitlesComboBoxItem = new ComboboxItem
-            { Text = "воспроизводится с двуязычными субтитрами", Value = m_videoPlayingWithBilingualSubtitlesState };
+            { Text = "воспроизводится & с двуязычными субтитрами", Value = m_videoPlayingWithBilingualSubtitlesState };
             // на паузе с оригинальными субтитрами
             m_videoPausedWithOriginalSubtitlesState = new Tuple<VideoState, SubtitlesState>
                 (VideoState.Paused, SubtitlesState.Original);
             //
             m_videoPausedWithOriginalSubtitlesComboBoxItem = new ComboboxItem
-            { Text = "на паузе с оригинальными субтитрами", Value = m_videoPausedWithOriginalSubtitlesState };
+            { Text = "на паузе & с оригинальными субтитрами", Value = m_videoPausedWithOriginalSubtitlesState };
             // на паузе с двуязычными субтитрами
             m_videoPausedWithBilingualSubtitlesState =
                 new Tuple<VideoState, SubtitlesState>(VideoState.Paused, SubtitlesState.Bilingual);
             //
             m_videoPausedWithBilingualSubtitlesComboBoxItem = new ComboboxItem
-            { Text = "на паузе с двуязычными субтитрами", Value = m_videoPausedWithBilingualSubtitlesState };
+            { Text = "на паузе & с двуязычными субтитрами", Value = m_videoPausedWithBilingualSubtitlesState };
 
             // Графика
             m_initialFormWidth = Width;
@@ -667,30 +667,30 @@ namespace BilingualSubtitler
                     subtitlesAppearanceGroupBox.Visible =
                     advancedMode;
 
-                if (!advancedMode)
-                {
-                    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
-                    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
-                    //    secondRussianSubtitlesExportAsDocx.Width + 40;
+                //if (!advancedMode)
+                //{
+                //    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
+                //    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
+                //    //    secondRussianSubtitlesExportAsDocx.Width + 40;
 
-                    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
-                    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
+                //    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
+                //    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
 
-                    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
-                    // firstRussianSubtitlesExportAsDocx.Width + 40;
+                //    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
+                //    // firstRussianSubtitlesExportAsDocx.Width + 40;
 
-                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocxButton.Right;
+                //    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocxButton.Right;
 
-                    hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
-                    hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
-                }
-                else
-                {
-                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = m_initialFirstRussianSubtitlesGroupBoxWidth;
+                //    hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
+                //    hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
+                //}
+                //else
+                //{
+                //    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = m_initialFirstRussianSubtitlesGroupBoxWidth;
 
-                    hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
-                    hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
-                }
+                //    hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
+                //    hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
+                //}
 
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
 

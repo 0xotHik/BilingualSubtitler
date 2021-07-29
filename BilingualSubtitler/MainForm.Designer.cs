@@ -342,7 +342,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.docXTranslationGroupBox);
             this.groupBox3.Controls.Add(this.button2);
