@@ -659,9 +659,9 @@ namespace BilingualSubtitler
                 // Advanced Mode
                 var advancedMode = Settings.Default.AdvancedMode;
 
-                firstRussianSubtitlesExportAsDocx.Visible =
-                    secondRussianSubtitlesExportAsDocx.Visible =
-                    thirdRussianSubtitlesExportAsDocx.Visible =
+                firstRussianSubtitlesExportAsDocxButton.Visible =
+                    secondRussianSubtitlesExportAsDocxButton.Visible =
+                    thirdRussianSubtitlesExportAsDocxButton.Visible =
                     googleTranslatorLinkLabel.Visible =
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
@@ -2607,22 +2607,22 @@ namespace BilingualSubtitler
             }
         }
 
-        private void primarySubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        private void primarySubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToDocx(SubtitlesType.Original);
         }
 
-        private void firstRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        private void firstRussianSubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToDocx(SubtitlesType.FirstRussian);
         }
 
-        private void secondRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        private void secondRussianSubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToDocx(SubtitlesType.SecondRussian);
         }
 
-        private void thirdRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        private void thirdRussianSubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToDocx(SubtitlesType.ThirdRussian);
         }
@@ -2934,6 +2934,11 @@ namespace BilingualSubtitler
         {
             m_videoState = ((Tuple<VideoState,SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item1;
             m_subtitlesState = ((Tuple<VideoState, SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item2;
+        }
+
+        private void firstRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
