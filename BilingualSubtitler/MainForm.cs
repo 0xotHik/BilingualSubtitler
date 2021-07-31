@@ -54,6 +54,9 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
         private int m_initialFormWidth;
+        private int m_initialOpenSubtitlesButtonLeft;
+        private int m_initialExportSubtitlesAsDocxButtonLeft;
+        private int m_initialOpenSubtitlesFromDownloadsButtonLeft;
         private int m_initialFirstRussianSubtitlesGroupBoxWidth;
         private int m_initialSecondRussianSubtitlesGroupBoxWidth;
         private int m_initialThirdRussianSubtitlesGroupBoxWidth;
@@ -204,6 +207,9 @@ namespace BilingualSubtitler
 
             // Графика
             m_initialFormWidth = Width;
+            m_initialOpenSubtitlesButtonLeft = openOrClosePrimarySubtitlesButton.Left;
+            m_initialOpenSubtitlesFromDownloadsButtonLeft = openPrimarySubtitlesFromDownloadsButton.Left;
+            m_initialExportSubtitlesAsDocxButtonLeft = primarySubtitlesExportAsDocxButton.Left;
             m_initialFirstRussianSubtitlesGroupBoxWidth = firstRussianSubtitlesGroupBox.Width;
             m_initialSecondRussianSubtitlesGroupBoxWidth = secondRussianSubtitlesGroupBox.Width;
             m_initialThirdRussianSubtitlesGroupBoxWidth = thirdRussianSubtitlesGroupBox.Width;
@@ -315,25 +321,30 @@ namespace BilingualSubtitler
                     SubtitlesType.Original, new SubtitlesAndInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
                         openOrClosePrimarySubtitlesButton, null, null,
-                        primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton)
+                        primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton,
+                        openOrClosePrimarySubtitlesGroupBox, primarySubtitlesExportAsDocxGroupBox, openPrimarySubtitlesFromDownloadsButton, openPrimarySubtitlesFromDefaultFolderButton, primarySubtitlesExportAsDocxButton, primarySubtitlesExportAsDocxIntoDownloadsButton)
                 },
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
                         openOrCloseFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
-                        firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton)
+                        firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton,
+                        openOrCloseFirstRussianSubtitlesGroupBox, firstRussianSubtitlesExportAsDocxGroupBox, firstRussianSubtitlesOpenFromDownloadsButton, openFirstRussianSubtitlesFromDefaultFolderButton,
+                        firstRussianSubtitlesExportAsDocxButton, firstRussianSubtitlesExportAsDocxIntoDownloadsButton)
                 },
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
                         openOrCloseSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
-                        secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton)
+                        secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton,
+                        openOrCloseSecondRussianSubtitlesGroupBox, secondRussianSubtitlesExportAsDocxGroupBox, secondRussianSubtitlesOpenFromDownloadsButton, openSecondRussianSubtitlesFromDefaultFolderButton, secondRussianSubtitlesExportAsDocxButton, secondRussianSubtitlesExportAsDocxIntoDownloadsButton)
                 },
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
                         openOrCloseThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
-                        thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton)
+                        thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton,
+                        openOrCloseThirdRussianSubtitlesGroupBox, thirdRussianSubtitlesExportAsDocxGroupBox, thirdRussianSubtitlesOpenFromDownloadsButton, openThirdRussianSubtitlesFromDefaultFolderButton, thirdRussianSubtitlesExportAsDocxButton, thirdRussianSubtitlesExportAsDocxIntoDownloadsButton)
                 }
             };
 
@@ -662,35 +673,56 @@ namespace BilingualSubtitler
                 firstRussianSubtitlesExportAsDocxButton.Visible =
                     secondRussianSubtitlesExportAsDocxButton.Visible =
                     thirdRussianSubtitlesExportAsDocxButton.Visible =
+
                     googleTranslatorLinkLabel.Visible =
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
                     advancedMode;
 
-                //if (!advancedMode)
-                //{
-                //    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
-                //    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
-                //    //    secondRussianSubtitlesExportAsDocx.Width + 40;
+                var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
+                var exportAsDocxSubtitlesLeft = advancedMode ? m_initialExportSubtitlesAsDocxButtonLeft : (primarySubtitlesExportAsDocxGroupBox.Width / 2) - (primarySubtitlesExportAsDocxButton.Width / 2);
 
-                //    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
-                //    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
+                foreach (var subtitles in m_subtitles)
+                {
+                    var subtitlesWithInfo = subtitles.Value;
 
-                //    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
-                //    // firstRussianSubtitlesExportAsDocx.Width + 40;
+                    subtitlesWithInfo.ButtonOpenOrClose.Left = buttonOpenSubtitlesLeft;
+                    subtitlesWithInfo.ExportAsDocxButton.Left = buttonOpenSubtitlesLeft;
 
-                //    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesExportAsDocxButton.Right;
+                    subtitlesWithInfo.OpenFromDownloadsButton.Visible = advancedMode;
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Visible = advancedMode;
+                    subtitlesWithInfo.ExportAsDocxIntoDownloadsButton.Visible = advancedMode;
 
-                //    hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
-                //    hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
-                //}
-                //else
-                //{
-                //    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = m_initialFirstRussianSubtitlesGroupBoxWidth;
+                    if (subtitles.Key != SubtitlesType.Original)
+                    {
+                        subtitlesWithInfo.ExportAsDocxGroupBox.Visible = advancedMode;
+                    }
+                }
 
-                //    hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
-                //    hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
-                //}
+                if (!advancedMode)
+                {
+                    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
+                    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
+                    //    secondRussianSubtitlesExportAsDocx.Width + 40;
+
+                    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
+                    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
+
+                    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
+                    // firstRussianSubtitlesExportAsDocx.Width + 40;
+
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesColorGroupBox.Right + hideSecondRussianSubtitlesButton.Width + 10;
+
+                    hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
+                    hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
+                }
+                else
+                {
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = m_initialFirstRussianSubtitlesGroupBoxWidth;
+
+                    hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
+                    hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
+                }
 
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
 

@@ -110,6 +110,12 @@ namespace BilingualSubtitler
 
         public Button CloseSubtitleStreamConfimationButton;
         public Button CloseSubtitleStreamCancellationButton;
+        public GroupBox OpenSubtitlesGroupBox;
+        public GroupBox ExportAsDocxGroupBox;
+        public Button OpenFromDownloadsButton;
+        public Button OpenFromDefaultFolderButton;
+        public Button ExportAsDocxButton;
+        public Button ExportAsDocxIntoDownloadsButton;
 
         public string TrackNumber;
         public string TrackLanguage;
@@ -118,7 +124,10 @@ namespace BilingualSubtitler
         public string FileExtention { get; set; }
         
         public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
-           Label actionLabel, TextBox outputTextBox, Button colorPickingButton)
+           Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
+           GroupBox openSubtitlesGroupBox, GroupBox exportAsDocxGroupBox,
+           Button openFromDownloadsButton, Button openFromDefaultFolderButton,
+           Button exportAsDocxButton, Button exportAsDocxIntoDownloadsButton)
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
@@ -128,6 +137,12 @@ namespace BilingualSubtitler
             ActionLabel = actionLabel;
             OutputTextBox = outputTextBox;
             ColorPickingButton = colorPickingButton;
+            OpenSubtitlesGroupBox = openSubtitlesGroupBox;
+            ExportAsDocxGroupBox = exportAsDocxGroupBox;
+            OpenFromDownloadsButton = openFromDownloadsButton;
+            OpenFromDefaultFolderButton = openFromDefaultFolderButton;
+            ExportAsDocxButton = exportAsDocxButton;
+            ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
         }
 
         public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
