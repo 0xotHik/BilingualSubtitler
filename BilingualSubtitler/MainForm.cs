@@ -1830,8 +1830,26 @@ namespace BilingualSubtitler
         }
 
         private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType, 
-            bool fromDownloads = false, bool fromDefault = false)
+            bool fromDownloadsFolder = false, bool fromDefaultFolder = false)
         {
+            // Чекаем пути (непутю)
+            if (fromDownloadsFolder)
+                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
+                {
+                    MessageBox.Show("Путь к папке \"Загрузки\" задан неверно! Проверьте настройки программы.", "Путь к папке \"Загрузки\" задан неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+            //
+            if (fromDefaultFolder)
+                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.FolderToOpenFilesByDefaultFrom))
+                {
+                    MessageBox.Show("Путь к папке для открытия файлов по умолчанию задан неверно! Проверьте настройки программы.", "Путь к папке для открытия файлов по умолчанию задан неверно", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+
             if (subtitlesType == SubtitlesType.Original)
             {
                 translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
@@ -1850,12 +1868,12 @@ namespace BilingualSubtitler
                 openFileDialog.Filter = formats;
 
                 // Папки по умолчанию
-                if (fromDownloads)
+                if (fromDownloadsFolder)
                 {
                     string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
                     openFileDialog.InitialDirectory = downloadsFolderPath;
                 }
-                else if (fromDefault)
+                else if (fromDefaultFolder)
                     openFileDialog.InitialDirectory = Settings.Default.FolderToOpenFilesByDefaultFrom;
 
                 var result = openFileDialog.ShowDialog();
@@ -3017,22 +3035,22 @@ namespace BilingualSubtitler
 
         private void openPrimarySubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, fromDefault: true);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, fromDefaultFolder: true);
         }
 
         private void openFirstRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefault: true);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefaultFolder: true);
         }
 
         private void openSecondRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefault: true);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefaultFolder: true);
         }
 
         private void openThirdRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefault: true);
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefaultFolder: true);
         }
     }
 
