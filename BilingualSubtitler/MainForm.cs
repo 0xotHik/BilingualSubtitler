@@ -54,6 +54,9 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
         private int m_initialFormWidth;
+        private string m_initialOpenOrCloseSubtitlesButtonText;
+        private string m_initialOpenSubtitlesGroupBoxText;
+        private string m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog;
         private int m_initialOpenSubtitlesButtonLeft;
         private int m_initialExportSubtitlesAsDocxButtonLeft;
         private int m_initialOpenSubtitlesFromDownloadsButtonLeft;
@@ -208,6 +211,8 @@ namespace BilingualSubtitler
             // Графика
             m_initialFormWidth = Width;
             m_initialOpenSubtitlesButtonLeft = openOrClosePrimarySubtitlesButton.Left;
+            m_initialOpenSubtitlesGroupBoxText = m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = openOrCloseFirstRussianSubtitlesGroupBox.Text;
+            m_initialOpenOrCloseSubtitlesButtonText = openOrClosePrimarySubtitlesButton.Text;
             m_initialOpenSubtitlesFromDownloadsButtonLeft = openPrimarySubtitlesFromDownloadsButton.Left;
             m_initialExportSubtitlesAsDocxButtonLeft = primarySubtitlesExportAsDocxButton.Left;
             m_initialFirstRussianSubtitlesGroupBoxWidth = firstRussianSubtitlesGroupBox.Width;
@@ -669,7 +674,7 @@ namespace BilingualSubtitler
 
                 // Advanced Mode
                 var advancedMode = Settings.Default.AdvancedMode;
-
+                //
                 firstRussianSubtitlesExportAsDocxButton.Visible =
                     secondRussianSubtitlesExportAsDocxButton.Visible =
                     thirdRussianSubtitlesExportAsDocxButton.Visible =
@@ -678,10 +683,10 @@ namespace BilingualSubtitler
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
                     advancedMode;
-
+                //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
                 var exportAsDocxSubtitlesLeft = advancedMode ? m_initialExportSubtitlesAsDocxButtonLeft : (primarySubtitlesExportAsDocxGroupBox.Width / 2) - (primarySubtitlesExportAsDocxButton.Width / 2);
-
+                //
                 foreach (var subtitles in m_subtitles)
                 {
                     var subtitlesWithInfo = subtitles.Value;
@@ -698,7 +703,7 @@ namespace BilingualSubtitler
                         subtitlesWithInfo.ExportAsDocxGroupBox.Visible = advancedMode;
                     }
                 }
-
+                //
                 if (!advancedMode)
                 {
                     //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
@@ -723,8 +728,14 @@ namespace BilingualSubtitler
                     hideThirdRussianSubtitlesButton.Location = new Point(m_initialThirdRussianSubtitlesHideButtonX, hideThirdRussianSubtitlesButton.Location.Y);
                     hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
                 }
-
+                //
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
+
+                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
+                {
+                    Properties.Settings.Default.DownloadsFolder = KnownFolders.GetPath(KnownFolder.Downloads);
+                    Properties.Settings.Default.Save();
+                }
 
             }
             catch (Exception e)
@@ -1176,12 +1187,25 @@ namespace BilingualSubtitler
             subtitlesAndInfo.Subtitles = listOfSubtitles.ToArray();
 
             subtitlesAndInfo.ProgressLabel.Visible = subtitlesAndInfo.ProgressBar.Visible = subtitlesAndInfo.ActionLabel.Visible = true;
+
+            SetGUIContolsToSubtitlesWasSuccessfullyLoaded(subtitlesAndInfo);
+
+            subtitlesAndInfo.SetOriginalFile(filePath, false);
+        }
+
+        private void SetGUIContolsToSubtitlesWasSuccessfullyLoaded(SubtitlesAndInfo subtitlesAndInfo)
+        {
             subtitlesAndInfo.ProgressBar.Value = primarySubtitlesProgressBar.Maximum;
             subtitlesAndInfo.ProgressLabel.Text = $"100%";
             subtitlesAndInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
-            subtitlesAndInfo.ButtonOpenOrClose.Text = $"x\nУбрать поток\nсубтитров";
+            subtitlesAndInfo.ButtonOpenOrClose.Text = $"x\nУбрать";
 
-            subtitlesAndInfo.SetOriginalFile(filePath, false);
+            subtitlesAndInfo.ButtonOpenOrClose.Left = (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
+
+            subtitlesAndInfo.OpenSubtitlesGroupBox.Text = "Поток субтитров";
+            m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = subtitlesAndInfo.OpenSubtitlesGroupBox.Text;
+            subtitlesAndInfo.OpenFromDownloadsButton.Visible = false;
+            subtitlesAndInfo.OpenFromDefaultFolderButton.Visible = false;
         }
 
         private void WriteSubtitlesStyleToFormControls(SubtitlesStyle style, SubtitlesType subtitlesType)
@@ -1805,7 +1829,8 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
         }
 
-        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType, bool fromDownloads = false)
+        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType, 
+            bool fromDownloads = false, bool fromDefault = false)
         {
             if (subtitlesType == SubtitlesType.Original)
             {
@@ -1827,10 +1852,10 @@ namespace BilingualSubtitler
                 // Папки по умолчанию
                 if (fromDownloads)
                 {
-                    string downloadsFolderPath = KnownFolders.GetPath(KnownFolder.Downloads);
+                    string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
                     openFileDialog.InitialDirectory = downloadsFolderPath;
                 }
-                else if (Properties.Settings.Default.OpenFilesByDefaultFromSetFolder)
+                else if (fromDefault)
                     openFileDialog.InitialDirectory = Settings.Default.FolderToOpenFilesByDefaultFrom;
 
                 var result = openFileDialog.ShowDialog();
@@ -1847,11 +1872,15 @@ namespace BilingualSubtitler
                 {
                     Tag = subtitlesType,
                     Size = subtitlesWithInfo.ButtonOpenOrClose.Size,
-                    Location = subtitlesWithInfo.ButtonOpenOrClose.Location,
+                    Top = subtitlesWithInfo.ButtonOpenOrClose.Top,
+                    Left = m_initialOpenSubtitlesButtonLeft,
                     BackColor = Color.Red,
-                    Text = "🗑\nТочно убрать?",
+                    Text = "🗑\nУбрать",
                     ForeColor = Color.White
                 };
+                //
+                subtitlesWithInfo.OpenSubtitlesGroupBox.Text = "Точно убрать?";
+                //
                 subtitlesWithInfo.ButtonOpenOrClose.Hide();
                 closeSubtitleStreamConfimationButton.Click += CloseSubtitleStreamConfimationButton_Click;
                 subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeSubtitleStreamConfimationButton);
@@ -1860,8 +1889,9 @@ namespace BilingualSubtitler
                 var closeSubtitleStreamCancellationButton = new Button
                 {
                     Tag = subtitlesType,
-                    Size = new Size(subtitlesWithInfo.ColorPickingButton.Width, subtitlesWithInfo.ButtonOpenOrClose.Size.Height),
-                    Location = subtitlesWithInfo.ColorPickingButton.Location,
+                    Size = closeSubtitleStreamConfimationButton.Size,
+                    Top = subtitlesWithInfo.ButtonOpenOrClose.Top,
+                    Left = m_initialOpenSubtitlesFromDownloadsButtonLeft,
                     BackColor = Color.LightGreen,
                     Text = "↩\nОтмена",
                     //ForeColor = Color.White
@@ -1897,11 +1927,14 @@ namespace BilingualSubtitler
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
             subtitlesWithInfo.Subtitles = null;
-            subtitlesWithInfo.ButtonOpenOrClose.Text = $"📁\nОткрыть\nиз файла";
+            subtitlesWithInfo.ButtonOpenOrClose.Text = m_initialOpenOrCloseSubtitlesButtonText;
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
             subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
             subtitlesWithInfo.OutputTextBox.Text = string.Empty;
+
+            // Загруженных субтитров не осталось:
+            subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxText;
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
@@ -1911,6 +1944,9 @@ namespace BilingualSubtitler
             var closeSubtitleStreamConfimationButton = (Button)sender;
             var subtitlesType = (SubtitlesType)closeSubtitleStreamConfimationButton.Tag;
             var subtitlesWithInfo = m_subtitles[subtitlesType];
+
+            // Загруженные субтитры остались:
+            subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog;
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
@@ -1942,7 +1978,10 @@ namespace BilingualSubtitler
 
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
-            subtitlesWithInfo.ButtonOpenOrClose.Enabled = false;
+
+            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
             if (subtitlesWithInfo.ButtonTranslate != null)
                 subtitlesWithInfo.ButtonTranslate.Enabled = false;
             subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
@@ -2193,8 +2232,9 @@ namespace BilingualSubtitler
                                 true;
                 }
 
-                subtitlesInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
-                subtitlesInfo.ButtonOpenOrClose.Text = $"x\nУбрать поток\nсубтитров";
+                // GUI
+                SetGUIContolsToSubtitlesWasSuccessfullyLoaded(subtitlesInfo);
+                
             }
             else
             {
@@ -2203,7 +2243,9 @@ namespace BilingualSubtitler
                 subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время открытия субтитров";
             }
 
-            subtitlesInfo.ButtonOpenOrClose.Enabled = true;
+            subtitlesInfo.ButtonOpenOrClose.Enabled = 
+                subtitlesInfo.OpenFromDownloadsButton.Enabled =
+                    subtitlesInfo.OpenFromDefaultFolderButton.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;
 
@@ -2971,6 +3013,26 @@ namespace BilingualSubtitler
         private void firstRussianSubtitlesExportAsDocx_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void openPrimarySubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, fromDefault: true);
+        }
+
+        private void openFirstRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefault: true);
+        }
+
+        private void openSecondRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefault: true);
+        }
+
+        private void openThirdRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
+        {
+            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefault: true);
         }
     }
 

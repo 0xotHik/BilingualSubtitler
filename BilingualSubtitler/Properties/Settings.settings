@@ -84,17 +84,11 @@
   &lt;string&gt;Space@32@&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="OpenFilesByDefaultFromSetFolder" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="FolderToOpenFilesByDefaultFrom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Movies\</Value>
+      <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="SaveFilesByDefaultToSetFolder" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="FolderToSaveFilesByDefaultFrom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Movies\</Value>
+    <Setting Name="DownloadsFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

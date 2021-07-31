@@ -332,19 +332,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool OpenFilesByDefaultFromSetFolder {
-            get {
-                return ((bool)(this["OpenFilesByDefaultFromSetFolder"]));
-            }
-            set {
-                this["OpenFilesByDefaultFromSetFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Movies\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FolderToOpenFilesByDefaultFrom {
             get {
                 return ((string)(this["FolderToOpenFilesByDefaultFrom"]));
@@ -356,25 +344,13 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SaveFilesByDefaultToSetFolder {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DownloadsFolder {
             get {
-                return ((bool)(this["SaveFilesByDefaultToSetFolder"]));
+                return ((string)(this["DownloadsFolder"]));
             }
             set {
-                this["SaveFilesByDefaultToSetFolder"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Movies\\")]
-        public string FolderToSaveFilesByDefaultFrom {
-            get {
-                return ((string)(this["FolderToSaveFilesByDefaultFrom"]));
-            }
-            set {
-                this["FolderToSaveFilesByDefaultFrom"] = value;
+                this["DownloadsFolder"] = value;
             }
         }
     }
