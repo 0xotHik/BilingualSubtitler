@@ -149,6 +149,13 @@
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.advancedModeRadioButton = new System.Windows.Forms.RadioButton();
             this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.downloadsFolderPathSetButton = new System.Windows.Forms.Button();
+            this.defaultFolderPathSetButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -186,6 +193,7 @@
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
@@ -201,7 +209,7 @@
             this.buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonOk.Image = global::BilingualSubtitler.Properties.Resources._16pxOkIcon;
             this.buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOk.Location = new System.Drawing.Point(975, 677);
+            this.buttonOk.Location = new System.Drawing.Point(975, 779);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(95, 35);
             this.buttonOk.TabIndex = 5;
@@ -215,7 +223,7 @@
             this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancel.Location = new System.Drawing.Point(15, 677);
+            this.buttonCancel.Location = new System.Drawing.Point(15, 779);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(74, 35);
             this.buttonCancel.TabIndex = 4;
@@ -240,7 +248,7 @@
             this.groupBox1.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
             this.groupBox1.Controls.Add(this.linkLabelYandexAPIKeysList);
             this.groupBox1.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.groupBox1.Location = new System.Drawing.Point(15, 568);
+            this.groupBox1.Location = new System.Drawing.Point(15, 670);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1056, 94);
             this.groupBox1.TabIndex = 44;
@@ -1049,7 +1057,7 @@
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(415, 677);
+            this.button5.Location = new System.Drawing.Point(415, 779);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(234, 35);
             this.button5.TabIndex = 48;
@@ -1444,12 +1452,86 @@
             this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
             this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.defaultFolderPathSetButton);
+            this.groupBox13.Controls.Add(this.downloadsFolderPathSetButton);
+            this.groupBox13.Controls.Add(this.label42);
+            this.groupBox13.Controls.Add(this.defaultFolderPathRichTextBox);
+            this.groupBox13.Controls.Add(this.label41);
+            this.groupBox13.Controls.Add(this.downloadsFolderPathRichTextBox);
+            this.groupBox13.Location = new System.Drawing.Point(15, 571);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(1056, 94);
+            this.groupBox13.TabIndex = 98;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Ключ Яндекс.Переводчика";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(546, 27);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(263, 13);
+            this.label42.TabIndex = 6;
+            this.label42.Text = "Путь к папке для открытия файлов по умолчанию:";
+            // 
+            // defaultFolderPathRichTextBox
+            // 
+            this.defaultFolderPathRichTextBox.Location = new System.Drawing.Point(553, 51);
+            this.defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
+            this.defaultFolderPathRichTextBox.Size = new System.Drawing.Size(483, 29);
+            this.defaultFolderPathRichTextBox.TabIndex = 5;
+            this.defaultFolderPathRichTextBox.Text = "";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(10, 27);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(136, 13);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "Путь к папке \"Загрузки\":";
+            // 
+            // downloadsFolderPathRichTextBox
+            // 
+            this.downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(8, 51);
+            this.downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
+            this.downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(483, 29);
+            this.downloadsFolderPathRichTextBox.TabIndex = 2;
+            this.downloadsFolderPathRichTextBox.Text = "";
+            // 
+            // downloadsFolderPathSetButton
+            // 
+            this.downloadsFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.downloadsFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.downloadsFolderPathSetButton.Location = new System.Drawing.Point(359, 22);
+            this.downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
+            this.downloadsFolderPathSetButton.Size = new System.Drawing.Size(132, 23);
+            this.downloadsFolderPathSetButton.TabIndex = 98;
+            this.downloadsFolderPathSetButton.Text = "Задать путь";
+            this.downloadsFolderPathSetButton.UseVisualStyleBackColor = false;
+            this.downloadsFolderPathSetButton.Click += new System.EventHandler(this.downloadsFolderPathSetButton_Click);
+            // 
+            // defaultFolderPathSetButton
+            // 
+            this.defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.defaultFolderPathSetButton.Location = new System.Drawing.Point(904, 22);
+            this.defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
+            this.defaultFolderPathSetButton.Size = new System.Drawing.Size(132, 23);
+            this.defaultFolderPathSetButton.TabIndex = 99;
+            this.defaultFolderPathSetButton.Text = "Задать путь";
+            this.defaultFolderPathSetButton.UseVisualStyleBackColor = false;
+            this.defaultFolderPathSetButton.Click += new System.EventHandler(this.defaultFolderPathSetButton_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1083, 724);
+            this.ClientSize = new System.Drawing.Size(1083, 824);
+            this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
@@ -1514,6 +1596,8 @@
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1639,5 +1723,12 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.RadioButton advancedModeRadioButton;
         private System.Windows.Forms.RadioButton notAdvancedModeRadioButton;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.RichTextBox defaultFolderPathRichTextBox;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.RichTextBox downloadsFolderPathRichTextBox;
+        private System.Windows.Forms.Button defaultFolderPathSetButton;
+        private System.Windows.Forms.Button downloadsFolderPathSetButton;
     }
 }

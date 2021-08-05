@@ -1204,8 +1204,10 @@ namespace BilingualSubtitler
 
             subtitlesAndInfo.OpenSubtitlesGroupBox.Text = "Поток субтитров";
             m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = subtitlesAndInfo.OpenSubtitlesGroupBox.Text;
-            subtitlesAndInfo.OpenFromDownloadsButton.Visible = false;
-            subtitlesAndInfo.OpenFromDefaultFolderButton.Visible = false;
+            subtitlesAndInfo.OpenFromDownloadsButton.Visible =
+            subtitlesAndInfo.OpenFromDefaultFolderButton.Visible =
+            subtitlesAndInfo.OpenFromDownloadsButton.Enabled =
+            subtitlesAndInfo.OpenFromDefaultFolderButton.Enabled = false;
         }
 
         private void WriteSubtitlesStyleToFormControls(SubtitlesStyle style, SubtitlesType subtitlesType)
@@ -1829,7 +1831,7 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
         }
 
-        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType, 
+        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType,
             bool fromDownloadsFolder = false, bool fromDefaultFolder = false)
         {
             // Чекаем пути (непутю)
@@ -1883,6 +1885,8 @@ namespace BilingualSubtitler
                     ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
                 }
             }
+            // Субтитры есть
+            // Значит нажали на кнопку, когда она была в состоянии "Закрыть поток"
             else // Закрываем поток
             {
                 // Создаем кнопки для подтверждения / отмены
@@ -1914,7 +1918,7 @@ namespace BilingualSubtitler
                     Text = "↩\nОтмена",
                     //ForeColor = Color.White
                 };
-                subtitlesWithInfo.ColorPickingButton.Hide();
+                //subtitlesWithInfo.ColorPickingButton.Hide();
                 closeSubtitleStreamCancellationButton.Click += CloseSubtitleStreamCancellationButton_Click;
                 subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Add(closeSubtitleStreamCancellationButton);
                 closeSubtitleStreamCancellationButton.Show();
@@ -1953,6 +1957,16 @@ namespace BilingualSubtitler
 
             // Загруженных субтитров не осталось:
             subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxText;
+            //
+            subtitlesWithInfo.OpenFromDownloadsButton.Visible =
+            subtitlesWithInfo.OpenFromDefaultFolderButton.Visible =
+            Properties.Settings.Default.AdvancedMode;
+            //
+            subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+            subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = true;
+            //
+            if (Properties.Settings.Default.AdvancedMode)
+                subtitlesWithInfo.ButtonOpenOrClose.Left =  m_initialOpenSubtitlesButtonLeft;
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
@@ -1967,18 +1981,21 @@ namespace BilingualSubtitler
             subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog;
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
+
         }
 
         private void CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(SubtitlesAndInfo subtitlesWithInfo)
         {
             subtitlesWithInfo.ButtonOpenOrClose.Show();
-            subtitlesWithInfo.ColorPickingButton.Show();
+            //subtitlesWithInfo.ColorPickingButton.Show();
 
             subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Remove(subtitlesWithInfo.CloseSubtitleStreamConfimationButton);
             subtitlesWithInfo.ButtonOpenOrClose.Parent.Controls.Remove(subtitlesWithInfo.CloseSubtitleStreamCancellationButton);
 
             subtitlesWithInfo.CloseSubtitleStreamConfimationButton = null;
             subtitlesWithInfo.CloseSubtitleStreamCancellationButton = null;
+
+
         }
 
 
@@ -2252,7 +2269,7 @@ namespace BilingualSubtitler
 
                 // GUI
                 SetGUIContolsToSubtitlesWasSuccessfullyLoaded(subtitlesInfo);
-                
+
             }
             else
             {
@@ -2261,7 +2278,7 @@ namespace BilingualSubtitler
                 subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время открытия субтитров";
             }
 
-            subtitlesInfo.ButtonOpenOrClose.Enabled = 
+            subtitlesInfo.ButtonOpenOrClose.Enabled =
                 subtitlesInfo.OpenFromDownloadsButton.Enabled =
                     subtitlesInfo.OpenFromDefaultFolderButton.Enabled = true;
             if (subtitlesInfo.ButtonTranslate != null)
@@ -3024,7 +3041,7 @@ namespace BilingualSubtitler
 
         private void videoAndSubtitlesStateComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            m_videoState = ((Tuple<VideoState,SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item1;
+            m_videoState = ((Tuple<VideoState, SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item1;
             m_subtitlesState = ((Tuple<VideoState, SubtitlesState>)((ComboboxItem)((ComboBox)sender).SelectedItem).Value).Item2;
         }
 

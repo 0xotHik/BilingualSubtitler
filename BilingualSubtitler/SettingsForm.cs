@@ -152,6 +152,9 @@ namespace BilingualSubtitler
             else
                 notAdvancedModeRadioButton.Checked = true;
 
+            downloadsFolderPathRichTextBox.Text = Properties.Settings.Default.DownloadsFolder;
+            defaultFolderPathRichTextBox.Text = Properties.Settings.Default.FolderToOpenFilesByDefaultFrom;
+
             SetFormAccordingToSubtitlesAppearanceSettings();
         }
 
@@ -428,6 +431,9 @@ namespace BilingualSubtitler
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 
             Properties.Settings.Default.AdvancedMode = advancedModeRadioButton.Checked;
+
+            Properties.Settings.Default.DownloadsFolder = downloadsFolderPathRichTextBox.Text;
+            Properties.Settings.Default.FolderToOpenFilesByDefaultFrom = defaultFolderPathRichTextBox.Text;
 
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
@@ -785,6 +791,26 @@ namespace BilingualSubtitler
         private void advancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             notAdvancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
+        }
+
+        private void downloadsFolderPathSetButton_Click(object sender, EventArgs e)
+        {
+            var openFolderDialog = new FolderBrowserDialog();
+            openFolderDialog.SelectedPath = downloadsFolderPathRichTextBox.Text;
+            var dialogResult = openFolderDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+                downloadsFolderPathRichTextBox.Text = openFolderDialog.SelectedPath;
+        }
+
+        private void defaultFolderPathSetButton_Click(object sender, EventArgs e)
+        {
+            var openFolderDialog = new FolderBrowserDialog();
+            openFolderDialog.SelectedPath = defaultFolderPathRichTextBox.Text;
+            var dialogResult = openFolderDialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+                defaultFolderPathRichTextBox.Text = openFolderDialog.SelectedPath;
         }
 
 
