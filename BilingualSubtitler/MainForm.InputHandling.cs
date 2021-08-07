@@ -10,14 +10,14 @@ namespace BilingualSubtitler
             //if (GetActiveProcessName() != m_videoPlayerProcessName)
             //    return;
             //m_videoPlayerProcess = Process.GetProcessesByName("mpc-hc64")[0];
-
+            
             var activeProcess = GetActiveProcess();
             if (activeProcess.ProcessName != m_videoPlayerProcessName)
                 return;
             m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
 
             PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
-            SwitchSubtitles();
+            SwitchSubtitlesStatesAndComboBox();
         }
 
         private void ActionForHotkeyThatArePauseButton()
@@ -30,11 +30,11 @@ namespace BilingualSubtitler
                 return;
             m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
 
-            SwitchSubtitles();
+            SwitchSubtitlesStatesAndComboBox();
         }
-
-        private void SwitchSubtitles()
-        {
+        
+        private void SwitchSubtitlesStatesAndComboBox()
+         {
             // Я так понимаю, сюда мы попадаем еще до переключения паузы/воспроизведения
             if (m_videoState == VideoState.Playing)
             {

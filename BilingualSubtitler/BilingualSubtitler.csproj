@@ -248,7 +248,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer\InstallerScript.iss" />
-    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll" />
+    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Libs\UtfUnknown.dll" />
     <Content Include="Libs\zlib.net.dll" />
     <Content Include="Resources\16pxCancelIcon.png" />

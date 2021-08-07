@@ -36,8 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.videoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.additionalOpenExportSubtitlesButtonsGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label44 = new System.Windows.Forms.Label();
             this.videoFileExtentionLabel = new System.Windows.Forms.Label();
@@ -214,9 +216,13 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            this.additionalOpenExportSubtitlesButtonsLabel = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -327,7 +333,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.videoAndSubtitlesStateComboBox);
+            this.groupBox7.Controls.Add(this.panel1);
             this.groupBox7.Location = new System.Drawing.Point(0, 0);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(381, 79);
@@ -335,10 +341,22 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "🎥 Сейчас видео:";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.videoAndSubtitlesStateComboBox);
+            this.panel1.Location = new System.Drawing.Point(20, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(329, 23);
+            this.panel1.TabIndex = 12;
+            // 
             // videoAndSubtitlesStateComboBox
             // 
+            this.videoAndSubtitlesStateComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.videoAndSubtitlesStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.videoAndSubtitlesStateComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.videoAndSubtitlesStateComboBox.FormattingEnabled = true;
-            this.videoAndSubtitlesStateComboBox.Location = new System.Drawing.Point(20, 41);
+            this.videoAndSubtitlesStateComboBox.Location = new System.Drawing.Point(0, 0);
             this.videoAndSubtitlesStateComboBox.Name = "videoAndSubtitlesStateComboBox";
             this.videoAndSubtitlesStateComboBox.Size = new System.Drawing.Size(329, 21);
             this.videoAndSubtitlesStateComboBox.TabIndex = 11;
@@ -346,6 +364,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsLabel);
+            this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsGroupBox);
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.docXTranslationGroupBox);
             this.groupBox3.Controls.Add(this.button2);
@@ -362,6 +382,16 @@
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "🗋💬 Создание файлов субтитров, требующихся для просмотра:";
+            // 
+            // additionalOpenExportSubtitlesButtonsGroupBox
+            // 
+            this.additionalOpenExportSubtitlesButtonsGroupBox.Controls.Add(this.label45);
+            this.additionalOpenExportSubtitlesButtonsGroupBox.Location = new System.Drawing.Point(717, 176);
+            this.additionalOpenExportSubtitlesButtonsGroupBox.Name = "additionalOpenExportSubtitlesButtonsGroupBox";
+            this.additionalOpenExportSubtitlesButtonsGroupBox.Size = new System.Drawing.Size(98, 196);
+            this.additionalOpenExportSubtitlesButtonsGroupBox.TabIndex = 15;
+            this.additionalOpenExportSubtitlesButtonsGroupBox.TabStop = false;
+            this.additionalOpenExportSubtitlesButtonsGroupBox.Text = "субтитров:";
             // 
             // groupBox2
             // 
@@ -433,7 +463,7 @@
             this.docXTranslationGroupBox.Controls.Add(this.linkLabel1);
             this.docXTranslationGroupBox.Location = new System.Drawing.Point(717, 22);
             this.docXTranslationGroupBox.Name = "docXTranslationGroupBox";
-            this.docXTranslationGroupBox.Size = new System.Drawing.Size(98, 116);
+            this.docXTranslationGroupBox.Size = new System.Drawing.Size(98, 102);
             this.docXTranslationGroupBox.TabIndex = 14;
             this.docXTranslationGroupBox.TabStop = false;
             this.docXTranslationGroupBox.Text = "Перевести .docx";
@@ -2269,6 +2299,26 @@
             this.translateToRussianSubtitlesGroupBox.Text = "Перевести оригинальные субтитры через API Яндекс.Переводчика в нужный поток субти" +
     "тров";
             // 
+            // additionalOpenExportSubtitlesButtonsLabel
+            // 
+            this.additionalOpenExportSubtitlesButtonsLabel.AutoSize = true;
+            this.additionalOpenExportSubtitlesButtonsLabel.Location = new System.Drawing.Point(723, 125);
+            this.additionalOpenExportSubtitlesButtonsLabel.Name = "additionalOpenExportSubtitlesButtonsLabel";
+            this.additionalOpenExportSubtitlesButtonsLabel.Size = new System.Drawing.Size(95, 52);
+            this.additionalOpenExportSubtitlesButtonsLabel.TabIndex = 49;
+            this.additionalOpenExportSubtitlesButtonsLabel.Text = "Дополнительные\r\nклавиши \r\nоткрытия/\r\nсохранения";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(4, 22);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(83, 169);
+            this.label45.TabIndex = 0;
+            this.label45.Text = "• \"из / в 📥\" — \r\nоткрыть из/\r\nсохранить в\r\nпапку \r\n\"Загрузки\"\r\n• \"из 🗄️\" —\r\nотк" +
+    "рыть из\r\nпапки, \r\nустановленной\r\nкак папка для \r\nоткрытия\r\nфайлов \r\nпо умолчанию" +
+    "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2291,7 +2341,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.additionalOpenExportSubtitlesButtonsGroupBox.ResumeLayout(false);
+            this.additionalOpenExportSubtitlesButtonsGroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.docXTranslationGroupBox.ResumeLayout(false);
@@ -2552,5 +2606,9 @@
         private System.Windows.Forms.Button openPrimarySubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openSecondRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openThirdRussianSubtitlesFromDefaultFolderButton;
+        private System.Windows.Forms.GroupBox additionalOpenExportSubtitlesButtonsGroupBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label additionalOpenExportSubtitlesButtonsLabel;
+        private System.Windows.Forms.Label label45;
     }
 }
