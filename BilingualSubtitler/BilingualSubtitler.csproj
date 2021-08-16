@@ -73,10 +73,16 @@
     <Reference Include="RestSharp">
       <HintPath>.\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Syroot.KnownFolders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.2.3\lib\netstandard2.0\Syroot.KnownFolders.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,7 +92,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UtfUnknown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90217ce7a23260d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\UTF.Unknown.2.3.0\lib\net40\UtfUnknown.dll</HintPath>
+      <HintPath>..\packages\UTF.Unknown.2.4.0\lib\net40\UtfUnknown.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -105,7 +111,7 @@
       <HintPath>.\YandexLinguistics.NET.dll</HintPath>
     </Reference>
     <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\zlib.net-mutliplatform.1.0.4\lib\net47\zlib.net.dll</HintPath>
+      <HintPath>..\packages\zlib.net-mutliplatform.1.0.5\lib\net47\zlib.net.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -124,7 +130,6 @@
     <Compile Include="HotkeySettingForm.Designer.cs">
       <DependentUpon>HotkeySettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KnownFolders.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

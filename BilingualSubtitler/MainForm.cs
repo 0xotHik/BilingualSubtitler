@@ -21,6 +21,7 @@ using System.Threading;
 using System.Security.Principal;
 using System.Drawing.Text;
 using System.IO.Compression;
+using Syroot.Windows.IO;
 
 namespace BilingualSubtitler
 {
@@ -733,7 +734,7 @@ namespace BilingualSubtitler
 
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
                 {
-                    Properties.Settings.Default.DownloadsFolder = KnownFolders.GetPath(KnownFolder.Downloads);
+                    Properties.Settings.Default.DownloadsFolder = new KnownFolder(KnownFolderType.Downloads).Path;
                     Properties.Settings.Default.Save();
                 }
 
@@ -2751,7 +2752,7 @@ namespace BilingualSubtitler
             if (intoDownloads)
             {
                 goodToGo = true;
-                string downloadsFolderPath = KnownFolders.GetPath(KnownFolder.Downloads);
+                string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
                 resultingDocXFileName = Path.Combine(downloadsFolderPath, $"{defaultFileName}.docx");
             }
             else
