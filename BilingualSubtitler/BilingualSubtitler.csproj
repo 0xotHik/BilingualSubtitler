@@ -1,16 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6027F57A-5F0A-44AE-9888-5BC3723940BF}</ProjectGuid>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BilingualSubtitler</RootNamespace>
-    <AssemblyName>BilingualSubtitler</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <PublishUrl>опубликовать\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,30 +17,12 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <LangVersion>8</LangVersion>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>8</LangVersion>
-    <Prefer32Bit>false</Prefer32Bit>
+<Deterministic>false</Deterministic>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\logo4_1.ico</ApplicationIcon>
@@ -57,179 +30,22 @@
   <PropertyGroup>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="libse, Version=3.6.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\libse.3.6.0\lib\net472\libse.dll</HintPath>
-    </Reference>
-    <Reference Include="NonInvasiveKeyboardHookLibrary, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NonInvasiveKeyboardHookLibrary">
       <HintPath>Libs\NonInvasiveKeyboardHookLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Octokit, Version=0.50.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Octokit.0.50.0\lib\net46\Octokit.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="RestSharp">
-      <HintPath>.\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Syroot.KnownFolders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syroot.Windows.IO.KnownFolders.1.2.3\lib\netstandard2.0\Syroot.KnownFolders.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UtfUnknown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=90217ce7a23260d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\UTF.Unknown.2.4.0\lib\net40\UtfUnknown.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
-    </Reference>
-    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
-      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Document.NET, Version=1.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.8.0\lib\net40\Xceed.Document.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Words.NET, Version=1.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.8.0\lib\net40\Xceed.Words.NET.dll</HintPath>
-    </Reference>
     <Reference Include="YandexLinguistics.NET">
-      <HintPath>.\YandexLinguistics.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\zlib.net-mutliplatform.1.0.5\lib\net47\zlib.net.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>Libs\YandexLinguistics.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlashWindow.cs" />
-    <Compile Include="Hotkey.cs" />
-    <Compile Include="HotkeysToAuthorsExtendedDefaultsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HotkeysToAuthorsExtendedDefaultsForm.Designer.cs">
-      <DependentUpon>HotkeysToAuthorsExtendedDefaultsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HotkeySettingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HotkeySettingForm.Designer.cs">
-      <DependentUpon>HotkeySettingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAbout.Designer.cs">
-      <DependentUpon>FormAbout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.InputHandling.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModifyProgressBarColor.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\SubtitlesAppearanceSettings.cs" />
-    <Compile Include="Properties\SubtitlesAppearanceSettings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>SubtitlesAppearanceSettings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="Subtitle.cs" />
-    <Compile Include="FileToUseFromZipForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FileToUseFromZipForm.Designer.cs">
-      <DependentUpon>FileToUseFromZipForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TrackToExtractFromMKVForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrackToExtractFromMKVForm.Designer.cs">
-      <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TranslationInProgressForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TranslationInProgressForm.Designer.cs">
-      <DependentUpon>TranslationInProgressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="FormAbout.resx">
-      <DependentUpon>FormAbout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HotkeysToAuthorsExtendedDefaultsForm.resx">
-      <DependentUpon>HotkeysToAuthorsExtendedDefaultsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HotkeySettingForm.resx">
-      <DependentUpon>HotkeySettingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FileToUseFromZipForm.resx">
-      <DependentUpon>FileToUseFromZipForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrackToExtractFromMKVForm.resx">
-      <DependentUpon>TrackToExtractFromMKVForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TranslationInProgressForm.resx">
-      <DependentUpon>TranslationInProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Additional\mpc-hc-keys.reg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="Additional\mpc-hc-keys.reg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -253,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer\InstallerScript.iss" />
-    <Content Include="Libs\NonInvasiveKeyboardHookLibrary.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Libs\UtfUnknown.dll" />
     <Content Include="Libs\zlib.net.dll" />
     <Content Include="Resources\16pxCancelIcon.png" />
@@ -266,31 +79,44 @@
     <Content Include="Resources\48pxBackIcon.png" />
     <Content Include="Resources\48pxCancelIcon.png" />
     <Content Include="Resources\48pxYandexTranslateIcon.png" />
-    <None Include="Properties\SubtitlesAppearanceSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>SubtitlesAppearanceSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Resources\hotkeys-default.jpg" />
-    <None Include="Resources\hotkeys-authors-default.png" />
-    <None Include="Resources\logo.ico" />
     <None Include="Resources\logo %281%29.ico" />
-    <None Include="Resources\68747470733a2f2f62616467652e667572792e696f2f6e752f476f74656e626572672e53686172702e4170692e436c69656e742e737667.png" />
     <Content Include="Resources\logo.jpg" />
-    <None Include="Resources\logo4_1.ico" />
-    <None Include="Resources\logo4.ico" />
-    <None Include="Resources\logo3.ico" />
-    <None Include="Resources\logo2.ico" />
     <Content Include="Resources\smallTranslateToRus.png" />
     <Content Include="Resources\YandexTranslateIcon.png" />
     <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.2.241603">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DocX" Version="1.8.0" />
+    <PackageReference Include="InputSimulator" Version="1.0.4.0" />
+    <PackageReference Include="libse" Version="3.6.0" />
+    <PackageReference Include="MouseKeyHook" Version="5.6.0" />
+    <PackageReference Include="Octokit" Version="0.50.0" />
+    <PackageReference Include="Syroot.Windows.IO.KnownFolders" Version="1.2.3" />
+    <PackageReference Include="UTF.Unknown" Version="2.4.0" />
+    <PackageReference Include="WindowsBase" Version="4.6.1055.0" />
+    <PackageReference Include="zlib.net-mutliplatform" Version="1.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="KnownFolders — копия.cs" />
+    <Compile Remove="ModifyProgressBar.cs" />
+    <Compile Remove="Translation.cs" />
+    <Compile Remove="YandexTranslatorAPIKey.cs" />
+    <Compile Remove="YandexTranslatorAPIKey.Designer.cs" />
+    <EmbeddedResource Remove="YandexTranslatorAPIKey.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Libs\libse — копия.dll" />
+    <None Remove="Libs\NonInvasiveKeyboardHookLibrary.dll.net4-i-guess" />
+    <None Remove="Libs\NonInvasiveKeyboardHookLibrary.dll.netStandard21" />
+    <None Remove="Libs\RestSharp.dll" />
+    <None Remove="RestSharp.dll" />
+    <None Remove="YandexLinguistics.NET.dll" />
+  </ItemGroup>
 </Project>

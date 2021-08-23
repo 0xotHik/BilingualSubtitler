@@ -21,7 +21,7 @@ namespace BilingualSubtitler
         }
 
         private void ActionForHotkeyThatArePauseButton()
-        {
+           {
             //if (GetActiveProcessName() != m_videoPlayerProcessName)
             //    return;
 

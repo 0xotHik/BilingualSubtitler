@@ -42,9 +42,10 @@
             // labelInfo
             // 
             this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(355, 18);
+            this.labelInfo.Location = new System.Drawing.Point(414, 21);
+            this.labelInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(192, 26);
+            this.labelInfo.Size = new System.Drawing.Size(205, 30);
             this.labelInfo.TabIndex = 0;
             this.labelInfo.Text = "Авторская расширенная раскладка:\r\n\r\n";
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -52,9 +53,10 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.clearButton.Location = new System.Drawing.Point(12, 517);
+            this.clearButton.Location = new System.Drawing.Point(14, 597);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(97, 43);
+            this.clearButton.Size = new System.Drawing.Size(113, 50);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Отмена";
             this.clearButton.UseVisualStyleBackColor = false;
@@ -63,9 +65,10 @@
             // okButton
             // 
             this.okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.okButton.Location = new System.Drawing.Point(913, 517);
+            this.okButton.Location = new System.Drawing.Point(1065, 597);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(47, 43);
+            this.okButton.Size = new System.Drawing.Size(55, 50);
             this.okButton.TabIndex = 2;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = false;
@@ -74,9 +77,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BilingualSubtitler.Properties.Resources.hotkeys_authors_default;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 67);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 77);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(945, 325);
+            this.pictureBox1.Size = new System.Drawing.Size(1102, 375);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -84,9 +88,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 411);
+            this.label1.Location = new System.Drawing.Point(167, 474);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(616, 78);
+            this.label1.Size = new System.Drawing.Size(680, 90);
             this.label1.TabIndex = 4;
             this.label1.Text = resources.GetString("label1.Text");
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -94,8 +99,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(109, 44);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(127, 51);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(685, 13);
             this.label2.TabIndex = 5;
@@ -106,9 +112,10 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(659, 476);
+            this.linkLabel1.Location = new System.Drawing.Point(769, 549);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(65, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(66, 15);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "на сайте →";
@@ -116,10 +123,10 @@
             // 
             // HotkeysToAuthorsExtendedDefaultsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(972, 572);
+            this.ClientSize = new System.Drawing.Size(1134, 660);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -127,8 +134,9 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.labelInfo);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "HotkeysToAuthorsExtendedDefaultsForm";
-            this.Text = "KeySettingForm";
+            this.Text = "Авторская расширенная раскладка";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

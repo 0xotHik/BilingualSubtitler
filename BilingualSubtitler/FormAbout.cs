@@ -24,27 +24,27 @@ namespace BilingualSubtitler
 
         private void linkLabel0xothiksHut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://0xothik.wordpress.com");
+            MainForm.OpenUrl("https://0xothik.wordpress.com");
         }
 
         private void linkLabelHabrahabr_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://habrahabr.ru/post/204372/"); 
+            MainForm.OpenUrl("https://habrahabr.ru/post/204372/"); 
         }
 
         private void linkLabelStackOverflowKvanTTT_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://stackoverflow.com/users/1046374/kvanttt"); 
+            MainForm.OpenUrl("http://stackoverflow.com/users/1046374/kvanttt"); 
         }
 
         private void linkLabelLinkedInKvanTTT_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://ru.linkedin.com/in/kvanttt/en"); 
+            MainForm.OpenUrl("https://ru.linkedin.com/in/kvanttt/en"); 
         }
 
         private void linkLabelGitHubKvanTTT_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/KvanTTT/"); 
+            MainForm.OpenUrl("https://github.com/KvanTTT/"); 
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
@@ -54,22 +54,22 @@ namespace BilingualSubtitler
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://0xothik.wordpress.com/bilingual-subtitler/"); 
+            MainForm.OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler/"); 
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://0xothik.wordpress.com/2016/02/16/about-bilingual-subtitler/"); 
+            MainForm.OpenUrl("https://0xothik.wordpress.com/2016/02/16/about-bilingual-subtitler/"); 
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://yasobe.ru/na/0xothik");
+            MainForm.OpenUrl("https://yasobe.ru/na/0xothik");
         }
 
         private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://t.me/bilingualsubtitler");
+            MainForm.OpenUrl("https://t.me/bilingualsubtitler");
         }
     }
 }

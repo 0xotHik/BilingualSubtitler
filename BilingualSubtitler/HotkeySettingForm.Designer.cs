@@ -37,9 +37,10 @@
             // 
             // labelInfo
             // 
-            this.labelInfo.Location = new System.Drawing.Point(12, 40);
+            this.labelInfo.Location = new System.Drawing.Point(14, 46);
+            this.labelInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(486, 26);
+            this.labelInfo.Size = new System.Drawing.Size(567, 30);
             this.labelInfo.TabIndex = 0;
             this.labelInfo.Text = "На данный момент для данной горячей клавиши не поддерживаются клавиши-модификатор" +
     "ы\r\nЕсли у вас есть в этом потребность — пожалуйста, напишите автору программы";
@@ -48,9 +49,10 @@
             // clearButton
             // 
             this.clearButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.clearButton.Location = new System.Drawing.Point(12, 147);
+            this.clearButton.Location = new System.Drawing.Point(14, 170);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(181, 43);
+            this.clearButton.Size = new System.Drawing.Size(211, 50);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "Другая\r\n(очистить теущее назначение)";
             this.clearButton.UseVisualStyleBackColor = false;
@@ -60,9 +62,10 @@
             // okButton
             // 
             this.okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.okButton.Location = new System.Drawing.Point(451, 147);
+            this.okButton.Location = new System.Drawing.Point(526, 170);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(47, 43);
+            this.okButton.Size = new System.Drawing.Size(55, 50);
             this.okButton.TabIndex = 2;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = false;
@@ -72,9 +75,10 @@
             // warningLabel
             // 
             this.warningLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.warningLabel.Location = new System.Drawing.Point(12, 88);
+            this.warningLabel.Location = new System.Drawing.Point(14, 102);
+            this.warningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(486, 43);
+            this.warningLabel.Size = new System.Drawing.Size(567, 50);
             this.warningLabel.TabIndex = 3;
             this.warningLabel.Text = resources.GetString("warningLabel.Text");
             this.warningLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -82,16 +86,18 @@
             // 
             // HotkeySettingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(511, 202);
+            this.ClientSize = new System.Drawing.Size(596, 233);
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.labelInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "HotkeySettingForm";
-            this.Text = "KeySettingForm";
+            this.Text = "Установка клавиши";
             this.ResumeLayout(false);
 
         }

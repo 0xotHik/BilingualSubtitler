@@ -9,7 +9,6 @@ using System.Text;
 using System.Windows.Forms;
 using WindowsInput;
 using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
-using NonInvasiveKeyboardHookLibrary;
 using YandexLinguistics.NET;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Settings = BilingualSubtitler.Properties.Settings;
@@ -22,6 +21,8 @@ using System.Security.Principal;
 using System.Drawing.Text;
 using System.IO.Compression;
 using Syroot.Windows.IO;
+using NonInvasiveKeyboardHookLibrary;
+using Gma.System.MouseKeyHook;
 
 namespace BilingualSubtitler
 {
@@ -72,6 +73,7 @@ namespace BilingualSubtitler
         private Translator m_translator;
 
         private KeyboardHookManager m_keyboardHookManager;
+        private IKeyboardMouseEvents m_keyboardMouseEvents;
         private InputSimulator m_inputSimulator;
 
         private int[] m_biligualSubtitlersHotkeys;
@@ -223,8 +225,11 @@ namespace BilingualSubtitler
             m_initialThirdRussianSubtitlesHideButtonX = hideThirdRussianSubtitlesButton.Location.X;
 
             m_playVideoButtonDefaultText = playVideoButton.Text;
-            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] {
-                new MenuItem("Свернуть в трей", ((sender, e) =>
+            notifyIcon.ContextMenuStrip = new ContextMenuStrip();
+            //
+            notifyIcon.ContextMenuStrip.Items.AddRange(
+            new ToolStripMenuItem[] {
+                new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) =>
                 {
                     // прячем наше окно из панели
                 this.ShowInTaskbar = false; 
@@ -232,7 +237,7 @@ namespace BilingualSubtitler
                 WindowState = FormWindowState.Minimized;
             })),
 
-                new MenuItem("Развернуть", ((sender, e) =>
+                new ToolStripMenuItem("Развернуть", null, ((sender, e) =>
                 {
                     // возвращаем отображение окна в панели
             this.ShowInTaskbar = true;
@@ -240,7 +245,7 @@ namespace BilingualSubtitler
             WindowState = FormWindowState.Normal;
                 })),
 
-                new MenuItem("Завершить работу Bilingual Subtitler", ((sender, e) => System.Windows.Forms.Application.Exit()))
+                new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) => System.Windows.Forms.Application.Exit()))
             });
 
             if (Settings.Default.UpgradeRequired)
@@ -456,6 +461,32 @@ namespace BilingualSubtitler
 
             openOrClosePrimarySubtitlesButton.Focus();
             openOrClosePrimarySubtitlesButton.Select();
+
+            m_keyboardMouseEvents = Hook.GlobalEvents();
+            m_keyboardMouseEvents.MouseDownExt += GlobalHookMouseDownExt;
+        }
+
+        private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
+        {
+
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    e.Handled = true;
+
+
+            //    var activeProcess = GetActiveProcess();
+            //    if (activeProcess.ProcessName != m_videoPlayerProcessName)
+            //        return;
+            //    m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
+
+            //    PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
+            //    SwitchSubtitlesStatesAndComboBox();
+            //}
+
+            ////Console.WriteLine("MouseDown: \t{0}; \t System Timestamp: \t{1}", e.Button, e.Timestamp);
+
+            //// uncommenting the following line will suppress the middle mouse button click
+            //// if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }
         }
 
         public void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
@@ -509,7 +540,7 @@ namespace BilingualSubtitler
 
                     if (result == DialogResult.Yes)
                     {
-                        System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
+                        OpenUrl("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
                     }
 
                     Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
@@ -881,7 +912,7 @@ namespace BilingualSubtitler
 
                         if (result == DialogResult.Yes)
                         {
-                            System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
+                            OpenUrl("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
                         }
 
                         Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
@@ -1967,7 +1998,7 @@ namespace BilingualSubtitler
             subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = true;
             //
             if (Properties.Settings.Default.AdvancedMode)
-                subtitlesWithInfo.ButtonOpenOrClose.Left =  m_initialOpenSubtitlesButtonLeft;
+                subtitlesWithInfo.ButtonOpenOrClose.Left = m_initialOpenSubtitlesButtonLeft;
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
@@ -2709,7 +2740,7 @@ namespace BilingualSubtitler
                     GetVideoFileExtention();
             try
             {
-                System.Diagnostics.Process.Start(videoFileName);
+                OpenFile(videoFileName);
             }
             catch (Exception ex)
             {
@@ -2802,12 +2833,56 @@ namespace BilingualSubtitler
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://translate.yandex.ru/doc");
+            OpenUrl("https://translate.yandex.ru/doc");
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
+            OpenUrl("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
+        }
+
+        private void OpenFile (string path)
+        {
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(path)
+            {
+                UseShellExecute = true
+            };
+            p.Start();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <remarks>https://stackoverflow.com/a/43232486/16721472</remarks>
+        public static void OpenUrl(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch
+            {
+                // hack because of this: https://github.com/dotnet/corefx/issues/10361
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)

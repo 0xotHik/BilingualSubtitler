@@ -458,7 +458,7 @@ namespace BilingualSubtitler
         private void linkLabelYandexAPIKeysList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.linkLabelYandexAPIKeysList.LinkVisited = true;
-            System.Diagnostics.Process.Start("https://tech.yandex.ru/keys/");
+            MainForm.OpenUrl("https://tech.yandex.ru/keys/");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -775,12 +775,12 @@ namespace BilingualSubtitler
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/0xotHik/BilingualSubtitler/releases");
+            MainForm.OpenUrl("https://github.com/0xotHik/BilingualSubtitler/releases");
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://t.me/bilingualsubtitler");
+            MainForm.OpenUrl("https://t.me/bilingualsubtitler");
         }
 
         private void notAdvancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
