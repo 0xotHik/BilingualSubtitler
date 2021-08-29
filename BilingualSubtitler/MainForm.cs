@@ -566,8 +566,6 @@ namespace BilingualSubtitler
             {
                 m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
 
-                SetInputHandlingAccordiongToSettings();
-
                 // Хоткеи видеоплеера
                 var videoPlayerChangeToBilingualSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString);
                 var videoPlayerChangeToOriginalSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString);
@@ -617,6 +615,8 @@ namespace BilingualSubtitler
                 }
                 //
                 m_videoplayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString).KeyCode;
+                //
+                SetInputHandlingAccordiongToSettings();
 
 
                 primarySubtitlesColorButton.BackColor = Properties.Settings.Default.PrimarySubtitlesColor;

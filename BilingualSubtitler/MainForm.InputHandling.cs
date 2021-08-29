@@ -11,7 +11,7 @@ namespace BilingualSubtitler
 {
     class KeyboardEventReceiver : IKeyboardEventReceiver
     {
-        private NeatInput.Windows.Processing.Keyboard.Enums.Keys m_videoPlayerPauseKeyChar;
+        private NeatInput.Windows.Processing.Keyboard.Enums.Keys m_videoPlayerPauseKey;
 
         private MainForm m_mainForm;
         private string m_videoPlayerProcessName;
@@ -28,7 +28,7 @@ namespace BilingualSubtitler
                 m_biligualSubtitlersHotkeys[i] = (NeatInput.Windows.Processing.Keyboard.Enums.Keys)biligualSubtitlersHotkeysCodes[i];
             }
 
-            m_videoPlayerPauseKeyChar = (NeatInput.Windows.Processing.Keyboard.Enums.Keys)pauseKeyCode;
+            m_videoPlayerPauseKey = (NeatInput.Windows.Processing.Keyboard.Enums.Keys)pauseKeyCode;
         }
 
         public void Receive(KeyboardEvent @event)
@@ -48,7 +48,7 @@ namespace BilingualSubtitler
                     if (@event.Key == hotkey)
                     {
                         // Если это кнопка паузы
-                        if (@event.Key == m_videoPlayerPauseKeyChar)
+                         if (@event.Key == m_videoPlayerPauseKey)
                         {
                             //e.Handled = true;
                         }
@@ -57,7 +57,10 @@ namespace BilingualSubtitler
                             m_mainForm.PostMessagePauseKey();
                         }
 
+                        //Debug.WriteLine("Перед свитчем");
                         m_mainForm.SwitchSubtitlesStatesAndComboBox();
+
+                        break;
                     }
                 }
             }
@@ -98,9 +101,8 @@ namespace BilingualSubtitler
         {
             if (m_inputSource != null)
                 m_inputSource.Dispose();
-            // Хоткеи программы
-            var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
 
+            // Хоткеи программы
             m_biligualSubtitlersHotkeysCodes = new int[Settings.Default.Hotkeys.Count];
             for (int i = 0; i < Settings.Default.Hotkeys.Count; i++)
             {
@@ -318,41 +320,6 @@ namespace BilingualSubtitler
         //    m_stopwatch = new Stopwatch();
         //    m_stopwatch.Start();
 
-        //}
-
-        //private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    var activeProcess = GetActiveProcess();
-        //    if (activeProcess.ProcessName != m_videoPlayerProcessName)
-        //        return;
-        //    m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
-
-        //    // Если есть среди массива горячих клавиш
-        //    foreach (var hotkey in m_biligualSubtitlersHotkeysChars)
-        //    {
-        //        if (e.KeyChar == hotkey)
-        //        {
-        //            // Если это кнопка паузы
-        //            if (e.KeyChar == m_videoPlayerPauseKeyChar)
-        //            {
-        //                e.Handled = true;
-        //            }
-        //            else
-        //            {
-        //                PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
-        //            }
-
-        //            SwitchSubtitlesStatesAndComboBox();
-
-
-        //            //if (e.KeyChar == '7')
-        //            ////if (e.KeyChar == ' ')
-        //            //{
-        //            //    e.Handled = true;
-        //            //    ActionForHotkeyThatAreNotPauseButton();
-        //            //}
-        //        }
-        //    }
         //}
 
         //private void ActionForHotkeyThatAreNotPauseButton()
