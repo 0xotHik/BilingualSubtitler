@@ -72,11 +72,7 @@ namespace BilingualSubtitler
 
         private Translator m_translator;
 
-        private KeyboardHookManager m_keyboardHookManager;
-        private IKeyboardMouseEvents m_keyboardMouseEvents;
-        private InputSimulator m_inputSimulator;
-
-        private int[] m_biligualSubtitlersHotkeys;
+       
 
         private int m_changeSubtitlesToBilingualHotkeyCode;
         private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode;
@@ -84,8 +80,6 @@ namespace BilingualSubtitler
         private int m_changeSubtitlesToOriginalHotkeyCode;
         private VirtualKeyCode? m_changeSubtitlesToOriginalHotkeyModifierKeyVirtualKeyCode;
         private VirtualKeyCode? m_changeSubtitlesToOriginalHotkeyVirtualKeyCode;
-
-        private int m_videoplayerPauseHotkey;
 
         // Состояния видео и субтитров
         private VideoState m_videoState;
@@ -159,10 +153,7 @@ namespace BilingualSubtitler
         private string m_subtitleStyleNamePostfix = "_sub_stream";
 
 
-        const UInt32 WM_KEYDOWN = 0x0100;
-
-        private string m_videoPlayerProcessName;
-        private IntPtr m_videoPlayerProcessMainWindowHandle;
+        
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
@@ -379,12 +370,8 @@ namespace BilingualSubtitler
             //    button.MouseLeave += button_MouseLeave;
             //}
 
-            m_inputSimulator = new InputSimulator();
+            InputHandlingConstructor();
 
-            m_keyboardHookManager = new KeyboardHookManager();
-            m_keyboardHookManager.Start();
-
-            //m_keyboardHookManager.RegisterHotkey((int)VirtualKeyCode.SPACE, ActionForHotkeyThatArePauseButton);
             //
             //Properties.Settings.Default.Hotkeys = new StringCollection
             //{
@@ -462,31 +449,34 @@ namespace BilingualSubtitler
             openOrClosePrimarySubtitlesButton.Focus();
             openOrClosePrimarySubtitlesButton.Select();
 
-            m_keyboardMouseEvents = Hook.GlobalEvents();
-            m_keyboardMouseEvents.MouseDownExt += GlobalHookMouseDownExt;
+            
         }
 
-        private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
+
+        [DllImport("user32.dll")]
+        static extern int MapVirtualKey(uint uCode, uint uMapType);
+
+        public char GetCharProducingByPressingKeyWithThisCode(int keyCode)
         {
+            // 2 is used to translate into an unshifted character value 
+            int nonVirtualKey = MapVirtualKey((uint)keyCode, 2);
 
-            //if (e.Button == MouseButtons.Right)
+            char mappedChar = Convert.ToChar(nonVirtualKey);
+
+            return mappedChar;
+
+            //char c = '\0';
+            //if ((key >= Keys.A) && (key <= Keys.Z))
             //{
-            //    e.Handled = true;
-
-
-            //    var activeProcess = GetActiveProcess();
-            //    if (activeProcess.ProcessName != m_videoPlayerProcessName)
-            //        return;
-            //    m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
-
-            //    PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
-            //    SwitchSubtitlesStatesAndComboBox();
+            //    c = (char)((int)'a' + (int)(key - Keys.A));
             //}
 
-            ////Console.WriteLine("MouseDown: \t{0}; \t System Timestamp: \t{1}", e.Button, e.Timestamp);
+            //else if ((key >= Keys.D0) && (key <= Keys.D9))
+            //{
+            //    c = (char)((int)'0' + (int)(key - Keys.D0));
+            //}
 
-            //// uncommenting the following line will suppress the middle mouse button click
-            //// if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }
+            //return c;
         }
 
         public void CheckUpdatesBgW_DoWork(object sender, DoWorkEventArgs e)
@@ -574,29 +564,9 @@ namespace BilingualSubtitler
 
             try
             {
-                // Хоткеи программы
-                m_keyboardHookManager.Stop();
-                m_keyboardHookManager.UnregisterAll();
-                //
-                var videoPlayerPauseHotkey = new Hotkey(Settings.Default.VideoPlayerPauseButtonString);
+                m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
 
-                m_biligualSubtitlersHotkeys = new int[Settings.Default.Hotkeys.Count];
-                for (int i = 0; i < Settings.Default.Hotkeys.Count; i++)
-                {
-                    var hotkey = new Hotkey(Settings.Default.Hotkeys[i]);
-                    m_biligualSubtitlersHotkeys[i] = hotkey.KeyCode;
-
-                }
-
-                foreach (var keyCode in m_biligualSubtitlersHotkeys)
-                {
-                    if (keyCode != videoPlayerPauseHotkey.KeyCode)
-                        m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatAreNotPauseButton);
-                    else
-                        m_keyboardHookManager.RegisterHotkey(keyCode, ActionForHotkeyThatArePauseButton);
-                }
-
-                m_keyboardHookManager.Start();
+                SetInputHandlingAccordiongToSettings();
 
                 // Хоткеи видеоплеера
                 var videoPlayerChangeToBilingualSubtitlesHotkey = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString);
@@ -665,9 +635,7 @@ namespace BilingualSubtitler
                 bilingualSubtitlesFileNameEnding.Visible =
                      bilingualSubtitlesFileNameEndingLabel.Visible =
                         Settings.Default.CreateBilingualSubtitlesFile;
-
-
-                m_videoPlayerProcessName = Properties.Settings.Default.VideoPlayerProcessName;
+                              
 
                 secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
                     Settings.Default.SecondRussianSubtitlesIsVisible;
@@ -2841,7 +2809,7 @@ namespace BilingualSubtitler
             OpenUrl("https://translate.google.com/#view=home&op=docs&sl=en&tl=ru");
         }
 
-        private void OpenFile (string path)
+        private void OpenFile(string path)
         {
             var p = new Process();
             p.StartInfo = new ProcessStartInfo(path)
