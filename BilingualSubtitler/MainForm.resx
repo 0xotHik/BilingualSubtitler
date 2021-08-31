@@ -61,7 +61,7 @@
   <data name="translateToSecondRussianSubtitlesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABS
-        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAACw0AAAsNAe0HwCwAAAWpSURBVFhHxZZ7UFRVHMcPI4iT
+        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAWpSURBVFhHxZZ7UFRVHMcPI4iT
         UwGmWMwkmjqNY+bolIryMHVy1DRLyUfTlKnTaGNqYk02mUP9sU6IJRmlKRjggwYEX8AMKWDEQ2wQRUMX
         WJb3LuzC3rt77y7st9+5ssSy14Jocmc+c+/Zu+f3/ZzfObvAADxUVN/8P+m9sXQ0hRNaQlTDIZtEm2gQ
         O0wNYqe5Ubm6MLfXW0xt9ammNv1Igj0I+pxybW68x5oa7noICATU6DQ3gYLQYW6k+8b79z1QUVA4oUe7
@@ -92,7 +92,7 @@
   <data name="translateToThirdRussianSubtitlesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABS
-        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAACw0AAAsNAe0HwCwAAAWpSURBVFhHxZZ7UFRVHMcPI4iT
+        CAABFVgAADqXAAAXb9daH5AAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAWpSURBVFhHxZZ7UFRVHMcPI4iT
         UwGmWMwkmjqNY+bolIryMHVy1DRLyUfTlKnTaGNqYk02mUP9sU6IJRmlKRjggwYEX8AMKWDEQ2wQRUMX
         WJb3LuzC3rt77y7st9+5ssSy14Jocmc+c+/Zu+f3/ZzfObvAADxUVN/8P+m9sXQ0hRNaQlTDIZtEm2gQ
         O0wNYqe5Ubm6MLfXW0xt9ammNv1Igj0I+pxybW68x5oa7noICATU6DQ3gYLQYW6k+8b79z1QUVA4oUe7
@@ -6302,7 +6302,7 @@
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>30</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

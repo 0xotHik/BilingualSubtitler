@@ -1808,7 +1808,8 @@ namespace BilingualSubtitler
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            notifyIcon.Icon.Dispose();
+            notifyIcon.Dispose();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -2086,8 +2087,9 @@ namespace BilingualSubtitler
                         var tracks = mkvFile.GetTracks(true);
 
                         // Вызов формы для выбора трека субтитров
-                        using var trackSelectionForm = new TrackToExtractFromMKVForm(tracks);
-                        var dialogResult = trackSelectionForm.ShowDialog();
+                        var trackSelectionForm = new TrackToExtractFromMKVForm(tracks);
+                        //
+                        var dialogResult = trackSelectionForm.ShowDialogInForeground();
                         if (dialogResult == DialogResult.OK)
                         {
                             // Заполняеми информацию

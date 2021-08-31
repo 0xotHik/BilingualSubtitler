@@ -13,7 +13,7 @@ namespace BilingualSubtitler
 {
     public partial class TrackToExtractFromMKVForm : Form
     {
-        private List<Button> buttons; 
+        private List<Button> buttons;
         private string mkvtollnixOutput;
         private Color previousButtonColor;
 
@@ -24,7 +24,7 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
-            buttons = new List<Button> {buttonOk, buttonCancel};
+            buttons = new List<Button> { buttonOk, buttonCancel };
 
             //foreach (var btn in buttons)
             //{
@@ -39,6 +39,7 @@ namespace BilingualSubtitler
             dataGridViewSubTracks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewSubTracks.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridViewSubTracks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewSubTracks.CellDoubleClick += DataGridViewSubTracks_CellDoubleClick;
 
             ////Синий фон у кнопок при наведении курсора
             //foreach (var btn in buttons)
@@ -49,7 +50,7 @@ namespace BilingualSubtitler
 
             dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 
-            for (int i=0; i < tracks.Count; i++)
+            for (int i = 0; i < tracks.Count; i++)
             {
                 var track = tracks[i];
 
@@ -61,6 +62,27 @@ namespace BilingualSubtitler
 
                 dataGridViewSubTracks.Rows[i].Tag = track.TrackNumber;
             }
+
+            //TopMost = true; // 
+        }
+
+
+        /// <summary>
+        /// A workaround for showing a form on the foreground and with focus,
+        /// even if it is run by a process other than the main one.
+        /// Зачем — почему-то вечно создавалась позади МейнФормы
+        /// </summary>
+        public DialogResult ShowDialogInForeground()
+        {
+            var form = this;
+
+            //it's an hack, thanks to http://stackoverflow.com/a/1463479/505893
+            form.WindowState = FormWindowState.Minimized;
+            form.Shown += delegate (Object sender, EventArgs e)
+            {
+                ((Form)sender).WindowState = FormWindowState.Normal;
+            };
+            return form.ShowDialog();
         }
 
         //public TrackToExtractFromMKVForm(string _mkvtoolnixOutput)
@@ -100,7 +122,7 @@ namespace BilingualSubtitler
 
         private void TrackToExtractFromMKVForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)
@@ -163,6 +185,22 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
+            FromClosingWithSuccess();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void DataGridViewSubTracks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewSubTracks.Rows[e.RowIndex].Selected = true;
+            FromClosingWithSuccess();
+        }
+
+        private void FromClosingWithSuccess()
+        {
             SelectedTrackNumber = (int)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag;
 
             var cells = dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Cells;
@@ -170,11 +208,6 @@ namespace BilingualSubtitler
 
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
         }
     }
 }
