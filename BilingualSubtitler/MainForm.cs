@@ -2613,9 +2613,9 @@ namespace BilingualSubtitler
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var keySettingForm = new SettingsForm(this);
-            keySettingForm.ShowDialog();
-            keySettingForm.Dispose();
+            var settingsForm = new SettingsForm(this);
+            settingsForm.ShowDialog(this);
+            settingsForm.Dispose();
 
             SetProgramAccordingToSettings();
         }

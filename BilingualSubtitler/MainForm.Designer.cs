@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt = new System.Windows.Forms.Panel();
             this.videoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.additionalOpenExportSubtitlesButtonsLabel = new System.Windows.Forms.Label();
@@ -220,7 +220,7 @@
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -306,7 +306,7 @@
             this.settingsButton.Location = new System.Drawing.Point(705, 697);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(160, 187);
+            this.settingsButton.Size = new System.Drawing.Size(160, 163);
             this.settingsButton.TabIndex = 13;
             this.settingsButton.Text = "⚙️\r\nНастройки программы";
             this.settingsButton.UseVisualStyleBackColor = false;
@@ -332,32 +332,32 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Size = new System.Drawing.Size(428, 91);
+            this.groupBox5.Size = new System.Drawing.Size(428, 70);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "🎥 Сейчас видео: //Старый";
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.panel1);
+            this.groupBox7.Controls.Add(this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt);
             this.groupBox7.Location = new System.Drawing.Point(0, 0);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox7.Size = new System.Drawing.Size(428, 91);
+            this.groupBox7.Size = new System.Drawing.Size(428, 70);
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "🎥 Сейчас видео:";
             // 
-            // panel1
+            // panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.videoAndSubtitlesStateComboBox);
-            this.panel1.Location = new System.Drawing.Point(23, 35);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(384, 26);
-            this.panel1.TabIndex = 12;
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Controls.Add(this.videoAndSubtitlesStateComboBox);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Location = new System.Drawing.Point(23, 24);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Name = "panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt";
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Size = new System.Drawing.Size(384, 26);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.TabIndex = 12;
             // 
             // videoAndSubtitlesStateComboBox
             // 
@@ -547,7 +547,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(247, 70);
             this.button2.TabIndex = 47;
-            this.button2.Text = "🈔     Открыть субтитры. \r\nранее созданные в Bilingual Subtitler\r\n";
+            this.button2.Text = "🈔     Открыть субтитры, \r\nранее созданные в Bilingual Subtitler\r\n";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -1610,7 +1610,7 @@
             this.button1.Location = new System.Drawing.Point(872, 697);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 188);
+            this.button1.Size = new System.Drawing.Size(102, 163);
             this.button1.TabIndex = 24;
             this.button1.Text = "ℹ️\r\n\r\nО\r\nпрограмме";
             this.button1.UseVisualStyleBackColor = false;
@@ -1623,7 +1623,7 @@
             this.playVideoButton.Location = new System.Drawing.Point(18, 22);
             this.playVideoButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.playVideoButton.Name = "playVideoButton";
-            this.playVideoButton.Size = new System.Drawing.Size(201, 91);
+            this.playVideoButton.Size = new System.Drawing.Size(201, 70);
             this.playVideoButton.TabIndex = 47;
             this.playVideoButton.Text = "▶️\r\nВоспроизвести файл видео\r\n(по заданному в программе\r\nпути)";
             this.playVideoButton.UseVisualStyleBackColor = false;
@@ -1646,7 +1646,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox6.Size = new System.Drawing.Size(677, 195);
+            this.groupBox6.Size = new System.Drawing.Size(677, 170);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "📼 Контроль видеоплеера:";
@@ -1658,7 +1658,7 @@
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label11);
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label10);
             this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label9);
-            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(18, 119);
+            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(18, 98);
             this.appIsRunningsAsAdministratorPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.appIsRunningsAsAdministratorPanel.Name = "appIsRunningsAsAdministratorPanel";
             this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(638, 61);
@@ -1706,7 +1706,7 @@
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label12);
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label13);
             this.appNotRunningAsAdministratorPanel.Controls.Add(this.label14);
-            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(18, 119);
+            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(18, 98);
             this.appNotRunningAsAdministratorPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.appNotRunningAsAdministratorPanel.Name = "appNotRunningAsAdministratorPanel";
             this.appNotRunningAsAdministratorPanel.Size = new System.Drawing.Size(638, 61);
@@ -2544,8 +2544,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1646, 925);
+            this.ClientSize = new System.Drawing.Size(1646, 871);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.Controls.Add(this.translateToRussianSubtitlesGroupBox);
             this.Controls.Add(this.subtitlesAppearanceGroupBox);
@@ -2557,13 +2558,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bilingual Subtitler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.ResumeLayout(false);
@@ -2829,7 +2831,7 @@
         private System.Windows.Forms.Button openSecondRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openThirdRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.GroupBox additionalOpenExportSubtitlesButtonsGroupBox;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt;
         private System.Windows.Forms.Label additionalOpenExportSubtitlesButtonsLabel;
         private System.Windows.Forms.Label label45;
     }
