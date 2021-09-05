@@ -72,7 +72,7 @@ namespace BilingualSubtitler
 
         private Translator m_translator;
 
-       
+
 
         private int m_changeSubtitlesToBilingualHotkeyCode;
         private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode;
@@ -153,7 +153,7 @@ namespace BilingualSubtitler
         private string m_subtitleStyleNamePostfix = "_sub_stream";
 
 
-        
+
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
@@ -449,7 +449,7 @@ namespace BilingualSubtitler
             openOrClosePrimarySubtitlesButton.Focus();
             openOrClosePrimarySubtitlesButton.Select();
 
-            
+
         }
 
 
@@ -635,7 +635,7 @@ namespace BilingualSubtitler
                 bilingualSubtitlesFileNameEnding.Visible =
                      bilingualSubtitlesFileNameEndingLabel.Visible =
                         Settings.Default.CreateBilingualSubtitlesFile;
-                              
+
 
                 secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
                     Settings.Default.SecondRussianSubtitlesIsVisible;
@@ -3115,30 +3115,57 @@ namespace BilingualSubtitler
         {
             OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefaultFolder: true);
         }
+
+        private void showLastSubtitleOfFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            ShowLastSubtitleOfSubtitles(SubtitlesType.FirstRussian);
+        }
+
+        private void showLastSubtitleOfSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            ShowLastSubtitleOfSubtitles(SubtitlesType.SecondRussian);
+        }
+
+        private void showLastSubtitleOfThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            ShowLastSubtitleOfSubtitles(SubtitlesType.ThirdRussian);
+        }
+
+        private void ShowLastSubtitleOfSubtitles(SubtitlesType subtitlesType)
+        {
+            var subtitlesInfo = m_subtitles[subtitlesType];
+            var subtitles = subtitlesInfo.Subtitles;
+
+            if (subtitles != null)
+            {
+                MessageBox.Show(subtitles[subtitles.Length - 1].Text);
+            }
+
+        }
+        
     }
 
     public class SubtitlesBackgroundWorker : BackgroundWorker
-    {
-        public SubtitlesType SubtitlesType;
-    }
-
-    public class ComboboxItem
-    {
-        public string Text { get; set; }
-        public object Value { get; set; }
-
-        public override string ToString()
         {
-            return Text;
+            public SubtitlesType SubtitlesType;
         }
-    }
 
-    public class BilingualSubtitlerPropertiesLoadingException : Exception
-    {
-        public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+        public class ComboboxItem
         {
-        }
-    }
+            public string Text { get; set; }
+            public object Value { get; set; }
 
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        public class BilingualSubtitlerPropertiesLoadingException : Exception
+        {
+            public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+            {
+            }
+        }
 
 }
