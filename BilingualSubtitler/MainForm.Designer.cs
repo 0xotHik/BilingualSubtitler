@@ -370,7 +370,7 @@
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Location = new System.Drawing.Point(23, 24);
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Name = "panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt";
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Size = new System.Drawing.Size(384, 26);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Size = new System.Drawing.Size(384, 25);
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.TabIndex = 12;
             // 
             // videoAndSubtitlesStateComboBox

@@ -3138,8 +3138,24 @@ namespace BilingualSubtitler
 
             if (subtitles != null)
             {
-                MessageBox.Show(subtitles[subtitles.Length - 1].Text);
+                var message = "Первое слово из последних 4-х титров:\n";
+                message += $"1-й титр с конца: {GetFirstWordOfSubtitleText(subtitles[subtitles.Length - 1])}\n";
+                message += $"2-й титр с конца: {GetFirstWordOfSubtitleText(subtitles[subtitles.Length - 2])}\n";
+                message += $"3-й титр с конца: {GetFirstWordOfSubtitleText(subtitles[subtitles.Length - 3])}\n";
+                message += $"4-й титр с конца: {GetFirstWordOfSubtitleText(subtitles[subtitles.Length - 4])}\n";
+
+                MessageBox.Show(message);
             }
+
+        }
+
+        private string GetFirstWordOfSubtitleText(Subtitle subtitle)
+        {
+            if ((subtitle == null) ||
+                (String.IsNullOrWhiteSpace(subtitle.Text)))
+                return string.Empty;
+
+            return subtitle.Text.Split(' ')[0];
 
         }
         
