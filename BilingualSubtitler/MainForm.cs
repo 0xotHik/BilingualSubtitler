@@ -682,6 +682,8 @@ namespace BilingualSubtitler
                     googleTranslatorLinkLabel.Visible =
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
+
+                    showLastSubtitleOfRussianSubtitlesGroupBox = 
                     advancedMode;
                 //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
