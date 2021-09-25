@@ -683,7 +683,7 @@ namespace BilingualSubtitler
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
 
-                    showLastSubtitleOfRussianSubtitlesGroupBox = 
+                    showLastSubtitleOfRussianSubtitlesGroupBox.Visible = 
                     advancedMode;
                 //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
@@ -1202,7 +1202,9 @@ namespace BilingualSubtitler
             subtitlesAndInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
             subtitlesAndInfo.ButtonOpenOrClose.Text = $"x\nУбрать";
 
-            subtitlesAndInfo.ButtonOpenOrClose.Left = (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
+            //subtitlesAndInfo.ButtonOpenOrClose.Width = openOrClosePrimarySubtitlesGroupBox.Width - 20;
+            //subtitlesAndInfo.ButtonOpenOrClose.Left = openOrClosePrimarySubtitlesGroupBox.Left + 10;
+            //subtitlesAndInfo.ButtonOpenOrClose.Left = (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
 
             subtitlesAndInfo.OpenSubtitlesGroupBox.Text = "Поток субтитров";
             m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = subtitlesAndInfo.OpenSubtitlesGroupBox.Text;

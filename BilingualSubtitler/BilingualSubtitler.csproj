@@ -113,6 +113,7 @@
     <EmbeddedResource Remove="YandexTranslatorAPIKey.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Installer\InstallerScript-beta.iss" />
     <None Remove="Libs\libse — копия.dll" />
     <None Remove="Libs\NonInvasiveKeyboardHookLibrary.dll.net4-i-guess" />
     <None Remove="Libs\NonInvasiveKeyboardHookLibrary.dll.netStandard21" />
