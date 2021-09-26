@@ -67,6 +67,7 @@ namespace BilingualSubtitler
         private int m_initialThirdRussianSubtitlesGroupBoxWidth;
         private int m_initialSecondRussianSubtitlesHideButtonX;
         private int m_initialThirdRussianSubtitlesHideButtonX;
+        private int m_initialDocXTranslationGroupBoxHeight;
 
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitles;
 
@@ -214,6 +215,7 @@ namespace BilingualSubtitler
             m_initialThirdRussianSubtitlesGroupBoxWidth = thirdRussianSubtitlesGroupBox.Width;
             m_initialSecondRussianSubtitlesHideButtonX = hideSecondRussianSubtitlesButton.Location.X;
             m_initialThirdRussianSubtitlesHideButtonX = hideThirdRussianSubtitlesButton.Location.X;
+            m_initialDocXTranslationGroupBoxHeight = docXTranslationGroupBox.Height;
 
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
@@ -684,6 +686,9 @@ namespace BilingualSubtitler
                     subtitlesAppearanceGroupBox.Visible =
 
                     showLastSubtitleOfRussianSubtitlesGroupBox.Visible = 
+
+                    additionalOpenExportSubtitlesButtonsLabel.Visible =
+                    additionalOpenExportSubtitlesButtonsGroupBox.Visible = 
                     advancedMode;
                 //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
@@ -732,6 +737,7 @@ namespace BilingualSubtitler
                 }
                 //
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceGroupBox.Width;
+                docXTranslationGroupBox.Height = advancedMode ? m_initialDocXTranslationGroupBoxHeight : primarySubtitlesGroupBox.Height;
 
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
                 {

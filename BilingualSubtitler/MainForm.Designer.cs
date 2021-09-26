@@ -78,7 +78,7 @@
             this.firstRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.firstRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.primarySubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.primarySubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
             this.primarySubtitlesExportAsDocxIntoDownloadsButton = new System.Windows.Forms.Button();
             this.primarySubtitlesExportAsDocxButton = new System.Windows.Forms.Button();
@@ -234,7 +234,7 @@
             this.firstRussianSubtitlesExportAsDocxGroupBox.SuspendLayout();
             this.firstRussianSubtitlesColorGroupBox.SuspendLayout();
             this.openOrCloseFirstRussianSubtitlesGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.primarySubtitlesGroupBox.SuspendLayout();
             this.primarySubtitlesExportAsDocxGroupBox.SuspendLayout();
             this.primarySubtitlesColorGroupBox.SuspendLayout();
             this.openOrClosePrimarySubtitlesGroupBox.SuspendLayout();
@@ -388,7 +388,7 @@
             this.groupBox3.Controls.Add(this.showSecondRussianSubtitlesButton);
             this.groupBox3.Controls.Add(this.showThirdRussianSubtitlesButton);
             this.groupBox3.Controls.Add(this.firstRussianSubtitlesGroupBox);
-            this.groupBox3.Controls.Add(this.groupBox1);
+            this.groupBox3.Controls.Add(this.primarySubtitlesGroupBox);
             this.groupBox3.Controls.Add(this.secondRussianSubtitlesGroupBox);
             this.groupBox3.Controls.Add(this.thirdRussianSubtitlesGroupBox);
             this.groupBox3.Location = new System.Drawing.Point(14, 10);
@@ -872,24 +872,24 @@
             this.label3.Text = "Цвет";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // primarySubtitlesGroupBox
             // 
-            this.groupBox1.Controls.Add(this.primarySubtitlesExportAsDocxGroupBox);
-            this.groupBox1.Controls.Add(this.primarySubtitlesColorGroupBox);
-            this.groupBox1.Controls.Add(this.openOrClosePrimarySubtitlesGroupBox);
-            this.groupBox1.Controls.Add(this.primarySubtitlesActionLabel);
-            this.groupBox1.Controls.Add(this.primarySubtitlesTextBox);
-            this.groupBox1.Controls.Add(this.primarySubtitlesProgressLabel);
-            this.groupBox1.Controls.Add(this.primarySubtitlesProgressBar);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(7, 25);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(822, 93);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Оригинальные субтитры";
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesExportAsDocxGroupBox);
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesColorGroupBox);
+            this.primarySubtitlesGroupBox.Controls.Add(this.openOrClosePrimarySubtitlesGroupBox);
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesActionLabel);
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesTextBox);
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesProgressLabel);
+            this.primarySubtitlesGroupBox.Controls.Add(this.primarySubtitlesProgressBar);
+            this.primarySubtitlesGroupBox.Controls.Add(this.label2);
+            this.primarySubtitlesGroupBox.Location = new System.Drawing.Point(7, 25);
+            this.primarySubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.primarySubtitlesGroupBox.Name = "primarySubtitlesGroupBox";
+            this.primarySubtitlesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.primarySubtitlesGroupBox.Size = new System.Drawing.Size(822, 93);
+            this.primarySubtitlesGroupBox.TabIndex = 23;
+            this.primarySubtitlesGroupBox.TabStop = false;
+            this.primarySubtitlesGroupBox.Text = "Оригинальные субтитры";
             // 
             // primarySubtitlesExportAsDocxGroupBox
             // 
@@ -2643,8 +2643,8 @@
             this.firstRussianSubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             this.firstRussianSubtitlesColorGroupBox.ResumeLayout(false);
             this.openOrCloseFirstRussianSubtitlesGroupBox.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.primarySubtitlesGroupBox.ResumeLayout(false);
+            this.primarySubtitlesGroupBox.PerformLayout();
             this.primarySubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             this.primarySubtitlesColorGroupBox.ResumeLayout(false);
             this.openOrClosePrimarySubtitlesGroupBox.ResumeLayout(false);
@@ -2727,7 +2727,7 @@
         private System.Windows.Forms.TextBox firstRussianSubtitlesTextBox;
         private System.Windows.Forms.Label firstRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar firstRussianSubtitlesProgressBar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox primarySubtitlesGroupBox;
         private System.Windows.Forms.Label primarySubtitlesActionLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox primarySubtitlesTextBox;
