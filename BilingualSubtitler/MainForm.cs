@@ -951,25 +951,27 @@ namespace BilingualSubtitler
                 return null;
             }
 
-            return ReadSRTMarkupInDocx(doc.Paragraphs);
+            return ReadSrtMarkupInDocx(doc.Paragraphs);
         }
 
 
-        private Subtitle[] ReadSRTFile(string pathToSRTFile)
+        private Subtitle[] ReadSrtFile(string pathToSRTFile)
         {
-            return ReadSRTMarkup(File.ReadAllLines(pathToSRTFile));
+            return ReadSrtMarkup(File.ReadAllLines(pathToSRTFile));
         }
 
-        private Subtitle[] ReadSRTMarkup(string[] readedLines)
+        private Subtitle[] ReadSrtMarkup(string[] readedLines)
         {
+            // Подсчитаем количество субтитров, которые у нас имеются
             var subsLines = 0;
-
+            //
             foreach (string line in readedLines)
             {
                 if (line.Contains("-->"))
                     subsLines++;
             }
 
+            // Считаем субтитры
             var subtitles = new Subtitle[subsLines];
             int currentSubtitleIndex = 0;
             for (int i = 0; i < readedLines.Length - 1; i++)
@@ -977,11 +979,13 @@ namespace BilingualSubtitler
                 if (readedLines[i].Contains("-->"))
                 {
                     subtitles[currentSubtitleIndex] = new Subtitle(
-                        readedLines[i],
-                        (readedLines[i + 1]));
+                        readedLines[i], // Тайминг
+                        (readedLines[i + 1]) // Первая строка текста
+                        );
 
                     i += 2;
 
+                    // Если у нас остался еще текст — допишем
                     while ((i < readedLines.Length) && (!string.IsNullOrWhiteSpace(readedLines[i])))
                     {
                         subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
@@ -996,7 +1000,12 @@ namespace BilingualSubtitler
             return subtitles;
         }
 
-        private Subtitle[] ReadSRTMarkupInDocx(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        /// <summary>
+        /// Не вызывает просто <see cref="ReadSrtMarkup", потому что нужна обработка исключений/>
+        /// </summary>
+        /// <param name="readedLines"></param>
+        /// <returns></returns>
+        private Subtitle[] ReadSrtMarkupInDocx(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
         {
             var subsLines = 0;
 
@@ -2069,7 +2078,7 @@ namespace BilingualSubtitler
                             DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
                         })));
 
-                        subtitlesInfo.Subtitles = ReadSRTFile(filePath);
+                        subtitlesInfo.Subtitles = ReadSrtFile(filePath);
 
                         break;
                     }
@@ -2198,7 +2207,7 @@ namespace BilingualSubtitler
 
                             var lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
-                            subtitlesInfo.Subtitles = ReadSRTMarkup(lines);
+                            subtitlesInfo.Subtitles = ReadSrtMarkup(lines);
                         }
 
 
