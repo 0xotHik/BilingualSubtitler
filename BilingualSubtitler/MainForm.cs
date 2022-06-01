@@ -974,23 +974,25 @@ namespace BilingualSubtitler
             // Считаем субтитры
             var subtitles = new Subtitle[subsLines];
             int currentSubtitleIndex = 0;
-            for (int i = 0; i < readedLines.Length - 1; i++)
+            for (int currentLine = 0; currentLine < readedLines.Length - 1; currentLine++)
             {
-                if (readedLines[i].Contains("-->"))
+                if (readedLines[currentLine].Contains("-->"))
                 {
                     subtitles[currentSubtitleIndex] = new Subtitle(
-                        readedLines[i], // Тайминг
-                        (readedLines[i + 1]) // Первая строка текста
+                        readedLines[currentLine], // Тайминг
+                        (readedLines[currentLine + 1]) // Первая строка текста
                         );
 
-                    i += 2;
+                    currentLine += 2;
 
                     // Если у нас остался еще текст — допишем
-                    while ((i < readedLines.Length) && (!string.IsNullOrWhiteSpace(readedLines[i])))
+                    while ((currentLine < readedLines.Length) && 
+                        // Субтитры друг от друга отделяются пустой строкой
+                        (!string.IsNullOrWhiteSpace(readedLines[currentLine])))
                     {
-                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
+                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
 
-                        i++;
+                        currentLine++;
                     }
 
                     currentSubtitleIndex++;
@@ -1001,7 +1003,7 @@ namespace BilingualSubtitler
         }
 
         /// <summary>
-        /// Не вызывает просто <see cref="ReadSrtMarkup", потому что нужна обработка исключений/>
+        /// Не вызывает просто <see cref="ReadSrtMarkup"/>, потому что нужна обработка исключений
         /// </summary>
         /// <param name="readedLines"></param>
         /// <returns></returns>
@@ -1017,29 +1019,29 @@ namespace BilingualSubtitler
 
             var subtitles = new Subtitle[subsLines];
             int currentSubtitleIndex = 0;
-            for (int i = 0; i < readedLines.Count - 1; i++)
+            for (int currentLine = 0; currentLine < readedLines.Count - 1; currentLine++)
             {
-                if (readedLines[i].Text.Contains("->"))
+                if (readedLines[currentLine].Text.Contains("->"))
                 {
                     try
                     {
                         subtitles[currentSubtitleIndex] = new Subtitle(
-                            readedLines[i].Text,
-                            (readedLines[i + 1].Text));
+                            readedLines[currentLine].Text,
+                            (readedLines[currentLine + 1].Text));
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Не удался парсинг субтитра из\n{readedLines[i].Text}\n{readedLines[i + 1].Text}\n!\n\nОшибка:{ex.ToString()}",
+                        MessageBox.Show($"Не удался парсинг субтитра из\n{readedLines[currentLine].Text}\n{readedLines[currentLine + 1].Text}\n!\n\nОшибка:{ex.ToString()}",
                             "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                     }
 
-                    i += 2;
+                    currentLine += 2;
 
-                    while ((i < readedLines.Count) && (!string.IsNullOrWhiteSpace(readedLines[i].Text)))
+                    while ((currentLine < readedLines.Count) && (!string.IsNullOrWhiteSpace(readedLines[currentLine].Text)))
                     {
-                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[i]}";
+                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
 
-                        i++;
+                        currentLine++;
                     }
 
                     currentSubtitleIndex++;
