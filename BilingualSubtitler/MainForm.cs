@@ -685,10 +685,10 @@ namespace BilingualSubtitler
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
 
-                    showLastSubtitleOfRussianSubtitlesGroupBox.Visible = 
+                    showLastSubtitleOfRussianSubtitlesGroupBox.Visible =
 
                     additionalOpenExportSubtitlesButtonsLabel.Visible =
-                    additionalOpenExportSubtitlesButtonsGroupBox.Visible = 
+                    additionalOpenExportSubtitlesButtonsGroupBox.Visible =
                     advancedMode;
                 //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
@@ -962,44 +962,117 @@ namespace BilingualSubtitler
 
         private Subtitle[] ReadSrtMarkup(string[] readedLines)
         {
-            // Подсчитаем количество субтитров, которые у нас имеются
-            var subsLines = 0;
+            // Такая возня с пустыми строками — потому что Я.Переводчик отдает с пустыми строками.
+
+            // Удаляем все пустые строки
+            var rawLines = new List<string>();
             //
-            foreach (string line in readedLines)
+            foreach (var line in readedLines)
             {
+                if (!string.IsNullOrWhiteSpace(line))
+                    rawLines.Add(line);
+            }
+            // Удаляем все строки, предшествующие строке с "-->" — там номер субтитра, он нам не интересен
+            var linesThatAreSubtitleNumberIndexes = new List<int>();
+            //
+            for (int i = 0; i < rawLines.Count; i++)
+            {
+                var line = rawLines[i];
+
                 if (line.Contains("-->"))
-                    subsLines++;
+                    linesThatAreSubtitleNumberIndexes.Add(i - 1);
+            }
+            //
+            var lines = new List<string>();
+            for (int i = 0; i < rawLines.Count; i++)
+            {
+                if (!(linesThatAreSubtitleNumberIndexes.Contains(i)))
+                    lines.Add(rawLines[i]);
             }
 
-            // Считаем субтитры
-            var subtitles = new Subtitle[subsLines];
-            int currentSubtitleIndex = 0;
-            for (int currentLine = 0; currentLine < readedLines.Length - 1; currentLine++)
+            var subtitles = new List<Subtitle>();
+            var thatsGotToBeFirstLineOfText = true;
+            //
+            for (int i = 0; i < lines.Count; i++)
             {
-                if (readedLines[currentLine].Contains("-->"))
+                Subtitle subtitle;
+
+                if (lines[i].Contains("-->"))
                 {
-                    subtitles[currentSubtitleIndex] = new Subtitle(
-                        readedLines[currentLine], // Тайминг
-                        (readedLines[currentLine + 1]) // Первая строка текста
-                        );
+                    subtitle = new Subtitle(lines[i], string.Empty);
+                    i++;
 
-                    currentLine += 2;
-
-                    // Если у нас остался еще текст — допишем
-                    while ((currentLine < readedLines.Length) && 
-                        // Субтитры друг от друга отделяются пустой строкой
-                        (!string.IsNullOrWhiteSpace(readedLines[currentLine])))
+                    // Считываем текст
+                    //
+                    // Сначала проверка границ
+                    while ((i < lines.Count)
+                        && (!(lines[i].Contains("-->"))))
                     {
-                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
+                        // В случае с первой строкой текста нам не нужно добавлять перенос. Иначе — нужно.
+                        if (!thatsGotToBeFirstLineOfText)
+                            subtitle.Text += $"\n{lines[i]}";
+                        else
+                        {
+                            subtitle.Text += lines[i];
+                            thatsGotToBeFirstLineOfText = false;
+                        }
 
-                        currentLine++;
+                        i++;
+
                     }
 
-                    currentSubtitleIndex++;
+                    subtitles.Add(subtitle);
+
+                    // Чистка
+                    thatsGotToBeFirstLineOfText = true;
+                    i--;
                 }
             }
 
-            return subtitles;
+
+            #region Былое
+
+            //// Подсчитаем количество субтитров, которые у нас имеются
+            //var subsLines = 0;
+            ////
+            //foreach (string line in readedLines)
+            //{
+            //    if (line.Contains("-->"))
+            //        subsLines++;
+            //}
+
+            //// Считаем субтитры
+            //var subtitles = new Subtitle[subsLines];
+            //int currentSubtitleIndex = 0;
+            //for (int currentLine = 0; currentLine < readedLines.Length - 1; currentLine++)
+            //{
+            //    if (readedLines[currentLine].Contains("-->"))
+            //    {
+            //        subtitles[currentSubtitleIndex] = new Subtitle(
+            //            readedLines[currentLine], // Тайминг
+            //            (readedLines[currentLine + 1]) // Первая строка текста
+            //            );
+
+            //        currentLine += 2;
+
+            //        // Если у нас остался еще текст — допишем
+            //        while ((currentLine < readedLines.Length) && 
+            //            // Субтитры друг от друга отделяются пустой строкой
+            //            (!string.IsNullOrWhiteSpace(readedLines[currentLine])))
+            //        {
+            //            subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
+
+            //            currentLine++;
+            //        }
+
+            //        currentSubtitleIndex++;
+            //    }
+            //}
+
+            //return subtitles
+            #endregion
+
+            return subtitles.ToArray();
         }
 
         /// <summary>
@@ -2054,6 +2127,12 @@ namespace BilingualSubtitler
 
         }
 
+        /// <summary>
+        /// Запускается из <see cref="ReadSubtitlesFromFile"/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="eventArgs"></param>
+        /// <exception cref="Exception"></exception>
         private void readSubtitlesBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
         {
             var filePath = (string)eventArgs.Argument;
@@ -3179,30 +3258,72 @@ namespace BilingualSubtitler
             return subtitle.Text.Split(' ')[0];
 
         }
-        
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            var subtitlesType = SubtitlesType.FirstRussian;
+
+
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
+
+
+            var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
+            readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
+            readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
+            readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
+
+            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+
+            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            if (subtitlesWithInfo.ButtonTranslate != null)
+                subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+
+
+            var subtitlesInfo = m_subtitles[subtitlesType];
+
+            // Заполняеми информацию
+            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+            //GUI
+            var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+            //
+            BeginInvoke((Action)((() =>
+            {
+                DoGUIActions(subtitlesType, outputTextBoxText);
+            })));
+
+
+            var text = Clipboard.GetText().Split("\r\n");
+            subtitlesInfo.Subtitles = ReadSrtMarkup(text);
+
+        }
     }
 
     public class SubtitlesBackgroundWorker : BackgroundWorker
-        {
-            public SubtitlesType SubtitlesType;
-        }
+    {
+        public SubtitlesType SubtitlesType;
+    }
 
-        public class ComboboxItem
-        {
-            public string Text { get; set; }
-            public object Value { get; set; }
+    public class ComboboxItem
+    {
+        public string Text { get; set; }
+        public object Value { get; set; }
 
-            public override string ToString()
-            {
-                return Text;
-            }
-        }
-
-        public class BilingualSubtitlerPropertiesLoadingException : Exception
+        public override string ToString()
         {
-            public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
-            {
-            }
+            return Text;
         }
+    }
+
+    public class BilingualSubtitlerPropertiesLoadingException : Exception
+    {
+        public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+        {
+        }
+    }
 
 }
