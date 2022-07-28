@@ -33,7 +33,62 @@ namespace BilingualSubtitler
 
         public void Receive(KeyboardEvent @event)
         {
-            //Debug.WriteLine(@event.Key + " | " + @event.State);
+            // TODO
+            // СДелать флаг, чтобы отсекать нажатия, эмулируемые Bilingual Subtitler'ом?
+
+            // Периодически пригождается
+            //
+            //#if DEBUG
+            //            Debug.WriteLine($"RECEIVE || {DateTime.Now} ||" + @event.Key + " | " + @event.State);
+            //#endif
+
+            #region Лог ресива
+
+//// Num0
+//RECEIVE 27.07.2022 22:40:16 | NumPad0 | Down
+//RECEIVE  27.07.2022 22:40:16 NumPad0 | Up
+//The thread 0x489c has exited with code 0(0x0).
+//RECEIVE  27.07.2022 22:40:20 NumPad0 | Down
+//RECEIVE  27.07.2022 22:40:20 LShiftKey | Down
+//RECEIVE  27.07.2022 22:40:20 S | Down
+//RECEIVE  27.07.2022 22:40:20 S | Up
+//RECEIVE  27.07.2022 22:40:20 LShiftKey | Up
+//RECEIVE  27.07.2022 22:40:20 NumPad0 | Up
+//The thread 0x4ea8 has exited with code 0(0x0).
+//The thread 0x5350 has exited with code 0(0x0).
+//The thread 0x5224 has exited with code 0(0x0).
+//RECEIVE  27.07.2022 22:40:31 NumPad0 | Down
+//RECEIVE  27.07.2022 22:40:31 NumPad0 | Up
+//RECEIVE  27.07.2022 22:40:34 NumPad0 | Down
+//RECEIVE  27.07.2022 22:40:34 LShiftKey | Down
+//RECEIVE  27.07.2022 22:40:34 S | Down
+//RECEIVE  27.07.2022 22:40:34 S | Up
+//RECEIVE  27.07.2022 22:40:34 LShiftKey | Up
+//RECEIVE  27.07.2022 22:40:34 NumPad0 | Up
+
+//// Space
+//The thread 0x2c78 has exited with code 0(0x0).
+//RECEIVE  27.07.2022 22:42:44 Space | Down
+//RECEIVE  27.07.2022 22:42:44 Space | Up
+//RECEIVE  27.07.2022 22:42:48 Space | Down
+//RECEIVE  27.07.2022 22:42:48 LShiftKey | Down
+//RECEIVE  27.07.2022 22:42:48 S | Down
+//RECEIVE  27.07.2022 22:42:48 S | Up
+//RECEIVE  27.07.2022 22:42:48 LShiftKey | Up
+//RECEIVE  27.07.2022 22:42:48 Space | Up
+//The thread 0x41d4 has exited with code 0(0x0).
+//RECEIVE  27.07.2022 22:42:53 Space | Down
+//RECEIVE  27.07.2022 22:42:53 Space | Up
+//The thread 0x18a8 has exited with code 0(0x0).
+//The thread 0x4740 has exited with code 0(0x0).
+//RECEIVE  27.07.2022 22:42:55 Space | Down
+//RECEIVE  27.07.2022 22:42:55 LShiftKey | Down
+//RECEIVE  27.07.2022 22:42:55 S | Down
+//RECEIVE  27.07.2022 22:42:55 S | Up
+//RECEIVE  27.07.2022 22:42:55 LShiftKey | Up
+//RECEIVE  27.07.2022 22:42:55 || Space | Up
+
+            #endregion
 
             if (@event.State == NeatInput.Windows.Processing.Keyboard.Enums.KeyStates.Down)
             {
