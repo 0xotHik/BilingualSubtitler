@@ -951,7 +951,7 @@ namespace BilingualSubtitler
                 return null;
             }
 
-            return ReadSrtMarkupInDocx(doc.Paragraphs);
+            return ReadSrtMarkupFromDocxLines(doc.Paragraphs);
         }
 
 
@@ -960,6 +960,9 @@ namespace BilingualSubtitler
             return ReadSrtMarkup(File.ReadAllLines(pathToSRTFile));
         }
 
+        /// <remarks>
+        /// Правя здесь, не забудь поправить <see cref="ReadSrtMarkupFromDocxLines"/>, падаван юный
+        /// </remarks>
         private Subtitle[] ReadSrtMarkup(string[] readedLines)
         {
             // Такая возня с пустыми строками — потому что Я.Переводчик отдает с пустыми строками.
@@ -1075,13 +1078,16 @@ namespace BilingualSubtitler
             return subtitles.ToArray();
         }
 
-        /// <summary>
+        /// <remarks>
         /// Не вызывает просто <see cref="ReadSrtMarkup"/>, потому что нужна обработка исключений
-        /// </summary>
-        /// <param name="readedLines"></param>
-        /// <returns></returns>
-        private Subtitle[] ReadSrtMarkupInDocx(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        /// </remarks>
+        private Subtitle[] ReadSrtMarkupFromDocxLines(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
         {
+
+            // TODO
+            //
+            // Здесь бы заменить на тот механизм, что в ReadSrtMarkup, но и этот работает, а поменяю — нужно тестировать. Пока так.
+
             var subsLines = 0;
 
             foreach (var line in readedLines)
