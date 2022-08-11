@@ -1288,7 +1288,7 @@ namespace BilingualSubtitler
 
             SetGUIContolsToSubtitlesWasSuccessfullyLoaded(subtitlesAndInfo);
 
-            subtitlesAndInfo.SetOriginalFile(filePath, false);
+            subtitlesAndInfo.SetOriginalFile(filePath);
         }
 
         private void SetGUIContolsToSubtitlesWasSuccessfullyLoaded(SubtitlesAndInfo subtitlesAndInfo)
@@ -1932,8 +1932,8 @@ namespace BilingualSubtitler
             StartYandexTranslateSubtitles(SubtitlesType.ThirdRussian);
         }
 
-        private void OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType subtitlesType,
-            bool fromDownloadsFolder = false, bool fromDefaultFolder = false)
+        private void OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType subtitlesType,
+            bool fromDownloadsFolder = false, bool fromDefaultFolder = false, bool fromClipboard = false)
         {
             // Чекаем пути (непутю)
             if (fromDownloadsFolder)
@@ -1965,25 +1965,32 @@ namespace BilingualSubtitler
 
             if (subtitlesWithInfo.Subtitles == null) //Открываем субтитры
             {
-                string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt) |*.mkv; *.srt; *.docx; *.zip";
-
-                using var openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = formats;
-
-                // Папки по умолчанию
-                if (fromDownloadsFolder)
+                if (fromClipboard)
                 {
-                    string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
-                    openFileDialog.InitialDirectory = downloadsFolderPath;
+                    ReadSubtitlesFromClipboard(subtitlesType);
                 }
-                else if (fromDefaultFolder)
-                    openFileDialog.InitialDirectory = Settings.Default.FolderToOpenFilesByDefaultFrom;
-
-                var result = openFileDialog.ShowDialog();
-
-                if (result == DialogResult.OK)
+                else
                 {
-                    ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
+                    string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt) |*.mkv; *.srt; *.docx; *.zip";
+
+                    using var openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = formats;
+
+                    // Папки по умолчанию
+                    if (fromDownloadsFolder)
+                    {
+                        string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
+                        openFileDialog.InitialDirectory = downloadsFolderPath;
+                    }
+                    else if (fromDefaultFolder)
+                        openFileDialog.InitialDirectory = Settings.Default.FolderToOpenFilesByDefaultFrom;
+
+                    var result = openFileDialog.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        ReadSubtitlesFromFile(openFileDialog.FileName, subtitlesType);
+                    }
                 }
             }
             // Субтитры есть
@@ -2105,12 +2112,12 @@ namespace BilingualSubtitler
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
 
-            var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
-            readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
-            readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
-            readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
+            var readSubtitlesFromFileBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
+            readSubtitlesFromFileBackgroundWorker.DoWork += readSubtitlesFromFileBackgroundWorker_DoWork;
+            readSubtitlesFromFileBackgroundWorker.ProgressChanged += readSubtitlesFromFileBackgroundWorker_ProgressChanged;
+            readSubtitlesFromFileBackgroundWorker.RunWorkerCompleted += readSubtitlesFromFileBackgroundWorker_RunWorkerCompleted;
 
-            subtitlesWithInfo.SetBackgroundWorker(readSubtitlesBackgroundWorker, subtitlesType);
+            subtitlesWithInfo.SetBackgroundWorker(readSubtitlesFromFileBackgroundWorker, subtitlesType);
 
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
@@ -2133,13 +2140,34 @@ namespace BilingualSubtitler
 
         }
 
+        private void ReadSubtitlesFromClipboard(SubtitlesType subtitlesType)
+        {
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
+
+            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+
+            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            if (subtitlesWithInfo.ButtonTranslate != null)
+                subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+
+            // Чтение
+            var text = Clipboard.GetText().Split("\r\n");
+            subtitlesWithInfo.Subtitles = ReadSrtMarkup(text);
+
+            SubtitlesReadingHasEnded(subtitlesType);
+        }
+
         /// <summary>
         /// Запускается из <see cref="ReadSubtitlesFromFile"/>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="eventArgs"></param>
         /// <exception cref="Exception"></exception>
-        private void readSubtitlesBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
+        private void readSubtitlesFromFileBackgroundWorker_DoWork(object sender, DoWorkEventArgs eventArgs)
         {
             var filePath = (string)eventArgs.Argument;
 
@@ -2309,12 +2337,7 @@ namespace BilingualSubtitler
 
         private void FillTheBasicSubtitlesInformation(string filePath, SubtitlesAndInfo subtitlesInfo)
         {
-            // Заполняеми информацию
-            var fileName = new FileInfo(filePath).Name;
-            var fileExt = new FileInfo(filePath).Extension;
-            //
-            subtitlesInfo.FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
-            subtitlesInfo.FileExtention = fileExt;
+            subtitlesInfo.SetOriginalFile(filePath);
         }
 
         private void DoGUIActions(SubtitlesType subtitlesType, string outputTextBoxText)
@@ -2348,7 +2371,7 @@ namespace BilingualSubtitler
             subtitlesInfo.OutputTextBox.Text = outputTextBoxText;
         }
 
-        private void readSubtitlesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
+        private void readSubtitlesFromFileBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
             var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
@@ -2357,17 +2380,22 @@ namespace BilingualSubtitler
             subtitlesInfo.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
         }
 
-        private void readSubtitlesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
+        private void readSubtitlesFromFileBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
         {
             var parentBgW = (SubtitlesBackgroundWorker)sender;
-            var subtitlesInfo = m_subtitles[parentBgW.SubtitlesType];
+            SubtitlesReadingHasEnded(parentBgW.SubtitlesType);
+        }
+
+        private void SubtitlesReadingHasEnded(SubtitlesType subtitlesType)
+        {
+            var subtitlesInfo = m_subtitles[subtitlesType];
 
             if (subtitlesInfo.Subtitles != null)
             {
                 subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
                 subtitlesInfo.ProgressLabel.Text = $"100%";
 
-                if (parentBgW.SubtitlesType == SubtitlesType.Original)
+                if (subtitlesType == SubtitlesType.Original)
                 {
                     translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                         translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
@@ -2669,7 +2697,7 @@ namespace BilingualSubtitler
 
         private void openOrClosePrimarySubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_originalSubtitles,
             //    primarySubtitlesProgressBar, primarySubtitlesProgressLabel, primarySubtitlesActionLabel, primarySubtitlesTextBox,
@@ -2678,7 +2706,7 @@ namespace BilingualSubtitler
 
         private void openOrCloseFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian);
             //OpenFileAndReadSubtitlesFromFile(ref m_firstRussianSubtitles,
             //    firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel, firstRussianSubtitlesActionLabel,
             //    firstRussianSubtitlesTextBox, openFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton);
@@ -2686,7 +2714,7 @@ namespace BilingualSubtitler
 
         private void openOrCloseSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_secondRussianSubtitles,
             //    secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel, secondRussianSubtitlesActionLabel,
@@ -2695,7 +2723,7 @@ namespace BilingualSubtitler
 
         private void openOrCloseThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian);
 
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
             //    thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel, thirdRussianSubtitlesActionLabel,
@@ -3153,7 +3181,7 @@ namespace BilingualSubtitler
 
         private void openPrimarySubtitlesFromDownloadsButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original, true);
         }
 
         private void primarySubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
@@ -3163,17 +3191,17 @@ namespace BilingualSubtitler
 
         private void firstRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, true);
         }
 
         private void secondRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian, true);
         }
 
         private void thirdRussianSubtitlesOpenFromDownloadsButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian, true);
         }
 
         private void firstRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
@@ -3204,22 +3232,22 @@ namespace BilingualSubtitler
 
         private void openPrimarySubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.Original, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original, fromDefaultFolder: true);
         }
 
         private void openFirstRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefaultFolder: true);
         }
 
         private void openSecondRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefaultFolder: true);
         }
 
         private void openThirdRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenFileAndReadSubtitlesFromFileOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefaultFolder: true);
         }
 
         private void showLastSubtitleOfFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
@@ -3267,44 +3295,45 @@ namespace BilingualSubtitler
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            var subtitlesType = SubtitlesType.FirstRussian;
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromClipboard: true);
+            //var subtitlesType = SubtitlesType.FirstRussian;
 
 
-            var subtitlesWithInfo = m_subtitles[subtitlesType];
+            //var subtitlesWithInfo = m_subtitles[subtitlesType];
 
 
-            var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
-            readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
-            readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
-            readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
+            //var readSubtitlesBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
+            //readSubtitlesBackgroundWorker.DoWork += readSubtitlesBackgroundWorker_DoWork;
+            //readSubtitlesBackgroundWorker.ProgressChanged += readSubtitlesBackgroundWorker_ProgressChanged;
+            //readSubtitlesBackgroundWorker.RunWorkerCompleted += readSubtitlesBackgroundWorker_RunWorkerCompleted;
 
-            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
-            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            //subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            //subtitlesWithInfo.ProgressLabel.Text = $"0%";
 
-            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
-                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
-                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
-            if (subtitlesWithInfo.ButtonTranslate != null)
-                subtitlesWithInfo.ButtonTranslate.Enabled = false;
-            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
-
-
-            var subtitlesInfo = m_subtitles[subtitlesType];
-
-            // Заполняеми информацию
-            subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
-
-            //GUI
-            var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
-            //
-            BeginInvoke((Action)((() =>
-            {
-                DoGUIActions(subtitlesType, outputTextBoxText);
-            })));
+            //subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+            //    subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+            //        subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            //if (subtitlesWithInfo.ButtonTranslate != null)
+            //    subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            //subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
 
 
-            var text = Clipboard.GetText().Split("\r\n");
-            subtitlesInfo.Subtitles = ReadSrtMarkup(text);
+            //var subtitlesInfo = m_subtitles[subtitlesType];
+
+            //// Заполняеми информацию
+            //subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+            ////GUI
+            //var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+            ////
+            //BeginInvoke((Action)((() =>
+            //{
+            //    DoGUIActions(subtitlesType, outputTextBoxText);
+            //})));
+
+
+            //var text = Clipboard.GetText().Split("\r\n");
+            //subtitlesInfo.Subtitles = ReadSrtMarkup(text);
 
         }
     }

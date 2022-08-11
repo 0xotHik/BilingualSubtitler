@@ -117,11 +117,25 @@ namespace BilingualSubtitler
         public Button ExportAsDocxButton;
         public Button ExportAsDocxIntoDownloadsButton;
 
-        public string TrackNumber;
-        public string TrackLanguage;
-        public string TrackName;
-        public string FileNameWithoutExtention { get; set; }
+        public string TrackNumber = null;
+        public string TrackLanguage = null;
+        public string TrackName = null;
+
+        private string fileNameWithoutExtention;
+        public string FileNameWithoutExtention 
+        {
+            get { return fileNameWithoutExtention; }
+            private set 
+            {
+                fileNameWithoutExtention = value;
+                FromFile = true;
+                FromClipboard = false;
+            }
+        }
         public string FileExtention { get; set; }
+
+        public bool? FromFile = null;
+        public bool? FromClipboard = null;
         
         public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
            Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
@@ -151,7 +165,7 @@ namespace BilingualSubtitler
             BackgroundWorker.SubtitlesType = subtitlesType;
         }
 
-        public void SetOriginalFile(string filePath, bool fromMKV)
+        public void SetOriginalFile(string filePath)
         {
             var fileName = new FileInfo(filePath).Name;
             var fileExt = new FileInfo(filePath).Extension;
@@ -160,9 +174,6 @@ namespace BilingualSubtitler
 
             FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
             FileExtention = fileExt;
-
-            if (!fromMKV)
-                TrackLanguage = TrackNumber = TrackName = null;
         }
     }
 
