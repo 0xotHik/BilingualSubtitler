@@ -1935,6 +1935,28 @@ namespace BilingualSubtitler
         private void OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType subtitlesType,
             bool fromDownloadsFolder = false, bool fromDefaultFolder = false, bool fromClipboard = false)
         {
+            // Чекаем
+            if (fromClipboard)
+            {
+                var clipboardText = Clipboard.GetText().Split("\r\n");
+
+                var messageBoxText = "Использовать следующий текст буфера обмена:\n";
+                for (int i=0; i<10; i++)
+                {
+                    if (i < clipboardText.Length)
+                        messageBoxText += $"{clipboardText[i]}\n";
+                }
+                if (clipboardText.Length >= 10)
+                {
+                    messageBoxText += "и т.д.";
+                }
+                messageBoxText += "?";
+                //+
+                var result = MessageBox.Show(messageBoxText, "Буфер обмена", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                //+
+                if (result != DialogResult.Yes)
+                    return;
+            }
             // Чекаем пути (непутю)
             if (fromDownloadsFolder)
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
@@ -2877,9 +2899,20 @@ namespace BilingualSubtitler
             var subtitlesInfo = m_subtitles[subtitlesType];
 
             string formats = "Файл DocX |*.docx";
-            var defaultFileName = string.IsNullOrWhiteSpace(subtitlesInfo.TrackLanguage) ? subtitlesInfo.FileNameWithoutExtention
-                : $"{subtitlesInfo.FileNameWithoutExtention}.Track{subtitlesInfo.TrackNumber}.Subtitles." +
-                $"{subtitlesInfo.TrackLanguage.ToUpper()}.BilingualSubtitlerExport";
+
+            // Имя по умолчанию
+            string defaultFileName;
+            //+
+            if (subtitlesInfo.FromClipboard.Value == true)
+            {
+                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}-{DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}";
+            }
+            else
+            {
+                defaultFileName = string.IsNullOrWhiteSpace(subtitlesInfo.TrackLanguage) ? subtitlesInfo.FileNameWithoutExtention
+                    : $"{subtitlesInfo.FileNameWithoutExtention}.Track{subtitlesInfo.TrackNumber}.Subtitles." +
+                    $"{subtitlesInfo.TrackLanguage.ToUpper()}.BilingualSubtitlerExport";
+            }
 
             bool goodToGo = false;
             string resultingDocXFileName = string.Empty;
