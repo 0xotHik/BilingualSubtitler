@@ -965,6 +965,9 @@ namespace BilingualSubtitler
         /// </remarks>
         private Subtitle[] ReadSrtMarkup(string[] readedLines)
         {
+            // TODO
+            // Обработка ошибок?
+
             // Такая возня с пустыми строками — потому что Я.Переводчик отдает с пустыми строками.
 
             // Удаляем все пустые строки
@@ -1944,7 +1947,7 @@ namespace BilingualSubtitler
                 for (int i=0; i<10; i++)
                 {
                     if (i < clipboardText.Length)
-                        messageBoxText += $"{clipboardText[i]}\n";
+                        messageBoxText += $"{clipboardText[i]}\n\n";
                 }
                 if (clipboardText.Length >= 10)
                 {
@@ -1985,7 +1988,7 @@ namespace BilingualSubtitler
 
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            if (subtitlesWithInfo.Subtitles == null) //Открываем субтитры
+            if (!ThereIsSubtitles(subtitlesWithInfo.Subtitles)) //Открываем субтитры
             {
                 if (fromClipboard)
                 {
@@ -2133,7 +2136,6 @@ namespace BilingualSubtitler
         {
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-
             var readSubtitlesFromFileBackgroundWorker = new SubtitlesBackgroundWorker { WorkerReportsProgress = true };
             readSubtitlesFromFileBackgroundWorker.DoWork += readSubtitlesFromFileBackgroundWorker_DoWork;
             readSubtitlesFromFileBackgroundWorker.ProgressChanged += readSubtitlesFromFileBackgroundWorker_ProgressChanged;
@@ -2141,15 +2143,15 @@ namespace BilingualSubtitler
 
             subtitlesWithInfo.SetBackgroundWorker(readSubtitlesFromFileBackgroundWorker, subtitlesType);
 
-            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
-            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            //subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            //subtitlesWithInfo.ProgressLabel.Text = $"0%";
 
-            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
-                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
-                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
-            if (subtitlesWithInfo.ButtonTranslate != null)
-                subtitlesWithInfo.ButtonTranslate.Enabled = false;
-            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+            //subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+            //    subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+            //        subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            //if (subtitlesWithInfo.ButtonTranslate != null)
+            //    subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            //subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
 
             if (subtitlesType == SubtitlesType.Original)
             {
@@ -2166,15 +2168,17 @@ namespace BilingualSubtitler
         {
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
-            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            DoGUIActionsInTheBeginningOfSubtitlesReading(subtitlesType, "Из буфера обмена");
 
-            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
-                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
-                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
-            if (subtitlesWithInfo.ButtonTranslate != null)
-                subtitlesWithInfo.ButtonTranslate.Enabled = false;
-            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+            //subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            //subtitlesWithInfo.ProgressLabel.Text = $"0%";
+
+            //subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+            //    subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+            //        subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            //if (subtitlesWithInfo.ButtonTranslate != null)
+            //    subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            //subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
 
             // Чтение
             var text = Clipboard.GetText().Split("\r\n");
@@ -2204,7 +2208,7 @@ namespace BilingualSubtitler
                 case ".srt":
                     {
                         // Заполняеми информацию
-                        FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
                         subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
 
                         //GUI
@@ -2212,7 +2216,7 @@ namespace BilingualSubtitler
                         //
                         BeginInvoke((Action)((() =>
                         {
-                            DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
+                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
                         })));
 
                         subtitlesInfo.Subtitles = ReadSrtFile(filePath);
@@ -2222,7 +2226,7 @@ namespace BilingualSubtitler
                 case ".docx":
                     {
                         // Заполняеми информацию
-                        FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
                         subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
 
                         //GUI
@@ -2230,7 +2234,7 @@ namespace BilingualSubtitler
                         //
                         BeginInvoke((Action)((() =>
                         {
-                            DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
+                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
                         })));
 
                         subtitlesInfo.Subtitles = ReadDocx(filePath);
@@ -2249,7 +2253,7 @@ namespace BilingualSubtitler
                         if (dialogResult == DialogResult.OK)
                         {
                             // Заполняеми информацию
-                            FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                            FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
                             //
                             var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
                             if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
@@ -2264,7 +2268,7 @@ namespace BilingualSubtitler
                             //
                             BeginInvoke((Action)((() =>
                             {
-                                DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
+                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
                             })));
 
                             var mkvTrackInfo =
@@ -2307,7 +2311,7 @@ namespace BilingualSubtitler
                         if (dialogResult == DialogResult.OK)
                         {
                             // Заполняеми информацию
-                            FillTheBasicSubtitlesInformation(filePath, subtitlesInfo);
+                            FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
                             //
                             subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
 
@@ -2316,7 +2320,7 @@ namespace BilingualSubtitler
                             //
                             BeginInvoke((Action)((() =>
                             {
-                                DoGUIActions(parentBgW.SubtitlesType, outputTextBoxText);
+                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
                             })));
 
                             using (var file = File.OpenRead(filePath))
@@ -2357,12 +2361,15 @@ namespace BilingualSubtitler
             }
         }
 
-        private void FillTheBasicSubtitlesInformation(string filePath, SubtitlesAndInfo subtitlesInfo)
+        private void FillTheBasicSubtitlesInformationFromBackgroundWorker(string filePath, SubtitlesAndInfo subtitlesInfo)
         {
-            subtitlesInfo.SetOriginalFile(filePath);
+            Invoke(() =>
+            {
+                subtitlesInfo.SetOriginalFile(filePath);
+            });
         }
 
-        private void DoGUIActions(SubtitlesType subtitlesType, string outputTextBoxText)
+        private void DoGUIActionsInTheBeginningOfSubtitlesReading(SubtitlesType subtitlesType, string outputTextBoxText)
         {
             switch (subtitlesType)
             {
@@ -2388,9 +2395,19 @@ namespace BilingualSubtitler
                     }
             }
 
-            var subtitlesInfo = m_subtitles[subtitlesType];
+            var subtitlesWithInfo = m_subtitles[subtitlesType];
             //
-            subtitlesInfo.OutputTextBox.Text = outputTextBoxText;
+            subtitlesWithInfo.OutputTextBox.Text = outputTextBoxText;
+
+            subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressLabel.Text = $"0%";
+
+            subtitlesWithInfo.ButtonOpenOrClose.Enabled =
+                subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled = false;
+            if (subtitlesWithInfo.ButtonTranslate != null)
+                subtitlesWithInfo.ButtonTranslate.Enabled = false;
+            subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
         }
 
         private void readSubtitlesFromFileBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
@@ -2412,7 +2429,7 @@ namespace BilingualSubtitler
         {
             var subtitlesInfo = m_subtitles[subtitlesType];
 
-            if (subtitlesInfo.Subtitles != null)
+            if (ThereIsSubtitles(subtitlesInfo.Subtitles))
             {
                 subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Maximum;
                 subtitlesInfo.ProgressLabel.Text = $"100%";
@@ -2433,7 +2450,7 @@ namespace BilingualSubtitler
             {
                 subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
                 subtitlesInfo.ProgressLabel.Text = $"0%";
-                subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время открытия субтитров";
+                subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время чтения субтитров";
             }
 
             subtitlesInfo.ButtonOpenOrClose.Enabled =
@@ -2443,6 +2460,14 @@ namespace BilingualSubtitler
                 subtitlesInfo.ButtonTranslate.Enabled = true;
 
             // TODO Ошибки?
+        }
+
+        private bool ThereIsSubtitles(Subtitle[] subtitles)
+        {
+            if (subtitles != null && subtitles.Length > 0)
+                return true;
+
+            return false;
         }
 
         private void SetSubtitlesAndVideoFilePaths(string fileName, bool videoFile)
