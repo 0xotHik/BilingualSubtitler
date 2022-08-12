@@ -1944,7 +1944,7 @@ namespace BilingualSubtitler
                 var clipboardText = Clipboard.GetText().Split("\r\n");
 
                 var messageBoxText = "Использовать следующий текст буфера обмена:\n";
-                for (int i=0; i<10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     if (i < clipboardText.Length)
                         messageBoxText += $"{clipboardText[i]}\n\n";
@@ -2988,6 +2988,61 @@ namespace BilingualSubtitler
 
         }
 
+        private void ExportSubtitlesToSrt(SubtitlesType subtitlesType)
+        {
+            var subtitlesInfo = m_subtitles[subtitlesType];
+
+            string formats = "Файл SubRipText |*.srt";
+
+            // Имя по умолчанию
+            string defaultFileName;
+            //+
+            if (subtitlesInfo.FromClipboard.Value == true)
+            {
+                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}-{DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}";
+            }
+            else
+            {
+                defaultFileName = string.IsNullOrWhiteSpace(subtitlesInfo.TrackLanguage) ? subtitlesInfo.FileNameWithoutExtention
+                    : $"{subtitlesInfo.FileNameWithoutExtention}.Track{subtitlesInfo.TrackNumber}.Subtitles." +
+                    $"{subtitlesInfo.TrackLanguage.ToUpper()}.BilingualSubtitlerExport";
+            }
+
+            bool goodToGo = false;
+            string resultingFileName = string.Empty;
+
+            using var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = formats;
+            saveFileDialog.FileName = defaultFileName;
+
+            var result = saveFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                goodToGo = true;
+                resultingFileName = saveFileDialog.FileName;
+            }
+
+            if (goodToGo == true)
+            {
+                var timeFormat = @"hh\:mm\:ss\,fff";
+
+                var lines = new List<string>();
+                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                {
+                    var subtitle = subtitlesInfo.Subtitles[i];
+
+                    lines.Add((i + 1).ToString());
+                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                    lines.Add(subtitle.Text);
+                    lines.Add("");
+                }
+
+                File.WriteAllLines(resultingFileName, lines.ToArray());
+            }
+
+        }
+
         private void firstRussianSubtitlesTextBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -3393,6 +3448,11 @@ namespace BilingualSubtitler
             //var text = Clipboard.GetText().Split("\r\n");
             //subtitlesInfo.Subtitles = ReadSrtMarkup(text);
 
+        }
+
+        private void primarySubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.Original);
         }
     }
 
