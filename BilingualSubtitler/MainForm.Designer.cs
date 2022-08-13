@@ -80,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.primarySubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.primarySubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
+            this.primarySubtitlesExportAsSrtButton = new System.Windows.Forms.Button();
             this.primarySubtitlesExportAsDocxIntoDownloadsButton = new System.Windows.Forms.Button();
             this.primarySubtitlesExportAsDocxButton = new System.Windows.Forms.Button();
             this.primarySubtitlesColorGroupBox = new System.Windows.Forms.GroupBox();
@@ -223,7 +224,6 @@
             this.showLastSubtitleOfFirstRussianSubtitlesButton = new System.Windows.Forms.Button();
             this.showLastSubtitleOfThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
             this.showLastSubtitleOfSecondRussianSubtitlesButton = new System.Windows.Forms.Button();
-            this.primarySubtitlesExportAsSrtButton = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
@@ -799,12 +799,12 @@
             // 
             this.firstRussianSubtitlesOpenFromDownloadsButton.AllowDrop = true;
             this.firstRussianSubtitlesOpenFromDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.firstRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(84, 16);
+            this.firstRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(80, 16);
             this.firstRussianSubtitlesOpenFromDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.firstRussianSubtitlesOpenFromDownloadsButton.Name = "firstRussianSubtitlesOpenFromDownloadsButton";
-            this.firstRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(64, 27);
+            this.firstRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(71, 27);
             this.firstRussianSubtitlesOpenFromDownloadsButton.TabIndex = 17;
-            this.firstRussianSubtitlesOpenFromDownloadsButton.Text = "из 📥";
+            this.firstRussianSubtitlesOpenFromDownloadsButton.Text = "файл из 📥";
             this.firstRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             this.firstRussianSubtitlesOpenFromDownloadsButton.Click += new System.EventHandler(this.firstRussianSubtitlesOpenFromDownloadsButton_Click);
             // 
@@ -907,6 +907,19 @@
             this.primarySubtitlesExportAsDocxGroupBox.TabIndex = 15;
             this.primarySubtitlesExportAsDocxGroupBox.TabStop = false;
             this.primarySubtitlesExportAsDocxGroupBox.Text = "Сохранить субтитры в файл";
+            // 
+            // primarySubtitlesExportAsSrtButton
+            // 
+            this.primarySubtitlesExportAsSrtButton.AllowDrop = true;
+            this.primarySubtitlesExportAsSrtButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.primarySubtitlesExportAsSrtButton.Location = new System.Drawing.Point(89, 46);
+            this.primarySubtitlesExportAsSrtButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.primarySubtitlesExportAsSrtButton.Name = "primarySubtitlesExportAsSrtButton";
+            this.primarySubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
+            this.primarySubtitlesExportAsSrtButton.TabIndex = 14;
+            this.primarySubtitlesExportAsSrtButton.Text = "в 📥 — .docx";
+            this.primarySubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
+            this.primarySubtitlesExportAsSrtButton.Click += new System.EventHandler(this.primarySubtitlesExportAsSrtButton_Click);
             // 
             // primarySubtitlesExportAsDocxIntoDownloadsButton
             // 
@@ -1148,7 +1161,6 @@
             // 
             // openOrCloseSecondRussianSubtitlesGroupBox
             // 
-            this.openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(this.openSecondRussianSubtitlesFromDefaultFolderButton);
             this.openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(this.secondRussianSubtitlesOpenFromDownloadsButton);
             this.openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(this.openOrCloseSecondRussianSubtitlesButton);
             this.openOrCloseSecondRussianSubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
@@ -1164,7 +1176,7 @@
             // 
             this.openSecondRussianSubtitlesFromDefaultFolderButton.AllowDrop = true;
             this.openSecondRussianSubtitlesFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.openSecondRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(84, 46);
+            this.openSecondRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(1179, 822);
             this.openSecondRussianSubtitlesFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.openSecondRussianSubtitlesFromDefaultFolderButton.Name = "openSecondRussianSubtitlesFromDefaultFolderButton";
             this.openSecondRussianSubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(64, 27);
@@ -1177,12 +1189,12 @@
             // 
             this.secondRussianSubtitlesOpenFromDownloadsButton.AllowDrop = true;
             this.secondRussianSubtitlesOpenFromDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.secondRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(84, 16);
+            this.secondRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(80, 16);
             this.secondRussianSubtitlesOpenFromDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.secondRussianSubtitlesOpenFromDownloadsButton.Name = "secondRussianSubtitlesOpenFromDownloadsButton";
-            this.secondRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(64, 27);
+            this.secondRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(71, 27);
             this.secondRussianSubtitlesOpenFromDownloadsButton.TabIndex = 42;
-            this.secondRussianSubtitlesOpenFromDownloadsButton.Text = "из 📥";
+            this.secondRussianSubtitlesOpenFromDownloadsButton.Text = "файл из 📥";
             this.secondRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             this.secondRussianSubtitlesOpenFromDownloadsButton.Click += new System.EventHandler(this.secondRussianSubtitlesOpenFromDownloadsButton_Click);
             // 
@@ -1359,7 +1371,6 @@
             // 
             // openOrCloseThirdRussianSubtitlesGroupBox
             // 
-            this.openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(this.openThirdRussianSubtitlesFromDefaultFolderButton);
             this.openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(this.thirdRussianSubtitlesOpenFromDownloadsButton);
             this.openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(this.openOrCloseThirdRussianSubtitlesButton);
             this.openOrCloseThirdRussianSubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
@@ -1375,7 +1386,7 @@
             // 
             this.openThirdRussianSubtitlesFromDefaultFolderButton.AllowDrop = true;
             this.openThirdRussianSubtitlesFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.openThirdRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(84, 46);
+            this.openThirdRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(1282, 822);
             this.openThirdRussianSubtitlesFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.openThirdRussianSubtitlesFromDefaultFolderButton.Name = "openThirdRussianSubtitlesFromDefaultFolderButton";
             this.openThirdRussianSubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(64, 27);
@@ -1388,12 +1399,12 @@
             // 
             this.thirdRussianSubtitlesOpenFromDownloadsButton.AllowDrop = true;
             this.thirdRussianSubtitlesOpenFromDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.thirdRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(84, 16);
+            this.thirdRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(80, 16);
             this.thirdRussianSubtitlesOpenFromDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.thirdRussianSubtitlesOpenFromDownloadsButton.Name = "thirdRussianSubtitlesOpenFromDownloadsButton";
-            this.thirdRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(64, 27);
+            this.thirdRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(71, 27);
             this.thirdRussianSubtitlesOpenFromDownloadsButton.TabIndex = 43;
-            this.thirdRussianSubtitlesOpenFromDownloadsButton.Text = "из 📥";
+            this.thirdRussianSubtitlesOpenFromDownloadsButton.Text = "файл из 📥";
             this.thirdRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             this.thirdRussianSubtitlesOpenFromDownloadsButton.Click += new System.EventHandler(this.thirdRussianSubtitlesOpenFromDownloadsButton_Click);
             // 
@@ -2617,19 +2628,6 @@
             this.showLastSubtitleOfSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
             this.showLastSubtitleOfSecondRussianSubtitlesButton.Click += new System.EventHandler(this.showLastSubtitleOfSecondRussianSubtitlesButton_Click);
             // 
-            // primarySubtitlesExportAsSrtButton
-            // 
-            this.primarySubtitlesExportAsSrtButton.AllowDrop = true;
-            this.primarySubtitlesExportAsSrtButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.primarySubtitlesExportAsSrtButton.Location = new System.Drawing.Point(89, 46);
-            this.primarySubtitlesExportAsSrtButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.primarySubtitlesExportAsSrtButton.Name = "primarySubtitlesExportAsSrtButton";
-            this.primarySubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
-            this.primarySubtitlesExportAsSrtButton.TabIndex = 14;
-            this.primarySubtitlesExportAsSrtButton.Text = "в 📥 — .docx";
-            this.primarySubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
-            this.primarySubtitlesExportAsSrtButton.Click += new System.EventHandler(this.primarySubtitlesExportAsSrtButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2637,6 +2635,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
+            this.Controls.Add(this.openThirdRussianSubtitlesFromDefaultFolderButton);
+            this.Controls.Add(this.openSecondRussianSubtitlesFromDefaultFolderButton);
             this.Controls.Add(this.openFirstRussianSubtitlesFromDefaultFolderButton);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.Controls.Add(this.openPrimarySubtitlesFromDefaultFolderButton);
