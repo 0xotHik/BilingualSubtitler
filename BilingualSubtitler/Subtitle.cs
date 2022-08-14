@@ -134,9 +134,27 @@ namespace BilingualSubtitler
         }
         public string FileExtention { get; set; }
 
-        public bool? FromFile = null;
-        public bool? FromClipboard = null;
-        
+        private bool? fromFile = null;
+        public bool? FromFile
+        {
+            get { return fromFile; }
+            set 
+            { 
+                fromFile = value;
+                fromClipboard = !value;
+            }
+        }
+        private bool? fromClipboard = null;
+        public bool? FromClipboard
+        {
+            get { return fromClipboard; }
+            set
+            {
+                fromFile = !value;
+                fromClipboard = value;
+            }
+        }
+
         public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
            Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
            GroupBox openSubtitlesGroupBox, GroupBox exportAsDocxGroupBox,

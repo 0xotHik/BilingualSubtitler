@@ -2881,8 +2881,10 @@ namespace BilingualSubtitler
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using var formAbout = new FormAbout();
-            formAbout.ShowDialog();
+            OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler#Help");
+
+            //using var formAbout = new FormAbout();
+            //formAbout.ShowDialog();
         }
 
         private void playVideoButton_Click(object sender, EventArgs e)

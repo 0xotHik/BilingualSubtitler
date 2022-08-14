@@ -813,6 +813,12 @@ namespace BilingualSubtitler
                 defaultFolderPathRichTextBox.Text = openFolderDialog.SelectedPath;
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            using var formAbout = new FormAbout();
+            formAbout.ShowDialog();
+        }
+
 
 
 

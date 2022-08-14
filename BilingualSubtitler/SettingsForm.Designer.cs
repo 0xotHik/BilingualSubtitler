@@ -156,6 +156,7 @@
             this.defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -225,7 +226,7 @@
             this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
             this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancel.Location = new System.Drawing.Point(18, 899);
+            this.buttonCancel.Location = new System.Drawing.Point(564, 899);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(86, 40);
@@ -1145,7 +1146,7 @@
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(484, 899);
+            this.button5.Location = new System.Drawing.Point(750, 899);
             this.button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(273, 40);
@@ -1664,6 +1665,19 @@
             this.downloadsFolderPathRichTextBox.TabIndex = 2;
             this.downloadsFolderPathRichTextBox.Text = "";
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.Location = new System.Drawing.Point(18, 899);
+            this.button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(273, 40);
+            this.button11.TabIndex = 100;
+            this.button11.Text = "ℹ️ О программе";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1671,6 +1685,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox11);
@@ -1872,5 +1887,6 @@
         private System.Windows.Forms.RichTextBox downloadsFolderPathRichTextBox;
         private System.Windows.Forms.Button defaultFolderPathSetButton;
         private System.Windows.Forms.Button downloadsFolderPathSetButton;
+        private System.Windows.Forms.Button button11;
     }
 }
