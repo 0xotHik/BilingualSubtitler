@@ -3367,7 +3367,14 @@ namespace BilingualSubtitler
 
         private void showLastSubtitleOfFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            ShowLastSubtitleOfSubtitles(SubtitlesType.FirstRussian);
+            var originalSubtitles = m_subtitles[SubtitlesType.Original].Subtitles;
+            var firstRussianSubtitles = m_subtitles[SubtitlesType.FirstRussian].Subtitles;
+            var secondRussianSubtitles = m_subtitles[SubtitlesType.SecondRussian].Subtitles;
+            var thirdRussianSubtitles = m_subtitles[SubtitlesType.ThirdRussian].Subtitles;
+
+            var showSubtitlesForm = new ShowSubtitlesForm(originalSubtitles, firstRussianSubtitles, secondRussianSubtitles, thirdRussianSubtitles);
+            showSubtitlesForm.ShowDialog();
+            //ShowLastSubtitleOfSubtitles(SubtitlesType.FirstRussian);
         }
 
         private void showLastSubtitleOfSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
