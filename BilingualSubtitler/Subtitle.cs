@@ -114,6 +114,7 @@ namespace BilingualSubtitler
         public GroupBox ExportAsDocxGroupBox;
         public Button OpenFromDownloadsButton;
         public Button OpenFromDefaultFolderButton;
+        public Button OpenFromClipboardButton; 
         public Button ExportAsDocxButton;
         public Button ExportAsDocxIntoDownloadsButton;
 
@@ -158,7 +159,7 @@ namespace BilingualSubtitler
         public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
            Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
            GroupBox openSubtitlesGroupBox, GroupBox exportAsDocxGroupBox,
-           Button openFromDownloadsButton, Button openFromDefaultFolderButton,
+           Button openFromDownloadsButton, Button openFromDefaultFolderButton, Button openFromClipboardButton,
            Button exportAsDocxButton, Button exportAsDocxIntoDownloadsButton)
         {
             ProgressBar = progressBar;
@@ -173,6 +174,7 @@ namespace BilingualSubtitler
             ExportAsDocxGroupBox = exportAsDocxGroupBox;
             OpenFromDownloadsButton = openFromDownloadsButton;
             OpenFromDefaultFolderButton = openFromDefaultFolderButton;
+            OpenFromClipboardButton = openFromClipboardButton;
             ExportAsDocxButton = exportAsDocxButton;
             ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
         }

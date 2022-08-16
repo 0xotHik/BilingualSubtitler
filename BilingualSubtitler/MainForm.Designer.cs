@@ -732,7 +732,7 @@
             this.firstRussianSubtitlesExportAsSrtButton.Name = "firstRussianSubtitlesExportAsSrtButton";
             this.firstRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
             this.firstRussianSubtitlesExportAsSrtButton.TabIndex = 19;
-            this.firstRussianSubtitlesExportAsSrtButton.Text = "как .srt";
+            this.firstRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
             this.firstRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
             this.firstRussianSubtitlesExportAsSrtButton.Click += new System.EventHandler(this.firstRussianSubtitlesExportAsSrtButton_Click);
             // 
@@ -936,7 +936,7 @@
             this.primarySubtitlesExportAsSrtButton.Name = "primarySubtitlesExportAsSrtButton";
             this.primarySubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
             this.primarySubtitlesExportAsSrtButton.TabIndex = 14;
-            this.primarySubtitlesExportAsSrtButton.Text = "как .srt";
+            this.primarySubtitlesExportAsSrtButton.Text = "как 💬.srt";
             this.primarySubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
             this.primarySubtitlesExportAsSrtButton.Click += new System.EventHandler(this.primarySubtitlesExportAsSrtButton_Click);
             // 
@@ -1155,7 +1155,7 @@
             this.secondRussianSubtitlesExportAsSrtButton.Name = "secondRussianSubtitlesExportAsSrtButton";
             this.secondRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
             this.secondRussianSubtitlesExportAsSrtButton.TabIndex = 44;
-            this.secondRussianSubtitlesExportAsSrtButton.Text = "как .srt";
+            this.secondRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
             this.secondRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
             this.secondRussianSubtitlesExportAsSrtButton.Click += new System.EventHandler(this.secondRussianSubtitlesExportAsSrtButton_Click);
             // 
@@ -1383,7 +1383,7 @@
             this.thirdRussianSubtitlesExportAsSrtButton.Name = "thirdRussianSubtitlesExportAsSrtButton";
             this.thirdRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(83, 27);
             this.thirdRussianSubtitlesExportAsSrtButton.TabIndex = 45;
-            this.thirdRussianSubtitlesExportAsSrtButton.Text = "как .srt";
+            this.thirdRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
             this.thirdRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
             this.thirdRussianSubtitlesExportAsSrtButton.Click += new System.EventHandler(this.thirdRussianSubtitlesExportAsSrtButton_Click);
             // 
