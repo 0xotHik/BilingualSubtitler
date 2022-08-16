@@ -1324,9 +1324,7 @@ namespace BilingualSubtitler
             subtitlesAndInfo.OpenSubtitlesGroupBox.Text = "Поток субтитров";
             m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = subtitlesAndInfo.OpenSubtitlesGroupBox.Text;
             subtitlesAndInfo.OpenFromDownloadsButton.Visible =
-            subtitlesAndInfo.OpenFromDefaultFolderButton.Visible =
             subtitlesAndInfo.OpenFromDownloadsButton.Enabled =
-            subtitlesAndInfo.OpenFromDefaultFolderButton.Enabled =
             subtitlesAndInfo.OpenFromClipboardButton.Visible =
             subtitlesAndInfo.OpenFromClipboardButton.Enabled =
 

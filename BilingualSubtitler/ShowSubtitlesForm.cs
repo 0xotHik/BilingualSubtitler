@@ -85,6 +85,8 @@ namespace BilingualSubtitler
 
             SetStyleForEachDataGridView(m_dataGridViews);
 
+            ShowOnlyFirstWordsOrAllOfTheWordsFromSubtitles();
+
         }
 
         private void SetStyleForEachDataGridView(List<DataGridView> dataGridViews)
@@ -145,7 +147,9 @@ namespace BilingualSubtitler
 
             foreach (var dataGridView in m_dataGridViews)
             {
-                dataGridView.FirstDisplayedScrollingRowIndex = (dataGridView.RowCount * e.NewValue) / 100;
+                var newFirstDisplayedScrollingRowIndex = (dataGridView.RowCount * e.NewValue) / 100;
+                if (dataGridView.RowCount> newFirstDisplayedScrollingRowIndex)
+                    dataGridView.FirstDisplayedScrollingRowIndex = newFirstDisplayedScrollingRowIndex;
 
                 // OutOfRangeEx ↓
                 //dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.RowCount;
@@ -153,6 +157,14 @@ namespace BilingualSubtitler
         }
 
         private void showSubtitlesOnlyFirstWordsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ShowSubtitlesOnlyFirstWords = showSubtitlesOnlyFirstWordsCheckBox.Checked;
+            Properties.Settings.Default.Save();
+
+            ShowOnlyFirstWordsOrAllOfTheWordsFromSubtitles();
+        }
+
+        private void ShowOnlyFirstWordsOrAllOfTheWordsFromSubtitles()
         {
             if (showSubtitlesOnlyFirstWordsCheckBox.Checked)
             {
@@ -174,18 +186,16 @@ namespace BilingualSubtitler
 
                 showSubtitlesOnlyFirstWordsCountNumericUpDown.Enabled = false;
             }
-
-            Properties.Settings.Default.ShowSubtitlesOnlyFirstWords = showSubtitlesOnlyFirstWordsCheckBox.Checked;
-            Properties.Settings.Default.Save();
         }
 
         private void showSubtitlesOnlyFirstWordsCountNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             var intWordsCount = int.Parse(showSubtitlesOnlyFirstWordsCountNumericUpDown.Value.ToString()); // Хотелось сделать побыстрей
-            ShowOnlyThisMuchFirstWords(intWordsCount);
 
             Properties.Settings.Default.ShowSubtitlesOnlyFirstWordsCount = intWordsCount;
             Properties.Settings.Default.Save();
+
+            ShowOnlyThisMuchFirstWords(intWordsCount);
         }
 
         private void ShowOnlyThisMuchFirstWords(int count)
