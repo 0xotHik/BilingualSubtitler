@@ -1570,6 +1570,7 @@
             this.advancedModeRadioButton.Text = "Расширенный режим";
             this.advancedModeRadioButton.UseVisualStyleBackColor = true;
             this.advancedModeRadioButton.CheckedChanged += new System.EventHandler(this.advancedModeRadioButton_CheckedChanged);
+            this.advancedModeRadioButton.Click += new System.EventHandler(this.advancedModeRadioButton_Click);
             // 
             // notAdvancedModeRadioButton
             // 

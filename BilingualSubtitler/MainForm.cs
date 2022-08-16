@@ -681,11 +681,23 @@ namespace BilingualSubtitler
                     secondRussianSubtitlesExportAsDocxButton.Visible =
                     thirdRussianSubtitlesExportAsDocxButton.Visible =
 
+                    primarySubtitlesExportAsSrtButton.Visible =
+                    firstRussianSubtitlesExportAsSrtButton.Visible =
+                    secondRussianSubtitlesExportAsSrtButton.Visible =
+                    thirdRussianSubtitlesExportAsSrtButton.Visible =
+
+                    originalSubtitlesOpenFromClipboardButton.Visible =
+                    firstRussianSubtitlesOpenFromClipboardButton.Visible =
+                    secondRussianSubtitlesOpenFromClipboardButton.Visible =
+                    thirdRussianSubtitlesOpenFromClipboardButton.Visible =
+
                     googleTranslatorLinkLabel.Visible =
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceGroupBox.Visible =
 
-                    showLastSubtitleOfRussianSubtitlesGroupBox.Visible =
+                    openSubtitlesFromDefaultFolderGroupBox.Visible =
+
+                    showSubtitlesButton.Visible = 
 
                     additionalOpenExportSubtitlesButtonsLabel.Visible =
                     additionalOpenExportSubtitlesButtonsGroupBox.Visible =
@@ -3462,6 +3474,36 @@ namespace BilingualSubtitler
         private void primarySubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToSrt(SubtitlesType.Original);
+        }
+
+        private void originalSubtitlesOpenFromClipboardButton_Click(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original, fromClipboard: true);
+        }
+
+        private void secondRussianSubtitlesOpenFromClipboardButton_Click(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromClipboard: true);
+        }
+
+        private void thirdRussianSubtitlesOpenFromClipboardButton_Click(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromClipboard: true);
+        }
+
+        private void firstRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.FirstRussian);
+        }
+
+        private void secondRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.SecondRussian);
+        }
+
+        private void thirdRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.ThirdRussian);
         }
     }
 

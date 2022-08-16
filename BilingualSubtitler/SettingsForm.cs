@@ -25,6 +25,8 @@ namespace BilingualSubtitler
         private Color m_previousButtonColor;
         private bool m_flagKeyIsInvalid = false;
 
+        private FontFamily[] m_installedFontFamilies;
+
         public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -105,8 +107,8 @@ namespace BilingualSubtitler
         {
             // Системные шрифты
             using InstalledFontCollection fontsCollection = new InstalledFontCollection();
-            FontFamily[] fontFamilies = fontsCollection.Families;
-            foreach (FontFamily font in fontFamilies)
+            m_installedFontFamilies = fontsCollection.Families;
+            foreach (FontFamily font in m_installedFontFamilies)
             {
                 originalSubtitlesFontComboBox.Items.Add(font.Name);
                 firstRussianSubtitlesFontComboBox.Items.Add(font.Name);
@@ -817,6 +819,46 @@ namespace BilingualSubtitler
         {
             using var formAbout = new FormAbout();
             formAbout.ShowDialog();
+        }
+
+        private void advancedModeRadioButton_Click(object sender, EventArgs e)
+        {
+            bool consolasIsIntalled = false;
+            foreach (FontFamily font in m_installedFontFamilies)
+            {
+                if (font.Name == "Consolas")
+                    consolasIsIntalled = true;
+            }
+
+            if (consolasIsIntalled)
+            {
+                var appModeWasChangedToExtendedForm = new AppModeWasChangedToExtendedForm();
+                appModeWasChangedToExtendedForm.ShowDialog();
+
+                var settedRussianSubtitlesStreamToSetConsolasTo = appModeWasChangedToExtendedForm.SettedRussianSubtitlesStreamToSetConsolasTo;
+                if (settedRussianSubtitlesStreamToSetConsolasTo != null)
+                {
+                    if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 1)
+                    {
+                        firstRussianSubtitlesFontComboBox.TextChanged -= firstRussianSubtitlesFontComboBox_TextChanged;
+
+                        firstRussianSubtitlesFontComboBox.Text = "Consolas";
+                        firstRussianSubtitlesSizeNumericUpDown.Value = firstRussianSubtitlesSizeNumericUpDown.Value - 2;
+
+                        firstRussianSubtitlesFontComboBox.TextChanged += firstRussianSubtitlesFontComboBox_TextChanged;
+                    }
+                    else if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 2)
+                    {
+                        secondRussianSubtitlesFontComboBox.Text = "Consolas";
+                        secondRussianSubtitlesSizeNumericUpDown.Value = secondRussianSubtitlesSizeNumericUpDown.Value - 2;
+                    }
+                    else if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 3)
+                    {
+                        thirdRussianSubtitlesFontComboBox.Text = "Consolas";
+                        thirdRussianSubtitlesSizeNumericUpDown.Value = thirdRussianSubtitlesSizeNumericUpDown.Value - 2;
+                    }
+                }
+            }
         }
 
 

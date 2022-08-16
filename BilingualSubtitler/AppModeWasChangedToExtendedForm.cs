@@ -12,9 +12,27 @@ namespace BilingualSubtitler
 {
     public partial class AppModeWasChangedToExtendedForm : Form
     {
+        public int? SettedRussianSubtitlesStreamToSetConsolasTo = null;
         public AppModeWasChangedToExtendedForm()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SettedRussianSubtitlesStreamToSetConsolasTo = int.Parse(numericUpDown1.Value.ToString());
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SettedRussianSubtitlesStreamToSetConsolasTo = null;
+            this.Close();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
