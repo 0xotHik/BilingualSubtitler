@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace BilingualSubtitler
 {
     public partial class ShowSubtitlesForm : Form
     {
+        private List<DataGridView> m_dataGridViews;
+
         public ShowSubtitlesForm(
             Subtitle[] originalSubtitles,
             Subtitle[] firstRussianSubtitles,
@@ -20,13 +23,23 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
-            SetStyleForEachDataGridView(new List<DataGridView> {
+            m_dataGridViews = (new List<DataGridView> {
 
             originalSubtitlesDataGridView,
             firstRussianSubtitlesDataGridView,
             secondRussianSubtitlesDataGridView,
             thirdRussianSubtitlesDataGridView
             });
+
+            this.showSubtitlesOnlyFirstWordsCheckBox.CheckedChanged += new System.EventHandler(this.showSubtitlesOnlyFirstWordsCheckBox_CheckedChanged);
+            //
+            showSubtitlesOnlyFirstWordsCheckBox.Checked = Properties.Settings.Default.ShowSubtitlesOnlyFirstWords;
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.Value = Properties.Settings.Default.ShowSubtitlesOnlyFirstWordsCount;
+            //
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.Enabled = showSubtitlesOnlyFirstWordsCheckBox.Checked;
+            // TODO Сделать бы просто единый SetFormAccordingToSettings
+
+            SetStyleForEachDataGridView(m_dataGridViews);
 
             var timingColumnForOriginalSubtitles = new DataGridViewColumn();
             timingColumnForOriginalSubtitles.HeaderText = "Тайминг"; //текст в шапке
@@ -70,13 +83,7 @@ namespace BilingualSubtitler
             PrintSubtitles(secondRussianSubtitles, secondRussianSubtitlesDataGridView);
             PrintSubtitles(thirdRussianSubtitles, thirdRussianSubtitlesDataGridView);
 
-            SetStyleForEachDataGridView(new List<DataGridView> {
-
-            originalSubtitlesDataGridView,
-            firstRussianSubtitlesDataGridView,
-            secondRussianSubtitlesDataGridView,
-            thirdRussianSubtitlesDataGridView
-            });
+            SetStyleForEachDataGridView(m_dataGridViews);
 
         }
 
@@ -113,9 +120,12 @@ namespace BilingualSubtitler
                 for (int i = 0; i < subtitles.Length; i++)
                 {
                     //Добавляем строку, указывая значения колонок по очереди слева направо
-                    dataGridView.Rows.Add(
+                    var index = dataGridView.Rows.Add(
                         $"{subtitles[i].Start.ToString(timeFormat)}\n-->\n{subtitles[i].End.ToString(timeFormat)}",
                         subtitles[i].Text);
+
+                    // Для того, чтобы было попроще с "Показывать n слов от субтитра" — сложим в тэг текст
+                    dataGridView.Rows[index].Tag = subtitles[i].Text;
                 }
             }
         }
@@ -127,6 +137,78 @@ namespace BilingualSubtitler
                 return true;
 
             return false;
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            // e.NewValue — похоже, в процентах координата верха vScroll'а
+
+            foreach (var dataGridView in m_dataGridViews)
+            {
+                dataGridView.FirstDisplayedScrollingRowIndex = (dataGridView.RowCount * e.NewValue) / 100;
+
+                // OutOfRangeEx ↓
+                //dataGridView.FirstDisplayedScrollingRowIndex = dataGridView.RowCount;
+            }
+        }
+
+        private void showSubtitlesOnlyFirstWordsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showSubtitlesOnlyFirstWordsCheckBox.Checked)
+            {
+                ShowOnlyThisMuchFirstWords(int.Parse(showSubtitlesOnlyFirstWordsCountNumericUpDown.Value.ToString()));
+
+                showSubtitlesOnlyFirstWordsCountNumericUpDown.Enabled = true;
+            }
+            else
+            {
+                foreach (var dataGridView in m_dataGridViews)
+                {
+                    for (int i = 0; i < dataGridView.RowCount; i++)
+                    {
+                        var row = dataGridView.Rows[i];
+                        var text = (string)row.Tag;
+                        ((DataGridViewTextBoxCell)dataGridView[1, i]).Value = text;
+                    }
+                }
+
+                showSubtitlesOnlyFirstWordsCountNumericUpDown.Enabled = false;
+            }
+
+            Properties.Settings.Default.ShowSubtitlesOnlyFirstWords = showSubtitlesOnlyFirstWordsCheckBox.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void showSubtitlesOnlyFirstWordsCountNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var intWordsCount = int.Parse(showSubtitlesOnlyFirstWordsCountNumericUpDown.Value.ToString()); // Хотелось сделать побыстрей
+            ShowOnlyThisMuchFirstWords(intWordsCount);
+
+            Properties.Settings.Default.ShowSubtitlesOnlyFirstWordsCount = intWordsCount;
+            Properties.Settings.Default.Save();
+        }
+
+        private void ShowOnlyThisMuchFirstWords(int count)
+        {
+            foreach (var dataGridView in m_dataGridViews)
+            {
+                for (int i = 0; i < dataGridView.RowCount; i++)
+                {
+                    var row = dataGridView.Rows[i];
+                    var text = ((string)row.Tag).Replace("\n", string.Empty).Replace("\r\n", string.Empty);
+                    var words = text.Split(' ');
+                    var newText = string.Empty;
+
+                    for (int j = 0;
+                        j < words.Length && j < count;
+                        j++)
+                    {
+                        newText += $"{words[j]} ";
+                    }
+
+                    ((DataGridViewTextBoxCell)dataGridView[1, i]).Value = newText;
+                }
+            }
         }
     }
 }
