@@ -1,7 +1,7 @@
 ; 1. Поменять версию
 ; 2. Поменять по новой версии имя сетапника
 ; 3. Чекнуть набор файлов
-#define MyAppVersion "8.0"
+#define MyAppVersion "9.0"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -10,7 +10,7 @@
 
 [Setup]
 ; !
-OutputBaseFilename=bilingual-subtitler-installer-8-0-x86
+OutputBaseFilename=bilingual-subtitler-installer-9-0-x86
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7CC8CBB0-5496-40FD-96DC-C283B2EFA75B}
@@ -52,51 +52,63 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 Filename: "https://0xothik.wordpress.com/bilingual-subtitler/"; Flags: shellexec runasoriginaluser postinstall; Description: "Открыть сайт программы с руководством по использованию"
 
 [Files]
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.deps.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.dll.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Gma.System.MouseKeyHook.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\libse.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Microsoft.Bcl.HashCode.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\NeatInput.Windows.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\NonInvasiveKeyboardHookLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Octokit.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\RestSharp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\sni.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Syroot.KnownFolders.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ComponentModel.Composition.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ComponentModel.Composition.Registration.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Data.Odbc.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Data.OleDb.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Data.SqlClient.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Diagnostics.EventLog.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Diagnostics.EventLog.Messages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Diagnostics.PerformanceCounter.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.DirectoryServices.AccountManagement.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.DirectoryServices.Protocols.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.IO.Ports.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Management.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Private.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Reflection.Context.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Runtime.Caching.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Security.Cryptography.Pkcs.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Duplex.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Http.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.NetTcp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Security.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Syndication.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.ServiceProcess.ServiceController.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\System.Speech.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\UtfUnknown.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\WindowsInput.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Xceed.Document.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\net5.0-windows\Framework-dependent\x86\BilingualSubtitler\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.deps.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.dll.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\BilingualSubtitler.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Gma.System.MouseKeyHook.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\libse.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.Bcl.AsyncInterfaces.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.Bcl.HashCode.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.Extensions.ObjectPool.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\NeatInput.Windows.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\NonInvasiveKeyboardHookLibrary.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Octokit.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\RestSharp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\sni.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Syroot.KnownFolders.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ComponentModel.Composition.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ComponentModel.Composition.Registration.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Data.Odbc.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Data.OleDb.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Data.SqlClient.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Diagnostics.EventLog.Messages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.DirectoryServices.AccountManagement.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.DirectoryServices.Protocols.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.IO.Ports.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Management.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Private.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Reflection.Context.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Runtime.Caching.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Duplex.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Http.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.NetTcp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Security.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceModel.Syndication.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.ServiceProcess.ServiceController.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Speech.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\System.Web.Services.Description.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\UtfUnknown.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\WindowsInput.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Xceed.Document.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\cs\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\de\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\es\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\fr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\it\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ja\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ko\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pl\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pt-BR\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ru\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\tr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hans\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hant\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
