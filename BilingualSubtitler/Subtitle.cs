@@ -114,7 +114,7 @@ namespace BilingualSubtitler
         public GroupBox ExportAsDocxGroupBox;
         public Button OpenFromDownloadsButton;
         public Button OpenFromDefaultFolderButton;
-        public Button OpenFromClipboardButton; 
+        public Button OpenFromClipboardButton;
         public Button ExportAsDocxButton;
         public Button ExportAsDocxIntoDownloadsButton;
 
@@ -123,10 +123,10 @@ namespace BilingualSubtitler
         public string TrackName = null;
 
         private string fileNameWithoutExtention;
-        public string FileNameWithoutExtention 
+        public string FileNameWithoutExtention
         {
             get { return fileNameWithoutExtention; }
-            private set 
+            private set
             {
                 fileNameWithoutExtention = value;
                 FromFile = true;
@@ -135,18 +135,22 @@ namespace BilingualSubtitler
         }
         public string FileExtention { get; set; }
 
-        private bool? fromFile = null;
-        public bool? FromFile
+        private bool fromFile = false;
+
+        /// <summary>
+        /// Субтитры либо из файла, либо из <see cref="FromClipboard"/>, верно? Либо оба false, как по умолчанию, когда не открывались
+        /// </summary>
+        public bool FromFile
         {
             get { return fromFile; }
-            set 
-            { 
+            set
+            {
                 fromFile = value;
                 fromClipboard = !value;
             }
         }
-        private bool? fromClipboard = null;
-        public bool? FromClipboard
+        private bool fromClipboard = false;
+        public bool FromClipboard
         {
             get { return fromClipboard; }
             set
@@ -179,6 +183,21 @@ namespace BilingualSubtitler
             ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
         }
 
+        private void InitializeEmptySubtitlesStream()
+        {
+            Subtitles = null;
+
+            fromFile = false;
+            fromClipboard = false;
+
+            TrackNumber = null;
+            TrackLanguage = null;
+            TrackName = null;
+
+            FileNameWithoutExtention = null;
+            FileExtention = null;
+        }
+
         public void SetBackgroundWorker(SubtitlesBackgroundWorker backgroundWorker, SubtitlesType subtitlesType)
         {
             BackgroundWorker = backgroundWorker;
@@ -195,9 +214,17 @@ namespace BilingualSubtitler
             FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
             FileExtention = fileExt;
         }
+
+        /// <summary>
+        /// Субтитры были открыты из файла/клипборда, а потом убраны
+        /// </summary>
+        public void SubtitleStreamWasClosed()
+        {
+            InitializeEmptySubtitlesStream();
+        }
     }
 
-    
+
 
     public class SubtitlesStyle
     {
@@ -211,12 +238,12 @@ namespace BilingualSubtitler
         public Color Color;
 
 
-        public SubtitlesStyle (string subtitlesStyleString)
+        public SubtitlesStyle(string subtitlesStyleString)
         {
-        // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-        //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
+            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+            //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
 
-        var components = subtitlesStyleString.Split(',');
+            var components = subtitlesStyleString.Split(',');
             Font = components[1];
             Size = int.Parse(components[2]);
 

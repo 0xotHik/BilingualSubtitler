@@ -2007,10 +2007,13 @@ namespace BilingualSubtitler
 
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            if (!ThereIsSubtitles(subtitlesWithInfo.Subtitles)) //Открываем субтитры
+            //Открываем субтитры
+            if (!ThereIsSubtitles(subtitlesWithInfo.Subtitles)) 
             {
                 if (fromClipboard)
                 {
+                    subtitlesWithInfo.FromClipboard = true;
+
                     ReadSubtitlesFromClipboard(subtitlesType);
                 }
                 else
@@ -2100,14 +2103,15 @@ namespace BilingualSubtitler
             var subtitlesType = (SubtitlesType)closeSubtitleStreamConfimationButton.Tag;
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            subtitlesWithInfo.Subtitles = null;
             subtitlesWithInfo.ButtonOpenOrClose.Text = m_initialOpenOrCloseSubtitlesButtonText;
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
             subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
             subtitlesWithInfo.OutputTextBox.Text = string.Empty;
 
-            // Загруженных субтитров не осталось:
+            subtitlesWithInfo.SubtitleStreamWasClosed();
+
+            // GUI
             subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxText;
             //
             subtitlesWithInfo.OpenFromDownloadsButton.Visible =
@@ -2122,6 +2126,7 @@ namespace BilingualSubtitler
             //
             if (Properties.Settings.Default.AdvancedMode)
                 subtitlesWithInfo.ButtonOpenOrClose.Left = m_initialOpenSubtitlesButtonLeft;
+
 
             CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(subtitlesWithInfo);
         }
@@ -2139,6 +2144,10 @@ namespace BilingualSubtitler
 
         }
 
+        /// <summary>
+        /// Была нажата или "Убрать — да, убрать" или "Убрать — нет, не убирать"
+        /// </summary>
+        /// <param name="subtitlesWithInfo"></param>
         private void CloseSubtitleStreamConfirmationOrCancellationButtonHasBeenClicked(SubtitlesAndInfo subtitlesWithInfo)
         {
             subtitlesWithInfo.ButtonOpenOrClose.Show();
@@ -2968,9 +2977,9 @@ namespace BilingualSubtitler
             // Имя по умолчанию
             string defaultFileName;
             //+
-            if (subtitlesInfo.FromClipboard.Value == true)
+            if (subtitlesInfo.FromClipboard == true)
             {
-                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}-{DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}";
+                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}_{DateTime.Now.Month}_{DateTime.Now.Day}-{DateTime.Now.Hour}_{DateTime.Now.Minute}_{DateTime.Now.Second}";
             }
             else
             {
@@ -3037,9 +3046,9 @@ namespace BilingualSubtitler
             // Имя по умолчанию
             string defaultFileName;
             //+
-            if (subtitlesInfo.FromClipboard.Value == true)
+            if (subtitlesInfo.FromClipboard == true)
             {
-                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}-{DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}";
+                defaultFileName = $"BilingualSubtitler.FromClipboard.{DateTime.Now.Year}_{DateTime.Now.Month}_{DateTime.Now.Day}-{DateTime.Now.Hour}_{DateTime.Now.Minute}_{DateTime.Now.Second}";
             }
             else
             {
