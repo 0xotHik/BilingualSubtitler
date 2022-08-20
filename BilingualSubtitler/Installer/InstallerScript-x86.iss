@@ -1,7 +1,7 @@
 ; 1. Поменять версию
 ; 2. Поменять по новой версии имя сетапника
 ; 3. Чекнуть набор файлов
-#define MyAppVersion "9.0"
+#define MyAppVersion "9.1"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -10,7 +10,7 @@
 
 [Setup]
 ; !
-OutputBaseFilename=bilingual-subtitler-installer-9-0-x86
+OutputBaseFilename=bilingual-subtitler-installer-9-1-x86
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7CC8CBB0-5496-40FD-96DC-C283B2EFA75B}
