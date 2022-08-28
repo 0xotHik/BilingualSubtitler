@@ -1149,16 +1149,14 @@ namespace BilingualSubtitler
             return subtitles;
         }
 
-        private void ReadASSMarkedupDocumentWithBilingualSubtitles(string filePath)
+        /// <summary>
+        /// Стили
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <param name="currentStringIndex"></param>
+        /// <returns></returns>
+        private int ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(string[] lines, int currentStringIndex)
         {
-            var lines = File.ReadAllLines(filePath);
-
-
-            var currentStringIndex = 0;
-            // Header
-            currentStringIndex += m_assHeader.Count;
-
-            // Стили
             // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //Style: 0_sub_stream,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,42,1
             //Style: 1_sub_stream,Times New Roman,20,&H000000FF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,0,1
@@ -1207,6 +1205,27 @@ namespace BilingualSubtitler
                 if (thirdRussianSubtitlesStyle != null)
                     WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
             }
+
+            return currentStringIndex;
+        }
+
+        private int AdjustCaretUnderHeaderInASSMarkedupDocumentWithBilingualSubtitles(int currentStringIndex)
+        {
+            return currentStringIndex + m_assHeader.Count;
+        }
+
+        private void ReadASSMarkedupDocumentWithBilingualSubtitles(string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+
+            var currentStringIndex = 0;
+            // Header
+            var newCurrentStringIndex = AdjustCaretUnderHeaderInASSMarkedupDocumentWithBilingualSubtitles(currentStringIndex);
+            currentStringIndex = newCurrentStringIndex;
+
+            // Стили
+            newCurrentStringIndex = ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
+            currentStringIndex = newCurrentStringIndex;
 
             //[Events]
             currentStringIndex++;
@@ -3539,6 +3558,28 @@ namespace BilingualSubtitler
         private void thirdRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
         {
             ExportSubtitlesToSrt(SubtitlesType.ThirdRussian);
+        }
+
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            string formats = "Субтитры, созданные через Bilingual Subtitler (.ass) |*.ass";
+
+            using var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = formats;
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var lines = File.ReadAllLines(openFileDialog.FileName);
+
+                var currentStringIndex = 0;
+                // Header
+                var newCurrentStringIndex = AdjustCaretUnderHeaderInASSMarkedupDocumentWithBilingualSubtitles(currentStringIndex);
+                currentStringIndex = newCurrentStringIndex;
+
+                // Стили
+                ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
+            }
         }
     }
 

@@ -99,16 +99,17 @@ Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publi
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\cs\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\de\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\es\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\fr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\it\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ja\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ko\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pl\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pt-BR\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ru\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\tr\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hans\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hant\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\de\*"; DestDir: "{app}\de\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\es\*"; DestDir: "{app}\es\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\fr\*"; DestDir: "{app}\fr\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\it\*"; DestDir: "{app}\it\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ja\*"; DestDir: "{app}\ja\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ko\*"; DestDir: "{app}\ko\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pl\*"; DestDir: "{app}\pl\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\pt-BR\*"; DestDir: "{app}\pt-BR\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\ru\*"; DestDir: "{app}\ru\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\tr\*"; DestDir: "{app}\tr\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hans\*"; DestDir: "{app}\zh-Hans\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zh-Hant\*"; DestDir: "{app}\zh-Hant\"; Flags: ignoreversion recursesubdirs createallsubdirs
+

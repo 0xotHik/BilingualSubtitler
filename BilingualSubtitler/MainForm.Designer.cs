@@ -228,6 +228,7 @@
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             this.showSubtitlesButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
@@ -2696,6 +2697,18 @@
             this.showSubtitlesButton.UseVisualStyleBackColor = false;
             this.showSubtitlesButton.Click += new System.EventHandler(this.showLastSubtitleOfFirstRussianSubtitlesButton_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
+            this.button3.Location = new System.Drawing.Point(982, 806);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(247, 43);
+            this.button3.TabIndex = 101;
+            this.button3.Text = "🈔     Открыть стили, \r\nранее созданные в Bilingual Subtitler\r\n";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2703,6 +2716,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
@@ -3003,5 +3017,6 @@
         private System.Windows.Forms.Button firstRussianSubtitlesExportAsSrtButton;
         private System.Windows.Forms.Button secondRussianSubtitlesExportAsSrtButton;
         private System.Windows.Forms.Button thirdRussianSubtitlesExportAsSrtButton;
+        private System.Windows.Forms.Button button3;
     }
 }
