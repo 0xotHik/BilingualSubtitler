@@ -1,7 +1,7 @@
 [![Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)](https://0xothik.files.wordpress.com/2022/08/busib-yt-srgb-withplaybutton.png)](https://www.youtube.com/watch?v=7TSPPbmpXsw "Как работает Bilingual Subtitler (Просмотр на английском с подключаемым русскими субтитрами)")
 <br>
 <br>
-<a href="https://yasobe.ru/na/0xothik" target="_blank" rel="noopener"><img class="alignnone size-full wp-image-5000" src="https://0xothik.files.wordpress.com/2020/06/ya-thx-20.png" alt="Спасибо, которое намажешь на хлеб" width="134" height="20" /></a>
+<a href="https://sobe.ru/na/0xothik" target="_blank" rel="noopener"><img class="alignnone size-full wp-image-5000" src="https://0xothik.files.wordpress.com/2020/06/ya-thx-20.png" alt="Спасибо, которое намажешь на хлеб" width="134" height="20" /></a>
 <a href="https://0xothik.wordpress.com/bilingual-subtitler/"><p style="text-align: center;"><strong><span style="color: #999999;">Bilingual</span> <span style="color: #ffd700;">Subtitler</span></strong></p></a>
 Бесплатная программа, позволяющая сочетать 2 клевых занятия: просмотр кино/сериалов и изучение иностранного языка – одновременно: при помощи динамически подключаемых к оригинальным переведенных субтитров.
 
