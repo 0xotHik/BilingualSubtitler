@@ -1470,7 +1470,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(4, 46);
+            this.linkLabel2.Location = new System.Drawing.Point(4, 49);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(141, 15);
@@ -1482,7 +1482,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(182, 46);
+            this.linkLabel1.Location = new System.Drawing.Point(182, 49);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(177, 15);
@@ -1493,7 +1493,7 @@
             // 
             // lastAppVersionLabel
             // 
-            this.lastAppVersionLabel.Location = new System.Drawing.Point(536, 37);
+            this.lastAppVersionLabel.Location = new System.Drawing.Point(530, 41);
             this.lastAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastAppVersionLabel.Name = "lastAppVersionLabel";
             this.lastAppVersionLabel.Size = new System.Drawing.Size(328, 30);
@@ -1504,23 +1504,24 @@
             // 
             // currentAppVersionLabel
             // 
-            this.currentAppVersionLabel.Location = new System.Drawing.Point(368, 46);
+            this.currentAppVersionLabel.Location = new System.Drawing.Point(362, 49);
             this.currentAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currentAppVersionLabel.Name = "currentAppVersionLabel";
             this.currentAppVersionLabel.Size = new System.Drawing.Size(169, 15);
             this.currentAppVersionLabel.TabIndex = 100;
             this.currentAppVersionLabel.Text = "Текущая версия:";
-            this.currentAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.currentAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(639, 13);
+            this.label39.Location = new System.Drawing.Point(639, 23);
             this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(111, 15);
             this.label39.TabIndex = 99;
             this.label39.Text = "Последняя версия:";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkUpdatesOnAppStartCheckBox
             // 
@@ -1538,12 +1539,13 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(397, 13);
+            this.label40.Location = new System.Drawing.Point(397, 23);
             this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(98, 15);
             this.label40.TabIndex = 3;
             this.label40.Text = "Текущая версия:";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox12
             // 

@@ -1222,6 +1222,7 @@ namespace BilingualSubtitler
             // Header
             var newCurrentStringIndex = AdjustCaretUnderHeaderInASSMarkedupDocumentWithBilingualSubtitles(currentStringIndex);
             currentStringIndex = newCurrentStringIndex;
+            // Вообще можно было сразу присваивать currentStringIndex значение, возвращенное из функции, наверное...
 
             // Стили
             newCurrentStringIndex = ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);

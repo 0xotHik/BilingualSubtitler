@@ -798,7 +798,7 @@
             this.openOrCloseFirstRussianSubtitlesGroupBox.Size = new System.Drawing.Size(156, 76);
             this.openOrCloseFirstRussianSubtitlesGroupBox.TabIndex = 17;
             this.openOrCloseFirstRussianSubtitlesGroupBox.TabStop = false;
-            this.openOrCloseFirstRussianSubtitlesGroupBox.Text = "Открыть из файла";
+            this.openOrCloseFirstRussianSubtitlesGroupBox.Text = "Открыть субтитры";
             // 
             // firstRussianSubtitlesOpenFromClipboardButton
             // 
@@ -1221,7 +1221,7 @@
             this.openOrCloseSecondRussianSubtitlesGroupBox.Size = new System.Drawing.Size(156, 76);
             this.openOrCloseSecondRussianSubtitlesGroupBox.TabIndex = 43;
             this.openOrCloseSecondRussianSubtitlesGroupBox.TabStop = false;
-            this.openOrCloseSecondRussianSubtitlesGroupBox.Text = "Открыть из файла";
+            this.openOrCloseSecondRussianSubtitlesGroupBox.Text = "Открыть субтитры";
             // 
             // secondRussianSubtitlesOpenFromClipboardButton
             // 
@@ -1449,7 +1449,7 @@
             this.openOrCloseThirdRussianSubtitlesGroupBox.Size = new System.Drawing.Size(156, 76);
             this.openOrCloseThirdRussianSubtitlesGroupBox.TabIndex = 43;
             this.openOrCloseThirdRussianSubtitlesGroupBox.TabStop = false;
-            this.openOrCloseThirdRussianSubtitlesGroupBox.Text = "Открыть из файла";
+            this.openOrCloseThirdRussianSubtitlesGroupBox.Text = "Открыть субтитры";
             // 
             // thirdRussianSubtitlesOpenFromClipboardButton
             // 
