@@ -68,6 +68,8 @@ namespace BilingualSubtitler
         private int m_initialSecondRussianSubtitlesHideButtonX;
         private int m_initialThirdRussianSubtitlesHideButtonX;
         private int m_initialDocXTranslationGroupBoxHeight;
+        private int m_initialOpenBilingualsTubtitlesButtonLeft;
+        private int m_initialOpenStylesFromBilingualsTubtitlesButtonLeft;
 
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitles;
 
@@ -216,8 +218,10 @@ namespace BilingualSubtitler
             m_initialSecondRussianSubtitlesHideButtonX = hideSecondRussianSubtitlesButton.Location.X;
             m_initialThirdRussianSubtitlesHideButtonX = hideThirdRussianSubtitlesButton.Location.X;
             m_initialDocXTranslationGroupBoxHeight = docXTranslationGroupBox.Height;
+            m_initialOpenBilingualsTubtitlesButtonLeft = openBilingualSubtitlerButton.Left;
+            m_initialOpenStylesFromBilingualsTubtitlesButtonLeft = openStylesFromBilingualSubtitlerButton.Left;
 
-            m_playVideoButtonDefaultText = playVideoButton.Text;
+        m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
             //
             notifyIcon.ContextMenuStrip.Items.AddRange(
@@ -702,13 +706,17 @@ namespace BilingualSubtitler
 
                     showSubtitlesButton.Visible =
 
+                    openStylesFromBilingualSubtitlerButton.Visible = 
+
                     additionalOpenExportSubtitlesButtonsLabel.Visible =
                     additionalOpenExportSubtitlesButtonsGroupBox.Visible =
                     advancedMode;
                 //
+                openBilingualSubtitlerButton.Left = advancedMode ? m_initialOpenBilingualsTubtitlesButtonLeft : (openBilignualSubtitlesGroupBox.Width / 2) - (openBilingualSubtitlerButton.Width / 2);
+                //
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
                 var exportAsDocxSubtitlesLeft = advancedMode ? m_initialExportSubtitlesAsDocxButtonLeft : (primarySubtitlesExportAsDocxGroupBox.Width / 2) - (primarySubtitlesExportAsDocxButton.Width / 2);
-                //
+                // Для всех потоков субтитров
                 foreach (var subtitles in m_subtitles)
                 {
                     var subtitlesWithInfo = subtitles.Value;
@@ -716,10 +724,13 @@ namespace BilingualSubtitler
                     subtitlesWithInfo.ButtonOpenOrClose.Left = buttonOpenSubtitlesLeft;
                     subtitlesWithInfo.ExportAsDocxButton.Left = buttonOpenSubtitlesLeft;
 
-                    subtitlesWithInfo.OpenFromDownloadsButton.Visible = advancedMode;
-                    subtitlesWithInfo.OpenFromDefaultFolderButton.Visible = advancedMode;
+                    subtitlesWithInfo.OpenFromDownloadsButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
+                    subtitlesWithInfo.OpenFromDefaultFolderButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
+                    subtitlesWithInfo.OpenFromClipboardButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
+                    // Если у нас есть субтитры, предполагается, что кнопка открытия/закрытия субтитров — в режиме "Убрать?"
+                    // А значит, доп.кнопки открытия нам не нужны
+
                     subtitlesWithInfo.ExportAsDocxIntoDownloadsButton.Visible = advancedMode;
-                    subtitlesWithInfo.OpenFromClipboardButton.Visible = advancedMode;
 
                     if (subtitles.Key != SubtitlesType.Original)
                     {
@@ -1336,6 +1347,8 @@ namespace BilingualSubtitler
             subtitlesAndInfo.ProgressLabel.Text = $"100%";
             subtitlesAndInfo.ActionLabel.Text = SUBTITLES_ARE_OPENED;
             subtitlesAndInfo.ButtonOpenOrClose.Text = $"x\nУбрать";
+            // Ну вот... Я не создаю другую кнопку для закрытия открытых субтитров, скрывая кнопку открыть, а переделываю оную.
+            // Не очень нравится такой вариант. Не очень :\
 
             //subtitlesAndInfo.ButtonOpenOrClose.Width = openOrClosePrimarySubtitlesGroupBox.Width - 20;
             //subtitlesAndInfo.ButtonOpenOrClose.Left = openOrClosePrimarySubtitlesGroupBox.Left + 10;

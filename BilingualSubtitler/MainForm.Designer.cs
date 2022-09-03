@@ -39,6 +39,10 @@
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt = new System.Windows.Forms.Panel();
             this.videoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.openBilignualSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            this.openStylesFromBilingualSubtitlerButton = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.openBilingualSubtitlerButton = new System.Windows.Forms.Button();
             this.additionalOpenExportSubtitlesButtonsLabel = new System.Windows.Forms.Label();
             this.additionalOpenExportSubtitlesButtonsGroupBox = new System.Windows.Forms.GroupBox();
             this.label45 = new System.Windows.Forms.Label();
@@ -51,7 +55,6 @@
             this.docXTranslationGroupBox = new System.Windows.Forms.GroupBox();
             this.googleTranslatorLinkLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bilingualSubtitlesFileNameEnding = new System.Windows.Forms.Label();
             this.originalSubtitlesFileNameEnding = new System.Windows.Forms.Label();
@@ -228,11 +231,11 @@
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             this.showSubtitlesButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.openBilignualSubtitlesGroupBox.SuspendLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
@@ -386,11 +389,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.openBilignualSubtitlesGroupBox);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsLabel);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsGroupBox);
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.docXTranslationGroupBox);
-            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.showSecondRussianSubtitlesButton);
             this.groupBox3.Controls.Add(this.showThirdRussianSubtitlesButton);
@@ -406,6 +409,51 @@
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "🗋💬 Создание файлов субтитров, требующихся для просмотра:";
+            // 
+            // openBilignualSubtitlesGroupBox
+            // 
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openStylesFromBilingualSubtitlerButton);
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.label46);
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openBilingualSubtitlerButton);
+            this.openBilignualSubtitlesGroupBox.Location = new System.Drawing.Point(691, 577);
+            this.openBilignualSubtitlesGroupBox.Name = "openBilignualSubtitlesGroupBox";
+            this.openBilignualSubtitlesGroupBox.Size = new System.Drawing.Size(260, 84);
+            this.openBilignualSubtitlesGroupBox.TabIndex = 50;
+            this.openBilignualSubtitlesGroupBox.TabStop = false;
+            this.openBilignualSubtitlesGroupBox.Text = "🈔     Открыть субтитры, ";
+            // 
+            // openStylesFromBilingualSubtitlerButton
+            // 
+            this.openStylesFromBilingualSubtitlerButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.openStylesFromBilingualSubtitlerButton.Location = new System.Drawing.Point(145, 34);
+            this.openStylesFromBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.openStylesFromBilingualSubtitlerButton.Name = "openStylesFromBilingualSubtitlerButton";
+            this.openStylesFromBilingualSubtitlerButton.Size = new System.Drawing.Size(102, 44);
+            this.openStylesFromBilingualSubtitlerButton.TabIndex = 101;
+            this.openStylesFromBilingualSubtitlerButton.Text = "🎨\r\nИмпорт стилей\r\n";
+            this.openStylesFromBilingualSubtitlerButton.UseVisualStyleBackColor = false;
+            this.openStylesFromBilingualSubtitlerButton.Click += new System.EventHandler(this.button3_Click_2);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(34, 16);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(206, 15);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "ранее созданные в Bilingual Subtitler";
+            // 
+            // openBilingualSubtitlerButton
+            // 
+            this.openBilingualSubtitlerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
+            this.openBilingualSubtitlerButton.Location = new System.Drawing.Point(7, 34);
+            this.openBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.openBilingualSubtitlerButton.Name = "openBilingualSubtitlerButton";
+            this.openBilingualSubtitlerButton.Size = new System.Drawing.Size(132, 44);
+            this.openBilingualSubtitlerButton.TabIndex = 47;
+            this.openBilingualSubtitlerButton.Text = "📁 \r\nОткрыть файл";
+            this.openBilingualSubtitlerButton.UseVisualStyleBackColor = false;
+            this.openBilingualSubtitlerButton.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // additionalOpenExportSubtitlesButtonsLabel
             // 
@@ -549,18 +597,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "• Яндекс.\r\nПереводчик →";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
-            this.button2.Location = new System.Drawing.Point(691, 582);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(247, 70);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "🈔     Открыть субтитры, \r\nранее созданные в Bilingual Subtitler\r\n";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // groupBox4
             // 
@@ -2697,18 +2733,6 @@
             this.showSubtitlesButton.UseVisualStyleBackColor = false;
             this.showSubtitlesButton.Click += new System.EventHandler(this.showLastSubtitleOfFirstRussianSubtitlesButton_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
-            this.button3.Location = new System.Drawing.Point(982, 806);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(247, 43);
-            this.button3.TabIndex = 101;
-            this.button3.Text = "🈔     Открыть стили, \r\nранее созданные в Bilingual Subtitler\r\n";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click_2);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2716,7 +2740,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
@@ -2740,6 +2763,8 @@
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.openBilignualSubtitlesGroupBox.ResumeLayout(false);
+            this.openBilignualSubtitlesGroupBox.PerformLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.ResumeLayout(false);
             this.additionalOpenExportSubtitlesButtonsGroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2885,7 +2910,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button openBilingualSubtitlerButton;
         private System.Windows.Forms.CheckBox redefineSubtitlesAppearanceSettingsCheckBox;
         private System.Windows.Forms.GroupBox subtitlesAppearanceGroupBox;
         private System.Windows.Forms.Button button10;
@@ -3017,6 +3042,8 @@
         private System.Windows.Forms.Button firstRussianSubtitlesExportAsSrtButton;
         private System.Windows.Forms.Button secondRussianSubtitlesExportAsSrtButton;
         private System.Windows.Forms.Button thirdRussianSubtitlesExportAsSrtButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button openStylesFromBilingualSubtitlerButton;
+        private System.Windows.Forms.GroupBox openBilignualSubtitlesGroupBox;
+        private System.Windows.Forms.Label label46;
     }
 }
