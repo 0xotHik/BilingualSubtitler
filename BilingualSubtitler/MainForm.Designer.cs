@@ -1765,7 +1765,7 @@
             this.redefineSubtitlesAppearanceSettingsCheckBox.Size = new System.Drawing.Size(409, 34);
             this.redefineSubtitlesAppearanceSettingsCheckBox.TabIndex = 97;
             this.redefineSubtitlesAppearanceSettingsCheckBox.Text = "Переопределить настройки вида субтитров \r\n(и в том числе считывать их из файла су" +
-    "бтитров от Bilingual Subttiler)\r\n";
+    "бтитров от Bilingual Subtitler)\r\n";
             this.redefineSubtitlesAppearanceSettingsCheckBox.UseVisualStyleBackColor = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.CheckedChanged += new System.EventHandler(this.redefineSubtitlesAppearanceSettingsCheckBox_CheckedChanged);
             // 
