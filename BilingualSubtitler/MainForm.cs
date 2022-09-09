@@ -3576,6 +3576,13 @@ namespace BilingualSubtitler
 
         private void button3_Click_2(object sender, EventArgs e)
         {
+            if (!redefineSubtitlesAppearanceSettingsCheckBox.Checked)
+            {
+                MessageBox.Show($"Для считывания стилей должна быть активна опция \"{redefineSubtitlesAppearanceSettingsCheckBox.Text}\"", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+                   
+
             string formats = "Субтитры, созданные через Bilingual Subtitler (.ass) |*.ass";
 
             using var openFileDialog = new OpenFileDialog();

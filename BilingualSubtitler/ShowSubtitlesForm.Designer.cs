@@ -136,7 +136,6 @@
             this.showSubtitlesOnlyFirstWordsCountNumericUpDown.Name = "showSubtitlesOnlyFirstWordsCountNumericUpDown";
             this.showSubtitlesOnlyFirstWordsCountNumericUpDown.Size = new System.Drawing.Size(35, 23);
             this.showSubtitlesOnlyFirstWordsCountNumericUpDown.TabIndex = 6;
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown.ValueChanged += new System.EventHandler(this.showSubtitlesOnlyFirstWordsCountNumericUpDown_ValueChanged);
             // 
             // label2
             // 

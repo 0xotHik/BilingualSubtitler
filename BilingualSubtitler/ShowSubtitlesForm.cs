@@ -31,13 +31,15 @@ namespace BilingualSubtitler
             thirdRussianSubtitlesDataGridView
             });
 
-            this.showSubtitlesOnlyFirstWordsCheckBox.CheckedChanged += new System.EventHandler(this.showSubtitlesOnlyFirstWordsCheckBox_CheckedChanged);
-            //
             showSubtitlesOnlyFirstWordsCheckBox.Checked = Properties.Settings.Default.ShowSubtitlesOnlyFirstWords;
             showSubtitlesOnlyFirstWordsCountNumericUpDown.Value = Properties.Settings.Default.ShowSubtitlesOnlyFirstWordsCount;
             //
             showSubtitlesOnlyFirstWordsCountNumericUpDown.Enabled = showSubtitlesOnlyFirstWordsCheckBox.Checked;
             // TODO Сделать бы просто единый SetFormAccordingToSettings
+            //+
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.ValueChanged += showSubtitlesOnlyFirstWordsCountNumericUpDown_ValueChanged;
+            showSubtitlesOnlyFirstWordsCheckBox.CheckedChanged += showSubtitlesOnlyFirstWordsCheckBox_CheckedChanged;
+
 
             SetStyleForEachDataGridView(m_dataGridViews);
 

@@ -16,6 +16,9 @@ namespace BilingualSubtitler
         public AppModeWasChangedToExtendedForm()
         {
             InitializeComponent();
+
+            button2.Focus();
+            button2.Select();
         }
 
         private void button1_Click(object sender, EventArgs e)
