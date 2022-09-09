@@ -141,6 +141,7 @@ namespace BilingualSubtitler
         private delegate void ChangeSubtitlesToOriginal();
         private ChangeSubtitlesToOriginal m_changeSubtitlesToOriginalDelegate;
 
+        // ASS
         private List<string> m_assHeader = new List<string>()
         {
              "[Script Info]\r\n",
@@ -151,8 +152,8 @@ namespace BilingualSubtitler
                 "PlayDepth: 0\r\n",
                 "\r\n",
                 "[V4+ Styles]\r\n",
-                "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
-    };
+                "Format: Name, Fontname, Fontsize, PrimaryColлвour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
+        };
         private string m_subtitleStyleNamePostfix = "_sub_stream";
 
 
@@ -221,7 +222,7 @@ namespace BilingualSubtitler
             m_initialOpenBilingualsTubtitlesButtonLeft = openBilingualSubtitlerButton.Left;
             m_initialOpenStylesFromBilingualsTubtitlesButtonLeft = openStylesFromBilingualSubtitlerButton.Left;
 
-        m_playVideoButtonDefaultText = playVideoButton.Text;
+            m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
             //
             notifyIcon.ContextMenuStrip.Items.AddRange(
@@ -706,7 +707,7 @@ namespace BilingualSubtitler
 
                     showSubtitlesButton.Visible =
 
-                    openStylesFromBilingualSubtitlerButton.Visible = 
+                    openStylesFromBilingualSubtitlerButton.Visible =
 
                     additionalOpenExportSubtitlesButtonsLabel.Visible =
                     additionalOpenExportSubtitlesButtonsGroupBox.Visible =
@@ -2041,7 +2042,7 @@ namespace BilingualSubtitler
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
             //Открываем субтитры
-            if (!ThereIsSubtitles(subtitlesWithInfo.Subtitles)) 
+            if (!ThereIsSubtitles(subtitlesWithInfo.Subtitles))
             {
                 if (fromClipboard)
                 {
@@ -2603,6 +2604,13 @@ namespace BilingualSubtitler
 
         private void createOriginalAndBilingualSubtitlesFilesButton_Click(object sender, EventArgs e)
         {
+            // Путь, по которому нужно создавать субтитры, не задан
+            if (string.IsNullOrWhiteSpace(finalSubtitlesFilesPathBeginningRichTextBox.Text))
+            {
+                MessageBox.Show("Путь, по которому нужно создавать субтитры, не задан!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
             var originalSubtitlesPath =
                 finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEnding.Text;
             var bilingualSubtitlesPath =
@@ -3581,7 +3589,7 @@ namespace BilingualSubtitler
                 MessageBox.Show($"Для считывания стилей должна быть активна опция \"{redefineSubtitlesAppearanceSettingsCheckBox.Text}\"", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-                   
+
 
             string formats = "Субтитры, созданные через Bilingual Subtitler (.ass) |*.ass";
 
