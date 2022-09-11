@@ -1228,6 +1228,8 @@ namespace BilingualSubtitler
 
         private void ReadASSMarkedupDocumentWithBilingualSubtitles(string filePath)
         {
+            SetMinValueOfProgressOnTasbarForTheCaseOfReadingSubtitlesFromTextFileOrClipboard();
+
             var lines = File.ReadAllLines(filePath);
 
             var currentStringIndex = 0;
@@ -1326,7 +1328,7 @@ namespace BilingualSubtitler
                 WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.ThirdRussian, thirdRussianSubStream, filePath);
             }
 
-
+            SetTaskbarProgress();
         }
 
         private void WriteReadFromAssSubtitlesIntoStructure(SubtitlesType type, List<Subtitle> listOfSubtitles, string filePath)
@@ -2233,7 +2235,7 @@ namespace BilingualSubtitler
         {
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
-            DoGUIActionsInTheBeginningOfSubtitlesReading(subtitlesType, "Из буфера обмена");
+            DoGUIActionsInTheBeginningOfSubtitlesReading(subtitlesType, "Из буфера обмена", true);
 
             //subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
             //subtitlesWithInfo.ProgressLabel.Text = $"0%";
@@ -2270,42 +2272,6 @@ namespace BilingualSubtitler
 
             switch (extension)
             {
-                case ".srt":
-                    {
-                        // Заполняеми информацию
-                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
-                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
-
-                        //GUI
-                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
-                        //
-                        BeginInvoke((Action)((() =>
-                        {
-                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
-                        })));
-
-                        subtitlesInfo.Subtitles = ReadSrtFile(filePath);
-
-                        break;
-                    }
-                case ".docx":
-                    {
-                        // Заполняеми информацию
-                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
-                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
-
-                        //GUI
-                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
-                        //
-                        BeginInvoke((Action)((() =>
-                        {
-                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
-                        })));
-
-                        subtitlesInfo.Subtitles = ReadDocx(filePath);
-
-                        break;
-                    }
                 case ".mkv":
                     {
                         var mkvFile = new MatroskaFile(filePath);
@@ -2333,7 +2299,7 @@ namespace BilingualSubtitler
                             //
                             BeginInvoke((Action)((() =>
                             {
-                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
+                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText, false);
                             })));
 
                             var mkvTrackInfo =
@@ -2357,6 +2323,43 @@ namespace BilingualSubtitler
 
                         break;
                     }
+                case ".srt":
+                    {
+                        // Заполняеми информацию
+                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
+                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+                        //GUI
+                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+                        //
+                        Invoke((Action)((() =>
+                        {
+                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText, true);
+                        })));
+
+                        subtitlesInfo.Subtitles = ReadSrtFile(filePath);
+
+                        break;
+                    }
+                case ".docx":
+                    {
+                        // Заполняеми информацию
+                        FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
+                        subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+                        //GUI
+                        var outputTextBoxText = subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention;
+                        //
+                        Invoke((Action)((() =>
+                        {
+                            DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText, true);
+                        })));
+
+                        subtitlesInfo.Subtitles = ReadDocx(filePath);
+
+                        break;
+                    }
+                
                 case ".zip":
                     {
                         var text = string.Empty;
@@ -2383,9 +2386,9 @@ namespace BilingualSubtitler
                             //GUI
                             var outputTextBoxText = $"{fileSelectionForm.SelectedFileName} из {subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention}";
                             //
-                            BeginInvoke((Action)((() =>
+                            Invoke((Action)((() =>
                             {
-                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText);
+                                DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText, true);
                             })));
 
                             using (var file = File.OpenRead(filePath))
@@ -2438,7 +2441,8 @@ namespace BilingualSubtitler
         /// В начале считывания — здесь работаем с ГУЕм.
         /// По окончанию — в <see cref="SubtitlesReadingHasEnded"/>
         /// </summary>
-        private void DoGUIActionsInTheBeginningOfSubtitlesReading(SubtitlesType subtitlesType, string outputTextBoxText)
+        private void DoGUIActionsInTheBeginningOfSubtitlesReading(SubtitlesType subtitlesType, string outputTextBoxText,
+            bool readingSubtitlesFromTextFileOrClipboard)
         {
             switch (subtitlesType)
             {
@@ -2481,6 +2485,19 @@ namespace BilingualSubtitler
             if (subtitlesWithInfo.ButtonTranslate != null)
                 subtitlesWithInfo.ButtonTranslate.Enabled = false;
             subtitlesWithInfo.ActionLabel.Text = SUBTITLES_ARE_OPENING;
+
+            if (readingSubtitlesFromTextFileOrClipboard)
+                SetMinValueOfProgressOnTasbarForTheCaseOfReadingSubtitlesFromTextFileOrClipboard();
+        }
+
+        /// <summary>
+        /// В случае с считыванием субтитров из их файла, не из Матрешки, не вижу смысла писать нормальное изменение прогресса прогрессБара, потому что они считываются почти мгновенно.
+        /// Но на всякий случай я обозначу то, что начался какой-то процесс, и он в самой начальной своей стадии минимальным значением — 1.
+        /// </summary>
+        /// <returns></returns>
+        private void SetMinValueOfProgressOnTasbarForTheCaseOfReadingSubtitlesFromTextFileOrClipboard()
+        {
+            SetTaskbarProgress(true);
         }
 
         private void readSubtitlesFromFileBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
@@ -2490,6 +2507,37 @@ namespace BilingualSubtitler
 
             subtitlesInfo.ProgressBar.Value = eventArgs.ProgressPercentage;
             subtitlesInfo.ProgressLabel.Text = $"{eventArgs.ProgressPercentage}%";
+
+            SetTaskbarProgress();
+        }
+
+        private void SetTaskbarProgress(bool setMinProgressBarValue = false)
+        {
+            #region Схема с прогрессБаром по минимальному значению
+            int minProgressBarValue = setMinProgressBarValue? 1 // См. вызывающую функцию в случае такого флага
+                :100;
+
+            foreach (var subtitlesWithInfo in m_subtitles.Values)
+            {
+                if (ThisProgressBarHasMeaningToAffectTaskbarProgress(subtitlesWithInfo.ProgressBar) && subtitlesWithInfo.ProgressBar.Value < minProgressBarValue)
+                    minProgressBarValue = subtitlesWithInfo.ProgressBar.Value;
+            }
+
+            // Если что-то еще делается, изменим прогресс на Таскбаре. Иначе — очистим
+            if (minProgressBarValue != 100)
+                Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance.SetProgressValue(minProgressBarValue, 100);
+            else
+                Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
+            #endregion
+        }
+
+        /// <summary>
+        /// Надо ли нам учитывать этот прогрессБар при изменении прогресса на Таскбаре
+        /// </summary>
+        /// <param name="progressBar"></param>
+        private bool ThisProgressBarHasMeaningToAffectTaskbarProgress(ProgressBar progressBar)
+        {
+            return progressBar.Visible;
         }
 
         private void readSubtitlesFromFileBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
@@ -2527,6 +2575,7 @@ namespace BilingualSubtitler
             else
             {
                 subtitlesInfo.ProgressBar.Value = subtitlesInfo.ProgressBar.Minimum;
+                subtitlesInfo.ProgressBar.Visible = false;
                 subtitlesInfo.ProgressLabel.Text = $"0%";
                 subtitlesInfo.ActionLabel.Text = "Произошла ошибка во время чтения субтитров";
             }
@@ -2539,6 +2588,8 @@ namespace BilingualSubtitler
 
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;
+
+            SetTaskbarProgress();
 
             // TODO Ошибки?
         }
