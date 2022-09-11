@@ -2141,7 +2141,9 @@ namespace BilingualSubtitler
 
             subtitlesWithInfo.ButtonOpenOrClose.Text = m_initialOpenOrCloseSubtitlesButtonText;
             subtitlesWithInfo.ProgressBar.Value = subtitlesWithInfo.ProgressBar.Minimum;
+            subtitlesWithInfo.ProgressBar.Visible = false;
             subtitlesWithInfo.ProgressLabel.Text = $"0%";
+            subtitlesWithInfo.ProgressLabel.Visible = false;
             subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
             subtitlesWithInfo.OutputTextBox.Text = string.Empty;
 
@@ -2522,6 +2524,9 @@ namespace BilingualSubtitler
                 if (ThisProgressBarHasMeaningToAffectTaskbarProgress(subtitlesWithInfo.ProgressBar) && subtitlesWithInfo.ProgressBar.Value < minProgressBarValue)
                     minProgressBarValue = subtitlesWithInfo.ProgressBar.Value;
             }
+
+            if (minProgressBarValue == 0)
+                minProgressBarValue = 1;
 
             // Если что-то еще делается, изменим прогресс на Таскбаре. Иначе — очистим
             if (minProgressBarValue != 100)
