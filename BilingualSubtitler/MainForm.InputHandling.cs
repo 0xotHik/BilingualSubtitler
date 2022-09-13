@@ -174,46 +174,52 @@ namespace BilingualSubtitler
 
         }
 
-        
 
-        private void ActionForHotkeyThatAreNotPauseButton()
-        {
-            var millisecondsFromLastKeyDown = m_stopwatch.ElapsedMilliseconds;
-            Debug.WriteLine(millisecondsFromLastKeyDown);
-            if (millisecondsFromLastKeyDown < 50)
-            {
-                m_stopwatch.Restart();
-                return;
-            }
-            //
-            m_stopwatch.Restart();
+        #region Былое
+        //private void ActionForHotkeyThatAreNotPauseButton()
+        //{
+        //    var millisecondsFromLastKeyDown = m_stopwatch.ElapsedMilliseconds;
+        //    Debug.WriteLine(millisecondsFromLastKeyDown);
+        //    if (millisecondsFromLastKeyDown < 50)
+        //    {
+        //        m_stopwatch.Restart();
+        //        return;
+        //    }
+        //    //
+        //    m_stopwatch.Restart();
 
-            var activeProcess = GetActiveProcess();
-            if (activeProcess.ProcessName != m_videoPlayerProcessName)
-                return;
-            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
+        //    var activeProcess = GetActiveProcess();
+        //    if (activeProcess.ProcessName != m_videoPlayerProcessName)
+        //        return;
+        //    m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
 
-            PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
-            SwitchSubtitlesStatesAndComboBox();
-        }
+        //    PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
+        //    SwitchSubtitlesStatesAndComboBox();
+        //}
+
+        ///// <summary>
+        ///// Былое.
+        ///// </summary>
+        //private void ActionForHotkeyThatArePauseButton()
+        //{
+        //    //if (GetActiveProcessName() != m_videoPlayerProcessName)
+        //    //    return;
+
+        //    var activeProcess = GetActiveProcess();
+        //    if (activeProcess.ProcessName != m_videoPlayerProcessName)
+        //        return;
+        //    m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
+
+        //    SwitchSubtitlesStatesAndComboBox();
+        //}
+        #endregion
 
         public void PostMessagePauseKey()
         {
             PostMessage(m_videoPlayerProcessMainWindowHandle, WM_KEYDOWN, m_videoplayerPauseHotkey, 0);
         }
 
-        private void ActionForHotkeyThatArePauseButton()
-        {
-            //if (GetActiveProcessName() != m_videoPlayerProcessName)
-            //    return;
-
-            var activeProcess = GetActiveProcess();
-            if (activeProcess.ProcessName != m_videoPlayerProcessName)
-                return;
-            m_videoPlayerProcessMainWindowHandle = activeProcess.MainWindowHandle;
-
-            SwitchSubtitlesStatesAndComboBox();
-        }
+        
 
         public void SwitchSubtitlesStatesAndComboBox()
         {
