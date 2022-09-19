@@ -1,7 +1,7 @@
 ; 1. Поменять версию
 ; 2. Поменять по новой версии имя сетапника
 ; 3. Чекнуть набор файлов
-#define MyAppVersion "9.1"
+#define MyAppVersion "10.0"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -10,7 +10,7 @@
 
 [Setup]
 ; !
-OutputBaseFilename=bilingual-subtitler-installer-9-1-x86
+OutputBaseFilename=bilingual-subtitler-installer-10-0-x86
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7CC8CBB0-5496-40FD-96DC-C283B2EFA75B}
@@ -99,6 +99,13 @@ Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publi
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
+; 10.0
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.WindowsAPICodePack.Sensors.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\Microsoft.WindowsAPICodePack.ShellExtensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+; Папки
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\de\*"; DestDir: "{app}\de\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler\es\*"; DestDir: "{app}\es\"; Flags: ignoreversion recursesubdirs createallsubdirs
