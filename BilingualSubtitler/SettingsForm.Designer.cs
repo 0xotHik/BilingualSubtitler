@@ -998,9 +998,9 @@
             this.originalSubtitlesInOneLineCheckBox.Location = new System.Drawing.Point(14, 361);
             this.originalSubtitlesInOneLineCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.originalSubtitlesInOneLineCheckBox.Name = "originalSubtitlesInOneLineCheckBox";
-            this.originalSubtitlesInOneLineCheckBox.Size = new System.Drawing.Size(122, 19);
+            this.originalSubtitlesInOneLineCheckBox.Size = new System.Drawing.Size(204, 34);
             this.originalSubtitlesInOneLineCheckBox.TabIndex = 95;
-            this.originalSubtitlesInOneLineCheckBox.Text = "Убрать переносы";
+            this.originalSubtitlesInOneLineCheckBox.Text = "Убрать переносы (при создании\r\nитоговых субтитров)";
             this.originalSubtitlesInOneLineCheckBox.UseVisualStyleBackColor = true;
             // 
             // originalSubtitlesShadowTransparencyPercentageNumericUpDown

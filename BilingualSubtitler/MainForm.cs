@@ -152,7 +152,7 @@ namespace BilingualSubtitler
                 "PlayDepth: 0\r\n",
                 "\r\n",
                 "[V4+ Styles]\r\n",
-                "Format: Name, Fontname, Fontsize, PrimaryColлвour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
+                "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
         };
         private string m_subtitleStyleNamePostfix = "_sub_stream";
 
