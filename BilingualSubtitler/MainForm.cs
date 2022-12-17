@@ -550,7 +550,7 @@ namespace BilingualSubtitler
             else if (e.Result is Exception)
             {
                 var exception = (Exception)e.Result;
-                MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОШибка:{exception.Message}",
+                MessageBox.Show($"Не удалось получить информацию о новых версиях\n\n\nОшибка:{exception.Message}",
                         "Не удалось получить информацию о новых версиях",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
