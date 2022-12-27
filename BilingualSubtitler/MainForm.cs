@@ -55,6 +55,8 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATING = "Субтитры переводятся...";
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
+        private const string TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING = "; Это комментарий Bilingual Subtitler, который закрепляет, что данный поток субтитров был считан (и будет в дальнейшем) Bilingual Subtitler как: ";
+
         private int m_initialFormWidth;
         private string m_initialOpenOrCloseSubtitlesButtonText;
         private string m_initialOpenSubtitlesGroupBoxText;
@@ -1166,45 +1168,65 @@ namespace BilingualSubtitler
         /// </summary>
         /// <param name="lines"></param>
         /// <param name="currentStringIndex"></param>
-        /// <returns></returns>
+        /// <returns>Индекс строки "[Events]"</returns>
         private int ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(string[] lines, int currentStringIndex)
         {
-            // Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
             //Style: 0_sub_stream,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,42,1
             //Style: 1_sub_stream,Times New Roman,20,&H000000FF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,0,1
             //Style: 2_sub_stream,Times New Roman,20,&H668000FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,206,1
             //Style: 3_sub_stream,Times New Roman,20,&H6600D7FF,&H6600FFFF,&H66000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,248,1
+
+            string originalSubtitlesOgTitle = null;
+            string firstRussianSubtitlesOgTitle = null;
+            string secondRussianSubtitlesOgTitle = null;
+            string thirdRussianSubtitlesOgTitle = null;
 
             SubtitlesStyle originalSubtitlesStyle = null;
             SubtitlesStyle firstRussianSubtitlesStyle = null;
             SubtitlesStyle secondRussianSubtitlesStyle = null;
             SubtitlesStyle thirdRussianSubtitlesStyle = null;
 
-            originalSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
-            currentStringIndex++;
-            if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
+            // пока currentString не "[Events]" - смотрим, строка содержит ли Style: или наш комментарий про перевод; индексСтроки++
+            // Порядок, четкий порядок. Тайтл → Стайл. Оригинальные / 1-е переведенные / 2-е / 3-и. 
+            while (lines[currentStringIndex] != "[Events]")
             {
-            }
-            else
-            {
-                firstRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
-                currentStringIndex++;
-                if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
-                {
-                }
+                if (string.IsNullOrWhiteSpace(lines[currentStringIndex]))
+                { }
                 else
                 {
-                    secondRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
-                    currentStringIndex++;
-                    if (lines[currentStringIndex] == "[Events]") // Выходим, стили закончились
+                    // Комментарий с тайтлом
+                    if (lines[currentStringIndex].StartsWith(TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING))
                     {
+                        var title = GetTitleFromTitleContainingLine(lines[currentStringIndex]);
+
+                        if (originalSubtitlesStyle == null)
+                            originalSubtitlesOgTitle = title;
+                        else if (firstRussianSubtitlesStyle == null)
+                            firstRussianSubtitlesOgTitle = title;
+                        else if (secondRussianSubtitlesStyle == null)
+                            secondRussianSubtitlesOgTitle = title;
+                        else if (thirdRussianSubtitlesStyle == null)
+                            thirdRussianSubtitlesOgTitle = title;
+
                     }
                     else
+                    // Стиль
+                    if (lines[currentStringIndex].StartsWith("Style: "))
                     {
-                        thirdRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
-                        currentStringIndex++;
+                        var style = new SubtitlesStyle(lines[currentStringIndex]);
+
+                        if (originalSubtitlesStyle == null)
+                            originalSubtitlesStyle = style;
+                        else if (firstRussianSubtitlesStyle == null)
+                            firstRussianSubtitlesStyle = style;
+                        else if (secondRussianSubtitlesStyle == null)
+                            secondRussianSubtitlesStyle = style;
+                        else if (thirdRussianSubtitlesStyle == null)
+                            thirdRussianSubtitlesStyle = style;
                     }
                 }
+
+                currentStringIndex++;
             }
 
             if (m_redefineSubtitlesAppearanceSettings)
@@ -1218,7 +1240,120 @@ namespace BilingualSubtitler
                     WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
             }
 
+            #region Былое
+
+            //    // Оригинальные субтитры - тайтл
+            //    string titleFromTheLineIfThisIsTheTitleContainingOne = TitleFromTheLineIfThisIsTheTitleContainingOne(lines[currentStringIndex]);
+            //    if (titleFromTheLineIfThisIsTheTitleContainingOne != null) // Тайтл был считан
+            //    {
+            //        originalSubtitlesOgTitle = titleFromTheLineIfThisIsTheTitleContainingOne;
+            //        currentStringIndex++;
+            //    }
+            //    if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //    {
+            //        // Оригинальные субтитры - стиль
+            //        originalSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+
+            //        currentStringIndex++;
+            //        if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //        {
+            //            // 1-й поток русских субтитов - тайтл
+            //            titleFromTheLineIfThisIsTheTitleContainingOne = TitleFromTheLineIfThisIsTheTitleContainingOne(lines[currentStringIndex]);
+            //            if (titleFromTheLineIfThisIsTheTitleContainingOne != null) // Тайтл был считан
+            //            {
+            //                firstRussianSubtitlesOgTitle = titleFromTheLineIfThisIsTheTitleContainingOne;
+            //                currentStringIndex++;
+            //            }
+            //            if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //            {
+            //                // 1-й поток русских субтитов - стиль
+            //                firstRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+
+            //                currentStringIndex++;
+            //                if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //                {
+            //                    // 2-й поток русских субтитов - тайтл
+            //                    titleFromTheLineIfThisIsTheTitleContainingOne = TitleFromTheLineIfThisIsTheTitleContainingOne(lines[currentStringIndex]);
+            //                    if (titleFromTheLineIfThisIsTheTitleContainingOne != null) // Тайтл был считан
+            //                    {
+            //                        secondRussianSubtitlesOgTitle = titleFromTheLineIfThisIsTheTitleContainingOne;
+            //                        currentStringIndex++;
+            //                    }
+            //                    if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //                    {
+            //                        // 2-й поток русских субтитов - стиль
+            //                        secondRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+
+            //                        currentStringIndex++;
+            //                        if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //                        {
+            //                            // 3-й поток русских субтитов - тайтл
+            //                            titleFromTheLineIfThisIsTheTitleContainingOne = TitleFromTheLineIfThisIsTheTitleContainingOne(lines[currentStringIndex]);
+            //                            if (titleFromTheLineIfThisIsTheTitleContainingOne != null) // Тайтл был считан
+            //                            {
+            //                                thirdRussianSubtitlesOgTitle = titleFromTheLineIfThisIsTheTitleContainingOne;
+            //                                currentStringIndex++;
+            //                            }
+            //                            if (!WeNeedToStopStylesAndTitlesAreOver(lines[currentStringIndex]))
+            //                            {
+            //                                // 3-й поток русских субтитов - стиль
+            //                                thirdRussianSubtitlesStyle = new SubtitlesStyle(lines[currentStringIndex]);
+
+            //                                currentStringIndex++;
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+
+
+
+            #endregion
+
             return currentStringIndex;
+        }
+
+        /// <summary>
+        /// Выходим, стили и названия потоков закончились
+        /// </summary>
+        /// <returns></returns>
+        private bool WeNeedToStopStylesAndTitlesAreOver(string line)
+        {
+            if (line == "[Events]")
+                return true;
+            // Выходим, стили закончились
+
+            //Default
+            return false;
+
+            //if ((line == "[Events]") || (string.IsNullOrWhiteSpace(line)))
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns>Не null — если строка начинается с подстроки про то, что это строка комментария с именованием потока субтитров, <see cref="TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING"/>; null - если это не так</returns>
+        private string TitleFromTheLineIfThisIsTheTitleContainingOne(string line)
+        {
+            if (line.StartsWith(TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING))
+            {
+                return GetTitleFromTitleContainingLine (line);
+            }
+
+            // Default
+            return null;
+        }
+
+        private string GetTitleFromTitleContainingLine(string line)
+        {
+            return
+                                line.Substring
+                                (TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING.Length,
+                                line.Length - TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING.Length);
         }
 
         private int AdjustCaretUnderHeaderInASSMarkedupDocumentWithBilingualSubtitles(int currentStringIndex)
@@ -1242,7 +1377,8 @@ namespace BilingualSubtitler
             newCurrentStringIndex = ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
             currentStringIndex = newCurrentStringIndex;
 
-            //[Events]
+            // Мы — на строке "[Events]"
+
             currentStringIndex++;
 
             //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
@@ -2361,7 +2497,7 @@ namespace BilingualSubtitler
 
                         break;
                     }
-                
+
                 case ".zip":
                     {
                         var text = string.Empty;
@@ -2516,8 +2652,8 @@ namespace BilingualSubtitler
         private void SetTaskbarProgress(bool setMinProgressBarValue = false)
         {
             #region Схема с прогрессБаром по минимальному значению
-            int minProgressBarValue = setMinProgressBarValue? 1 // См. вызывающую функцию в случае такого флага
-                :100;
+            int minProgressBarValue = setMinProgressBarValue ? 1 // См. вызывающую функцию в случае такого флага
+                : 100;
 
             foreach (var subtitlesWithInfo in m_subtitles.Values)
             {
@@ -3665,6 +3801,13 @@ namespace BilingualSubtitler
                 // Стили
                 ReadStylesFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
             }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            // Ищем вхождения постфикса в строку
+            // Берем последнее
+            // Оставляем всю строку минус длина постфикса
         }
     }
 

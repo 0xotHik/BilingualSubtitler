@@ -231,6 +231,7 @@
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             this.showSubtitlesButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
@@ -600,6 +601,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.bilingualSubtitlesFileNameEnding);
             this.groupBox4.Controls.Add(this.originalSubtitlesFileNameEnding);
             this.groupBox4.Controls.Add(this.bilingualSubtitlesFileNameEndingLabel);
@@ -2733,6 +2735,20 @@
             this.showSubtitlesButton.UseVisualStyleBackColor = false;
             this.showSubtitlesButton.Click += new System.EventHandler(this.showLastSubtitleOfFirstRussianSubtitlesButton_Click);
             // 
+            // button2
+            // 
+            this.button2.AllowDrop = true;
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(572, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 27);
+            this.button2.TabIndex = 49;
+            this.button2.Text = "Минус постфикс";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -3045,5 +3061,6 @@
         private System.Windows.Forms.Button openStylesFromBilingualSubtitlerButton;
         private System.Windows.Forms.GroupBox openBilignualSubtitlesGroupBox;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Button button2;
     }
 }

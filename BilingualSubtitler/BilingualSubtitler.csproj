@@ -99,7 +99,7 @@
   <ItemGroup>
     <PackageReference Include="DocX" Version="2.4.0" />
     <PackageReference Include="InputSimulator" Version="1.0.4.0" />
-    <PackageReference Include="libse" Version="3.6.5" />
+    <PackageReference Include="libse" Version="3.6.10" />
     <PackageReference Include="MouseKeyHook" Version="5.6.0" />
     <PackageReference Include="NeatInput.Windows" Version="2.0.1" />
     <PackageReference Include="Octokit" Version="4.0.3" />
