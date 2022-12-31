@@ -6295,12 +6295,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="changeRussianSubtitlesStylesAccordingToOriginalCheckBox.Text" xml:space="preserve">
-    <value>Изменять параметры вида всех потоков переведенных субтитров соответственно 
-настройкам вида оригинальных субтитров 
-(а шрифты и прозрачности 2-х и 3-х переведенных — соответственно 1-м переведенных)
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>30</value>
   </metadata>
