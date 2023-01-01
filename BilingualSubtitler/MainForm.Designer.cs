@@ -164,6 +164,14 @@
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             this.showSubtitlesButton = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
@@ -197,6 +205,8 @@
             this.appNotRunningAsAdministratorPanel.SuspendLayout();
             this.translateToRussianSubtitlesGroupBox.SuspendLayout();
             this.openSubtitlesFromDefaultFolderGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoStateComboBox
@@ -1836,7 +1846,7 @@
             this.translateToRussianSubtitlesGroupBox.Controls.Add(this.translateToFirstRussianSubtitlesGroupBox);
             this.translateToRussianSubtitlesGroupBox.Controls.Add(this.translateToThirdRussianSubtitlesGroupBox);
             this.translateToRussianSubtitlesGroupBox.Controls.Add(this.translateToSecondRussianSubtitlesGroupBox);
-            this.translateToRussianSubtitlesGroupBox.Location = new System.Drawing.Point(980, 697);
+            this.translateToRussianSubtitlesGroupBox.Location = new System.Drawing.Point(980, 753);
             this.translateToRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.translateToRussianSubtitlesGroupBox.Name = "translateToRussianSubtitlesGroupBox";
             this.translateToRussianSubtitlesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1852,7 +1862,7 @@
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openFirstRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openThirdRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openSecondRussianSubtitlesFromDefaultFolderButton);
-            this.openSubtitlesFromDefaultFolderGroupBox.Location = new System.Drawing.Point(1146, 612);
+            this.openSubtitlesFromDefaultFolderGroupBox.Location = new System.Drawing.Point(1146, 684);
             this.openSubtitlesFromDefaultFolderGroupBox.Name = "openSubtitlesFromDefaultFolderGroupBox";
             this.openSubtitlesFromDefaultFolderGroupBox.Size = new System.Drawing.Size(488, 71);
             this.openSubtitlesFromDefaultFolderGroupBox.TabIndex = 100;
@@ -1881,6 +1891,106 @@
             this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Location = new System.Drawing.Point(1146, 612);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(488, 71);
+            this.groupBox1.TabIndex = 101;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "🗄️ Открыть субтитры из папки, установленной как папка для открытия файлов по умо" +
+    "лчанию";
+            // 
+            // button3
+            // 
+            this.button3.AllowDrop = true;
+            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(7, 32);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(114, 27);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Оригинальные";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.AllowDrop = true;
+            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(125, 32);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(114, 27);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "1-е переведенные";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.AllowDrop = true;
+            this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(361, 32);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(115, 27);
+            this.button5.TabIndex = 44;
+            this.button5.Text = "3-и переведенные";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.AllowDrop = true;
+            this.button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(243, 32);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(114, 27);
+            this.button6.TabIndex = 43;
+            this.button6.Text = "2-е переведенные";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.button7);
+            this.groupBox8.Controls.Add(this.button8);
+            this.groupBox8.Location = new System.Drawing.Point(980, 690);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(265, 71);
+            this.groupBox8.TabIndex = 101;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "🗄️ Открыть субтитры из папки, установленной как папка для открытия файлов по умо" +
+    "лчанию";
+            // 
+            // button7
+            // 
+            this.button7.AllowDrop = true;
+            this.button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.Location = new System.Drawing.Point(7, 32);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(114, 27);
+            this.button7.TabIndex = 13;
+            this.button7.Text = "Оригинальные";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.AllowDrop = true;
+            this.button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button8.Location = new System.Drawing.Point(125, 32);
+            this.button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(114, 27);
+            this.button8.TabIndex = 18;
+            this.button8.Text = "1-е переведенные";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1888,6 +1998,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
+            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
@@ -1952,6 +2064,8 @@
             this.appNotRunningAsAdministratorPanel.PerformLayout();
             this.translateToRussianSubtitlesGroupBox.ResumeLayout(false);
             this.openSubtitlesFromDefaultFolderGroupBox.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2092,5 +2206,13 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Button button2;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

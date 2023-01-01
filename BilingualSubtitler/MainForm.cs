@@ -3428,7 +3428,9 @@ namespace BilingualSubtitler
 
         private void ResetSubtitlesAppearanceToDefaultButton_Click(object sender, EventArgs e)
         {
-            SetSubtitlesAppearanceBoxesAccordingToSettings();
+            var result = MessageBox.Show("Сбросить текущие настройки вида субтитров к значениям, заданным в окне настроек программы?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+                SetSubtitlesAppearanceBoxesAccordingToSettings();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

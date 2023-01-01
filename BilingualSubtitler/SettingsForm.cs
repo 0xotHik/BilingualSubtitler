@@ -40,6 +40,8 @@ namespace BilingualSubtitler
                 throw new BilingualSubtitlerPropertiesLoadingException(e);
             }
 
+            // Графика
+            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
 
             m_processPriorityNamesAndValues = new Dictionary<string, ProcessPriorityClass>
             {
@@ -622,7 +624,7 @@ namespace BilingualSubtitler
                MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void ResetSubtitlesAppearanceToDefaultButton_Click(object sender, EventArgs e)
         {
             Properties.SubtitlesAppearanceSettings.Default.Reset();
             Properties.SubtitlesAppearanceSettings.Default.Save();
