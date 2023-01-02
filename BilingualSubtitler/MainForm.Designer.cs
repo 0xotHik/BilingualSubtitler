@@ -56,7 +56,6 @@
             this.googleTranslatorLinkLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.bilingualSubtitlesFileNameEnding = new System.Windows.Forms.Label();
             this.originalSubtitlesFileNameEnding = new System.Windows.Forms.Label();
             this.bilingualSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
@@ -514,7 +513,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.bilingualSubtitlesFileNameEnding);
             this.groupBox4.Controls.Add(this.originalSubtitlesFileNameEnding);
             this.groupBox4.Controls.Add(this.bilingualSubtitlesFileNameEndingLabel);
@@ -531,20 +529,6 @@
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Итоговые файлы:";
-            // 
-            // button2
-            // 
-            this.button2.AllowDrop = true;
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(572, 14);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 27);
-            this.button2.TabIndex = 49;
-            this.button2.Text = "Минус постфикс";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // bilingualSubtitlesFileNameEnding
             // 
@@ -1902,8 +1886,7 @@
             this.groupBox1.Size = new System.Drawing.Size(488, 71);
             this.groupBox1.TabIndex = 101;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "🗄️ Открыть субтитры из папки, установленной как папка для открытия файлов по умо" +
-    "лчанию";
+            this.groupBox1.Text = "Ѓ📁 Открыть субтитры в кодировке 1251: Кириллица (Windows)";
             // 
             // button3
             // 
@@ -1963,15 +1946,14 @@
             this.groupBox8.Size = new System.Drawing.Size(265, 71);
             this.groupBox8.TabIndex = 101;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "🗄️ Открыть субтитры из папки, установленной как папка для открытия файлов по умо" +
-    "лчанию";
+            this.groupBox8.Text = "Минус постфикс";
             // 
             // button7
             // 
             this.button7.AllowDrop = true;
             this.button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.Location = new System.Drawing.Point(7, 32);
+            this.button7.Location = new System.Drawing.Point(7, 18);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(114, 27);
@@ -2204,7 +2186,6 @@
         private System.Windows.Forms.Button openStylesFromBilingualSubtitlerButton;
         private System.Windows.Forms.GroupBox openBilignualSubtitlesGroupBox;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Button button2;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
