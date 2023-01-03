@@ -23,6 +23,8 @@ using System.IO.Compression;
 using Syroot.Windows.IO;
 using NonInvasiveKeyboardHookLibrary;
 using Gma.System.MouseKeyHook;
+using System.Linq;
+using Aspose.Zip.Rar;
 
 namespace BilingualSubtitler
 {
@@ -181,6 +183,9 @@ namespace BilingualSubtitler
         public MainForm()
         {
             InitializeComponent();
+
+            // Для 1251
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             // Состояния видео / субтитров:
             // воспроизводится с оригинальными субтитрами
@@ -2211,6 +2216,7 @@ namespace BilingualSubtitler
                 else
                 {
                     string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt) |*.mkv; *.srt; *.docx; *.zip";
+                    //string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar";
 
                     using var openFileDialog = new OpenFileDialog();
                     openFileDialog.Filter = formats;
@@ -2513,6 +2519,72 @@ namespace BilingualSubtitler
                                                     stream.CopyTo(ms);
                                                     var unzippedArray = ms.ToArray();
 
+                                                    var encoding = Encoding.UTF8;
+                                                    //var encoding = Encoding.GetEncoding("windows-1251");
+                                                    text = encoding.GetString(unzippedArray);
+                                                }
+                                            }
+
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                var lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+                                subtitlesInfo.Subtitles = ReadSrtMarkup(lines);
+                            }
+
+
+                            break;
+                        }
+                    case ".rar":
+                        {
+                            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                            var text = string.Empty;
+                            var zippedFiles = new List<string>();
+
+                            using (var file = File.OpenRead(filePath))
+                            using (var zip = new RarArchive(file))
+                            {
+                                foreach (var entry in zip.Entries)
+                                {
+                                    zippedFiles.Add(entry.Name);
+                                }
+                            }
+
+                            using var fileSelectionForm = new FileToUseFromZipForm(zippedFiles);
+                            var dialogResult = fileSelectionForm.ShowDialog();
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                // Заполняеми информацию
+                                FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
+                                //
+                                subtitlesInfo.TrackLanguage = subtitlesInfo.TrackNumber = subtitlesInfo.TrackName = null;
+
+                                //GUI
+                                var outputTextBoxText = $"{fileSelectionForm.SelectedFileName} из {subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention}";
+                                //
+                                Invoke((Action)((() =>
+                                {
+                                    DoGUIActionsInTheBeginningOfSubtitlesReading(parentBgW.SubtitlesType, outputTextBoxText, true);
+                                })));
+
+                                using (var file = File.OpenRead(filePath))
+                                using (var zip = new RarArchive(file))
+                                {
+                                    foreach (var entry in zip.Entries)
+                                    {
+                                        if (entry.Name == fileSelectionForm.SelectedFileName)
+                                        {
+                                            using (var stream = entry.Open())
+                                            {
+                                                using (var ms = new MemoryStream())
+                                                {
+                                                    stream.CopyTo(ms);
+                                                    var unzippedArray = ms.ToArray();
+
                                                     text = Encoding.UTF8.GetString(unzippedArray);
                                                 }
                                             }
@@ -2530,6 +2602,7 @@ namespace BilingualSubtitler
 
                             break;
                         }
+
                     default:
                         {
                             throw new Exception();

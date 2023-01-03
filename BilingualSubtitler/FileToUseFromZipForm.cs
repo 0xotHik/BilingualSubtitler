@@ -32,6 +32,7 @@ namespace BilingualSubtitler
             dataGridViewFilesInAcrhive.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewFilesInAcrhive.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridViewFilesInAcrhive.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewFilesInAcrhive.CellDoubleClick += dataGridViewFilesInAcrhive_CellDoubleClick;
 
             dataGridViewFilesInAcrhive.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 
@@ -66,9 +67,17 @@ namespace BilingualSubtitler
             ((Button)sender).BackColor = previousButtonColor;
         }
 
-        
+        private void dataGridViewFilesInAcrhive_CellDoubleClick (object sender, EventArgs e)
+        {
+            UseSelectedRowAndCloseWithOk();
+        }
 
         private void buttonOk_Click(object sender, EventArgs e)
+        {
+            UseSelectedRowAndCloseWithOk();
+        }
+
+        private void UseSelectedRowAndCloseWithOk()
         {
             SelectedFileName = (string)dataGridViewFilesInAcrhive.Rows[dataGridViewFilesInAcrhive.CurrentRow.Index].Tag;
 
