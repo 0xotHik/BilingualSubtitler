@@ -752,17 +752,12 @@ namespace BilingualSubtitler
                 //
                 if (!advancedMode)
                 {
-                    //hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesColorButton.Right + 20, hideSecondRussianSubtitlesButton.Location.Y);
-                    //secondRussianSubtitlesGroupBox.Width = secondRussianSubtitlesGroupBox.Width - translateToSecondRussianSubtitlesGroupBox.Width -
-                    //    secondRussianSubtitlesExportAsDocx.Width + 40;
+                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesColorGroupBox.Right +
+                        (primarySubtitlesExportAsDocxGroupBox.Left - primarySubtitlesColorGroupBox.Right)
+                        + 1 // Толщина рамки
+                        ;
 
-                    //thirdRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width - translateToThirdRussianSubtitlesGroupBox.Width -
-                    //   thirdRussianSubtitlesExportAsDocx.Width + 40;
-
-                    //firstRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width - translateToFirstRussianSubtitlesGroupBox.Width -
-                    // firstRussianSubtitlesExportAsDocx.Width + 40;
-
-                    secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesColorGroupBox.Right + hideSecondRussianSubtitlesButton.Width + 10;
+                    //secondRussianSubtitlesGroupBox.Width = thirdRussianSubtitlesGroupBox.Width = firstRussianSubtitlesGroupBox.Width = primarySubtitlesColorGroupBox.Right + hideSecondRussianSubtitlesButton.Width + 10;
 
                     hideThirdRussianSubtitlesButton.Location = new Point(thirdRussianSubtitlesGroupBox.Width - hideThirdRussianSubtitlesButton.Width, hideThirdRussianSubtitlesButton.Location.Y);
                     hideSecondRussianSubtitlesButton.Location = new Point(secondRussianSubtitlesGroupBox.Width - hideSecondRussianSubtitlesButton.Width, hideSecondRussianSubtitlesButton.Location.Y);
