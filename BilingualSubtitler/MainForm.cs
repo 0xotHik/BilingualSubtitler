@@ -2216,9 +2216,9 @@ namespace BilingualSubtitler
                 }
                 else
                 {
-                   string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar";
+                    string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar";
                     //
-                    if (enc1251)
+                    if (enc1251) // Не знаю, что там по кодировке в вариантах с MKV и DOCX; мельком посмотрел - не увидел
                     {
                         formats = "Файлы SubRip Text (.srt); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.srt; *.zip; *.rar";
                     }
@@ -3857,7 +3857,7 @@ namespace BilingualSubtitler
             }
         }
 
-       
+
 
         private void button3_Click_2(object sender, EventArgs e)
         {
@@ -3881,9 +3881,34 @@ namespace BilingualSubtitler
 
         private void button7_Click_1(object sender, EventArgs e)
         {
+            RemovePostfix(original: true);
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            RemovePostfix(bilingual: true);
+        }
+
+        private void RemovePostfix(bool original = false, bool bilingual = false)
+        {
+            string subtitlesFileNameEnding = bilingual ? Properties.Settings.Default.BilingualSubtitlesFileNameEnding
+                : Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+            // Минус расширение
+            var lastDotIndex = subtitlesFileNameEnding.LastIndexOf('.');
+            var postfix = subtitlesFileNameEnding.Substring(0, lastDotIndex);
+
             // Ищем вхождения постфикса в строку
             // Берем последнее
             // Оставляем всю строку минус длина постфикса
+            if (finalSubtitlesFilesPathBeginningRichTextBox.Text.EndsWith(postfix))
+            {
+
+                finalSubtitlesFilesPathBeginningRichTextBox.Text =
+                    finalSubtitlesFilesPathBeginningRichTextBox.Text.Substring(0,
+                    finalSubtitlesFilesPathBeginningRichTextBox.Text.Length - postfix.Length);
+            }
+            else
+                MessageBox.Show("Путь итоговых файлов субтитров / путь до файла видео (начальная часть) — не оканчивается на данный постфикс", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 

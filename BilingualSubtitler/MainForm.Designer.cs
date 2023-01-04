@@ -1845,6 +1845,7 @@
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openPrimarySubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openFirstRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openThirdRussianSubtitlesFromDefaultFolderButton);
+            this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.showSubtitlesButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openSecondRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Location = new System.Drawing.Point(1146, 684);
             this.openSubtitlesFromDefaultFolderGroupBox.Name = "openSubtitlesFromDefaultFolderGroupBox";
@@ -1858,7 +1859,7 @@
             // 
             this.showSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.showSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showSubtitlesButton.Location = new System.Drawing.Point(980, 612);
+            this.showSubtitlesButton.Location = new System.Drawing.Point(216, 2);
             this.showSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showSubtitlesButton.Name = "showSubtitlesButton";
             this.showSubtitlesButton.Size = new System.Drawing.Size(159, 71);
@@ -1945,9 +1946,9 @@
             // 
             this.groupBox8.Controls.Add(this.button7);
             this.groupBox8.Controls.Add(this.button8);
-            this.groupBox8.Location = new System.Drawing.Point(980, 690);
+            this.groupBox8.Location = new System.Drawing.Point(980, 587);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(265, 71);
+            this.groupBox8.Size = new System.Drawing.Size(160, 84);
             this.groupBox8.TabIndex = 101;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Минус постфикс";
@@ -1970,13 +1971,14 @@
             // 
             this.button8.AllowDrop = true;
             this.button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Location = new System.Drawing.Point(125, 32);
+            this.button8.Location = new System.Drawing.Point(7, 51);
             this.button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(114, 27);
             this.button8.TabIndex = 18;
             this.button8.Text = "1-е переведенные";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // MainForm
             // 
@@ -1988,7 +1990,6 @@
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
-            this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.Controls.Add(this.translateToRussianSubtitlesGroupBox);
