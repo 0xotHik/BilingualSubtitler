@@ -1900,6 +1900,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Оригинальные";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
             // button4
             // 
@@ -1912,6 +1913,7 @@
             this.button4.TabIndex = 18;
             this.button4.Text = "1-е переведенные";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -1924,6 +1926,7 @@
             this.button5.TabIndex = 44;
             this.button5.Text = "3-и переведенные";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_2);
             // 
             // button6
             // 
@@ -1936,6 +1939,7 @@
             this.button6.TabIndex = 43;
             this.button6.Text = "2-е переведенные";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // groupBox8
             // 
@@ -1960,6 +1964,7 @@
             this.button7.TabIndex = 13;
             this.button7.Text = "Оригинальные";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button8
             // 
