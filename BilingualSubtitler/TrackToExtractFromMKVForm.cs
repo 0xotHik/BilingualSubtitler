@@ -26,27 +26,21 @@ namespace BilingualSubtitler
 
             buttons = new List<Button> { buttonOk, buttonCancel };
 
-            //foreach (var btn in buttons)
-            //{
-            //    btn.FlatAppearance.BorderSize = 0;
-            //    btn.FlatStyle = FlatStyle.Flat;
-            //}
-
             dataGridViewSubTracks.RowHeadersVisible = false;
+            //
             dataGridViewSubTracks.Columns[0].Width = "99".Length * 20;
             dataGridViewSubTracks.Columns[1].Width = "99".Length * 60;
-            dataGridViewSubTracks.Columns[2].Width = (dataGridViewSubTracks.Width - dataGridViewSubTracks.Columns[0].Width - dataGridViewSubTracks.Columns[1].Width);
+            //dataGridViewSubTracks.Columns[3].Width = "99".Length * 60;
+            dataGridViewSubTracks.Columns[2].Width = (dataGridViewSubTracks.Width 
+                - dataGridViewSubTracks.Columns[0].Width 
+                - dataGridViewSubTracks.Columns[1].Width
+                //- dataGridViewSubTracks.Columns[3].Width
+                );
+            //
             dataGridViewSubTracks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewSubTracks.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridViewSubTracks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSubTracks.CellDoubleClick += DataGridViewSubTracks_CellDoubleClick;
-
-            ////Синий фон у кнопок при наведении курсора
-            //foreach (var btn in buttons)
-            //{
-            //    btn.MouseEnter += btn_MouseEnter;
-            //    btn.MouseLeave += btn_MouseLeave;
-            //}
 
             dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 
@@ -54,16 +48,18 @@ namespace BilingualSubtitler
             {
                 var track = tracks[i];
 
-                //Пишем всё в датаГрид
+                //Пишем в датаГрид
                 dataGridViewSubTracks.Rows.Add(track.TrackNumber, track.Language, track.Name);
+                                                                                  //track.CodecId);
+                if (track.CodecId != "S_TEXT/UTF8")
+                    dataGridViewSubTracks.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+
                 //dataGridViewSubTracks.Rows[i].Cells[0].Value = track.TrackNumber;
                 //dataGridViewSubTracks.Rows[i].Cells[1].Value = track.Language;
                 //dataGridViewSubTracks.Rows[i].Cells[2].Value = track.Name;
 
-                dataGridViewSubTracks.Rows[i].Tag = track.TrackNumber;
+                dataGridViewSubTracks.Rows[i].Tag = new Tuple<int, string> (track.TrackNumber, track.CodecId);
             }
-
-            //TopMost = true; // 
         }
 
 
@@ -71,6 +67,7 @@ namespace BilingualSubtitler
         /// A workaround for showing a form on the foreground and with focus,
         /// even if it is run by a process other than the main one.
         /// Зачем — почему-то вечно создавалась позади МейнФормы
+        /// UPD 2023.01.06 — всё еще проблемы с этим
         /// </summary>
         public DialogResult ShowDialogInForeground()
         {
@@ -185,7 +182,7 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            FromClosingWithSuccess();
+            FormClosingWithCodecCheckAndSuccess();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -196,12 +193,23 @@ namespace BilingualSubtitler
         private void DataGridViewSubTracks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridViewSubTracks.Rows[e.RowIndex].Selected = true;
-            FromClosingWithSuccess();
+            FormClosingWithCodecCheckAndSuccess();
         }
 
-        private void FromClosingWithSuccess()
+        private void FormClosingWithCodecCheckAndSuccess()
         {
-            SelectedTrackNumber = (int)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag;
+            Tuple<int, string> selectedRowTagContent = ((Tuple<int, string>)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag);
+            SelectedTrackNumber = selectedRowTagContent.Item1;
+            var selectedTrackCodecId = selectedRowTagContent.Item2;
+
+            var desiredSubtitlesType = "S_TEXT/UTF8";
+            if (selectedTrackCodecId != desiredSubtitlesType)
+            {
+                var result = MessageBox.Show($"Тип данных субтитров — {selectedTrackCodecId} — отличается от совместимого с Bilingual Subtitler — {desiredSubtitlesType}.\nВсё равно продолжить с данными субтитрами?\n\n\n\n(Вы можете извлечь данные субтитры и сохранить их в формате SubRipText (srt) в стороннем приложении — например, Subtitle Edit)", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+
+                if (result != DialogResult.Yes)
+                    return;
+            }
 
             var cells = dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Cells;
             SelectedTrackIdLangTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");

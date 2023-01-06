@@ -26,6 +26,7 @@ using Gma.System.MouseKeyHook;
 using System.Linq;
 using Aspose.Zip.Rar;
 using Aspose.Zip;
+using Nikse.SubtitleEdit.Core.Common;
 
 namespace BilingualSubtitler
 {
@@ -254,7 +255,10 @@ namespace BilingualSubtitler
             WindowState = FormWindowState.Normal;
                 })),
 
-                new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) => System.Windows.Forms.Application.Exit()))
+                new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) =>
+                {
+                    System.Windows.Forms.Application.Exit();
+                    }))
             });
 
             if (Settings.Default.UpgradeRequired)
@@ -788,10 +792,11 @@ namespace BilingualSubtitler
 
         private void SetSubtitlesAppearanceBoxesAccordingToSettings()
         {
-            subtitlesAppearanceSettingsControl.ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked =
-               Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal;
-            subtitlesAppearanceSettingsControl.SecondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen;
-            subtitlesAppearanceSettingsControl.SecondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled;
+            // TODO v11
+            //subtitlesAppearanceSettingsControl.ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked =
+            //   Properties.Settings.Default.ChangeRussianSubtitlesStylesAccordingToOriginal;
+            //subtitlesAppearanceSettingsControl.SecondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreen;
+            //subtitlesAppearanceSettingsControl.SecondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = Properties.SubtitlesAppearanceSettings.Default.SecondAndThirdRussianSubtitlesAtTopOfTheScreenEnabled;
 
             var originalSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
             foreach (var fontItem in subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox.Items)
@@ -2123,8 +2128,9 @@ namespace BilingualSubtitler
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            notifyIcon.Icon.Dispose();
-            notifyIcon.Dispose();
+            //notifyIcon.Icon.Dispose();
+            //notifyIcon.Dispose();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -3511,6 +3517,31 @@ namespace BilingualSubtitler
                 File.WriteAllLines(resultingFileName, lines.ToArray());
             }
 
+            CheckIfFileExistAndShowMessage(resultingFileName, $"Субтитры были сохранены в файл");
+        }
+
+        private void CheckIfFileExistAndShowMessage(string resultingFileName, string message)
+        {
+            if (File.Exists(resultingFileName))
+            {
+                message += $" {resultingFileName}";
+                if (Properties.Settings.Default.AskToOpenSavedFileInDefaultApp)
+                {
+                    message += "\n\n\nВернуться к окну Bilingual Subtitler, без работы с сохраненным файлом?\n(\"Нет\" — откроет сохраненный файл в программе по умолчанию)";
+                    var result = MessageBox.Show(message, string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+                    if (result == DialogResult.No)
+                    {
+                        ProcessStartInfo psi = new ProcessStartInfo();
+                        psi.FileName = resultingFileName;
+                        psi.UseShellExecute = true;
+                        Process.Start(psi);
+                    }
+                }
+                else
+                    MessageBox.Show(message, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         private void firstRussianSubtitlesTextBox_TextChanged(object sender, EventArgs e)
@@ -3904,6 +3935,11 @@ namespace BilingualSubtitler
             }
             else
                 MessageBox.Show("Путь итоговых файлов субтитров / путь до файла видео (начальная часть) — не оканчивается на данный постфикс", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon.Dispose();
         }
     }
 

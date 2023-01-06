@@ -1672,7 +1672,7 @@
             this.redefineSubtitlesAppearanceSettingsCheckBox.AutoSize = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.Checked = true;
             this.redefineSubtitlesAppearanceSettingsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.redefineSubtitlesAppearanceSettingsCheckBox.Location = new System.Drawing.Point(980, 16);
+            this.redefineSubtitlesAppearanceSettingsCheckBox.Location = new System.Drawing.Point(980, 10);
             this.redefineSubtitlesAppearanceSettingsCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.redefineSubtitlesAppearanceSettingsCheckBox.Name = "redefineSubtitlesAppearanceSettingsCheckBox";
             this.redefineSubtitlesAppearanceSettingsCheckBox.Size = new System.Drawing.Size(409, 34);
@@ -1845,7 +1845,6 @@
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openPrimarySubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openFirstRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openThirdRussianSubtitlesFromDefaultFolderButton);
-            this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.showSubtitlesButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Controls.Add(this.openSecondRussianSubtitlesFromDefaultFolderButton);
             this.openSubtitlesFromDefaultFolderGroupBox.Location = new System.Drawing.Point(1146, 684);
             this.openSubtitlesFromDefaultFolderGroupBox.Name = "openSubtitlesFromDefaultFolderGroupBox";
@@ -1859,7 +1858,7 @@
             // 
             this.showSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.showSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showSubtitlesButton.Location = new System.Drawing.Point(216, 2);
+            this.showSubtitlesButton.Location = new System.Drawing.Point(980, 676);
             this.showSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showSubtitlesButton.Name = "showSubtitlesButton";
             this.showSubtitlesButton.Size = new System.Drawing.Size(159, 71);
@@ -1871,9 +1870,9 @@
             // 
             // subtitlesAppearanceSettingsControl
             // 
-            this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(980, 58);
+            this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(980, 45);
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
+            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 541);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
             // 
             // groupBox1
@@ -1882,7 +1881,7 @@
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Location = new System.Drawing.Point(1146, 612);
+            this.groupBox1.Location = new System.Drawing.Point(1146, 587);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(488, 71);
             this.groupBox1.TabIndex = 101;
@@ -1990,6 +1989,7 @@
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
+            this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
             this.Controls.Add(this.redefineSubtitlesAppearanceSettingsCheckBox);
             this.Controls.Add(this.translateToRussianSubtitlesGroupBox);
@@ -2004,6 +2004,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bilingual Subtitler";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
