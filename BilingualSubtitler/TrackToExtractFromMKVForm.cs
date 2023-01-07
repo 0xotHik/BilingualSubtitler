@@ -52,7 +52,7 @@ namespace BilingualSubtitler
                 dataGridViewSubTracks.Rows.Add(track.TrackNumber, track.Language, track.Name);
                                                                                   //track.CodecId);
                 if (track.CodecId != "S_TEXT/UTF8")
-                    dataGridViewSubTracks.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                    dataGridViewSubTracks.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(181, 196, 208);
 
                 //dataGridViewSubTracks.Rows[i].Cells[0].Value = track.TrackNumber;
                 //dataGridViewSubTracks.Rows[i].Cells[1].Value = track.Language;
