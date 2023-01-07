@@ -3923,18 +3923,30 @@ namespace BilingualSubtitler
             var lastDotIndex = subtitlesFileNameEnding.LastIndexOf('.');
             var postfix = subtitlesFileNameEnding.Substring(0, lastDotIndex);
 
+            
             // Ищем вхождения постфикса в строку
             // Берем последнее
             // Оставляем всю строку минус длина постфикса
+            var newFileName = string.Empty;
             if (finalSubtitlesFilesPathBeginningRichTextBox.Text.EndsWith(postfix))
             {
 
-                finalSubtitlesFilesPathBeginningRichTextBox.Text =
+                newFileName =
                     finalSubtitlesFilesPathBeginningRichTextBox.Text.Substring(0,
                     finalSubtitlesFilesPathBeginningRichTextBox.Text.Length - postfix.Length);
             }
             else
+            {
                 MessageBox.Show("Путь итоговых файлов субтитров / путь до файла видео (начальная часть) — не оканчивается на данный постфикс", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            var dialogResult = MessageBox.Show($"Изменить текст окна \"🖴  Путь итоговых файлов субтитров / путь до файла видео (начальная часть)\" таким образом:\nБыло: {finalSubtitlesFilesPathBeginningRichTextBox.Text}\nСтанет: {newFileName}\n?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.OK)
+            {
+                finalSubtitlesFilesPathBeginningRichTextBox.Text = newFileName;
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
