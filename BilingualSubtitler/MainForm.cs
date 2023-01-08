@@ -277,26 +277,39 @@ namespace BilingualSubtitler
                 var videoplayerNextSubtitles = new Hotkey(Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString).KeyValue;
                 var videoplayerPreviousSubtitles = new Hotkey(Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString).KeyValue;
 
-                var bilingualSubtitlesHotkeys = string.Empty;
+                var bilingualSubtitlesHotkeysString = string.Empty;
+                var bilingualSubtitlesHotkeysKeyValuesList = new List<string>();
                 foreach (var hotkeyString in Settings.Default.Hotkeys)
                 {
-                    if (string.IsNullOrWhiteSpace(bilingualSubtitlesHotkeys))
-                        bilingualSubtitlesHotkeys += $"{new Hotkey(hotkeyString).KeyValue}";
+                    bilingualSubtitlesHotkeysKeyValuesList.Add(new Hotkey(hotkeyString).KeyValue);
+                }
+                //
+                // Пробел
+                if (bilingualSubtitlesHotkeysKeyValuesList.Contains("Space"))
+                {
+                    bilingualSubtitlesHotkeysString = "Пробел";
+                    bilingualSubtitlesHotkeysKeyValuesList.Remove("Space");
+                }
+                //
+                foreach (var hotkeyString in bilingualSubtitlesHotkeysKeyValuesList)
+                {
+                    if (string.IsNullOrWhiteSpace(bilingualSubtitlesHotkeysString))
+                        bilingualSubtitlesHotkeysString += $"{hotkeyString}";
                     else
-                        bilingualSubtitlesHotkeys += $", {new Hotkey(hotkeyString).KeyValue}";
+                        bilingualSubtitlesHotkeysString += $", {hotkeyString}";
                 }
 
                 MessageBox.Show("Вас приветствует Bilingual Subtitler!\n\n" +
-                    "Это ваш первый запук Bilingual Subtitler, поэтому для главного окна выставлен облегченный режим компоновки. Для того, чтобы включить больше возможностей — переключитесь на \"расширенный режим\" в настройках программы.\n\n" +
-                                "Параметры видеоплеера (для просмотра с динамически подключаемыми русскими субтитрами) сейчас таковы:\n" +
-                                $"Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
+                    "Это ваш первый запуcк Bilingual Subtitler, поэтому для главного окна выставлен облегченный режим компоновки. Для того, чтобы включить больше возможностей — переключитесь на \"расширенный режим\" в настройках программы.\n\n" +
+                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!\n" +
+                                $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeysString}\n\n" +
+                                $"Параметры видеоплеера (для просмотра с динамически подключаемыми русскими субтитрами) установлены по умолчанию — для Media Player Classic Homecinema, 64-bit, немодифицированного*." +
+                                "\n\n\n\n" +
+                                $"(* Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
                                 $"Горячие клавиши видеоплеера:\n" +
                                 $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, " +
                                 $"на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
-                                $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeys}\n\n" +
-                                $"Для работы горячих клавиш Bilingual Subtitler требуется запуск от имени администратора!\n" +
-                                $"Проверьте, возможно параметры вашего видеоплеера отличаются от заданных по умолчанию " +
-                                $"(параметры по умолчанию — для немодифицированного 64-разрядного Media Player Classic Homecinema.",
+                                $"В случае неверной работы Bilingual Subtitler — проверьте, возможно параметры вашего видеоплеера отличаются от заданных по умолчанию)",
                                 $"Первый запуск Bilingual Subtitler", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Settings.Default.FirstLaunch = false;
@@ -3528,7 +3541,7 @@ namespace BilingualSubtitler
                 if (Properties.Settings.Default.AskToOpenSavedFileInDefaultApp)
                 {
                     message += "\n\n\nВернуться к окну Bilingual Subtitler, без работы с сохраненным файлом?\n(\"Нет\" — откроет сохраненный файл в программе по умолчанию)";
-                    var result = MessageBox.Show(message, string.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    var result = MessageBox.Show(message, "Вернуться к основному окну Bilingual Subtitler?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
                     if (result == DialogResult.No)
                     {
@@ -3923,7 +3936,7 @@ namespace BilingualSubtitler
             var lastDotIndex = subtitlesFileNameEnding.LastIndexOf('.');
             var postfix = subtitlesFileNameEnding.Substring(0, lastDotIndex);
 
-            
+
             // Ищем вхождения постфикса в строку
             // Берем последнее
             // Оставляем всю строку минус длина постфикса
@@ -3942,7 +3955,7 @@ namespace BilingualSubtitler
                 return;
             }
 
-            var dialogResult = MessageBox.Show($"Изменить текст окна \"🖴  Путь итоговых файлов субтитров / путь до файла видео (начальная часть)\" таким образом:\nБыло: {finalSubtitlesFilesPathBeginningRichTextBox.Text}\nСтанет: {newFileName}\n?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var dialogResult = MessageBox.Show($"Изменить текст окна \"🖴  Путь итоговых файлов субтитров / путь до файла видео (начальная часть)\" таким образом:\n\nБыло: {finalSubtitlesFilesPathBeginningRichTextBox.Text}\n\nСтанет: {newFileName}\n\n?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.OK)
             {
                 finalSubtitlesFilesPathBeginningRichTextBox.Text = newFileName;
