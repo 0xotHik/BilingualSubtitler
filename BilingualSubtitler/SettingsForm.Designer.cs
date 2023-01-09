@@ -89,6 +89,7 @@
             this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
+            this.askToOpenSavedFileInDefaultAppCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -807,8 +808,18 @@
             // 
             this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
+            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 527);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
+            // 
+            // askToOpenSavedFileInDefaultAppCheckBox
+            // 
+            this.askToOpenSavedFileInDefaultAppCheckBox.AutoSize = true;
+            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 553);
+            this.askToOpenSavedFileInDefaultAppCheckBox.Name = "askToOpenSavedFileInDefaultAppCheckBox";
+            this.askToOpenSavedFileInDefaultAppCheckBox.Size = new System.Drawing.Size(256, 19);
+            this.askToOpenSavedFileInDefaultAppCheckBox.TabIndex = 102;
+            this.askToOpenSavedFileInDefaultAppCheckBox.Text = "askToOpenSavedFileInDefaultAppCheckBox";
+            this.askToOpenSavedFileInDefaultAppCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -817,6 +828,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
+            this.Controls.Add(this.askToOpenSavedFileInDefaultAppCheckBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.groupBox13);
@@ -854,6 +866,7 @@
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -918,5 +931,6 @@
         private System.Windows.Forms.Button downloadsFolderPathSetButton;
         private System.Windows.Forms.Button button11;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
+        private System.Windows.Forms.CheckBox askToOpenSavedFileInDefaultAppCheckBox;
     }
 }

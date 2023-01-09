@@ -159,6 +159,8 @@ namespace BilingualSubtitler
             downloadsFolderPathRichTextBox.Text = Properties.Settings.Default.DownloadsFolder;
             defaultFolderPathRichTextBox.Text = Properties.Settings.Default.FolderToOpenFilesByDefaultFrom;
 
+            askToOpenSavedFileInDefaultAppCheckBox.Checked = Properties.Settings.Default.AskToOpenSavedFileInDefaultApp;
+
             SetFormAccordingToSubtitlesAppearanceSettings();
         }
 
@@ -247,7 +249,7 @@ namespace BilingualSubtitler
             subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked = thirdRussianSubtitlesStyle[7] == "1";
         }
 
-       
+
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             //m_buttons = new List<Button>();
@@ -408,6 +410,8 @@ namespace BilingualSubtitler
 
             Properties.Settings.Default.DownloadsFolder = downloadsFolderPathRichTextBox.Text;
             Properties.Settings.Default.FolderToOpenFilesByDefaultFrom = defaultFolderPathRichTextBox.Text;
+
+            Properties.Settings.Default.AskToOpenSavedFileInDefaultApp = askToOpenSavedFileInDefaultAppCheckBox.Checked;
 
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
@@ -725,7 +729,7 @@ namespace BilingualSubtitler
 
         private void changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged(object sender, EventArgs e) { }
 
-        
+
 
 
         //public partial class SettingsForm : Form

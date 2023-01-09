@@ -305,7 +305,7 @@ namespace BilingualSubtitler
                                 $"Горячие клавиши Bilingual Subtitler: {bilingualSubtitlesHotkeysString}\n\n" +
                                 $"Параметры видеоплеера (для просмотра с динамически подключаемыми русскими субтитрами) установлены по умолчанию — для Media Player Classic Homecinema, 64-bit, немодифицированного*." +
                                 "\n\n\n\n" +
-                                $"(* Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
+                                $"(* — Имя процесса видеоплеера: {Settings.Default.VideoPlayerProcessName}\n" +
                                 $"Горячие клавиши видеоплеера:\n" +
                                 $"Паузы — {videoplayerPauseKey}, смены на следующие субтитры — {videoplayerNextSubtitles}, " +
                                 $"на предыдущие — {videoplayerPreviousSubtitles}.\n\n" +
