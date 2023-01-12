@@ -108,13 +108,7 @@ namespace BilingualSubtitler
 
         private void originalSubtitlesSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (changeSizesSimultaneouslyCheckBox.Checked)
-            {
-                FirstRussianSubtitlesSizeNumericUpDown.Value =
-                    SecondRussianSubtitlesSizeNumericUpDown.Value =
-                        ThirdRussianSubtitlesSizeNumericUpDown.Value =
-                            OriginalSubtitlesSizeNumericUpDown.Value;
-            }
+            //TODO v11
 
             if (changeMarginsSimultaneouslyCheckBox.Checked) 
                 ChangeMargin();

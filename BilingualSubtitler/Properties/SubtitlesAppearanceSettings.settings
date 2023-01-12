@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="FirstRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Times New Roman;0;20;2;2;0;50;0</Value>
+      <Value Profile="(Default)">Times New Roman;84;20;2;2;0;50;0</Value>
     </Setting>
     <Setting Name="SecondRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Times New Roman;206;20;2;2;40;50;0</Value>
+      <Value Profile="(Default)">Times New Roman;189;20;2;2;0;50;0</Value>
     </Setting>
     <Setting Name="ThirdRussianSubtitlesStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Times New Roman;248;20;2;2;40;50;0</Value>
+      <Value Profile="(Default)">Times New Roman;231;20;2;2;0;50;0</Value>
     </Setting>
     <Setting Name="ChangeRussianSubtitlesStylesAccordingToOriginal" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

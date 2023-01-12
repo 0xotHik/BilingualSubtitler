@@ -30,7 +30,7 @@
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.changeMarginsSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
-            this.changeSizesSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
+            this.changeMarginsForPairSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
             this.changeAdditionalSettingsSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
             this.ResetSubtitlesAppearanceToDefaultButton = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -135,7 +135,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.changeMarginsSimultaneouslyCheckBox);
-            this.groupBox3.Controls.Add(this.changeSizesSimultaneouslyCheckBox);
+            this.groupBox3.Controls.Add(this.changeMarginsForPairSimultaneouslyCheckBox);
             this.groupBox3.Controls.Add(this.changeAdditionalSettingsSimultaneouslyCheckBox);
             this.groupBox3.Controls.Add(this.ResetSubtitlesAppearanceToDefaultButton);
             this.groupBox3.Controls.Add(this.groupBox9);
@@ -155,27 +155,28 @@
             // changeMarginsSimultaneouslyCheckBox
             // 
             this.changeMarginsSimultaneouslyCheckBox.AutoSize = true;
-            this.changeMarginsSimultaneouslyCheckBox.Location = new System.Drawing.Point(14, 437);
+            this.changeMarginsSimultaneouslyCheckBox.Location = new System.Drawing.Point(4, 462);
             this.changeMarginsSimultaneouslyCheckBox.Name = "changeMarginsSimultaneouslyCheckBox";
             this.changeMarginsSimultaneouslyCheckBox.Size = new System.Drawing.Size(509, 19);
             this.changeMarginsSimultaneouslyCheckBox.TabIndex = 101;
             this.changeMarginsSimultaneouslyCheckBox.Text = "Изменять отступы всех субтитров одновременно, по заданному в программе шаблону\r\n";
             this.changeMarginsSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
             // 
-            // changeSizesSimultaneouslyCheckBox
+            // changeMarginsForPairSimultaneouslyCheckBox
             // 
-            this.changeSizesSimultaneouslyCheckBox.AutoSize = true;
-            this.changeSizesSimultaneouslyCheckBox.Location = new System.Drawing.Point(14, 462);
-            this.changeSizesSimultaneouslyCheckBox.Name = "changeSizesSimultaneouslyCheckBox";
-            this.changeSizesSimultaneouslyCheckBox.Size = new System.Drawing.Size(293, 19);
-            this.changeSizesSimultaneouslyCheckBox.TabIndex = 100;
-            this.changeSizesSimultaneouslyCheckBox.Text = "Изменять размер всех субтитров одновременно";
-            this.changeSizesSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
+            this.changeMarginsForPairSimultaneouslyCheckBox.AutoSize = true;
+            this.changeMarginsForPairSimultaneouslyCheckBox.Location = new System.Drawing.Point(4, 437);
+            this.changeMarginsForPairSimultaneouslyCheckBox.Name = "changeMarginsForPairSimultaneouslyCheckBox";
+            this.changeMarginsForPairSimultaneouslyCheckBox.Size = new System.Drawing.Size(653, 19);
+            this.changeMarginsForPairSimultaneouslyCheckBox.TabIndex = 100;
+            this.changeMarginsForPairSimultaneouslyCheckBox.Text = "Изменять отступы субтитров попарно: оригинальных и 1-х переведенных вместе, 2-х и" +
+    " 3-х переведенных вместе";
+            this.changeMarginsForPairSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
             // 
             // changeAdditionalSettingsSimultaneouslyCheckBox
             // 
             this.changeAdditionalSettingsSimultaneouslyCheckBox.AutoSize = true;
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.Location = new System.Drawing.Point(14, 412);
+            this.changeAdditionalSettingsSimultaneouslyCheckBox.Location = new System.Drawing.Point(4, 412);
             this.changeAdditionalSettingsSimultaneouslyCheckBox.Name = "changeAdditionalSettingsSimultaneouslyCheckBox";
             this.changeAdditionalSettingsSimultaneouslyCheckBox.Size = new System.Drawing.Size(492, 19);
             this.changeAdditionalSettingsSimultaneouslyCheckBox.TabIndex = 99;
@@ -235,7 +236,6 @@
             // 
             // ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown
             // 
-            this.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 294);
             this.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown";
@@ -254,7 +254,6 @@
             // 
             // ThirdRussianSubtitlesTransparencyPercentageNumericUpDown
             // 
-            this.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 251);
             this.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "ThirdRussianSubtitlesTransparencyPercentageNumericUpDown";
@@ -263,7 +262,6 @@
             // 
             // ThirdRussianSubtitlesShadowNumericUpDown
             // 
-            this.ThirdRussianSubtitlesShadowNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(10, 208);
             this.ThirdRussianSubtitlesShadowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesShadowNumericUpDown.Name = "ThirdRussianSubtitlesShadowNumericUpDown";
@@ -272,7 +270,6 @@
             // 
             // ThirdRussianSubtitlesOutlineNumericUpDown
             // 
-            this.ThirdRussianSubtitlesOutlineNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(10, 165);
             this.ThirdRussianSubtitlesOutlineNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesOutlineNumericUpDown.Name = "ThirdRussianSubtitlesOutlineNumericUpDown";
@@ -281,7 +278,6 @@
             // 
             // ThirdRussianSubtitlesSizeNumericUpDown
             // 
-            this.ThirdRussianSubtitlesSizeNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(10, 123);
             this.ThirdRussianSubtitlesSizeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesSizeNumericUpDown.Name = "ThirdRussianSubtitlesSizeNumericUpDown";
@@ -290,7 +286,6 @@
             // 
             // ThirdRussianSubtitlesMarginNumericUpDown
             // 
-            this.ThirdRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.ThirdRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(10, 80);
             this.ThirdRussianSubtitlesMarginNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ThirdRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
@@ -304,7 +299,6 @@
             // 
             // ThirdRussianSubtitlesFontComboBox
             // 
-            this.ThirdRussianSubtitlesFontComboBox.Enabled = false;
             this.ThirdRussianSubtitlesFontComboBox.FormattingEnabled = true;
             this.ThirdRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(10, 36);
             this.ThirdRussianSubtitlesFontComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -413,7 +407,6 @@
             // 
             // SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown
             // 
-            this.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 294);
             this.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown";
@@ -432,7 +425,6 @@
             // 
             // SecondRussianSubtitlesTransparencyPercentageNumericUpDown
             // 
-            this.SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 251);
             this.SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "SecondRussianSubtitlesTransparencyPercentageNumericUpDown";
@@ -441,7 +433,6 @@
             // 
             // SecondRussianSubtitlesShadowNumericUpDown
             // 
-            this.SecondRussianSubtitlesShadowNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(10, 208);
             this.SecondRussianSubtitlesShadowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesShadowNumericUpDown.Name = "SecondRussianSubtitlesShadowNumericUpDown";
@@ -450,7 +441,6 @@
             // 
             // SecondRussianSubtitlesOutlineNumericUpDown
             // 
-            this.SecondRussianSubtitlesOutlineNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(10, 165);
             this.SecondRussianSubtitlesOutlineNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesOutlineNumericUpDown.Name = "SecondRussianSubtitlesOutlineNumericUpDown";
@@ -459,7 +449,6 @@
             // 
             // SecondRussianSubtitlesSizeNumericUpDown
             // 
-            this.SecondRussianSubtitlesSizeNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(10, 123);
             this.SecondRussianSubtitlesSizeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesSizeNumericUpDown.Name = "SecondRussianSubtitlesSizeNumericUpDown";
@@ -468,7 +457,6 @@
             // 
             // SecondRussianSubtitlesMarginNumericUpDown
             // 
-            this.SecondRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.SecondRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(10, 80);
             this.SecondRussianSubtitlesMarginNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SecondRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
@@ -482,7 +470,6 @@
             // 
             // SecondRussianSubtitlesFontComboBox
             // 
-            this.SecondRussianSubtitlesFontComboBox.Enabled = false;
             this.SecondRussianSubtitlesFontComboBox.FormattingEnabled = true;
             this.SecondRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(10, 36);
             this.SecondRussianSubtitlesFontComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -619,7 +606,6 @@
             // 
             // FirstRussianSubtitlesShadowNumericUpDown
             // 
-            this.FirstRussianSubtitlesShadowNumericUpDown.Enabled = false;
             this.FirstRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(10, 208);
             this.FirstRussianSubtitlesShadowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FirstRussianSubtitlesShadowNumericUpDown.Name = "FirstRussianSubtitlesShadowNumericUpDown";
@@ -628,7 +614,6 @@
             // 
             // FirstRussianSubtitlesOutlineNumericUpDown
             // 
-            this.FirstRussianSubtitlesOutlineNumericUpDown.Enabled = false;
             this.FirstRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(10, 165);
             this.FirstRussianSubtitlesOutlineNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FirstRussianSubtitlesOutlineNumericUpDown.Name = "FirstRussianSubtitlesOutlineNumericUpDown";
@@ -637,7 +622,6 @@
             // 
             // FirstRussianSubtitlesSizeNumericUpDown
             // 
-            this.FirstRussianSubtitlesSizeNumericUpDown.Enabled = false;
             this.FirstRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(10, 123);
             this.FirstRussianSubtitlesSizeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FirstRussianSubtitlesSizeNumericUpDown.Name = "FirstRussianSubtitlesSizeNumericUpDown";
@@ -646,7 +630,6 @@
             // 
             // FirstRussianSubtitlesMarginNumericUpDown
             // 
-            this.FirstRussianSubtitlesMarginNumericUpDown.Enabled = false;
             this.FirstRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(10, 80);
             this.FirstRussianSubtitlesMarginNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FirstRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] {
@@ -1029,7 +1012,7 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button ResetSubtitlesAppearanceToDefaultButton;
         private System.Windows.Forms.CheckBox changeMarginsSimultaneouslyCheckBox;
-        private System.Windows.Forms.CheckBox changeSizesSimultaneouslyCheckBox;
+        private System.Windows.Forms.CheckBox changeMarginsForPairSimultaneouslyCheckBox;
         private System.Windows.Forms.CheckBox changeAdditionalSettingsSimultaneouslyCheckBox;
     }
 }
