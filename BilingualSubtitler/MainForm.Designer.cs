@@ -164,13 +164,13 @@
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.showSubtitlesButton = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.openSubtitlesIn1251GroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.removePostfixGroupBox = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
@@ -207,9 +207,9 @@
             this.translateToRussianSubtitlesGroupBox.SuspendLayout();
             this.openSubtitlesFromDefaultFolderGroupBox.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.openSubtitlesIn1251GroupBox.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.removePostfixGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // videoStateComboBox
@@ -1707,7 +1707,7 @@
             this.playVideoButton.Name = "playVideoButton";
             this.playVideoButton.Size = new System.Drawing.Size(201, 70);
             this.playVideoButton.TabIndex = 47;
-            this.playVideoButton.Text = "▶️\r\nВоспроизвести файл видео\r\n(по заданному в программе\r\nпути)";
+            this.playVideoButton.Text = "▶️\r\nВоспроизвести файл видео\r\n(по заданному выше пути)";
             this.playVideoButton.UseVisualStyleBackColor = false;
             this.playVideoButton.Click += new System.EventHandler(this.playVideoButton_Click);
             // 
@@ -1887,17 +1887,18 @@
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
             this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 541);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
+            this.subtitlesAppearanceSettingsControl.Load += new System.EventHandler(this.subtitlesAppearanceSettingsControl_Load);
             // 
-            // groupBox1
+            // openSubtitlesIn1251GroupBox
             // 
-            this.groupBox1.Controls.Add(this.groupBox9);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(1235, 594);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 71);
-            this.groupBox1.TabIndex = 101;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ѓ📁 Открыть субтитры в кодировке 1251: Кириллица (Windows)";
+            this.openSubtitlesIn1251GroupBox.Controls.Add(this.groupBox9);
+            this.openSubtitlesIn1251GroupBox.Controls.Add(this.button3);
+            this.openSubtitlesIn1251GroupBox.Location = new System.Drawing.Point(1235, 594);
+            this.openSubtitlesIn1251GroupBox.Name = "openSubtitlesIn1251GroupBox";
+            this.openSubtitlesIn1251GroupBox.Size = new System.Drawing.Size(399, 71);
+            this.openSubtitlesIn1251GroupBox.TabIndex = 101;
+            this.openSubtitlesIn1251GroupBox.TabStop = false;
+            this.openSubtitlesIn1251GroupBox.Text = "Ѓ📁 Открыть субтитры в кодировке 1251: Кириллица (Windows)";
             // 
             // groupBox9
             // 
@@ -1964,16 +1965,16 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
-            // groupBox8
+            // removePostfixGroupBox
             // 
-            this.groupBox8.Controls.Add(this.button7);
-            this.groupBox8.Controls.Add(this.button8);
-            this.groupBox8.Location = new System.Drawing.Point(980, 587);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(249, 84);
-            this.groupBox8.TabIndex = 101;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Убрать из \"пути итоговых файлов субтитров\" окончание имени, установленное для фай" +
+            this.removePostfixGroupBox.Controls.Add(this.button7);
+            this.removePostfixGroupBox.Controls.Add(this.button8);
+            this.removePostfixGroupBox.Location = new System.Drawing.Point(980, 587);
+            this.removePostfixGroupBox.Name = "removePostfixGroupBox";
+            this.removePostfixGroupBox.Size = new System.Drawing.Size(249, 84);
+            this.removePostfixGroupBox.TabIndex = 101;
+            this.removePostfixGroupBox.TabStop = false;
+            this.removePostfixGroupBox.Text = "Убрать из \"пути итоговых файлов субтитров\" окончание имени, установленное для фай" +
     "ла субтитров:";
             // 
             // button7
@@ -2010,8 +2011,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.removePostfixGroupBox);
+            this.Controls.Add(this.openSubtitlesIn1251GroupBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.showSubtitlesButton);
             this.Controls.Add(this.openSubtitlesFromDefaultFolderGroupBox);
@@ -2078,9 +2079,9 @@
             this.translateToRussianSubtitlesGroupBox.ResumeLayout(false);
             this.openSubtitlesFromDefaultFolderGroupBox.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.openSubtitlesIn1251GroupBox.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
+            this.removePostfixGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2220,12 +2221,12 @@
         private System.Windows.Forms.GroupBox openBilignualSubtitlesGroupBox;
         private System.Windows.Forms.Label label46;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox openSubtitlesIn1251GroupBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox removePostfixGroupBox;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox9;

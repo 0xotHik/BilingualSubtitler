@@ -167,10 +167,10 @@
             this.changeMarginsForPairSimultaneouslyCheckBox.AutoSize = true;
             this.changeMarginsForPairSimultaneouslyCheckBox.Location = new System.Drawing.Point(4, 437);
             this.changeMarginsForPairSimultaneouslyCheckBox.Name = "changeMarginsForPairSimultaneouslyCheckBox";
-            this.changeMarginsForPairSimultaneouslyCheckBox.Size = new System.Drawing.Size(653, 19);
+            this.changeMarginsForPairSimultaneouslyCheckBox.Size = new System.Drawing.Size(642, 19);
             this.changeMarginsForPairSimultaneouslyCheckBox.TabIndex = 100;
-            this.changeMarginsForPairSimultaneouslyCheckBox.Text = "Изменять отступы субтитров попарно: оригинальных и 1-х переведенных вместе, 2-х и" +
-    " 3-х переведенных вместе";
+            this.changeMarginsForPairSimultaneouslyCheckBox.Text = "Изменять отступы субтитров попарно: оригинальных и 1-х переведенных вместе, 2 и 3" +
+    "-х переведенных вместе";
             this.changeMarginsForPairSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
             // 
             // changeAdditionalSettingsSimultaneouslyCheckBox

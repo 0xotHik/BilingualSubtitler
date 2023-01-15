@@ -41,7 +41,7 @@ namespace BilingualSubtitler
             }
 
             // Графика
-            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
+            //
 
             m_processPriorityNamesAndValues = new Dictionary<string, ProcessPriorityClass>
             {
@@ -459,10 +459,16 @@ namespace BilingualSubtitler
             if (result == DialogResult.OK)
             {
                 Properties.Settings.Default.Reset();
+                //
+                var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                Properties.Settings.Default.LatestInstalledVersion = currentVersion.ToString();
+                //
                 Properties.Settings.Default.Save();
 
                 Properties.SubtitlesAppearanceSettings.Default.Reset();
                 Properties.SubtitlesAppearanceSettings.Default.Save();
+
+                SetFormAccordingToSubtitlesAppearanceSettings();
 
                 Close();
             }
@@ -632,10 +638,15 @@ namespace BilingualSubtitler
 
         private void ResetSubtitlesAppearanceToDefaultButton_Click(object sender, EventArgs e)
         {
-            Properties.SubtitlesAppearanceSettings.Default.Reset();
-            Properties.SubtitlesAppearanceSettings.Default.Save();
 
-            SetFormAccordingToSubtitlesAppearanceSettings();
+            var result = MessageBox.Show("Сбросить настройки вида субтитров к значениям по умолчанию?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                Properties.SubtitlesAppearanceSettings.Default.Reset();
+                Properties.SubtitlesAppearanceSettings.Default.Save();
+
+                SetFormAccordingToSubtitlesAppearanceSettings();
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -728,6 +739,11 @@ namespace BilingualSubtitler
         private void firstRussianSubtitlesFontComboBox_TextChanged(object sender, EventArgs e) { }
 
         private void changeRussianSubtitlesStylesAccordingToOriginalCheckBox_CheckedChanged(object sender, EventArgs e) { }
+
+        private void subtitlesAppearanceSettingsControl_Load(object sender, EventArgs e)
+        {
+            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
+        }
 
 
 

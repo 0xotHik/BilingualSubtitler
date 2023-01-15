@@ -810,6 +810,7 @@
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
             this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 527);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
+            this.subtitlesAppearanceSettingsControl.Load += new System.EventHandler(this.subtitlesAppearanceSettingsControl_Load);
             // 
             // askToOpenSavedFileInDefaultAppCheckBox
             // 

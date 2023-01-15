@@ -61,6 +61,9 @@ namespace BilingualSubtitler
 
         private const string TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING = "; Это комментарий Bilingual Subtitler, который закрепляет, что данный поток субтитров был считан (и будет в дальнейшем) Bilingual Subtitler как: ";
 
+        private const string SUCCESS_MESSAGE_BOX_HEADER = "✅ Успешно";
+        private const MessageBoxIcon SUCCESS_MESSAGE_BOX_ICON = MessageBoxIcon.None;
+
         private int m_initialFormWidth;
         private string m_initialOpenOrCloseSubtitlesButtonText;
         private string m_initialOpenSubtitlesGroupBoxText;
@@ -231,8 +234,7 @@ namespace BilingualSubtitler
             m_initialOpenBilingualsTubtitlesButtonLeft = openBilingualSubtitlerButton.Left;
             m_initialOpenStylesFromBilingualsTubtitlesButtonLeft = openStylesFromBilingualSubtitlerButton.Left;
 
-            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Text = "📖  Сбросить текущие настройки вида субтитров к сохраненным значениям";
-            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
+
 
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
@@ -261,10 +263,13 @@ namespace BilingualSubtitler
                     }))
             });
 
-            if (Settings.Default.UpgradeRequired)
+            var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            if (currentVersion > Version.Parse(Properties.Settings.Default.LatestInstalledVersion))
             {
                 Settings.Default.Upgrade();
-                Settings.Default.UpgradeRequired = false;
+                //
+                Settings.Default.LatestInstalledVersion = currentVersion.ToString();
+                //
                 Settings.Default.Save();
 
                 Properties.SubtitlesAppearanceSettings.Default.Upgrade();
@@ -739,6 +744,10 @@ namespace BilingualSubtitler
 
                     additionalOpenExportSubtitlesButtonsLabel.Visible =
                     additionalOpenExportSubtitlesButtonsGroupBox.Visible =
+
+                    removePostfixGroupBox.Visible =
+                    openSubtitlesIn1251GroupBox.Visible =
+
                     advancedMode;
                 //
                 openBilingualSubtitlerButton.Left = advancedMode ? m_initialOpenBilingualsTubtitlesButtonLeft : (openBilignualSubtitlesGroupBox.Width / 2) - (openBilingualSubtitlerButton.Width / 2);
@@ -3122,21 +3131,21 @@ namespace BilingualSubtitler
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
                     var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуспешно записаны!",
-                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (originalSubtitlesFileExist)
                 {
                     var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
                     if (result != DialogResult.OK)
                         return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
                     var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
                     if (result != DialogResult.OK)
                         return;
                 }
@@ -3146,7 +3155,7 @@ namespace BilingualSubtitler
                 if (originalSubtitlesFileExist)
                 {
                     var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
                     if (result != DialogResult.OK)
                         return;
                 }
@@ -3156,7 +3165,7 @@ namespace BilingualSubtitler
                 if (bilingualSubtitlesFileExists)
                 {
                     var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                        String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
                     if (result != DialogResult.OK)
                         return;
                 }
@@ -3181,17 +3190,29 @@ namespace BilingualSubtitler
             {
                 senderButton.BackColor = colorPickingDialog.Color;
 
-                if (senderButton == primarySubtitlesColorButton)
-                    Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
-                else if (senderButton == firstRussianSubtitlesColorButton)
-                    Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
-                else if (senderButton == secondRussianSubtitlesColorButton)
-                    Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
-                else if (senderButton == thirdRussianSubtitlesColorButton)
-                    Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
+                SaveSubtitlesColorsFromFormToPropertiesSettings();
 
-                Properties.Settings.Default.Save();
+                //if (senderButton == primarySubtitlesColorButton)
+                //    Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
+                //else if (senderButton == firstRussianSubtitlesColorButton)
+                //    Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
+                //else if (senderButton == secondRussianSubtitlesColorButton)
+                //    Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
+                //else if (senderButton == thirdRussianSubtitlesColorButton)
+                //    Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
+
+                //Properties.Settings.Default.Save();
             }
+        }
+
+        private void SaveSubtitlesColorsFromFormToPropertiesSettings()
+        {
+            Properties.Settings.Default.PrimarySubtitlesColor = primarySubtitlesColorButton.BackColor;
+            Properties.Settings.Default.FirstRussianSubtitlesColor = firstRussianSubtitlesColorButton.BackColor;
+            Properties.Settings.Default.SecondRussianSubtitlesColor = secondRussianSubtitlesColorButton.BackColor;
+            Properties.Settings.Default.ThirdRussianSubtitlesColor = thirdRussianSubtitlesColorButton.BackColor;
+
+            Properties.Settings.Default.Save();
         }
 
         private void openSubtitles_DragEnter(object sender, DragEventArgs e)
@@ -3469,11 +3490,13 @@ namespace BilingualSubtitler
                 doc.Save();
             }
 
-            if (intoDownloads)
-            {
-                if (File.Exists(resultingDocXFileName))
-                    MessageBox.Show($"Субтитры были сохранены в файл {resultingDocXFileName}", "Субтитры были сохранены успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //if (intoDownloads)
+            //{
+            //    if (File.Exists(resultingDocXFileName))
+            //        MessageBox.Show($"Субтитры были сохранены в файл {resultingDocXFileName}", "Субтитры были сохранены успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+
+            CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingDocXFileName);
 
         }
 
@@ -3530,18 +3553,28 @@ namespace BilingualSubtitler
                 File.WriteAllLines(resultingFileName, lines.ToArray());
             }
 
-            CheckIfFileExistAndShowMessage(resultingFileName, $"Субтитры были сохранены в файл");
+            CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingFileName);
         }
 
-        private void CheckIfFileExistAndShowMessage(string resultingFileName, string message)
+        private void CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(string resultingFileName)
         {
+            CheckIfFileExistAndShowSuccessMessage(resultingFileName, $"Субтитры были сохранены в файл");
+        }
+
+        private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName, string message)
+        {
+            var messageBoxHeader = SUCCESS_MESSAGE_BOX_HEADER;
+            var messageBoxIcon = SUCCESS_MESSAGE_BOX_ICON;
+
             if (File.Exists(resultingFileName))
             {
-                message += $" {resultingFileName}";
+                message += $":\n• {resultingFileName}";
                 if (Properties.Settings.Default.AskToOpenSavedFileInDefaultApp)
                 {
                     message += "\n\n\nВернуться к окну Bilingual Subtitler, без работы с сохраненным файлом?\n(\"Нет\" — откроет сохраненный файл в программе по умолчанию)";
-                    var result = MessageBox.Show(message, "Вернуться к основному окну Bilingual Subtitler?", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    var result = MessageBox.Show(message,
+                        $"{messageBoxHeader}. Вернуться к основному окну Bilingual Subtitler?",
+                        MessageBoxButtons.YesNo, messageBoxIcon, MessageBoxDefaultButton.Button1);
 
                     if (result == DialogResult.No)
                     {
@@ -3552,7 +3585,7 @@ namespace BilingualSubtitler
                     }
                 }
                 else
-                    MessageBox.Show(message, string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(message, messageBoxHeader, MessageBoxButtons.OK, messageBoxIcon);
 
             }
         }
@@ -3653,6 +3686,8 @@ namespace BilingualSubtitler
             if (result == DialogResult.OK)
             {
                 ReadASSMarkedupDocumentWithBilingualSubtitles(openFileDialog.FileName);
+
+                SaveSubtitlesColorsFromFormToPropertiesSettings();
             }
         }
 
@@ -3893,6 +3928,8 @@ namespace BilingualSubtitler
 
                 // Стили
                 ReadStylesSectionFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
+
+                SaveSubtitlesColorsFromFormToPropertiesSettings();
             }
         }
 
@@ -3965,6 +4002,12 @@ namespace BilingualSubtitler
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             notifyIcon.Dispose();
+        }
+
+        private void subtitlesAppearanceSettingsControl_Load(object sender, EventArgs e)
+        {
+            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Text = "📖  Сбросить текущие настройки вида субтитров к сохраненным значениям";
+            subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
         }
     }
 
