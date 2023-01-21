@@ -430,6 +430,7 @@
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 167);
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
+            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.ReadOnly = true;
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.TabIndex = 76;
             this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = ".eng.ass";
@@ -461,6 +462,7 @@
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 134);
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
+            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.ReadOnly = true;
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.TabIndex = 73;
             this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = ".eng.ass";
@@ -492,6 +494,7 @@
             this.videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(124, 67);
             this.videoPlayerPauseButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
+            this.videoPlayerPauseButtonTextBox.ReadOnly = true;
             this.videoPlayerPauseButtonTextBox.Size = new System.Drawing.Size(114, 23);
             this.videoPlayerPauseButtonTextBox.TabIndex = 70;
             this.videoPlayerPauseButtonTextBox.Text = ".eng.ass";
