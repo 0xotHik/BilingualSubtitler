@@ -815,11 +815,12 @@
             // askToOpenSavedFileInDefaultAppCheckBox
             // 
             this.askToOpenSavedFileInDefaultAppCheckBox.AutoSize = true;
-            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 553);
+            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 545);
             this.askToOpenSavedFileInDefaultAppCheckBox.Name = "askToOpenSavedFileInDefaultAppCheckBox";
-            this.askToOpenSavedFileInDefaultAppCheckBox.Size = new System.Drawing.Size(256, 19);
+            this.askToOpenSavedFileInDefaultAppCheckBox.Size = new System.Drawing.Size(604, 34);
             this.askToOpenSavedFileInDefaultAppCheckBox.TabIndex = 102;
-            this.askToOpenSavedFileInDefaultAppCheckBox.Text = "askToOpenSavedFileInDefaultAppCheckBox";
+            this.askToOpenSavedFileInDefaultAppCheckBox.Text = "В окне сообщения об успешном экспорте субтитров в файл — давать возможность сразу" +
+    " открыть файл\r\nв программе по умолчанию";
             this.askToOpenSavedFileInDefaultAppCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
