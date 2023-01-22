@@ -30,8 +30,15 @@
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.shadowTransparencyCheckBox = new System.Windows.Forms.CheckBox();
+            this.transparencyCheckBox = new System.Windows.Forms.CheckBox();
+            this.shadowCheckBox = new System.Windows.Forms.CheckBox();
+            this.outlineCheckBox = new System.Windows.Forms.CheckBox();
+            this.setTheSameValuesForAllSubtitlesRadioButton = new System.Windows.Forms.RadioButton();
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton = new System.Windows.Forms.RadioButton();
+            this.marginCheckBox = new System.Windows.Forms.CheckBox();
+            this.sizeCheckBox = new System.Windows.Forms.CheckBox();
             this.changeMarginsForPairSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
-            this.changeAdditionalSettingsSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
             this.ResetSubtitlesAppearanceToDefaultButton = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.ThirdRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
@@ -98,8 +105,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -139,7 +144,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.changeMarginsForPairSimultaneouslyCheckBox);
-            this.groupBox3.Controls.Add(this.changeAdditionalSettingsSimultaneouslyCheckBox);
             this.groupBox3.Controls.Add(this.ResetSubtitlesAppearanceToDefaultButton);
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
@@ -150,27 +154,116 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox3.Size = new System.Drawing.Size(654, 530);
+            this.groupBox3.Size = new System.Drawing.Size(654, 541);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Настройки вида субтитров";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 448);
+            this.groupBox1.Controls.Add(this.shadowTransparencyCheckBox);
+            this.groupBox1.Controls.Add(this.transparencyCheckBox);
+            this.groupBox1.Controls.Add(this.shadowCheckBox);
+            this.groupBox1.Controls.Add(this.outlineCheckBox);
+            this.groupBox1.Controls.Add(this.setTheSameValuesForAllSubtitlesRadioButton);
+            this.groupBox1.Controls.Add(this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton);
+            this.groupBox1.Controls.Add(this.marginCheckBox);
+            this.groupBox1.Controls.Add(this.sizeCheckBox);
+            this.groupBox1.Location = new System.Drawing.Point(18, 435);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(598, 45);
+            this.groupBox1.Size = new System.Drawing.Size(625, 70);
             this.groupBox1.TabIndex = 102;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Одновременно прибавлять/убавлять одинаковые значения для всех субтитров для парам" +
+            // 
+            // shadowTransparencyCheckBox
+            // 
+            this.shadowTransparencyCheckBox.AutoSize = true;
+            this.shadowTransparencyCheckBox.Location = new System.Drawing.Point(480, 41);
+            this.shadowTransparencyCheckBox.Name = "shadowTransparencyCheckBox";
+            this.shadowTransparencyCheckBox.Size = new System.Drawing.Size(134, 19);
+            this.shadowTransparencyCheckBox.TabIndex = 7;
+            this.shadowTransparencyCheckBox.Text = "Прозрачности тени";
+            this.shadowTransparencyCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // transparencyCheckBox
+            // 
+            this.transparencyCheckBox.AutoSize = true;
+            this.transparencyCheckBox.Location = new System.Drawing.Point(361, 41);
+            this.transparencyCheckBox.Name = "transparencyCheckBox";
+            this.transparencyCheckBox.Size = new System.Drawing.Size(106, 19);
+            this.transparencyCheckBox.TabIndex = 6;
+            this.transparencyCheckBox.Text = "Прозрачности";
+            this.transparencyCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // shadowCheckBox
+            // 
+            this.shadowCheckBox.AutoSize = true;
+            this.shadowCheckBox.Location = new System.Drawing.Point(296, 41);
+            this.shadowCheckBox.Name = "shadowCheckBox";
+            this.shadowCheckBox.Size = new System.Drawing.Size(52, 19);
+            this.shadowCheckBox.TabIndex = 5;
+            this.shadowCheckBox.Text = "Тени";
+            this.shadowCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // outlineCheckBox
+            // 
+            this.outlineCheckBox.AutoSize = true;
+            this.outlineCheckBox.Location = new System.Drawing.Point(209, 41);
+            this.outlineCheckBox.Name = "outlineCheckBox";
+            this.outlineCheckBox.Size = new System.Drawing.Size(74, 19);
+            this.outlineCheckBox.TabIndex = 4;
+            this.outlineCheckBox.Text = "Обводки";
+            this.outlineCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // changeValuesForSubtitlesParametersRadioButton
+            // 
+            this.setTheSameValuesForAllSubtitlesRadioButton.AutoSize = true;
+            this.setTheSameValuesForAllSubtitlesRadioButton.Location = new System.Drawing.Point(11, 16);
+            this.setTheSameValuesForAllSubtitlesRadioButton.Name = "changeValuesForSubtitlesParametersRadioButton";
+            this.setTheSameValuesForAllSubtitlesRadioButton.Size = new System.Drawing.Size(431, 19);
+            this.setTheSameValuesForAllSubtitlesRadioButton.TabIndex = 3;
+            this.setTheSameValuesForAllSubtitlesRadioButton.TabStop = true;
+            this.setTheSameValuesForAllSubtitlesRadioButton.Text = "Устанавливать одинаковые значения для всех субтитров для параметров:";
+            this.setTheSameValuesForAllSubtitlesRadioButton.UseVisualStyleBackColor = true;
+            this.setTheSameValuesForAllSubtitlesRadioButton.CheckedChanged += new System.EventHandler(this.setTheSameValuesForAllSubtitlesRadioButton_CheckedChanged);
+            // 
+            // changeOnlyDeltaForSubtitlesParametersRadioButton
+            // 
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.AutoSize = true;
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Location = new System.Drawing.Point(11, -3);
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Name = "changeOnlyDeltaForSubtitlesParametersRadioButton";
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Size = new System.Drawing.Size(556, 19);
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.TabIndex = 2;
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.TabStop = true;
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Text = "Одновременно прибавлять/убавлять одинаковые значения для всех субтитров для парам" +
     "етров:";
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.UseVisualStyleBackColor = true;
+            this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.CheckedChanged += new System.EventHandler(this.changeOnTheSameDeltaValuesForAllSubtitlesRadioButton_CheckedChanged);
+            // 
+            // marginCheckBox
+            // 
+            this.marginCheckBox.AutoSize = true;
+            this.marginCheckBox.Location = new System.Drawing.Point(7, 41);
+            this.marginCheckBox.Name = "marginCheckBox";
+            this.marginCheckBox.Size = new System.Drawing.Size(104, 19);
+            this.marginCheckBox.TabIndex = 1;
+            this.marginCheckBox.Text = "Отступа снизу";
+            this.marginCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // sizeCheckBox
+            // 
+            this.sizeCheckBox.AutoSize = true;
+            this.sizeCheckBox.Location = new System.Drawing.Point(124, 41);
+            this.sizeCheckBox.Name = "sizeCheckBox";
+            this.sizeCheckBox.Size = new System.Drawing.Size(72, 19);
+            this.sizeCheckBox.TabIndex = 0;
+            this.sizeCheckBox.Text = "Размера";
+            this.sizeCheckBox.UseVisualStyleBackColor = true;
             // 
             // changeMarginsForPairSimultaneouslyCheckBox
             // 
             this.changeMarginsForPairSimultaneouslyCheckBox.AutoSize = true;
-            this.changeMarginsForPairSimultaneouslyCheckBox.Location = new System.Drawing.Point(3, 427);
+            this.changeMarginsForPairSimultaneouslyCheckBox.Location = new System.Drawing.Point(8, 410);
             this.changeMarginsForPairSimultaneouslyCheckBox.Name = "changeMarginsForPairSimultaneouslyCheckBox";
             this.changeMarginsForPairSimultaneouslyCheckBox.Size = new System.Drawing.Size(642, 19);
             this.changeMarginsForPairSimultaneouslyCheckBox.TabIndex = 100;
@@ -178,21 +271,11 @@
     "-х переведенных вместе";
             this.changeMarginsForPairSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
             // 
-            // changeAdditionalSettingsSimultaneouslyCheckBox
-            // 
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.AutoSize = true;
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.Location = new System.Drawing.Point(3, 406);
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.Name = "changeAdditionalSettingsSimultaneouslyCheckBox";
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.Size = new System.Drawing.Size(492, 19);
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.TabIndex = 99;
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.Text = "Изменять параметры обводки, тени и прозрачностей всех субтитров одновременно";
-            this.changeAdditionalSettingsSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
-            // 
             // ResetSubtitlesAppearanceToDefaultButton
             // 
             this.ResetSubtitlesAppearanceToDefaultButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ResetSubtitlesAppearanceToDefaultButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ResetSubtitlesAppearanceToDefaultButton.Location = new System.Drawing.Point(8, 495);
+            this.ResetSubtitlesAppearanceToDefaultButton.Location = new System.Drawing.Point(8, 507);
             this.ResetSubtitlesAppearanceToDefaultButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ResetSubtitlesAppearanceToDefaultButton.Name = "ResetSubtitlesAppearanceToDefaultButton";
             this.ResetSubtitlesAppearanceToDefaultButton.Size = new System.Drawing.Size(632, 30);
@@ -902,33 +985,13 @@
             this.label3.TabIndex = 82;
             this.label3.Text = "Отступ снизу";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 20);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Размера";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(88, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(104, 19);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Отступа снизу";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
             // SubtitlesAppearanceSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Name = "SubtitlesAppearanceSettings";
-            this.Size = new System.Drawing.Size(654, 530);
+            this.Size = new System.Drawing.Size(654, 541);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1039,9 +1102,14 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button ResetSubtitlesAppearanceToDefaultButton;
         private System.Windows.Forms.CheckBox changeMarginsForPairSimultaneouslyCheckBox;
-        private System.Windows.Forms.CheckBox changeAdditionalSettingsSimultaneouslyCheckBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox marginCheckBox;
+        private System.Windows.Forms.CheckBox sizeCheckBox;
+        private System.Windows.Forms.CheckBox shadowTransparencyCheckBox;
+        private System.Windows.Forms.CheckBox transparencyCheckBox;
+        private System.Windows.Forms.CheckBox shadowCheckBox;
+        private System.Windows.Forms.CheckBox outlineCheckBox;
+        private System.Windows.Forms.RadioButton setTheSameValuesForAllSubtitlesRadioButton;
+        private System.Windows.Forms.RadioButton changeOnTheSameDeltaValuesForAllSubtitlesRadioButton;
     }
 }

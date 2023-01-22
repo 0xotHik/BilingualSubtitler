@@ -102,49 +102,57 @@ namespace BilingualSubtitler
 
         private void originalSubtitlesMarginNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (changeMarginsSimultaneouslyCheckBox.Checked)
-                ChangeMargin();
+            // Если включен "Перемещать попарно" — двигаем еще 1-е русские
+
+
+
+            //if (changeMarginsSimultaneouslyCheckBox.Checked)
+            //    ChangeMargin();
         }
 
         private void originalSubtitlesSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
+            // Если включен "Перемещать попарно" — двигаем еще 1-е русские
+
+
+
             //TODO v11
 
-            if (changeMarginsSimultaneouslyCheckBox.Checked) 
-                ChangeMargin();
+            //if (changeMarginsSimultaneouslyCheckBox.Checked) 
+            //    ChangeMargin();
         }
 
         private void originalSubtitlesOutlineNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
-            {
-                FirstRussianSubtitlesOutlineNumericUpDown.Value =
-                    SecondRussianSubtitlesOutlineNumericUpDown.Value =
-                       ThirdRussianSubtitlesOutlineNumericUpDown.Value =
-                           OriginalSubtitlesOutlineNumericUpDown.Value;
-            }
+            //if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
+            //{
+            //    FirstRussianSubtitlesOutlineNumericUpDown.Value =
+            //        SecondRussianSubtitlesOutlineNumericUpDown.Value =
+            //           ThirdRussianSubtitlesOutlineNumericUpDown.Value =
+            //               OriginalSubtitlesOutlineNumericUpDown.Value;
+            //}
         }
 
         private void originalSubtitlesShadowNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
-            {
-                FirstRussianSubtitlesShadowNumericUpDown.Value =
-                    SecondRussianSubtitlesShadowNumericUpDown.Value =
-                       ThirdRussianSubtitlesShadowNumericUpDown.Value =
-                           OriginalSubtitlesShadowNumericUpDown.Value;
-            }
+            //if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
+            //{
+            //    FirstRussianSubtitlesShadowNumericUpDown.Value =
+            //        SecondRussianSubtitlesShadowNumericUpDown.Value =
+            //           ThirdRussianSubtitlesShadowNumericUpDown.Value =
+            //               OriginalSubtitlesShadowNumericUpDown.Value;
+            //}
         }
 
         private void originalSubtitlesTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
-            {
-                FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Value= 
-                SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
-                ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
-                    OriginalSubtitlesTransparencyPercentageNumericUpDown.Value;
-            }
+            //if (changeAdditionalSettingsSimultaneouslyCheckBox.Checked)
+            //{
+            //    FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Value= 
+            //    SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
+            //    ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value =
+            //        OriginalSubtitlesTransparencyPercentageNumericUpDown.Value;
+            //}
         }
 
         private void firstRussianSubtitlesTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -153,6 +161,23 @@ namespace BilingualSubtitler
 
         private void FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
+        }
+
+        private void changeOnTheSameDeltaValuesForAllSubtitlesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var changeOnTheSameDeltaValuesForAllSubtitles = ((RadioButton)sender).Checked;
+
+            setTheSameValuesForAllSubtitlesRadioButton.Checked = !changeOnTheSameDeltaValuesForAllSubtitles;
+            marginCheckBox.Enabled = changeOnTheSameDeltaValuesForAllSubtitles;
+
+        }
+
+        private void setTheSameValuesForAllSubtitlesRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var setTheSameValuesForAllSubtitles = ((RadioButton)sender).Checked;
+
+            changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Checked = !setTheSameValuesForAllSubtitles;
+            marginCheckBox.Enabled = !setTheSameValuesForAllSubtitles;
         }
     }
 }

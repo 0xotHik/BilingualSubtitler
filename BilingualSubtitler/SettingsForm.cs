@@ -75,6 +75,8 @@ namespace BilingualSubtitler
             }
             targetProcessPriorityTextBox.SelectedIndex = indexForCurrentProcessPriority;
 
+            
+
             // Версии
             var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             currentAppVersionLabel.Text = currentVersion.ToString();
@@ -162,6 +164,8 @@ namespace BilingualSubtitler
             askToOpenSavedFileInDefaultAppCheckBox.Checked = Properties.Settings.Default.AskToOpenSavedFileInDefaultApp;
 
             SetFormAccordingToSubtitlesAppearanceSettings();
+
+            SetFormAccordingToAdvancedModeOrNot();
         }
 
         private void SetFormAccordingToSubtitlesAppearanceSettings()
@@ -247,6 +251,17 @@ namespace BilingualSubtitler
             subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[5]);
             subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value = decimal.Parse(thirdRussianSubtitlesStyle[6]);
             subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked = thirdRussianSubtitlesStyle[7] == "1";
+        }
+
+        private void SetFormAccordingToAdvancedModeOrNot()
+        {
+            var itIsAdvancedMode = advancedModeRadioButton.Checked;
+
+            askToOpenSavedFileInDefaultAppCheckBox.Visible =
+                processPriorityGroupBox.Visible = 
+                yandexTranslatorGroupBox.Visible =
+                defaultDirectoryGroupBox.Visible =
+                itIsAdvancedMode;
         }
 
 
@@ -662,11 +677,15 @@ namespace BilingualSubtitler
         private void notAdvancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             advancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
+
+            SetFormAccordingToAdvancedModeOrNot();
         }
 
         private void advancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             notAdvancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
+
+            SetFormAccordingToAdvancedModeOrNot();
         }
 
         private void downloadsFolderPathSetButton_Click(object sender, EventArgs e)

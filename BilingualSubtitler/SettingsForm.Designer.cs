@@ -33,7 +33,7 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.yandexTranslatorGroupBox = new System.Windows.Forms.GroupBox();
             this.gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
             this.hotkeysDataGridView = new System.Windows.Forms.DataGridView();
             this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +64,7 @@
             this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.processPriorityGroupBox = new System.Windows.Forms.GroupBox();
             this.targetProcessPriorityTextBox = new System.Windows.Forms.ComboBox();
             this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -80,25 +80,26 @@
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.advancedModeRadioButton = new System.Windows.Forms.RadioButton();
             this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.defaultFolderPathSetButton = new System.Windows.Forms.Button();
+            this.downloadsDirectoryGroupBox = new System.Windows.Forms.GroupBox();
             this.downloadsFolderPathSetButton = new System.Windows.Forms.Button();
+            this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.defaultFolderPathSetButton = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
             this.askToOpenSavedFileInDefaultAppCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox1.SuspendLayout();
+            this.defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
+            this.yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox10.SuspendLayout();
+            this.processPriorityGroupBox.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
+            this.downloadsDirectoryGroupBox.SuspendLayout();
+            this.defaultDirectoryGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
@@ -152,19 +153,19 @@
             this.linkLabelYandexAPIKeysList.Text = "Открыть список уже полученных вами ключей";
             this.linkLabelYandexAPIKeysList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelYandexAPIKeysList_LinkClicked);
             // 
-            // groupBox1
+            // yandexTranslatorGroupBox
             // 
-            this.groupBox1.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
-            this.groupBox1.Controls.Add(this.linkLabelYandexAPIKeysList);
-            this.groupBox1.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.groupBox1.Location = new System.Drawing.Point(18, 773);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1232, 108);
-            this.groupBox1.TabIndex = 44;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ключ Яндекс.Переводчика";
+            this.yandexTranslatorGroupBox.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
+            this.yandexTranslatorGroupBox.Controls.Add(this.linkLabelYandexAPIKeysList);
+            this.yandexTranslatorGroupBox.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
+            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 773);
+            this.yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
+            this.yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 108);
+            this.yandexTranslatorGroupBox.TabIndex = 44;
+            this.yandexTranslatorGroupBox.TabStop = false;
+            this.yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
             // 
             // gotTheYandexTranslatorAPIKeyCheckBox
             // 
@@ -519,20 +520,20 @@
             this.label5.TabIndex = 68;
             this.label5.Text = "Горячие клавиши в видеоплеере:";
             // 
-            // groupBox10
+            // processPriorityGroupBox
             // 
-            this.groupBox10.Controls.Add(this.targetProcessPriorityTextBox);
-            this.groupBox10.Controls.Add(this.currentProcessPriorityTextBox);
-            this.groupBox10.Controls.Add(this.label38);
-            this.groupBox10.Controls.Add(this.label37);
-            this.groupBox10.Location = new System.Drawing.Point(18, 562);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox10.Size = new System.Drawing.Size(348, 87);
-            this.groupBox10.TabIndex = 98;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Приоритет процесса Bilingual Subtitler";
+            this.processPriorityGroupBox.Controls.Add(this.targetProcessPriorityTextBox);
+            this.processPriorityGroupBox.Controls.Add(this.currentProcessPriorityTextBox);
+            this.processPriorityGroupBox.Controls.Add(this.label38);
+            this.processPriorityGroupBox.Controls.Add(this.label37);
+            this.processPriorityGroupBox.Location = new System.Drawing.Point(18, 572);
+            this.processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.processPriorityGroupBox.Name = "processPriorityGroupBox";
+            this.processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.processPriorityGroupBox.Size = new System.Drawing.Size(348, 87);
+            this.processPriorityGroupBox.TabIndex = 98;
+            this.processPriorityGroupBox.TabStop = false;
+            this.processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
             // 
             // targetProcessPriorityTextBox
             // 
@@ -584,7 +585,7 @@
             this.groupBox11.Controls.Add(this.label39);
             this.groupBox11.Controls.Add(this.checkUpdatesOnAppStartCheckBox);
             this.groupBox11.Controls.Add(this.label40);
-            this.groupBox11.Location = new System.Drawing.Point(382, 575);
+            this.groupBox11.Location = new System.Drawing.Point(382, 585);
             this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -713,86 +714,71 @@
             this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
             this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
             // 
-            // groupBox13
+            // downloadsDirectoryGroupBox
             // 
-            this.groupBox13.Controls.Add(this.defaultFolderPathSetButton);
-            this.groupBox13.Controls.Add(this.downloadsFolderPathSetButton);
-            this.groupBox13.Controls.Add(this.label42);
-            this.groupBox13.Controls.Add(this.defaultFolderPathRichTextBox);
-            this.groupBox13.Controls.Add(this.label41);
-            this.groupBox13.Controls.Add(this.downloadsFolderPathRichTextBox);
-            this.groupBox13.Location = new System.Drawing.Point(18, 659);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox13.Size = new System.Drawing.Size(1232, 108);
-            this.groupBox13.TabIndex = 98;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Ключ Яндекс.Переводчика";
-            // 
-            // defaultFolderPathSetButton
-            // 
-            this.defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.defaultFolderPathSetButton.Location = new System.Drawing.Point(1055, 25);
-            this.defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
-            this.defaultFolderPathSetButton.Size = new System.Drawing.Size(154, 27);
-            this.defaultFolderPathSetButton.TabIndex = 99;
-            this.defaultFolderPathSetButton.Text = "📁 Задать путь";
-            this.defaultFolderPathSetButton.UseVisualStyleBackColor = false;
-            this.defaultFolderPathSetButton.Click += new System.EventHandler(this.defaultFolderPathSetButton_Click);
+            this.downloadsDirectoryGroupBox.Controls.Add(this.downloadsFolderPathSetButton);
+            this.downloadsDirectoryGroupBox.Controls.Add(this.downloadsFolderPathRichTextBox);
+            this.downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 659);
+            this.downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
+            this.downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            this.downloadsDirectoryGroupBox.TabIndex = 98;
+            this.downloadsDirectoryGroupBox.TabStop = false;
+            this.downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
             // 
             // downloadsFolderPathSetButton
             // 
             this.downloadsFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.downloadsFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.downloadsFolderPathSetButton.Location = new System.Drawing.Point(419, 25);
+            this.downloadsFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
             this.downloadsFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
-            this.downloadsFolderPathSetButton.Size = new System.Drawing.Size(154, 27);
+            this.downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
             this.downloadsFolderPathSetButton.TabIndex = 98;
-            this.downloadsFolderPathSetButton.Text = "📁 Задать путь";
+            this.downloadsFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
             this.downloadsFolderPathSetButton.UseVisualStyleBackColor = false;
             this.downloadsFolderPathSetButton.Click += new System.EventHandler(this.downloadsFolderPathSetButton_Click);
+            // 
+            // downloadsFolderPathRichTextBox
+            // 
+            this.downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
+            this.downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
+            this.downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
+            this.downloadsFolderPathRichTextBox.TabIndex = 2;
+            this.downloadsFolderPathRichTextBox.Text = "";
+            // 
+            // defaultFolderPathSetButton
+            // 
+            this.defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.defaultFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
+            this.defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
+            this.defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
+            this.defaultFolderPathSetButton.TabIndex = 99;
+            this.defaultFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
+            this.defaultFolderPathSetButton.UseVisualStyleBackColor = false;
+            this.defaultFolderPathSetButton.Click += new System.EventHandler(this.defaultFolderPathSetButton_Click);
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(637, 31);
+            this.label42.Location = new System.Drawing.Point(-130, 41);
             this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(288, 15);
+            this.label42.Size = new System.Drawing.Size(0, 15);
             this.label42.TabIndex = 6;
-            this.label42.Text = "Путь к папке для открытия файлов по умолчанию:";
             // 
             // defaultFolderPathRichTextBox
             // 
-            this.defaultFolderPathRichTextBox.Location = new System.Drawing.Point(645, 59);
+            this.defaultFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
             this.defaultFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
-            this.defaultFolderPathRichTextBox.Size = new System.Drawing.Size(563, 33);
+            this.defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
             this.defaultFolderPathRichTextBox.TabIndex = 5;
             this.defaultFolderPathRichTextBox.Text = "";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(12, 31);
-            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(142, 15);
-            this.label41.TabIndex = 4;
-            this.label41.Text = "Путь к папке \"Загрузки\":";
-            // 
-            // downloadsFolderPathRichTextBox
-            // 
-            this.downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(9, 59);
-            this.downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
-            this.downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(563, 33);
-            this.downloadsFolderPathRichTextBox.TabIndex = 2;
-            this.downloadsFolderPathRichTextBox.Text = "";
             // 
             // button11
             // 
@@ -811,20 +797,32 @@
             // 
             this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 527);
+            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 541);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
             this.subtitlesAppearanceSettingsControl.Load += new System.EventHandler(this.subtitlesAppearanceSettingsControl_Load);
             // 
             // askToOpenSavedFileInDefaultAppCheckBox
             // 
             this.askToOpenSavedFileInDefaultAppCheckBox.AutoSize = true;
-            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 545);
+            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 556);
             this.askToOpenSavedFileInDefaultAppCheckBox.Name = "askToOpenSavedFileInDefaultAppCheckBox";
             this.askToOpenSavedFileInDefaultAppCheckBox.Size = new System.Drawing.Size(604, 34);
             this.askToOpenSavedFileInDefaultAppCheckBox.TabIndex = 102;
             this.askToOpenSavedFileInDefaultAppCheckBox.Text = "В окне сообщения об успешном экспорте субтитров в файл — давать возможность сразу" +
     " открыть файл\r\nв программе по умолчанию";
             this.askToOpenSavedFileInDefaultAppCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // defaultDirectoryGroupBox
+            // 
+            this.defaultDirectoryGroupBox.Controls.Add(this.defaultFolderPathSetButton);
+            this.defaultDirectoryGroupBox.Controls.Add(this.defaultFolderPathRichTextBox);
+            this.defaultDirectoryGroupBox.Controls.Add(this.label42);
+            this.defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 659);
+            this.defaultDirectoryGroupBox.Name = "defaultDirectoryGroupBox";
+            this.defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            this.defaultDirectoryGroupBox.TabIndex = 103;
+            this.defaultDirectoryGroupBox.TabStop = false;
+            this.defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
             // 
             // SettingsForm
             // 
@@ -833,18 +831,19 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
+            this.Controls.Add(this.defaultDirectoryGroupBox);
             this.Controls.Add(this.askToOpenSavedFileInDefaultAppCheckBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.groupBox13);
+            this.Controls.Add(this.downloadsDirectoryGroupBox);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.processPriorityGroupBox);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.yandexTranslatorGroupBox);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -854,22 +853,23 @@
             this.Text = "Настройки программы";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YandexTranslatorAPIKeyForm_FormClosing);
             this.Load += new System.EventHandler(this.SettingsForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.yandexTranslatorGroupBox.ResumeLayout(false);
+            this.yandexTranslatorGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
+            this.processPriorityGroupBox.ResumeLayout(false);
+            this.processPriorityGroupBox.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
+            this.downloadsDirectoryGroupBox.ResumeLayout(false);
+            this.defaultDirectoryGroupBox.ResumeLayout(false);
+            this.defaultDirectoryGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -880,7 +880,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.LinkLabel linkLabelYandexAPIKeysList;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox yandexTranslatorGroupBox;
         private System.Windows.Forms.DataGridView hotkeysDataGridView;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
@@ -911,7 +911,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.CheckBox gotTheYandexTranslatorAPIKeyCheckBox;
-        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox processPriorityGroupBox;
         private System.Windows.Forms.ComboBox targetProcessPriorityTextBox;
         private System.Windows.Forms.TextBox currentProcessPriorityTextBox;
         private System.Windows.Forms.Label label38;
@@ -927,15 +927,15 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.RadioButton advancedModeRadioButton;
         private System.Windows.Forms.RadioButton notAdvancedModeRadioButton;
-        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.GroupBox downloadsDirectoryGroupBox;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.RichTextBox defaultFolderPathRichTextBox;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.RichTextBox downloadsFolderPathRichTextBox;
         private System.Windows.Forms.Button defaultFolderPathSetButton;
         private System.Windows.Forms.Button downloadsFolderPathSetButton;
         private System.Windows.Forms.Button button11;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.CheckBox askToOpenSavedFileInDefaultAppCheckBox;
+        private System.Windows.Forms.GroupBox defaultDirectoryGroupBox;
     }
 }

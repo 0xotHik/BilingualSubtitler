@@ -711,7 +711,7 @@ namespace BilingualSubtitler
                 }
 
                 if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
-                    SetSubtitlesAppearanceBoxesAccordingToSettings();
+                    SetSubtitlesAppearanceSettingsAccordingToStoredValues();
 
                 SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
 
@@ -812,7 +812,7 @@ namespace BilingualSubtitler
             }
         }
 
-        private void SetSubtitlesAppearanceBoxesAccordingToSettings()
+        private void SetSubtitlesAppearanceSettingsAccordingToStoredValues()
         {
             // TODO v11
             //subtitlesAppearanceSettingsControl.ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked =
@@ -3672,7 +3672,7 @@ namespace BilingualSubtitler
         {
             var result = MessageBox.Show("Сбросить текущие настройки вида субтитров к значениям, заданным в окне настроек программы?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
-                SetSubtitlesAppearanceBoxesAccordingToSettings();
+                SetSubtitlesAppearanceSettingsAccordingToStoredValues();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
