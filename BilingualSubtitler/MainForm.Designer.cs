@@ -30,28 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.videoStateComboBox = new System.Windows.Forms.ComboBox();
-            this.subtitlesStateComboBox = new System.Windows.Forms.ComboBox();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt = new System.Windows.Forms.Panel();
-            this.videoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
+            this.techLabel1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.openBilignualSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
-            this.openStylesFromBilingualSubtitlerButton = new System.Windows.Forms.Button();
-            this.label46 = new System.Windows.Forms.Label();
-            this.openBilingualSubtitlerButton = new System.Windows.Forms.Button();
             this.additionalOpenExportSubtitlesButtonsLabel = new System.Windows.Forms.Label();
             this.additionalOpenExportSubtitlesButtonsGroupBox = new System.Windows.Forms.GroupBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.videoFileExtentionLabel = new System.Windows.Forms.Label();
-            this.videoFileExtentionTextBox = new System.Windows.Forms.TextBox();
-            this.selectVideoFileToGetPathForSubtitlesButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.docXTranslationGroupBox = new System.Windows.Forms.GroupBox();
             this.googleTranslatorLinkLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -133,6 +117,10 @@
             this.thirdRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
             this.thirdRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             this.label7 = new System.Windows.Forms.Label();
+            this.openBilignualSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            this.openStylesFromBilingualSubtitlerButton = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.openBilingualSubtitlerButton = new System.Windows.Forms.Button();
             this.openSecondRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
             this.openThirdRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
             this.openFirstRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
@@ -148,17 +136,9 @@
             this.translateToThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
             this.redefineSubtitlesAppearanceSettingsCheckBox = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.playVideoButton = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.appIsRunningsAsAdministratorPanel = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.appNotRunningAsAdministratorPanel = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.appIsRunningInAdministrativeModePanelControl = new BilingualSubtitler.AppIsRunningInAdministrativeModePanelControl();
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -173,13 +153,16 @@
             this.removePostfixGroupBox = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.groupBox5.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.playVideoButton = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.videoFileExtentionLabel = new System.Windows.Forms.Label();
+            this.videoFileExtentionTextBox = new System.Windows.Forms.TextBox();
+            this.selectVideoFileToGetPathForSubtitlesButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.videoAndSubtitlesStateComboBoxWithBorder = new BilingualSubtitler.VideoAndSubtitlesStateComboBoxWithBorder();
             this.groupBox3.SuspendLayout();
-            this.openBilignualSubtitlesGroupBox.SuspendLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.firstRussianSubtitlesGroupBox.SuspendLayout();
@@ -198,39 +181,19 @@
             this.thirdRussianSubtitlesExportAsDocxGroupBox.SuspendLayout();
             this.thirdRussianSubtitlesColorGroupBox.SuspendLayout();
             this.openOrCloseThirdRussianSubtitlesGroupBox.SuspendLayout();
+            this.openBilignualSubtitlesGroupBox.SuspendLayout();
             this.translateToFirstRussianSubtitlesGroupBox.SuspendLayout();
             this.translateToSecondRussianSubtitlesGroupBox.SuspendLayout();
             this.translateToThirdRussianSubtitlesGroupBox.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.appIsRunningsAsAdministratorPanel.SuspendLayout();
-            this.appNotRunningAsAdministratorPanel.SuspendLayout();
             this.translateToRussianSubtitlesGroupBox.SuspendLayout();
             this.openSubtitlesFromDefaultFolderGroupBox.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.openSubtitlesIn1251GroupBox.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.removePostfixGroupBox.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // videoStateComboBox
-            // 
-            this.videoStateComboBox.FormattingEnabled = true;
-            this.videoStateComboBox.Location = new System.Drawing.Point(23, 47);
-            this.videoStateComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoStateComboBox.Name = "videoStateComboBox";
-            this.videoStateComboBox.Size = new System.Drawing.Size(140, 23);
-            this.videoStateComboBox.TabIndex = 11;
-            this.videoStateComboBox.SelectedValueChanged += new System.EventHandler(this.videoStateComboBox_SelectedValueChanged);
-            // 
-            // subtitlesStateComboBox
-            // 
-            this.subtitlesStateComboBox.FormattingEnabled = true;
-            this.subtitlesStateComboBox.Location = new System.Drawing.Point(204, 47);
-            this.subtitlesStateComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.subtitlesStateComboBox.Name = "subtitlesStateComboBox";
-            this.subtitlesStateComboBox.Size = new System.Drawing.Size(212, 23);
-            this.subtitlesStateComboBox.TabIndex = 12;
-            this.subtitlesStateComboBox.SelectedValueChanged += new System.EventHandler(this.subtitlesStateComboBox_SelectedValueChanged);
             // 
             // settingsButton
             // 
@@ -244,72 +207,21 @@
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // label1
+            // techLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 15);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "c";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.groupBox7);
-            this.groupBox5.Controls.Add(this.subtitlesStateComboBox);
-            this.groupBox5.Controls.Add(this.videoStateComboBox);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Location = new System.Drawing.Point(227, 22);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Size = new System.Drawing.Size(428, 70);
-            this.groupBox5.TabIndex = 16;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "🎥 Сейчас видео: //Старый";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt);
-            this.groupBox7.Location = new System.Drawing.Point(0, 0);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox7.Size = new System.Drawing.Size(428, 70);
-            this.groupBox7.TabIndex = 17;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "🎥 Сейчас видео:";
-            // 
-            // panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt
-            // 
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Controls.Add(this.videoAndSubtitlesStateComboBox);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Location = new System.Drawing.Point(23, 24);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Name = "panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt";
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Size = new System.Drawing.Size(384, 25);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.TabIndex = 12;
-            // 
-            // videoAndSubtitlesStateComboBox
-            // 
-            this.videoAndSubtitlesStateComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.videoAndSubtitlesStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.videoAndSubtitlesStateComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.videoAndSubtitlesStateComboBox.FormattingEnabled = true;
-            this.videoAndSubtitlesStateComboBox.Location = new System.Drawing.Point(0, 0);
-            this.videoAndSubtitlesStateComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoAndSubtitlesStateComboBox.Name = "videoAndSubtitlesStateComboBox";
-            this.videoAndSubtitlesStateComboBox.Size = new System.Drawing.Size(383, 23);
-            this.videoAndSubtitlesStateComboBox.TabIndex = 11;
-            this.videoAndSubtitlesStateComboBox.SelectedValueChanged += new System.EventHandler(this.videoAndSubtitlesStateComboBox_SelectedValueChanged);
+            this.techLabel1.AutoSize = true;
+            this.techLabel1.BackColor = System.Drawing.Color.Yellow;
+            this.techLabel1.Location = new System.Drawing.Point(194, 68);
+            this.techLabel1.Name = "techLabel1";
+            this.techLabel1.Size = new System.Drawing.Size(174, 15);
+            this.techLabel1.TabIndex = 50;
+            this.techLabel1.Text = "Еще — панель \"Не от админа\"";
+            this.techLabel1.Visible = false;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.openBilignualSubtitlesGroupBox);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsLabel);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsGroupBox);
-            this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.docXTranslationGroupBox);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.showSecondRussianSubtitlesButton);
@@ -322,55 +234,10 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox3.Size = new System.Drawing.Size(959, 673);
+            this.groupBox3.Size = new System.Drawing.Size(959, 576);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "🗋💬 Создание файлов субтитров, требующихся для просмотра:";
-            // 
-            // openBilignualSubtitlesGroupBox
-            // 
-            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openStylesFromBilingualSubtitlerButton);
-            this.openBilignualSubtitlesGroupBox.Controls.Add(this.label46);
-            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openBilingualSubtitlerButton);
-            this.openBilignualSubtitlesGroupBox.Location = new System.Drawing.Point(691, 577);
-            this.openBilignualSubtitlesGroupBox.Name = "openBilignualSubtitlesGroupBox";
-            this.openBilignualSubtitlesGroupBox.Size = new System.Drawing.Size(260, 84);
-            this.openBilignualSubtitlesGroupBox.TabIndex = 50;
-            this.openBilignualSubtitlesGroupBox.TabStop = false;
-            this.openBilignualSubtitlesGroupBox.Text = "🈔     Открыть субтитры, ";
-            // 
-            // openStylesFromBilingualSubtitlerButton
-            // 
-            this.openStylesFromBilingualSubtitlerButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.openStylesFromBilingualSubtitlerButton.Location = new System.Drawing.Point(145, 34);
-            this.openStylesFromBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.openStylesFromBilingualSubtitlerButton.Name = "openStylesFromBilingualSubtitlerButton";
-            this.openStylesFromBilingualSubtitlerButton.Size = new System.Drawing.Size(102, 44);
-            this.openStylesFromBilingualSubtitlerButton.TabIndex = 101;
-            this.openStylesFromBilingualSubtitlerButton.Text = "🎨\r\nИмпорт стилей\r\n";
-            this.openStylesFromBilingualSubtitlerButton.UseVisualStyleBackColor = false;
-            this.openStylesFromBilingualSubtitlerButton.Click += new System.EventHandler(this.openStylesFromBilingualSubtitlerButton_Click);
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(34, 16);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(206, 15);
-            this.label46.TabIndex = 0;
-            this.label46.Text = "ранее созданные в Bilingual Subtitler";
-            // 
-            // openBilingualSubtitlerButton
-            // 
-            this.openBilingualSubtitlerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
-            this.openBilingualSubtitlerButton.Location = new System.Drawing.Point(7, 34);
-            this.openBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.openBilingualSubtitlerButton.Name = "openBilingualSubtitlerButton";
-            this.openBilingualSubtitlerButton.Size = new System.Drawing.Size(132, 44);
-            this.openBilingualSubtitlerButton.TabIndex = 47;
-            this.openBilingualSubtitlerButton.Text = "📁 \r\nОткрыть файл";
-            this.openBilingualSubtitlerButton.UseVisualStyleBackColor = false;
-            this.openBilingualSubtitlerButton.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // additionalOpenExportSubtitlesButtonsLabel
             // 
@@ -404,77 +271,6 @@
             this.label45.TabIndex = 0;
             this.label45.Text = "• \"из / в 📥\" — \r\nоткрыть из/\r\nсохранить в\r\nпапку \r\n\"Загрузки\"\r\n• \"из 📋\" —\r\nоткр" +
     "ыть из\r\nбуфера\r\nобмена";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label44);
-            this.groupBox2.Controls.Add(this.videoFileExtentionLabel);
-            this.groupBox2.Controls.Add(this.videoFileExtentionTextBox);
-            this.groupBox2.Controls.Add(this.selectVideoFileToGetPathForSubtitlesButton);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(21, 577);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(663, 75);
-            this.groupBox2.TabIndex = 48;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Файл видео, с которым планируется просмотр:";
-            // 
-            // label44
-            // 
-            this.label44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(210)))), ((int)(((byte)(171)))));
-            this.label44.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label44.Location = new System.Drawing.Point(574, 37);
-            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(23, 23);
-            this.label44.TabIndex = 48;
-            this.label44.Text = ".";
-            this.label44.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // videoFileExtentionLabel
-            // 
-            this.videoFileExtentionLabel.AutoSize = true;
-            this.videoFileExtentionLabel.Location = new System.Drawing.Point(497, 18);
-            this.videoFileExtentionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.videoFileExtentionLabel.Name = "videoFileExtentionLabel";
-            this.videoFileExtentionLabel.Size = new System.Drawing.Size(153, 15);
-            this.videoFileExtentionLabel.TabIndex = 45;
-            this.videoFileExtentionLabel.Text = "Расширение файла видео:";
-            // 
-            // videoFileExtentionTextBox
-            // 
-            this.videoFileExtentionTextBox.Location = new System.Drawing.Point(596, 37);
-            this.videoFileExtentionTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoFileExtentionTextBox.Name = "videoFileExtentionTextBox";
-            this.videoFileExtentionTextBox.Size = new System.Drawing.Size(59, 23);
-            this.videoFileExtentionTextBox.TabIndex = 44;
-            this.videoFileExtentionTextBox.Text = "mkv";
-            // 
-            // selectVideoFileToGetPathForSubtitlesButton
-            // 
-            this.selectVideoFileToGetPathForSubtitlesButton.AutoSize = true;
-            this.selectVideoFileToGetPathForSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.selectVideoFileToGetPathForSubtitlesButton.Location = new System.Drawing.Point(10, 18);
-            this.selectVideoFileToGetPathForSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.selectVideoFileToGetPathForSubtitlesButton.Name = "selectVideoFileToGetPathForSubtitlesButton";
-            this.selectVideoFileToGetPathForSubtitlesButton.Size = new System.Drawing.Size(170, 45);
-            this.selectVideoFileToGetPathForSubtitlesButton.TabIndex = 43;
-            this.selectVideoFileToGetPathForSubtitlesButton.Text = "🎞️ Выбрать файл видео";
-            this.selectVideoFileToGetPathForSubtitlesButton.UseVisualStyleBackColor = false;
-            this.selectVideoFileToGetPathForSubtitlesButton.Click += new System.EventHandler(this.selectVideoFileToGetPathForSubtitlesButton_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(187, 25);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(269, 30);
-            this.label8.TabIndex = 39;
-            this.label8.Text = "• для установки пути файлов субтитров до него\r\n• для задания пути для воспроизвед" +
-    "ения видео";
             // 
             // docXTranslationGroupBox
             // 
@@ -525,7 +321,7 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.finalSubtitlesFilesPathBeginningRichTextBox);
             this.groupBox4.Controls.Add(this.createOriginalAndBilingualSubtitlesFilesButton);
-            this.groupBox4.Location = new System.Drawing.Point(7, 427);
+            this.groupBox4.Location = new System.Drawing.Point(7, 423);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1498,6 +1294,51 @@
             this.label7.Text = "Цвет";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // openBilignualSubtitlesGroupBox
+            // 
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openStylesFromBilingualSubtitlerButton);
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.label46);
+            this.openBilignualSubtitlesGroupBox.Controls.Add(this.openBilingualSubtitlerButton);
+            this.openBilignualSubtitlesGroupBox.Location = new System.Drawing.Point(692, 600);
+            this.openBilignualSubtitlesGroupBox.Name = "openBilignualSubtitlesGroupBox";
+            this.openBilignualSubtitlesGroupBox.Size = new System.Drawing.Size(282, 84);
+            this.openBilignualSubtitlesGroupBox.TabIndex = 50;
+            this.openBilignualSubtitlesGroupBox.TabStop = false;
+            this.openBilignualSubtitlesGroupBox.Text = "🈔     Открыть субтитры, ";
+            // 
+            // openStylesFromBilingualSubtitlerButton
+            // 
+            this.openStylesFromBilingualSubtitlerButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.openStylesFromBilingualSubtitlerButton.Location = new System.Drawing.Point(145, 34);
+            this.openStylesFromBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.openStylesFromBilingualSubtitlerButton.Name = "openStylesFromBilingualSubtitlerButton";
+            this.openStylesFromBilingualSubtitlerButton.Size = new System.Drawing.Size(115, 44);
+            this.openStylesFromBilingualSubtitlerButton.TabIndex = 101;
+            this.openStylesFromBilingualSubtitlerButton.Text = "🎨\r\nИмпорт стилей\r\n";
+            this.openStylesFromBilingualSubtitlerButton.UseVisualStyleBackColor = false;
+            this.openStylesFromBilingualSubtitlerButton.Click += new System.EventHandler(this.openStylesFromBilingualSubtitlerButton_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(34, 16);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(206, 15);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "ранее созданные в Bilingual Subtitler";
+            // 
+            // openBilingualSubtitlerButton
+            // 
+            this.openBilingualSubtitlerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(191)))), ((int)(((byte)(84)))));
+            this.openBilingualSubtitlerButton.Location = new System.Drawing.Point(7, 34);
+            this.openBilingualSubtitlerButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.openBilingualSubtitlerButton.Name = "openBilingualSubtitlerButton";
+            this.openBilingualSubtitlerButton.Size = new System.Drawing.Size(132, 44);
+            this.openBilingualSubtitlerButton.TabIndex = 47;
+            this.openBilingualSubtitlerButton.Text = "📁 \r\nОткрыть файл";
+            this.openBilingualSubtitlerButton.UseVisualStyleBackColor = false;
+            this.openBilingualSubtitlerButton.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // openSecondRussianSubtitlesFromDefaultFolderButton
             // 
             this.openSecondRussianSubtitlesFromDefaultFolderButton.AllowDrop = true;
@@ -1698,19 +1539,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // playVideoButton
-            // 
-            this.playVideoButton.AutoSize = true;
-            this.playVideoButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.playVideoButton.Location = new System.Drawing.Point(18, 22);
-            this.playVideoButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.playVideoButton.Name = "playVideoButton";
-            this.playVideoButton.Size = new System.Drawing.Size(201, 70);
-            this.playVideoButton.TabIndex = 47;
-            this.playVideoButton.Text = "▶️\r\nВоспроизвести файл видео\r\n(по заданному выше пути)";
-            this.playVideoButton.UseVisualStyleBackColor = false;
-            this.playVideoButton.Click += new System.EventHandler(this.playVideoButton_Click);
-            // 
             // notifyIcon
             // 
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
@@ -1720,114 +1548,24 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.playVideoButton);
-            this.groupBox6.Controls.Add(this.groupBox5);
-            this.groupBox6.Controls.Add(this.appIsRunningsAsAdministratorPanel);
-            this.groupBox6.Controls.Add(this.appNotRunningAsAdministratorPanel);
-            this.groupBox6.Location = new System.Drawing.Point(14, 690);
+            this.groupBox6.Controls.Add(this.videoAndSubtitlesStateComboBoxWithBorder);
+            this.groupBox6.Controls.Add(this.techLabel1);
+            this.groupBox6.Controls.Add(this.appIsRunningInAdministrativeModePanelControl);
+            this.groupBox6.Location = new System.Drawing.Point(14, 708);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox6.Size = new System.Drawing.Size(677, 170);
+            this.groupBox6.Size = new System.Drawing.Size(677, 152);
             this.groupBox6.TabIndex = 17;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "📼 Контроль видеоплеера:";
             // 
-            // appIsRunningsAsAdministratorPanel
+            // appIsRunningInAdministrativeModePanelControl
             // 
-            this.appIsRunningsAsAdministratorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(255)))), ((int)(((byte)(152)))));
-            this.appIsRunningsAsAdministratorPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label11);
-            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label10);
-            this.appIsRunningsAsAdministratorPanel.Controls.Add(this.label9);
-            this.appIsRunningsAsAdministratorPanel.Location = new System.Drawing.Point(18, 98);
-            this.appIsRunningsAsAdministratorPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.appIsRunningsAsAdministratorPanel.Name = "appIsRunningsAsAdministratorPanel";
-            this.appIsRunningsAsAdministratorPanel.Size = new System.Drawing.Size(638, 61);
-            this.appIsRunningsAsAdministratorPanel.TabIndex = 48;
-            this.appIsRunningsAsAdministratorPanel.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(13, 28);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(493, 15);
-            this.label11.TabIndex = 42;
-            this.label11.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler должен быть доступ" +
-    "ен";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(140, 10);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 14);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "от имени администратора";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(13, 9);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(129, 15);
-            this.label9.TabIndex = 40;
-            this.label9.Text = "Программа запущена";
-            // 
-            // appNotRunningAsAdministratorPanel
-            // 
-            this.appNotRunningAsAdministratorPanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.appNotRunningAsAdministratorPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label12);
-            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label13);
-            this.appNotRunningAsAdministratorPanel.Controls.Add(this.label14);
-            this.appNotRunningAsAdministratorPanel.Location = new System.Drawing.Point(18, 98);
-            this.appNotRunningAsAdministratorPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.appNotRunningAsAdministratorPanel.Name = "appNotRunningAsAdministratorPanel";
-            this.appNotRunningAsAdministratorPanel.Size = new System.Drawing.Size(638, 61);
-            this.appNotRunningAsAdministratorPanel.TabIndex = 49;
-            this.appNotRunningAsAdministratorPanel.Visible = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(13, 28);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(500, 15);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "Контроль видеоплеера через горячие клавиши Bilingual Subtitler может быть недосту" +
-    "пен";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(138, 10);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(169, 14);
-            this.label13.TabIndex = 41;
-            this.label13.Text = "не от имени администратора";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(13, 9);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(129, 15);
-            this.label14.TabIndex = 40;
-            this.label14.Text = "Программа запущена";
+            this.appIsRunningInAdministrativeModePanelControl.Location = new System.Drawing.Point(13, 53);
+            this.appIsRunningInAdministrativeModePanelControl.Name = "appIsRunningInAdministrativeModePanelControl";
+            this.appIsRunningInAdministrativeModePanelControl.Size = new System.Drawing.Size(643, 61);
+            this.appIsRunningInAdministrativeModePanelControl.TabIndex = 13;
             // 
             // translateToRussianSubtitlesGroupBox
             // 
@@ -2004,6 +1742,98 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.playVideoButton);
+            this.groupBox2.Controls.Add(this.label44);
+            this.groupBox2.Controls.Add(this.videoFileExtentionLabel);
+            this.groupBox2.Controls.Add(this.videoFileExtentionTextBox);
+            this.groupBox2.Controls.Add(this.selectVideoFileToGetPathForSubtitlesButton);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Location = new System.Drawing.Point(21, 600);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(663, 102);
+            this.groupBox2.TabIndex = 48;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Файл видео, с которым планируется просмотр:";
+            // 
+            // playVideoButton
+            // 
+            this.playVideoButton.AutoSize = true;
+            this.playVideoButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.playVideoButton.Location = new System.Drawing.Point(12, 68);
+            this.playVideoButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.playVideoButton.Name = "playVideoButton";
+            this.playVideoButton.Size = new System.Drawing.Size(643, 25);
+            this.playVideoButton.TabIndex = 47;
+            this.playVideoButton.Text = "▶️ Воспроизвести";
+            this.playVideoButton.UseVisualStyleBackColor = false;
+            this.playVideoButton.Click += new System.EventHandler(this.playVideoButton_Click);
+            // 
+            // label44
+            // 
+            this.label44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(210)))), ((int)(((byte)(171)))));
+            this.label44.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label44.Location = new System.Drawing.Point(574, 37);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(23, 23);
+            this.label44.TabIndex = 48;
+            this.label44.Text = ".";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // videoFileExtentionLabel
+            // 
+            this.videoFileExtentionLabel.AutoSize = true;
+            this.videoFileExtentionLabel.Location = new System.Drawing.Point(497, 18);
+            this.videoFileExtentionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.videoFileExtentionLabel.Name = "videoFileExtentionLabel";
+            this.videoFileExtentionLabel.Size = new System.Drawing.Size(153, 15);
+            this.videoFileExtentionLabel.TabIndex = 45;
+            this.videoFileExtentionLabel.Text = "Расширение файла видео:";
+            // 
+            // videoFileExtentionTextBox
+            // 
+            this.videoFileExtentionTextBox.Location = new System.Drawing.Point(596, 37);
+            this.videoFileExtentionTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.videoFileExtentionTextBox.Name = "videoFileExtentionTextBox";
+            this.videoFileExtentionTextBox.Size = new System.Drawing.Size(59, 23);
+            this.videoFileExtentionTextBox.TabIndex = 44;
+            this.videoFileExtentionTextBox.Text = "mkv";
+            // 
+            // selectVideoFileToGetPathForSubtitlesButton
+            // 
+            this.selectVideoFileToGetPathForSubtitlesButton.AutoSize = true;
+            this.selectVideoFileToGetPathForSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.selectVideoFileToGetPathForSubtitlesButton.Location = new System.Drawing.Point(10, 18);
+            this.selectVideoFileToGetPathForSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.selectVideoFileToGetPathForSubtitlesButton.Name = "selectVideoFileToGetPathForSubtitlesButton";
+            this.selectVideoFileToGetPathForSubtitlesButton.Size = new System.Drawing.Size(170, 45);
+            this.selectVideoFileToGetPathForSubtitlesButton.TabIndex = 43;
+            this.selectVideoFileToGetPathForSubtitlesButton.Text = "🎞️ Выбрать файл видео";
+            this.selectVideoFileToGetPathForSubtitlesButton.UseVisualStyleBackColor = false;
+            this.selectVideoFileToGetPathForSubtitlesButton.Click += new System.EventHandler(this.selectVideoFileToGetPathForSubtitlesButton_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(187, 25);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(269, 30);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "• для установки пути файлов субтитров до него\r\n• для задания пути для воспроизвед" +
+    "ения видео";
+            // 
+            // videoAndSubtitlesStateComboBoxWithBorder
+            // 
+            this.videoAndSubtitlesStateComboBoxWithBorder.Location = new System.Drawing.Point(10, 22);
+            this.videoAndSubtitlesStateComboBoxWithBorder.Name = "videoAndSubtitlesStateComboBoxWithBorder";
+            this.videoAndSubtitlesStateComboBoxWithBorder.Size = new System.Drawing.Size(646, 25);
+            this.videoAndSubtitlesStateComboBoxWithBorder.TabIndex = 51;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2011,6 +1841,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.openBilignualSubtitlesGroupBox);
             this.Controls.Add(this.removePostfixGroupBox);
             this.Controls.Add(this.openSubtitlesIn1251GroupBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
@@ -2031,18 +1863,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.openBilignualSubtitlesGroupBox.ResumeLayout(false);
-            this.openBilignualSubtitlesGroupBox.PerformLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.ResumeLayout(false);
             this.additionalOpenExportSubtitlesButtonsGroupBox.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.docXTranslationGroupBox.ResumeLayout(false);
             this.docXTranslationGroupBox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -2067,32 +1891,28 @@
             this.thirdRussianSubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             this.thirdRussianSubtitlesColorGroupBox.ResumeLayout(false);
             this.openOrCloseThirdRussianSubtitlesGroupBox.ResumeLayout(false);
+            this.openBilignualSubtitlesGroupBox.ResumeLayout(false);
+            this.openBilignualSubtitlesGroupBox.PerformLayout();
             this.translateToFirstRussianSubtitlesGroupBox.ResumeLayout(false);
             this.translateToSecondRussianSubtitlesGroupBox.ResumeLayout(false);
             this.translateToThirdRussianSubtitlesGroupBox.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.appIsRunningsAsAdministratorPanel.ResumeLayout(false);
-            this.appIsRunningsAsAdministratorPanel.PerformLayout();
-            this.appNotRunningAsAdministratorPanel.ResumeLayout(false);
-            this.appNotRunningAsAdministratorPanel.PerformLayout();
             this.translateToRussianSubtitlesGroupBox.ResumeLayout(false);
             this.openSubtitlesFromDefaultFolderGroupBox.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.openSubtitlesIn1251GroupBox.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.removePostfixGroupBox.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox videoStateComboBox;
-        private System.Windows.Forms.ComboBox subtitlesStateComboBox;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button showSecondRussianSubtitlesButton;
         private System.Windows.Forms.Button hideThirdRussianSubtitlesButton;
@@ -2131,8 +1951,6 @@
         private System.Windows.Forms.Label thirdRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar thirdRussianSubtitlesProgressBar;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button selectVideoFileToGetPathForSubtitlesButton;
         private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
         private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
         private System.Windows.Forms.Label label6;
@@ -2140,32 +1958,17 @@
         private System.Windows.Forms.RichTextBox finalSubtitlesFilesPathBeginningRichTextBox;
         private System.Windows.Forms.Button createOriginalAndBilingualSubtitlesFilesButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button playVideoButton;
         private System.Windows.Forms.GroupBox docXTranslationGroupBox;
         private System.Windows.Forms.LinkLabel googleTranslatorLinkLabel;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Panel appIsRunningsAsAdministratorPanel;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel appNotRunningAsAdministratorPanel;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button openBilingualSubtitlerButton;
         private System.Windows.Forms.CheckBox redefineSubtitlesAppearanceSettingsCheckBox;
         private System.Windows.Forms.Label bilingualSubtitlesFileNameEnding;
         private System.Windows.Forms.Label originalSubtitlesFileNameEnding;
         private System.Windows.Forms.Button hideSecondRussianSubtitlesButton;
         private System.Windows.Forms.GroupBox translateToRussianSubtitlesGroupBox;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label videoFileExtentionLabel;
-        private System.Windows.Forms.TextBox videoFileExtentionTextBox;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox videoAndSubtitlesStateComboBox;
         private System.Windows.Forms.GroupBox primarySubtitlesExportAsDocxGroupBox;
         private System.Windows.Forms.Button primarySubtitlesExportAsDocxIntoDownloadsButton;
         private System.Windows.Forms.Button primarySubtitlesExportAsDocxButton;
@@ -2204,7 +2007,6 @@
         private System.Windows.Forms.Button openSecondRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openThirdRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.GroupBox additionalOpenExportSubtitlesButtonsGroupBox;
-        private System.Windows.Forms.Panel panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt;
         private System.Windows.Forms.Label additionalOpenExportSubtitlesButtonsLabel;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button firstRussianSubtitlesOpenFromClipboardButton;
@@ -2231,5 +2033,15 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button playVideoButton;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label videoFileExtentionLabel;
+        private System.Windows.Forms.TextBox videoFileExtentionTextBox;
+        private System.Windows.Forms.Button selectVideoFileToGetPathForSubtitlesButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label techLabel1;
+        private AppIsRunningInAdministrativeModePanelControl appIsRunningInAdministrativeModePanelControl;
+        private VideoAndSubtitlesStateComboBoxWithBorder videoAndSubtitlesStateComboBoxWithBorder;
     }
 }

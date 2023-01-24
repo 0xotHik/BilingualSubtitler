@@ -165,18 +165,34 @@ namespace BilingualSubtitler
 
         private void changeOnTheSameDeltaValuesForAllSubtitlesRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            var changeOnTheSameDeltaValuesForAllSubtitles = ((RadioButton)sender).Checked;
+        //    var changeOnTheSameDeltaValuesForAllSubtitles = ((RadioButton)sender).Checked;
 
-            setTheSameValuesForAllSubtitlesRadioButton.Checked = !changeOnTheSameDeltaValuesForAllSubtitles;
-            marginCheckBox.Enabled = changeOnTheSameDeltaValuesForAllSubtitles;
+        //    setTheSameValuesForAllSubtitlesRadioButton.Checked = !changeOnTheSameDeltaValuesForAllSubtitles;
+        //    marginCheckBox.Enabled = changeOnTheSameDeltaValuesForAllSubtitles;
 
         }
 
         private void setTheSameValuesForAllSubtitlesRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            var setTheSameValuesForAllSubtitles = ((RadioButton)sender).Checked;
+            //var setTheSameValuesForAllSubtitles = ((RadioButton)sender).Checked;
 
-            changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Checked = !setTheSameValuesForAllSubtitles;
+            //changeOnTheSameDeltaValuesForAllSubtitlesRadioButton.Checked = !setTheSameValuesForAllSubtitles;
+            //marginCheckBox.Enabled = !setTheSameValuesForAllSubtitles;
+        }
+
+        private void changeOnTheSameDeltaValuesForAllSubtitlesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var changeOnTheSameDeltaValuesForAllSubtitles = ((CheckBox)sender).Checked;
+
+            setTheSameValuesForAllSubtitlesCheckBox.Checked = !changeOnTheSameDeltaValuesForAllSubtitles;
+            marginCheckBox.Enabled = changeOnTheSameDeltaValuesForAllSubtitles;
+        }
+
+        private void setTheSameValuesForAllSubtitlesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            var setTheSameValuesForAllSubtitles = ((CheckBox)sender).Checked;
+
+            changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked = !setTheSameValuesForAllSubtitles;
             marginCheckBox.Enabled = !setTheSameValuesForAllSubtitles;
         }
     }

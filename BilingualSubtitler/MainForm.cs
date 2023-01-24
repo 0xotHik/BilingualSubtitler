@@ -322,11 +322,11 @@ namespace BilingualSubtitler
             }
 
             // Состояния видео и субтитров
-            videoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithOriginalSubtitlesComboBoxItem);
-            videoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithBilingualSubtitlesComboBoxItem);
-            videoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithOriginalSubtitlesComboBoxItem);
-            videoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithBilingualSubtitlesComboBoxItem);
-            videoAndSubtitlesStateComboBox.SelectedIndex = 0;
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithOriginalSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPlayingWithBilingualSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithOriginalSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithBilingualSubtitlesComboBoxItem);
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedIndex = 0;
             //
             //m_videoAndSubtitlesStatesAndRelatedComboBoxItems = new Dictionary<Tuple<VideoState, SubtitlesState>, ComboboxItem>
             //{
@@ -480,8 +480,14 @@ namespace BilingualSubtitler
 
             m_changeVideoAndSubtitlesComboBoxesDelegate = ChangeVideoAndSubtitlesComboBoxesHandler;
 
-            appIsRunningsAsAdministratorPanel.Visible = AppIsRunningAsAdministrator();
-            appNotRunningAsAdministratorPanel.Visible = !AppIsRunningAsAdministrator();
+            // "Программа запущена от админа" / "не от админа"
+            var appNotRunningAsAdministratorPanelControl = new AppNotRunningAsAdministratorPanelControl();
+            appNotRunningAsAdministratorPanelControl.Location = appIsRunningInAdministrativeModePanelControl.Location;
+            appNotRunningAsAdministratorPanelControl.Size = appIsRunningInAdministrativeModePanelControl.Size;
+            ((Control)appIsRunningInAdministrativeModePanelControl.Parent).Controls.Add(appNotRunningAsAdministratorPanelControl);
+            //
+            appIsRunningInAdministrativeModePanelControl.Visible = AppIsRunningAsAdministrator();
+            appNotRunningAsAdministratorPanelControl.Visible = !AppIsRunningAsAdministrator();
 
             // Проверка обновлений
             var checkUpdatesBgW = new BackgroundWorker();
@@ -961,7 +967,7 @@ namespace BilingualSubtitler
 
         private void ChangeVideoAndSubtitlesComboBoxesHandler()
         {
-            videoAndSubtitlesStateComboBox.SelectedValueChanged -= videoAndSubtitlesStateComboBox_SelectedValueChanged;
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedValueChanged -= videoAndSubtitlesStateComboBox_SelectedValueChanged;
 
             // Ну вот здесь по-хорошему, если с точки зрения верности кода, надо по-другому написать, наверное. Примерно как было.
             // Но у меня приоритет в скорости, структура состояний видео/субтитров у меня не поменяется (не должна).
@@ -969,19 +975,19 @@ namespace BilingualSubtitler
             if (m_videoState == VideoState.Playing)
             {
                 if (m_subtitlesState == SubtitlesState.Original)
-                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithOriginalSubtitlesComboBoxItem;
+                    videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithOriginalSubtitlesComboBoxItem;
                 else
-                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithBilingualSubtitlesComboBoxItem;
+                    videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedItem = m_videoPlayingWithBilingualSubtitlesComboBoxItem;
             }
             else // На паузе
             {
                 if (m_subtitlesState == SubtitlesState.Original)
-                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithOriginalSubtitlesComboBoxItem;
+                    videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithOriginalSubtitlesComboBoxItem;
                 else
-                    videoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithBilingualSubtitlesComboBoxItem;
+                    videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedItem = m_videoPausedWithBilingualSubtitlesComboBoxItem;
             }
 
-            videoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
 
             #region Былое
             //videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
