@@ -1,6 +1,6 @@
 ﻿namespace BilingualSubtitler
 {
-    partial class VideoAndSubtitlesStateComboBoxWithBorder
+    partial class VideoAndSubtitlesStateComboBoxWithBorderControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,48 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt = new System.Windows.Forms.Panel();
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel = new System.Windows.Forms.Panel();
             this.VideoAndSubtitlesStateComboBox = new System.Windows.Forms.ComboBox();
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.SuspendLayout();
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt
+            // panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel
             // 
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Controls.Add(this.VideoAndSubtitlesStateComboBox);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Location = new System.Drawing.Point(0,0);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Name = "panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt";
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.Size = new System.Drawing.Size(384, 25);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.TabIndex = 12;
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Controls.Add(this.VideoAndSubtitlesStateComboBox);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Location = new System.Drawing.Point(0, 0);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Name = "panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel";
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.Size = new System.Drawing.Size(384, 25);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.TabIndex = 12;
             // 
-            // videoAndSubtitlesStateComboBox
+            // VideoAndSubtitlesStateComboBox
             // 
+            this.VideoAndSubtitlesStateComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.VideoAndSubtitlesStateComboBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.VideoAndSubtitlesStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VideoAndSubtitlesStateComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VideoAndSubtitlesStateComboBox.FormattingEnabled = true;
             this.VideoAndSubtitlesStateComboBox.Location = new System.Drawing.Point(0, 0);
             this.VideoAndSubtitlesStateComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.VideoAndSubtitlesStateComboBox.Name = "videoAndSubtitlesStateComboBox";
+            this.VideoAndSubtitlesStateComboBox.Name = "VideoAndSubtitlesStateComboBox";
             this.VideoAndSubtitlesStateComboBox.Size = new System.Drawing.Size(383, 23);
             this.VideoAndSubtitlesStateComboBox.TabIndex = 11;
             // 
-            // VideoAndSubtitlesStateComboBoxWithBorder
+            // VideoAndSubtitlesStateComboBoxWithBorderControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt);
-            this.Name = "VideoAndSubtitlesStateComboBoxWithBorder";
+            this.Controls.Add(this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel);
+            this.Name = "VideoAndSubtitlesStateComboBoxWithBorderControl";
             this.Size = new System.Drawing.Size(384, 25);
-            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt.ResumeLayout(false);
+            this.panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelWithVideoSubtitlesComboBoxToDrawBorderAroundIt;
+        private System.Windows.Forms.Panel panelWithVideoSubtitlesComboBoxToDrawBorderAroundItPanel;
         public System.Windows.Forms.ComboBox VideoAndSubtitlesStateComboBox;
     }
 }

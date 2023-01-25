@@ -3564,25 +3564,18 @@ namespace BilingualSubtitler
 
         private void CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(string resultingFileName)
         {
-            CheckIfFileExistAndShowSuccessMessage(resultingFileName, $"Субтитры были сохранены в файл");
+            CheckIfFileExistAndShowSuccessMessage(resultingFileName);
         }
 
-        private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName, string message)
+        private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName)
         {
-            var messageBoxHeader = SUCCESS_MESSAGE_BOX_HEADER;
-            var messageBoxIcon = SUCCESS_MESSAGE_BOX_ICON;
-
             if (File.Exists(resultingFileName))
             {
-                message += $":\n• {resultingFileName}";
-                if (Properties.Settings.Default.AskToOpenSavedFileInDefaultApp)
+                using (var openSavedFileInDefaultAppForm = new OpenSavedFileInDefaultAppForm(resultingFileName))
                 {
-                    message += "\n\n\nВернуться к окну Bilingual Subtitler, без работы с сохраненным файлом?\n(\"Нет\" — откроет сохраненный файл в программе по умолчанию)";
-                    var result = MessageBox.Show(message,
-                        $"{messageBoxHeader}. Вернуться к основному окну Bilingual Subtitler?",
-                        MessageBoxButtons.YesNo, messageBoxIcon, MessageBoxDefaultButton.Button1);
+                    openSavedFileInDefaultAppForm.ShowDialog();
 
-                    if (result == DialogResult.No)
+                    if (openSavedFileInDefaultAppForm.NeedToOpenInDefaultApp)
                     {
                         ProcessStartInfo psi = new ProcessStartInfo();
                         psi.FileName = resultingFileName;
@@ -3590,11 +3583,37 @@ namespace BilingualSubtitler
                         Process.Start(psi);
                     }
                 }
-                else
-                    MessageBox.Show(message, messageBoxHeader, MessageBoxButtons.OK, messageBoxIcon);
-
             }
         }
+
+        //private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName, string message)
+        //{
+        //    var messageBoxHeader = SUCCESS_MESSAGE_BOX_HEADER;
+        //    var messageBoxIcon = SUCCESS_MESSAGE_BOX_ICON;
+
+        //    if (File.Exists(resultingFileName))
+        //    {
+        //        message += $":\n• {resultingFileName}";
+        //        if (Properties.Settings.Default.AskToOpenSavedFileInDefaultApp)
+        //        {
+        //            message += "\n\n\nВернуться к окну Bilingual Subtitler, без работы с сохраненным файлом?\n(\"Нет\" — откроет сохраненный файл в программе по умолчанию)";
+        //            var result = MessageBox.Show(message,
+        //                $"{messageBoxHeader}. Вернуться к основному окну Bilingual Subtitler?",
+        //                MessageBoxButtons.YesNo, messageBoxIcon, MessageBoxDefaultButton.Button1);
+
+        //            if (result == DialogResult.No)
+        //            {
+        //                ProcessStartInfo psi = new ProcessStartInfo();
+        //                psi.FileName = resultingFileName;
+        //                psi.UseShellExecute = true;
+        //                Process.Start(psi);
+        //            }
+        //        }
+        //        else
+        //            MessageBox.Show(message, messageBoxHeader, MessageBoxButtons.OK, messageBoxIcon);
+
+        //    }
+        //}
 
         private void firstRussianSubtitlesTextBox_TextChanged(object sender, EventArgs e)
         {

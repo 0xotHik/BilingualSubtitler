@@ -138,6 +138,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.videoAndSubtitlesStateComboBoxWithBorder = new BilingualSubtitler.VideoAndSubtitlesStateComboBoxWithBorderControl();
             this.appIsRunningInAdministrativeModePanelControl = new BilingualSubtitler.AppIsRunningInAdministrativeModePanelControl();
             this.translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             this.openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
@@ -160,7 +162,6 @@
             this.videoFileExtentionTextBox = new System.Windows.Forms.TextBox();
             this.selectVideoFileToGetPathForSubtitlesButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.videoAndSubtitlesStateComboBoxWithBorder = new BilingualSubtitler.VideoAndSubtitlesStateComboBoxWithBorder();
             this.groupBox3.SuspendLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
@@ -1548,6 +1549,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.videoAndSubtitlesStateComboBoxWithBorder);
             this.groupBox6.Controls.Add(this.techLabel1);
             this.groupBox6.Controls.Add(this.appIsRunningInAdministrativeModePanelControl);
@@ -1560,9 +1562,25 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "📼 Контроль видеоплеера:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 15);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "🎥 Сейчас видео:";
+            // 
+            // videoAndSubtitlesStateComboBoxWithBorder
+            // 
+            this.videoAndSubtitlesStateComboBoxWithBorder.Location = new System.Drawing.Point(121, 22);
+            this.videoAndSubtitlesStateComboBoxWithBorder.Name = "videoAndSubtitlesStateComboBoxWithBorder";
+            this.videoAndSubtitlesStateComboBoxWithBorder.Size = new System.Drawing.Size(532, 23);
+            this.videoAndSubtitlesStateComboBoxWithBorder.TabIndex = 51;
+            // 
             // appIsRunningInAdministrativeModePanelControl
             // 
-            this.appIsRunningInAdministrativeModePanelControl.Location = new System.Drawing.Point(13, 53);
+            this.appIsRunningInAdministrativeModePanelControl.Location = new System.Drawing.Point(13, 70);
             this.appIsRunningInAdministrativeModePanelControl.Name = "appIsRunningInAdministrativeModePanelControl";
             this.appIsRunningInAdministrativeModePanelControl.Size = new System.Drawing.Size(643, 61);
             this.appIsRunningInAdministrativeModePanelControl.TabIndex = 13;
@@ -1827,13 +1845,6 @@
             this.label8.Text = "• для установки пути файлов субтитров до него\r\n• для задания пути для воспроизвед" +
     "ения видео";
             // 
-            // videoAndSubtitlesStateComboBoxWithBorder
-            // 
-            this.videoAndSubtitlesStateComboBoxWithBorder.Location = new System.Drawing.Point(10, 22);
-            this.videoAndSubtitlesStateComboBoxWithBorder.Name = "videoAndSubtitlesStateComboBoxWithBorder";
-            this.videoAndSubtitlesStateComboBoxWithBorder.Size = new System.Drawing.Size(646, 25);
-            this.videoAndSubtitlesStateComboBoxWithBorder.TabIndex = 51;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2042,6 +2053,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label techLabel1;
         private AppIsRunningInAdministrativeModePanelControl appIsRunningInAdministrativeModePanelControl;
-        private VideoAndSubtitlesStateComboBoxWithBorder videoAndSubtitlesStateComboBoxWithBorder;
+        private VideoAndSubtitlesStateComboBoxWithBorderControl videoAndSubtitlesStateComboBoxWithBorder;
+        private System.Windows.Forms.Label label1;
     }
 }

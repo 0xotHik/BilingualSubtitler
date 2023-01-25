@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
-    public partial class VideoAndSubtitlesStateComboBoxWithBorder : UserControl
+    public partial class VideoAndSubtitlesStateComboBoxWithBorderControl : UserControl
     {
-        public VideoAndSubtitlesStateComboBoxWithBorder()
+        public VideoAndSubtitlesStateComboBoxWithBorderControl()
         {
             InitializeComponent();
         }
