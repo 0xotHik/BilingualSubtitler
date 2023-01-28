@@ -88,7 +88,6 @@
             this.defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
-            this.askToOpenSavedFileInDefaultAppCheckBox = new System.Windows.Forms.CheckBox();
             this.defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
             this.yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
@@ -797,20 +796,9 @@
             // 
             this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
             this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 541);
+            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
             this.subtitlesAppearanceSettingsControl.TabIndex = 101;
             this.subtitlesAppearanceSettingsControl.Load += new System.EventHandler(this.subtitlesAppearanceSettingsControl_Load);
-            // 
-            // askToOpenSavedFileInDefaultAppCheckBox
-            // 
-            this.askToOpenSavedFileInDefaultAppCheckBox.AutoSize = true;
-            this.askToOpenSavedFileInDefaultAppCheckBox.Location = new System.Drawing.Point(599, 556);
-            this.askToOpenSavedFileInDefaultAppCheckBox.Name = "askToOpenSavedFileInDefaultAppCheckBox";
-            this.askToOpenSavedFileInDefaultAppCheckBox.Size = new System.Drawing.Size(604, 34);
-            this.askToOpenSavedFileInDefaultAppCheckBox.TabIndex = 102;
-            this.askToOpenSavedFileInDefaultAppCheckBox.Text = "В окне сообщения об успешном экспорте субтитров в файл — давать возможность сразу" +
-    " открыть файл\r\nв программе по умолчанию";
-            this.askToOpenSavedFileInDefaultAppCheckBox.UseVisualStyleBackColor = true;
             // 
             // defaultDirectoryGroupBox
             // 
@@ -832,7 +820,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
             this.Controls.Add(this.defaultDirectoryGroupBox);
-            this.Controls.Add(this.askToOpenSavedFileInDefaultAppCheckBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.downloadsDirectoryGroupBox);
@@ -871,7 +858,6 @@
             this.defaultDirectoryGroupBox.ResumeLayout(false);
             this.defaultDirectoryGroupBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -935,7 +921,6 @@
         private System.Windows.Forms.Button downloadsFolderPathSetButton;
         private System.Windows.Forms.Button button11;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
-        private System.Windows.Forms.CheckBox askToOpenSavedFileInDefaultAppCheckBox;
         private System.Windows.Forms.GroupBox defaultDirectoryGroupBox;
     }
 }

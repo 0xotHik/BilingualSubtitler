@@ -84,7 +84,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenSavedFileInDefaultAppForm";
-            this.Text = "✅ Успешно";
+            this.Text = "Успешно";
             this.ResumeLayout(false);
             this.PerformLayout();
 

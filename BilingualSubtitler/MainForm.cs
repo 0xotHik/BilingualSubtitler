@@ -754,6 +754,8 @@ namespace BilingualSubtitler
                     removePostfixGroupBox.Visible =
                     openSubtitlesIn1251GroupBox.Visible =
 
+                    additionalSelectVideoFileToGetPathForSubtitlesButton.Visible =
+
                     advancedMode;
                 //
                 openBilingualSubtitlerButton.Left = advancedMode ? m_initialOpenBilingualsTubtitlesButtonLeft : (openBilignualSubtitlesGroupBox.Width / 2) - (openBilingualSubtitlerButton.Width / 2);
