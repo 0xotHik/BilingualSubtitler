@@ -209,7 +209,7 @@ namespace BilingualSubtitler
             }
 
             // Если включен "Перемещать попарно" — двигаем еще 1-е русские
-            if (changeMarginsToPairSubtitlesCheckBox.Checked)
+            if (EnabledAndChecked(changeMarginsToPairSubtitlesCheckBox))
             {
                 FirstRussianSubtitlesMarginNumericUpDown.Value = OriginalSubtitlesMarginNumericUpDown.Value + (2 * OriginalSubtitlesSizeNumericUpDown.Value) + 2;
             }
@@ -240,7 +240,7 @@ namespace BilingualSubtitler
             }
 
             // Если включен "Перемещать попарно" — двигаем еще 1-е русские
-            if (changeMarginsToPairSubtitlesCheckBox.Checked)
+            if (EnabledAndChecked(changeMarginsToPairSubtitlesCheckBox))
             {
                 FirstRussianSubtitlesMarginNumericUpDown.Value = OriginalSubtitlesMarginNumericUpDown.Value + (2 * OriginalSubtitlesSizeNumericUpDown.Value) + 2;
             }
@@ -357,6 +357,8 @@ namespace BilingualSubtitler
                 setTheSameValuesForAllSubtitlesCheckBox.Checked = false;
                 marginCheckBox.Enabled = true;
             }
+
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private void setTheSameValuesForAllSubtitlesCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -368,13 +370,69 @@ namespace BilingualSubtitler
                 changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked = false;
                 marginCheckBox.Enabled = false;
             }
+
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
+        }
+
+       
+
+        private void SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues()
+        {
+            var oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked =
+                changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked || setTheSameValuesForAllSubtitlesCheckBox.Checked;
+
+            marginCheckBox.Enabled =
+               sizeCheckBox.Enabled =
+               outlineCheckBox.Enabled =
+               shadowCheckBox.Enabled =
+               transparencyCheckBox.Enabled =
+               shadowTransparencyCheckBox.Enabled =
+               oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked;
+
+            changeMarginsToPairSubtitlesCheckBox.Enabled = !(EnabledAndChecked(marginCheckBox) && EnabledAndChecked(setTheSameValuesForAllSubtitlesCheckBox));
+
+            FirstRussianSubtitlesMarginNumericUpDown.Enabled =
+                ThirdRussianSubtitlesMarginNumericUpDown.Enabled =
+                !((oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(marginCheckBox))
+                || EnabledAndChecked(changeMarginsToPairSubtitlesCheckBox));
+
+            SecondRussianSubtitlesMarginNumericUpDown.Enabled =
+            !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(marginCheckBox));
+
+            FirstRussianSubtitlesSizeNumericUpDown.Enabled =
+            SecondRussianSubtitlesSizeNumericUpDown.Enabled =
+            ThirdRussianSubtitlesSizeNumericUpDown.Enabled =
+            !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(sizeCheckBox));
+
+            FirstRussianSubtitlesOutlineNumericUpDown.Enabled =
+              SecondRussianSubtitlesOutlineNumericUpDown.Enabled =
+              ThirdRussianSubtitlesOutlineNumericUpDown.Enabled =
+              !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(outlineCheckBox));
+
+            FirstRussianSubtitlesShadowNumericUpDown.Enabled =
+              SecondRussianSubtitlesShadowNumericUpDown.Enabled =
+              ThirdRussianSubtitlesShadowNumericUpDown.Enabled =
+              !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(shadowCheckBox));
+
+
+            FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+              SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+              ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+              !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(transparencyCheckBox));
+
+            FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
+              SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
+              ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
+          !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(shadowTransparencyCheckBox));
+
+           
+
+            
         }
 
         private void changeMarginsToPairSubtitlesCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesMarginNumericUpDown.Enabled =
-                ThirdRussianSubtitlesMarginNumericUpDown.Enabled
-                = !changeMarginsToPairSubtitlesCheckBox.Checked;
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
 
         }
 
@@ -398,10 +456,7 @@ namespace BilingualSubtitler
 
         private void sizeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesSizeNumericUpDown.Enabled =
-                SecondRussianSubtitlesSizeNumericUpDown.Enabled =
-                ThirdRussianSubtitlesSizeNumericUpDown.Enabled
-                    = !EnabledAndChecked(sizeCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private bool EnabledAndChecked(CheckBox checkBox)
@@ -411,42 +466,28 @@ namespace BilingualSubtitler
 
         private void outlineCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesOutlineNumericUpDown.Enabled =
-                SecondRussianSubtitlesOutlineNumericUpDown.Enabled =
-                ThirdRussianSubtitlesOutlineNumericUpDown.Enabled
-                    = !EnabledAndChecked(outlineCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private void shadowCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesShadowNumericUpDown.Enabled =
-                SecondRussianSubtitlesShadowNumericUpDown.Enabled =
-                ThirdRussianSubtitlesShadowNumericUpDown.Enabled
-                    = !EnabledAndChecked(shadowCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private void transparencyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
-                SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
-                ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled
-                    = !EnabledAndChecked(transparencyCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private void shadowTransparencyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
-                SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
-                ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled
-                    = !EnabledAndChecked(shadowTransparencyCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
         }
 
         private void marginCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FirstRussianSubtitlesMarginNumericUpDown.Enabled =
-                SecondRussianSubtitlesMarginNumericUpDown.Enabled =
-                ThirdRussianSubtitlesMarginNumericUpDown.Enabled
-                    = !EnabledAndChecked(marginCheckBox);
+            SetControlAccordingToCheckBoxesAboutChangingAllSubtitlesValues();
+
         }
 
         private void OriginalSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)

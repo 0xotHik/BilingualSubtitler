@@ -143,5 +143,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SubtitlesAppearanceSettings.settings</DependentUpon>
     </Compile>
+    <Compile Update="SubtitlesAppearanceSettings - Copy.cs" />
   </ItemGroup>
 </Project>
