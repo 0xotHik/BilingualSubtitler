@@ -106,5 +106,113 @@ namespace BilingualSubtitler.Properties {
                 this["OriginalSubtitlesStyleString"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool СhangeOnTheSameDeltaValuesForAllSubtitles {
+            get {
+                return ((bool)(this["СhangeOnTheSameDeltaValuesForAllSubtitles"]));
+            }
+            set {
+                this["СhangeOnTheSameDeltaValuesForAllSubtitles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SetTheSameValuesForAllSubtitlesCheckBox {
+            get {
+                return ((bool)(this["SetTheSameValuesForAllSubtitlesCheckBox"]));
+            }
+            set {
+                this["SetTheSameValuesForAllSubtitlesCheckBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ChangeMarginsToPairSubtitles {
+            get {
+                return ((bool)(this["ChangeMarginsToPairSubtitles"]));
+            }
+            set {
+                this["ChangeMarginsToPairSubtitles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MarginCheckBoxChecked {
+            get {
+                return ((bool)(this["MarginCheckBoxChecked"]));
+            }
+            set {
+                this["MarginCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OutlineCheckBoxChecked {
+            get {
+                return ((bool)(this["OutlineCheckBoxChecked"]));
+            }
+            set {
+                this["OutlineCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SizeCheckBoxChecked {
+            get {
+                return ((bool)(this["SizeCheckBoxChecked"]));
+            }
+            set {
+                this["SizeCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShadowCheckBoxChecked {
+            get {
+                return ((bool)(this["ShadowCheckBoxChecked"]));
+            }
+            set {
+                this["ShadowCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TransparencyCheckBoxChecked {
+            get {
+                return ((bool)(this["TransparencyCheckBoxChecked"]));
+            }
+            set {
+                this["TransparencyCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShadowTransparencyCheckBoxChecked {
+            get {
+                return ((bool)(this["ShadowTransparencyCheckBoxChecked"]));
+            }
+            set {
+                this["ShadowTransparencyCheckBoxChecked"] = value;
+            }
+        }
     }
 }

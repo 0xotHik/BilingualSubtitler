@@ -39,7 +39,7 @@
             this.outlineCheckBox = new System.Windows.Forms.CheckBox();
             this.marginCheckBox = new System.Windows.Forms.CheckBox();
             this.sizeCheckBox = new System.Windows.Forms.CheckBox();
-            this.changeMarginsForPairSimultaneouslyCheckBox = new System.Windows.Forms.CheckBox();
+            this.changeMarginsToPairSubtitlesCheckBox = new System.Windows.Forms.CheckBox();
             this.ResetSubtitlesAppearanceToDefaultButton = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.ThirdRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
@@ -144,7 +144,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.groupBox1);
-            this.groupBox3.Controls.Add(this.changeMarginsForPairSimultaneouslyCheckBox);
+            this.groupBox3.Controls.Add(this.changeMarginsToPairSubtitlesCheckBox);
             this.groupBox3.Controls.Add(this.ResetSubtitlesAppearanceToDefaultButton);
             this.groupBox3.Controls.Add(this.groupBox9);
             this.groupBox3.Controls.Add(this.groupBox8);
@@ -219,6 +219,7 @@
             this.shadowTransparencyCheckBox.TabIndex = 7;
             this.shadowTransparencyCheckBox.Text = "Прозрачности тени";
             this.shadowTransparencyCheckBox.UseVisualStyleBackColor = true;
+            this.shadowTransparencyCheckBox.CheckedChanged += new System.EventHandler(this.shadowTransparencyCheckBox_CheckedChanged);
             // 
             // transparencyCheckBox
             // 
@@ -229,6 +230,7 @@
             this.transparencyCheckBox.TabIndex = 6;
             this.transparencyCheckBox.Text = "Прозрачности";
             this.transparencyCheckBox.UseVisualStyleBackColor = true;
+            this.transparencyCheckBox.CheckedChanged += new System.EventHandler(this.transparencyCheckBox_CheckedChanged);
             // 
             // shadowCheckBox
             // 
@@ -239,6 +241,7 @@
             this.shadowCheckBox.TabIndex = 5;
             this.shadowCheckBox.Text = "Тени";
             this.shadowCheckBox.UseVisualStyleBackColor = true;
+            this.shadowCheckBox.CheckedChanged += new System.EventHandler(this.shadowCheckBox_CheckedChanged);
             // 
             // outlineCheckBox
             // 
@@ -249,6 +252,7 @@
             this.outlineCheckBox.TabIndex = 4;
             this.outlineCheckBox.Text = "Обводки";
             this.outlineCheckBox.UseVisualStyleBackColor = true;
+            this.outlineCheckBox.CheckedChanged += new System.EventHandler(this.outlineCheckBox_CheckedChanged);
             // 
             // marginCheckBox
             // 
@@ -259,6 +263,7 @@
             this.marginCheckBox.TabIndex = 1;
             this.marginCheckBox.Text = "Отступа снизу";
             this.marginCheckBox.UseVisualStyleBackColor = true;
+            this.marginCheckBox.CheckedChanged += new System.EventHandler(this.marginCheckBox_CheckedChanged);
             // 
             // sizeCheckBox
             // 
@@ -269,17 +274,19 @@
             this.sizeCheckBox.TabIndex = 0;
             this.sizeCheckBox.Text = "Размера";
             this.sizeCheckBox.UseVisualStyleBackColor = true;
+            this.sizeCheckBox.CheckedChanged += new System.EventHandler(this.sizeCheckBox_CheckedChanged);
             // 
-            // changeMarginsForPairSimultaneouslyCheckBox
+            // changeMarginsToPairSubtitlesCheckBox
             // 
-            this.changeMarginsForPairSimultaneouslyCheckBox.AutoSize = true;
-            this.changeMarginsForPairSimultaneouslyCheckBox.Location = new System.Drawing.Point(25, 403);
-            this.changeMarginsForPairSimultaneouslyCheckBox.Name = "changeMarginsForPairSimultaneouslyCheckBox";
-            this.changeMarginsForPairSimultaneouslyCheckBox.Size = new System.Drawing.Size(592, 34);
-            this.changeMarginsForPairSimultaneouslyCheckBox.TabIndex = 100;
-            this.changeMarginsForPairSimultaneouslyCheckBox.Text = "Изменять отступы субтитров: попарно, чтобы оригинальные и 1-х переведенные находи" +
+            this.changeMarginsToPairSubtitlesCheckBox.AutoSize = true;
+            this.changeMarginsToPairSubtitlesCheckBox.Location = new System.Drawing.Point(25, 403);
+            this.changeMarginsToPairSubtitlesCheckBox.Name = "changeMarginsToPairSubtitlesCheckBox";
+            this.changeMarginsToPairSubtitlesCheckBox.Size = new System.Drawing.Size(592, 34);
+            this.changeMarginsToPairSubtitlesCheckBox.TabIndex = 100;
+            this.changeMarginsToPairSubtitlesCheckBox.Text = "Изменять отступы субтитров: попарно, чтобы оригинальные и 1-х переведенные находи" +
     "лись вместе, \r\n2-е и 3-и переведенные — вместе";
-            this.changeMarginsForPairSimultaneouslyCheckBox.UseVisualStyleBackColor = true;
+            this.changeMarginsToPairSubtitlesCheckBox.UseVisualStyleBackColor = true;
+            this.changeMarginsToPairSubtitlesCheckBox.CheckedChanged += new System.EventHandler(this.changeMarginsToPairSubtitlesCheckBox_CheckedChanged);
             // 
             // ResetSubtitlesAppearanceToDefaultButton
             // 
@@ -552,6 +559,7 @@
             this.SecondRussianSubtitlesSizeNumericUpDown.Name = "SecondRussianSubtitlesSizeNumericUpDown";
             this.SecondRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(106, 23);
             this.SecondRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
+            this.SecondRussianSubtitlesSizeNumericUpDown.ValueChanged += new System.EventHandler(this.SecondRussianSubtitlesSizeNumericUpDown_ValueChanged);
             // 
             // SecondRussianSubtitlesMarginNumericUpDown
             // 
@@ -565,6 +573,7 @@
             this.SecondRussianSubtitlesMarginNumericUpDown.Name = "SecondRussianSubtitlesMarginNumericUpDown";
             this.SecondRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(106, 23);
             this.SecondRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
+            this.SecondRussianSubtitlesMarginNumericUpDown.ValueChanged += new System.EventHandler(this.SecondRussianSubtitlesMarginNumericUpDown_ValueChanged);
             // 
             // SecondRussianSubtitlesFontComboBox
             // 
@@ -865,6 +874,7 @@
             this.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "OriginalSubtitlesShadowTransparencyPercentageNumericUpDown";
             this.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(106, 23);
             this.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.TabIndex = 94;
+            this.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.ValueChanged += new System.EventHandler(this.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged);
             // 
             // label33
             // 
@@ -1111,7 +1121,7 @@
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button ResetSubtitlesAppearanceToDefaultButton;
-        private System.Windows.Forms.CheckBox changeMarginsForPairSimultaneouslyCheckBox;
+        private System.Windows.Forms.CheckBox changeMarginsToPairSubtitlesCheckBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox marginCheckBox;
         private System.Windows.Forms.CheckBox sizeCheckBox;

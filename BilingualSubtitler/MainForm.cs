@@ -234,8 +234,6 @@ namespace BilingualSubtitler
             m_initialOpenBilingualsTubtitlesButtonLeft = openBilingualSubtitlerButton.Left;
             m_initialOpenStylesFromBilingualsTubtitlesButtonLeft = openStylesFromBilingualSubtitlerButton.Left;
 
-
-
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
             //
@@ -806,6 +804,8 @@ namespace BilingualSubtitler
                 //
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceSettingsControl.Width;
                 docXTranslationGroupBox.Height = advancedMode ? m_initialDocXTranslationGroupBoxHeight : primarySubtitlesGroupBox.Height;
+
+                subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
                 {
