@@ -715,7 +715,7 @@ namespace BilingualSubtitler
                 }
 
                 if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
-                    SetSubtitlesAppearanceSettingsAccordingToStoredValues();
+                    subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
                 SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
 
@@ -3699,7 +3699,7 @@ namespace BilingualSubtitler
         {
             var result = MessageBox.Show("Сбросить текущие настройки вида субтитров к значениям, заданным в окне настроек программы?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
-                SetSubtitlesAppearanceSettingsAccordingToStoredValues();
+                subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
