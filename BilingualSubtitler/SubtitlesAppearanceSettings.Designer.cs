@@ -106,6 +106,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.setTheSameValuesForAllSubtitlesCheckBox);
             this.groupBox1.Controls.Add(this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox);
@@ -181,7 +183,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(583, -1);
+            this.label4.Location = new System.Drawing.Point(565, -1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 15);
             this.label4.TabIndex = 105;
@@ -190,7 +192,7 @@
             // setTheSameValuesForAllSubtitlesCheckBox
             // 
             this.setTheSameValuesForAllSubtitlesCheckBox.AutoSize = true;
-            this.setTheSameValuesForAllSubtitlesCheckBox.Location = new System.Drawing.Point(28, 16);
+            this.setTheSameValuesForAllSubtitlesCheckBox.Location = new System.Drawing.Point(10, 16);
             this.setTheSameValuesForAllSubtitlesCheckBox.Name = "setTheSameValuesForAllSubtitlesCheckBox";
             this.setTheSameValuesForAllSubtitlesCheckBox.Size = new System.Drawing.Size(432, 19);
             this.setTheSameValuesForAllSubtitlesCheckBox.TabIndex = 104;
@@ -201,7 +203,7 @@
             // changeOnTheSameDeltaValuesForAllSubtitlesCheckBox
             // 
             this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.AutoSize = true;
-            this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Location = new System.Drawing.Point(28, -2);
+            this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Location = new System.Drawing.Point(10, -2);
             this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Name = "changeOnTheSameDeltaValuesForAllSubtitlesCheckBox";
             this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Size = new System.Drawing.Size(557, 19);
             this.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.TabIndex = 103;
@@ -1005,6 +1007,16 @@
             this.label3.TabIndex = 82;
             this.label3.Text = "Отступ снизу";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(444, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(177, 15);
+            this.label5.TabIndex = 106;
+            this.label5.Text = "(по оригинальным субтитрам)";
+            // 
             // SubtitlesAppearanceSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1132,5 +1144,6 @@
         private System.Windows.Forms.CheckBox changeOnTheSameDeltaValuesForAllSubtitlesCheckBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox setTheSameValuesForAllSubtitlesCheckBox;
+        private System.Windows.Forms.Label label5;
     }
 }
