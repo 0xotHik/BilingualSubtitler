@@ -510,7 +510,7 @@
             this.firstRussianSubtitlesExportAsSrtButton.Location = new System.Drawing.Point(86, 46);
             this.firstRussianSubtitlesExportAsSrtButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.firstRussianSubtitlesExportAsSrtButton.Name = "firstRussianSubtitlesExportAsSrtButton";
-            this.firstRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(86, 27);
+            this.firstRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(84, 27);
             this.firstRussianSubtitlesExportAsSrtButton.TabIndex = 19;
             this.firstRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
             this.firstRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
@@ -523,7 +523,7 @@
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Location = new System.Drawing.Point(86, 16);
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Name = "firstRussianSubtitlesExportAsDocxIntoDownloadsButton";
-            this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Size = new System.Drawing.Size(86, 27);
+            this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Size = new System.Drawing.Size(84, 27);
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.TabIndex = 18;
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.Text = "в 📥 — .docx";
             this.firstRussianSubtitlesExportAsDocxIntoDownloadsButton.UseVisualStyleBackColor = false;

@@ -1,12 +1,12 @@
 ; 1. Битность
-#define Architecture = "x64"
-#define SourceFolder = "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
-;
-;#define Architecture = "x86";
-;#define SourceFolder = "D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
-
 ; 2. Поменять версию
 ; 3. Чекнуть набор файлов
+#define Architecture = "x64"
+#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
+;
+#define Architecture = "x86";
+#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
+;
 #define MyAppVersion "11.0"
 #define MajorVersion = "11"
 #define MinorVersion = "0"
@@ -41,7 +41,7 @@ Source: "{#SourceFolder}\System.ComponentModel.Composition.Registration.dll"; De
 Source: "{#SourceFolder}\System.Data.Odbc.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Data.OleDb.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Data.SqlClient.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Diagnostics.EventLog.Messages.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#SourceFolder}\System.Diagnostics.EventLog.Messages.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.DirectoryServices.AccountManagement.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.DirectoryServices.Protocols.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.IO.Ports.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -61,16 +61,17 @@ Source: "{#SourceFolder}\System.Speech.dll"; DestDir: "{app}"; Flags: ignorevers
 Source: "{#SourceFolder}\System.Web.Services.Description.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\UtfUnknown.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\WindowsInput.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\Xceed.Document.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\Xceed.Document.NET5.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\Xceed.Words.NET5.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
-; 10.0
-Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Sensors.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.ShellExtensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\Aspose.Zip.dll"; DestDir: "{app}"; Flags: ignoreversion
+;
 ; Папки
 Source: "{#SourceFolder}\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "{#SourceFolder}\de\*"; DestDir: "{app}\de\"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -89,8 +90,6 @@ Source: "{#SourceFolder}\zh-Hant\*"; DestDir: "{app}\zh-Hant\"; Flags: ignorever
 
 
 [Setup]
-; !!!
-OutputBaseFilename=bilingual-subtitler-installer-{#MajorVersion}-{#MinorVersion}-{#Architecture}
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7CC8CBB0-5496-40FD-96DC-C283B2EFA75B}
@@ -101,6 +100,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
+AllowNoIcons=yes
 DefaultDirName={autopf}\BilingualSubtitler
 DisableProgramGroupPage=yes
 ; The [Icons] "quicklaunchicon" entry uses {userappdata} but its [Tasks] entry has a proper IsAdminInstallMode Check.
@@ -108,10 +108,12 @@ UsedUserAreasWarning=no
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
+OutputBaseFilename=bilingual-subtitler-installer-{#MajorVersion}-{#MinorVersion}-{#Architecture}
 SetupIconFile=D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\Resources\logo4_1.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+DefaultGroupName={#MyAppName}
 
 #if Architecture == "x64"
 ArchitecturesInstallIn64BitMode = x64
@@ -127,12 +129,15 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\Сайт программы с справкой по использованию"; Filename: "{#MyAppURL}"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+; Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent runascurrentuser
 Filename: "https://0xothik.wordpress.com/bilingual-subtitler/"; Flags: shellexec runasoriginaluser postinstall; Description: "Открыть сайт программы с руководством по использованию"
 
 

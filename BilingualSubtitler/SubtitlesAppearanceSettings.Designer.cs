@@ -279,7 +279,7 @@
             // changeMarginsToPairSubtitlesCheckBox
             // 
             this.changeMarginsToPairSubtitlesCheckBox.AutoSize = true;
-            this.changeMarginsToPairSubtitlesCheckBox.Location = new System.Drawing.Point(25, 403);
+            this.changeMarginsToPairSubtitlesCheckBox.Location = new System.Drawing.Point(25, 404);
             this.changeMarginsToPairSubtitlesCheckBox.Name = "changeMarginsToPairSubtitlesCheckBox";
             this.changeMarginsToPairSubtitlesCheckBox.Size = new System.Drawing.Size(592, 34);
             this.changeMarginsToPairSubtitlesCheckBox.TabIndex = 100;

@@ -573,11 +573,11 @@ namespace BilingualSubtitler
                 {
                     var result = MessageBox.Show($"Появилась новая версия программы — {latestVersionOnGitHub}!\n\n" +
                         $"Изменения:\n{latestReleaseOnGitHub.Body}\n\n" +
-                        "Перейти на страницу скачки?", "Появилась новая версия программы", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        "Перейти к скачиванию?", "Появилась новая версия программы", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (result == DialogResult.Yes)
                     {
-                        OpenUrl("https://github.com/0xotHik/BilingualSubtitler/releases/latest");
+                        OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler#Download");
                     }
 
                     Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
