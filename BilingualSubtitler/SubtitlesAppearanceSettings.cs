@@ -312,6 +312,9 @@ namespace BilingualSubtitler
             if (EnabledAndChecked(changeMarginsToPairSubtitlesCheckBox))
             {
                 SetValueToNumericUpDownFromCodeSafe(FirstRussianSubtitlesMarginNumericUpDown, OriginalSubtitlesMarginNumericUpDown.Value + (2 * OriginalSubtitlesSizeNumericUpDown.Value) + 2);
+
+                // И 3-и русские
+                SetValueToNumericUpDownFromCodeSafe(ThirdRussianSubtitlesMarginNumericUpDown, SecondRussianSubtitlesMarginNumericUpDown.Value + (2 * SecondRussianSubtitlesSizeNumericUpDown.Value) + 2);
             }
         }
 
