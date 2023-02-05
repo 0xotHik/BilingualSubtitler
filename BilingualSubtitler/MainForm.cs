@@ -577,7 +577,7 @@ namespace BilingualSubtitler
 
                     if (result == DialogResult.Yes)
                     {
-                        OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler#Download");
+                        OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler-latest-release/");
                     }
 
                     Settings.Default.LatestSeenVersion = latestVersionOnGitHub;
