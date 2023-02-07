@@ -1133,17 +1133,17 @@
         public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Button ResetSubtitlesAppearanceToDefaultButton;
-        private System.Windows.Forms.CheckBox changeMarginsToPairSubtitlesCheckBox;
+        public System.Windows.Forms.CheckBox changeMarginsToPairSubtitlesCheckBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox marginCheckBox;
-        private System.Windows.Forms.CheckBox sizeCheckBox;
-        private System.Windows.Forms.CheckBox shadowTransparencyCheckBox;
-        private System.Windows.Forms.CheckBox transparencyCheckBox;
-        private System.Windows.Forms.CheckBox shadowCheckBox;
-        private System.Windows.Forms.CheckBox outlineCheckBox;
-        private System.Windows.Forms.CheckBox changeOnTheSameDeltaValuesForAllSubtitlesCheckBox;
+        public System.Windows.Forms.CheckBox marginCheckBox;
+        public System.Windows.Forms.CheckBox sizeCheckBox;
+        public System.Windows.Forms.CheckBox shadowTransparencyCheckBox;
+        public System.Windows.Forms.CheckBox transparencyCheckBox;
+        public System.Windows.Forms.CheckBox shadowCheckBox;
+        public System.Windows.Forms.CheckBox outlineCheckBox;
+        public System.Windows.Forms.CheckBox changeOnTheSameDeltaValuesForAllSubtitlesCheckBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox setTheSameValuesForAllSubtitlesCheckBox;
+        public System.Windows.Forms.CheckBox setTheSameValuesForAllSubtitlesCheckBox;
         private System.Windows.Forms.Label label5;
     }
 }

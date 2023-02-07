@@ -84,8 +84,8 @@ namespace BilingualSubtitler
         {
             changeMarginsToPairSubtitlesCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles;
             changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles;
-            setTheSameValuesForAllSubtitlesCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitlesCheckBox;
-
+            setTheSameValuesForAllSubtitlesCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitles;
+            //
             marginCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.MarginCheckBoxChecked;
             sizeCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.SizeCheckBoxChecked;
             outlineCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.OutlineCheckBoxChecked;
@@ -603,7 +603,6 @@ namespace BilingualSubtitler
         private void marginCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             SetControlAccordingToCheckBoxes();
-
         }
 
         private void OriginalSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)

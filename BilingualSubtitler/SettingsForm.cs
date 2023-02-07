@@ -18,6 +18,9 @@ namespace BilingualSubtitler
 
     public partial class SettingsForm : Form
     {
+        private int m_inititalCheckUpdatesGroupBoxLeft;
+        private int m_inititalDownloadsDirectoryGroupBox;
+
         private Dictionary<string, ProcessPriorityClass> m_processPriorityNamesAndValues;
         private Dictionary<ProcessPriorityClass, string> m_processPriorityValuesAndNames;
 
@@ -30,6 +33,9 @@ namespace BilingualSubtitler
         public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
+
+            m_inititalCheckUpdatesGroupBoxLeft = checkUpdatesGroupBox.Left;
+            m_inititalDownloadsDirectoryGroupBox = downloadsDirectoryGroupBox.Left;
 
             try
             {
@@ -180,6 +186,17 @@ namespace BilingualSubtitler
                 yandexTranslatorGroupBox.Visible =
                 defaultDirectoryGroupBox.Visible =
                 itIsAdvancedMode;
+
+            if (itIsAdvancedMode)
+            {
+                checkUpdatesGroupBox.Left =  m_inititalCheckUpdatesGroupBoxLeft;
+                downloadsDirectoryGroupBox.Left = m_inititalDownloadsDirectoryGroupBox;
+            }
+            else
+            {
+                checkUpdatesGroupBox.Left = (this.Width - checkUpdatesGroupBox.Width) / 2;
+                downloadsDirectoryGroupBox.Left = (this.Width - downloadsDirectoryGroupBox.Width) / 2;
+            }
         }
 
 
@@ -336,6 +353,17 @@ namespace BilingualSubtitler
                                                                        $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
 
             Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
+
+            Properties.SubtitlesAppearanceSettings.Default.MarginCheckBoxChecked = subtitlesAppearanceSettingsControl.marginCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.SizeCheckBoxChecked = subtitlesAppearanceSettingsControl.sizeCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.OutlineCheckBoxChecked = subtitlesAppearanceSettingsControl.outlineCheckBox.Checked ;
+            Properties.SubtitlesAppearanceSettings.Default.ShadowCheckBoxChecked = subtitlesAppearanceSettingsControl.shadowCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.TransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.transparencyCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.ShadowTransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.shadowTransparencyCheckBox.Checked;
+            //
+            Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitles = subtitlesAppearanceSettingsControl.setTheSameValuesForAllSubtitlesCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles = subtitlesAppearanceSettingsControl.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 

@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 // [assembly: AssemblyFileVersion("0.1.*")]
 
-[assembly: AssemblyVersion(version: "11.1.*")]
-[assembly: AssemblyFileVersion("11.1.*")]
+[assembly: AssemblyVersion(version: "11.2.*")]
+[assembly: AssemblyFileVersion("11.2.*")]
 
 
 // https://github.com/kfirprods/NonInvasiveKeyboardHook

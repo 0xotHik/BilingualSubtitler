@@ -122,12 +122,12 @@ namespace BilingualSubtitler.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool SetTheSameValuesForAllSubtitlesCheckBox {
+        public bool SetTheSameValuesForAllSubtitles {
             get {
-                return ((bool)(this["SetTheSameValuesForAllSubtitlesCheckBox"]));
+                return ((bool)(this["SetTheSameValuesForAllSubtitles"]));
             }
             set {
-                this["SetTheSameValuesForAllSubtitlesCheckBox"] = value;
+                this["SetTheSameValuesForAllSubtitles"] = value;
             }
         }
         

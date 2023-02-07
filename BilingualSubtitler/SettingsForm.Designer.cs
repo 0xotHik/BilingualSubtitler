@@ -69,7 +69,7 @@
             this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.checkUpdatesGroupBox = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lastAppVersionLabel = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.processPriorityGroupBox.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            this.checkUpdatesGroupBox.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.downloadsDirectoryGroupBox.SuspendLayout();
             this.defaultDirectoryGroupBox.SuspendLayout();
@@ -575,23 +575,23 @@
             this.label37.TabIndex = 3;
             this.label37.Text = "Текущий:";
             // 
-            // groupBox11
+            // checkUpdatesGroupBox
             // 
-            this.groupBox11.Controls.Add(this.linkLabel2);
-            this.groupBox11.Controls.Add(this.linkLabel1);
-            this.groupBox11.Controls.Add(this.lastAppVersionLabel);
-            this.groupBox11.Controls.Add(this.currentAppVersionLabel);
-            this.groupBox11.Controls.Add(this.label39);
-            this.groupBox11.Controls.Add(this.checkUpdatesOnAppStartCheckBox);
-            this.groupBox11.Controls.Add(this.label40);
-            this.groupBox11.Location = new System.Drawing.Point(382, 585);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox11.Size = new System.Drawing.Size(868, 74);
-            this.groupBox11.TabIndex = 99;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Обновления программы";
+            this.checkUpdatesGroupBox.Controls.Add(this.linkLabel2);
+            this.checkUpdatesGroupBox.Controls.Add(this.linkLabel1);
+            this.checkUpdatesGroupBox.Controls.Add(this.lastAppVersionLabel);
+            this.checkUpdatesGroupBox.Controls.Add(this.currentAppVersionLabel);
+            this.checkUpdatesGroupBox.Controls.Add(this.label39);
+            this.checkUpdatesGroupBox.Controls.Add(this.checkUpdatesOnAppStartCheckBox);
+            this.checkUpdatesGroupBox.Controls.Add(this.label40);
+            this.checkUpdatesGroupBox.Location = new System.Drawing.Point(382, 585);
+            this.checkUpdatesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.checkUpdatesGroupBox.Name = "checkUpdatesGroupBox";
+            this.checkUpdatesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.checkUpdatesGroupBox.Size = new System.Drawing.Size(868, 74);
+            this.checkUpdatesGroupBox.TabIndex = 99;
+            this.checkUpdatesGroupBox.TabStop = false;
+            this.checkUpdatesGroupBox.Text = "Обновления программы";
             // 
             // linkLabel2
             // 
@@ -824,7 +824,7 @@
             this.Controls.Add(this.button11);
             this.Controls.Add(this.downloadsDirectoryGroupBox);
             this.Controls.Add(this.groupBox12);
-            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.checkUpdatesGroupBox);
             this.Controls.Add(this.processPriorityGroupBox);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -850,8 +850,8 @@
             this.groupBox6.PerformLayout();
             this.processPriorityGroupBox.ResumeLayout(false);
             this.processPriorityGroupBox.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
+            this.checkUpdatesGroupBox.ResumeLayout(false);
+            this.checkUpdatesGroupBox.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.downloadsDirectoryGroupBox.ResumeLayout(false);
@@ -902,7 +902,7 @@
         private System.Windows.Forms.TextBox currentProcessPriorityTextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox checkUpdatesGroupBox;
         private System.Windows.Forms.Label lastAppVersionLabel;
         private System.Windows.Forms.Label currentAppVersionLabel;
         private System.Windows.Forms.Label label39;
