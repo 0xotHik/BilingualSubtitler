@@ -3310,11 +3310,14 @@ namespace BilingualSubtitler
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var settingsForm = new SettingsForm(this);
-            settingsForm.ShowDialog(this);
-            settingsForm.Dispose();
+            using (var settingsForm = new SettingsForm(this))
+            {
+                settingsForm.ShowDialog(this);
+                settingsForm.Dispose();
 
-            SetProgramAccordingToSettings();
+                if (settingsForm.SettingsWasSaved)
+                    SetProgramAccordingToSettings();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

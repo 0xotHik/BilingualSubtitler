@@ -30,6 +30,8 @@ namespace BilingualSubtitler
 
         private FontFamily[] m_installedFontFamilies;
 
+        public bool SettingsWasSaved = false;
+
         public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -81,7 +83,8 @@ namespace BilingualSubtitler
             }
             targetProcessPriorityTextBox.SelectedIndex = indexForCurrentProcessPriority;
 
-            
+            // Default
+            this.DialogResult = DialogResult.Cancel;
 
             // Версии
             var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
@@ -375,6 +378,7 @@ namespace BilingualSubtitler
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
             this.DialogResult = DialogResult.OK;
+            this.SettingsWasSaved = true;
             this.Close();
 
         }
@@ -427,7 +431,7 @@ namespace BilingualSubtitler
                 Properties.SubtitlesAppearanceSettings.Default.Reset();
                 Properties.SubtitlesAppearanceSettings.Default.Save();
 
-                SetFormAccordingToSubtitlesAppearanceSettings();
+                SettingsWasSaved = true;
 
                 Close();
             }
