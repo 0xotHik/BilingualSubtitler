@@ -94,9 +94,9 @@
     <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aspose.Zip" Version="23.1.0" />
+    <PackageReference Include="Aspose.Zip" Version="23.3.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.410601">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
@@ -104,15 +104,15 @@
   <ItemGroup>
     <PackageReference Include="DocX" Version="2.4.0" />
     <PackageReference Include="InputSimulator" Version="1.0.4.0" />
-    <PackageReference Include="libse" Version="3.6.10" />
+    <PackageReference Include="libse" Version="3.6.11" />
     <PackageReference Include="MouseKeyHook" Version="5.6.0" />
     <PackageReference Include="NeatInput.Windows" Version="2.0.1" />
-    <PackageReference Include="Octokit" Version="5.0.0" />
+    <PackageReference Include="Octokit" Version="5.0.3" />
     <PackageReference Include="Syroot.Windows.IO.KnownFolders" Version="1.3.0" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
     <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
     <PackageReference Include="UTF.Unknown" Version="2.5.1" />
-    <PackageReference Include="WindowsAPICodePack" Version="7.0.1" />
+    <PackageReference Include="WindowsAPICodePack" Version="7.0.4" />
     <PackageReference Include="zlib.net-mutliplatform" Version="1.0.6" />
   </ItemGroup>
   <ItemGroup>

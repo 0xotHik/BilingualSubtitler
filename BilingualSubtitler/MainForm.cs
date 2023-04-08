@@ -1880,30 +1880,51 @@ namespace BilingualSubtitler
                 var subtitles = subtitlesAndTheirColorsPairs[i].Item1;
                 if (subtitles != null)
                 {
-                    foreach (var subtitle in subtitles)
+                    for(int j=0; j<subtitles.Length;j++)
                     {
+                        var subtitle = subtitles[j];
                         if (subtitle != null)
                         {
-                            string subtitleText;
+                            string subtitleText = null;
 
-                            // Перенос
-                            if (subtitle.Text.Contains("\n"))
+                            // Если активно "Подцеплять"
+                            if ((checkBox1.Checked) && (i != 0) && (i != 1))
                             {
-                                subtitleText = (string)subtitle.Text.Clone();
-
-                                if (subtitleInOneLine[i])
+                                if (j + 1 < subtitles.Length)
                                 {
-                                    subtitleText = subtitleText.Replace("\n", " ");
-                                }
-                                else
-                                {
-                                    subtitleText = subtitleText.Replace("\n", "\\N");
+                                    if ((subtitles[j + 1].Start - subtitle.End) < TimeSpan.FromSeconds(2))
+                                    {
+                                        subtitleText = ((string)subtitle.Text.Clone()).Replace("\n", " ") 
+                                            + " {\\i1}" 
+                                            + ((string)subtitles[j + 1].Text.Clone()).Replace("\n", " ")
+                                            + "{\\i0}";
+                                    }
                                 }
                             }
                             else
                             {
-                                subtitleText = subtitle.Text;
+
+                                // Перенос
+                                if (subtitle.Text.Contains("\n"))
+                                {
+                                    subtitleText = (string)subtitle.Text.Clone();
+
+                                    if (subtitleInOneLine[i])
+                                    {
+                                        subtitleText = subtitleText.Replace("\n", " ");
+                                    }
+                                    else
+                                    {
+                                        subtitleText = subtitleText.Replace("\n", "\\N");
+                                    }
+                                }
+                                else
+                                {
+                                    subtitleText = subtitle.Text;
+                                }
                             }
+
+                            
 
                             assSB.AppendLine($"Dialogue: 0," +
                                              $"{subtitle.Start.ToString(assTimeFormat)}," +

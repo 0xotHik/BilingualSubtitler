@@ -364,9 +364,9 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.TransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.transparencyCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.ShadowTransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.shadowTransparencyCheckBox.Checked;
             //
-            Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitles = subtitlesAppearanceSettingsControl.setTheSameValuesForAllSubtitlesCheckBox.Checked;
-            Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles = subtitlesAppearanceSettingsControl.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
-            Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.changeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitles = subtitlesAppearanceSettingsControl.SetTheSameValuesForAllSubtitlesCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles = subtitlesAppearanceSettingsControl.ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
+            Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 

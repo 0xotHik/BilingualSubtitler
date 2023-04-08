@@ -33,6 +33,7 @@
             this.settingsButton = new System.Windows.Forms.Button();
             this.techLabel1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.additionalOpenExportSubtitlesButtonsLabel = new System.Windows.Forms.Label();
             this.additionalOpenExportSubtitlesButtonsGroupBox = new System.Windows.Forms.GroupBox();
             this.label45 = new System.Windows.Forms.Label();
@@ -224,6 +225,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsLabel);
             this.groupBox3.Controls.Add(this.additionalOpenExportSubtitlesButtonsGroupBox);
             this.groupBox3.Controls.Add(this.docXTranslationGroupBox);
@@ -242,6 +244,16 @@
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "🗋💬 Создание файлов субтитров, требующихся для просмотра";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(841, 381);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 19);
+            this.checkBox1.TabIndex = 50;
+            this.checkBox1.Text = "Подцеплять";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // additionalOpenExportSubtitlesButtonsLabel
             // 
@@ -2086,5 +2098,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button additionalSelectVideoFileToGetPathForSubtitlesButton;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
