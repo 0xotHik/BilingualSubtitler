@@ -1096,11 +1096,11 @@ namespace BilingualSubtitler
                                 // Если у нас первым символом точка или запятая, и это уже не первая строка, значит это ошибка разметки, и ее надо добавить к первой строке
                                 if ((lines[i])[0] == '.')
                                 {
-                                    subtitle.Text += $".\nlines[i]";
+                                    subtitle.Text += $".\n{lines[i]}";
                                 }
                                 else if ((lines[i])[0] == ',')
                                 {
-                                    subtitle.Text += $",\nlines[i]";
+                                    subtitle.Text += $",\n{lines[i]}";
                                 }
                                 else
                                 {
