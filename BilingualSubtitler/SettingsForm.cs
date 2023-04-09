@@ -162,6 +162,8 @@ namespace BilingualSubtitler
 
             checkUpdatesOnAppStartCheckBox.Checked = Properties.Settings.Default.CheckUpdates;
 
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne;
+
             if (Properties.Settings.Default.AdvancedMode)
                 advancedModeRadioButton.Checked = true;
             else
@@ -185,14 +187,15 @@ namespace BilingualSubtitler
         {
             var itIsAdvancedMode = advancedModeRadioButton.Checked;
 
-                processPriorityGroupBox.Visible = 
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Visible =
+                processPriorityGroupBox.Visible =
                 yandexTranslatorGroupBox.Visible =
                 defaultDirectoryGroupBox.Visible =
                 itIsAdvancedMode;
 
             if (itIsAdvancedMode)
             {
-                checkUpdatesGroupBox.Left =  m_inititalCheckUpdatesGroupBoxLeft;
+                checkUpdatesGroupBox.Left = m_inititalCheckUpdatesGroupBoxLeft;
                 downloadsDirectoryGroupBox.Left = m_inititalDownloadsDirectoryGroupBox;
             }
             else
@@ -359,7 +362,7 @@ namespace BilingualSubtitler
 
             Properties.SubtitlesAppearanceSettings.Default.MarginCheckBoxChecked = subtitlesAppearanceSettingsControl.marginCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.SizeCheckBoxChecked = subtitlesAppearanceSettingsControl.sizeCheckBox.Checked;
-            Properties.SubtitlesAppearanceSettings.Default.OutlineCheckBoxChecked = subtitlesAppearanceSettingsControl.outlineCheckBox.Checked ;
+            Properties.SubtitlesAppearanceSettings.Default.OutlineCheckBoxChecked = subtitlesAppearanceSettingsControl.outlineCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.ShadowCheckBoxChecked = subtitlesAppearanceSettingsControl.shadowCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.TransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.transparencyCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.ShadowTransparencyCheckBoxChecked = subtitlesAppearanceSettingsControl.shadowTransparencyCheckBox.Checked;
@@ -367,6 +370,8 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.SetTheSameValuesForAllSubtitles = subtitlesAppearanceSettingsControl.SetTheSameValuesForAllSubtitlesCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles = subtitlesAppearanceSettingsControl.ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
+
+            Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 

@@ -89,6 +89,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
             this.defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox = new System.Windows.Forms.CheckBox();
             this.yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -106,7 +107,7 @@
             this.richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(340, 22);
             this.richTextBoxForYandexApiKeyInSeparateForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
-            this.richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(871, 63);
+            this.richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(871, 50);
             this.richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
             this.richTextBoxForYandexApiKeyInSeparateForm.Text = "";
             // 
@@ -143,7 +144,7 @@
             // linkLabelYandexAPIKeysList
             // 
             this.linkLabelYandexAPIKeysList.AutoSize = true;
-            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(15, 70);
+            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(15, 57);
             this.linkLabelYandexAPIKeysList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabelYandexAPIKeysList.Name = "linkLabelYandexAPIKeysList";
             this.linkLabelYandexAPIKeysList.Size = new System.Drawing.Size(269, 15);
@@ -157,11 +158,11 @@
             this.yandexTranslatorGroupBox.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
             this.yandexTranslatorGroupBox.Controls.Add(this.linkLabelYandexAPIKeysList);
             this.yandexTranslatorGroupBox.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 773);
+            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 803);
             this.yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             this.yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 108);
+            this.yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 87);
             this.yandexTranslatorGroupBox.TabIndex = 44;
             this.yandexTranslatorGroupBox.TabStop = false;
             this.yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
@@ -812,6 +813,20 @@
             this.defaultDirectoryGroupBox.TabStop = false;
             this.defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
             // 
+            // fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox
+            // 
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.AutoSize = true;
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = true;
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(20, 776);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(545, 19);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "Исправлять ошибку разметки субтитров, когда запятая или точка выносятся на новую " +
+    "строку";
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -819,6 +834,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
+            this.Controls.Add(this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
             this.Controls.Add(this.defaultDirectoryGroupBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
             this.Controls.Add(this.button11);
@@ -858,6 +874,7 @@
             this.defaultDirectoryGroupBox.ResumeLayout(false);
             this.defaultDirectoryGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -922,5 +939,6 @@
         private System.Windows.Forms.Button button11;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.GroupBox defaultDirectoryGroupBox;
+        private System.Windows.Forms.CheckBox fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox;
     }
 }

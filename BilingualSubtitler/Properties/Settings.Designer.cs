@@ -401,5 +401,17 @@ namespace BilingualSubtitler.Properties {
                 this["LatestInstalledVersion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FixDotOrCommaAsTheFisrtCharOfNewLIne {
+            get {
+                return ((bool)(this["FixDotOrCommaAsTheFisrtCharOfNewLIne"]));
+            }
+            set {
+                this["FixDotOrCommaAsTheFisrtCharOfNewLIne"] = value;
+            }
+        }
     }
 }
