@@ -821,10 +821,10 @@
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(20, 776);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(545, 19);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(881, 19);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "Исправлять ошибку разметки субтитров, когда запятая или точка выносятся на новую " +
-    "строку";
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При записи итоговых файлов субтитров — исправлять ошибку разметки исходных субтит" +
+    "ров, при которой запятая или точка выносятся на новую строку";
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
