@@ -1880,7 +1880,7 @@ namespace BilingualSubtitler
                 var subtitles = subtitlesAndTheirColorsPairs[i].Item1;
                 if (subtitles != null)
                 {
-                    for(int j=0; j<subtitles.Length;j++)
+                    for (int j = 0; j < subtitles.Length; j++)
                     {
                         var subtitle = subtitles[j];
                         if (subtitle != null)
@@ -1894,8 +1894,8 @@ namespace BilingualSubtitler
                                 {
                                     if ((subtitles[j + 1].Start - subtitle.End) < TimeSpan.FromSeconds(2))
                                     {
-                                        subtitleText = ((string)subtitle.Text.Clone()).Replace("\n", " ") 
-                                            + " {\\i1}" 
+                                        subtitleText = ((string)subtitle.Text.Clone()).Replace("\n", " ")
+                                            + " {\\i1}"
                                             + ((string)subtitles[j + 1].Text.Clone()).Replace("\n", " ")
                                             + "{\\i0}";
                                     }
@@ -1924,7 +1924,7 @@ namespace BilingualSubtitler
                                 }
                             }
 
-                            
+
 
                             assSB.AppendLine($"Dialogue: 0," +
                                              $"{subtitle.Start.ToString(assTimeFormat)}," +
@@ -3060,44 +3060,82 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
-                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath, bilingualSubtitlesPath))
+                    {
+                        filesAlreadyExistsForm.ShowDialog();
+                        if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                            return;
+                    }
                 }
+
+
+                //var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
+                //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                //if (result != DialogResult.OK)
+                //    return;
                 else if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath))
+                    {
+                        filesAlreadyExistsForm.ShowDialog();
+                        if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                            return;
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(bilingualSubtitlesPath))
+                    {
+                        filesAlreadyExistsForm.ShowDialog();
+                        if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                            return;
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
             else if (Settings.Default.CreateOriginalSubtitlesFile && !Settings.Default.CreateBilingualSubtitlesFile)
             {
                 if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result != DialogResult.OK)
-                        return;
+
+                    using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath))
+                    {
+                        filesAlreadyExistsForm.ShowDialog();
+                        if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                            return;
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
             else if (Settings.Default.CreateBilingualSubtitlesFile && !Settings.Default.CreateOriginalSubtitlesFile)
             {
                 if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                        String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(bilingualSubtitlesPath))
+                    {
+                        filesAlreadyExistsForm.ShowDialog();
+                        if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                            return;
+                    }
+
+
+                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                    //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
 
@@ -3159,44 +3197,70 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуспешно записаны!",
-                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath, bilingualSubtitlesPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+
+
+                    //var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуспешно записаны!",
+                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
                 else if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
+                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
+                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
             else if (Settings.Default.CreateOriginalSubtitlesFile && !Settings.Default.CreateBilingualSubtitlesFile)
             {
                 if (originalSubtitlesFileExist)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
+                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
             else if (Settings.Default.CreateBilingualSubtitlesFile && !Settings.Default.CreateOriginalSubtitlesFile)
             {
                 if (bilingualSubtitlesFileExists)
                 {
-                    var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                        SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    if (result != DialogResult.OK)
-                        return;
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+
+                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
+                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
+                    //if (result != DialogResult.OK)
+                    //    return;
                 }
             }
 

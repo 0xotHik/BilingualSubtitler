@@ -27,6 +27,8 @@ namespace BilingualSubtitler
             // Перестановки
             openFileInDefaultAppButton.Top = okButton.Top = fileNameLabel.Bottom + 50;
             this.ClientSize = new System.Drawing.Size(this.Width, openFileInDefaultAppButton.Bottom + 10);
+
+            this.CenterToParent();
         }
 
         private void okButton_Click(object sender, EventArgs e)

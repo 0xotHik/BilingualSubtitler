@@ -133,6 +133,12 @@
     <None Remove="YandexLinguistics.NET.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="FilesAlreadyExistsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SubtitlesSavedSuccessfullyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
