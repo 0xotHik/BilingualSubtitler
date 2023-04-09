@@ -1094,13 +1094,24 @@ namespace BilingualSubtitler
                             if (Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne)
                             {
                                 // Если у нас первым символом точка или запятая, и это уже не первая строка, значит это ошибка разметки, и ее надо добавить к первой строке
-                                if ((lines[i])[0] == '.')
+                                if (lines[i].Length > 0)
                                 {
-                                    subtitle.Text += $".\n{lines[i].Substring(1)}";
-                                }
-                                else if ((lines[i])[0] == ',')
-                                {
-                                    subtitle.Text += $",\n{lines[i].Substring(1)}";
+                                    if ((lines[i])[0] == '.')
+                                    {
+                                        subtitle.Text += $".";
+                                        if (lines[i].Length > 1)
+                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
+                                    }
+                                    else if ((lines[i])[0] == ',')
+                                    {
+                                        subtitle.Text += $",";
+                                        if (lines[i].Length > 1)
+                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
+                                    }
+                                    else
+                                    {
+                                        subtitle.Text += lines[i];
+                                    }
                                 }
                                 else
                                 {
