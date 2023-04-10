@@ -1110,12 +1110,12 @@ namespace BilingualSubtitler
                                     }
                                     else
                                     {
-                                        subtitle.Text += lines[i];
+                                        subtitle.Text += $"\n{lines[i]}";
                                     }
                                 }
                                 else
                                 {
-                                    subtitle.Text += lines[i];
+                                    subtitle.Text += $"\n{lines[i]}";
                                 }
                             }
                             else
