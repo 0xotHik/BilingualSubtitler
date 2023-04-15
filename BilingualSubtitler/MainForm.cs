@@ -1450,7 +1450,16 @@ namespace BilingualSubtitler
 
         private void ReadASSMarkedupDocumentWithBilingualSubtitles(string filePath)
         {
+            //GUI
             SetMinValueOfProgressOnTasbarForTheCaseOfReadingSubtitlesFromTextFileOrClipboard();
+            //
+            foreach(var subtitlesType in m_subtitles.Keys)
+            {
+                if (m_subtitles[subtitlesType].Subtitles != null)
+                {
+                    CloseSubtitleStream(subtitlesType);
+                }
+            }
 
             var lines = File.ReadAllLines(filePath);
 
