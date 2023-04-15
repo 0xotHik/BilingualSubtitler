@@ -59,7 +59,7 @@ namespace BilingualSubtitler
         private const string SUBTITLES_ARE_TRANSLATING = "Субтитры переводятся...";
         private const string SUBTITLES_ARE_TRANSLATED = "Субтитры переведены!";
 
-        private const string TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING = "; Это комментарий Bilingual Subtitler, который закрепляет, что данный поток субтитров был считан (и будет в дальнейшем) Bilingual Subtitler как: ";
+        private const string TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING = "; Это комментарий Bilingual Subtitler, который закрепляет, что данный поток субтитров был (и будет в дальнейшем) считан Bilingual Subtitler как: ";
 
         private const string SUCCESS_MESSAGE_BOX_HEADER = "✅ Успешно";
         private const MessageBoxIcon SUCCESS_MESSAGE_BOX_ICON = MessageBoxIcon.None;
