@@ -2387,6 +2387,13 @@ namespace BilingualSubtitler
         {
             var closeSubtitleStreamConfimationButton = (Button)sender;
             var subtitlesType = (SubtitlesType)closeSubtitleStreamConfimationButton.Tag;
+
+            CloseSubtitleStream(subtitlesType);
+
+        }
+
+        private void CloseSubtitleStream(SubtitlesType subtitlesType)
+        {
             var subtitlesWithInfo = m_subtitles[subtitlesType];
 
             subtitlesWithInfo.ButtonOpenOrClose.Text = m_initialOpenOrCloseSubtitlesButtonText;
@@ -3899,24 +3906,42 @@ namespace BilingualSubtitler
 
         }
 
+        private void OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType subtitlesType)
+        {
+            if (m_subtitles[subtitlesType].Subtitles != null)
+            {
+                var result = MessageBox.Show("Убрать имеющиеся в этом потоке субтитры и считать новые?", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                CloseSubtitleStream(subtitlesType);
+            }
+
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(subtitlesType, fromDefaultFolder: true);
+        }
+
         private void openPrimarySubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.Original);
         }
 
         private void openFirstRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.FirstRussian);
         }
 
         private void openSecondRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.SecondRussian);
         }
 
         private void openThirdRussianSubtitlesFromDefaultFolderButton_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian, fromDefaultFolder: true);
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.ThirdRussian);
         }
 
         private void showLastSubtitleOfFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
@@ -4079,26 +4104,43 @@ namespace BilingualSubtitler
             }
         }
 
+        private void OpenAndReadSubtitlesIn1251(SubtitlesType subtitlesType)
+        {
+            if (m_subtitles[subtitlesType].Subtitles != null)
+            {
+                var result = MessageBox.Show("Убрать имеющиеся в этом потоке субтитры и считать новые?", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                CloseSubtitleStream(subtitlesType);
+            }
+
+            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(subtitlesType, enc1251: true);
+        }
 
 
         private void button3_Click_2(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.Original, enc1251: true);
+            OpenAndReadSubtitlesIn1251(SubtitlesType.Original);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, enc1251: true);
+            OpenAndReadSubtitlesIn1251(SubtitlesType.FirstRussian);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.SecondRussian, enc1251: true);
+            OpenAndReadSubtitlesIn1251(SubtitlesType.SecondRussian);
         }
 
         private void button5_Click_2(object sender, EventArgs e)
         {
-            OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.ThirdRussian, enc1251: true);
+            OpenAndReadSubtitlesIn1251(SubtitlesType.ThirdRussian);
         }
 
         private void button7_Click_1(object sender, EventArgs e)
