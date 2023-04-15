@@ -117,10 +117,13 @@ namespace BilingualSubtitler
         public Button OpenFromClipboardButton;
         public Button ExportAsDocxButton;
         public Button ExportAsDocxIntoDownloadsButton;
+        public Button OpenIn1251Button;
 
         public string TrackNumber = null;
         public string TrackLanguage = null;
         public string TrackName = null;
+
+        public string TitleOfOrigin = null;
 
         private string fileNameWithoutExtention;
         public string FileNameWithoutExtention
@@ -164,7 +167,8 @@ namespace BilingualSubtitler
            Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
            GroupBox openSubtitlesGroupBox, GroupBox exportAsDocxGroupBox,
            Button openFromDownloadsButton, Button openFromDefaultFolderButton, Button openFromClipboardButton,
-           Button exportAsDocxButton, Button exportAsDocxIntoDownloadsButton)
+           Button exportAsDocxButton, Button exportAsDocxIntoDownloadsButton,
+           Button openIn1251Button)
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
@@ -181,6 +185,7 @@ namespace BilingualSubtitler
             OpenFromClipboardButton = openFromClipboardButton;
             ExportAsDocxButton = exportAsDocxButton;
             ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
+            OpenIn1251Button = openIn1251Button;
         }
 
         private void InitializeEmptySubtitlesStream()
@@ -209,16 +214,37 @@ namespace BilingualSubtitler
             var fileName = new FileInfo(filePath).Name;
             var fileExt = new FileInfo(filePath).Extension;
 
-            OutputTextBox.Text = fileName;
+            if (TitleOfOrigin == null)
+            {
+                OutputTextBox.Text = fileName;
+            }
+            else
+            {
+                OutputTextBox.Text = $"«{TitleOfOrigin}» из файла {fileName}";
+            }
 
             FileNameWithoutExtention = fileName.Substring(0, fileName.Length - fileExt.Length);
             FileExtention = fileExt;
+
+            if (TitleOfOrigin == null)
+            {
+                OutputTextBox.Text = fileName;
+            }
+            else
+            {
+                OutputTextBox.Text = ConstructTitleInfoForTrackFromFile(TitleOfOrigin, FileNameWithoutExtention, FileExtention);
+            }
+        }
+
+        public static string ConstructTitleInfoForTrackFromFile(string titleOfOrigin, string fileNameWithoutExtention, string fileExtention)
+        {
+            return $"«{titleOfOrigin}» из файла {fileNameWithoutExtention}{fileExtention}";
         }
 
         /// <summary>
         /// Субтитры были открыты из файла/клипборда, а потом убраны
         /// </summary>
-        public void SubtitleStreamWasClosed()
+        public void SubtitleStreamWasClosedInitializeEmptySubtitlesStream()
         {
             InitializeEmptySubtitlesStream();
         }

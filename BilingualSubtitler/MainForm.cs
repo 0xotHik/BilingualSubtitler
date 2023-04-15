@@ -363,7 +363,8 @@ namespace BilingualSubtitler
                         openOrClosePrimarySubtitlesButton, null, null,
                         primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton,
                         openOrClosePrimarySubtitlesGroupBox, primarySubtitlesExportAsDocxGroupBox, openPrimarySubtitlesFromDownloadsButton, openPrimarySubtitlesFromDefaultFolderButton, originalSubtitlesOpenFromClipboardButton,
-                        primarySubtitlesExportAsDocxButton, primarySubtitlesExportAsDocxIntoDownloadsButton)
+                        primarySubtitlesExportAsDocxButton, primarySubtitlesExportAsDocxIntoDownloadsButton,
+                        openPrimarySubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
@@ -371,7 +372,8 @@ namespace BilingualSubtitler
                         openOrCloseFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
                         firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton,
                         openOrCloseFirstRussianSubtitlesGroupBox, firstRussianSubtitlesExportAsDocxGroupBox, firstRussianSubtitlesOpenFromDownloadsButton, openFirstRussianSubtitlesFromDefaultFolderButton, firstRussianSubtitlesOpenFromClipboardButton,
-                        firstRussianSubtitlesExportAsDocxButton, firstRussianSubtitlesExportAsDocxIntoDownloadsButton)
+                        firstRussianSubtitlesExportAsDocxButton, firstRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        openFirstRussianSubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
@@ -379,7 +381,8 @@ namespace BilingualSubtitler
                         openOrCloseSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
                         secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton,
                         openOrCloseSecondRussianSubtitlesGroupBox, secondRussianSubtitlesExportAsDocxGroupBox, secondRussianSubtitlesOpenFromDownloadsButton, openSecondRussianSubtitlesFromDefaultFolderButton, secondRussianSubtitlesOpenFromClipboardButton,
-                        secondRussianSubtitlesExportAsDocxButton, secondRussianSubtitlesExportAsDocxIntoDownloadsButton)
+                        secondRussianSubtitlesExportAsDocxButton, secondRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        openSecondRussianSubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
@@ -387,7 +390,8 @@ namespace BilingualSubtitler
                         openOrCloseThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
                         thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton,
                         openOrCloseThirdRussianSubtitlesGroupBox, thirdRussianSubtitlesExportAsDocxGroupBox, thirdRussianSubtitlesOpenFromDownloadsButton, openThirdRussianSubtitlesFromDefaultFolderButton, thirdRussianSubtitlesOpenFromClipboardButton,
-                        thirdRussianSubtitlesExportAsDocxButton, thirdRussianSubtitlesExportAsDocxIntoDownloadsButton)
+                        thirdRussianSubtitlesExportAsDocxButton, thirdRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        openThirdRussianSubtitlesIn1251Button)
                 }
             };
 
@@ -740,8 +744,6 @@ namespace BilingualSubtitler
                     redefineSubtitlesAppearanceSettingsCheckBox.Visible =
                     subtitlesAppearanceSettingsControl.Visible =
 
-                    openSubtitlesFromDefaultFolderGroupBox.Visible =
-
                     showSubtitlesButton.Visible =
 
                     openStylesFromBilingualSubtitlerButton.Visible =
@@ -751,6 +753,7 @@ namespace BilingualSubtitler
 
                     removePostfixGroupBox.Visible =
                     openSubtitlesIn1251GroupBox.Visible =
+                    openSubtitlesFromDefaultFolderGroupBox.Visible =
 
                     additionalSelectVideoFileToGetPathForSubtitlesButton.Visible =
 
@@ -769,7 +772,7 @@ namespace BilingualSubtitler
                     subtitlesWithInfo.ExportAsDocxButton.Left = buttonOpenSubtitlesLeft;
 
                     subtitlesWithInfo.OpenFromDownloadsButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
-                    subtitlesWithInfo.OpenFromDefaultFolderButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
+                    //subtitlesWithInfo.OpenFromDefaultFolderButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
                     subtitlesWithInfo.OpenFromClipboardButton.Visible = advancedMode && (!ThereIsSubtitles(subtitlesWithInfo.Subtitles));
                     // Если у нас есть субтитры, предполагается, что кнопка открытия/закрытия субтитров — в режиме "Убрать?"
                     // А значит, доп.кнопки открытия нам не нужны
@@ -1120,7 +1123,7 @@ namespace BilingualSubtitler
                             }
                             else
                                 subtitle.Text += $"\n{lines[i]}";
-                            
+
                         }
 
                         i++;
@@ -1239,8 +1242,8 @@ namespace BilingualSubtitler
         /// <param name="lines"></param>
         /// <param name="currentStringIndex"></param>
         /// <returns>Индекс строки "[Events]"</returns>
-        private int ReadStylesSectionFromASSMarkedupDocumentWithBilingualSubtitles(string[] lines, int currentStringIndex,
-            bool ReadTitlesOfOrigin = false)
+        private int ReadStylesSectionAndThereAreTitlesOfOriginThereFromASSMarkedupDocumentWithBilingualSubtitles(string[] lines, int currentStringIndex,
+            bool readTitlesOfOrigin = false)
         {
             //Style: 0_sub_stream,Arial,20,&H00FFFFFF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,42,1
             //Style: 1_sub_stream,Times New Roman,20,&H000000FF,&H0000FFFF,&H00000000,&H7F000000,0,0,0,0,100,100,0,0,1,2,3,2,10,10,0,1
@@ -1270,13 +1273,13 @@ namespace BilingualSubtitler
                     {
                         var titleOfOrigin = GetTitleFromTitleOfOriginContainingLine(lines[currentStringIndex]);
 
-                        if (originalSubtitlesStyle == null)
+                        if (originalSubtitlesTitleOfOrigin == null)
                             originalSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (firstRussianSubtitlesStyle == null)
+                        else if (firstRussianSubtitlesTitleOfOrigin == null)
                             firstRussianSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (secondRussianSubtitlesStyle == null)
+                        else if (secondRussianSubtitlesTitleOfOrigin == null)
                             secondRussianSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (thirdRussianSubtitlesStyle == null)
+                        else if (thirdRussianSubtitlesTitleOfOrigin == null)
                             thirdRussianSubtitlesTitleOfOrigin = titleOfOrigin;
 
                     }
@@ -1298,6 +1301,14 @@ namespace BilingualSubtitler
                 }
 
                 currentStringIndex++;
+            }
+
+            if (readTitlesOfOrigin)
+            {
+                m_subtitles[SubtitlesType.Original].TitleOfOrigin = originalSubtitlesTitleOfOrigin;
+                m_subtitles[SubtitlesType.FirstRussian].TitleOfOrigin = firstRussianSubtitlesTitleOfOrigin;
+                m_subtitles[SubtitlesType.SecondRussian].TitleOfOrigin = secondRussianSubtitlesTitleOfOrigin;
+                m_subtitles[SubtitlesType.ThirdRussian].TitleOfOrigin = thirdRussianSubtitlesTitleOfOrigin;
             }
 
             if (m_redefineSubtitlesAppearanceSettings)
@@ -1453,9 +1464,9 @@ namespace BilingualSubtitler
             //GUI
             SetMinValueOfProgressOnTasbarForTheCaseOfReadingSubtitlesFromTextFileOrClipboard();
             //
-            foreach(var subtitlesType in m_subtitles.Keys)
+            foreach (var subtitlesType in m_subtitles.Keys)
             {
-                if (m_subtitles[subtitlesType].Subtitles != null)
+                if (ThereIsSubtitles(m_subtitles[subtitlesType].Subtitles))
                 {
                     CloseSubtitleStream(subtitlesType);
                 }
@@ -1470,7 +1481,7 @@ namespace BilingualSubtitler
             // Вообще можно было сразу присваивать currentStringIndex значение, возвращенное из функции, наверное...
 
             // Стили
-            newCurrentStringIndex = ReadStylesSectionFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
+            newCurrentStringIndex = ReadStylesSectionAndThereAreTitlesOfOriginThereFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex, true);
             currentStringIndex = newCurrentStringIndex;
 
             // Мы — на строке "[Events]"
@@ -1732,6 +1743,8 @@ namespace BilingualSubtitler
                 string shadowTransparency = null;
 
                 Color? color = null;
+                string titleOfOrigin = null;
+                SubtitlesAndInfo currentSubtitles = null;
 
                 if (m_redefineSubtitlesAppearanceSettings)
                 {
@@ -1881,6 +1894,47 @@ namespace BilingualSubtitler
 
                     color = subtitlesAndTheirColorsPairs[i].Item2;
 
+                }
+
+                if (true) // Если включено "Сохранять названия потоков субтитров"
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                currentSubtitles = m_subtitles[SubtitlesType.Original];
+                                // Нда. Тут надо бы переписать вообще, эта функция давняя, но пока — только костыли
+
+                                break;
+                            }
+                        case 1:
+                            {
+                                currentSubtitles = m_subtitles[SubtitlesType.FirstRussian];
+                                break;
+                            }
+                        case 2:
+                            {
+                                currentSubtitles = m_subtitles[SubtitlesType.SecondRussian];
+                                break;
+                            }
+                        case 3:
+                            {
+                                currentSubtitles = m_subtitles[SubtitlesType.ThirdRussian];
+                                break;
+                            }
+                    }
+
+                    // Если в ТекстБоксе у нас "«Поток такой-то» из файла ruseng.ass", и только это, без каких-либо пользовательских правок и т.п. — то нам нужно сохранять только само "«Поток такой-то»"
+                    if (currentSubtitles.OutputTextBox.Text == SubtitlesAndInfo.ConstructTitleInfoForTrackFromFile(currentSubtitles.TitleOfOrigin, currentSubtitles.FileNameWithoutExtention, currentSubtitles.FileExtention))
+                    {
+                        titleOfOrigin = currentSubtitles.TitleOfOrigin;
+                    }
+                    else
+                    {
+                        titleOfOrigin = currentSubtitles.OutputTextBox.Text;
+                    }
+
+                    assSB.AppendLine($"{TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING}{titleOfOrigin}");
                 }
 
                 assSB.AppendLine(
@@ -2413,19 +2467,19 @@ namespace BilingualSubtitler
             subtitlesWithInfo.ActionLabel.Text = "Поток субтитров был убран";
             subtitlesWithInfo.OutputTextBox.Text = string.Empty;
 
-            subtitlesWithInfo.SubtitleStreamWasClosed();
+            subtitlesWithInfo.SubtitleStreamWasClosedInitializeEmptySubtitlesStream();
 
             // GUI
             subtitlesWithInfo.OpenSubtitlesGroupBox.Text = m_initialOpenSubtitlesGroupBoxText;
             //
             subtitlesWithInfo.OpenFromDownloadsButton.Visible =
-            subtitlesWithInfo.OpenFromDefaultFolderButton.Visible =
             subtitlesWithInfo.OpenFromClipboardButton.Visible =
             Properties.Settings.Default.AdvancedMode;
             //
             subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
             subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled =
             subtitlesWithInfo.OpenFromClipboardButton.Enabled =
+            subtitlesWithInfo.OpenIn1251Button.Enabled =
             true;
             //
             if (Properties.Settings.Default.AdvancedMode)
@@ -2910,6 +2964,7 @@ namespace BilingualSubtitler
                 subtitlesWithInfo.OpenFromDownloadsButton.Enabled =
                     subtitlesWithInfo.OpenFromDefaultFolderButton.Enabled =
                     subtitlesWithInfo.OpenFromClipboardButton.Enabled =
+                    subtitlesWithInfo.OpenIn1251Button.Enabled =
                         false;
 
             if (subtitlesWithInfo.ButtonTranslate != null)
@@ -3017,7 +3072,9 @@ namespace BilingualSubtitler
             subtitlesInfo.ButtonOpenOrClose.Enabled =
                 subtitlesInfo.OpenFromDownloadsButton.Enabled =
                     subtitlesInfo.OpenFromDefaultFolderButton.Enabled =
-                    subtitlesInfo.OpenFromClipboardButton.Enabled = true;
+                    subtitlesInfo.OpenFromClipboardButton.Enabled =
+                    subtitlesInfo.OpenIn1251Button.Enabled =
+                    true;
 
             if (subtitlesInfo.ButtonTranslate != null)
                 subtitlesInfo.ButtonTranslate.Enabled = true;
@@ -3029,7 +3086,10 @@ namespace BilingualSubtitler
 
         private bool ThereIsSubtitles(Subtitle[] subtitles)
         {
-            if (subtitles != null && subtitles.Length > 0)
+            if (subtitles != null
+                // && subtitles.Length > 0 // Вот здесь не знаю. Но, наверное, в моём случае, субтитры с каунтом 0 — все равно субтитры.
+                // Если потока прям вообще нет — надо занулять
+                )
                 return true;
 
             return false;
@@ -3917,17 +3977,17 @@ namespace BilingualSubtitler
 
         private void OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType subtitlesType)
         {
-            if (m_subtitles[subtitlesType].Subtitles != null)
+            if (ThereIsSubtitles(m_subtitles[subtitlesType].Subtitles))
             {
                 var result = MessageBox.Show("Убрать имеющиеся в этом потоке субтитры и считать новые?", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result != DialogResult.Yes)
                 {
                     return;
                 }
-            }
-            else
-            {
-                CloseSubtitleStream(subtitlesType);
+                else
+                {
+                    CloseSubtitleStream(subtitlesType);
+                }
             }
 
             OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(subtitlesType, fromDefaultFolder: true);
@@ -4107,7 +4167,7 @@ namespace BilingualSubtitler
                 currentStringIndex = newCurrentStringIndex + 1;
 
                 // Стили
-                ReadStylesSectionFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
+                ReadStylesSectionAndThereAreTitlesOfOriginThereFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex);
 
                 SaveSubtitlesColorsFromFormToPropertiesSettings();
             }
@@ -4115,17 +4175,17 @@ namespace BilingualSubtitler
 
         private void OpenAndReadSubtitlesIn1251(SubtitlesType subtitlesType)
         {
-            if (m_subtitles[subtitlesType].Subtitles != null)
+            if (ThereIsSubtitles(m_subtitles[subtitlesType].Subtitles))
             {
                 var result = MessageBox.Show("Убрать имеющиеся в этом потоке субтитры и считать новые?", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result != DialogResult.Yes)
                 {
                     return;
                 }
-            }
-            else
-            {
-                CloseSubtitleStream(subtitlesType);
+                else
+                {
+                    CloseSubtitleStream(subtitlesType);
+                }
             }
 
             OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(subtitlesType, enc1251: true);
