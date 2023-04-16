@@ -90,6 +90,7 @@
             this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
             this.defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox = new System.Windows.Forms.CheckBox();
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
             this.yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -158,7 +159,7 @@
             this.yandexTranslatorGroupBox.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
             this.yandexTranslatorGroupBox.Controls.Add(this.linkLabelYandexAPIKeysList);
             this.yandexTranslatorGroupBox.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 803);
+            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 811);
             this.yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             this.yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -818,14 +819,25 @@
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.AutoSize = true;
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = true;
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(20, 776);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 772);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(881, 19);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(553, 34);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При записи итоговых файлов субтитров — исправлять ошибку разметки исходных субтит" +
-    "ров, при которой запятая или точка выносятся на новую строку";
+    "ров, \r\nпри которой запятая или точка выносятся на новую строку";
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox
+            // 
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.AutoSize = true;
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Location = new System.Drawing.Point(661, 772);
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Name = "ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox";
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Size = new System.Drawing.Size(340, 34);
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.TabIndex = 105;
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Text = "Считывать из и записывать в итоговые файлы субтитров\r\nназвания потоков субтитров-" +
+    "исходников";
+            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -834,6 +846,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1264, 951);
+            this.Controls.Add(this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
             this.Controls.Add(this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
             this.Controls.Add(this.defaultDirectoryGroupBox);
             this.Controls.Add(this.subtitlesAppearanceSettingsControl);
@@ -940,5 +953,6 @@
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.GroupBox defaultDirectoryGroupBox;
         private System.Windows.Forms.CheckBox fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox;
+        private System.Windows.Forms.CheckBox ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox;
     }
 }

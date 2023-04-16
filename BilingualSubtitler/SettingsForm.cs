@@ -163,6 +163,7 @@ namespace BilingualSubtitler
             checkUpdatesOnAppStartCheckBox.Checked = Properties.Settings.Default.CheckUpdates;
 
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne;
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked = Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles;
 
             if (Properties.Settings.Default.AdvancedMode)
                 advancedModeRadioButton.Checked = true;
@@ -188,6 +189,7 @@ namespace BilingualSubtitler
             var itIsAdvancedMode = advancedModeRadioButton.Checked;
 
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Visible =
+                ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Visible =
                 processPriorityGroupBox.Visible =
                 yandexTranslatorGroupBox.Visible =
                 defaultDirectoryGroupBox.Visible =
@@ -372,6 +374,7 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
 
             Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
+            Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;    
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 

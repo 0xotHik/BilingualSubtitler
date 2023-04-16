@@ -1271,16 +1271,39 @@ namespace BilingualSubtitler
                     // Комментарий с тайтлом
                     if (lines[currentStringIndex].StartsWith(TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING))
                     {
-                        var titleOfOrigin = GetTitleFromTitleOfOriginContainingLine(lines[currentStringIndex]);
+                        if (lines[currentStringIndex + 1].StartsWith("Style: "))
+                        {
+                            var titleOfOrigin = GetTitleFromTitleOfOriginContainingLine(lines[currentStringIndex]);
+                            var numberFirstCharacterInStyleName = int.Parse(lines[currentStringIndex + 1].Substring("Style: ".Length, 1));
+                            switch (numberFirstCharacterInStyleName)
+                            {
+                                case 0:
+                                    {
+                                        originalSubtitlesTitleOfOrigin = titleOfOrigin;
+                                        break;
+                                    }
+                                case 1:
+                                    {
+                                        firstRussianSubtitlesTitleOfOrigin = titleOfOrigin;
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        secondRussianSubtitlesTitleOfOrigin = titleOfOrigin;
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        thirdRussianSubtitlesTitleOfOrigin = titleOfOrigin;
+                                        break;
+                                    }
+                            }
 
-                        if (originalSubtitlesTitleOfOrigin == null)
-                            originalSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (firstRussianSubtitlesTitleOfOrigin == null)
-                            firstRussianSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (secondRussianSubtitlesTitleOfOrigin == null)
-                            secondRussianSubtitlesTitleOfOrigin = titleOfOrigin;
-                        else if (thirdRussianSubtitlesTitleOfOrigin == null)
-                            thirdRussianSubtitlesTitleOfOrigin = titleOfOrigin;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Произошла ошибка со считыванием названия потока субтитров", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
                     }
                     else
@@ -1289,21 +1312,37 @@ namespace BilingualSubtitler
                     {
                         var style = new SubtitlesStyle(lines[currentStringIndex]);
 
-                        if (originalSubtitlesStyle == null)
-                            originalSubtitlesStyle = style;
-                        else if (firstRussianSubtitlesStyle == null)
-                            firstRussianSubtitlesStyle = style;
-                        else if (secondRussianSubtitlesStyle == null)
-                            secondRussianSubtitlesStyle = style;
-                        else if (thirdRussianSubtitlesStyle == null)
-                            thirdRussianSubtitlesStyle = style;
+                        var numberFirstCharacterInStyleName = int.Parse(lines[currentStringIndex].Substring("Style: ".Length, 1));
+                        switch (numberFirstCharacterInStyleName)
+                        {
+                            case 0:
+                                {
+                                    originalSubtitlesStyle = style;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    firstRussianSubtitlesStyle = style;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    secondRussianSubtitlesStyle = style;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    thirdRussianSubtitlesStyle = style;
+                                    break;
+                                }
+                        }
                     }
                 }
 
                 currentStringIndex++;
             }
 
-            if (readTitlesOfOrigin)
+            if (readTitlesOfOrigin && Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles)
             {
                 m_subtitles[SubtitlesType.Original].TitleOfOrigin = originalSubtitlesTitleOfOrigin;
                 m_subtitles[SubtitlesType.FirstRussian].TitleOfOrigin = firstRussianSubtitlesTitleOfOrigin;
@@ -1896,7 +1935,7 @@ namespace BilingualSubtitler
 
                 }
 
-                if (true) // Если включено "Сохранять названия потоков субтитров"
+                if (Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles) // Если включено "Сохранять названия потоков субтитров"
                 {
                     switch (i)
                     {

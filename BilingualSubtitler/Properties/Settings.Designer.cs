@@ -413,5 +413,17 @@ namespace BilingualSubtitler.Properties {
                 this["FixDotOrCommaAsTheFisrtCharOfNewLIne"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ReadAndWriteTitlesOfOriginIntoFinalFiles {
+            get {
+                return ((bool)(this["ReadAndWriteTitlesOfOriginIntoFinalFiles"]));
+            }
+            set {
+                this["ReadAndWriteTitlesOfOriginIntoFinalFiles"] = value;
+            }
+        }
     }
 }
