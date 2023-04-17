@@ -1798,9 +1798,9 @@ namespace BilingualSubtitler
                                 shadow = subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown.Value.ToString();
 
                                 transparencyPercentage = subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown.Value;
-                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                transparency = ((int)(Math.Round(float.Parse(transparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
                                 shadowTransparencyPercentage = subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
-                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparency = ((int)(Math.Round(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
 
                                 subtitleInOneLine[i] = (subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox.Checked ? true : false);
 
@@ -1817,9 +1817,9 @@ namespace BilingualSubtitler
                                 shadow = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowNumericUpDown.Value.ToString();
 
                                 transparencyPercentage = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
-                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                transparency = ((int)(Math.Round(float.Parse(transparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
                                 shadowTransparencyPercentage = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
-                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparency = ((int)(Math.Round(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
 
                                 subtitleInOneLine[i] = (subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
 
@@ -1836,9 +1836,9 @@ namespace BilingualSubtitler
                                 shadow = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowNumericUpDown.Value.ToString();
 
                                 transparencyPercentage = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
-                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                transparency = ((int)(Math.Round(float.Parse(transparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
                                 shadowTransparencyPercentage = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
-                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparency = ((int)(Math.Round(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
 
                                 subtitleInOneLine[i] = (subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
 
@@ -1855,9 +1855,9 @@ namespace BilingualSubtitler
                                 shadow = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowNumericUpDown.Value.ToString();
 
                                 transparencyPercentage = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value;
-                                transparency = ((int)(float.Parse(transparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                transparency = ((int)(Math.Round(float.Parse(transparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
                                 shadowTransparencyPercentage = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value;
-                                shadowTransparency = ((int)(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f)).ToString("X2");
+                                shadowTransparency = ((int)(Math.Round(float.Parse(shadowTransparencyPercentage.ToString()) / 100f * 255f))).ToString("X2");
 
                                 subtitleInOneLine[i] = (subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked ? true : false);
 

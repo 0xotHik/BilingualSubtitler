@@ -1781,7 +1781,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(114, 27);
             this.button7.TabIndex = 13;
-            this.button7.Text = "Оригинальных";
+            this.button7.Text = "q    Оригинальных";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
@@ -1794,7 +1794,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(114, 27);
             this.button8.TabIndex = 18;
-            this.button8.Text = "Двуязычных";
+            this.button8.Text = "fф    Двуязычных";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
