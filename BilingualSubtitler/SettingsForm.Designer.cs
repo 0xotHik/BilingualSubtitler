@@ -824,8 +824,8 @@
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(593, 34);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании файлов субтитров — исправлять ошибку разметки, \r\nпри которой запят" +
-    "ая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании исходных субтитров — исправлять ошибку разметки, \r\nпри которой зап" +
+    "ятая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
             // 
             // ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox
