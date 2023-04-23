@@ -718,10 +718,11 @@ namespace BilingualSubtitler
                     subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
                 }
 
+                // Внешний вид субтитров
+                SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
+                //
                 if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
                     subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
-
-                SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
 
                 // Advanced Mode
                 var advancedMode = Settings.Default.AdvancedMode;
@@ -807,8 +808,6 @@ namespace BilingualSubtitler
                 //
                 this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceSettingsControl.Width;
                 docXTranslationGroupBox.Height = advancedMode ? m_initialDocXTranslationGroupBoxHeight : primarySubtitlesGroupBox.Height;
-
-                subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))
                 {
