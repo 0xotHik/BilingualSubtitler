@@ -1111,6 +1111,18 @@ namespace BilingualSubtitler
                                         if (lines[i].Length > 1)
                                             subtitle.Text += $"\n{lines[i].Substring(1)}";
                                     }
+                                    else if ((lines[i])[0] == '?')
+                                    {
+                                        subtitle.Text += $"?";
+                                        if (lines[i].Length > 1)
+                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
+                                    }
+                                    else if ((lines[i])[0] == '!')
+                                    {
+                                        subtitle.Text += $"!";
+                                        if (lines[i].Length > 1)
+                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
+                                    }
                                     else
                                     {
                                         subtitle.Text += $"\n{lines[i]}";

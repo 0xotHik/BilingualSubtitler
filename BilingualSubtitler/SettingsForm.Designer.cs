@@ -822,10 +822,10 @@
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 772);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(553, 34);
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(593, 34);
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При записи итоговых файлов субтитров — исправлять ошибку разметки исходных субтит" +
-    "ров, \r\nпри которой запятая или точка выносятся на новую строку";
+            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании файлов субтитров — исправлять ошибку разметки, \r\nпри которой запят" +
+    "ая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
             this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
             // 
             // ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox
