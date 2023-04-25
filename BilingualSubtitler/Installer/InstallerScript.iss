@@ -7,9 +7,9 @@
 ;#define Architecture = "x86";
 ;#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
-#define MyAppVersion "11.3"
-#define MajorVersion = "11"
-#define MinorVersion = "3"
+#define MyAppVersion "12.0"
+#define MajorVersion = "12"
+#define MinorVersion = "0"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -71,6 +71,11 @@ Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Sensors.dll"; DestDir: "{a
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.ShellExtensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Aspose.Zip.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.DirectoryServices.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Security.Cryptography.Pkcs.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Security.Cryptography.ProtectedData.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Security.Cryptography.Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Threading.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;
 ; Папки
 Source: "{#SourceFolder}\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
