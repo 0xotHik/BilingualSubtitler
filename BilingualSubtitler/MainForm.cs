@@ -239,13 +239,6 @@ namespace BilingualSubtitler
             //
             notifyIcon.ContextMenuStrip.Items.AddRange(
             new ToolStripMenuItem[] {
-                new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) =>
-                {
-                    // прячем наше окно из панели
-                this.ShowInTaskbar = false; 
-                //сворачиваем окно
-                WindowState = FormWindowState.Minimized;
-            })),
 
                 new ToolStripMenuItem("Развернуть", null, ((sender, e) =>
                 {
@@ -254,6 +247,12 @@ namespace BilingualSubtitler
             //разворачиваем окно
             WindowState = FormWindowState.Normal;
                 })),
+
+                new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) => MinimizeWindowToTray()
+                
+            )),
+
+                
 
                 new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) =>
                 {
@@ -1313,7 +1312,7 @@ namespace BilingualSubtitler
                         }
                         else
                         {
-                            MessageBox.Show("Произошла ошибка со считыванием названия потока субтитров", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Произошла ошибка со считыванием названия потока субтитров", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
                     }
@@ -1987,6 +1986,11 @@ namespace BilingualSubtitler
                     assSB.AppendLine($"{TITLE_CONTAINING_COMMENTARY_STRING_BEGINNING}{titleOfOrigin}");
                 }
 
+                var outlineColor = "000000";
+                // Temp
+                if (i == 1)
+                    outlineColor = "FFFFFF";
+
                 assSB.AppendLine(
                     $"Style: {i}{m_subtitleStyleNamePostfix}," +
                     $"{font}," +
@@ -1997,7 +2001,7 @@ namespace BilingualSubtitler
                     $"{color.Value.G.ToString("X2")}" +
                     $"{color.Value.R.ToString("X2")}," +
                     $"&H{transparency}00FFFF," +
-                    $"&H{transparency}000000," +
+                    $"&H{transparency}{outlineColor}," +
                     $"&H{shadowTransparency}000000," +
                     $"0,0,0,0,100,100,0,0,1," +
                     // Обводка
@@ -4316,29 +4320,42 @@ namespace BilingualSubtitler
             subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Text = "📖  Сбросить текущие настройки вида субтитров к сохраненным значениям";
             subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
         }
-    }
 
-    public class SubtitlesBackgroundWorker : BackgroundWorker
-    {
-        public SubtitlesType SubtitlesType;
-    }
-
-    public class ComboboxItem
-    {
-        public string Text { get; set; }
-        public object Value { get; set; }
-
-        public override string ToString()
+        private void minimizeToTrayButton_Click(object sender, EventArgs e)
         {
-            return Text;
+            MinimizeWindowToTray();
         }
-    }
 
-    public class BilingualSubtitlerPropertiesLoadingException : Exception
-    {
-        public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+        private void MinimizeWindowToTray(object sender = null, EventArgs eventArgs = null)
         {
+            // прячем наше окно из панели
+            this.ShowInTaskbar = false;
+            //сворачиваем окно
+            WindowState = FormWindowState.Minimized;
         }
-    }
 
+        public class SubtitlesBackgroundWorker : BackgroundWorker
+        {
+            public SubtitlesType SubtitlesType;
+        }
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        public class BilingualSubtitlerPropertiesLoadingException : Exception
+        {
+            public BilingualSubtitlerPropertiesLoadingException(Exception e) : base("Во время считывания настроек произошла ошибка", e)
+            {
+            }
+        }
+
+    }
 }

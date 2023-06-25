@@ -165,6 +165,7 @@
             this.videoFileExtentionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.playVideoButton = new System.Windows.Forms.Button();
+            this.minimizeToTrayButton = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             this.docXTranslationGroupBox.SuspendLayout();
@@ -1881,6 +1882,20 @@
             this.playVideoButton.UseVisualStyleBackColor = false;
             this.playVideoButton.Click += new System.EventHandler(this.playVideoButton_Click);
             // 
+            // minimizeToTrayButton
+            // 
+            this.minimizeToTrayButton.AllowDrop = true;
+            this.minimizeToTrayButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.minimizeToTrayButton.Location = new System.Drawing.Point(1543, 7);
+            this.minimizeToTrayButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.minimizeToTrayButton.Name = "minimizeToTrayButton";
+            this.minimizeToTrayButton.Size = new System.Drawing.Size(100, 38);
+            this.minimizeToTrayButton.TabIndex = 102;
+            this.minimizeToTrayButton.Text = "-    Свернуть\r\n↓    в трей";
+            this.minimizeToTrayButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.minimizeToTrayButton.UseVisualStyleBackColor = false;
+            this.minimizeToTrayButton.Click += new System.EventHandler(this.minimizeToTrayButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1888,6 +1903,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1646, 871);
+            this.Controls.Add(this.minimizeToTrayButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.openBilignualSubtitlesGroupBox);
             this.Controls.Add(this.removePostfixGroupBox);
@@ -2096,5 +2112,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button additionalSelectVideoFileToGetPathForSubtitlesButton;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button minimizeToTrayButton;
     }
 }
