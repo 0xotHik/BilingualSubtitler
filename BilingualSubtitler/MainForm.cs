@@ -189,6 +189,9 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
+            if (Properties.Settings.Default.StartMinimized)
+                this.WindowState = FormWindowState.Minimized;
+
             // Для 1251
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -499,7 +502,8 @@ namespace BilingualSubtitler
             openOrClosePrimarySubtitlesButton.Focus();
             openOrClosePrimarySubtitlesButton.Select();
 
-
+            //TEMP
+            minimizeToTrayButton.Hide();
         }
 
 
