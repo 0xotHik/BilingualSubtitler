@@ -1991,9 +1991,11 @@ namespace BilingualSubtitler
                 }
 
                 var outlineColor = "000000";
+                var underline = "0";
                 // Temp
-                if (i == 1)
-                    outlineColor = "FFFFFF";
+                if (i == 2)
+                    underline = "1";
+                    //outlineColor = "FFFFFF";
 
                 assSB.AppendLine(
                     $"Style: {i}{m_subtitleStyleNamePostfix}," +
@@ -2007,7 +2009,7 @@ namespace BilingualSubtitler
                     $"&H{transparency}00FFFF," +
                     $"&H{transparency}{outlineColor}," +
                     $"&H{shadowTransparency}000000," +
-                    $"0,0,0,0,100,100,0,0,1," +
+                    $"0,0,{underline},0,100,100,0,0,1," +
                     // Обводка
                     $"{outline}," +
                     // Тень
