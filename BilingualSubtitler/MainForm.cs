@@ -252,10 +252,10 @@ namespace BilingualSubtitler
                 })),
 
                 new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) => MinimizeWindowToTray()
-                
+
             )),
 
-                
+
 
                 new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) =>
                 {
@@ -1995,7 +1995,7 @@ namespace BilingualSubtitler
                 // Temp
                 if (i == 2)
                     underline = "1";
-                    //outlineColor = "FFFFFF";
+                //outlineColor = "FFFFFF";
 
                 assSB.AppendLine(
                     $"Style: {i}{m_subtitleStyleNamePostfix}," +
@@ -4363,5 +4363,9 @@ namespace BilingualSubtitler
             }
         }
 
+        private void openOrClosePrimarySubtitlesButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
