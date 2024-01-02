@@ -34,6 +34,38 @@
             techLabel1 = new System.Windows.Forms.Label();
             groupBox3 = new System.Windows.Forms.GroupBox();
             subtitlesStreamsPanel = new System.Windows.Forms.Panel();
+            groupBox12 = new System.Windows.Forms.GroupBox();
+            groupBox13 = new System.Windows.Forms.GroupBox();
+            button11 = new System.Windows.Forms.Button();
+            button12 = new System.Windows.Forms.Button();
+            button13 = new System.Windows.Forms.Button();
+            groupBox14 = new System.Windows.Forms.GroupBox();
+            button14 = new System.Windows.Forms.Button();
+            groupBox15 = new System.Windows.Forms.GroupBox();
+            button15 = new System.Windows.Forms.Button();
+            button16 = new System.Windows.Forms.Button();
+            button17 = new System.Windows.Forms.Button();
+            label13 = new System.Windows.Forms.Label();
+            textBox2 = new System.Windows.Forms.TextBox();
+            label14 = new System.Windows.Forms.Label();
+            progressBar2 = new System.Windows.Forms.ProgressBar();
+            label15 = new System.Windows.Forms.Label();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            groupBox7 = new System.Windows.Forms.GroupBox();
+            button2 = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
+            button4 = new System.Windows.Forms.Button();
+            groupBox8 = new System.Windows.Forms.GroupBox();
+            button5 = new System.Windows.Forms.Button();
+            groupBox11 = new System.Windows.Forms.GroupBox();
+            button6 = new System.Windows.Forms.Button();
+            button9 = new System.Windows.Forms.Button();
+            button10 = new System.Windows.Forms.Button();
+            label8 = new System.Windows.Forms.Label();
+            textBox1 = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            progressBar1 = new System.Windows.Forms.ProgressBar();
+            label12 = new System.Windows.Forms.Label();
             primarySubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             primarySubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
             primarySubtitlesExportAsSrtButton = new System.Windows.Forms.Button();
@@ -169,6 +201,14 @@
             minimizeToTrayButton = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
+            groupBox12.SuspendLayout();
+            groupBox13.SuspendLayout();
+            groupBox14.SuspendLayout();
+            groupBox15.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox7.SuspendLayout();
+            groupBox8.SuspendLayout();
+            groupBox11.SuspendLayout();
             primarySubtitlesGroupBox.SuspendLayout();
             primarySubtitlesExportAsDocxGroupBox.SuspendLayout();
             primarySubtitlesColorGroupBox.SuspendLayout();
@@ -245,6 +285,10 @@
             // 
             // subtitlesStreamsPanel
             // 
+            subtitlesStreamsPanel.AutoScroll = true;
+            subtitlesStreamsPanel.AutoScrollMinSize = new System.Drawing.Size(822, 593);
+            subtitlesStreamsPanel.Controls.Add(groupBox12);
+            subtitlesStreamsPanel.Controls.Add(groupBox5);
             subtitlesStreamsPanel.Controls.Add(primarySubtitlesGroupBox);
             subtitlesStreamsPanel.Controls.Add(firstRussianSubtitlesGroupBox);
             subtitlesStreamsPanel.Controls.Add(showSecondRussianSubtitlesButton);
@@ -255,6 +299,392 @@
             subtitlesStreamsPanel.Name = "subtitlesStreamsPanel";
             subtitlesStreamsPanel.Size = new System.Drawing.Size(822, 390);
             subtitlesStreamsPanel.TabIndex = 103;
+            // 
+            // groupBox12
+            // 
+            groupBox12.Controls.Add(groupBox13);
+            groupBox12.Controls.Add(groupBox14);
+            groupBox12.Controls.Add(groupBox15);
+            groupBox12.Controls.Add(label13);
+            groupBox12.Controls.Add(textBox2);
+            groupBox12.Controls.Add(label14);
+            groupBox12.Controls.Add(progressBar2);
+            groupBox12.Controls.Add(label15);
+            groupBox12.Location = new System.Drawing.Point(0, 500);
+            groupBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox12.Size = new System.Drawing.Size(822, 93);
+            groupBox12.TabIndex = 40;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "1-й поток переведенных субтитров";
+            // 
+            // groupBox13
+            // 
+            groupBox13.Controls.Add(button11);
+            groupBox13.Controls.Add(button12);
+            groupBox13.Controls.Add(button13);
+            groupBox13.Location = new System.Drawing.Point(635, 10);
+            groupBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox13.Name = "groupBox13";
+            groupBox13.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox13.Size = new System.Drawing.Size(178, 78);
+            groupBox13.TabIndex = 19;
+            groupBox13.TabStop = false;
+            groupBox13.Text = "Сохранить субтитры в файл";
+            // 
+            // button11
+            // 
+            button11.AllowDrop = true;
+            button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button11.Location = new System.Drawing.Point(86, 46);
+            button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button11.Name = "button11";
+            button11.Size = new System.Drawing.Size(84, 27);
+            button11.TabIndex = 19;
+            button11.Text = "как 💬.srt";
+            button11.UseVisualStyleBackColor = false;
+            // 
+            // button12
+            // 
+            button12.AllowDrop = true;
+            button12.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button12.Location = new System.Drawing.Point(86, 16);
+            button12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button12.Name = "button12";
+            button12.Size = new System.Drawing.Size(84, 27);
+            button12.TabIndex = 18;
+            button12.Text = "в 📥 — .docx";
+            button12.UseVisualStyleBackColor = false;
+            // 
+            // button13
+            // 
+            button13.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button13.Location = new System.Drawing.Point(7, 16);
+            button13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(79, 57);
+            button13.TabIndex = 17;
+            button13.Text = "🖴\r\nСохранить\r\nкак .docx";
+            button13.UseVisualStyleBackColor = false;
+            // 
+            // groupBox14
+            // 
+            groupBox14.Controls.Add(button14);
+            groupBox14.Location = new System.Drawing.Point(560, 10);
+            groupBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox14.Name = "groupBox14";
+            groupBox14.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox14.Size = new System.Drawing.Size(70, 78);
+            groupBox14.TabIndex = 18;
+            groupBox14.TabStop = false;
+            groupBox14.Text = "Цвет:";
+            // 
+            // button14
+            // 
+            button14.BackColor = System.Drawing.Color.Silver;
+            button14.Location = new System.Drawing.Point(12, 22);
+            button14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button14.Name = "button14";
+            button14.Size = new System.Drawing.Size(42, 42);
+            button14.TabIndex = 9;
+            button14.UseVisualStyleBackColor = false;
+            // 
+            // groupBox15
+            // 
+            groupBox15.Controls.Add(button15);
+            groupBox15.Controls.Add(button16);
+            groupBox15.Controls.Add(button17);
+            groupBox15.Location = new System.Drawing.Point(399, 10);
+            groupBox15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox15.Name = "groupBox15";
+            groupBox15.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox15.Size = new System.Drawing.Size(156, 78);
+            groupBox15.TabIndex = 17;
+            groupBox15.TabStop = false;
+            groupBox15.Text = "Открыть субтитры";
+            // 
+            // button15
+            // 
+            button15.AllowDrop = true;
+            button15.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            button15.Location = new System.Drawing.Point(79, 46);
+            button15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button15.Name = "button15";
+            button15.Size = new System.Drawing.Size(74, 27);
+            button15.TabIndex = 14;
+            button15.Text = "Из 📋";
+            button15.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            button16.AllowDrop = true;
+            button16.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button16.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button16.Location = new System.Drawing.Point(79, 16);
+            button16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button16.Name = "button16";
+            button16.Size = new System.Drawing.Size(74, 27);
+            button16.TabIndex = 17;
+            button16.Text = "файл из 📥";
+            button16.UseVisualStyleBackColor = false;
+            // 
+            // button17
+            // 
+            button17.AllowDrop = true;
+            button17.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button17.Location = new System.Drawing.Point(7, 16);
+            button17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button17.Name = "button17";
+            button17.Size = new System.Drawing.Size(72, 57);
+            button17.TabIndex = 16;
+            button17.Text = "📁 \r\nОткрыть \r\nиз файла";
+            button17.UseVisualStyleBackColor = false;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(9, 48);
+            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(13, 15);
+            label13.TabIndex = 9;
+            label13.Text = "1";
+            label13.Visible = false;
+            // 
+            // textBox2
+            // 
+            textBox2.AllowDrop = true;
+            textBox2.Location = new System.Drawing.Point(7, 22);
+            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(383, 23);
+            textBox2.TabIndex = 1;
+            // 
+            // label14
+            // 
+            label14.Location = new System.Drawing.Point(217, 48);
+            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(170, 15);
+            label14.TabIndex = 2;
+            label14.Text = "firstRussianSubtitlesLabel";
+            label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label14.Visible = false;
+            // 
+            // progressBar2
+            // 
+            progressBar2.Location = new System.Drawing.Point(7, 67);
+            progressBar2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            progressBar2.Name = "progressBar2";
+            progressBar2.Size = new System.Drawing.Size(384, 12);
+            progressBar2.TabIndex = 3;
+            progressBar2.Visible = false;
+            // 
+            // label15
+            // 
+            label15.Location = new System.Drawing.Point(500, 63);
+            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(77, 15);
+            label15.TabIndex = 6;
+            label15.Text = "Цвет";
+            label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(groupBox7);
+            groupBox5.Controls.Add(groupBox8);
+            groupBox5.Controls.Add(groupBox11);
+            groupBox5.Controls.Add(label8);
+            groupBox5.Controls.Add(textBox1);
+            groupBox5.Controls.Add(label11);
+            groupBox5.Controls.Add(progressBar1);
+            groupBox5.Controls.Add(label12);
+            groupBox5.Location = new System.Drawing.Point(0, 400);
+            groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Size = new System.Drawing.Size(822, 93);
+            groupBox5.TabIndex = 39;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "1-й поток переведенных субтитров";
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(button2);
+            groupBox7.Controls.Add(button3);
+            groupBox7.Controls.Add(button4);
+            groupBox7.Location = new System.Drawing.Point(635, 10);
+            groupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox7.Size = new System.Drawing.Size(178, 78);
+            groupBox7.TabIndex = 19;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Сохранить субтитры в файл";
+            // 
+            // button2
+            // 
+            button2.AllowDrop = true;
+            button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button2.Location = new System.Drawing.Point(86, 46);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(84, 27);
+            button2.TabIndex = 19;
+            button2.Text = "как 💬.srt";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.AllowDrop = true;
+            button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button3.Location = new System.Drawing.Point(86, 16);
+            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(84, 27);
+            button3.TabIndex = 18;
+            button3.Text = "в 📥 — .docx";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button4.Location = new System.Drawing.Point(7, 16);
+            button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(79, 57);
+            button4.TabIndex = 17;
+            button4.Text = "🖴\r\nСохранить\r\nкак .docx";
+            button4.UseVisualStyleBackColor = false;
+            // 
+            // groupBox8
+            // 
+            groupBox8.Controls.Add(button5);
+            groupBox8.Location = new System.Drawing.Point(560, 10);
+            groupBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox8.Size = new System.Drawing.Size(70, 78);
+            groupBox8.TabIndex = 18;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "Цвет:";
+            // 
+            // button5
+            // 
+            button5.BackColor = System.Drawing.Color.Silver;
+            button5.Location = new System.Drawing.Point(12, 22);
+            button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(42, 42);
+            button5.TabIndex = 9;
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // groupBox11
+            // 
+            groupBox11.Controls.Add(button6);
+            groupBox11.Controls.Add(button9);
+            groupBox11.Controls.Add(button10);
+            groupBox11.Location = new System.Drawing.Point(399, 10);
+            groupBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox11.Size = new System.Drawing.Size(156, 78);
+            groupBox11.TabIndex = 17;
+            groupBox11.TabStop = false;
+            groupBox11.Text = "Открыть субтитры";
+            // 
+            // button6
+            // 
+            button6.AllowDrop = true;
+            button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            button6.Location = new System.Drawing.Point(79, 46);
+            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(74, 27);
+            button6.TabIndex = 14;
+            button6.Text = "Из 📋";
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            button9.AllowDrop = true;
+            button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button9.Location = new System.Drawing.Point(79, 16);
+            button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button9.Name = "button9";
+            button9.Size = new System.Drawing.Size(74, 27);
+            button9.TabIndex = 17;
+            button9.Text = "файл из 📥";
+            button9.UseVisualStyleBackColor = false;
+            // 
+            // button10
+            // 
+            button10.AllowDrop = true;
+            button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button10.Location = new System.Drawing.Point(7, 16);
+            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(72, 57);
+            button10.TabIndex = 16;
+            button10.Text = "📁 \r\nОткрыть \r\nиз файла";
+            button10.UseVisualStyleBackColor = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(8, 48);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(13, 15);
+            label8.TabIndex = 9;
+            label8.Text = "1";
+            label8.Visible = false;
+            // 
+            // textBox1
+            // 
+            textBox1.AllowDrop = true;
+            textBox1.Location = new System.Drawing.Point(7, 22);
+            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(383, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label11
+            // 
+            label11.Location = new System.Drawing.Point(217, 48);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(170, 15);
+            label11.TabIndex = 2;
+            label11.Text = "firstRussianSubtitlesLabel";
+            label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label11.Visible = false;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new System.Drawing.Point(7, 67);
+            progressBar1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new System.Drawing.Size(384, 12);
+            progressBar1.TabIndex = 3;
+            progressBar1.Visible = false;
+            // 
+            // label12
+            // 
+            label12.Location = new System.Drawing.Point(500, 63);
+            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(77, 15);
+            label12.TabIndex = 6;
+            label12.Text = "Цвет";
+            label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // primarySubtitlesGroupBox
             // 
@@ -1687,7 +2117,7 @@
             subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(654, 541);
             subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(980, 45);
             subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 383);
+            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 378);
             subtitlesAppearanceSettingsControl.TabIndex = 101;
             subtitlesAppearanceSettingsControl.Load += subtitlesAppearanceSettingsControl_Load;
             // 
@@ -1771,7 +2201,7 @@
             // 
             removePostfixGroupBox.Controls.Add(button7);
             removePostfixGroupBox.Controls.Add(button8);
-            removePostfixGroupBox.Location = new System.Drawing.Point(980, 444);
+            removePostfixGroupBox.Location = new System.Drawing.Point(980, 431);
             removePostfixGroupBox.Name = "removePostfixGroupBox";
             removePostfixGroupBox.Size = new System.Drawing.Size(249, 84);
             removePostfixGroupBox.TabIndex = 101;
@@ -1934,6 +2364,16 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             subtitlesStreamsPanel.ResumeLayout(false);
+            groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
+            groupBox13.ResumeLayout(false);
+            groupBox14.ResumeLayout(false);
+            groupBox15.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox7.ResumeLayout(false);
+            groupBox8.ResumeLayout(false);
+            groupBox11.ResumeLayout(false);
             primarySubtitlesGroupBox.ResumeLayout(false);
             primarySubtitlesGroupBox.PerformLayout();
             primarySubtitlesExportAsDocxGroupBox.ResumeLayout(false);
@@ -2119,5 +2559,37 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button minimizeToTrayButton;
         private System.Windows.Forms.Panel subtitlesStreamsPanel;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label12;
     }
 }

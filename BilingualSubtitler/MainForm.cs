@@ -327,6 +327,7 @@ namespace BilingualSubtitler
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithOriginalSubtitlesComboBoxItem);
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithBilingualSubtitlesComboBoxItem);
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedIndex = 0;
+            videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
             //
             //m_videoAndSubtitlesStatesAndRelatedComboBoxItems = new Dictionary<Tuple<VideoState, SubtitlesState>, ComboboxItem>
             //{
