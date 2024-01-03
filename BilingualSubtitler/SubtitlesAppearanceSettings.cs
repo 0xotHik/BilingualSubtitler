@@ -279,7 +279,7 @@ namespace BilingualSubtitler
 
         private void AddValueToNumericUpDownSafe(NumericUpDown targetNumericUpDown, decimal value)
         {
-            SetValueToNumericUpDownFromCodeSafe(targetNumericUpDown, 
+            SetValueToNumericUpDownFromCodeSafe(targetNumericUpDown,
                 (decimal)targetNumericUpDown.Tag // В тэге у нас должно лежать текущее, до прибавления, значение
                 + value);
         }
@@ -628,6 +628,11 @@ namespace BilingualSubtitler
                     AddValueToNumericUpDownSafe(ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown, delta);
                 }
             }
+        }
+
+        private void ThirdRussianSubtitlesTransparencyPercentageNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

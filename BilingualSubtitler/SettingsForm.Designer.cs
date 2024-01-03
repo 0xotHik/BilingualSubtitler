@@ -29,866 +29,874 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
-            this.richTextBoxForYandexApiKeyInSeparateForm = new System.Windows.Forms.RichTextBox();
-            this.buttonOk = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
-            this.yandexTranslatorGroupBox = new System.Windows.Forms.GroupBox();
-            this.gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
-            this.hotkeysDataGridView = new System.Windows.Forms.DataGridView();
-            this.keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CreateBilingualSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
-            this.CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
-            this.bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
-            this.originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.videoplayerProcessNameTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.processPriorityGroupBox = new System.Windows.Forms.GroupBox();
-            this.targetProcessPriorityTextBox = new System.Windows.Forms.ComboBox();
-            this.currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.checkUpdatesGroupBox = new System.Windows.Forms.GroupBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.lastAppVersionLabel = new System.Windows.Forms.Label();
-            this.currentAppVersionLabel = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.advancedModeRadioButton = new System.Windows.Forms.RadioButton();
-            this.notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
-            this.downloadsDirectoryGroupBox = new System.Windows.Forms.GroupBox();
-            this.downloadsFolderPathSetButton = new System.Windows.Forms.Button();
-            this.downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.defaultFolderPathSetButton = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.subtitlesAppearanceSettingsControl = new BilingualSubtitler.SubtitlesAppearanceSettings();
-            this.defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox = new System.Windows.Forms.CheckBox();
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
-            this.yandexTranslatorGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.processPriorityGroupBox.SuspendLayout();
-            this.checkUpdatesGroupBox.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.downloadsDirectoryGroupBox.SuspendLayout();
-            this.defaultDirectoryGroupBox.SuspendLayout();
-            this.SuspendLayout();
+            richTextBoxForYandexApiKeyInSeparateForm = new System.Windows.Forms.RichTextBox();
+            buttonOk = new System.Windows.Forms.Button();
+            buttonCancel = new System.Windows.Forms.Button();
+            linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
+            yandexTranslatorGroupBox = new System.Windows.Forms.GroupBox();
+            gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
+            hotkeysDataGridView = new System.Windows.Forms.DataGridView();
+            keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            button9 = new System.Windows.Forms.Button();
+            button8 = new System.Windows.Forms.Button();
+            button7 = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            button5 = new System.Windows.Forms.Button();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            label4 = new System.Windows.Forms.Label();
+            CreateBilingualSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
+            CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
+            bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
+            originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
+            groupBox6 = new System.Windows.Forms.GroupBox();
+            button6 = new System.Windows.Forms.Button();
+            label10 = new System.Windows.Forms.Label();
+            videoplayerProcessNameTextBox = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            button4 = new System.Windows.Forms.Button();
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            button3 = new System.Windows.Forms.Button();
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
+            videoPlayerPauseButtonTextBox = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            processPriorityGroupBox = new System.Windows.Forms.GroupBox();
+            targetProcessPriorityTextBox = new System.Windows.Forms.ComboBox();
+            currentProcessPriorityTextBox = new System.Windows.Forms.TextBox();
+            label38 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
+            checkUpdatesGroupBox = new System.Windows.Forms.GroupBox();
+            linkLabel2 = new System.Windows.Forms.LinkLabel();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            lastAppVersionLabel = new System.Windows.Forms.Label();
+            currentAppVersionLabel = new System.Windows.Forms.Label();
+            label39 = new System.Windows.Forms.Label();
+            checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
+            label40 = new System.Windows.Forms.Label();
+            groupBox12 = new System.Windows.Forms.GroupBox();
+            advancedModeRadioButton = new System.Windows.Forms.RadioButton();
+            notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
+            downloadsDirectoryGroupBox = new System.Windows.Forms.GroupBox();
+            downloadsFolderPathSetButton = new System.Windows.Forms.Button();
+            downloadsFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            defaultFolderPathSetButton = new System.Windows.Forms.Button();
+            label42 = new System.Windows.Forms.Label();
+            defaultFolderPathRichTextBox = new System.Windows.Forms.RichTextBox();
+            button11 = new System.Windows.Forms.Button();
+            subtitlesAppearanceSettingsControl = new SubtitlesAppearanceSettings();
+            defaultDirectoryGroupBox = new System.Windows.Forms.GroupBox();
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox = new System.Windows.Forms.CheckBox();
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
+            yandexTranslatorGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
+            processPriorityGroupBox.SuspendLayout();
+            checkUpdatesGroupBox.SuspendLayout();
+            groupBox12.SuspendLayout();
+            downloadsDirectoryGroupBox.SuspendLayout();
+            defaultDirectoryGroupBox.SuspendLayout();
+            SuspendLayout();
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
             // 
-            this.richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(340, 22);
-            this.richTextBoxForYandexApiKeyInSeparateForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
-            this.richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(871, 50);
-            this.richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
-            this.richTextBoxForYandexApiKeyInSeparateForm.Text = "";
+            richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(340, 22);
+            richTextBoxForYandexApiKeyInSeparateForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
+            richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(871, 50);
+            richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
+            richTextBoxForYandexApiKeyInSeparateForm.Text = "";
             // 
             // buttonOk
             // 
-            this.buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonOk.Image = global::BilingualSubtitler.Properties.Resources._16pxOkIcon;
-            this.buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOk.Location = new System.Drawing.Point(1138, 899);
-            this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(111, 40);
-            this.buttonOk.TabIndex = 5;
-            this.buttonOk.Text = "Применить";
-            this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonOk.UseVisualStyleBackColor = false;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            buttonOk.Image = Properties.Resources._16pxOkIcon;
+            buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            buttonOk.Location = new System.Drawing.Point(1138, 915);
+            buttonOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            buttonOk.Name = "buttonOk";
+            buttonOk.Size = new System.Drawing.Size(111, 40);
+            buttonOk.TabIndex = 5;
+            buttonOk.Text = "Применить";
+            buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            buttonOk.UseVisualStyleBackColor = false;
+            buttonOk.Click += buttonOk_Click;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCancel.Image = global::BilingualSubtitler.Properties.Resources._16pxCancelIconAnother;
-            this.buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancel.Location = new System.Drawing.Point(564, 899);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(86, 40);
-            this.buttonCancel.TabIndex = 4;
-            this.buttonCancel.Text = "Отмена";
-            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            buttonCancel.Image = Properties.Resources._16pxCancelIconAnother;
+            buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            buttonCancel.Location = new System.Drawing.Point(564, 915);
+            buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new System.Drawing.Size(86, 40);
+            buttonCancel.TabIndex = 4;
+            buttonCancel.Text = "Отмена";
+            buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            buttonCancel.UseVisualStyleBackColor = false;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // linkLabelYandexAPIKeysList
             // 
-            this.linkLabelYandexAPIKeysList.AutoSize = true;
-            this.linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(15, 57);
-            this.linkLabelYandexAPIKeysList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabelYandexAPIKeysList.Name = "linkLabelYandexAPIKeysList";
-            this.linkLabelYandexAPIKeysList.Size = new System.Drawing.Size(269, 15);
-            this.linkLabelYandexAPIKeysList.TabIndex = 43;
-            this.linkLabelYandexAPIKeysList.TabStop = true;
-            this.linkLabelYandexAPIKeysList.Text = "Открыть список уже полученных вами ключей";
-            this.linkLabelYandexAPIKeysList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelYandexAPIKeysList_LinkClicked);
+            linkLabelYandexAPIKeysList.AutoSize = true;
+            linkLabelYandexAPIKeysList.Location = new System.Drawing.Point(15, 57);
+            linkLabelYandexAPIKeysList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            linkLabelYandexAPIKeysList.Name = "linkLabelYandexAPIKeysList";
+            linkLabelYandexAPIKeysList.Size = new System.Drawing.Size(269, 15);
+            linkLabelYandexAPIKeysList.TabIndex = 43;
+            linkLabelYandexAPIKeysList.TabStop = true;
+            linkLabelYandexAPIKeysList.Text = "Открыть список уже полученных вами ключей";
+            linkLabelYandexAPIKeysList.LinkClicked += linkLabelYandexAPIKeysList_LinkClicked;
             // 
             // yandexTranslatorGroupBox
             // 
-            this.yandexTranslatorGroupBox.Controls.Add(this.gotTheYandexTranslatorAPIKeyCheckBox);
-            this.yandexTranslatorGroupBox.Controls.Add(this.linkLabelYandexAPIKeysList);
-            this.yandexTranslatorGroupBox.Controls.Add(this.richTextBoxForYandexApiKeyInSeparateForm);
-            this.yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 811);
-            this.yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
-            this.yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 87);
-            this.yandexTranslatorGroupBox.TabIndex = 44;
-            this.yandexTranslatorGroupBox.TabStop = false;
-            this.yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
+            yandexTranslatorGroupBox.Controls.Add(gotTheYandexTranslatorAPIKeyCheckBox);
+            yandexTranslatorGroupBox.Controls.Add(linkLabelYandexAPIKeysList);
+            yandexTranslatorGroupBox.Controls.Add(richTextBoxForYandexApiKeyInSeparateForm);
+            yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 827);
+            yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
+            yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 87);
+            yandexTranslatorGroupBox.TabIndex = 44;
+            yandexTranslatorGroupBox.TabStop = false;
+            yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
             // 
             // gotTheYandexTranslatorAPIKeyCheckBox
             // 
-            this.gotTheYandexTranslatorAPIKeyCheckBox.AutoSize = true;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Checked = true;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(19, 35);
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Name = "gotTheYandexTranslatorAPIKeyCheckBox";
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(283, 19);
-            this.gotTheYandexTranslatorAPIKeyCheckBox.TabIndex = 97;
-            this.gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ для API Яндекс.Переводчика";
-            this.gotTheYandexTranslatorAPIKeyCheckBox.UseVisualStyleBackColor = true;
+            gotTheYandexTranslatorAPIKeyCheckBox.AutoSize = true;
+            gotTheYandexTranslatorAPIKeyCheckBox.Checked = true;
+            gotTheYandexTranslatorAPIKeyCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            gotTheYandexTranslatorAPIKeyCheckBox.Location = new System.Drawing.Point(19, 35);
+            gotTheYandexTranslatorAPIKeyCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            gotTheYandexTranslatorAPIKeyCheckBox.Name = "gotTheYandexTranslatorAPIKeyCheckBox";
+            gotTheYandexTranslatorAPIKeyCheckBox.Size = new System.Drawing.Size(283, 19);
+            gotTheYandexTranslatorAPIKeyCheckBox.TabIndex = 97;
+            gotTheYandexTranslatorAPIKeyCheckBox.Text = "У меня есть ключ для API Яндекс.Переводчика";
+            gotTheYandexTranslatorAPIKeyCheckBox.UseVisualStyleBackColor = true;
             // 
             // hotkeysDataGridView
             // 
-            this.hotkeysDataGridView.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
-            this.hotkeysDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.hotkeysDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.keyColumn});
-            this.hotkeysDataGridView.Location = new System.Drawing.Point(19, 55);
-            this.hotkeysDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.hotkeysDataGridView.MultiSelect = false;
-            this.hotkeysDataGridView.Name = "hotkeysDataGridView";
-            this.hotkeysDataGridView.RowHeadersVisible = false;
-            this.hotkeysDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.hotkeysDataGridView.Size = new System.Drawing.Size(169, 366);
-            this.hotkeysDataGridView.TabIndex = 45;
+            hotkeysDataGridView.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
+            hotkeysDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            hotkeysDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { keyColumn });
+            hotkeysDataGridView.Location = new System.Drawing.Point(19, 55);
+            hotkeysDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            hotkeysDataGridView.MultiSelect = false;
+            hotkeysDataGridView.Name = "hotkeysDataGridView";
+            hotkeysDataGridView.RowHeadersVisible = false;
+            hotkeysDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            hotkeysDataGridView.Size = new System.Drawing.Size(169, 366);
+            hotkeysDataGridView.TabIndex = 45;
             // 
             // keyColumn
             // 
-            this.keyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.keyColumn.HeaderText = "Клавиши";
-            this.keyColumn.Name = "keyColumn";
-            this.keyColumn.ReadOnly = true;
+            keyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            keyColumn.HeaderText = "Клавиши";
+            keyColumn.Name = "keyColumn";
+            keyColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.hotkeysDataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(380, 14);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(210, 554);
-            this.groupBox2.TabIndex = 46;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Горячие клавиши программы";
+            groupBox2.Controls.Add(button9);
+            groupBox2.Controls.Add(button8);
+            groupBox2.Controls.Add(button7);
+            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(hotkeysDataGridView);
+            groupBox2.Location = new System.Drawing.Point(380, 14);
+            groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Size = new System.Drawing.Size(210, 554);
+            groupBox2.TabIndex = 46;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Горячие клавиши программы";
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button9.Location = new System.Drawing.Point(19, 489);
-            this.button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(169, 54);
-            this.button9.TabIndex = 49;
-            this.button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button9.Location = new System.Drawing.Point(19, 489);
+            button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button9.Name = "button9";
+            button9.Size = new System.Drawing.Size(169, 54);
+            button9.TabIndex = 49;
+            button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button8.Location = new System.Drawing.Point(19, 456);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(169, 27);
-            this.button8.TabIndex = 48;
-            this.button8.Text = "x Очистить все";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button8.Location = new System.Drawing.Point(19, 456);
+            button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button8.Name = "button8";
+            button8.Size = new System.Drawing.Size(169, 27);
+            button8.TabIndex = 48;
+            button8.Text = "x Очистить все";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(19, 428);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(169, 27);
-            this.button7.TabIndex = 47;
-            this.button7.Text = "- Убрать выбранную";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button7.Location = new System.Drawing.Point(19, 428);
+            button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button7.Name = "button7";
+            button7.Size = new System.Drawing.Size(169, 27);
+            button7.TabIndex = 47;
+            button7.Text = "- Убрать выбранную";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(19, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 27);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "+ Задать новую";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button1.Location = new System.Drawing.Point(19, 22);
+            button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(169, 27);
+            button1.TabIndex = 46;
+            button1.Text = "+ Задать новую";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(750, 899);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(273, 40);
-            this.button5.TabIndex = 48;
-            this.button5.Text = "📖  Сбросить все настройки программы\r\n к значениям по умолчанию";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button5.Location = new System.Drawing.Point(750, 915);
+            button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(273, 40);
+            button5.TabIndex = 48;
+            button5.Text = "📖  Сбросить все настройки программы\r\n к значениям по умолчанию";
+            button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.CreateBilingualSubtitlesFileCheckBox);
-            this.groupBox5.Controls.Add(this.CreateOriginalSubtitlesFileCheckBox);
-            this.groupBox5.Controls.Add(this.bilingualSubtitlesPathEndingTextBox);
-            this.groupBox5.Controls.Add(this.originalSubtitlesPathEndingTextBox);
-            this.groupBox5.Location = new System.Drawing.Point(18, 411);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox5.Size = new System.Drawing.Size(348, 145);
-            this.groupBox5.TabIndex = 69;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Создавать файлы:";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            groupBox5.Controls.Add(label4);
+            groupBox5.Controls.Add(CreateBilingualSubtitlesFileCheckBox);
+            groupBox5.Controls.Add(CreateOriginalSubtitlesFileCheckBox);
+            groupBox5.Controls.Add(bilingualSubtitlesPathEndingTextBox);
+            groupBox5.Controls.Add(originalSubtitlesPathEndingTextBox);
+            groupBox5.Location = new System.Drawing.Point(18, 411);
+            groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Size = new System.Drawing.Size(348, 145);
+            groupBox5.TabIndex = 69;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Создавать файлы:";
+            groupBox5.Enter += groupBox5_Enter;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 78);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 15);
-            this.label4.TabIndex = 60;
-            this.label4.Text = "с окончанием имени:";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(107, 78);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(127, 15);
+            label4.TabIndex = 60;
+            label4.Text = "с окончанием имени:";
             // 
             // CreateBilingualSubtitlesFileCheckBox
             // 
-            this.CreateBilingualSubtitlesFileCheckBox.AutoSize = true;
-            this.CreateBilingualSubtitlesFileCheckBox.Checked = true;
-            this.CreateBilingualSubtitlesFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CreateBilingualSubtitlesFileCheckBox.Location = new System.Drawing.Point(196, 27);
-            this.CreateBilingualSubtitlesFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.CreateBilingualSubtitlesFileCheckBox.Name = "CreateBilingualSubtitlesFileCheckBox";
-            this.CreateBilingualSubtitlesFileCheckBox.Size = new System.Drawing.Size(93, 34);
-            this.CreateBilingualSubtitlesFileCheckBox.TabIndex = 59;
-            this.CreateBilingualSubtitlesFileCheckBox.Text = "двуязычных\r\nсубтитров";
-            this.CreateBilingualSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
+            CreateBilingualSubtitlesFileCheckBox.AutoSize = true;
+            CreateBilingualSubtitlesFileCheckBox.Checked = true;
+            CreateBilingualSubtitlesFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            CreateBilingualSubtitlesFileCheckBox.Location = new System.Drawing.Point(196, 27);
+            CreateBilingualSubtitlesFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CreateBilingualSubtitlesFileCheckBox.Name = "CreateBilingualSubtitlesFileCheckBox";
+            CreateBilingualSubtitlesFileCheckBox.Size = new System.Drawing.Size(93, 34);
+            CreateBilingualSubtitlesFileCheckBox.TabIndex = 59;
+            CreateBilingualSubtitlesFileCheckBox.Text = "двуязычных\r\nсубтитров";
+            CreateBilingualSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
             // 
             // CreateOriginalSubtitlesFileCheckBox
             // 
-            this.CreateOriginalSubtitlesFileCheckBox.AutoSize = true;
-            this.CreateOriginalSubtitlesFileCheckBox.Checked = true;
-            this.CreateOriginalSubtitlesFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CreateOriginalSubtitlesFileCheckBox.Location = new System.Drawing.Point(63, 27);
-            this.CreateOriginalSubtitlesFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.CreateOriginalSubtitlesFileCheckBox.Name = "CreateOriginalSubtitlesFileCheckBox";
-            this.CreateOriginalSubtitlesFileCheckBox.Size = new System.Drawing.Size(107, 34);
-            this.CreateOriginalSubtitlesFileCheckBox.TabIndex = 58;
-            this.CreateOriginalSubtitlesFileCheckBox.Text = "оригинальных\r\nсубтитров";
-            this.CreateOriginalSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
+            CreateOriginalSubtitlesFileCheckBox.AutoSize = true;
+            CreateOriginalSubtitlesFileCheckBox.Checked = true;
+            CreateOriginalSubtitlesFileCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            CreateOriginalSubtitlesFileCheckBox.Location = new System.Drawing.Point(63, 27);
+            CreateOriginalSubtitlesFileCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            CreateOriginalSubtitlesFileCheckBox.Name = "CreateOriginalSubtitlesFileCheckBox";
+            CreateOriginalSubtitlesFileCheckBox.Size = new System.Drawing.Size(107, 34);
+            CreateOriginalSubtitlesFileCheckBox.TabIndex = 58;
+            CreateOriginalSubtitlesFileCheckBox.Text = "оригинальных\r\nсубтитров";
+            CreateOriginalSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
             // 
             // bilingualSubtitlesPathEndingTextBox
             // 
-            this.bilingualSubtitlesPathEndingTextBox.Location = new System.Drawing.Point(196, 107);
-            this.bilingualSubtitlesPathEndingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.bilingualSubtitlesPathEndingTextBox.Name = "bilingualSubtitlesPathEndingTextBox";
-            this.bilingualSubtitlesPathEndingTextBox.Size = new System.Drawing.Size(116, 23);
-            this.bilingualSubtitlesPathEndingTextBox.TabIndex = 56;
+            bilingualSubtitlesPathEndingTextBox.Location = new System.Drawing.Point(196, 107);
+            bilingualSubtitlesPathEndingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            bilingualSubtitlesPathEndingTextBox.Name = "bilingualSubtitlesPathEndingTextBox";
+            bilingualSubtitlesPathEndingTextBox.Size = new System.Drawing.Size(116, 23);
+            bilingualSubtitlesPathEndingTextBox.TabIndex = 56;
             // 
             // originalSubtitlesPathEndingTextBox
             // 
-            this.originalSubtitlesPathEndingTextBox.Location = new System.Drawing.Point(55, 107);
-            this.originalSubtitlesPathEndingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.originalSubtitlesPathEndingTextBox.Name = "originalSubtitlesPathEndingTextBox";
-            this.originalSubtitlesPathEndingTextBox.Size = new System.Drawing.Size(116, 23);
-            this.originalSubtitlesPathEndingTextBox.TabIndex = 55;
+            originalSubtitlesPathEndingTextBox.Location = new System.Drawing.Point(55, 107);
+            originalSubtitlesPathEndingTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            originalSubtitlesPathEndingTextBox.Name = "originalSubtitlesPathEndingTextBox";
+            originalSubtitlesPathEndingTextBox.Size = new System.Drawing.Size(116, 23);
+            originalSubtitlesPathEndingTextBox.TabIndex = 55;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.videoplayerProcessNameTextBox);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.button4);
-            this.groupBox6.Controls.Add(this.videoPlayerChangeToOriginalSubtitlesButtonTextBox);
-            this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.button3);
-            this.groupBox6.Controls.Add(this.videoPlayerChangeToBilingualSubtitlesButtonTextBox);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.button2);
-            this.groupBox6.Controls.Add(this.videoPlayerPauseButtonTextBox);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Location = new System.Drawing.Point(18, 123);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox6.Size = new System.Drawing.Size(348, 284);
-            this.groupBox6.TabIndex = 70;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Настройки видеоплеера";
+            groupBox6.Controls.Add(button6);
+            groupBox6.Controls.Add(label10);
+            groupBox6.Controls.Add(videoplayerProcessNameTextBox);
+            groupBox6.Controls.Add(label9);
+            groupBox6.Controls.Add(button4);
+            groupBox6.Controls.Add(videoPlayerChangeToOriginalSubtitlesButtonTextBox);
+            groupBox6.Controls.Add(label8);
+            groupBox6.Controls.Add(button3);
+            groupBox6.Controls.Add(videoPlayerChangeToBilingualSubtitlesButtonTextBox);
+            groupBox6.Controls.Add(label7);
+            groupBox6.Controls.Add(button2);
+            groupBox6.Controls.Add(videoPlayerPauseButtonTextBox);
+            groupBox6.Controls.Add(label6);
+            groupBox6.Controls.Add(label5);
+            groupBox6.Location = new System.Drawing.Point(18, 123);
+            groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox6.Size = new System.Drawing.Size(348, 284);
+            groupBox6.TabIndex = 70;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Настройки видеоплеера";
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(196, 227);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 45);
-            this.button6.TabIndex = 81;
-            this.button6.Text = "🎥   Выбрать \r\nисполняемый файл";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button6.Location = new System.Drawing.Point(196, 227);
+            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(134, 45);
+            button6.TabIndex = 81;
+            button6.Text = "🎥   Выбрать \r\nисполняемый файл";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(54, 208);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(191, 15);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "Название процесса видеоплеера:";
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(54, 208);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(191, 15);
+            label10.TabIndex = 80;
+            label10.Text = "Название процесса видеоплеера:";
             // 
             // videoplayerProcessNameTextBox
             // 
-            this.videoplayerProcessNameTextBox.Location = new System.Drawing.Point(57, 239);
-            this.videoplayerProcessNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoplayerProcessNameTextBox.Name = "videoplayerProcessNameTextBox";
-            this.videoplayerProcessNameTextBox.Size = new System.Drawing.Size(114, 23);
-            this.videoplayerProcessNameTextBox.TabIndex = 79;
+            videoplayerProcessNameTextBox.Location = new System.Drawing.Point(57, 239);
+            videoplayerProcessNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            videoplayerProcessNameTextBox.Name = "videoplayerProcessNameTextBox";
+            videoplayerProcessNameTextBox.Size = new System.Drawing.Size(114, 23);
+            videoplayerProcessNameTextBox.TabIndex = 79;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 171);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 15);
-            this.label9.TabIndex = 78;
-            this.label9.Text = "предыдущие:";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(28, 171);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(81, 15);
+            label9.TabIndex = 78;
+            label9.Text = "предыдущие:";
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(245, 165);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(85, 27);
-            this.button4.TabIndex = 77;
-            this.button4.Text = "⌨️  Задать";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.videoPlayerChangeToOriginalSubtitlesHotkeySetButton_Click);
+            button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button4.Location = new System.Drawing.Point(245, 165);
+            button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(85, 27);
+            button4.TabIndex = 77;
+            button4.Text = "⌨️  Задать";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += videoPlayerChangeToOriginalSubtitlesHotkeySetButton_Click;
             // 
             // videoPlayerChangeToOriginalSubtitlesButtonTextBox
             // 
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 167);
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.ReadOnly = true;
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.TabIndex = 76;
-            this.videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = ".eng.ass";
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 167);
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.ReadOnly = true;
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.TabIndex = 76;
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Text = ".eng.ass";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 137);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 15);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "следующие:";
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(28, 137);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(75, 15);
+            label8.TabIndex = 75;
+            label8.Text = "следующие:";
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(245, 132);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 27);
-            this.button3.TabIndex = 74;
-            this.button3.Text = "⌨️  Задать";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.videoplayerNextSubtitlesHotkeySetButton_Click);
+            button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button3.Location = new System.Drawing.Point(245, 132);
+            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(85, 27);
+            button3.TabIndex = 74;
+            button3.Text = "⌨️  Задать";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += videoplayerNextSubtitlesHotkeySetButton_Click;
             // 
             // videoPlayerChangeToBilingualSubtitlesButtonTextBox
             // 
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 134);
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.ReadOnly = true;
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.TabIndex = 73;
-            this.videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = ".eng.ass";
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 134);
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.ReadOnly = true;
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Size = new System.Drawing.Size(114, 23);
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.TabIndex = 73;
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Text = ".eng.ass";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 108);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 15);
-            this.label7.TabIndex = 72;
-            this.label7.Text = "Смены субтитров на:";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(28, 108);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(124, 15);
+            label7.TabIndex = 72;
+            label7.Text = "Смены субтитров на:";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(245, 65);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 27);
-            this.button2.TabIndex = 71;
-            this.button2.Text = "⌨️  Задать";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.videoplayerPauseHotkeySetButton_Click);
+            button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button2.Location = new System.Drawing.Point(245, 65);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(85, 27);
+            button2.TabIndex = 71;
+            button2.Text = "⌨️  Задать";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += videoplayerPauseHotkeySetButton_Click;
             // 
             // videoPlayerPauseButtonTextBox
             // 
-            this.videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(124, 67);
-            this.videoPlayerPauseButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
-            this.videoPlayerPauseButtonTextBox.ReadOnly = true;
-            this.videoPlayerPauseButtonTextBox.Size = new System.Drawing.Size(114, 23);
-            this.videoPlayerPauseButtonTextBox.TabIndex = 70;
-            this.videoPlayerPauseButtonTextBox.Text = ".eng.ass";
+            videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(124, 67);
+            videoPlayerPauseButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
+            videoPlayerPauseButtonTextBox.ReadOnly = true;
+            videoPlayerPauseButtonTextBox.Size = new System.Drawing.Size(114, 23);
+            videoPlayerPauseButtonTextBox.TabIndex = 70;
+            videoPlayerPauseButtonTextBox.Text = ".eng.ass";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 70);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 15);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Паузы:";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(28, 70);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(45, 15);
+            label6.TabIndex = 69;
+            label6.Text = "Паузы:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 31);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 15);
-            this.label5.TabIndex = 68;
-            this.label5.Text = "Горячие клавиши в видеоплеере:";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(54, 31);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(192, 15);
+            label5.TabIndex = 68;
+            label5.Text = "Горячие клавиши в видеоплеере:";
             // 
             // processPriorityGroupBox
             // 
-            this.processPriorityGroupBox.Controls.Add(this.targetProcessPriorityTextBox);
-            this.processPriorityGroupBox.Controls.Add(this.currentProcessPriorityTextBox);
-            this.processPriorityGroupBox.Controls.Add(this.label38);
-            this.processPriorityGroupBox.Controls.Add(this.label37);
-            this.processPriorityGroupBox.Location = new System.Drawing.Point(18, 572);
-            this.processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.processPriorityGroupBox.Name = "processPriorityGroupBox";
-            this.processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.processPriorityGroupBox.Size = new System.Drawing.Size(348, 87);
-            this.processPriorityGroupBox.TabIndex = 98;
-            this.processPriorityGroupBox.TabStop = false;
-            this.processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
+            processPriorityGroupBox.Controls.Add(targetProcessPriorityTextBox);
+            processPriorityGroupBox.Controls.Add(currentProcessPriorityTextBox);
+            processPriorityGroupBox.Controls.Add(label38);
+            processPriorityGroupBox.Controls.Add(label37);
+            processPriorityGroupBox.Location = new System.Drawing.Point(18, 572);
+            processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            processPriorityGroupBox.Name = "processPriorityGroupBox";
+            processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            processPriorityGroupBox.Size = new System.Drawing.Size(348, 87);
+            processPriorityGroupBox.TabIndex = 98;
+            processPriorityGroupBox.TabStop = false;
+            processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
             // 
             // targetProcessPriorityTextBox
             // 
-            this.targetProcessPriorityTextBox.FormattingEnabled = true;
-            this.targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 45);
-            this.targetProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
-            this.targetProcessPriorityTextBox.Size = new System.Drawing.Size(150, 23);
-            this.targetProcessPriorityTextBox.TabIndex = 96;
-            this.targetProcessPriorityTextBox.Text = "Реального времени";
+            targetProcessPriorityTextBox.FormattingEnabled = true;
+            targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 45);
+            targetProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
+            targetProcessPriorityTextBox.Size = new System.Drawing.Size(150, 23);
+            targetProcessPriorityTextBox.TabIndex = 96;
+            targetProcessPriorityTextBox.Text = "Реального времени";
             // 
             // currentProcessPriorityTextBox
             // 
-            this.currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 46);
-            this.currentProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
-            this.currentProcessPriorityTextBox.ReadOnly = true;
-            this.currentProcessPriorityTextBox.Size = new System.Drawing.Size(136, 23);
-            this.currentProcessPriorityTextBox.TabIndex = 82;
-            this.currentProcessPriorityTextBox.Text = "Реального времени";
-            this.currentProcessPriorityTextBox.TextChanged += new System.EventHandler(this.currentProcessPriorityTextBox_TextChanged);
+            currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 46);
+            currentProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
+            currentProcessPriorityTextBox.ReadOnly = true;
+            currentProcessPriorityTextBox.Size = new System.Drawing.Size(136, 23);
+            currentProcessPriorityTextBox.TabIndex = 82;
+            currentProcessPriorityTextBox.Text = "Реального времени";
+            currentProcessPriorityTextBox.TextChanged += currentProcessPriorityTextBox_TextChanged;
             // 
             // label38
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(174, 22);
-            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(71, 15);
-            this.label38.TabIndex = 4;
-            this.label38.Text = "Желаемый:";
+            label38.AutoSize = true;
+            label38.Location = new System.Drawing.Point(174, 22);
+            label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label38.Name = "label38";
+            label38.Size = new System.Drawing.Size(71, 15);
+            label38.TabIndex = 4;
+            label38.Text = "Желаемый:";
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(15, 22);
-            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(59, 15);
-            this.label37.TabIndex = 3;
-            this.label37.Text = "Текущий:";
+            label37.AutoSize = true;
+            label37.Location = new System.Drawing.Point(15, 22);
+            label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label37.Name = "label37";
+            label37.Size = new System.Drawing.Size(59, 15);
+            label37.TabIndex = 3;
+            label37.Text = "Текущий:";
             // 
             // checkUpdatesGroupBox
             // 
-            this.checkUpdatesGroupBox.Controls.Add(this.linkLabel2);
-            this.checkUpdatesGroupBox.Controls.Add(this.linkLabel1);
-            this.checkUpdatesGroupBox.Controls.Add(this.lastAppVersionLabel);
-            this.checkUpdatesGroupBox.Controls.Add(this.currentAppVersionLabel);
-            this.checkUpdatesGroupBox.Controls.Add(this.label39);
-            this.checkUpdatesGroupBox.Controls.Add(this.checkUpdatesOnAppStartCheckBox);
-            this.checkUpdatesGroupBox.Controls.Add(this.label40);
-            this.checkUpdatesGroupBox.Location = new System.Drawing.Point(382, 585);
-            this.checkUpdatesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkUpdatesGroupBox.Name = "checkUpdatesGroupBox";
-            this.checkUpdatesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkUpdatesGroupBox.Size = new System.Drawing.Size(868, 74);
-            this.checkUpdatesGroupBox.TabIndex = 99;
-            this.checkUpdatesGroupBox.TabStop = false;
-            this.checkUpdatesGroupBox.Text = "Обновления программы";
+            checkUpdatesGroupBox.Controls.Add(linkLabel2);
+            checkUpdatesGroupBox.Controls.Add(linkLabel1);
+            checkUpdatesGroupBox.Controls.Add(lastAppVersionLabel);
+            checkUpdatesGroupBox.Controls.Add(currentAppVersionLabel);
+            checkUpdatesGroupBox.Controls.Add(label39);
+            checkUpdatesGroupBox.Controls.Add(checkUpdatesOnAppStartCheckBox);
+            checkUpdatesGroupBox.Controls.Add(label40);
+            checkUpdatesGroupBox.Location = new System.Drawing.Point(382, 585);
+            checkUpdatesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkUpdatesGroupBox.Name = "checkUpdatesGroupBox";
+            checkUpdatesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkUpdatesGroupBox.Size = new System.Drawing.Size(868, 74);
+            checkUpdatesGroupBox.TabIndex = 99;
+            checkUpdatesGroupBox.TabStop = false;
+            checkUpdatesGroupBox.Text = "Обновления программы";
             // 
             // linkLabel2
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(4, 49);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(141, 15);
-            this.linkLabel2.TabIndex = 103;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Канал новостей проекта";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            linkLabel2.AutoSize = true;
+            linkLabel2.Location = new System.Drawing.Point(4, 49);
+            linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new System.Drawing.Size(141, 15);
+            linkLabel2.TabIndex = 103;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "Канал новостей проекта";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(182, 49);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(177, 15);
-            this.linkLabel1.TabIndex = 102;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Страница релизов программы";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(182, 49);
+            linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(177, 15);
+            linkLabel1.TabIndex = 102;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Страница релизов программы";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // lastAppVersionLabel
             // 
-            this.lastAppVersionLabel.Location = new System.Drawing.Point(530, 41);
-            this.lastAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lastAppVersionLabel.Name = "lastAppVersionLabel";
-            this.lastAppVersionLabel.Size = new System.Drawing.Size(328, 30);
-            this.lastAppVersionLabel.TabIndex = 101;
-            this.lastAppVersionLabel.Text = "Не удалось получить информацию о новых версиях :( \r\n(Подробности — по клику)";
-            this.lastAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lastAppVersionLabel.Click += new System.EventHandler(this.lastAppVersionLabel_Click);
+            lastAppVersionLabel.Location = new System.Drawing.Point(530, 41);
+            lastAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lastAppVersionLabel.Name = "lastAppVersionLabel";
+            lastAppVersionLabel.Size = new System.Drawing.Size(328, 30);
+            lastAppVersionLabel.TabIndex = 101;
+            lastAppVersionLabel.Text = "Не удалось получить информацию о новых версиях :( \r\n(Подробности — по клику)";
+            lastAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lastAppVersionLabel.Click += lastAppVersionLabel_Click;
             // 
             // currentAppVersionLabel
             // 
-            this.currentAppVersionLabel.Location = new System.Drawing.Point(362, 49);
-            this.currentAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentAppVersionLabel.Name = "currentAppVersionLabel";
-            this.currentAppVersionLabel.Size = new System.Drawing.Size(169, 15);
-            this.currentAppVersionLabel.TabIndex = 100;
-            this.currentAppVersionLabel.Text = "Текущая версия:";
-            this.currentAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            currentAppVersionLabel.Location = new System.Drawing.Point(362, 49);
+            currentAppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            currentAppVersionLabel.Name = "currentAppVersionLabel";
+            currentAppVersionLabel.Size = new System.Drawing.Size(169, 15);
+            currentAppVersionLabel.TabIndex = 100;
+            currentAppVersionLabel.Text = "Текущая версия:";
+            currentAppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label39
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(639, 23);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(111, 15);
-            this.label39.TabIndex = 99;
-            this.label39.Text = "Последняя версия:";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label39.AutoSize = true;
+            label39.Location = new System.Drawing.Point(639, 23);
+            label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label39.Name = "label39";
+            label39.Size = new System.Drawing.Size(111, 15);
+            label39.TabIndex = 99;
+            label39.Text = "Последняя версия:";
+            label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkUpdatesOnAppStartCheckBox
             // 
-            this.checkUpdatesOnAppStartCheckBox.AutoSize = true;
-            this.checkUpdatesOnAppStartCheckBox.Checked = true;
-            this.checkUpdatesOnAppStartCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkUpdatesOnAppStartCheckBox.Location = new System.Drawing.Point(7, 21);
-            this.checkUpdatesOnAppStartCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkUpdatesOnAppStartCheckBox.Name = "checkUpdatesOnAppStartCheckBox";
-            this.checkUpdatesOnAppStartCheckBox.Size = new System.Drawing.Size(286, 19);
-            this.checkUpdatesOnAppStartCheckBox.TabIndex = 98;
-            this.checkUpdatesOnAppStartCheckBox.Text = "Проверять обновления при старте программы";
-            this.checkUpdatesOnAppStartCheckBox.UseVisualStyleBackColor = true;
+            checkUpdatesOnAppStartCheckBox.AutoSize = true;
+            checkUpdatesOnAppStartCheckBox.Checked = true;
+            checkUpdatesOnAppStartCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            checkUpdatesOnAppStartCheckBox.Location = new System.Drawing.Point(7, 21);
+            checkUpdatesOnAppStartCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkUpdatesOnAppStartCheckBox.Name = "checkUpdatesOnAppStartCheckBox";
+            checkUpdatesOnAppStartCheckBox.Size = new System.Drawing.Size(286, 19);
+            checkUpdatesOnAppStartCheckBox.TabIndex = 98;
+            checkUpdatesOnAppStartCheckBox.Text = "Проверять обновления при старте программы";
+            checkUpdatesOnAppStartCheckBox.UseVisualStyleBackColor = true;
             // 
             // label40
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(397, 23);
-            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(98, 15);
-            this.label40.TabIndex = 3;
-            this.label40.Text = "Текущая версия:";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label40.AutoSize = true;
+            label40.Location = new System.Drawing.Point(397, 23);
+            label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label40.Name = "label40";
+            label40.Size = new System.Drawing.Size(98, 15);
+            label40.TabIndex = 3;
+            label40.Text = "Текущая версия:";
+            label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox12
             // 
-            this.groupBox12.Controls.Add(this.advancedModeRadioButton);
-            this.groupBox12.Controls.Add(this.notAdvancedModeRadioButton);
-            this.groupBox12.Location = new System.Drawing.Point(18, 14);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox12.Size = new System.Drawing.Size(348, 103);
-            this.groupBox12.TabIndex = 82;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Главное окно Bilingual Subtitler";
+            groupBox12.Controls.Add(advancedModeRadioButton);
+            groupBox12.Controls.Add(notAdvancedModeRadioButton);
+            groupBox12.Location = new System.Drawing.Point(18, 14);
+            groupBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox12.Size = new System.Drawing.Size(348, 103);
+            groupBox12.TabIndex = 82;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "Главное окно Bilingual Subtitler";
             // 
             // advancedModeRadioButton
             // 
-            this.advancedModeRadioButton.AutoSize = true;
-            this.advancedModeRadioButton.Location = new System.Drawing.Point(15, 60);
-            this.advancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.advancedModeRadioButton.Name = "advancedModeRadioButton";
-            this.advancedModeRadioButton.Size = new System.Drawing.Size(146, 19);
-            this.advancedModeRadioButton.TabIndex = 61;
-            this.advancedModeRadioButton.TabStop = true;
-            this.advancedModeRadioButton.Text = "Расширенный режим";
-            this.advancedModeRadioButton.UseVisualStyleBackColor = true;
-            this.advancedModeRadioButton.CheckedChanged += new System.EventHandler(this.advancedModeRadioButton_CheckedChanged);
-            this.advancedModeRadioButton.Click += new System.EventHandler(this.advancedModeRadioButton_Click);
+            advancedModeRadioButton.AutoSize = true;
+            advancedModeRadioButton.Location = new System.Drawing.Point(15, 60);
+            advancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            advancedModeRadioButton.Name = "advancedModeRadioButton";
+            advancedModeRadioButton.Size = new System.Drawing.Size(146, 19);
+            advancedModeRadioButton.TabIndex = 61;
+            advancedModeRadioButton.TabStop = true;
+            advancedModeRadioButton.Text = "Расширенный режим";
+            advancedModeRadioButton.UseVisualStyleBackColor = true;
+            advancedModeRadioButton.CheckedChanged += advancedModeRadioButton_CheckedChanged;
+            advancedModeRadioButton.Click += advancedModeRadioButton_Click;
             // 
             // notAdvancedModeRadioButton
             // 
-            this.notAdvancedModeRadioButton.AutoSize = true;
-            this.notAdvancedModeRadioButton.Location = new System.Drawing.Point(15, 32);
-            this.notAdvancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
-            this.notAdvancedModeRadioButton.Size = new System.Drawing.Size(143, 19);
-            this.notAdvancedModeRadioButton.TabIndex = 60;
-            this.notAdvancedModeRadioButton.TabStop = true;
-            this.notAdvancedModeRadioButton.Text = "Облегченный режим";
-            this.notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
-            this.notAdvancedModeRadioButton.CheckedChanged += new System.EventHandler(this.notAdvancedModeRadioButton_CheckedChanged);
+            notAdvancedModeRadioButton.AutoSize = true;
+            notAdvancedModeRadioButton.Location = new System.Drawing.Point(15, 32);
+            notAdvancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
+            notAdvancedModeRadioButton.Size = new System.Drawing.Size(143, 19);
+            notAdvancedModeRadioButton.TabIndex = 60;
+            notAdvancedModeRadioButton.TabStop = true;
+            notAdvancedModeRadioButton.Text = "Облегченный режим";
+            notAdvancedModeRadioButton.UseVisualStyleBackColor = true;
+            notAdvancedModeRadioButton.CheckedChanged += notAdvancedModeRadioButton_CheckedChanged;
             // 
             // downloadsDirectoryGroupBox
             // 
-            this.downloadsDirectoryGroupBox.Controls.Add(this.downloadsFolderPathSetButton);
-            this.downloadsDirectoryGroupBox.Controls.Add(this.downloadsFolderPathRichTextBox);
-            this.downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 659);
-            this.downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
-            this.downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
-            this.downloadsDirectoryGroupBox.TabIndex = 98;
-            this.downloadsDirectoryGroupBox.TabStop = false;
-            this.downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
+            downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathSetButton);
+            downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathRichTextBox);
+            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 659);
+            downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
+            downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            downloadsDirectoryGroupBox.TabIndex = 98;
+            downloadsDirectoryGroupBox.TabStop = false;
+            downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
             // 
             // downloadsFolderPathSetButton
             // 
-            this.downloadsFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.downloadsFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.downloadsFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
-            this.downloadsFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
-            this.downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
-            this.downloadsFolderPathSetButton.TabIndex = 98;
-            this.downloadsFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
-            this.downloadsFolderPathSetButton.UseVisualStyleBackColor = false;
-            this.downloadsFolderPathSetButton.Click += new System.EventHandler(this.downloadsFolderPathSetButton_Click);
+            downloadsFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            downloadsFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            downloadsFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
+            downloadsFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
+            downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
+            downloadsFolderPathSetButton.TabIndex = 98;
+            downloadsFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
+            downloadsFolderPathSetButton.UseVisualStyleBackColor = false;
+            downloadsFolderPathSetButton.Click += downloadsFolderPathSetButton_Click;
             // 
             // downloadsFolderPathRichTextBox
             // 
-            this.downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
-            this.downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
-            this.downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
-            this.downloadsFolderPathRichTextBox.TabIndex = 2;
-            this.downloadsFolderPathRichTextBox.Text = "";
+            downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
+            downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
+            downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
+            downloadsFolderPathRichTextBox.TabIndex = 2;
+            downloadsFolderPathRichTextBox.Text = "";
             // 
             // defaultFolderPathSetButton
             // 
-            this.defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.defaultFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
-            this.defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
-            this.defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
-            this.defaultFolderPathSetButton.TabIndex = 99;
-            this.defaultFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
-            this.defaultFolderPathSetButton.UseVisualStyleBackColor = false;
-            this.defaultFolderPathSetButton.Click += new System.EventHandler(this.defaultFolderPathSetButton_Click);
+            defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            defaultFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
+            defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
+            defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
+            defaultFolderPathSetButton.TabIndex = 99;
+            defaultFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
+            defaultFolderPathSetButton.UseVisualStyleBackColor = false;
+            defaultFolderPathSetButton.Click += defaultFolderPathSetButton_Click;
             // 
             // label42
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(-130, 41);
-            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(0, 15);
-            this.label42.TabIndex = 6;
+            label42.AutoSize = true;
+            label42.Location = new System.Drawing.Point(-130, 41);
+            label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label42.Name = "label42";
+            label42.Size = new System.Drawing.Size(0, 15);
+            label42.TabIndex = 6;
             // 
             // defaultFolderPathRichTextBox
             // 
-            this.defaultFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
-            this.defaultFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
-            this.defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
-            this.defaultFolderPathRichTextBox.TabIndex = 5;
-            this.defaultFolderPathRichTextBox.Text = "";
+            defaultFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
+            defaultFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
+            defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
+            defaultFolderPathRichTextBox.TabIndex = 5;
+            defaultFolderPathRichTextBox.Text = "";
             // 
             // button11
             // 
-            this.button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(18, 899);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(273, 40);
-            this.button11.TabIndex = 100;
-            this.button11.Text = "ℹ️ О программе";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button11.Location = new System.Drawing.Point(18, 915);
+            button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button11.Name = "button11";
+            button11.Size = new System.Drawing.Size(273, 40);
+            button11.TabIndex = 100;
+            button11.Text = "ℹ️ О программе";
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
             // 
             // subtitlesAppearanceSettingsControl
             // 
-            this.subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
-            this.subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            this.subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
-            this.subtitlesAppearanceSettingsControl.TabIndex = 101;
-            this.subtitlesAppearanceSettingsControl.Load += new System.EventHandler(this.subtitlesAppearanceSettingsControl_Load);
+            subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
+            subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
+            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
+            subtitlesAppearanceSettingsControl.TabIndex = 101;
+            subtitlesAppearanceSettingsControl.Load += subtitlesAppearanceSettingsControl_Load;
             // 
             // defaultDirectoryGroupBox
             // 
-            this.defaultDirectoryGroupBox.Controls.Add(this.defaultFolderPathSetButton);
-            this.defaultDirectoryGroupBox.Controls.Add(this.defaultFolderPathRichTextBox);
-            this.defaultDirectoryGroupBox.Controls.Add(this.label42);
-            this.defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 659);
-            this.defaultDirectoryGroupBox.Name = "defaultDirectoryGroupBox";
-            this.defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
-            this.defaultDirectoryGroupBox.TabIndex = 103;
-            this.defaultDirectoryGroupBox.TabStop = false;
-            this.defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
+            defaultDirectoryGroupBox.Controls.Add(defaultFolderPathSetButton);
+            defaultDirectoryGroupBox.Controls.Add(defaultFolderPathRichTextBox);
+            defaultDirectoryGroupBox.Controls.Add(label42);
+            defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 659);
+            defaultDirectoryGroupBox.Name = "defaultDirectoryGroupBox";
+            defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            defaultDirectoryGroupBox.TabIndex = 103;
+            defaultDirectoryGroupBox.TabStop = false;
+            defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
             // 
             // fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox
             // 
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.AutoSize = true;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = true;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 772);
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(593, 34);
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании исходных субтитров — исправлять ошибку разметки, \r\nпри которой зап" +
-    "ятая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
-            this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.AutoSize = true;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = true;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 782);
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(593, 34);
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании исходных субтитров — исправлять ошибку разметки, \r\nпри которой запятая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
             // 
             // ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox
             // 
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.AutoSize = true;
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Location = new System.Drawing.Point(661, 772);
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Name = "ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox";
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Size = new System.Drawing.Size(340, 34);
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.TabIndex = 105;
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Text = "Считывать из и записывать в итоговые файлы субтитров\r\nназвания потоков субтитров-" +
-    "исходников";
-            this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.UseVisualStyleBackColor = true;
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.AutoSize = true;
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Location = new System.Drawing.Point(621, 785);
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Name = "ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox";
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Size = new System.Drawing.Size(340, 34);
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.TabIndex = 105;
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Text = "Считывать из и записывать в итоговые файлы субтитров\r\nназвания потоков субтитров-исходников";
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // notifyAboutSuccessfullySavedSubtitlesFileCheckBox
+            // 
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.AutoSize = true;
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Location = new System.Drawing.Point(967, 785);
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Name = "notifyAboutSuccessfullySavedSubtitlesFileCheckBox";
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Size = new System.Drawing.Size(240, 34);
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.TabIndex = 106;
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Text = "Отображать сообщение об успешной \r\nзаписи субтитров в файл";
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1264, 951);
-            this.Controls.Add(this.ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
-            this.Controls.Add(this.fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
-            this.Controls.Add(this.defaultDirectoryGroupBox);
-            this.Controls.Add(this.subtitlesAppearanceSettingsControl);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.downloadsDirectoryGroupBox);
-            this.Controls.Add(this.groupBox12);
-            this.Controls.Add(this.checkUpdatesGroupBox);
-            this.Controls.Add(this.processPriorityGroupBox);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.yandexTranslatorGroupBox);
-            this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.buttonCancel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "SettingsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Настройки программы";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.YandexTranslatorAPIKeyForm_FormClosing);
-            this.Load += new System.EventHandler(this.SettingsForm_Load);
-            this.yandexTranslatorGroupBox.ResumeLayout(false);
-            this.yandexTranslatorGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hotkeysDataGridView)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.processPriorityGroupBox.ResumeLayout(false);
-            this.processPriorityGroupBox.PerformLayout();
-            this.checkUpdatesGroupBox.ResumeLayout(false);
-            this.checkUpdatesGroupBox.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.downloadsDirectoryGroupBox.ResumeLayout(false);
-            this.defaultDirectoryGroupBox.ResumeLayout(false);
-            this.defaultDirectoryGroupBox.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = System.Drawing.SystemColors.ControlLightLight;
+            ClientSize = new System.Drawing.Size(1264, 963);
+            Controls.Add(notifyAboutSuccessfullySavedSubtitlesFileCheckBox);
+            Controls.Add(ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
+            Controls.Add(fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
+            Controls.Add(defaultDirectoryGroupBox);
+            Controls.Add(subtitlesAppearanceSettingsControl);
+            Controls.Add(button11);
+            Controls.Add(downloadsDirectoryGroupBox);
+            Controls.Add(groupBox12);
+            Controls.Add(checkUpdatesGroupBox);
+            Controls.Add(processPriorityGroupBox);
+            Controls.Add(groupBox6);
+            Controls.Add(groupBox5);
+            Controls.Add(button5);
+            Controls.Add(groupBox2);
+            Controls.Add(yandexTranslatorGroupBox);
+            Controls.Add(buttonOk);
+            Controls.Add(buttonCancel);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "SettingsForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Настройки программы";
+            FormClosing += YandexTranslatorAPIKeyForm_FormClosing;
+            Load += SettingsForm_Load;
+            yandexTranslatorGroupBox.ResumeLayout(false);
+            yandexTranslatorGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            processPriorityGroupBox.ResumeLayout(false);
+            processPriorityGroupBox.PerformLayout();
+            checkUpdatesGroupBox.ResumeLayout(false);
+            checkUpdatesGroupBox.PerformLayout();
+            groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
+            downloadsDirectoryGroupBox.ResumeLayout(false);
+            defaultDirectoryGroupBox.ResumeLayout(false);
+            defaultDirectoryGroupBox.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -954,5 +962,6 @@
         private System.Windows.Forms.GroupBox defaultDirectoryGroupBox;
         private System.Windows.Forms.CheckBox fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox;
         private System.Windows.Forms.CheckBox ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox;
+        private System.Windows.Forms.CheckBox notifyAboutSuccessfullySavedSubtitlesFileCheckBox;
     }
 }

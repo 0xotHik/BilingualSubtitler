@@ -1,6 +1,6 @@
 ﻿namespace BilingualSubtitler
 {
-    partial class OpenSavedFileInDefaultAppForm
+    partial class ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenSavedFileInDefaultAppForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm));
             this.label1 = new System.Windows.Forms.Label();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();

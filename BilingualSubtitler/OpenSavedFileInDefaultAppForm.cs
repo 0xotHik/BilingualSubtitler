@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
-    public partial class OpenSavedFileInDefaultAppForm : Form
+    public partial class ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm : Form
     {
         public bool NeedToOpenInDefaultApp { get; private set; }
 
-        public OpenSavedFileInDefaultAppForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
+        public ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
         {
             InitializeComponent();
 

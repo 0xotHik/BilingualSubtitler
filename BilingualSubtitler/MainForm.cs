@@ -96,20 +96,6 @@ namespace BilingualSubtitler
         // Состояния видео и субтитров
         private VideoState m_videoState;
         private SubtitlesState m_subtitlesState;
-        //
-        // Былое
-        //
-        //private ComboboxItem m_videoPlayingComboBoxItem = new ComboboxItem
-        //{ Text = "воспроизводится", Value = VideoState.Playing };
-        //private ComboboxItem m_videoPausedComboBoxItem = new ComboboxItem
-        //{ Text = "на паузе", Value = VideoState.Paused };
-        //private ComboboxItem m_subtitlesOriginalSubtitlesComboBoxItem = new ComboboxItem
-        //{ Text = "оригинальными субтитрами", Value = SubtitlesState.Original };
-        //private ComboboxItem m_subtitlesBilingualSubtitlesComboBoxItem = new ComboboxItem
-        //{ Text = "двуязычными субтитрами", Value = SubtitlesState.Bilingual };
-        //private Dictionary<VideoState, ComboboxItem> m_videoStatesAndRelatedComboBoxItems;
-        //private Dictionary<SubtitlesState, ComboboxItem> m_subtitlesStatesAndRelatedComboBoxItems;
-        //
         /// <summary>
         /// воспроизводится с оригинальными субтитрами
         /// </summary>
@@ -336,27 +322,6 @@ namespace BilingualSubtitler
             //    { m_videoPausedWithOriginalSubtitlesState, m_videoPausedWithOriginalSubtitlesComboBoxItem},
             //    { m_videoPausedWithBilingualSubtitlesState, m_videoPausedWithBilingualSubtitlesComboBoxItem}
             //};
-            #region Былое
-            //videoStateComboBox.Items.Add(m_videoPlayingComboBoxItem);
-            //videoStateComboBox.Items.Add(m_videoPausedComboBoxItem);
-            //videoStateComboBox.SelectedIndex = 0;
-
-            //subtitlesStateComboBox.Items.Add(m_subtitlesOriginalSubtitlesComboBoxItem);
-            //subtitlesStateComboBox.Items.Add(m_subtitlesBilingualSubtitlesComboBoxItem);
-            //subtitlesStateComboBox.SelectedIndex = 0;
-
-            //m_videoStatesAndRelatedComboBoxItems = new Dictionary<VideoState, ComboboxItem>
-            //{
-            //    {VideoState.Playing, m_videoPlayingComboBoxItem},
-            //    { VideoState.Paused, m_videoPausedComboBoxItem}
-            //};
-
-            //m_subtitlesStatesAndRelatedComboBoxItems = new Dictionary<SubtitlesState, ComboboxItem>
-            //{
-            //    {SubtitlesState.Original, m_subtitlesOriginalSubtitlesComboBoxItem},
-            //    { SubtitlesState.Bilingual, m_subtitlesBilingualSubtitlesComboBoxItem}
-            //};
-            #endregion
 
             m_subtitles = new Dictionary<SubtitlesType, SubtitlesAndInfo>
             {
@@ -997,18 +962,6 @@ namespace BilingualSubtitler
 
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
 
-            #region Былое
-            //videoStateComboBox.SelectedValueChanged -= videoStateComboBox_SelectedValueChanged;
-            //subtitlesStateComboBox.SelectedValueChanged -= subtitlesStateComboBox_SelectedValueChanged;
-
-            //if (m_videoState == VideoState.Playing)
-
-            //    videoStateComboBox.SelectedItem = m_videoStatesAndRelatedComboBoxItems[m_videoState];
-            //subtitlesStateComboBox.SelectedItem = m_subtitlesStatesAndRelatedComboBoxItems[m_subtitlesState];
-
-            //videoStateComboBox.SelectedValueChanged += videoStateComboBox_SelectedValueChanged;
-            //subtitlesStateComboBox.SelectedValueChanged += subtitlesStateComboBox_SelectedValueChanged;
-            #endregion
         }
 
         private Subtitle[] ReadDocx(string pathToDOCXFile)
@@ -3365,70 +3318,59 @@ namespace BilingualSubtitler
             {
                 if (originalSubtitlesFileExist && bilingualSubtitlesFileExists)
                 {
-                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath, bilingualSubtitlesPath))
+                    if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
                     {
-                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                        using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath, bilingualSubtitlesPath))
+                        {
+                            subtitlesSavedSuccessfullyForm.ShowDialog();
+                        }
                     }
-
-
-                    //var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуспешно записаны!",
-                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    //if (result != DialogResult.OK)
-                    //    return;
                 }
                 else if (originalSubtitlesFileExist)
                 {
-                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                    if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
                     {
-                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                        using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                        {
+                            subtitlesSavedSuccessfullyForm.ShowDialog();
+                        }
                     }
-
-                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    //if (result != DialogResult.OK)
-                    //    return;
                 }
                 else if (bilingualSubtitlesFileExists)
                 {
-                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                    if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
                     {
-                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                        using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                        {
+                            subtitlesSavedSuccessfullyForm.ShowDialog();
+                        }
                     }
-
-                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    //if (result != DialogResult.OK)
-                    //    return;
                 }
             }
             else if (Settings.Default.CreateOriginalSubtitlesFile && !Settings.Default.CreateBilingualSubtitlesFile)
             {
                 if (originalSubtitlesFileExist)
                 {
-                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                    if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
                     {
-                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                        using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath))
+                        {
+                            subtitlesSavedSuccessfullyForm.ShowDialog();
+                        }
                     }
-
-                    //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуспешно записан!",
-                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    //if (result != DialogResult.OK)
-                    //    return;
                 }
             }
             else if (Settings.Default.CreateBilingualSubtitlesFile && !Settings.Default.CreateOriginalSubtitlesFile)
             {
                 if (bilingualSubtitlesFileExists)
                 {
-                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                    if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
                     {
-                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                        using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(bilingualSubtitlesPath))
+                        {
+                            subtitlesSavedSuccessfullyForm.ShowDialog();
+                        }
                     }
-
-                    //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуспешно записан!",
-                    //    SUCCESS_MESSAGE_BOX_HEADER, MessageBoxButtons.OK, SUCCESS_MESSAGE_BOX_ICON);
-                    //if (result != DialogResult.OK)
-                    //    return;
                 }
             }
 
@@ -3544,16 +3486,6 @@ namespace BilingualSubtitler
             //OpenFileAndReadSubtitlesFromFile(ref m_thirdRussianSubtitles,
             //    thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel, thirdRussianSubtitlesActionLabel,
             //    thirdRussianSubtitlesTextBox, openThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton);
-        }
-
-        private void videoStateComboBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            m_videoState = (VideoState)((ComboboxItem)((ComboBox)sender).SelectedItem).Value;
-        }
-
-        private void subtitlesStateComboBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            m_subtitlesState = (SubtitlesState)((ComboboxItem)((ComboBox)sender).SelectedItem).Value;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -3754,13 +3686,10 @@ namespace BilingualSubtitler
                 doc.Save();
             }
 
-            //if (intoDownloads)
-            //{
-            //    if (File.Exists(resultingDocXFileName))
-            //        MessageBox.Show($"Субтитры были сохранены в файл {resultingDocXFileName}", "Субтитры были сохранены успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-
-            CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingDocXFileName);
+            if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
+            {
+                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingDocXFileName);
+            }
 
         }
 
@@ -3817,19 +3746,17 @@ namespace BilingualSubtitler
                 File.WriteAllLines(resultingFileName, lines.ToArray());
             }
 
-            CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingFileName);
+            if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
+            {
+                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingFileName);
+            }
         }
 
         private void CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(string resultingFileName)
         {
-            CheckIfFileExistAndShowSuccessMessage(resultingFileName);
-        }
-
-        private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName)
-        {
             if (File.Exists(resultingFileName))
             {
-                using (var openSavedFileInDefaultAppForm = new OpenSavedFileInDefaultAppForm(resultingFileName))
+                using (var openSavedFileInDefaultAppForm = new ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm(resultingFileName))
                 {
                     openSavedFileInDefaultAppForm.ShowDialog();
 
@@ -3843,6 +3770,7 @@ namespace BilingualSubtitler
                 }
             }
         }
+
 
         //private void CheckIfFileExistAndShowSuccessMessage(string resultingFileName, string message)
         //{

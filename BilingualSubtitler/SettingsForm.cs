@@ -174,6 +174,8 @@ namespace BilingualSubtitler
             downloadsFolderPathRichTextBox.Text = Properties.Settings.Default.DownloadsFolder;
             defaultFolderPathRichTextBox.Text = Properties.Settings.Default.FolderToOpenFilesByDefaultFrom;
 
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked = Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile;
+
 
             SetFormAccordingToSubtitlesAppearanceSettings();
 
@@ -194,6 +196,7 @@ namespace BilingualSubtitler
                 processPriorityGroupBox.Visible =
                 yandexTranslatorGroupBox.Visible =
                 defaultDirectoryGroupBox.Visible =
+                notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Visible =
                 itIsAdvancedMode;
 
             if (itIsAdvancedMode)
@@ -383,6 +386,9 @@ namespace BilingualSubtitler
 
             Properties.Settings.Default.DownloadsFolder = downloadsFolderPathRichTextBox.Text;
             Properties.Settings.Default.FolderToOpenFilesByDefaultFrom = defaultFolderPathRichTextBox.Text;
+
+            Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile = notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked;
+
 
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
