@@ -209,9 +209,9 @@ namespace BilingualSubtitler
 
             // Графика
             m_initialFormWidth = Width;
-            m_initialOpenSubtitlesButtonLeft = openOrClosePrimarySubtitlesButton.Left;
+            m_initialOpenSubtitlesButtonLeft = primarySubtitlesOpenOrCloseButton.Left;
             m_initialOpenSubtitlesGroupBoxText = m_initialOpenSubtitlesGroupBoxTextBeforeCloseConfirmationDialog = openOrCloseFirstRussianSubtitlesGroupBox.Text;
-            m_initialOpenOrCloseSubtitlesButtonText = openOrClosePrimarySubtitlesButton.Text;
+            m_initialOpenOrCloseSubtitlesButtonText = primarySubtitlesOpenOrCloseButton.Text;
             m_initialOpenSubtitlesFromDownloadsButtonLeft = openPrimarySubtitlesFromDownloadsButton.Left;
             m_initialExportSubtitlesAsDocxButtonLeft = primarySubtitlesExportAsDocxButton.Left;
             m_initialFirstRussianSubtitlesGroupBoxWidth = firstRussianSubtitlesGroupBox.Width;
@@ -328,7 +328,7 @@ namespace BilingualSubtitler
                 {
                     SubtitlesType.Original, new SubtitlesAndInfo(
                         primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
-                        openOrClosePrimarySubtitlesButton, null, null,
+                        primarySubtitlesOpenOrCloseButton, null, null,
                         primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton,
                         openOrClosePrimarySubtitlesGroupBox, primarySubtitlesExportAsDocxGroupBox, openPrimarySubtitlesFromDownloadsButton, openPrimarySubtitlesFromDefaultFolderButton, originalSubtitlesOpenFromClipboardButton,
                         primarySubtitlesExportAsDocxButton, primarySubtitlesExportAsDocxIntoDownloadsButton,
@@ -337,7 +337,7 @@ namespace BilingualSubtitler
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
                         firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
-                        openOrCloseFirstRussianSubtitlesButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
+                        firstRussianSubtitlesOpenOrCloseButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
                         firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton,
                         openOrCloseFirstRussianSubtitlesGroupBox, firstRussianSubtitlesExportAsDocxGroupBox, firstRussianSubtitlesOpenFromDownloadsButton, openFirstRussianSubtitlesFromDefaultFolderButton, firstRussianSubtitlesOpenFromClipboardButton,
                         firstRussianSubtitlesExportAsDocxButton, firstRussianSubtitlesExportAsDocxIntoDownloadsButton,
@@ -346,7 +346,7 @@ namespace BilingualSubtitler
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
                         secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
-                        openOrCloseSecondRussianSubtitlesButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
+                        secondRussianSubtitlesOpenOrCloseButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
                         secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton,
                         openOrCloseSecondRussianSubtitlesGroupBox, secondRussianSubtitlesExportAsDocxGroupBox, secondRussianSubtitlesOpenFromDownloadsButton, openSecondRussianSubtitlesFromDefaultFolderButton, secondRussianSubtitlesOpenFromClipboardButton,
                         secondRussianSubtitlesExportAsDocxButton, secondRussianSubtitlesExportAsDocxIntoDownloadsButton,
@@ -355,7 +355,7 @@ namespace BilingualSubtitler
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
                         thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
-                        openOrCloseThirdRussianSubtitlesButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
+                        thirdRussianSubtitlesOpenOrCloseButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
                         thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton,
                         openOrCloseThirdRussianSubtitlesGroupBox, thirdRussianSubtitlesExportAsDocxGroupBox, thirdRussianSubtitlesOpenFromDownloadsButton, openThirdRussianSubtitlesFromDefaultFolderButton, thirdRussianSubtitlesOpenFromClipboardButton,
                         thirdRussianSubtitlesExportAsDocxButton, thirdRussianSubtitlesExportAsDocxIntoDownloadsButton,
@@ -365,10 +365,10 @@ namespace BilingualSubtitler
 
             m_buttons = new List<Button>
             {
-                openOrClosePrimarySubtitlesButton,
-                openOrCloseFirstRussianSubtitlesButton,
-                openOrCloseSecondRussianSubtitlesButton,
-                openOrCloseThirdRussianSubtitlesButton,
+                primarySubtitlesOpenOrCloseButton,
+                firstRussianSubtitlesOpenOrCloseButton,
+                secondRussianSubtitlesOpenOrCloseButton,
+                thirdRussianSubtitlesOpenOrCloseButton,
                 //translateToPrimarySubtitlesButton,
                 translateToFirstRussianSubtitlesButton,
                 translateToSecondRussianSubtitlesButton,
@@ -465,8 +465,8 @@ namespace BilingualSubtitler
             checkUpdatesBgW.RunWorkerCompleted += CheckUpdatesBgW_RunWorkerCompleted;
             checkUpdatesBgW.RunWorkerAsync();
 
-            openOrClosePrimarySubtitlesButton.Focus();
-            openOrClosePrimarySubtitlesButton.Select();
+            primarySubtitlesOpenOrCloseButton.Focus();
+            primarySubtitlesOpenOrCloseButton.Select();
 
             //TEMP
             minimizeToTrayButton.Hide();
@@ -731,7 +731,7 @@ namespace BilingualSubtitler
                 //
                 openBilingualSubtitlerButton.Left = advancedMode ? m_initialOpenBilingualsTubtitlesButtonLeft : (openBilignualSubtitlesGroupBox.Width / 2) - (openBilingualSubtitlerButton.Width / 2);
                 //
-                var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (openOrClosePrimarySubtitlesButton.Width / 2);
+                var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (primarySubtitlesOpenOrCloseButton.Width / 2);
                 var exportAsDocxSubtitlesLeft = advancedMode ? m_initialExportSubtitlesAsDocxButtonLeft : (primarySubtitlesExportAsDocxGroupBox.Width / 2) - (primarySubtitlesExportAsDocxButton.Width / 2);
                 // Для всех потоков субтитров
                 foreach (var subtitles in m_subtitles)
