@@ -2115,7 +2115,7 @@
             // subtitlesAppearanceSettingsControl
             // 
             subtitlesAppearanceSettingsControl.AutoScroll = true;
-            subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(934, 541);
+            subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(934, 608);
             subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(971, 45);
             subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
             subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(672, 318);

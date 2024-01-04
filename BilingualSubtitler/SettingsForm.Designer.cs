@@ -800,7 +800,7 @@
             subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(934, 541);
             subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
             subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 565);
+            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 626);
             subtitlesAppearanceSettingsControl.TabIndex = 101;
             subtitlesAppearanceSettingsControl.Load += subtitlesAppearanceSettingsControl_Load;
             // 
