@@ -29,6 +29,22 @@
         private void InitializeComponent()
         {
             groupBox3 = new System.Windows.Forms.GroupBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            label6 = new System.Windows.Forms.Label();
+            numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
+            label38 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -107,7 +123,30 @@
             label1 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            label39 = new System.Windows.Forms.Label();
+            numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            comboBox2 = new System.Windows.Forms.ComboBox();
+            label40 = new System.Windows.Forms.Label();
+            label41 = new System.Windows.Forms.Label();
+            label42 = new System.Windows.Forms.Label();
+            label43 = new System.Windows.Forms.Label();
+            label44 = new System.Windows.Forms.Label();
+            label45 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
             groupBox1.SuspendLayout();
             groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown).BeginInit();
@@ -137,11 +176,20 @@
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesOutlineNumericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesSizeNumericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesMarginNumericUpDown).BeginInit();
+            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
             SuspendLayout();
             // 
             // groupBox3
             // 
             groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            groupBox3.Controls.Add(groupBox5);
+            groupBox3.Controls.Add(groupBox2);
             groupBox3.Controls.Add(groupBox1);
             groupBox3.Controls.Add(ChangeMarginsToPairSubtitlesCheckBox);
             groupBox3.Controls.Add(ResetSubtitlesAppearanceToDefaultButton);
@@ -154,10 +202,177 @@
             groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox3.Size = new System.Drawing.Size(654, 541);
+            groupBox3.Size = new System.Drawing.Size(934, 541);
             groupBox3.TabIndex = 48;
             groupBox3.TabStop = false;
             groupBox3.Text = "Настройки вида субтитров";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(checkBox1);
+            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(numericUpDown2);
+            groupBox2.Controls.Add(numericUpDown3);
+            groupBox2.Controls.Add(numericUpDown4);
+            groupBox2.Controls.Add(numericUpDown5);
+            groupBox2.Controls.Add(numericUpDown6);
+            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(label8);
+            groupBox2.Controls.Add(label9);
+            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(label37);
+            groupBox2.Controls.Add(label38);
+            groupBox2.Location = new System.Drawing.Point(654, 38);
+            groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox2.Size = new System.Drawing.Size(127, 367);
+            groupBox2.TabIndex = 97;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "4-е субтитры";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Checked = true;
+            checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            checkBox1.Location = new System.Drawing.Point(12, 325);
+            checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(81, 34);
+            checkBox1.TabIndex = 96;
+            checkBox1.Text = "Убрать\r\nпереносы";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new System.Drawing.Point(10, 294);
+            numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(106, 23);
+            numericUpDown1.TabIndex = 94;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(12, 277);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(99, 15);
+            label6.TabIndex = 93;
+            label6.Text = "Прозрач. тени,%";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new System.Drawing.Point(10, 165);
+            numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new System.Drawing.Size(106, 23);
+            numericUpDown2.TabIndex = 92;
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new System.Drawing.Point(10, 208);
+            numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new System.Drawing.Size(106, 23);
+            numericUpDown3.TabIndex = 91;
+            // 
+            // numericUpDown4
+            // 
+            numericUpDown4.Location = new System.Drawing.Point(10, 251);
+            numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new System.Drawing.Size(106, 23);
+            numericUpDown4.TabIndex = 90;
+            // 
+            // numericUpDown5
+            // 
+            numericUpDown5.Location = new System.Drawing.Point(10, 123);
+            numericUpDown5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown5.Name = "numericUpDown5";
+            numericUpDown5.Size = new System.Drawing.Size(106, 23);
+            numericUpDown5.TabIndex = 89;
+            // 
+            // numericUpDown6
+            // 
+            numericUpDown6.Location = new System.Drawing.Point(10, 80);
+            numericUpDown6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown6.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDown6.Name = "numericUpDown6";
+            numericUpDown6.Size = new System.Drawing.Size(106, 23);
+            numericUpDown6.TabIndex = 88;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new System.Drawing.Point(10, 36);
+            comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(106, 23);
+            comboBox1.TabIndex = 87;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(12, 233);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(54, 15);
+            label7.TabIndex = 86;
+            label7.Text = "Обводка";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(12, 191);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(32, 15);
+            label8.TabIndex = 85;
+            label8.Text = "Тень";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(12, 148);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(99, 15);
+            label9.TabIndex = 84;
+            label9.Text = "Прозрачность,%";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(12, 18);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(49, 15);
+            label10.TabIndex = 0;
+            label10.Text = "Шрифт:";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new System.Drawing.Point(12, 105);
+            label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label37.Name = "label37";
+            label37.Size = new System.Drawing.Size(47, 15);
+            label37.TabIndex = 83;
+            label37.Text = "Размер";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new System.Drawing.Point(12, 63);
+            label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label38.Name = "label38";
+            label38.Size = new System.Drawing.Size(79, 15);
+            label38.TabIndex = 82;
+            label38.Text = "Отступ снизу";
             // 
             // groupBox1
             // 
@@ -998,15 +1213,190 @@
             label3.TabIndex = 82;
             label3.Text = "Отступ снизу:";
             // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(checkBox2);
+            groupBox5.Controls.Add(numericUpDown7);
+            groupBox5.Controls.Add(label39);
+            groupBox5.Controls.Add(numericUpDown8);
+            groupBox5.Controls.Add(numericUpDown9);
+            groupBox5.Controls.Add(numericUpDown10);
+            groupBox5.Controls.Add(numericUpDown11);
+            groupBox5.Controls.Add(numericUpDown12);
+            groupBox5.Controls.Add(comboBox2);
+            groupBox5.Controls.Add(label40);
+            groupBox5.Controls.Add(label41);
+            groupBox5.Controls.Add(label42);
+            groupBox5.Controls.Add(label43);
+            groupBox5.Controls.Add(label44);
+            groupBox5.Controls.Add(label45);
+            groupBox5.Location = new System.Drawing.Point(792, 38);
+            groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox5.Size = new System.Drawing.Size(127, 367);
+            groupBox5.TabIndex = 98;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "5-е субтитры";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Checked = true;
+            checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            checkBox2.Location = new System.Drawing.Point(13, 325);
+            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(81, 34);
+            checkBox2.TabIndex = 96;
+            checkBox2.Text = "Убрать\r\nпереносы";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown7
+            // 
+            numericUpDown7.Location = new System.Drawing.Point(10, 294);
+            numericUpDown7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown7.Name = "numericUpDown7";
+            numericUpDown7.Size = new System.Drawing.Size(106, 23);
+            numericUpDown7.TabIndex = 94;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new System.Drawing.Point(13, 277);
+            label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label39.Name = "label39";
+            label39.Size = new System.Drawing.Size(99, 15);
+            label39.TabIndex = 93;
+            label39.Text = "Прозрач. тени,%";
+            // 
+            // numericUpDown8
+            // 
+            numericUpDown8.Location = new System.Drawing.Point(10, 165);
+            numericUpDown8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown8.Name = "numericUpDown8";
+            numericUpDown8.Size = new System.Drawing.Size(106, 23);
+            numericUpDown8.TabIndex = 92;
+            // 
+            // numericUpDown9
+            // 
+            numericUpDown9.Location = new System.Drawing.Point(10, 208);
+            numericUpDown9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown9.Name = "numericUpDown9";
+            numericUpDown9.Size = new System.Drawing.Size(106, 23);
+            numericUpDown9.TabIndex = 91;
+            // 
+            // numericUpDown10
+            // 
+            numericUpDown10.Location = new System.Drawing.Point(10, 251);
+            numericUpDown10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown10.Name = "numericUpDown10";
+            numericUpDown10.Size = new System.Drawing.Size(106, 23);
+            numericUpDown10.TabIndex = 90;
+            // 
+            // numericUpDown11
+            // 
+            numericUpDown11.Location = new System.Drawing.Point(10, 123);
+            numericUpDown11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown11.Name = "numericUpDown11";
+            numericUpDown11.Size = new System.Drawing.Size(106, 23);
+            numericUpDown11.TabIndex = 89;
+            // 
+            // numericUpDown12
+            // 
+            numericUpDown12.Location = new System.Drawing.Point(10, 80);
+            numericUpDown12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericUpDown12.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericUpDown12.Name = "numericUpDown12";
+            numericUpDown12.Size = new System.Drawing.Size(106, 23);
+            numericUpDown12.TabIndex = 88;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new System.Drawing.Point(10, 36);
+            comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new System.Drawing.Size(106, 23);
+            comboBox2.TabIndex = 87;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new System.Drawing.Point(13, 233);
+            label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label40.Name = "label40";
+            label40.Size = new System.Drawing.Size(54, 15);
+            label40.TabIndex = 86;
+            label40.Text = "Обводка";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new System.Drawing.Point(13, 191);
+            label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label41.Name = "label41";
+            label41.Size = new System.Drawing.Size(32, 15);
+            label41.TabIndex = 85;
+            label41.Text = "Тень";
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new System.Drawing.Point(13, 148);
+            label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label42.Name = "label42";
+            label42.Size = new System.Drawing.Size(99, 15);
+            label42.TabIndex = 84;
+            label42.Text = "Прозрачность,%";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new System.Drawing.Point(13, 18);
+            label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label43.Name = "label43";
+            label43.Size = new System.Drawing.Size(49, 15);
+            label43.TabIndex = 0;
+            label43.Text = "Шрифт:";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new System.Drawing.Point(13, 105);
+            label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label44.Name = "label44";
+            label44.Size = new System.Drawing.Size(47, 15);
+            label44.TabIndex = 83;
+            label44.Text = "Размер";
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Location = new System.Drawing.Point(13, 63);
+            label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label45.Name = "label45";
+            label45.Size = new System.Drawing.Size(79, 15);
+            label45.TabIndex = 82;
+            label45.Text = "Отступ снизу";
+            // 
             // SubtitlesAppearanceSettings
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(groupBox3);
             Name = "SubtitlesAppearanceSettings";
-            Size = new System.Drawing.Size(654, 541);
+            Size = new System.Drawing.Size(934, 541);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox9.ResumeLayout(false);
@@ -1041,6 +1431,14 @@
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesOutlineNumericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesSizeNumericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)OriginalSubtitlesMarginNumericUpDown).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
             ResumeLayout(false);
         }
 
@@ -1125,5 +1523,37 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.CheckBox SetTheSameValuesForAllSubtitlesCheckBox;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.NumericUpDown numericUpDown2;
+        public System.Windows.Forms.NumericUpDown numericUpDown3;
+        public System.Windows.Forms.NumericUpDown numericUpDown4;
+        public System.Windows.Forms.NumericUpDown numericUpDown5;
+        public System.Windows.Forms.NumericUpDown numericUpDown6;
+        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label37;
+        public System.Windows.Forms.Label label38;
+        public System.Windows.Forms.GroupBox groupBox5;
+        public System.Windows.Forms.CheckBox checkBox2;
+        public System.Windows.Forms.NumericUpDown numericUpDown7;
+        public System.Windows.Forms.Label label39;
+        public System.Windows.Forms.NumericUpDown numericUpDown8;
+        public System.Windows.Forms.NumericUpDown numericUpDown9;
+        public System.Windows.Forms.NumericUpDown numericUpDown10;
+        public System.Windows.Forms.NumericUpDown numericUpDown11;
+        public System.Windows.Forms.NumericUpDown numericUpDown12;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.Label label40;
+        public System.Windows.Forms.Label label41;
+        public System.Windows.Forms.Label label42;
+        public System.Windows.Forms.Label label43;
+        public System.Windows.Forms.Label label44;
+        public System.Windows.Forms.Label label45;
     }
 }

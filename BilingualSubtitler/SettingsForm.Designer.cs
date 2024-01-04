@@ -214,7 +214,7 @@
             groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox2.Size = new System.Drawing.Size(210, 554);
+            groupBox2.Size = new System.Drawing.Size(210, 565);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
             groupBox2.Text = "Горячие клавиши программы";
@@ -225,7 +225,7 @@
             button9.Location = new System.Drawing.Point(19, 489);
             button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(169, 54);
+            button9.Size = new System.Drawing.Size(169, 70);
             button9.TabIndex = 49;
             button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
             button9.UseVisualStyleBackColor = false;
@@ -796,9 +796,11 @@
             // 
             // subtitlesAppearanceSettingsControl
             // 
+            subtitlesAppearanceSettingsControl.AutoScroll = true;
+            subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(934, 541);
             subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(595, 14);
             subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
-            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 554);
+            subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(654, 565);
             subtitlesAppearanceSettingsControl.TabIndex = 101;
             subtitlesAppearanceSettingsControl.Load += subtitlesAppearanceSettingsControl_Load;
             // 

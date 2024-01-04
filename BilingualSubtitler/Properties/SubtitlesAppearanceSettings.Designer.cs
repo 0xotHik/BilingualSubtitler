@@ -12,7 +12,7 @@ namespace BilingualSubtitler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class SubtitlesAppearanceSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static SubtitlesAppearanceSettings defaultInstance = ((SubtitlesAppearanceSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new SubtitlesAppearanceSettings())));
@@ -212,6 +212,30 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["ShadowTransparencyCheckBoxChecked"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;255;20;2;2;0;50;0")]
+        public string FourthRussianSubtitlesStyleString {
+            get {
+                return ((string)(this["FourthRussianSubtitlesStyleString"]));
+            }
+            set {
+                this["FourthRussianSubtitlesStyleString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;0;20;2;2;0;50;0")]
+        public string FifthRussianSubtitlesStyleString {
+            get {
+                return ((string)(this["FifthRussianSubtitlesStyleString"]));
+            }
+            set {
+                this["FifthRussianSubtitlesStyleString"] = value;
             }
         }
     }

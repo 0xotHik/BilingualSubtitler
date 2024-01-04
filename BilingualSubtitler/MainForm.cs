@@ -35,7 +35,9 @@ namespace BilingualSubtitler
         Original,
         FirstRussian,
         SecondRussian,
-        ThirdRussian
+        ThirdRussian,
+        FourthRussian,
+        FifthRussian
     }
 
     public partial class MainForm : Form
@@ -327,39 +329,123 @@ namespace BilingualSubtitler
             {
                 {
                     SubtitlesType.Original, new SubtitlesAndInfo(
-                        primarySubtitlesProgressBar, primarySubtitlesProgressLabel,
-                        primarySubtitlesOpenOrCloseButton, null, null,
-                        primarySubtitlesActionLabel, primarySubtitlesTextBox, primarySubtitlesColorButton,
-                        openOrClosePrimarySubtitlesGroupBox, primarySubtitlesExportAsDocxGroupBox, openPrimarySubtitlesFromDownloadsButton, openPrimarySubtitlesFromDefaultFolderButton, originalSubtitlesOpenFromClipboardButton,
-                        primarySubtitlesExportAsDocxButton, primarySubtitlesExportAsDocxIntoDownloadsButton,
+                        primarySubtitlesProgressBar,
+                        primarySubtitlesProgressLabel,
+                        primarySubtitlesOpenOrCloseButton,
+                        null,
+                        null,
+                        primarySubtitlesActionLabel,
+                        primarySubtitlesTextBox, primarySubtitlesColorButton,
+                        openOrClosePrimarySubtitlesGroupBox,
+                        primarySubtitlesExportAsDocxGroupBox,
+                        openPrimarySubtitlesFromDownloadsButton,
+                        openPrimarySubtitlesFromDefaultFolderButton,
+                        originalSubtitlesOpenFromClipboardButton,
+                        primarySubtitlesExportAsDocxButton,
+                        primarySubtitlesExportAsDocxIntoDownloadsButton,
                         openPrimarySubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.FirstRussian, new SubtitlesAndInfo(
-                        firstRussianSubtitlesProgressBar, firstRussianSubtitlesProgressLabel,
-                        firstRussianSubtitlesOpenOrCloseButton, translateToFirstRussianSubtitlesButton, translateWordByWordToFirstRussianSubtitlesButton,
-                        firstRussianSubtitlesActionLabel, firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton,
-                        openOrCloseFirstRussianSubtitlesGroupBox, firstRussianSubtitlesExportAsDocxGroupBox, firstRussianSubtitlesOpenFromDownloadsButton, openFirstRussianSubtitlesFromDefaultFolderButton, firstRussianSubtitlesOpenFromClipboardButton,
-                        firstRussianSubtitlesExportAsDocxButton, firstRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        firstRussianSubtitlesProgressBar,
+                        firstRussianSubtitlesProgressLabel,
+                        firstRussianSubtitlesOpenOrCloseButton,
+                        translateToFirstRussianSubtitlesButton,
+                        translateWordByWordToFirstRussianSubtitlesButton,
+                        firstRussianSubtitlesActionLabel,
+                        firstRussianSubtitlesTextBox, firstRussianSubtitlesColorButton,
+                        openOrCloseFirstRussianSubtitlesGroupBox,
+                        firstRussianSubtitlesExportAsDocxGroupBox,
+                        firstRussianSubtitlesOpenFromDownloadsButton,
+                        openFirstRussianSubtitlesFromDefaultFolderButton,
+                        firstRussianSubtitlesOpenFromClipboardButton,
+                        firstRussianSubtitlesExportAsDocxButton,
+                        firstRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         openFirstRussianSubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.SecondRussian, new SubtitlesAndInfo(
-                        secondRussianSubtitlesProgressBar, secondRussianSubtitlesProgressLabel,
-                        secondRussianSubtitlesOpenOrCloseButton, translateToSecondRussianSubtitlesButton, translateWordByWordToSecondRussianSubtitlesButton,
-                        secondRussianSubtitlesActionLabel, secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton,
-                        openOrCloseSecondRussianSubtitlesGroupBox, secondRussianSubtitlesExportAsDocxGroupBox, secondRussianSubtitlesOpenFromDownloadsButton, openSecondRussianSubtitlesFromDefaultFolderButton, secondRussianSubtitlesOpenFromClipboardButton,
-                        secondRussianSubtitlesExportAsDocxButton, secondRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        secondRussianSubtitlesProgressBar,
+                        secondRussianSubtitlesProgressLabel,
+                        secondRussianSubtitlesOpenOrCloseButton,
+                        translateToSecondRussianSubtitlesButton,
+                        translateWordByWordToSecondRussianSubtitlesButton,
+                        secondRussianSubtitlesActionLabel,
+                        secondRussianSubtitlesTextBox, secondRussianSubtitlesColorButton,
+                        openOrCloseSecondRussianSubtitlesGroupBox,
+                        secondRussianSubtitlesExportAsDocxGroupBox,
+                        secondRussianSubtitlesOpenFromDownloadsButton,
+                        openSecondRussianSubtitlesFromDefaultFolderButton,
+                        secondRussianSubtitlesOpenFromClipboardButton,
+                        secondRussianSubtitlesExportAsDocxButton,
+                        secondRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         openSecondRussianSubtitlesIn1251Button)
                 },
                 {
                     SubtitlesType.ThirdRussian, new SubtitlesAndInfo(
-                        thirdRussianSubtitlesProgressBar, thirdRussianSubtitlesProgressLabel,
-                        thirdRussianSubtitlesOpenOrCloseButton, translateToThirdRussianSubtitlesButton, translateWordByWordToThirdRussianSubtitlesButton,
-                        thirdRussianSubtitlesActionLabel, thirdRussianSubtitlesTextBox, thirdRussianSubtitlesColorButton,
-                        openOrCloseThirdRussianSubtitlesGroupBox, thirdRussianSubtitlesExportAsDocxGroupBox, thirdRussianSubtitlesOpenFromDownloadsButton, openThirdRussianSubtitlesFromDefaultFolderButton, thirdRussianSubtitlesOpenFromClipboardButton,
-                        thirdRussianSubtitlesExportAsDocxButton, thirdRussianSubtitlesExportAsDocxIntoDownloadsButton,
-                        openThirdRussianSubtitlesIn1251Button)
+                        thirdRussianSubtitlesProgressBar,
+                        thirdRussianSubtitlesProgressLabel,
+                        thirdRussianSubtitlesOpenOrCloseButton,
+                        thirdRussianSubtitlesTranslateToButton,
+                        thirdRussianSubtitlesTranslateWordByWordToButton,
+                        thirdRussianSubtitlesActionLabel,
+                        thirdRussianSubtitlesTextBox,
+                        thirdRussianSubtitlesColorButton,
+                        thirdRussianSubtitlesOpenOrCloseGroupBox,
+                        thirdRussianSubtitlesExportAsDocxGroupBox,
+                        thirdRussianSubtitlesOpenFromDownloadsButton,
+                        thirdRussianSubtitlesOpenFromDefaultFolderButton,
+                        thirdRussianSubtitlesOpenFromClipboardButton,
+                        thirdRussianSubtitlesExportAsDocxButton,
+                        thirdRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        thirdRussianSubtitlesOpenIn1251Button)
+                },
+                                {
+                    SubtitlesType.FourthRussian, new SubtitlesAndInfo(
+                        fourthRussianSubtitlesProgressBar,
+                        fourthRussianSubtitlesProgressLabel,
+                        fourthRussianSubtitlesOpenOrCloseButton,
+                        //TODO fourthRussianSubtitlesTranslateToButton,
+                        //fourthRussianSubtitlesTranslateWordByWordToButton,
+                        null,
+                        null,
+                        fourthRussianSubtitlesActionLabel,
+                        fourthRussianSubtitlesTextBox,
+                        fourthRussianSubtitlesColorButton,
+                        fourthRussianSubtitlesOpenOrCloseGroupBox,
+                        fourthRussianSubtitlesExportAsDocxGroupBox,
+                        fourthRussianSubtitlesOpenFromDownloadsButton,
+                        //TODO fourthRussianSubtitlesOpenFromDefaultFolderButton,
+                        null,
+                        fourthRussianSubtitlesOpenFromClipboardButton,
+                        fourthRussianSubtitlesExportAsDocxButton,
+                        fourthRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                        // TODO fourthRussianSubtitlesOpenIn1251Button
+                        null)
+                },
+                 {
+                    SubtitlesType.FifthRussian, new SubtitlesAndInfo(
+                        fifthRussianSubtitlesProgressBar,
+                        fifthRussianSubtitlesProgressLabel,
+                        fifthRussianSubtitlesOpenOrCloseButton,
+                        //TODO fourthRussianSubtitlesTranslateToButton,
+                        //fourthRussianSubtitlesTranslateWordByWordToButton,
+                        null,
+                        null,
+                        fifthRussianSubtitlesActionLabel,
+                        fifthRussianSubtitlesTextBox,
+                        fifthRussianSubtitlesColorButton,
+                        fifthRussianSubtitlesOpenOrCloseGroupBox,
+                        fifthRussianSubtitlesExportAsDocxGroupBox,
+                        fifthRussianSubtitlesOpenFromDownloadsButton,
+                        //TODO fourthRussianSubtitlesOpenFromDefaultFolderButton,
+                        null,
+                        fifthRussianSubtitlesOpenFromClipboardButton,
+                        fifthRussianSubtitlesExportAsDocxButton,
+                        fifthRussianSubtitlesExportAsDocxIntoDownloadsButton,
+                                                // TODO fourthRussianSubtitlesOpenIn1251Button
+                                                null
+)
                 }
             };
 
@@ -372,7 +458,7 @@ namespace BilingualSubtitler
                 //translateToPrimarySubtitlesButton,
                 translateToFirstRussianSubtitlesButton,
                 translateToSecondRussianSubtitlesButton,
-                translateToThirdRussianSubtitlesButton,
+                thirdRussianSubtitlesTranslateToButton,
                 createOriginalAndBilingualSubtitlesFilesButton,
                 settingsButton
             };
@@ -1491,9 +1577,8 @@ namespace BilingualSubtitler
             newCurrentStringIndex = ReadStylesSectionAndThereAreTitlesOfOriginThereFromASSMarkedupDocumentWithBilingualSubtitles(lines, currentStringIndex, true);
             currentStringIndex = newCurrentStringIndex;
 
-            // Мы — на строке "[Events]"
-
-            currentStringIndex++;
+            while (!(lines[currentStringIndex].StartsWith("Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text")))
+                currentStringIndex++;
 
             //Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
             currentStringIndex++;
@@ -1560,7 +1645,7 @@ namespace BilingualSubtitler
 
                 translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                     translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                        translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                        thirdRussianSubtitlesTranslateToButton.Enabled = thirdRussianSubtitlesTranslateWordByWordToButton.Enabled =
                             true;
 
                 WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.Original, originalSubStream, filePath);
@@ -2359,7 +2444,7 @@ namespace BilingualSubtitler
             {
                 translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                 translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                    translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                    thirdRussianSubtitlesTranslateToButton.Enabled = thirdRussianSubtitlesTranslateWordByWordToButton.Enabled =
                         false;
             }
 
@@ -3066,7 +3151,7 @@ namespace BilingualSubtitler
                 {
                     translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                         translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                            translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                            thirdRussianSubtitlesTranslateToButton.Enabled = thirdRussianSubtitlesTranslateWordByWordToButton.Enabled =
                                 true;
                 }
 
@@ -3428,7 +3513,7 @@ namespace BilingualSubtitler
         {
             translateToFirstRussianSubtitlesButton.Enabled = translateWordByWordToFirstRussianSubtitlesButton.Enabled =
                 translateToSecondRussianSubtitlesButton.Enabled = translateWordByWordToSecondRussianSubtitlesButton.Enabled =
-                    translateToThirdRussianSubtitlesButton.Enabled = translateWordByWordToThirdRussianSubtitlesButton.Enabled =
+                    thirdRussianSubtitlesTranslateToButton.Enabled = thirdRussianSubtitlesTranslateWordByWordToButton.Enabled =
                         false;
 
             var fileName = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];

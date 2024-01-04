@@ -50,5 +50,11 @@
     <Setting Name="ShadowTransparencyCheckBoxChecked" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="FourthRussianSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Times New Roman;255;20;2;2;0;50;0</Value>
+    </Setting>
+    <Setting Name="FifthRussianSubtitlesStyleString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Times New Roman;0;20;2;2;0;50;0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
