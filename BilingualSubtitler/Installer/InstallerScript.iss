@@ -2,14 +2,14 @@
 ; 2. Поменять версию
 ; 3. Чекнуть набор файлов
 #define Architecture = "x64"
-#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
+#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
 ;
 ;#define Architecture = "x86";
-;#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
+;#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
-#define MyAppVersion "12.0"
+#define MyAppVersion "12.1"
 #define MajorVersion = "12"
-#define MinorVersion = "0"
+#define MinorVersion = "1"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -114,7 +114,7 @@ UsedUserAreasWarning=no
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=bilingual-subtitler-installer-{#MajorVersion}-{#MinorVersion}-{#Architecture}
-SetupIconFile=D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\Resources\logo4_1.ico
+SetupIconFile=C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\Resources\logo4_1.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
