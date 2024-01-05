@@ -118,7 +118,7 @@
             buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             buttonOk.Image = Properties.Resources._16pxOkIcon;
             buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonOk.Location = new System.Drawing.Point(1138, 915);
+            buttonOk.Location = new System.Drawing.Point(1138, 942);
             buttonOk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonOk.Name = "buttonOk";
             buttonOk.Size = new System.Drawing.Size(111, 40);
@@ -133,7 +133,7 @@
             buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             buttonCancel.Image = Properties.Resources._16pxCancelIconAnother;
             buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonCancel.Location = new System.Drawing.Point(564, 915);
+            buttonCancel.Location = new System.Drawing.Point(564, 942);
             buttonCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new System.Drawing.Size(86, 40);
@@ -160,7 +160,7 @@
             yandexTranslatorGroupBox.Controls.Add(gotTheYandexTranslatorAPIKeyCheckBox);
             yandexTranslatorGroupBox.Controls.Add(linkLabelYandexAPIKeysList);
             yandexTranslatorGroupBox.Controls.Add(richTextBoxForYandexApiKeyInSeparateForm);
-            yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 827);
+            yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 847);
             yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -271,7 +271,7 @@
             // 
             button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button5.Location = new System.Drawing.Point(750, 915);
+            button5.Location = new System.Drawing.Point(750, 942);
             button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(273, 40);
@@ -527,7 +527,7 @@
             processPriorityGroupBox.Controls.Add(currentProcessPriorityTextBox);
             processPriorityGroupBox.Controls.Add(label38);
             processPriorityGroupBox.Controls.Add(label37);
-            processPriorityGroupBox.Location = new System.Drawing.Point(18, 572);
+            processPriorityGroupBox.Location = new System.Drawing.Point(18, 657);
             processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             processPriorityGroupBox.Name = "processPriorityGroupBox";
             processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -586,7 +586,7 @@
             checkUpdatesGroupBox.Controls.Add(label39);
             checkUpdatesGroupBox.Controls.Add(checkUpdatesOnAppStartCheckBox);
             checkUpdatesGroupBox.Controls.Add(label40);
-            checkUpdatesGroupBox.Location = new System.Drawing.Point(382, 585);
+            checkUpdatesGroupBox.Location = new System.Drawing.Point(382, 670);
             checkUpdatesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkUpdatesGroupBox.Name = "checkUpdatesGroupBox";
             checkUpdatesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -719,11 +719,11 @@
             // 
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathSetButton);
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathRichTextBox);
-            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 659);
+            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 752);
             downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
             downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 89);
             downloadsDirectoryGroupBox.TabIndex = 98;
             downloadsDirectoryGroupBox.TabStop = false;
             downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
@@ -735,7 +735,7 @@
             downloadsFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
             downloadsFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
-            downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
+            downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 57);
             downloadsFolderPathSetButton.TabIndex = 98;
             downloadsFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
             downloadsFolderPathSetButton.UseVisualStyleBackColor = false;
@@ -746,7 +746,7 @@
             downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
             downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
-            downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
+            downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 57);
             downloadsFolderPathRichTextBox.TabIndex = 2;
             downloadsFolderPathRichTextBox.Text = "";
             // 
@@ -757,7 +757,7 @@
             defaultFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
             defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
-            defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 76);
+            defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 57);
             defaultFolderPathSetButton.TabIndex = 99;
             defaultFolderPathSetButton.Text = "📁\r\nВыбрать\r\nпапку";
             defaultFolderPathSetButton.UseVisualStyleBackColor = false;
@@ -777,7 +777,7 @@
             defaultFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
             defaultFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
-            defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 76);
+            defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 57);
             defaultFolderPathRichTextBox.TabIndex = 5;
             defaultFolderPathRichTextBox.Text = "";
             // 
@@ -785,7 +785,7 @@
             // 
             button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
             button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button11.Location = new System.Drawing.Point(18, 915);
+            button11.Location = new System.Drawing.Point(18, 942);
             button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button11.Name = "button11";
             button11.Size = new System.Drawing.Size(273, 40);
@@ -809,9 +809,9 @@
             defaultDirectoryGroupBox.Controls.Add(defaultFolderPathSetButton);
             defaultDirectoryGroupBox.Controls.Add(defaultFolderPathRichTextBox);
             defaultDirectoryGroupBox.Controls.Add(label42);
-            defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 659);
+            defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 752);
             defaultDirectoryGroupBox.Name = "defaultDirectoryGroupBox";
-            defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 108);
+            defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 89);
             defaultDirectoryGroupBox.TabIndex = 103;
             defaultDirectoryGroupBox.TabStop = false;
             defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
@@ -821,28 +821,28 @@
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.AutoSize = true;
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = true;
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 782);
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Location = new System.Drawing.Point(18, 562);
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Name = "fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox";
-            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(593, 34);
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Size = new System.Drawing.Size(315, 64);
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.TabIndex = 104;
-            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании исходных субтитров — исправлять ошибку разметки, \r\nпри которой запятая, точка, вопросительный или восклицательный знаки выносятся на новую строку";
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Text = "При считывании исходных субтитров — \r\nисправлять ошибку разметки, \r\nпри которой запятая, точка, вопросительный или \r\nвосклицательный знаки выносятся на новую строку";
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.UseVisualStyleBackColor = true;
             // 
             // ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox
             // 
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.AutoSize = true;
-            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Location = new System.Drawing.Point(621, 785);
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Location = new System.Drawing.Point(18, 628);
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Name = "ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox";
-            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Size = new System.Drawing.Size(340, 34);
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Size = new System.Drawing.Size(570, 19);
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.TabIndex = 105;
-            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Text = "Считывать из и записывать в итоговые файлы субтитров\r\nназвания потоков субтитров-исходников";
+            ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Text = "Считывать из и записывать в итоговые файлы субтитров названия потоков субтитров-исходников";
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.UseVisualStyleBackColor = true;
             // 
             // notifyAboutSuccessfullySavedSubtitlesFileCheckBox
             // 
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.AutoSize = true;
-            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Location = new System.Drawing.Point(967, 785);
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Location = new System.Drawing.Point(350, 585);
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Name = "notifyAboutSuccessfullySavedSubtitlesFileCheckBox";
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Size = new System.Drawing.Size(240, 34);
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.TabIndex = 106;
@@ -855,7 +855,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
-            ClientSize = new System.Drawing.Size(1264, 963);
+            ClientSize = new System.Drawing.Size(1264, 991);
             Controls.Add(notifyAboutSuccessfullySavedSubtitlesFileCheckBox);
             Controls.Add(ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
             Controls.Add(fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
