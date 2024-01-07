@@ -449,5 +449,27 @@ namespace BilingualSubtitler.Properties {
                 this["NotifyAboutSuccessfullySavedSubtitlesFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color FourthRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["FourthRussianSubtitlesColor"]));
+            }
+            set {
+                this["FourthRussianSubtitlesColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color FifthRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["FifthRussianSubtitlesColor"]));
+            }
+            set {
+                this["FifthRussianSubtitlesColor"] = value;
+            }
+        }
     }
 }

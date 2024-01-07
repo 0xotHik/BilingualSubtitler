@@ -1,15 +1,15 @@
 ; 1. Битность
 ; 2. Поменять версию
 ; 3. Чекнуть набор файлов
-#define Architecture = "x64"
-#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
+;#define Architecture = "x64"
+;#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
 ;
-;#define Architecture = "x86";
-;#define SourceFolder = "D:\users\0xothik\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
+#define Architecture = "x86";
+#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
-#define MyAppVersion "12.0"
+#define MyAppVersion "12.1"
 #define MajorVersion = "12"
-#define MinorVersion = "0"
+#define MinorVersion = "1"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -71,11 +71,6 @@ Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Sensors.dll"; DestDir: "{a
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.ShellExtensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Aspose.Zip.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.DirectoryServices.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Security.Cryptography.Pkcs.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Security.Cryptography.ProtectedData.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Security.Cryptography.Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Threading.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;
 ; Папки
 Source: "{#SourceFolder}\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -114,7 +109,7 @@ UsedUserAreasWarning=no
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=bilingual-subtitler-installer-{#MajorVersion}-{#MinorVersion}-{#Architecture}
-SetupIconFile=D:\source\repos\0xotHik\BilingualSubtitler\BilingualSubtitler\Resources\logo4_1.ico
+SetupIconFile=C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\Resources\logo4_1.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

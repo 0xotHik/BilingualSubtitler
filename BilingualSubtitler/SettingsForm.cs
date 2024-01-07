@@ -128,6 +128,9 @@ namespace BilingualSubtitler
                 subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.Items.Add(font.Name);
                 subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox.Items.Add(font.Name);
                 subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+
             }
 
             //m_flagKeyIsInvalid = true;
@@ -363,6 +366,26 @@ namespace BilingualSubtitler
                                                                        $"{subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Value};" +
                                                                        $"{subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value};" +
                                                                        $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
+
+            Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString = $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox.Text};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesMarginNumericUpDown.Text};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesSizeNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesOutlineNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value};" +
+                                                                       $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
+
+             Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString = $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox.Text};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesMarginNumericUpDown.Text};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesOutlineNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Value};" +
+                                                                       $"{subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Value};" +
+                                                                       $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)}";
+
+
 
             Properties.Settings.Default.YandexTranslatorAPIEnabled = gotTheYandexTranslatorAPIKeyCheckBox.Checked;
 

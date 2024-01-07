@@ -29,188 +29,225 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowSubtitlesForm));
-            this.originalSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.firstRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.secondRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.thirdRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.showSubtitlesOnlyFirstWordsCheckBox = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesDataGridView)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showSubtitlesOnlyFirstWordsCountNumericUpDown)).BeginInit();
-            this.SuspendLayout();
+            originalSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            firstRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            secondRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            thirdRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            showSubtitlesOnlyFirstWordsCheckBox = new System.Windows.Forms.CheckBox();
+            panel1 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            showSubtitlesOnlyFirstWordsCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            fifthRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            fourthRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)originalSubtitlesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)firstRussianSubtitlesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)secondRussianSubtitlesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)thirdRussianSubtitlesDataGridView).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)showSubtitlesOnlyFirstWordsCountNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fifthRussianSubtitlesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fourthRussianSubtitlesDataGridView).BeginInit();
+            SuspendLayout();
             // 
             // originalSubtitlesDataGridView
             // 
-            this.originalSubtitlesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.originalSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.originalSubtitlesDataGridView.Location = new System.Drawing.Point(42, 40);
-            this.originalSubtitlesDataGridView.Name = "originalSubtitlesDataGridView";
-            this.originalSubtitlesDataGridView.RowTemplate.Height = 25;
-            this.originalSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
-            this.originalSubtitlesDataGridView.TabIndex = 0;
+            originalSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            originalSubtitlesDataGridView.Location = new System.Drawing.Point(42, 40);
+            originalSubtitlesDataGridView.Name = "originalSubtitlesDataGridView";
+            originalSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            originalSubtitlesDataGridView.TabIndex = 0;
             // 
             // firstRussianSubtitlesDataGridView
             // 
-            this.firstRussianSubtitlesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.firstRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.firstRussianSubtitlesDataGridView.Location = new System.Drawing.Point(329, 40);
-            this.firstRussianSubtitlesDataGridView.Name = "firstRussianSubtitlesDataGridView";
-            this.firstRussianSubtitlesDataGridView.RowTemplate.Height = 25;
-            this.firstRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
-            this.firstRussianSubtitlesDataGridView.TabIndex = 1;
+            firstRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            firstRussianSubtitlesDataGridView.Location = new System.Drawing.Point(329, 40);
+            firstRussianSubtitlesDataGridView.Name = "firstRussianSubtitlesDataGridView";
+            firstRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            firstRussianSubtitlesDataGridView.TabIndex = 1;
             // 
             // secondRussianSubtitlesDataGridView
             // 
-            this.secondRussianSubtitlesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.secondRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.secondRussianSubtitlesDataGridView.Location = new System.Drawing.Point(616, 40);
-            this.secondRussianSubtitlesDataGridView.Name = "secondRussianSubtitlesDataGridView";
-            this.secondRussianSubtitlesDataGridView.RowTemplate.Height = 25;
-            this.secondRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
-            this.secondRussianSubtitlesDataGridView.TabIndex = 2;
+            secondRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            secondRussianSubtitlesDataGridView.Location = new System.Drawing.Point(616, 40);
+            secondRussianSubtitlesDataGridView.Name = "secondRussianSubtitlesDataGridView";
+            secondRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            secondRussianSubtitlesDataGridView.TabIndex = 2;
             // 
             // thirdRussianSubtitlesDataGridView
             // 
-            this.thirdRussianSubtitlesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.thirdRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.thirdRussianSubtitlesDataGridView.Location = new System.Drawing.Point(903, 40);
-            this.thirdRussianSubtitlesDataGridView.Name = "thirdRussianSubtitlesDataGridView";
-            this.thirdRussianSubtitlesDataGridView.RowTemplate.Height = 25;
-            this.thirdRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
-            this.thirdRussianSubtitlesDataGridView.TabIndex = 3;
+            thirdRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            thirdRussianSubtitlesDataGridView.Location = new System.Drawing.Point(903, 40);
+            thirdRussianSubtitlesDataGridView.Name = "thirdRussianSubtitlesDataGridView";
+            thirdRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            thirdRussianSubtitlesDataGridView.TabIndex = 3;
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.vScrollBar1.Location = new System.Drawing.Point(9, 40);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 360);
-            this.vScrollBar1.TabIndex = 4;
-            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
+            vScrollBar1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            vScrollBar1.Location = new System.Drawing.Point(9, 40);
+            vScrollBar1.Name = "vScrollBar1";
+            vScrollBar1.Size = new System.Drawing.Size(17, 360);
+            vScrollBar1.TabIndex = 4;
+            vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
             // showSubtitlesOnlyFirstWordsCheckBox
             // 
-            this.showSubtitlesOnlyFirstWordsCheckBox.AutoSize = true;
-            this.showSubtitlesOnlyFirstWordsCheckBox.Location = new System.Drawing.Point(3, 3);
-            this.showSubtitlesOnlyFirstWordsCheckBox.Name = "showSubtitlesOnlyFirstWordsCheckBox";
-            this.showSubtitlesOnlyFirstWordsCheckBox.Size = new System.Drawing.Size(135, 19);
-            this.showSubtitlesOnlyFirstWordsCheckBox.TabIndex = 5;
-            this.showSubtitlesOnlyFirstWordsCheckBox.Text = "Показывать только ";
-            this.showSubtitlesOnlyFirstWordsCheckBox.UseVisualStyleBackColor = true;
+            showSubtitlesOnlyFirstWordsCheckBox.AutoSize = true;
+            showSubtitlesOnlyFirstWordsCheckBox.Location = new System.Drawing.Point(3, 3);
+            showSubtitlesOnlyFirstWordsCheckBox.Name = "showSubtitlesOnlyFirstWordsCheckBox";
+            showSubtitlesOnlyFirstWordsCheckBox.Size = new System.Drawing.Size(135, 19);
+            showSubtitlesOnlyFirstWordsCheckBox.TabIndex = 5;
+            showSubtitlesOnlyFirstWordsCheckBox.Text = "Показывать только ";
+            showSubtitlesOnlyFirstWordsCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.showSubtitlesOnlyFirstWordsCountNumericUpDown);
-            this.panel1.Controls.Add(this.showSubtitlesOnlyFirstWordsCheckBox);
-            this.panel1.Location = new System.Drawing.Point(34, 413);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 25);
-            this.panel1.TabIndex = 6;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(showSubtitlesOnlyFirstWordsCountNumericUpDown);
+            panel1.Controls.Add(showSubtitlesOnlyFirstWordsCheckBox);
+            panel1.Location = new System.Drawing.Point(34, 413);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(328, 25);
+            panel1.TabIndex = 6;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "первых слов из субтитра";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(177, 5);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(144, 15);
+            label1.TabIndex = 7;
+            label1.Text = "первых слов из субтитра";
             // 
             // showSubtitlesOnlyFirstWordsCountNumericUpDown
             // 
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown.Location = new System.Drawing.Point(136, 1);
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown.Name = "showSubtitlesOnlyFirstWordsCountNumericUpDown";
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown.Size = new System.Drawing.Size(35, 23);
-            this.showSubtitlesOnlyFirstWordsCountNumericUpDown.TabIndex = 6;
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.Location = new System.Drawing.Point(136, 1);
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.Name = "showSubtitlesOnlyFirstWordsCountNumericUpDown";
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.Size = new System.Drawing.Size(35, 23);
+            showSubtitlesOnlyFirstWordsCountNumericUpDown.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Субтитры:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(9, 9);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(64, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Субтитры:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(132, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 15);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Оригинальные";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(132, 9);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(90, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Оригинальные";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(398, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 15);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Первые переведенные";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(398, 9);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(132, 15);
+            label4.TabIndex = 10;
+            label4.Text = "Первые переведенные";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(686, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Вторые переведенные";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(686, 9);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(130, 15);
+            label5.TabIndex = 11;
+            label5.Text = "Вторые переведенные";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(975, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 15);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Третьи переведенные";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(975, 9);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(126, 15);
+            label6.TabIndex = 12;
+            label6.Text = "Третьи переведенные";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(1553, 9);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(106, 15);
+            label7.TabIndex = 16;
+            label7.Text = "5-е переведенные";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(1264, 9);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(106, 15);
+            label8.TabIndex = 15;
+            label8.Text = "4-е переведенные";
+            // 
+            // fifthRussianSubtitlesDataGridView
+            // 
+            fifthRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            fifthRussianSubtitlesDataGridView.Location = new System.Drawing.Point(1481, 40);
+            fifthRussianSubtitlesDataGridView.Name = "fifthRussianSubtitlesDataGridView";
+            fifthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            fifthRussianSubtitlesDataGridView.TabIndex = 14;
+            // 
+            // fourthRussianSubtitlesDataGridView
+            // 
+            fourthRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            fourthRussianSubtitlesDataGridView.Location = new System.Drawing.Point(1194, 40);
+            fourthRussianSubtitlesDataGridView.Name = "fourthRussianSubtitlesDataGridView";
+            fourthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            fourthRussianSubtitlesDataGridView.TabIndex = 13;
             // 
             // ShowSubtitlesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 450);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.thirdRussianSubtitlesDataGridView);
-            this.Controls.Add(this.secondRussianSubtitlesDataGridView);
-            this.Controls.Add(this.firstRussianSubtitlesDataGridView);
-            this.Controls.Add(this.originalSubtitlesDataGridView);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ShowSubtitlesForm";
-            this.Text = "Показать субтитры";
-            ((System.ComponentModel.ISupportInitialize)(this.originalSubtitlesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstRussianSubtitlesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.secondRussianSubtitlesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.thirdRussianSubtitlesDataGridView)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showSubtitlesOnlyFirstWordsCountNumericUpDown)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1764, 450);
+            Controls.Add(label7);
+            Controls.Add(label8);
+            Controls.Add(fifthRussianSubtitlesDataGridView);
+            Controls.Add(fourthRussianSubtitlesDataGridView);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(panel1);
+            Controls.Add(vScrollBar1);
+            Controls.Add(thirdRussianSubtitlesDataGridView);
+            Controls.Add(secondRussianSubtitlesDataGridView);
+            Controls.Add(firstRussianSubtitlesDataGridView);
+            Controls.Add(originalSubtitlesDataGridView);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "ShowSubtitlesForm";
+            Tag = "Сайз был 1200; 489";
+            Text = "Показать субтитры";
+            ((System.ComponentModel.ISupportInitialize)originalSubtitlesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)firstRussianSubtitlesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)secondRussianSubtitlesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)thirdRussianSubtitlesDataGridView).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)showSubtitlesOnlyFirstWordsCountNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fifthRussianSubtitlesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fourthRussianSubtitlesDataGridView).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -229,5 +266,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView fifthRussianSubtitlesDataGridView;
+        private System.Windows.Forms.DataGridView fourthRussianSubtitlesDataGridView;
     }
 }

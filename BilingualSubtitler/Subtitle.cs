@@ -107,18 +107,26 @@ namespace BilingualSubtitler
 
         public Label ActionLabel { get; private set; }
         public TextBox OutputTextBox { get; private set; }
-        public Button ColorPickingButton;
+        public Button ColorPickingButton { get; private set; }
 
         public Button CloseSubtitleStreamConfimationButton;
         public Button CloseSubtitleStreamCancellationButton;
-        public GroupBox OpenSubtitlesGroupBox;
-        public GroupBox ExportAsDocxGroupBox;
-        public Button OpenFromDownloadsButton;
-        public Button OpenFromDefaultFolderButton;
-        public Button OpenFromClipboardButton;
-        public Button ExportAsDocxButton;
-        public Button ExportAsDocxIntoDownloadsButton;
-        public Button OpenIn1251Button;
+        public GroupBox OpenSubtitlesGroupBox { get; private set; }
+        public GroupBox ExportAsDocxGroupBox { get; private set; }
+        public Button OpenFromDownloadsButton { get; private set; }
+        public Button OpenFromDefaultFolderButton { get; private set; }
+        public Button OpenFromClipboardButton { get; private set; }
+        public Button ExportAsDocxButton { get; private set; }
+        public Button ExportAsDocxIntoDownloadsButton { get; private set; }
+        public Button OpenIn1251Button { get; private set; }
+        public ComboBox FontComboBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown MarginNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown SizeNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown OutlineNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown ShadowNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown TransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public NumericUpDown ShadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public CheckBox SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
 
         public string TrackNumber = null;
         public string TrackLanguage = null;
@@ -164,12 +172,30 @@ namespace BilingualSubtitler
             }
         }
 
-        public SubtitlesAndInfo(ProgressBar progressBar, Label progressLabel, Button buttonOpen, Button buttonTranslate, Button buttonTranslateWordByWord,
-           Label actionLabel, TextBox outputTextBox, Button colorPickingButton,
-           GroupBox openSubtitlesGroupBox, GroupBox exportAsDocxGroupBox,
-           Button openFromDownloadsButton, Button openFromDefaultFolderButton, Button openFromClipboardButton,
-           Button exportAsDocxButton, Button exportAsDocxIntoDownloadsButton,
-           Button openIn1251Button)
+        public SubtitlesAndInfo(ProgressBar progressBar,
+            Label progressLabel,
+            Button buttonOpen,
+            Button buttonTranslate,
+            Button buttonTranslateWordByWord,
+           Label actionLabel,
+           TextBox outputTextBox,
+           Button colorPickingButton,
+           GroupBox openSubtitlesGroupBox,
+           GroupBox exportAsDocxGroupBox,
+           Button openFromDownloadsButton,
+           Button openFromDefaultFolderButton,
+           Button openFromClipboardButton,
+           Button exportAsDocxButton,
+           Button exportAsDocxIntoDownloadsButton,
+           Button openIn1251Button,
+           ComboBox fontComboBoxInSubtitleAppearanceControlOnMainForm,
+NumericUpDown marginNumericUpDownInSubtitleAppearanceControlOnMainForm,
+NumericUpDown sizeNumericUpDownInSubtitleAppearanceControlOnMainForm,
+NumericUpDown outlineNumericUpDownInSubtitleAppearanceControlOnMainForm,
+NumericUpDown shadowNumericUpDownInSubtitleAppearanceControlOnMainForm,
+NumericUpDown transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
+NumericUpDown thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
+CheckBox subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm)
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
@@ -187,6 +213,15 @@ namespace BilingualSubtitler
             ExportAsDocxButton = exportAsDocxButton;
             ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
             OpenIn1251Button = openIn1251Button;
+            FontComboBoxInSubtitleAppearanceControlOnMainForm = fontComboBoxInSubtitleAppearanceControlOnMainForm;
+MarginNumericUpDownInSubtitleAppearanceControlOnMainForm = marginNumericUpDownInSubtitleAppearanceControlOnMainForm;
+SizeNumericUpDownInSubtitleAppearanceControlOnMainForm = sizeNumericUpDownInSubtitleAppearanceControlOnMainForm;
+OutlineNumericUpDownInSubtitleAppearanceControlOnMainForm = outlineNumericUpDownInSubtitleAppearanceControlOnMainForm;
+ShadowNumericUpDownInSubtitleAppearanceControlOnMainForm = shadowNumericUpDownInSubtitleAppearanceControlOnMainForm;
+TransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
+ShadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
+SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm = subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm;
+
         }
 
         private void InitializeEmptySubtitlesStream()

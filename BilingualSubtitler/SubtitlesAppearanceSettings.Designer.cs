@@ -34,15 +34,15 @@
             fifthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
             fifthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
             fifthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
-            checkBox2 = new System.Windows.Forms.CheckBox();
-            numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label39 = new System.Windows.Forms.Label();
-            numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            comboBox2 = new System.Windows.Forms.ComboBox();
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FifthRussianSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             label40 = new System.Windows.Forms.Label();
             label41 = new System.Windows.Forms.Label();
             label42 = new System.Windows.Forms.Label();
@@ -54,15 +54,15 @@
             fourthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
             fourthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
             fourthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
-            checkBox1 = new System.Windows.Forms.CheckBox();
-            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label6 = new System.Windows.Forms.Label();
-            numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            comboBox1 = new System.Windows.Forms.ComboBox();
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesOutlineNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesMarginNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            FourthRussianSubtitlesFontComboBox = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -165,19 +165,19 @@
             label3 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesTransparencyPercentageNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesShadowNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesOutlineNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesSizeNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesMarginNumericUpDown).BeginInit();
             groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesTransparencyPercentageNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesShadowNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesOutlineNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesSizeNumericUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesMarginNumericUpDown).BeginInit();
             groupBox1.SuspendLayout();
             groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown).BeginInit();
@@ -237,15 +237,15 @@
             groupBox5.Controls.Add(fifthRussianSubtitlesItalicCheckBox);
             groupBox5.Controls.Add(fifthRussianSubtitlesUnderlineCheckBox);
             groupBox5.Controls.Add(fifthRussianSubtitlesBoldCheckBox);
-            groupBox5.Controls.Add(checkBox2);
-            groupBox5.Controls.Add(numericUpDown7);
+            groupBox5.Controls.Add(FifthRussianSubtitlesInOneLineCheckBox);
+            groupBox5.Controls.Add(FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox5.Controls.Add(label39);
-            groupBox5.Controls.Add(numericUpDown8);
-            groupBox5.Controls.Add(numericUpDown9);
-            groupBox5.Controls.Add(numericUpDown10);
-            groupBox5.Controls.Add(numericUpDown11);
-            groupBox5.Controls.Add(numericUpDown12);
-            groupBox5.Controls.Add(comboBox2);
+            groupBox5.Controls.Add(FifthRussianSubtitlesTransparencyPercentageNumericUpDown);
+            groupBox5.Controls.Add(FifthRussianSubtitlesShadowNumericUpDown);
+            groupBox5.Controls.Add(FifthRussianSubtitlesOutlineNumericUpDown);
+            groupBox5.Controls.Add(FifthRussianSubtitlesSizeNumericUpDown);
+            groupBox5.Controls.Add(FifthRussianSubtitlesMarginNumericUpDown);
+            groupBox5.Controls.Add(FifthRussianSubtitlesFontComboBox);
             groupBox5.Controls.Add(label40);
             groupBox5.Controls.Add(label41);
             groupBox5.Controls.Add(label42);
@@ -305,26 +305,26 @@
             fifthRussianSubtitlesBoldCheckBox.Text = "b";
             fifthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // FifthRussianSubtitlesInOneLineCheckBox
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Checked = true;
-            checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            checkBox2.Location = new System.Drawing.Point(13, 325);
-            checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(81, 34);
-            checkBox2.TabIndex = 96;
-            checkBox2.Text = "Убрать\r\nпереносы";
-            checkBox2.UseVisualStyleBackColor = true;
+            FifthRussianSubtitlesInOneLineCheckBox.AutoSize = true;
+            FifthRussianSubtitlesInOneLineCheckBox.Checked = true;
+            FifthRussianSubtitlesInOneLineCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            FifthRussianSubtitlesInOneLineCheckBox.Location = new System.Drawing.Point(13, 325);
+            FifthRussianSubtitlesInOneLineCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesInOneLineCheckBox.Name = "FifthRussianSubtitlesInOneLineCheckBox";
+            FifthRussianSubtitlesInOneLineCheckBox.Size = new System.Drawing.Size(81, 34);
+            FifthRussianSubtitlesInOneLineCheckBox.TabIndex = 96;
+            FifthRussianSubtitlesInOneLineCheckBox.Text = "Убрать\r\nпереносы";
+            FifthRussianSubtitlesInOneLineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown7
+            // FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown
             // 
-            numericUpDown7.Location = new System.Drawing.Point(10, 294);
-            numericUpDown7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown7.Name = "numericUpDown7";
-            numericUpDown7.Size = new System.Drawing.Size(106, 23);
-            numericUpDown7.TabIndex = 94;
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 294);
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown";
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.TabIndex = 94;
             // 
             // label39
             // 
@@ -336,55 +336,55 @@
             label39.TabIndex = 93;
             label39.Text = "Прозрач. тени,%";
             // 
-            // numericUpDown8
+            // FifthRussianSubtitlesTransparencyPercentageNumericUpDown
             // 
-            numericUpDown8.Location = new System.Drawing.Point(10, 165);
-            numericUpDown8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown8.Name = "numericUpDown8";
-            numericUpDown8.Size = new System.Drawing.Size(106, 23);
-            numericUpDown8.TabIndex = 92;
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 165);
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "FifthRussianSubtitlesTransparencyPercentageNumericUpDown";
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesTransparencyPercentageNumericUpDown.TabIndex = 92;
             // 
-            // numericUpDown9
+            // FifthRussianSubtitlesShadowNumericUpDown
             // 
-            numericUpDown9.Location = new System.Drawing.Point(10, 208);
-            numericUpDown9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown9.Name = "numericUpDown9";
-            numericUpDown9.Size = new System.Drawing.Size(106, 23);
-            numericUpDown9.TabIndex = 91;
+            FifthRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(10, 208);
+            FifthRussianSubtitlesShadowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesShadowNumericUpDown.Name = "FifthRussianSubtitlesShadowNumericUpDown";
+            FifthRussianSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesShadowNumericUpDown.TabIndex = 91;
             // 
-            // numericUpDown10
+            // FifthRussianSubtitlesOutlineNumericUpDown
             // 
-            numericUpDown10.Location = new System.Drawing.Point(10, 251);
-            numericUpDown10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown10.Name = "numericUpDown10";
-            numericUpDown10.Size = new System.Drawing.Size(106, 23);
-            numericUpDown10.TabIndex = 90;
+            FifthRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(10, 251);
+            FifthRussianSubtitlesOutlineNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesOutlineNumericUpDown.Name = "FifthRussianSubtitlesOutlineNumericUpDown";
+            FifthRussianSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesOutlineNumericUpDown.TabIndex = 90;
             // 
-            // numericUpDown11
+            // FifthRussianSubtitlesSizeNumericUpDown
             // 
-            numericUpDown11.Location = new System.Drawing.Point(10, 123);
-            numericUpDown11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown11.Name = "numericUpDown11";
-            numericUpDown11.Size = new System.Drawing.Size(106, 23);
-            numericUpDown11.TabIndex = 89;
+            FifthRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(10, 123);
+            FifthRussianSubtitlesSizeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesSizeNumericUpDown.Name = "FifthRussianSubtitlesSizeNumericUpDown";
+            FifthRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
             // 
-            // numericUpDown12
+            // FifthRussianSubtitlesMarginNumericUpDown
             // 
-            numericUpDown12.Location = new System.Drawing.Point(10, 80);
-            numericUpDown12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown12.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericUpDown12.Name = "numericUpDown12";
-            numericUpDown12.Size = new System.Drawing.Size(106, 23);
-            numericUpDown12.TabIndex = 88;
+            FifthRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(10, 80);
+            FifthRussianSubtitlesMarginNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            FifthRussianSubtitlesMarginNumericUpDown.Name = "FifthRussianSubtitlesMarginNumericUpDown";
+            FifthRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
             // 
-            // comboBox2
+            // FifthRussianSubtitlesFontComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new System.Drawing.Point(10, 36);
-            comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new System.Drawing.Size(106, 23);
-            comboBox2.TabIndex = 87;
+            FifthRussianSubtitlesFontComboBox.FormattingEnabled = true;
+            FifthRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(10, 36);
+            FifthRussianSubtitlesFontComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FifthRussianSubtitlesFontComboBox.Name = "FifthRussianSubtitlesFontComboBox";
+            FifthRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(106, 23);
+            FifthRussianSubtitlesFontComboBox.TabIndex = 87;
             // 
             // label40
             // 
@@ -452,15 +452,15 @@
             groupBox2.Controls.Add(fourthRussianSubtitlesItalicCheckBox);
             groupBox2.Controls.Add(fourthRussianSubtitlesUnderlineCheckBox);
             groupBox2.Controls.Add(fourthRussianSubtitlesBoldCheckBox);
-            groupBox2.Controls.Add(checkBox1);
-            groupBox2.Controls.Add(numericUpDown1);
+            groupBox2.Controls.Add(FourthRussianSubtitlesInOneLineCheckBox);
+            groupBox2.Controls.Add(FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(numericUpDown2);
-            groupBox2.Controls.Add(numericUpDown3);
-            groupBox2.Controls.Add(numericUpDown4);
-            groupBox2.Controls.Add(numericUpDown5);
-            groupBox2.Controls.Add(numericUpDown6);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(FourthRussianSubtitlesTransparencyPercentageNumericUpDown);
+            groupBox2.Controls.Add(FourthRussianSubtitlesShadowNumericUpDown);
+            groupBox2.Controls.Add(FourthRussianSubtitlesOutlineNumericUpDown);
+            groupBox2.Controls.Add(FourthRussianSubtitlesSizeNumericUpDown);
+            groupBox2.Controls.Add(FourthRussianSubtitlesMarginNumericUpDown);
+            groupBox2.Controls.Add(FourthRussianSubtitlesFontComboBox);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label9);
@@ -520,26 +520,26 @@
             fourthRussianSubtitlesBoldCheckBox.Text = "b";
             fourthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // FourthRussianSubtitlesInOneLineCheckBox
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            checkBox1.Location = new System.Drawing.Point(12, 325);
-            checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(81, 34);
-            checkBox1.TabIndex = 96;
-            checkBox1.Text = "Убрать\r\nпереносы";
-            checkBox1.UseVisualStyleBackColor = true;
+            FourthRussianSubtitlesInOneLineCheckBox.AutoSize = true;
+            FourthRussianSubtitlesInOneLineCheckBox.Checked = true;
+            FourthRussianSubtitlesInOneLineCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            FourthRussianSubtitlesInOneLineCheckBox.Location = new System.Drawing.Point(12, 325);
+            FourthRussianSubtitlesInOneLineCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesInOneLineCheckBox.Name = "FourthRussianSubtitlesInOneLineCheckBox";
+            FourthRussianSubtitlesInOneLineCheckBox.Size = new System.Drawing.Size(81, 34);
+            FourthRussianSubtitlesInOneLineCheckBox.TabIndex = 96;
+            FourthRussianSubtitlesInOneLineCheckBox.Text = "Убрать\r\nпереносы";
+            FourthRussianSubtitlesInOneLineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown
             // 
-            numericUpDown1.Location = new System.Drawing.Point(10, 294);
-            numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new System.Drawing.Size(106, 23);
-            numericUpDown1.TabIndex = 94;
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 294);
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Name = "FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown";
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.TabIndex = 94;
             // 
             // label6
             // 
@@ -551,55 +551,55 @@
             label6.TabIndex = 93;
             label6.Text = "Прозрач. тени,%";
             // 
-            // numericUpDown2
+            // FourthRussianSubtitlesTransparencyPercentageNumericUpDown
             // 
-            numericUpDown2.Location = new System.Drawing.Point(10, 165);
-            numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new System.Drawing.Size(106, 23);
-            numericUpDown2.TabIndex = 92;
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Location = new System.Drawing.Point(10, 165);
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Name = "FourthRussianSubtitlesTransparencyPercentageNumericUpDown";
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesTransparencyPercentageNumericUpDown.TabIndex = 92;
             // 
-            // numericUpDown3
+            // FourthRussianSubtitlesShadowNumericUpDown
             // 
-            numericUpDown3.Location = new System.Drawing.Point(10, 208);
-            numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new System.Drawing.Size(106, 23);
-            numericUpDown3.TabIndex = 91;
+            FourthRussianSubtitlesShadowNumericUpDown.Location = new System.Drawing.Point(10, 208);
+            FourthRussianSubtitlesShadowNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesShadowNumericUpDown.Name = "FourthRussianSubtitlesShadowNumericUpDown";
+            FourthRussianSubtitlesShadowNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesShadowNumericUpDown.TabIndex = 91;
             // 
-            // numericUpDown4
+            // FourthRussianSubtitlesOutlineNumericUpDown
             // 
-            numericUpDown4.Location = new System.Drawing.Point(10, 251);
-            numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new System.Drawing.Size(106, 23);
-            numericUpDown4.TabIndex = 90;
+            FourthRussianSubtitlesOutlineNumericUpDown.Location = new System.Drawing.Point(10, 251);
+            FourthRussianSubtitlesOutlineNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesOutlineNumericUpDown.Name = "FourthRussianSubtitlesOutlineNumericUpDown";
+            FourthRussianSubtitlesOutlineNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesOutlineNumericUpDown.TabIndex = 90;
             // 
-            // numericUpDown5
+            // FourthRussianSubtitlesSizeNumericUpDown
             // 
-            numericUpDown5.Location = new System.Drawing.Point(10, 123);
-            numericUpDown5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown5.Name = "numericUpDown5";
-            numericUpDown5.Size = new System.Drawing.Size(106, 23);
-            numericUpDown5.TabIndex = 89;
+            FourthRussianSubtitlesSizeNumericUpDown.Location = new System.Drawing.Point(10, 123);
+            FourthRussianSubtitlesSizeNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesSizeNumericUpDown.Name = "FourthRussianSubtitlesSizeNumericUpDown";
+            FourthRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
             // 
-            // numericUpDown6
+            // FourthRussianSubtitlesMarginNumericUpDown
             // 
-            numericUpDown6.Location = new System.Drawing.Point(10, 80);
-            numericUpDown6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            numericUpDown6.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericUpDown6.Name = "numericUpDown6";
-            numericUpDown6.Size = new System.Drawing.Size(106, 23);
-            numericUpDown6.TabIndex = 88;
+            FourthRussianSubtitlesMarginNumericUpDown.Location = new System.Drawing.Point(10, 80);
+            FourthRussianSubtitlesMarginNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesMarginNumericUpDown.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            FourthRussianSubtitlesMarginNumericUpDown.Name = "FourthRussianSubtitlesMarginNumericUpDown";
+            FourthRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
             // 
-            // comboBox1
+            // FourthRussianSubtitlesFontComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(10, 36);
-            comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(106, 23);
-            comboBox1.TabIndex = 87;
+            FourthRussianSubtitlesFontComboBox.FormattingEnabled = true;
+            FourthRussianSubtitlesFontComboBox.Location = new System.Drawing.Point(10, 36);
+            FourthRussianSubtitlesFontComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FourthRussianSubtitlesFontComboBox.Name = "FourthRussianSubtitlesFontComboBox";
+            FourthRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(106, 23);
+            FourthRussianSubtitlesFontComboBox.TabIndex = 87;
             // 
             // label7
             // 
@@ -1703,20 +1703,20 @@
             groupBox3.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesTransparencyPercentageNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesShadowNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesOutlineNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesSizeNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesMarginNumericUpDown).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesTransparencyPercentageNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesShadowNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesOutlineNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesSizeNumericUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FourthRussianSubtitlesMarginNumericUpDown).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox9.ResumeLayout(false);
@@ -1836,15 +1836,15 @@
         public System.Windows.Forms.CheckBox SetTheSameValuesForAllSubtitlesCheckBox;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.GroupBox groupBox2;
-        public System.Windows.Forms.CheckBox checkBox1;
-        public System.Windows.Forms.NumericUpDown numericUpDown1;
+        public System.Windows.Forms.CheckBox FourthRussianSubtitlesInOneLineCheckBox;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.NumericUpDown numericUpDown2;
-        public System.Windows.Forms.NumericUpDown numericUpDown3;
-        public System.Windows.Forms.NumericUpDown numericUpDown4;
-        public System.Windows.Forms.NumericUpDown numericUpDown5;
-        public System.Windows.Forms.NumericUpDown numericUpDown6;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesTransparencyPercentageNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesShadowNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesOutlineNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesSizeNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesMarginNumericUpDown;
+        public System.Windows.Forms.ComboBox FourthRussianSubtitlesFontComboBox;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
@@ -1852,15 +1852,15 @@
         public System.Windows.Forms.Label label37;
         public System.Windows.Forms.Label label38;
         public System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.CheckBox checkBox2;
-        public System.Windows.Forms.NumericUpDown numericUpDown7;
+        public System.Windows.Forms.CheckBox FifthRussianSubtitlesInOneLineCheckBox;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
         public System.Windows.Forms.Label label39;
-        public System.Windows.Forms.NumericUpDown numericUpDown8;
-        public System.Windows.Forms.NumericUpDown numericUpDown9;
-        public System.Windows.Forms.NumericUpDown numericUpDown10;
-        public System.Windows.Forms.NumericUpDown numericUpDown11;
-        public System.Windows.Forms.NumericUpDown numericUpDown12;
-        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesTransparencyPercentageNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesShadowNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesOutlineNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesSizeNumericUpDown;
+        public System.Windows.Forms.NumericUpDown FifthRussianSubtitlesMarginNumericUpDown;
+        public System.Windows.Forms.ComboBox FifthRussianSubtitlesFontComboBox;
         public System.Windows.Forms.Label label40;
         public System.Windows.Forms.Label label41;
         public System.Windows.Forms.Label label42;
