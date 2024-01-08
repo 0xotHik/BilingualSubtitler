@@ -1503,9 +1503,9 @@ namespace BilingualSubtitler
                 if (thirdRussianSubtitlesStyle != null)
                     WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
                 if (fourthRussianSubtitlesStyle != null)
-                    WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
+                    WriteSubtitlesStyleToFormControls(fourthRussianSubtitlesStyle, SubtitlesType.FourthRussian);
                 if (fifthRussianSubtitlesStyle != null)
-                    WriteSubtitlesStyleToFormControls(thirdRussianSubtitlesStyle, SubtitlesType.ThirdRussian);
+                    WriteSubtitlesStyleToFormControls(fifthRussianSubtitlesStyle, SubtitlesType.FifthRussian);
             }
 
             return currentStringIndex;
@@ -1671,7 +1671,7 @@ namespace BilingualSubtitler
                 firstRussianSubtitlesTranslateToSubtitlesButton.Enabled = firstRussianSubtitlesTranslateWordByWordToButton.Enabled =
                     secondRussianSubtitlesTranslateToSubtitlesButton.Enabled = secondRussianSubtitlesTranslateWordByWordToButton.Enabled =
                         thirdRussianSubtitlesTranslateToButton.Enabled = thirdRussianSubtitlesTranslateWordByWordToButton.Enabled =
-                        // TODO 4+5
+                            // TODO 4+5
                             true;
 
                 WriteReadFromAssSubtitlesIntoStructure(SubtitlesType.Original, originalSubStream, filePath);
@@ -4133,9 +4133,9 @@ namespace BilingualSubtitler
             var fourthRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.FourthRussian].Subtitles;
             var fifthRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.FifthRussian].Subtitles;
 
-            var showSubtitlesForm = new ShowSubtitlesForm(originalSubtitles, 
-                firstRussianSubtitles, 
-                secondRussianSubtitles, 
+            var showSubtitlesForm = new ShowSubtitlesForm(originalSubtitles,
+                firstRussianSubtitles,
+                secondRussianSubtitles,
                 thirdRussianSubtitles,
                 fourthRussianSubtitles,
                 fifthRussianSubtitles);
@@ -4184,7 +4184,7 @@ namespace BilingualSubtitler
         private void button3_Click_1(object sender, EventArgs e)
         {
             OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FirstRussian, fromClipboard: true);
-                    }
+        }
 
         private void primarySubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
         {
@@ -4418,6 +4418,42 @@ namespace BilingualSubtitler
         private void fifthRussianSubtitlesOpenFromClipboardButton_Click(object sender, EventArgs e)
         {
             OpenAndReadSubtitlesFromSourceOrRemoveTheSubStream(SubtitlesType.FifthRussian, fromClipboard: true);
+
+        }
+
+        private void fourthRussianSubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FourthRussian);
+
+        }
+
+        private void fifthRussianSubtitlesExportAsDocxButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FifthRussian);
+
+        }
+
+        private void fifthRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FifthRussian, true);
+
+        }
+
+        private void fourthRussianSubtitlesExportAsDocxIntoDownloadsButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToDocx(SubtitlesType.FourthRussian, true);
+
+        }
+
+        private void fourthRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.FourthRussian);
+
+        }
+
+        private void fifthRussianSubtitlesExportAsSrtButton_Click(object sender, EventArgs e)
+        {
+            ExportSubtitlesToSrt(SubtitlesType.FifthRussian);
 
         }
     }
