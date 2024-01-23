@@ -11,8 +11,6 @@
 
 <a href="https://0xothik.wordpress.com/bilingual-subtitler/"><b>Страница программы, с полным описанием→</b></a>
 <hr><br/>
-<a href="https://github.com/0xotHik/BilingualSubtitler/releases/latest"><b>Скачать последний релиз →</b></a>
-<hr><br/>
 <a href="https://www.youtube.com/watch?v=7TSPPbmpXsw"><b>Видеогайд по программе и просмотру с подключаемыми русскими субтитрами →</b></a>
 <hr><br/>
 
