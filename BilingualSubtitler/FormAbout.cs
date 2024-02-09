@@ -64,7 +64,7 @@ namespace BilingualSubtitler
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MainForm.OpenUrl("https://yasobe.ru/na/0xothik");
+            MainForm.OpenUrl("https://0xothik.wordpress.com/bilingual-subtitler#thnksFrThBlnglSbttls");
         }
 
         private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)

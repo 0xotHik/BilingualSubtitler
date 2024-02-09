@@ -7,9 +7,9 @@
 ;#define Architecture = "x86";
 ;#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
-#define MyAppVersion "12.1"
+#define MyAppVersion "12.2"
 #define MajorVersion = "12"
-#define MinorVersion = "1"
+#define MinorVersion = "2"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
