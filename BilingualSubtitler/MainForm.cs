@@ -1946,10 +1946,6 @@ namespace BilingualSubtitler
 
                 var outlineColor = "000000";
                 var underline = "0";
-                // Temp
-                if (i == 2)
-                    underline = "1";
-                //outlineColor = "FFFFFF";
 
                 assSB.AppendLine(
                     $"Style: {i}{m_subtitleStyleNamePostfix}," +

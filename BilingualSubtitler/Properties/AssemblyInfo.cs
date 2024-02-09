@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BilingualSubtitler")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 // [assembly: AssemblyFileVersion("0.1.*")]
 
-[assembly: AssemblyVersion(version: "12.1.*")]
-[assembly: AssemblyFileVersion("12.1.*")]
+[assembly: AssemblyVersion(version: "12.2.*")]
+[assembly: AssemblyFileVersion("12.2.*")]
 
 
 // https://github.com/kfirprods/NonInvasiveKeyboardHook
