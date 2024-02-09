@@ -76,6 +76,17 @@ Source: "{#SourceFolder}\System.Security.Cryptography.Pkcs.dll"; DestDir: "{app}
 Source: "{#SourceFolder}\System.Security.Cryptography.ProtectedData.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Security.Cryptography.Xml.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Threading.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion
+; +@12.2
+Source: "{#SourceFolder}\Microsoft.Win32.Registry.AccessControl.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\Microsoft.Win32.SystemEvents.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.CodeDom.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Configuration.ConfigurationManager.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Diagnostics.EventLog.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Diagnostics.PerformanceCounter.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.IO.Packaging.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Security.Permissions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.Windows.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;
 ; Папки
 Source: "{#SourceFolder}\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
