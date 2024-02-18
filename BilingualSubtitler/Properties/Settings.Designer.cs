@@ -471,5 +471,17 @@ namespace BilingualSubtitler.Properties {
                 this["FifthRussianSubtitlesColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RemoveAn {
+            get {
+                return ((bool)(this["RemoveAn"]));
+            }
+            set {
+                this["RemoveAn"] = value;
+            }
+        }
     }
 }

@@ -140,7 +140,6 @@ namespace BilingualSubtitler
 
         private int[] m_biligualSubtitlersHotkeysCodes;
         private char[] m_biligualSubtitlersHotkeysChars;
-        private char m_videoPlayerPauseKeyChar = ' ';
 
         private Stopwatch m_stopwatch;
 

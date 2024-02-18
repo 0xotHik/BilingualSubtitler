@@ -28,6 +28,7 @@ using Aspose.Zip.Rar;
 using Aspose.Zip;
 using Nikse.SubtitleEdit.Core.Common;
 using System.Drawing.Printing;
+using System.Text.RegularExpressions;
 
 namespace BilingualSubtitler
 {
@@ -2237,6 +2238,9 @@ namespace BilingualSubtitler
                                 {
                                     subtitleText = subtitle.Text;
                                 }
+
+                                if (Properties.Settings.Default.RemoveAn)
+                                    subtitleText = Regex.Replace(subtitleText, @"{\\an+\d+}", string.Empty, RegexOptions.Singleline);
                             }
 
 
@@ -2567,7 +2571,7 @@ namespace BilingualSubtitler
                 }
                 else
                 {
-                    string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar";
+                    string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar|Все файлы (*.*)|*.*";
                     //
                     if (enc1251) // Не знаю, что там по кодировке в вариантах с MKV и DOCX; мельком посмотрел - не увидел
                     {
@@ -4455,6 +4459,68 @@ namespace BilingualSubtitler
         {
             ExportSubtitlesToSrt(SubtitlesType.FifthRussian);
 
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            var resultingFileName = finalSubtitlesFilesPathBeginningRichTextBox.Text + ".rusPack.srt";
+
+            var goodToGo = true;
+            if (goodToGo == true)
+            {
+                var timeFormat = @"hh\:mm\:ss\,fff";
+
+                var lines = new List<string>();
+
+                var subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.FirstRussian];
+                var color = subtitlesInfo.ColorPickingButton.BackColor;
+                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                {
+                    var subtitle = subtitlesInfo.Subtitles[i];
+
+                    var subtitleText = subtitle.Text;
+                    var subtitleInOneLine = true;
+                    if (subtitleInOneLine)
+                    {
+                        subtitleText = subtitleText.Replace("\n", " ");
+                    }
+
+                    lines.Add((i + 1).ToString());
+                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
+                    lines.Add("");
+                }
+                subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.SecondRussian];
+                color = subtitlesInfo.ColorPickingButton.BackColor;
+                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                {
+                    var subtitle = subtitlesInfo.Subtitles[i];
+
+                    var subtitleText = subtitle.Text;
+                    var subtitleInOneLine = true;
+                    if (subtitleInOneLine)
+                    {
+                        subtitleText = subtitleText.Replace("\n", " ");
+                    }
+
+                    lines.Add((i + 1).ToString());
+                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\"><u>{subtitleText}</u></font>");
+                    lines.Add("");
+                }
+
+                File.WriteAllLines(resultingFileName, lines.ToArray());
+            }
+
+            if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
+            {
+                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingFileName);
+            }
         }
     }
 }

@@ -199,6 +199,9 @@
             label10 = new System.Windows.Forms.Label();
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            button2 = new System.Windows.Forms.Button();
+            label8 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -241,6 +244,7 @@
             removePostfixGroupBox.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // settingsButton
@@ -2347,6 +2351,38 @@
             minimizeToTrayButton.UseVisualStyleBackColor = false;
             minimizeToTrayButton.Click += minimizeToTrayButton_Click;
             // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label8);
+            groupBox5.Controls.Add(button2);
+            groupBox5.Location = new System.Drawing.Point(1014, 602);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new System.Drawing.Size(392, 151);
+            groupBox5.TabIndex = 105;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "📱";
+            // 
+            // button2
+            // 
+            button2.BackColor = System.Drawing.Color.Gold;
+            button2.Location = new System.Drawing.Point(193, 27);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(182, 112);
+            button2.TabIndex = 105;
+            button2.Text = "💾\r\nСоздать\r\n.srt пак";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_3;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(43, 64);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(115, 15);
+            label8.TabIndex = 106;
+            label8.Text = "Переносы убираем";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2354,6 +2390,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1646, 871);
+            Controls.Add(groupBox5);
             Controls.Add(minimizeToTrayButton);
             Controls.Add(groupBox2);
             Controls.Add(openBilignualSubtitlesGroupBox);
@@ -2433,6 +2470,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2607,5 +2646,8 @@
         private System.Windows.Forms.Label fourthRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar fourthRussianSubtitlesProgressBar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -78,6 +78,7 @@
             checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             label40 = new System.Windows.Forms.Label();
             groupBox12 = new System.Windows.Forms.GroupBox();
+            checkBox1 = new System.Windows.Forms.CheckBox();
             advancedModeRadioButton = new System.Windows.Forms.RadioButton();
             notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
             downloadsDirectoryGroupBox = new System.Windows.Forms.GroupBox();
@@ -92,6 +93,7 @@
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox = new System.Windows.Forms.CheckBox();
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
+            removeAnCheckBox = new System.Windows.Forms.CheckBox();
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -527,11 +529,11 @@
             processPriorityGroupBox.Controls.Add(currentProcessPriorityTextBox);
             processPriorityGroupBox.Controls.Add(label38);
             processPriorityGroupBox.Controls.Add(label37);
-            processPriorityGroupBox.Location = new System.Drawing.Point(18, 657);
+            processPriorityGroupBox.Location = new System.Drawing.Point(18, 670);
             processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             processPriorityGroupBox.Name = "processPriorityGroupBox";
             processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            processPriorityGroupBox.Size = new System.Drawing.Size(348, 87);
+            processPriorityGroupBox.Size = new System.Drawing.Size(348, 74);
             processPriorityGroupBox.TabIndex = 98;
             processPriorityGroupBox.TabStop = false;
             processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
@@ -539,7 +541,7 @@
             // targetProcessPriorityTextBox
             // 
             targetProcessPriorityTextBox.FormattingEnabled = true;
-            targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 45);
+            targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 44);
             targetProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
             targetProcessPriorityTextBox.Size = new System.Drawing.Size(150, 23);
@@ -548,7 +550,7 @@
             // 
             // currentProcessPriorityTextBox
             // 
-            currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 46);
+            currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 45);
             currentProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
             currentProcessPriorityTextBox.ReadOnly = true;
@@ -560,7 +562,7 @@
             // label38
             // 
             label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(174, 22);
+            label38.Location = new System.Drawing.Point(174, 21);
             label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label38.Name = "label38";
             label38.Size = new System.Drawing.Size(71, 15);
@@ -570,7 +572,7 @@
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(15, 22);
+            label37.Location = new System.Drawing.Point(15, 21);
             label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label37.Name = "label37";
             label37.Size = new System.Drawing.Size(59, 15);
@@ -677,6 +679,7 @@
             // 
             // groupBox12
             // 
+            groupBox12.Controls.Add(checkBox1);
             groupBox12.Controls.Add(advancedModeRadioButton);
             groupBox12.Controls.Add(notAdvancedModeRadioButton);
             groupBox12.Location = new System.Drawing.Point(18, 14);
@@ -688,10 +691,20 @@
             groupBox12.TabStop = false;
             groupBox12.Text = "Главное окно Bilingual Subtitler";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(28, 74);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(316, 19);
+            checkBox1.TabIndex = 62;
+            checkBox1.Text = "Включить 4-й и 5-й потоки переведенных субтитров";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // advancedModeRadioButton
             // 
             advancedModeRadioButton.AutoSize = true;
-            advancedModeRadioButton.Location = new System.Drawing.Point(15, 60);
+            advancedModeRadioButton.Location = new System.Drawing.Point(15, 49);
             advancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             advancedModeRadioButton.Name = "advancedModeRadioButton";
             advancedModeRadioButton.Size = new System.Drawing.Size(146, 19);
@@ -705,7 +718,7 @@
             // notAdvancedModeRadioButton
             // 
             notAdvancedModeRadioButton.AutoSize = true;
-            notAdvancedModeRadioButton.Location = new System.Drawing.Point(15, 32);
+            notAdvancedModeRadioButton.Location = new System.Drawing.Point(15, 21);
             notAdvancedModeRadioButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             notAdvancedModeRadioButton.Name = "notAdvancedModeRadioButton";
             notAdvancedModeRadioButton.Size = new System.Drawing.Size(143, 19);
@@ -849,6 +862,16 @@
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Text = "Отображать сообщение об успешной \r\nзаписи субтитров в файл";
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.UseVisualStyleBackColor = true;
             // 
+            // removeAnCheckBox
+            // 
+            removeAnCheckBox.AutoSize = true;
+            removeAnCheckBox.Location = new System.Drawing.Point(18, 653);
+            removeAnCheckBox.Name = "removeAnCheckBox";
+            removeAnCheckBox.Size = new System.Drawing.Size(134, 19);
+            removeAnCheckBox.TabIndex = 107;
+            removeAnCheckBox.Text = "removeAnCheckBox";
+            removeAnCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -856,6 +879,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1264, 991);
+            Controls.Add(removeAnCheckBox);
             Controls.Add(notifyAboutSuccessfullySavedSubtitlesFileCheckBox);
             Controls.Add(ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
             Controls.Add(fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox);
@@ -965,5 +989,7 @@
         private System.Windows.Forms.CheckBox fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox;
         private System.Windows.Forms.CheckBox ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox;
         private System.Windows.Forms.CheckBox notifyAboutSuccessfullySavedSubtitlesFileCheckBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox removeAnCheckBox;
     }
 }

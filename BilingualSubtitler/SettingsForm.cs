@@ -178,6 +178,7 @@ namespace BilingualSubtitler
             defaultFolderPathRichTextBox.Text = Properties.Settings.Default.FolderToOpenFilesByDefaultFrom;
 
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked = Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile;
+            removeAnCheckBox.Checked = Properties.Settings.Default.RemoveAn;
 
 
             SetFormAccordingToSubtitlesAppearanceSettings();
@@ -411,6 +412,7 @@ namespace BilingualSubtitler
             Properties.Settings.Default.FolderToOpenFilesByDefaultFrom = defaultFolderPathRichTextBox.Text;
 
             Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile = notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked;
+            Properties.Settings.Default.RemoveAn = removeAnCheckBox.Checked;
 
 
             Properties.Settings.Default.Save();
