@@ -1631,6 +1631,7 @@
             OriginalSubtitlesFontComboBox.Name = "OriginalSubtitlesFontComboBox";
             OriginalSubtitlesFontComboBox.Size = new System.Drawing.Size(204, 23);
             OriginalSubtitlesFontComboBox.TabIndex = 87;
+            OriginalSubtitlesFontComboBox.SelectedIndexChanged += OriginalSubtitlesFontComboBox_SelectedIndexChanged;
             // 
             // label14
             // 

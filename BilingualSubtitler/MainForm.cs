@@ -4495,8 +4495,7 @@ namespace BilingualSubtitler
                     lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
                     lines.Add("");
                 }
-                subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.SecondRussian];
-                color = subtitlesInfo.ColorPickingButton.BackColor;
+                //
                 for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
                 {
                     var subtitle = subtitlesInfo.Subtitles[i];
@@ -4504,14 +4503,59 @@ namespace BilingualSubtitler
                     var subtitleText = subtitle.Text;
                     var subtitleInOneLine = true;
                     if (subtitleInOneLine)
+
                     {
                         subtitleText = subtitleText.Replace("\n", " ");
                     }
 
                     lines.Add((i + 1).ToString());
                     lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\"><u>{subtitleText}</u></font>");
+                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">-------------------------</font>");
                     lines.Add("");
+                }
+                //
+                if (ThereIsSubtitles(m_subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles))
+                {
+                    subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.SecondRussian];
+                    color = subtitlesInfo.ColorPickingButton.BackColor;
+                    for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                    {
+                        var subtitle = subtitlesInfo.Subtitles[i];
+
+                        var subtitleText = subtitle.Text;
+                        var subtitleInOneLine = true;
+                        if (subtitleInOneLine)
+                        {
+                            subtitleText = subtitleText.Replace("\n", " ");
+                        }
+
+                        lines.Add((i + 1).ToString());
+                        lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                        lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\"><u>{subtitleText}</u></font>");
+                        lines.Add("");
+                    }
+                }
+                //
+                if (ThereIsSubtitles(m_subtitlesAndInfos[SubtitlesType.ThirdRussian].Subtitles))
+                {
+                    subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.ThirdRussian];
+                    color = subtitlesInfo.ColorPickingButton.BackColor;
+                    for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                    {
+                        var subtitle = subtitlesInfo.Subtitles[i];
+
+                        var subtitleText = subtitle.Text;
+                        var subtitleInOneLine = true;
+                        if (subtitleInOneLine)
+                        {
+                            subtitleText = subtitleText.Replace("\n", " ");
+                        }
+
+                        lines.Add((i + 1).ToString());
+                        lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                        lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
+                        lines.Add("");
+                    }
                 }
 
                 File.WriteAllLines(resultingFileName, lines.ToArray());
