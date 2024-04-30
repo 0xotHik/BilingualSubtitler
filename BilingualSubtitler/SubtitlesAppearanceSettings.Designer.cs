@@ -582,6 +582,7 @@
             FourthRussianSubtitlesSizeNumericUpDown.Name = "FourthRussianSubtitlesSizeNumericUpDown";
             FourthRussianSubtitlesSizeNumericUpDown.Size = new System.Drawing.Size(106, 23);
             FourthRussianSubtitlesSizeNumericUpDown.TabIndex = 89;
+            FourthRussianSubtitlesSizeNumericUpDown.ValueChanged += FourthRussianSubtitlesSizeNumericUpDown_ValueChanged;
             // 
             // FourthRussianSubtitlesMarginNumericUpDown
             // 
@@ -591,6 +592,7 @@
             FourthRussianSubtitlesMarginNumericUpDown.Name = "FourthRussianSubtitlesMarginNumericUpDown";
             FourthRussianSubtitlesMarginNumericUpDown.Size = new System.Drawing.Size(106, 23);
             FourthRussianSubtitlesMarginNumericUpDown.TabIndex = 88;
+            FourthRussianSubtitlesMarginNumericUpDown.ValueChanged += FourthRussianSubtitlesMarginNumericUpDown_ValueChanged;
             // 
             // FourthRussianSubtitlesFontComboBox
             // 
@@ -794,7 +796,7 @@
             ChangeMarginsToPairSubtitlesCheckBox.Name = "ChangeMarginsToPairSubtitlesCheckBox";
             ChangeMarginsToPairSubtitlesCheckBox.Size = new System.Drawing.Size(592, 34);
             ChangeMarginsToPairSubtitlesCheckBox.TabIndex = 100;
-            ChangeMarginsToPairSubtitlesCheckBox.Text = "Изменять отступы субтитров: попарно, чтобы оригинальные и 1-х переведенные находились вместе, \r\n2-е и 3-и переведенные — вместе";
+            ChangeMarginsToPairSubtitlesCheckBox.Text = "Изменять отступы субтитров: попарно, чтобы оригинальные и 1-х переведенные находились вместе, \r\n2-е и 3-и переведенные — вместе, 4-е и 5-е переведенные — вместе\r\n";
             ChangeMarginsToPairSubtitlesCheckBox.UseVisualStyleBackColor = true;
             ChangeMarginsToPairSubtitlesCheckBox.CheckedChanged += changeMarginsToPairSubtitlesCheckBox_CheckedChanged;
             // 

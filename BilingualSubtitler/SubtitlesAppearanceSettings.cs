@@ -592,11 +592,13 @@ namespace BilingualSubtitler
 
             FirstRussianSubtitlesMarginNumericUpDown.Enabled =
                 ThirdRussianSubtitlesMarginNumericUpDown.Enabled =
+                    FifthRussianSubtitlesMarginNumericUpDown.Enabled =
                 !(
                 (oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(marginCheckBox))
                 || EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox));
 
             SecondRussianSubtitlesMarginNumericUpDown.Enabled =
+                FourthRussianSubtitlesMarginNumericUpDown.Enabled =
                 !(
                 (oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(marginCheckBox)
                 && !EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox)));
@@ -604,27 +606,37 @@ namespace BilingualSubtitler
             FirstRussianSubtitlesSizeNumericUpDown.Enabled =
             SecondRussianSubtitlesSizeNumericUpDown.Enabled =
             ThirdRussianSubtitlesSizeNumericUpDown.Enabled =
+            FourthRussianSubtitlesSizeNumericUpDown.Enabled =
+            FifthRussianSubtitlesSizeNumericUpDown.Enabled =
             !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(sizeCheckBox));
 
             FirstRussianSubtitlesOutlineNumericUpDown.Enabled =
               SecondRussianSubtitlesOutlineNumericUpDown.Enabled =
               ThirdRussianSubtitlesOutlineNumericUpDown.Enabled =
+              FourthRussianSubtitlesOutlineNumericUpDown.Enabled =
+              FifthRussianSubtitlesOutlineNumericUpDown.Enabled =
               !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(outlineCheckBox));
 
             FirstRussianSubtitlesShadowNumericUpDown.Enabled =
               SecondRussianSubtitlesShadowNumericUpDown.Enabled =
               ThirdRussianSubtitlesShadowNumericUpDown.Enabled =
+              FourthRussianSubtitlesShadowNumericUpDown.Enabled =
+              FifthRussianSubtitlesShadowNumericUpDown.Enabled =
               !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(shadowCheckBox));
 
 
             FirstRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
               SecondRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
               ThirdRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+              FourthRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
+              FifthRussianSubtitlesTransparencyPercentageNumericUpDown.Enabled =
               !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(transparencyCheckBox));
 
             FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
               SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
               ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
+              FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
+              FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown.Enabled =
           !(oneOfCheckBoxesAboutSettingsValuesForAllSubtitlesIsChecked && EnabledAndChecked(shadowTransparencyCheckBox));
 
 
@@ -739,6 +751,24 @@ namespace BilingualSubtitler
         private void OriginalSubtitlesFontComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void FourthRussianSubtitlesMarginNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
+            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
+            {
+                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
+            }
+        }
+
+        private void FourthRussianSubtitlesSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
+            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
+            {
+                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
+            }
         }
     }
 }
