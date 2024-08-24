@@ -200,8 +200,14 @@
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
             groupBox5 = new System.Windows.Forms.GroupBox();
-            button2 = new System.Windows.Forms.Button();
             label8 = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
+            label11 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            label16 = new System.Windows.Forms.Label();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -245,6 +251,7 @@
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // settingsButton
@@ -2353,35 +2360,99 @@
             // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(numericUpDown1);
+            groupBox5.Controls.Add(label16);
+            groupBox5.Controls.Add(checkBox2);
+            groupBox5.Controls.Add(label11);
+            groupBox5.Controls.Add(label13);
+            groupBox5.Controls.Add(label14);
             groupBox5.Controls.Add(label8);
             groupBox5.Controls.Add(button2);
-            groupBox5.Location = new System.Drawing.Point(1014, 602);
+            groupBox5.Location = new System.Drawing.Point(980, 521);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new System.Drawing.Size(392, 151);
+            groupBox5.Size = new System.Drawing.Size(368, 232);
             groupBox5.TabIndex = 105;
             groupBox5.TabStop = false;
-            groupBox5.Text = "📱";
+            groupBox5.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(224, 162);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(115, 15);
+            label8.TabIndex = 106;
+            label8.Text = "Переносы убираем";
             // 
             // button2
             // 
             button2.BackColor = System.Drawing.Color.Gold;
-            button2.Location = new System.Drawing.Point(193, 27);
+            button2.Location = new System.Drawing.Point(218, 27);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(182, 112);
+            button2.Size = new System.Drawing.Size(143, 67);
             button2.TabIndex = 105;
             button2.Text = "💾\r\nСоздать\r\n.srt пак";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_3;
             // 
-            // label8
+            // label11
             // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(43, 64);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(115, 15);
-            label8.TabIndex = 106;
-            label8.Text = "Переносы убираем";
+            label11.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            label11.Location = new System.Drawing.Point(24, 46);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(186, 23);
+            label11.TabIndex = 109;
+            label11.Text = ".rusPack.srt";
+            label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(21, 27);
+            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(180, 15);
+            label13.TabIndex = 108;
+            label13.Text = "файл переведенных субтитров:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(7, 39);
+            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(15, 15);
+            label14.TabIndex = 107;
+            label14.Text = "+";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new System.Drawing.Point(7, 88);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(263, 34);
+            checkBox2.TabIndex = 110;
+            checkBox2.Text = "Переопределить значение \r\nразмера шрифта оригинальных субтитров";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(14, 136);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(23, 15);
+            label16.TabIndex = 111;
+            label16.Text = "на:";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new System.Drawing.Point(43, 134);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            numericUpDown1.TabIndex = 112;
             // 
             // MainForm
             // 
@@ -2472,6 +2543,7 @@
             groupBox1.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2649,5 +2721,11 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label16;
     }
 }
