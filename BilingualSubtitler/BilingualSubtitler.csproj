@@ -95,7 +95,7 @@
     <Content Include="Resources\_smallTranslateToRus.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aspose.Zip" Version="24.7.0" />
+    <PackageReference Include="Aspose.Zip" Version="24.9.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.421302">
       <PrivateAssets>all</PrivateAssets>
@@ -105,7 +105,7 @@
   <ItemGroup>
     <PackageReference Include="DocX" Version="3.0.1" />
     <PackageReference Include="InputSimulator" Version="1.0.4.0" />
-    <PackageReference Include="libse" Version="4.0.7" />
+    <PackageReference Include="libse" Version="4.0.8" />
     <PackageReference Include="MouseKeyHook" Version="5.7.1" />
     <PackageReference Include="NeatInput.Windows" Version="2.0.1" />
     <PackageReference Include="Octokit" Version="13.0.1" />

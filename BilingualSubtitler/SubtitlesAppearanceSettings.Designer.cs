@@ -30,10 +30,10 @@
         {
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
-            fifthRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            fifthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
-            fifthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
-            fifthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            FifthRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            FifthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            FifthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            FifthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             FifthRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label39 = new System.Windows.Forms.Label();
@@ -50,10 +50,10 @@
             label44 = new System.Windows.Forms.Label();
             label45 = new System.Windows.Forms.Label();
             groupBox2 = new System.Windows.Forms.GroupBox();
-            fourthRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            fourthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
-            fourthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
-            fourthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            FourthRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            FourthRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            FourthRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            FourthRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             FourthRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label6 = new System.Windows.Forms.Label();
@@ -83,10 +83,10 @@
             ChangeMarginsToPairSubtitlesCheckBox = new System.Windows.Forms.CheckBox();
             ResetSubtitlesAppearanceToDefaultButton = new System.Windows.Forms.Button();
             groupBox9 = new System.Windows.Forms.GroupBox();
-            thirdRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            thirdRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
-            thirdRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
-            thirdRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            ThirdRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            ThirdRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            ThirdRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            ThirdRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             ThirdRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label36 = new System.Windows.Forms.Label();
@@ -103,10 +103,10 @@
             label31 = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
             groupBox8 = new System.Windows.Forms.GroupBox();
-            secondRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            secondRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
-            secondRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
-            secondRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            SecondRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            SecondRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            SecondRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            SecondRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             SecondRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label35 = new System.Windows.Forms.Label();
@@ -123,12 +123,12 @@
             label25 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
             groupBox7 = new System.Windows.Forms.GroupBox();
-            firstRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            firstRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            FirstRussianSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            FirstRussianSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
             FirstRussianSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
-            firstRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            FirstRussianSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
             FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            firstRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            FirstRussianSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             label34 = new System.Windows.Forms.Label();
             FirstRussianSubtitlesTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             FirstRussianSubtitlesShadowNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -144,10 +144,10 @@
             label20 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             groupBox4 = new System.Windows.Forms.GroupBox();
-            originalSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
-            originalSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
-            originalSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
-            originalSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
+            OriginalSubtitlesStrikeoutCheckBox = new System.Windows.Forms.CheckBox();
+            OriginalSubtitlesItalicCheckBox = new System.Windows.Forms.CheckBox();
+            OriginalSubtitlesUnderlineCheckBox = new System.Windows.Forms.CheckBox();
+            OriginalSubtitlesBoldCheckBox = new System.Windows.Forms.CheckBox();
             OriginalSubtitlesInOneLineCheckBox = new System.Windows.Forms.CheckBox();
             OriginalSubtitlesShadowTransparencyPercentageNumericUpDown = new System.Windows.Forms.NumericUpDown();
             label33 = new System.Windows.Forms.Label();
@@ -233,10 +233,10 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(fifthRussianSubtitlesStrikeoutCheckBox);
-            groupBox5.Controls.Add(fifthRussianSubtitlesItalicCheckBox);
-            groupBox5.Controls.Add(fifthRussianSubtitlesUnderlineCheckBox);
-            groupBox5.Controls.Add(fifthRussianSubtitlesBoldCheckBox);
+            groupBox5.Controls.Add(FifthRussianSubtitlesStrikeoutCheckBox);
+            groupBox5.Controls.Add(FifthRussianSubtitlesItalicCheckBox);
+            groupBox5.Controls.Add(FifthRussianSubtitlesUnderlineCheckBox);
+            groupBox5.Controls.Add(FifthRussianSubtitlesBoldCheckBox);
             groupBox5.Controls.Add(FifthRussianSubtitlesInOneLineCheckBox);
             groupBox5.Controls.Add(FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox5.Controls.Add(label39);
@@ -261,49 +261,49 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "5-е субтитры";
             // 
-            // fifthRussianSubtitlesStrikeoutCheckBox
+            // FifthRussianSubtitlesStrikeoutCheckBox
             // 
-            fifthRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
-            fifthRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            fifthRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
-            fifthRussianSubtitlesStrikeoutCheckBox.Name = "fifthRussianSubtitlesStrikeoutCheckBox";
-            fifthRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
-            fifthRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
-            fifthRussianSubtitlesStrikeoutCheckBox.Text = "s";
-            fifthRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            FifthRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
+            FifthRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            FifthRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
+            FifthRussianSubtitlesStrikeoutCheckBox.Name = "FifthRussianSubtitlesStrikeoutCheckBox";
+            FifthRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
+            FifthRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
+            FifthRussianSubtitlesStrikeoutCheckBox.Text = "s";
+            FifthRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fifthRussianSubtitlesItalicCheckBox
+            // FifthRussianSubtitlesItalicCheckBox
             // 
-            fifthRussianSubtitlesItalicCheckBox.AutoSize = true;
-            fifthRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            fifthRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
-            fifthRussianSubtitlesItalicCheckBox.Name = "fifthRussianSubtitlesItalicCheckBox";
-            fifthRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
-            fifthRussianSubtitlesItalicCheckBox.TabIndex = 113;
-            fifthRussianSubtitlesItalicCheckBox.Text = "i";
-            fifthRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            FifthRussianSubtitlesItalicCheckBox.AutoSize = true;
+            FifthRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            FifthRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
+            FifthRussianSubtitlesItalicCheckBox.Name = "FifthRussianSubtitlesItalicCheckBox";
+            FifthRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
+            FifthRussianSubtitlesItalicCheckBox.TabIndex = 113;
+            FifthRussianSubtitlesItalicCheckBox.Text = "i";
+            FifthRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fifthRussianSubtitlesUnderlineCheckBox
+            // FifthRussianSubtitlesUnderlineCheckBox
             // 
-            fifthRussianSubtitlesUnderlineCheckBox.AutoSize = true;
-            fifthRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            fifthRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
-            fifthRussianSubtitlesUnderlineCheckBox.Name = "fifthRussianSubtitlesUnderlineCheckBox";
-            fifthRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
-            fifthRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
-            fifthRussianSubtitlesUnderlineCheckBox.Text = "u";
-            fifthRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            FifthRussianSubtitlesUnderlineCheckBox.AutoSize = true;
+            FifthRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            FifthRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
+            FifthRussianSubtitlesUnderlineCheckBox.Name = "FifthRussianSubtitlesUnderlineCheckBox";
+            FifthRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
+            FifthRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
+            FifthRussianSubtitlesUnderlineCheckBox.Text = "u";
+            FifthRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fifthRussianSubtitlesBoldCheckBox
+            // FifthRussianSubtitlesBoldCheckBox
             // 
-            fifthRussianSubtitlesBoldCheckBox.AutoSize = true;
-            fifthRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            fifthRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
-            fifthRussianSubtitlesBoldCheckBox.Name = "fifthRussianSubtitlesBoldCheckBox";
-            fifthRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
-            fifthRussianSubtitlesBoldCheckBox.TabIndex = 111;
-            fifthRussianSubtitlesBoldCheckBox.Text = "b";
-            fifthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            FifthRussianSubtitlesBoldCheckBox.AutoSize = true;
+            FifthRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            FifthRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
+            FifthRussianSubtitlesBoldCheckBox.Name = "FifthRussianSubtitlesBoldCheckBox";
+            FifthRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
+            FifthRussianSubtitlesBoldCheckBox.TabIndex = 111;
+            FifthRussianSubtitlesBoldCheckBox.Text = "b";
+            FifthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // FifthRussianSubtitlesInOneLineCheckBox
             // 
@@ -448,10 +448,10 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(fourthRussianSubtitlesStrikeoutCheckBox);
-            groupBox2.Controls.Add(fourthRussianSubtitlesItalicCheckBox);
-            groupBox2.Controls.Add(fourthRussianSubtitlesUnderlineCheckBox);
-            groupBox2.Controls.Add(fourthRussianSubtitlesBoldCheckBox);
+            groupBox2.Controls.Add(FourthRussianSubtitlesStrikeoutCheckBox);
+            groupBox2.Controls.Add(FourthRussianSubtitlesItalicCheckBox);
+            groupBox2.Controls.Add(FourthRussianSubtitlesUnderlineCheckBox);
+            groupBox2.Controls.Add(FourthRussianSubtitlesBoldCheckBox);
             groupBox2.Controls.Add(FourthRussianSubtitlesInOneLineCheckBox);
             groupBox2.Controls.Add(FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox2.Controls.Add(label6);
@@ -476,49 +476,49 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "4-е субтитры";
             // 
-            // fourthRussianSubtitlesStrikeoutCheckBox
+            // FourthRussianSubtitlesStrikeoutCheckBox
             // 
-            fourthRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
-            fourthRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            fourthRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
-            fourthRussianSubtitlesStrikeoutCheckBox.Name = "fourthRussianSubtitlesStrikeoutCheckBox";
-            fourthRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
-            fourthRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
-            fourthRussianSubtitlesStrikeoutCheckBox.Text = "s";
-            fourthRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            FourthRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
+            FourthRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            FourthRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
+            FourthRussianSubtitlesStrikeoutCheckBox.Name = "FourthRussianSubtitlesStrikeoutCheckBox";
+            FourthRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
+            FourthRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
+            FourthRussianSubtitlesStrikeoutCheckBox.Text = "s";
+            FourthRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fourthRussianSubtitlesItalicCheckBox
+            // FourthRussianSubtitlesItalicCheckBox
             // 
-            fourthRussianSubtitlesItalicCheckBox.AutoSize = true;
-            fourthRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            fourthRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
-            fourthRussianSubtitlesItalicCheckBox.Name = "fourthRussianSubtitlesItalicCheckBox";
-            fourthRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
-            fourthRussianSubtitlesItalicCheckBox.TabIndex = 113;
-            fourthRussianSubtitlesItalicCheckBox.Text = "i";
-            fourthRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            FourthRussianSubtitlesItalicCheckBox.AutoSize = true;
+            FourthRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            FourthRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
+            FourthRussianSubtitlesItalicCheckBox.Name = "FourthRussianSubtitlesItalicCheckBox";
+            FourthRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
+            FourthRussianSubtitlesItalicCheckBox.TabIndex = 113;
+            FourthRussianSubtitlesItalicCheckBox.Text = "i";
+            FourthRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fourthRussianSubtitlesUnderlineCheckBox
+            // FourthRussianSubtitlesUnderlineCheckBox
             // 
-            fourthRussianSubtitlesUnderlineCheckBox.AutoSize = true;
-            fourthRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            fourthRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
-            fourthRussianSubtitlesUnderlineCheckBox.Name = "fourthRussianSubtitlesUnderlineCheckBox";
-            fourthRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
-            fourthRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
-            fourthRussianSubtitlesUnderlineCheckBox.Text = "u";
-            fourthRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            FourthRussianSubtitlesUnderlineCheckBox.AutoSize = true;
+            FourthRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            FourthRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
+            FourthRussianSubtitlesUnderlineCheckBox.Name = "FourthRussianSubtitlesUnderlineCheckBox";
+            FourthRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
+            FourthRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
+            FourthRussianSubtitlesUnderlineCheckBox.Text = "u";
+            FourthRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // fourthRussianSubtitlesBoldCheckBox
+            // FourthRussianSubtitlesBoldCheckBox
             // 
-            fourthRussianSubtitlesBoldCheckBox.AutoSize = true;
-            fourthRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            fourthRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
-            fourthRussianSubtitlesBoldCheckBox.Name = "fourthRussianSubtitlesBoldCheckBox";
-            fourthRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
-            fourthRussianSubtitlesBoldCheckBox.TabIndex = 111;
-            fourthRussianSubtitlesBoldCheckBox.Text = "b";
-            fourthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            FourthRussianSubtitlesBoldCheckBox.AutoSize = true;
+            FourthRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            FourthRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
+            FourthRussianSubtitlesBoldCheckBox.Name = "FourthRussianSubtitlesBoldCheckBox";
+            FourthRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
+            FourthRussianSubtitlesBoldCheckBox.TabIndex = 111;
+            FourthRussianSubtitlesBoldCheckBox.Text = "b";
+            FourthRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // FourthRussianSubtitlesInOneLineCheckBox
             // 
@@ -814,10 +814,10 @@
             // 
             // groupBox9
             // 
-            groupBox9.Controls.Add(thirdRussianSubtitlesStrikeoutCheckBox);
-            groupBox9.Controls.Add(thirdRussianSubtitlesItalicCheckBox);
-            groupBox9.Controls.Add(thirdRussianSubtitlesUnderlineCheckBox);
-            groupBox9.Controls.Add(thirdRussianSubtitlesBoldCheckBox);
+            groupBox9.Controls.Add(ThirdRussianSubtitlesStrikeoutCheckBox);
+            groupBox9.Controls.Add(ThirdRussianSubtitlesItalicCheckBox);
+            groupBox9.Controls.Add(ThirdRussianSubtitlesUnderlineCheckBox);
+            groupBox9.Controls.Add(ThirdRussianSubtitlesBoldCheckBox);
             groupBox9.Controls.Add(ThirdRussianSubtitlesInOneLineCheckBox);
             groupBox9.Controls.Add(ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox9.Controls.Add(label36);
@@ -842,49 +842,49 @@
             groupBox9.TabStop = false;
             groupBox9.Text = "3-и субтитры";
             // 
-            // thirdRussianSubtitlesStrikeoutCheckBox
+            // ThirdRussianSubtitlesStrikeoutCheckBox
             // 
-            thirdRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
-            thirdRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            thirdRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
-            thirdRussianSubtitlesStrikeoutCheckBox.Name = "thirdRussianSubtitlesStrikeoutCheckBox";
-            thirdRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
-            thirdRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
-            thirdRussianSubtitlesStrikeoutCheckBox.Text = "s";
-            thirdRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            ThirdRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
+            ThirdRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            ThirdRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(76, 391);
+            ThirdRussianSubtitlesStrikeoutCheckBox.Name = "ThirdRussianSubtitlesStrikeoutCheckBox";
+            ThirdRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
+            ThirdRussianSubtitlesStrikeoutCheckBox.TabIndex = 114;
+            ThirdRussianSubtitlesStrikeoutCheckBox.Text = "s";
+            ThirdRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // thirdRussianSubtitlesItalicCheckBox
+            // ThirdRussianSubtitlesItalicCheckBox
             // 
-            thirdRussianSubtitlesItalicCheckBox.AutoSize = true;
-            thirdRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            thirdRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
-            thirdRussianSubtitlesItalicCheckBox.Name = "thirdRussianSubtitlesItalicCheckBox";
-            thirdRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
-            thirdRussianSubtitlesItalicCheckBox.TabIndex = 113;
-            thirdRussianSubtitlesItalicCheckBox.Text = "i";
-            thirdRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            ThirdRussianSubtitlesItalicCheckBox.AutoSize = true;
+            ThirdRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            ThirdRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(10, 391);
+            ThirdRussianSubtitlesItalicCheckBox.Name = "ThirdRussianSubtitlesItalicCheckBox";
+            ThirdRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
+            ThirdRussianSubtitlesItalicCheckBox.TabIndex = 113;
+            ThirdRussianSubtitlesItalicCheckBox.Text = "i";
+            ThirdRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
-            // thirdRussianSubtitlesUnderlineCheckBox
+            // ThirdRussianSubtitlesUnderlineCheckBox
             // 
-            thirdRussianSubtitlesUnderlineCheckBox.AutoSize = true;
-            thirdRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            thirdRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
-            thirdRussianSubtitlesUnderlineCheckBox.Name = "thirdRussianSubtitlesUnderlineCheckBox";
-            thirdRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
-            thirdRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
-            thirdRussianSubtitlesUnderlineCheckBox.Text = "u";
-            thirdRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            ThirdRussianSubtitlesUnderlineCheckBox.AutoSize = true;
+            ThirdRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            ThirdRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(76, 366);
+            ThirdRussianSubtitlesUnderlineCheckBox.Name = "ThirdRussianSubtitlesUnderlineCheckBox";
+            ThirdRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
+            ThirdRussianSubtitlesUnderlineCheckBox.TabIndex = 112;
+            ThirdRussianSubtitlesUnderlineCheckBox.Text = "u";
+            ThirdRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // thirdRussianSubtitlesBoldCheckBox
+            // ThirdRussianSubtitlesBoldCheckBox
             // 
-            thirdRussianSubtitlesBoldCheckBox.AutoSize = true;
-            thirdRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            thirdRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
-            thirdRussianSubtitlesBoldCheckBox.Name = "thirdRussianSubtitlesBoldCheckBox";
-            thirdRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
-            thirdRussianSubtitlesBoldCheckBox.TabIndex = 111;
-            thirdRussianSubtitlesBoldCheckBox.Text = "b";
-            thirdRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            ThirdRussianSubtitlesBoldCheckBox.AutoSize = true;
+            ThirdRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            ThirdRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(10, 366);
+            ThirdRussianSubtitlesBoldCheckBox.Name = "ThirdRussianSubtitlesBoldCheckBox";
+            ThirdRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
+            ThirdRussianSubtitlesBoldCheckBox.TabIndex = 111;
+            ThirdRussianSubtitlesBoldCheckBox.Text = "b";
+            ThirdRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // ThirdRussianSubtitlesInOneLineCheckBox
             // 
@@ -1030,10 +1030,10 @@
             // 
             // groupBox8
             // 
-            groupBox8.Controls.Add(secondRussianSubtitlesStrikeoutCheckBox);
-            groupBox8.Controls.Add(secondRussianSubtitlesItalicCheckBox);
-            groupBox8.Controls.Add(secondRussianSubtitlesUnderlineCheckBox);
-            groupBox8.Controls.Add(secondRussianSubtitlesBoldCheckBox);
+            groupBox8.Controls.Add(SecondRussianSubtitlesStrikeoutCheckBox);
+            groupBox8.Controls.Add(SecondRussianSubtitlesItalicCheckBox);
+            groupBox8.Controls.Add(SecondRussianSubtitlesUnderlineCheckBox);
+            groupBox8.Controls.Add(SecondRussianSubtitlesBoldCheckBox);
             groupBox8.Controls.Add(SecondRussianSubtitlesInOneLineCheckBox);
             groupBox8.Controls.Add(SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox8.Controls.Add(label35);
@@ -1058,49 +1058,49 @@
             groupBox8.TabStop = false;
             groupBox8.Text = "2-е субтитры";
             // 
-            // secondRussianSubtitlesStrikeoutCheckBox
+            // SecondRussianSubtitlesStrikeoutCheckBox
             // 
-            secondRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
-            secondRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            secondRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(77, 391);
-            secondRussianSubtitlesStrikeoutCheckBox.Name = "secondRussianSubtitlesStrikeoutCheckBox";
-            secondRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
-            secondRussianSubtitlesStrikeoutCheckBox.TabIndex = 110;
-            secondRussianSubtitlesStrikeoutCheckBox.Text = "s";
-            secondRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            SecondRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
+            SecondRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            SecondRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(77, 391);
+            SecondRussianSubtitlesStrikeoutCheckBox.Name = "SecondRussianSubtitlesStrikeoutCheckBox";
+            SecondRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
+            SecondRussianSubtitlesStrikeoutCheckBox.TabIndex = 110;
+            SecondRussianSubtitlesStrikeoutCheckBox.Text = "s";
+            SecondRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // secondRussianSubtitlesItalicCheckBox
+            // SecondRussianSubtitlesItalicCheckBox
             // 
-            secondRussianSubtitlesItalicCheckBox.AutoSize = true;
-            secondRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            secondRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(11, 391);
-            secondRussianSubtitlesItalicCheckBox.Name = "secondRussianSubtitlesItalicCheckBox";
-            secondRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
-            secondRussianSubtitlesItalicCheckBox.TabIndex = 109;
-            secondRussianSubtitlesItalicCheckBox.Text = "i";
-            secondRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            SecondRussianSubtitlesItalicCheckBox.AutoSize = true;
+            SecondRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            SecondRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(11, 391);
+            SecondRussianSubtitlesItalicCheckBox.Name = "SecondRussianSubtitlesItalicCheckBox";
+            SecondRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
+            SecondRussianSubtitlesItalicCheckBox.TabIndex = 109;
+            SecondRussianSubtitlesItalicCheckBox.Text = "i";
+            SecondRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
-            // secondRussianSubtitlesUnderlineCheckBox
+            // SecondRussianSubtitlesUnderlineCheckBox
             // 
-            secondRussianSubtitlesUnderlineCheckBox.AutoSize = true;
-            secondRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            secondRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(77, 366);
-            secondRussianSubtitlesUnderlineCheckBox.Name = "secondRussianSubtitlesUnderlineCheckBox";
-            secondRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
-            secondRussianSubtitlesUnderlineCheckBox.TabIndex = 108;
-            secondRussianSubtitlesUnderlineCheckBox.Text = "u";
-            secondRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            SecondRussianSubtitlesUnderlineCheckBox.AutoSize = true;
+            SecondRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            SecondRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(77, 366);
+            SecondRussianSubtitlesUnderlineCheckBox.Name = "SecondRussianSubtitlesUnderlineCheckBox";
+            SecondRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
+            SecondRussianSubtitlesUnderlineCheckBox.TabIndex = 108;
+            SecondRussianSubtitlesUnderlineCheckBox.Text = "u";
+            SecondRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // secondRussianSubtitlesBoldCheckBox
+            // SecondRussianSubtitlesBoldCheckBox
             // 
-            secondRussianSubtitlesBoldCheckBox.AutoSize = true;
-            secondRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            secondRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(11, 366);
-            secondRussianSubtitlesBoldCheckBox.Name = "secondRussianSubtitlesBoldCheckBox";
-            secondRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
-            secondRussianSubtitlesBoldCheckBox.TabIndex = 107;
-            secondRussianSubtitlesBoldCheckBox.Text = "b";
-            secondRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            SecondRussianSubtitlesBoldCheckBox.AutoSize = true;
+            SecondRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            SecondRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(11, 366);
+            SecondRussianSubtitlesBoldCheckBox.Name = "SecondRussianSubtitlesBoldCheckBox";
+            SecondRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
+            SecondRussianSubtitlesBoldCheckBox.TabIndex = 107;
+            SecondRussianSubtitlesBoldCheckBox.Text = "b";
+            SecondRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // SecondRussianSubtitlesInOneLineCheckBox
             // 
@@ -1247,12 +1247,12 @@
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(firstRussianSubtitlesStrikeoutCheckBox);
-            groupBox7.Controls.Add(firstRussianSubtitlesItalicCheckBox);
+            groupBox7.Controls.Add(FirstRussianSubtitlesStrikeoutCheckBox);
+            groupBox7.Controls.Add(FirstRussianSubtitlesItalicCheckBox);
             groupBox7.Controls.Add(FirstRussianSubtitlesInOneLineCheckBox);
-            groupBox7.Controls.Add(firstRussianSubtitlesUnderlineCheckBox);
+            groupBox7.Controls.Add(FirstRussianSubtitlesUnderlineCheckBox);
             groupBox7.Controls.Add(FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown);
-            groupBox7.Controls.Add(firstRussianSubtitlesBoldCheckBox);
+            groupBox7.Controls.Add(FirstRussianSubtitlesBoldCheckBox);
             groupBox7.Controls.Add(label34);
             groupBox7.Controls.Add(FirstRussianSubtitlesTransparencyPercentageNumericUpDown);
             groupBox7.Controls.Add(FirstRussianSubtitlesShadowNumericUpDown);
@@ -1275,27 +1275,27 @@
             groupBox7.TabStop = false;
             groupBox7.Text = "1-е субтитры";
             // 
-            // firstRussianSubtitlesStrikeoutCheckBox
+            // FirstRussianSubtitlesStrikeoutCheckBox
             // 
-            firstRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
-            firstRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            firstRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(77, 391);
-            firstRussianSubtitlesStrikeoutCheckBox.Name = "firstRussianSubtitlesStrikeoutCheckBox";
-            firstRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
-            firstRussianSubtitlesStrikeoutCheckBox.TabIndex = 106;
-            firstRussianSubtitlesStrikeoutCheckBox.Text = "s";
-            firstRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            FirstRussianSubtitlesStrikeoutCheckBox.AutoSize = true;
+            FirstRussianSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            FirstRussianSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(77, 391);
+            FirstRussianSubtitlesStrikeoutCheckBox.Name = "FirstRussianSubtitlesStrikeoutCheckBox";
+            FirstRussianSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(31, 19);
+            FirstRussianSubtitlesStrikeoutCheckBox.TabIndex = 106;
+            FirstRussianSubtitlesStrikeoutCheckBox.Text = "s";
+            FirstRussianSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // firstRussianSubtitlesItalicCheckBox
+            // FirstRussianSubtitlesItalicCheckBox
             // 
-            firstRussianSubtitlesItalicCheckBox.AutoSize = true;
-            firstRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            firstRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(11, 391);
-            firstRussianSubtitlesItalicCheckBox.Name = "firstRussianSubtitlesItalicCheckBox";
-            firstRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
-            firstRussianSubtitlesItalicCheckBox.TabIndex = 105;
-            firstRussianSubtitlesItalicCheckBox.Text = "i";
-            firstRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            FirstRussianSubtitlesItalicCheckBox.AutoSize = true;
+            FirstRussianSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            FirstRussianSubtitlesItalicCheckBox.Location = new System.Drawing.Point(11, 391);
+            FirstRussianSubtitlesItalicCheckBox.Name = "FirstRussianSubtitlesItalicCheckBox";
+            FirstRussianSubtitlesItalicCheckBox.Size = new System.Drawing.Size(29, 19);
+            FirstRussianSubtitlesItalicCheckBox.TabIndex = 105;
+            FirstRussianSubtitlesItalicCheckBox.Text = "i";
+            FirstRussianSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
             // FirstRussianSubtitlesInOneLineCheckBox
             // 
@@ -1310,16 +1310,16 @@
             FirstRussianSubtitlesInOneLineCheckBox.Text = "Убрать\r\nпереносы";
             FirstRussianSubtitlesInOneLineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // firstRussianSubtitlesUnderlineCheckBox
+            // FirstRussianSubtitlesUnderlineCheckBox
             // 
-            firstRussianSubtitlesUnderlineCheckBox.AutoSize = true;
-            firstRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            firstRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(77, 366);
-            firstRussianSubtitlesUnderlineCheckBox.Name = "firstRussianSubtitlesUnderlineCheckBox";
-            firstRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
-            firstRussianSubtitlesUnderlineCheckBox.TabIndex = 104;
-            firstRussianSubtitlesUnderlineCheckBox.Text = "u";
-            firstRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            FirstRussianSubtitlesUnderlineCheckBox.AutoSize = true;
+            FirstRussianSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            FirstRussianSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(77, 366);
+            FirstRussianSubtitlesUnderlineCheckBox.Name = "FirstRussianSubtitlesUnderlineCheckBox";
+            FirstRussianSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(33, 19);
+            FirstRussianSubtitlesUnderlineCheckBox.TabIndex = 104;
+            FirstRussianSubtitlesUnderlineCheckBox.Text = "u";
+            FirstRussianSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
             // FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown
             // 
@@ -1330,16 +1330,16 @@
             FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.TabIndex = 94;
             FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown.ValueChanged += FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown_ValueChanged;
             // 
-            // firstRussianSubtitlesBoldCheckBox
+            // FirstRussianSubtitlesBoldCheckBox
             // 
-            firstRussianSubtitlesBoldCheckBox.AutoSize = true;
-            firstRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            firstRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(11, 366);
-            firstRussianSubtitlesBoldCheckBox.Name = "firstRussianSubtitlesBoldCheckBox";
-            firstRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
-            firstRussianSubtitlesBoldCheckBox.TabIndex = 103;
-            firstRussianSubtitlesBoldCheckBox.Text = "b";
-            firstRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            FirstRussianSubtitlesBoldCheckBox.AutoSize = true;
+            FirstRussianSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            FirstRussianSubtitlesBoldCheckBox.Location = new System.Drawing.Point(11, 366);
+            FirstRussianSubtitlesBoldCheckBox.Name = "FirstRussianSubtitlesBoldCheckBox";
+            FirstRussianSubtitlesBoldCheckBox.Size = new System.Drawing.Size(33, 19);
+            FirstRussianSubtitlesBoldCheckBox.TabIndex = 103;
+            FirstRussianSubtitlesBoldCheckBox.Text = "b";
+            FirstRussianSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // label34
             // 
@@ -1475,10 +1475,10 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(originalSubtitlesStrikeoutCheckBox);
-            groupBox4.Controls.Add(originalSubtitlesItalicCheckBox);
-            groupBox4.Controls.Add(originalSubtitlesUnderlineCheckBox);
-            groupBox4.Controls.Add(originalSubtitlesBoldCheckBox);
+            groupBox4.Controls.Add(OriginalSubtitlesStrikeoutCheckBox);
+            groupBox4.Controls.Add(OriginalSubtitlesItalicCheckBox);
+            groupBox4.Controls.Add(OriginalSubtitlesUnderlineCheckBox);
+            groupBox4.Controls.Add(OriginalSubtitlesBoldCheckBox);
             groupBox4.Controls.Add(OriginalSubtitlesInOneLineCheckBox);
             groupBox4.Controls.Add(OriginalSubtitlesShadowTransparencyPercentageNumericUpDown);
             groupBox4.Controls.Add(label33);
@@ -1505,47 +1505,47 @@
             // 
             // originalSubtitlesStrikeoutCheckBox
             // 
-            originalSubtitlesStrikeoutCheckBox.AutoSize = true;
-            originalSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
-            originalSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(112, 410);
-            originalSubtitlesStrikeoutCheckBox.Name = "originalSubtitlesStrikeoutCheckBox";
-            originalSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(99, 19);
-            originalSubtitlesStrikeoutCheckBox.TabIndex = 99;
-            originalSubtitlesStrikeoutCheckBox.Text = "Зачеркнутый";
-            originalSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
+            OriginalSubtitlesStrikeoutCheckBox.AutoSize = true;
+            OriginalSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
+            OriginalSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(112, 410);
+            OriginalSubtitlesStrikeoutCheckBox.Name = "originalSubtitlesStrikeoutCheckBox";
+            OriginalSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(99, 19);
+            OriginalSubtitlesStrikeoutCheckBox.TabIndex = 99;
+            OriginalSubtitlesStrikeoutCheckBox.Text = "Зачеркнутый";
+            OriginalSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
             // originalSubtitlesItalicCheckBox
             // 
-            originalSubtitlesItalicCheckBox.AutoSize = true;
-            originalSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
-            originalSubtitlesItalicCheckBox.Location = new System.Drawing.Point(8, 410);
-            originalSubtitlesItalicCheckBox.Name = "originalSubtitlesItalicCheckBox";
-            originalSubtitlesItalicCheckBox.Size = new System.Drawing.Size(64, 19);
-            originalSubtitlesItalicCheckBox.TabIndex = 98;
-            originalSubtitlesItalicCheckBox.Text = "Курсив";
-            originalSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
+            OriginalSubtitlesItalicCheckBox.AutoSize = true;
+            OriginalSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
+            OriginalSubtitlesItalicCheckBox.Location = new System.Drawing.Point(8, 410);
+            OriginalSubtitlesItalicCheckBox.Name = "originalSubtitlesItalicCheckBox";
+            OriginalSubtitlesItalicCheckBox.Size = new System.Drawing.Size(64, 19);
+            OriginalSubtitlesItalicCheckBox.TabIndex = 98;
+            OriginalSubtitlesItalicCheckBox.Text = "Курсив";
+            OriginalSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
             // originalSubtitlesUnderlineCheckBox
             // 
-            originalSubtitlesUnderlineCheckBox.AutoSize = true;
-            originalSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
-            originalSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(112, 384);
-            originalSubtitlesUnderlineCheckBox.Name = "originalSubtitlesUnderlineCheckBox";
-            originalSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(108, 19);
-            originalSubtitlesUnderlineCheckBox.TabIndex = 97;
-            originalSubtitlesUnderlineCheckBox.Text = "Подчеркнутый";
-            originalSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
+            OriginalSubtitlesUnderlineCheckBox.AutoSize = true;
+            OriginalSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
+            OriginalSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(112, 384);
+            OriginalSubtitlesUnderlineCheckBox.Name = "originalSubtitlesUnderlineCheckBox";
+            OriginalSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(108, 19);
+            OriginalSubtitlesUnderlineCheckBox.TabIndex = 97;
+            OriginalSubtitlesUnderlineCheckBox.Text = "Подчеркнутый";
+            OriginalSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
             // originalSubtitlesBoldCheckBox
             // 
-            originalSubtitlesBoldCheckBox.AutoSize = true;
-            originalSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            originalSubtitlesBoldCheckBox.Location = new System.Drawing.Point(8, 385);
-            originalSubtitlesBoldCheckBox.Name = "originalSubtitlesBoldCheckBox";
-            originalSubtitlesBoldCheckBox.Size = new System.Drawing.Size(105, 19);
-            originalSubtitlesBoldCheckBox.TabIndex = 96;
-            originalSubtitlesBoldCheckBox.Text = "Полужирный";
-            originalSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
+            OriginalSubtitlesBoldCheckBox.AutoSize = true;
+            OriginalSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
+            OriginalSubtitlesBoldCheckBox.Location = new System.Drawing.Point(8, 385);
+            OriginalSubtitlesBoldCheckBox.Name = "originalSubtitlesBoldCheckBox";
+            OriginalSubtitlesBoldCheckBox.Size = new System.Drawing.Size(105, 19);
+            OriginalSubtitlesBoldCheckBox.TabIndex = 96;
+            OriginalSubtitlesBoldCheckBox.Text = "Полужирный";
+            OriginalSubtitlesBoldCheckBox.UseVisualStyleBackColor = true;
             // 
             // OriginalSubtitlesInOneLineCheckBox
             // 
@@ -1870,29 +1870,29 @@
         public System.Windows.Forms.Label label43;
         public System.Windows.Forms.Label label44;
         public System.Windows.Forms.Label label45;
-        private System.Windows.Forms.CheckBox originalSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox originalSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox originalSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox originalSubtitlesBoldCheckBox;
-        private System.Windows.Forms.CheckBox fifthRussianSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox fifthRussianSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox fifthRussianSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox fifthRussianSubtitlesBoldCheckBox;
-        private System.Windows.Forms.CheckBox fourthRussianSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox fourthRussianSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox fourthRussianSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox fourthRussianSubtitlesBoldCheckBox;
-        private System.Windows.Forms.CheckBox thirdRussianSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox thirdRussianSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox thirdRussianSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox thirdRussianSubtitlesBoldCheckBox;
-        private System.Windows.Forms.CheckBox secondRussianSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox secondRussianSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox secondRussianSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox secondRussianSubtitlesBoldCheckBox;
-        private System.Windows.Forms.CheckBox firstRussianSubtitlesStrikeoutCheckBox;
-        private System.Windows.Forms.CheckBox firstRussianSubtitlesItalicCheckBox;
-        private System.Windows.Forms.CheckBox firstRussianSubtitlesUnderlineCheckBox;
-        private System.Windows.Forms.CheckBox firstRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox OriginalSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox OriginalSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox OriginalSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox OriginalSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox FifthRussianSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox FifthRussianSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox FifthRussianSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox FifthRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox FourthRussianSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox FourthRussianSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox FourthRussianSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox FourthRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox ThirdRussianSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox ThirdRussianSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox ThirdRussianSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox ThirdRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox SecondRussianSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox SecondRussianSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox SecondRussianSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox SecondRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.CheckBox FirstRussianSubtitlesStrikeoutCheckBox;
+        public System.Windows.Forms.CheckBox FirstRussianSubtitlesItalicCheckBox;
+        public System.Windows.Forms.CheckBox FirstRussianSubtitlesUnderlineCheckBox;
+        public System.Windows.Forms.CheckBox FirstRussianSubtitlesBoldCheckBox;
     }
 }

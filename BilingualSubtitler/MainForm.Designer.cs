@@ -200,14 +200,15 @@
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
             groupBox5 = new System.Windows.Forms.GroupBox();
-            label8 = new System.Windows.Forms.Label();
-            button2 = new System.Windows.Forms.Button();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            label16 = new System.Windows.Forms.Label();
+            checkBox2 = new System.Windows.Forms.CheckBox();
             label11 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
-            checkBox2 = new System.Windows.Forms.CheckBox();
-            label16 = new System.Windows.Forms.Label();
-            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            label8 = new System.Windows.Forms.Label();
+            button2 = new System.Windows.Forms.Button();
+            label17 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -2360,6 +2361,7 @@
             // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(label17);
             groupBox5.Controls.Add(numericUpDown1);
             groupBox5.Controls.Add(label16);
             groupBox5.Controls.Add(checkBox2);
@@ -2375,32 +2377,37 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
             // 
-            // label8
+            // numericUpDown1
             // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(224, 162);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(115, 15);
-            label8.TabIndex = 106;
-            label8.Text = "Переносы убираем";
+            numericUpDown1.Location = new System.Drawing.Point(138, 170);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            numericUpDown1.TabIndex = 112;
             // 
-            // button2
+            // label16
             // 
-            button2.BackColor = System.Drawing.Color.Gold;
-            button2.Location = new System.Drawing.Point(218, 27);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(143, 67);
-            button2.TabIndex = 105;
-            button2.Text = "💾\r\nСоздать\r\n.srt пак";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_3;
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(109, 172);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(23, 15);
+            label16.TabIndex = 111;
+            label16.Text = "на:";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new System.Drawing.Point(102, 124);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(263, 34);
+            checkBox2.TabIndex = 110;
+            checkBox2.Text = "Переопределить значение \r\nразмера шрифта оригинальных субтитров";
+            checkBox2.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
             label11.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
             label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            label11.Location = new System.Drawing.Point(24, 46);
+            label11.Location = new System.Drawing.Point(160, 58);
             label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(186, 23);
@@ -2411,7 +2418,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(21, 27);
+            label13.Location = new System.Drawing.Point(157, 32);
             label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(180, 15);
@@ -2421,38 +2428,43 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(7, 39);
+            label14.Location = new System.Drawing.Point(143, 51);
             label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label14.Name = "label14";
             label14.Size = new System.Drawing.Size(15, 15);
             label14.TabIndex = 107;
             label14.Text = "+";
             // 
-            // checkBox2
+            // label8
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new System.Drawing.Point(7, 88);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(263, 34);
-            checkBox2.TabIndex = 110;
-            checkBox2.Text = "Переопределить значение \r\nразмера шрифта оригинальных субтитров";
-            checkBox2.UseVisualStyleBackColor = true;
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(319, 198);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(115, 15);
+            label8.TabIndex = 106;
+            label8.Text = "Переносы убираем";
             // 
-            // label16
+            // button2
             // 
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(14, 136);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(23, 15);
-            label16.TabIndex = 111;
-            label16.Text = "на:";
+            button2.BackColor = System.Drawing.Color.Gold;
+            button2.Location = new System.Drawing.Point(7, 84);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(339, 30);
+            button2.TabIndex = 105;
+            button2.Text = "💾 Создать .srt пак";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_3;
             // 
-            // numericUpDown1
+            // label17
             // 
-            numericUpDown1.Location = new System.Drawing.Point(43, 134);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            numericUpDown1.TabIndex = 112;
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(7, 36);
+            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(134, 45);
+            label17.TabIndex = 113;
+            label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
             // 
             // MainForm
             // 
@@ -2727,5 +2739,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }

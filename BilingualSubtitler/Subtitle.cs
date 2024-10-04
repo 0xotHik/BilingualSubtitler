@@ -127,6 +127,10 @@ namespace BilingualSubtitler
         public NumericUpDown TransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
         public NumericUpDown ShadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm { get; private set; }
         public CheckBox SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public CheckBox BoldCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public CheckBox ItalicCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public CheckBox UnderlineCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
+        public CheckBox StrikeoutCheckBoxInSubtitleAppearanceControlOnMainForm { get; private set; }
 
         public string TrackNumber = null;
         public string TrackLanguage = null;
@@ -189,13 +193,18 @@ namespace BilingualSubtitler
            Button exportAsDocxIntoDownloadsButton,
            Button openIn1251Button,
            ComboBox fontComboBoxInSubtitleAppearanceControlOnMainForm,
-NumericUpDown marginNumericUpDownInSubtitleAppearanceControlOnMainForm,
-NumericUpDown sizeNumericUpDownInSubtitleAppearanceControlOnMainForm,
-NumericUpDown outlineNumericUpDownInSubtitleAppearanceControlOnMainForm,
-NumericUpDown shadowNumericUpDownInSubtitleAppearanceControlOnMainForm,
-NumericUpDown transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
-NumericUpDown thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
-CheckBox subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm)
+            NumericUpDown marginNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            NumericUpDown sizeNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            NumericUpDown outlineNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            NumericUpDown shadowNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            NumericUpDown transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            NumericUpDown thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm,
+            CheckBox subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm,
+            CheckBox boldCheckBoxInSubtitleAppearanceControlOnMainForm,
+            CheckBox italicCheckBoxInSubtitleAppearanceControlOnMainForm,
+            CheckBox underlineCheckBoxInSubtitleAppearanceControlOnMainForm,
+            CheckBox strikeoutCheckBoxInSubtitleAppearanceControlOnMainForm
+            )
         {
             ProgressBar = progressBar;
             ProgressLabel = progressLabel;
@@ -214,14 +223,18 @@ CheckBox subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm)
             ExportAsDocxIntoDownloadsButton = exportAsDocxIntoDownloadsButton;
             OpenIn1251Button = openIn1251Button;
             FontComboBoxInSubtitleAppearanceControlOnMainForm = fontComboBoxInSubtitleAppearanceControlOnMainForm;
-MarginNumericUpDownInSubtitleAppearanceControlOnMainForm = marginNumericUpDownInSubtitleAppearanceControlOnMainForm;
-SizeNumericUpDownInSubtitleAppearanceControlOnMainForm = sizeNumericUpDownInSubtitleAppearanceControlOnMainForm;
-OutlineNumericUpDownInSubtitleAppearanceControlOnMainForm = outlineNumericUpDownInSubtitleAppearanceControlOnMainForm;
-ShadowNumericUpDownInSubtitleAppearanceControlOnMainForm = shadowNumericUpDownInSubtitleAppearanceControlOnMainForm;
-TransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
-ShadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
-SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm = subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm;
+            MarginNumericUpDownInSubtitleAppearanceControlOnMainForm = marginNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            SizeNumericUpDownInSubtitleAppearanceControlOnMainForm = sizeNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            OutlineNumericUpDownInSubtitleAppearanceControlOnMainForm = outlineNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            ShadowNumericUpDownInSubtitleAppearanceControlOnMainForm = shadowNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            TransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = transparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            ShadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm = thadowTransparencyPercentageNumericUpDownInSubtitleAppearanceControlOnMainForm;
+            SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm = subtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm;
 
+            BoldCheckBoxInSubtitleAppearanceControlOnMainForm = boldCheckBoxInSubtitleAppearanceControlOnMainForm;
+            ItalicCheckBoxInSubtitleAppearanceControlOnMainForm = italicCheckBoxInSubtitleAppearanceControlOnMainForm;
+            UnderlineCheckBoxInSubtitleAppearanceControlOnMainForm = underlineCheckBoxInSubtitleAppearanceControlOnMainForm;
+            StrikeoutCheckBoxInSubtitleAppearanceControlOnMainForm = strikeoutCheckBoxInSubtitleAppearanceControlOnMainForm;
         }
 
         private void InitializeEmptySubtitlesStream()
@@ -298,6 +311,10 @@ SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm = subtitlesInOne
         public int TransparencyPercentage;
         public int ShadowTransparencyPercentage;
         public Color Color;
+        public bool Bold;
+        public bool Italic;
+        public bool Underline;
+        public bool Strikeout;
 
 
         public SubtitlesStyle(string subtitlesStyleString)
@@ -321,6 +338,11 @@ SubtitlesInOneLineCheckBoxInSubtitleAppearanceControlOnMainForm = subtitlesInOne
             // В ASS цвет пишется в BGR, не забываем
 
             ShadowTransparencyPercentage = (int)((float)ToDec(components[6].Substring(2, 2)) * 100f / 255f);
+
+            Bold = components[7] == "1";
+            Italic = components[8] == "1";
+            Underline = components[9] == "1";
+            Strikeout = components[10] == "1";
 
             OutlineSize = int.Parse(components[16]);
             ShadowSize = int.Parse(components[17]);
