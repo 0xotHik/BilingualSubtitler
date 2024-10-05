@@ -1401,7 +1401,6 @@
             FirstRussianSubtitlesFontComboBox.Name = "FirstRussianSubtitlesFontComboBox";
             FirstRussianSubtitlesFontComboBox.Size = new System.Drawing.Size(106, 23);
             FirstRussianSubtitlesFontComboBox.TabIndex = 87;
-            FirstRussianSubtitlesFontComboBox.TextChanged += firstRussianSubtitlesFontComboBox_TextChanged;
             // 
             // label15
             // 
@@ -1503,45 +1502,45 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Оригинальные\nсубтитры";
             // 
-            // originalSubtitlesStrikeoutCheckBox
+            // OriginalSubtitlesStrikeoutCheckBox
             // 
             OriginalSubtitlesStrikeoutCheckBox.AutoSize = true;
             OriginalSubtitlesStrikeoutCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, 204);
             OriginalSubtitlesStrikeoutCheckBox.Location = new System.Drawing.Point(112, 410);
-            OriginalSubtitlesStrikeoutCheckBox.Name = "originalSubtitlesStrikeoutCheckBox";
+            OriginalSubtitlesStrikeoutCheckBox.Name = "OriginalSubtitlesStrikeoutCheckBox";
             OriginalSubtitlesStrikeoutCheckBox.Size = new System.Drawing.Size(99, 19);
             OriginalSubtitlesStrikeoutCheckBox.TabIndex = 99;
             OriginalSubtitlesStrikeoutCheckBox.Text = "Зачеркнутый";
             OriginalSubtitlesStrikeoutCheckBox.UseVisualStyleBackColor = true;
             // 
-            // originalSubtitlesItalicCheckBox
+            // OriginalSubtitlesItalicCheckBox
             // 
             OriginalSubtitlesItalicCheckBox.AutoSize = true;
             OriginalSubtitlesItalicCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 204);
             OriginalSubtitlesItalicCheckBox.Location = new System.Drawing.Point(8, 410);
-            OriginalSubtitlesItalicCheckBox.Name = "originalSubtitlesItalicCheckBox";
+            OriginalSubtitlesItalicCheckBox.Name = "OriginalSubtitlesItalicCheckBox";
             OriginalSubtitlesItalicCheckBox.Size = new System.Drawing.Size(64, 19);
             OriginalSubtitlesItalicCheckBox.TabIndex = 98;
             OriginalSubtitlesItalicCheckBox.Text = "Курсив";
             OriginalSubtitlesItalicCheckBox.UseVisualStyleBackColor = true;
             // 
-            // originalSubtitlesUnderlineCheckBox
+            // OriginalSubtitlesUnderlineCheckBox
             // 
             OriginalSubtitlesUnderlineCheckBox.AutoSize = true;
             OriginalSubtitlesUnderlineCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 204);
             OriginalSubtitlesUnderlineCheckBox.Location = new System.Drawing.Point(112, 384);
-            OriginalSubtitlesUnderlineCheckBox.Name = "originalSubtitlesUnderlineCheckBox";
+            OriginalSubtitlesUnderlineCheckBox.Name = "OriginalSubtitlesUnderlineCheckBox";
             OriginalSubtitlesUnderlineCheckBox.Size = new System.Drawing.Size(108, 19);
             OriginalSubtitlesUnderlineCheckBox.TabIndex = 97;
             OriginalSubtitlesUnderlineCheckBox.Text = "Подчеркнутый";
             OriginalSubtitlesUnderlineCheckBox.UseVisualStyleBackColor = true;
             // 
-            // originalSubtitlesBoldCheckBox
+            // OriginalSubtitlesBoldCheckBox
             // 
             OriginalSubtitlesBoldCheckBox.AutoSize = true;
             OriginalSubtitlesBoldCheckBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
             OriginalSubtitlesBoldCheckBox.Location = new System.Drawing.Point(8, 385);
-            OriginalSubtitlesBoldCheckBox.Name = "originalSubtitlesBoldCheckBox";
+            OriginalSubtitlesBoldCheckBox.Name = "OriginalSubtitlesBoldCheckBox";
             OriginalSubtitlesBoldCheckBox.Size = new System.Drawing.Size(105, 19);
             OriginalSubtitlesBoldCheckBox.TabIndex = 96;
             OriginalSubtitlesBoldCheckBox.Text = "Полужирный";

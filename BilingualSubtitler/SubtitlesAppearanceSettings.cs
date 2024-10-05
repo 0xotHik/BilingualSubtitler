@@ -297,17 +297,6 @@ namespace BilingualSubtitler
             //SecondAndThirdRussianSubtitlesAtTheTopOfScreenCheckBox.Enabled = ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked;
         }
 
-        private void firstRussianSubtitlesFontComboBox_TextChanged(object sender, EventArgs e)
-        {
-            // TODO v11
-            //if (ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked)
-            //{
-            //    SecondRussianSubtitlesFontComboBox.Text =
-            //        ThirdRussianSubtitlesFontComboBox.Text =
-            //            FirstRussianSubtitlesFontComboBox.Text;
-            //}
-        }
-
         private void ChangeMargin()
         {
             //    if (ChangeRussianSubtitlesStylesAccordingToOriginalCheckBox.Checked)

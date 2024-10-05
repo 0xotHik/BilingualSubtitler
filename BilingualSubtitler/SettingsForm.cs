@@ -768,27 +768,94 @@ namespace BilingualSubtitler
                 appModeWasChangedToExtendedForm.ShowDialog();
 
                 var settedRussianSubtitlesStreamToSetConsolasTo = appModeWasChangedToExtendedForm.SettedRussianSubtitlesStreamToSetConsolasTo;
+                var settedRussianSubtitlesStreamToSetUndelineTo = appModeWasChangedToExtendedForm.SettedRussianSubtitlesStreamToSetUndelineTo;
                 if (settedRussianSubtitlesStreamToSetConsolasTo != null)
                 {
-                    if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 1)
-                    {
-                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.TextChanged -= firstRussianSubtitlesFontComboBox_TextChanged;
+                    ComboBox targetFontComboBox = null;
+                    NumericUpDown targetSizeNumericUpDown = null;
 
-                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.Text = "Consolas";
-                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesSizeNumericUpDown.Value = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesSizeNumericUpDown.Value - 2;
+                    switch (settedRussianSubtitlesStreamToSetConsolasTo.Value)
+                        {
+                        case 1:
+                            {
+                                targetFontComboBox = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox;
+                                targetSizeNumericUpDown = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesSizeNumericUpDown;
 
-                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.TextChanged += firstRussianSubtitlesFontComboBox_TextChanged;
+                                break;
+                            }
+                        case 2:
+                            {
+                                targetFontComboBox = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox;
+                                targetSizeNumericUpDown = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesSizeNumericUpDown;
+
+                                break;
+                            }
+                        case 3:
+                            {
+                                targetFontComboBox = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox;
+                                targetSizeNumericUpDown = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesSizeNumericUpDown;
+
+                                break;
+                            }
+                        case 4:
+                            {
+                                targetFontComboBox = subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox;
+                                targetSizeNumericUpDown = subtitlesAppearanceSettingsControl.FourthRussianSubtitlesSizeNumericUpDown;
+
+                                break;
+                            }
+                        case 5:
+                            {
+                                targetFontComboBox = subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox;
+                                targetSizeNumericUpDown = subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown;
+
+                                break;
+                            }
                     }
-                    else if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 2)
+
+                    targetFontComboBox.Text = "Consolas";
+                    targetSizeNumericUpDown.Value = targetSizeNumericUpDown.Value - 2;
+                }
+
+                if (settedRussianSubtitlesStreamToSetUndelineTo != null)
+                {
+                    CheckBox targetCheckBox = null;
+
+                    switch (settedRussianSubtitlesStreamToSetUndelineTo.Value)
                     {
-                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox.Text = "Consolas";
-                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesSizeNumericUpDown.Value = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesSizeNumericUpDown.Value - 2;
+                        case 1:
+                            {
+                                targetCheckBox = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox;
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                targetCheckBox = subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox;
+
+                                break;
+                            }
+                        case 3:
+                            {
+                                targetCheckBox = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox;
+
+                                break;
+                            }
+                        case 4:
+                            {
+                                targetCheckBox = subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox;
+
+                                break;
+                            }
+                        case 5:
+                            {
+                                targetCheckBox = subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox;
+
+                                break;
+                            }
                     }
-                    else if (settedRussianSubtitlesStreamToSetConsolasTo.Value == 3)
-                    {
-                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Text = "Consolas";
-                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesSizeNumericUpDown.Value = subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesSizeNumericUpDown.Value - 2;
-                    }
+
+                    targetCheckBox.Checked = true;
                 }
             }
         }

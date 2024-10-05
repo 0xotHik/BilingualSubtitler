@@ -29,82 +29,106 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppModeWasChangedToExtendedForm));
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.SuspendLayout();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            button1 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            label4 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            SuspendLayout();
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(296, 111);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(54, 23);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            numericUpDown1.Location = new System.Drawing.Point(440, 103);
+            numericUpDown1.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(54, 23);
+            numericUpDown1.TabIndex = 0;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(296, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Да, установить стиль";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            button1.Location = new System.Drawing.Point(296, 192);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(157, 23);
+            button1.TabIndex = 1;
+            button1.Text = "Да, установить стиль";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 145);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(278, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Нет, не интересует; вернуться к окну настроек";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            button2.Location = new System.Drawing.Point(12, 192);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(278, 23);
+            button2.TabIndex = 2;
+            button2.Text = "Нет, не интересует; вернуться к окну настроек";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(672, 120);
-            this.label1.TabIndex = 3;
-            this.label1.Text = resources.GetString("label1.Text");
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(672, 60);
+            label1.TabIndex = 3;
+            label1.Text = resources.GetString("label1.Text");
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(12, 129);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(740, 30);
+            label3.TabIndex = 5;
+            label3.Text = "А для следующего за ним потока, с уже вручную переведенными субтитрами — подчеркивание снизу, для лучшего их различения.\r\nУстановить такой стиль? Если да — для потока переведенных субтитров №:";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new System.Drawing.Point(440, 147);
+            numericUpDown2.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown2.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new System.Drawing.Size(54, 23);
+            numericUpDown2.TabIndex = 6;
+            numericUpDown2.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(12, 88);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(638, 30);
+            label4.TabIndex = 7;
+            label4.Text = "Для потока субтитров с машинным переводом я рекомендую шрифт Consolas размером на 2 меньше обычного.\r\nУстановить такой стиль? Если да — для потока переведенных субтитров №:\r\n";
             // 
             // AppModeWasChangedToExtendedForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 175);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AppModeWasChangedToExtendedForm";
-            this.Text = "Используете поток субтитров с машинным переводом? Установить соответствующий стил" +
-    "ь субтитров?";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(759, 222);
+            Controls.Add(numericUpDown1);
+            Controls.Add(label4);
+            Controls.Add(numericUpDown2);
+            Controls.Add(label3);
+            Controls.Add(label1);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "AppModeWasChangedToExtendedForm";
+            Text = "Используете поток субтитров с машинным переводом? Установить соответствующий стиль субтитров?";
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -113,5 +137,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label4;
     }
 }
