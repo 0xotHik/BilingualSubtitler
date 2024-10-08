@@ -4463,23 +4463,23 @@ namespace BilingualSubtitler
                     lines.Add("");
                 }
                 //
-                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
-                {
-                    var subtitle = subtitlesInfo.Subtitles[i];
+                //for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                //{
+                //    var subtitle = subtitlesInfo.Subtitles[i];
 
-                    var subtitleText = subtitle.Text;
-                    var subtitleInOneLine = true;
-                    if (subtitleInOneLine)
+                //    var subtitleText = subtitle.Text;
+                //    var subtitleInOneLine = true;
+                //    if (subtitleInOneLine)
 
-                    {
-                        subtitleText = subtitleText.Replace("\n", " ");
-                    }
+                //    {
+                //        subtitleText = subtitleText.Replace("\n", " ");
+                //    }
 
-                    lines.Add((i + 1).ToString());
-                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">-------------------------</font>");
-                    lines.Add("");
-                }
+                //    lines.Add((i + 1).ToString());
+                //    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                //    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">-------------------------</font>");
+                //    lines.Add("");
+                //}
                 //
                 if (ThereIsSubtitles(m_subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles))
                 {
