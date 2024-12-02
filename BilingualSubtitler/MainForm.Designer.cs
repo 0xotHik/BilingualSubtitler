@@ -200,6 +200,7 @@
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
             groupBox5 = new System.Windows.Forms.GroupBox();
+            label17 = new System.Windows.Forms.Label();
             numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             label16 = new System.Windows.Forms.Label();
             checkBox2 = new System.Windows.Forms.CheckBox();
@@ -208,7 +209,7 @@
             label14 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
-            label17 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -2361,6 +2362,7 @@
             // 
             // groupBox5
             // 
+            groupBox5.Controls.Add(label18);
             groupBox5.Controls.Add(label17);
             groupBox5.Controls.Add(numericUpDown1);
             groupBox5.Controls.Add(label16);
@@ -2376,6 +2378,16 @@
             groupBox5.TabIndex = 105;
             groupBox5.TabStop = false;
             groupBox5.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(7, 36);
+            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(134, 45);
+            label17.TabIndex = 113;
+            label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
             // 
             // numericUpDown1
             // 
@@ -2456,15 +2468,17 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_3;
             // 
-            // label17
+            // label18
             // 
-            label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(7, 36);
-            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(134, 45);
-            label17.TabIndex = 113;
-            label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            label18.Location = new System.Drawing.Point(65, 14);
+            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(39, 16);
+            label18.TabIndex = 114;
+            label18.Text = "[Beta]";
             // 
             // MainForm
             // 
@@ -2740,5 +2754,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
