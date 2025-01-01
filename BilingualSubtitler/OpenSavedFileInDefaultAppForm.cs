@@ -13,6 +13,7 @@ namespace BilingualSubtitler
 {
     public partial class ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool NeedToOpenInDefaultApp { get; private set; }
 
         public ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)

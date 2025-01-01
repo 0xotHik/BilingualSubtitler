@@ -13,6 +13,7 @@ namespace BilingualSubtitler
 {
     public partial class FilesAlreadyExistsForm : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool RewriteExistingFiles { get; private set; }
 
         public FilesAlreadyExistsForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
