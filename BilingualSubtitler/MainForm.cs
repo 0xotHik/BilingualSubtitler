@@ -83,6 +83,8 @@ namespace BilingualSubtitler
         private int m_initialDocXTranslationGroupBoxHeight;
         private int m_initialOpenBilingualsTubtitlesButtonLeft;
         private int m_initialOpenStylesFromBilingualsTubtitlesButtonLeft;
+        private int m_initialYandexTranslateLinkLabelLocationY;
+
 
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitlesAndInfos;
 
@@ -226,6 +228,7 @@ namespace BilingualSubtitler
             m_initialDocXTranslationGroupBoxHeight = docXTranslationGroupBox.Height;
             m_initialOpenBilingualsTubtitlesButtonLeft = openBilingualSubtitlerButton.Left;
             m_initialOpenStylesFromBilingualsTubtitlesButtonLeft = openStylesFromBilingualSubtitlerButton.Left;
+            m_initialYandexTranslateLinkLabelLocationY = YandexTranslateLinkLabel.Location.Y;
 
             m_playVideoButtonDefaultText = playVideoButton.Text;
             notifyIcon.ContextMenuStrip = new ContextMenuStrip();
@@ -869,6 +872,12 @@ namespace BilingualSubtitler
                 // Advanced Mode
                 var advancedMode = Settings.Default.AdvancedMode;
                 //
+                translateToRussianSubtitlesGroupBox.Visible =
+translateToFirstRussianSubtitlesGroupBox.Visible =
+    translateToSecondRussianSubtitlesGroupBox.Visible =
+    translateToThirdRussianSubtitlesGroupBox.Visible =
+    Settings.Default.YandexTranslatorAPIEnabled && advancedMode;
+                //
                 firstRussianSubtitlesExportAsDocxButton.Visible =
                     secondRussianSubtitlesExportAsDocxButton.Visible =
                     thirdRussianSubtitlesExportAsDocxButton.Visible =
@@ -900,12 +909,18 @@ namespace BilingualSubtitler
 
                     additionalSelectVideoFileToGetPathForSubtitlesButton.Visible =
 
+                    mxPlayerGoupBox.Visible =
+
+                    fourthRussianSubtitlesGroupBox.Visible =
+                    fifthRussianSubtitlesGroupBox.Visible =
+
                     advancedMode;
                 //
                 openBilingualSubtitlerButton.Left = advancedMode ? m_initialOpenBilingualsTubtitlesButtonLeft : (openBilignualSubtitlesGroupBox.Width / 2) - (openBilingualSubtitlerButton.Width / 2);
-                //
+                YandexTranslateLinkLabel.Location = new Point(YandexTranslateLinkLabel.Location.X, advancedMode ? m_initialYandexTranslateLinkLabelLocationY : (docXTranslationGroupBox.Height / 2) - (YandexTranslateLinkLabel.Height / 2));
                 var buttonOpenSubtitlesLeft = advancedMode ? m_initialOpenSubtitlesButtonLeft : (openOrClosePrimarySubtitlesGroupBox.Width / 2) - (primarySubtitlesOpenOrCloseButton.Width / 2);
                 var exportAsDocxSubtitlesLeft = advancedMode ? m_initialExportSubtitlesAsDocxButtonLeft : (primarySubtitlesExportAsDocxGroupBox.Width / 2) - (primarySubtitlesExportAsDocxButton.Width / 2);
+                subtitlesStreamsPanel.AutoScroll = advancedMode;
                 // Для всех потоков субтитров
                 foreach (var subtitles in m_subtitlesAndInfos)
                 {
@@ -948,7 +963,7 @@ namespace BilingualSubtitler
                     hideSecondRussianSubtitlesButton.Location = new Point(m_initialSecondRussianSubtitlesHideButtonX, hideSecondRussianSubtitlesButton.Location.Y);
                 }
                 //
-                this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceSettingsControl.Width;
+                this.Width = advancedMode ? m_initialFormWidth : m_initialFormWidth - subtitlesAppearanceSettingsControl.Width + 10;
                 docXTranslationGroupBox.Height = advancedMode ? m_initialDocXTranslationGroupBoxHeight : primarySubtitlesGroupBox.Height;
 
                 if (string.IsNullOrWhiteSpace(Properties.Settings.Default.DownloadsFolder))

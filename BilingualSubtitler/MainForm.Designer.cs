@@ -141,7 +141,7 @@
             label45 = new System.Windows.Forms.Label();
             docXTranslationGroupBox = new System.Windows.Forms.GroupBox();
             googleTranslatorLinkLabel = new System.Windows.Forms.LinkLabel();
-            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            YandexTranslateLinkLabel = new System.Windows.Forms.LinkLabel();
             groupBox4 = new System.Windows.Forms.GroupBox();
             label9 = new System.Windows.Forms.Label();
             bilingualSubtitlesFileNameEnding = new System.Windows.Forms.Label();
@@ -199,7 +199,8 @@
             label10 = new System.Windows.Forms.Label();
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
-            groupBox5 = new System.Windows.Forms.GroupBox();
+            mxPlayerGoupBox = new System.Windows.Forms.GroupBox();
+            label18 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
             numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             label16 = new System.Windows.Forms.Label();
@@ -209,7 +210,6 @@
             label14 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
-            label18 = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -252,7 +252,7 @@
             removePostfixGroupBox.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
-            groupBox5.SuspendLayout();
+            mxPlayerGoupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -1633,7 +1633,7 @@
             // docXTranslationGroupBox
             // 
             docXTranslationGroupBox.Controls.Add(googleTranslatorLinkLabel);
-            docXTranslationGroupBox.Controls.Add(linkLabel1);
+            docXTranslationGroupBox.Controls.Add(YandexTranslateLinkLabel);
             docXTranslationGroupBox.Location = new System.Drawing.Point(858, 25);
             docXTranslationGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             docXTranslationGroupBox.Name = "docXTranslationGroupBox";
@@ -1656,18 +1656,18 @@
             googleTranslatorLinkLabel.Text = "• Google \r\nПереводчик →";
             googleTranslatorLinkLabel.LinkClicked += linkLabel2_LinkClicked;
             // 
-            // linkLabel1
+            // YandexTranslateLinkLabel
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = System.Drawing.Color.Red;
-            linkLabel1.Location = new System.Drawing.Point(3, 19);
-            linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new System.Drawing.Size(87, 30);
-            linkLabel1.TabIndex = 0;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "• Яндекс.\r\nПереводчик →";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            YandexTranslateLinkLabel.AutoSize = true;
+            YandexTranslateLinkLabel.LinkColor = System.Drawing.Color.Red;
+            YandexTranslateLinkLabel.Location = new System.Drawing.Point(3, 19);
+            YandexTranslateLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            YandexTranslateLinkLabel.Name = "YandexTranslateLinkLabel";
+            YandexTranslateLinkLabel.Size = new System.Drawing.Size(87, 30);
+            YandexTranslateLinkLabel.TabIndex = 0;
+            YandexTranslateLinkLabel.TabStop = true;
+            YandexTranslateLinkLabel.Text = "• Яндекс.\r\nПереводчик →";
+            YandexTranslateLinkLabel.LinkClicked += linkLabel1_LinkClicked;
             // 
             // groupBox4
             // 
@@ -2360,24 +2360,36 @@
             minimizeToTrayButton.UseVisualStyleBackColor = false;
             minimizeToTrayButton.Click += minimizeToTrayButton_Click;
             // 
-            // groupBox5
+            // mxPlayerGoupBox
             // 
-            groupBox5.Controls.Add(label18);
-            groupBox5.Controls.Add(label17);
-            groupBox5.Controls.Add(numericUpDown1);
-            groupBox5.Controls.Add(label16);
-            groupBox5.Controls.Add(checkBox2);
-            groupBox5.Controls.Add(label11);
-            groupBox5.Controls.Add(label13);
-            groupBox5.Controls.Add(label14);
-            groupBox5.Controls.Add(label8);
-            groupBox5.Controls.Add(button2);
-            groupBox5.Location = new System.Drawing.Point(980, 521);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new System.Drawing.Size(368, 232);
-            groupBox5.TabIndex = 105;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            mxPlayerGoupBox.Controls.Add(label18);
+            mxPlayerGoupBox.Controls.Add(label17);
+            mxPlayerGoupBox.Controls.Add(numericUpDown1);
+            mxPlayerGoupBox.Controls.Add(label16);
+            mxPlayerGoupBox.Controls.Add(checkBox2);
+            mxPlayerGoupBox.Controls.Add(label11);
+            mxPlayerGoupBox.Controls.Add(label13);
+            mxPlayerGoupBox.Controls.Add(label14);
+            mxPlayerGoupBox.Controls.Add(label8);
+            mxPlayerGoupBox.Controls.Add(button2);
+            mxPlayerGoupBox.Location = new System.Drawing.Point(980, 521);
+            mxPlayerGoupBox.Name = "mxPlayerGoupBox";
+            mxPlayerGoupBox.Size = new System.Drawing.Size(368, 232);
+            mxPlayerGoupBox.TabIndex = 105;
+            mxPlayerGoupBox.TabStop = false;
+            mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            label18.Location = new System.Drawing.Point(65, 14);
+            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(39, 16);
+            label18.TabIndex = 114;
+            label18.Text = "[Beta]";
             // 
             // label17
             // 
@@ -2468,18 +2480,6 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_3;
             // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
-            label18.Location = new System.Drawing.Point(65, 14);
-            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(39, 16);
-            label18.TabIndex = 114;
-            label18.Text = "[Beta]";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2487,7 +2487,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1646, 871);
-            Controls.Add(groupBox5);
+            Controls.Add(mxPlayerGoupBox);
             Controls.Add(minimizeToTrayButton);
             Controls.Add(groupBox2);
             Controls.Add(openBilignualSubtitlesGroupBox);
@@ -2567,8 +2567,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
+            mxPlayerGoupBox.ResumeLayout(false);
+            mxPlayerGoupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -2623,7 +2623,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox docXTranslationGroupBox;
         private System.Windows.Forms.LinkLabel googleTranslatorLinkLabel;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel YandexTranslateLinkLabel;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button openBilingualSubtitlerButton;
@@ -2744,7 +2744,7 @@
         private System.Windows.Forms.Label fourthRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar fourthRussianSubtitlesProgressBar;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox mxPlayerGoupBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox2;
