@@ -29,6 +29,7 @@ using Aspose.Zip;
 using Nikse.SubtitleEdit.Core.Common;
 using System.Drawing.Printing;
 using System.Text.RegularExpressions;
+using Nikse.SubtitleEdit.Core.SubtitleFormats;
 
 namespace BilingualSubtitler
 {
@@ -1178,8 +1179,9 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
 
         /// <remarks>
         /// Правя здесь, не забудь поправить <see cref="ReadSrtMarkupFromDocxLines"/>, падаван юный
+        /// 08.01.2025: Уже, вроде, и не надо
         /// </remarks>
-        private Subtitle[] ReadSrtMarkup(string[] readedLines)
+        private Subtitle[] ReadSrtMarkup(string[] readedLines, string timingsSeparator = "-->")
         {
             // TODO
             // Обработка ошибок?
@@ -1194,103 +1196,76 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                 if (!string.IsNullOrWhiteSpace(line))
                     rawLines.Add(line);
             }
+
             // Удаляем все строки, предшествующие строке с "-->" — там номер субтитра, он нам не интересен
-            var linesThatAreSubtitleNumberIndexes = new List<int>();
+            var indexesOfLinesThatAreSubtitleNumbers = new List<int>();
             //
             for (int i = 0; i < rawLines.Count; i++)
             {
                 var line = rawLines[i];
 
-                if (line.Contains("-->"))
-                    linesThatAreSubtitleNumberIndexes.Add(i - 1);
+                if (line.Contains(timingsSeparator))
+                    indexesOfLinesThatAreSubtitleNumbers.Add(i - 1);
             }
             //
             var lines = new List<string>();
             for (int i = 0; i < rawLines.Count; i++)
             {
-                if (!(linesThatAreSubtitleNumberIndexes.Contains(i)))
+                if (!(indexesOfLinesThatAreSubtitleNumbers.Contains(i)))
                     lines.Add(rawLines[i]);
             }
 
             var subtitles = new List<Subtitle>();
             var thatsGotToBeFirstLineOfText = true;
             //
-            for (int i = 0; i < lines.Count; i++)
+            for (int currentLineIndex = 0; currentLineIndex < lines.Count; currentLineIndex++)
             {
-                Subtitle subtitle;
-
-                if (lines[i].Contains("-->"))
+                try
                 {
-                    subtitle = new Subtitle(lines[i], string.Empty);
-                    i++;
-
-                    // Считываем текст
+                    Subtitle subtitle;
                     //
-                    // Сначала проверка границ
-                    while ((i < lines.Count)
-                        && (!(lines[i].Contains("-->"))))
+                    if (lines[currentLineIndex].Contains(timingsSeparator))
                     {
-                        // В случае с первой строкой текста нам не нужно добавлять перенос. Иначе — нужно.
-                        if (thatsGotToBeFirstLineOfText)
+                        subtitle = new Subtitle(lines[currentLineIndex], string.Empty);
+                        currentLineIndex++;
+
+                        // Считываем текст
+                        //
+                        // Сначала проверка границ
+                        while ((currentLineIndex < lines.Count)
+                            && (!(lines[currentLineIndex].Contains(timingsSeparator))))
                         {
-                            subtitle.Text += lines[i];
-                            thatsGotToBeFirstLineOfText = false;
-                        }
-                        else
-                        {
-                            if (Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne)
+                            // В случае с первой строкой текста нам не нужно добавлять перенос. 
+                            if (thatsGotToBeFirstLineOfText)
                             {
-                                // Если у нас первым символом точка или запятая, и это уже не первая строка, значит это ошибка разметки, и ее надо добавить к первой строке
-                                if (lines[i].Length > 0)
+                                subtitle.Text += lines[currentLineIndex];
+                                thatsGotToBeFirstLineOfText = false;
+                            }
+                            else // Иначе — нужно.
+                            {
+                                if (Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne)
                                 {
-                                    if ((lines[i])[0] == '.')
-                                    {
-                                        subtitle.Text += $".";
-                                        if (lines[i].Length > 1)
-                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
-                                    }
-                                    else if ((lines[i])[0] == ',')
-                                    {
-                                        subtitle.Text += $",";
-                                        if (lines[i].Length > 1)
-                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
-                                    }
-                                    else if ((lines[i])[0] == '?')
-                                    {
-                                        subtitle.Text += $"?";
-                                        if (lines[i].Length > 1)
-                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
-                                    }
-                                    else if ((lines[i])[0] == '!')
-                                    {
-                                        subtitle.Text += $"!";
-                                        if (lines[i].Length > 1)
-                                            subtitle.Text += $"\n{lines[i].Substring(1)}";
-                                    }
-                                    else
-                                    {
-                                        subtitle.Text += $"\n{lines[i]}";
-                                    }
+                                    subtitle.Text += FixDotOrCommaAsTheFisrtCharOfNewLine(lines[currentLineIndex]);
                                 }
                                 else
-                                {
-                                    subtitle.Text += $"\n{lines[i]}";
-                                }
-                            }
-                            else
-                                subtitle.Text += $"\n{lines[i]}";
+                                    subtitle.Text += $"\n{lines[currentLineIndex]}";
 
+                            }
+
+                            currentLineIndex++;
                         }
 
-                        i++;
+                        subtitles.Add(subtitle);
 
+                        // Чистка
+                        thatsGotToBeFirstLineOfText = true;
+                        currentLineIndex--;
                     }
-
-                    subtitles.Add(subtitle);
-
-                    // Чистка
-                    thatsGotToBeFirstLineOfText = true;
-                    i--;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Не удался парсинг субтитра из\n{lines[currentLineIndex]}\n{lines[currentLineIndex+1]}\n!\n\nОшибка:{ex.ToString()}",
+                        "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                 }
             }
 
@@ -1340,54 +1315,115 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
             return subtitles.ToArray();
         }
 
-        /// <remarks>
-        /// Не вызывает просто <see cref="ReadSrtMarkup"/>, потому что нужна обработка исключений
-        /// </remarks>
-        private Subtitle[] ReadSrtMarkupFromDocxLines(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        private string FixDotOrCommaAsTheFisrtCharOfNewLine(string secondLineOfText)
         {
+            var subtitleText = string.Empty;
 
-            // TODO
-            //
-            // Здесь бы заменить на тот механизм, что в ReadSrtMarkup, но и этот работает, а поменяю — нужно тестировать. Пока так.
-
-            var subsLines = 0;
-
-            foreach (var line in readedLines)
+            // Если у нас первым символом точка или запятая, и это уже не первая строка, значит это ошибка разметки, и ее надо добавить к первой строке
+            if (secondLineOfText.Length > 0)
             {
-                if (line.Text.Contains("->"))
-                    subsLines++;
-            }
-
-            var subtitles = new Subtitle[subsLines];
-            int currentSubtitleIndex = 0;
-            for (int currentLine = 0; currentLine < readedLines.Count - 1; currentLine++)
-            {
-                if (readedLines[currentLine].Text.Contains("->"))
+                if (secondLineOfText.StartsWith('.'))
                 {
-                    try
-                    {
-                        subtitles[currentSubtitleIndex] = new Subtitle(
-                            readedLines[currentLine].Text,
-                            (readedLines[currentLine + 1].Text));
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Не удался парсинг субтитра из\n{readedLines[currentLine].Text}\n{readedLines[currentLine + 1].Text}\n!\n\nОшибка:{ex.ToString()}",
-                            "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
-                    }
-
-                    currentLine += 2;
-
-                    while ((currentLine < readedLines.Count) && (!string.IsNullOrWhiteSpace(readedLines[currentLine].Text)))
-                    {
-                        subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
-
-                        currentLine++;
-                    }
-
-                    currentSubtitleIndex++;
+                    subtitleText += $".";
+                    if (secondLineOfText.Length > 1)
+                        subtitleText += $"\n{secondLineOfText.Substring(1)}";
+                }
+                else if (secondLineOfText.StartsWith(".."))
+                {
+                    subtitleText += $"..";
+                    if (secondLineOfText.Length > 2)
+                        subtitleText += $"\n{secondLineOfText.Substring(2)}";
+                }
+                else if (secondLineOfText.StartsWith("..."))
+                {
+                    subtitleText += $"...";
+                    if (secondLineOfText.Length > 3)
+                        subtitleText += $"\n{secondLineOfText.Substring(3)}";
+                }
+                else if (secondLineOfText.StartsWith(','))
+                {
+                    subtitleText += $",";
+                    if (secondLineOfText.Length > 1)
+                        subtitleText += $"\n{secondLineOfText.Substring(1)}";
+                }
+                else if (secondLineOfText.StartsWith('?'))
+                {
+                    subtitleText += $"?";
+                    if (secondLineOfText.Length > 1)
+                        subtitleText += $"\n{secondLineOfText.Substring(1)}";
+                }
+                else if (secondLineOfText.StartsWith('!'))
+                {
+                    subtitleText += $"!";
+                    if (secondLineOfText.Length > 1)
+                        subtitleText += $"\n{secondLineOfText.Substring(1)}";
+                }
+                else if (secondLineOfText.StartsWith("?!"))
+                {
+                    subtitleText += $"?!";
+                    if (secondLineOfText.Length > 2)
+                        subtitleText += $"\n{secondLineOfText.Substring(2)}";
+                }
+                else
+                {
+                    subtitleText += $"\n{secondLineOfText}";
                 }
             }
+
+            return subtitleText;
+        }
+
+        private Subtitle[] ReadSrtMarkupFromDocxLines(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        {
+            var lines = new List<string>();
+            foreach (var line in readedLines)
+                lines.Add(line.Text);
+            var subtitles = ReadSrtMarkup(lines.ToArray(), "->");
+
+            #region Былое
+            //// TODO
+            ////
+            //// Здесь бы заменить на тот механизм, что в ReadSrtMarkup, но и этот работает, а поменяю — нужно тестировать. Пока так.
+
+            //var subsLines = 0;
+
+            //foreach (var line in readedLines)
+            //{
+            //    if (line.Text.Contains("->"))
+            //        subsLines++;
+            //}
+
+            //var subtitles = new Subtitle[subsLines];
+            //int currentSubtitleIndex = 0;
+            //for (int currentLine = 0; currentLine < readedLines.Count - 1; currentLine++)
+            //{
+            //    if (readedLines[currentLine].Text.Contains("->"))
+            //    {
+            //        try
+            //        {
+            //            subtitles[currentSubtitleIndex] = new Subtitle(
+            //                readedLines[currentLine].Text,
+            //                (readedLines[currentLine + 1].Text));
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show($"Не удался парсинг субтитра из\n{readedLines[currentLine].Text}\n{readedLines[currentLine + 1].Text}\n!\n\nОшибка:{ex.ToString()}",
+            //                "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            //        }
+
+            //        currentLine += 2;
+
+            //        while ((currentLine < readedLines.Count) && (!string.IsNullOrWhiteSpace(readedLines[currentLine].Text)))
+            //        {
+            //            subtitles[currentSubtitleIndex].Text += $"\n{readedLines[currentLine]}";
+
+            //            currentLine++;
+            //        }
+
+            //        currentSubtitleIndex++;
+            //    }
+            //}
+            #endregion
 
             return subtitles;
         }

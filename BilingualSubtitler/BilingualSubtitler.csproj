@@ -137,6 +137,9 @@
     <Compile Update="FilesAlreadyExistsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SettingsAndroidForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SubtitlesSavedSuccessfullyForm.cs">
       <SubType>Form</SubType>
     </Compile>

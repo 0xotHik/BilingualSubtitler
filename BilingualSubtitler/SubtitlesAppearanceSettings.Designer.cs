@@ -160,9 +160,9 @@
             label14 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            OriginalSubtitlesFontLabel = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
+            OriginalSubtitlesMarginLabel = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown).BeginInit();
@@ -1490,9 +1490,9 @@
             groupBox4.Controls.Add(label14);
             groupBox4.Controls.Add(label13);
             groupBox4.Controls.Add(label12);
-            groupBox4.Controls.Add(label1);
+            groupBox4.Controls.Add(OriginalSubtitlesFontLabel);
             groupBox4.Controls.Add(label11);
-            groupBox4.Controls.Add(label3);
+            groupBox4.Controls.Add(OriginalSubtitlesMarginLabel);
             groupBox4.Location = new System.Drawing.Point(10, 19);
             groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox4.Name = "groupBox4";
@@ -1664,15 +1664,15 @@
             label12.TabIndex = 84;
             label12.Text = "Прозрачность (в процентах):";
             // 
-            // label1
+            // OriginalSubtitlesFontLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(11, 36);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(49, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Шрифт:";
+            OriginalSubtitlesFontLabel.AutoSize = true;
+            OriginalSubtitlesFontLabel.Location = new System.Drawing.Point(11, 36);
+            OriginalSubtitlesFontLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            OriginalSubtitlesFontLabel.Name = "OriginalSubtitlesFontLabel";
+            OriginalSubtitlesFontLabel.Size = new System.Drawing.Size(49, 15);
+            OriginalSubtitlesFontLabel.TabIndex = 0;
+            OriginalSubtitlesFontLabel.Text = "Шрифт:";
             // 
             // label11
             // 
@@ -1684,15 +1684,15 @@
             label11.TabIndex = 83;
             label11.Text = "Размер:";
             // 
-            // label3
+            // OriginalSubtitlesMarginLabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(11, 81);
-            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(82, 15);
-            label3.TabIndex = 82;
-            label3.Text = "Отступ снизу:";
+            OriginalSubtitlesMarginLabel.AutoSize = true;
+            OriginalSubtitlesMarginLabel.Location = new System.Drawing.Point(11, 81);
+            OriginalSubtitlesMarginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            OriginalSubtitlesMarginLabel.Name = "OriginalSubtitlesMarginLabel";
+            OriginalSubtitlesMarginLabel.Size = new System.Drawing.Size(82, 15);
+            OriginalSubtitlesMarginLabel.TabIndex = 82;
+            OriginalSubtitlesMarginLabel.Text = "Отступ снизу:";
             // 
             // SubtitlesAppearanceSettings
             // 
@@ -1821,9 +1821,9 @@
         public System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label13;
         public System.Windows.Forms.Label label12;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label OriginalSubtitlesFontLabel;
         public System.Windows.Forms.Label label11;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label OriginalSubtitlesMarginLabel;
         public System.Windows.Forms.Button ResetSubtitlesAppearanceToDefaultButton;
         public System.Windows.Forms.CheckBox ChangeMarginsToPairSubtitlesCheckBox;
         private System.Windows.Forms.GroupBox groupBox1;
