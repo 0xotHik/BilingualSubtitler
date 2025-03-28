@@ -166,7 +166,7 @@ namespace BilingualSubtitler
 
             checkUpdatesOnAppStartCheckBox.Checked = Properties.Settings.Default.CheckUpdates;
 
-            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne;
+            fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked = Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLine;
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked = Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles;
 
             if (Properties.Settings.Default.AdvancedMode)
@@ -425,7 +425,7 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.СhangeOnTheSameDeltaValuesForAllSubtitles = subtitlesAppearanceSettingsControl.ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox.Checked;
             Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
 
-            Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
+            Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLine = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
             Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;    
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;

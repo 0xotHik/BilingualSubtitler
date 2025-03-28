@@ -50,7 +50,7 @@ namespace BilingualSubtitler
         enum VideoState
         {
             Playing,
-            Paused
+            Paused,
         }
 
         enum SubtitlesState
@@ -313,6 +313,7 @@ namespace BilingualSubtitler
 
                 Settings.Default.FirstLaunch = false;
                 Settings.Default.Save();
+
             }
 
             // Состояния видео и субтитров
@@ -1243,7 +1244,7 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                             }
                             else // Иначе — нужно.
                             {
-                                if (Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne)
+                                if (Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLine)
                                 {
                                     subtitle.Text += FixDotOrCommaAsTheFisrtCharOfNewLine(lines[currentLineIndex]);
                                 }
@@ -3832,7 +3833,7 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
 
             if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
             {
-                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingDocXFileName);
+                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingDocXFileName, true);
             }
 
         }
@@ -3896,11 +3897,11 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
             }
         }
 
-        private void CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(string resultingFileName)
+        private void CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(string resultingFileName, bool showOpenTranslatorButton = false)
         {
             if (File.Exists(resultingFileName))
             {
-                using (var openSavedFileInDefaultAppForm = new ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm(resultingFileName))
+                using (var openSavedFileInDefaultAppForm = new SaveFileReportSuccessAskToOpenInDefaultAppForm(resultingFileName, showOpenTranslatorButton: showOpenTranslatorButton))
                 {
                     openSavedFileInDefaultAppForm.ShowDialog();
 
@@ -4355,6 +4356,7 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
             {
                 finalSubtitlesFilesPathBeginningRichTextBox.Text = newFileName;
             }
+
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)

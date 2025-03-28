@@ -71,7 +71,45 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString = GetSubtitlesStyleString(subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesBoldCheckBox,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesItalicCheckBox,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesUnderlineCheckBox,
+                                                                       subtitlesAppearanceSettingsControl.OriginalSubtitlesStrikeoutCheckBox);
+        }
+
+        private string GetSubtitlesStyleString(ComboBox subtitlesFontComboBox,
+            NumericUpDown subtitlesMarginNumericUpDown,
+            NumericUpDown subtitlesSizeNumericUpDown,
+            NumericUpDown subtitlesOutlineNumericUpDown,
+            NumericUpDown subtitlesShadowNumericUpDown,
+            NumericUpDown subtitlesTransparencyPercentageNumericUpDown,
+            NumericUpDown subtitlesShadowTransparencyPercentageNumericUpDown,
+            CheckBox subtitlesInOneLineCheckBox,
+            CheckBox boldCheckBox,
+            CheckBox italicCheckBox,
+            CheckBox underlineCheckBox,
+            CheckBox strikeoutCheckBox)
+        {
+            return $"{subtitlesFontComboBox.Text};" +
+                                                           $"{subtitlesMarginNumericUpDown.Text};" +
+                                                           $"{subtitlesSizeNumericUpDown.Value};" +
+                                                           $"{subtitlesOutlineNumericUpDown.Value};" +
+                                                           $"{subtitlesShadowNumericUpDown.Value};" +
+                                                           $"{subtitlesTransparencyPercentageNumericUpDown.Value};" +
+                                                           $"{subtitlesShadowTransparencyPercentageNumericUpDown.Value};" +
+                                                           $"{(subtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
+                                                           $"{(boldCheckBox.Checked ? 1 : 0)};" +
+                                                           $"{(italicCheckBox.Checked ? 1 : 0)};" +
+                                                           $"{(underlineCheckBox.Checked ? 1 : 0)};" +
+                                                           $"{(strikeoutCheckBox.Checked ? 1 : 0)};";
         }
     }
 }

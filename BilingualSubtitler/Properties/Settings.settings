@@ -102,7 +102,7 @@
     <Setting Name="LatestInstalledVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.0</Value>
     </Setting>
-    <Setting Name="FixDotOrCommaAsTheFisrtCharOfNewLIne" Type="System.Boolean" Scope="User">
+    <Setting Name="FixDotOrCommaAsTheFisrtCharOfNewLine" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ReadAndWriteTitlesOfOriginIntoFinalFiles" Type="System.Boolean" Scope="User">

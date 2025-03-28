@@ -35,7 +35,6 @@ namespace BilingualSubtitler
             buttonOk = new Button();
             buttonCancel = new Button();
             button5 = new Button();
-            button11 = new Button();
             subtitlesAppearanceSettingsControl = new SubtitlesAppearanceSettings();
             checkBox1 = new CheckBox();
             SuspendLayout();
@@ -45,7 +44,7 @@ namespace BilingualSubtitler
             buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
             buttonOk.Image = Properties.Resources._16pxOkIcon;
             buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonOk.Location = new System.Drawing.Point(1138, 942);
+            buttonOk.Location = new System.Drawing.Point(552, 939);
             buttonOk.Margin = new Padding(4, 3, 4, 3);
             buttonOk.Name = "buttonOk";
             buttonOk.Size = new System.Drawing.Size(111, 40);
@@ -60,7 +59,7 @@ namespace BilingualSubtitler
             buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             buttonCancel.Image = Properties.Resources._16pxCancelIconAnother;
             buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonCancel.Location = new System.Drawing.Point(564, 942);
+            buttonCancel.Location = new System.Drawing.Point(21, 939);
             buttonCancel.Margin = new Padding(4, 3, 4, 3);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new System.Drawing.Size(86, 40);
@@ -74,7 +73,7 @@ namespace BilingualSubtitler
             // 
             button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button5.Location = new System.Drawing.Point(750, 942);
+            button5.Location = new System.Drawing.Point(184, 939);
             button5.Margin = new Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new System.Drawing.Size(273, 40);
@@ -83,19 +82,6 @@ namespace BilingualSubtitler
             button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
-            // 
-            // button11
-            // 
-            button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button11.Location = new System.Drawing.Point(18, 942);
-            button11.Margin = new Padding(4, 3, 4, 3);
-            button11.Name = "button11";
-            button11.Size = new System.Drawing.Size(273, 40);
-            button11.TabIndex = 100;
-            button11.Text = "ℹ️ О программе";
-            button11.UseVisualStyleBackColor = false;
-            button11.Click += button11_Click;
             // 
             // subtitlesAppearanceSettingsControl
             // 
@@ -123,10 +109,9 @@ namespace BilingualSubtitler
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
-            ClientSize = new System.Drawing.Size(1264, 991);
+            ClientSize = new System.Drawing.Size(676, 991);
             Controls.Add(checkBox1);
             Controls.Add(subtitlesAppearanceSettingsControl);
-            Controls.Add(button11);
             Controls.Add(button5);
             Controls.Add(buttonOk);
             Controls.Add(buttonCancel);
@@ -145,7 +130,6 @@ namespace BilingualSubtitler
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button11;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.CheckBox checkBox1;
     }
