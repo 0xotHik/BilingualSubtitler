@@ -56,7 +56,8 @@
             // 
             // okButton
             // 
-            okButton.Location = new System.Drawing.Point(559, 65);
+            okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            okButton.Location = new System.Drawing.Point(713, 65);
             okButton.Name = "okButton";
             okButton.Size = new System.Drawing.Size(75, 23);
             okButton.TabIndex = 2;
@@ -66,37 +67,40 @@
             // 
             // openFileInDefaultAppButton
             // 
+            openFileInDefaultAppButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             openFileInDefaultAppButton.Location = new System.Drawing.Point(12, 65);
             openFileInDefaultAppButton.Name = "openFileInDefaultAppButton";
-            openFileInDefaultAppButton.Size = new System.Drawing.Size(265, 23);
+            openFileInDefaultAppButton.Size = new System.Drawing.Size(275, 23);
             openFileInDefaultAppButton.TabIndex = 3;
-            openFileInDefaultAppButton.Text = "Открыть файл в программе по умолчанию";
+            openFileInDefaultAppButton.Text = "🖥️ Открыть файл в программе по умолчанию";
             openFileInDefaultAppButton.UseVisualStyleBackColor = true;
             openFileInDefaultAppButton.Click += openFileInDefaultAppButton_Click;
             // 
             // openTranslatorButton
             // 
-            openTranslatorButton.Location = new System.Drawing.Point(283, 65);
+            openTranslatorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            openTranslatorButton.Location = new System.Drawing.Point(293, 65);
             openTranslatorButton.Name = "openTranslatorButton";
             openTranslatorButton.Size = new System.Drawing.Size(265, 23);
             openTranslatorButton.TabIndex = 4;
-            openTranslatorButton.Text = "Открыть страницу переводчика";
+            openTranslatorButton.Text = "🌐 Открыть страницу Яндекс.Переводчика";
             openTranslatorButton.UseVisualStyleBackColor = true;
             openTranslatorButton.Click += button1_Click;
             // 
-            // ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm
+            // SaveFileReportSuccessAskToOpenInDefaultAppForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(646, 103);
+            ClientSize = new System.Drawing.Size(800, 103);
             Controls.Add(openTranslatorButton);
             Controls.Add(openFileInDefaultAppButton);
             Controls.Add(okButton);
             Controls.Add(fileNameLabel);
             Controls.Add(label1);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Name = "ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm";
+            Name = "SaveFileReportSuccessAskToOpenInDefaultAppForm";
             Text = "Успешно";
+            Load += SaveFileReportSuccessAskToOpenInDefaultAppForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

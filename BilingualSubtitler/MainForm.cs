@@ -3798,6 +3798,11 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                 goodToGo = true;
                 string downloadsFolderPath = Properties.Settings.Default.DownloadsFolder;
                 resultingDocXFileName = Path.Combine(downloadsFolderPath, $"{defaultFileName}.docx");
+
+                if (File.Exists(resultingDocXFileName))
+                {
+                    resultingDocXFileName = Path.Combine(downloadsFolderPath, $"{defaultFileName}.{DateTime.Now.ToString("yyyy-MM-dd-HHmmtt")}.docx");
+                }
             }
             else
             {
