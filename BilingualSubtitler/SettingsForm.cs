@@ -180,9 +180,14 @@ namespace BilingualSubtitler
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked = Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile;
             removeAnCheckBox.Checked = Properties.Settings.Default.RemoveAn;
 
+            startVideoInSettedPlayerCheckBox.Checked = Properties.Settings.Default.StartVideoInSettedPlayer;
+            videoPlayerPathTextBox.Text = Properties.Settings.Default.VideoPlayerPath;
 
+
+            // Установки внешнего вида субтитров
             SetFormAccordingToSubtitlesAppearanceSettings();
 
+            // Установка на расширенный / обычный режим
             SetFormAccordingToAdvancedModeOrNot();
         }
 
@@ -438,6 +443,9 @@ namespace BilingualSubtitler
             Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile = notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Checked;
             Properties.Settings.Default.RemoveAn = removeAnCheckBox.Checked;
 
+            Properties.Settings.Default.StartVideoInSettedPlayer = startVideoInSettedPlayerCheckBox.Checked;
+            Properties.Settings.Default.VideoPlayerPath = videoPlayerPathTextBox.Text;
+
 
             Properties.Settings.Default.Save();
             Properties.SubtitlesAppearanceSettings.Default.Save();
@@ -615,7 +623,7 @@ namespace BilingualSubtitler
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void setVideoPlayerbutton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             string formats = "Исполняемые файлы |*.exe";
@@ -628,6 +636,8 @@ namespace BilingualSubtitler
                 var videoPlayerExecutable = new FileInfo(openFileDialog.FileName);
                 videoplayerProcessNameTextBox.Text = videoPlayerExecutable.Name.Substring(0,
                     videoPlayerExecutable.Name.Length - videoPlayerExecutable.Extension.Length);
+
+                videoPlayerPathTextBox.Text = openFileDialog.FileName;
             }
 
             openFileDialog.Dispose();

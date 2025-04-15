@@ -50,7 +50,9 @@
             bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             groupBox6 = new System.Windows.Forms.GroupBox();
-            button6 = new System.Windows.Forms.Button();
+            videoPlayerPathTextBox = new System.Windows.Forms.TextBox();
+            startVideoInSettedPlayerCheckBox = new System.Windows.Forms.CheckBox();
+            setVideoPlayerbutton = new System.Windows.Forms.Button();
             label10 = new System.Windows.Forms.Label();
             videoplayerProcessNameTextBox = new System.Windows.Forms.TextBox();
             label9 = new System.Windows.Forms.Label();
@@ -78,7 +80,6 @@
             checkUpdatesOnAppStartCheckBox = new System.Windows.Forms.CheckBox();
             label40 = new System.Windows.Forms.Label();
             groupBox12 = new System.Windows.Forms.GroupBox();
-            checkBox1 = new System.Windows.Forms.CheckBox();
             advancedModeRadioButton = new System.Windows.Forms.RadioButton();
             notAdvancedModeRadioButton = new System.Windows.Forms.RadioButton();
             downloadsDirectoryGroupBox = new System.Windows.Forms.GroupBox();
@@ -94,6 +95,7 @@
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             removeAnCheckBox = new System.Windows.Forms.CheckBox();
+            label18 = new System.Windows.Forms.Label();
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -162,11 +164,11 @@
             yandexTranslatorGroupBox.Controls.Add(gotTheYandexTranslatorAPIKeyCheckBox);
             yandexTranslatorGroupBox.Controls.Add(linkLabelYandexAPIKeysList);
             yandexTranslatorGroupBox.Controls.Add(richTextBoxForYandexApiKeyInSeparateForm);
-            yandexTranslatorGroupBox.Location = new System.Drawing.Point(18, 847);
+            yandexTranslatorGroupBox.Location = new System.Drawing.Point(13, 847);
             yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1232, 87);
+            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1237, 87);
             yandexTranslatorGroupBox.TabIndex = 44;
             yandexTranslatorGroupBox.TabStop = false;
             yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
@@ -290,11 +292,11 @@
             groupBox5.Controls.Add(CreateOriginalSubtitlesFileCheckBox);
             groupBox5.Controls.Add(bilingualSubtitlesPathEndingTextBox);
             groupBox5.Controls.Add(originalSubtitlesPathEndingTextBox);
-            groupBox5.Location = new System.Drawing.Point(18, 411);
+            groupBox5.Location = new System.Drawing.Point(13, 411);
             groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox5.Name = "groupBox5";
             groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox5.Size = new System.Drawing.Size(348, 145);
+            groupBox5.Size = new System.Drawing.Size(359, 145);
             groupBox5.TabIndex = 69;
             groupBox5.TabStop = false;
             groupBox5.Text = "Создавать файлы:";
@@ -354,7 +356,10 @@
             // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(button6);
+            groupBox6.Controls.Add(label18);
+            groupBox6.Controls.Add(videoPlayerPathTextBox);
+            groupBox6.Controls.Add(startVideoInSettedPlayerCheckBox);
+            groupBox6.Controls.Add(setVideoPlayerbutton);
             groupBox6.Controls.Add(label10);
             groupBox6.Controls.Add(videoplayerProcessNameTextBox);
             groupBox6.Controls.Add(label9);
@@ -368,31 +373,48 @@
             groupBox6.Controls.Add(videoPlayerPauseButtonTextBox);
             groupBox6.Controls.Add(label6);
             groupBox6.Controls.Add(label5);
-            groupBox6.Location = new System.Drawing.Point(18, 123);
+            groupBox6.Location = new System.Drawing.Point(13, 97);
             groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox6.Size = new System.Drawing.Size(348, 284);
+            groupBox6.Size = new System.Drawing.Size(359, 310);
             groupBox6.TabIndex = 70;
             groupBox6.TabStop = false;
             groupBox6.Text = "Настройки видеоплеера";
             // 
-            // button6
+            // videoPlayerPathTextBox
             // 
-            button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button6.Location = new System.Drawing.Point(196, 227);
-            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(134, 45);
-            button6.TabIndex = 81;
-            button6.Text = "🎥   Выбрать \r\nисполняемый файл";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            videoPlayerPathTextBox.Location = new System.Drawing.Point(8, 281);
+            videoPlayerPathTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            videoPlayerPathTextBox.Name = "videoPlayerPathTextBox";
+            videoPlayerPathTextBox.Size = new System.Drawing.Size(343, 23);
+            videoPlayerPathTextBox.TabIndex = 82;
+            // 
+            // startVideoInSettedPlayerCheckBox
+            // 
+            startVideoInSettedPlayerCheckBox.Location = new System.Drawing.Point(4, 235);
+            startVideoInSettedPlayerCheckBox.Name = "startVideoInSettedPlayerCheckBox";
+            startVideoInSettedPlayerCheckBox.Size = new System.Drawing.Size(351, 42);
+            startVideoInSettedPlayerCheckBox.TabIndex = 62;
+            startVideoInSettedPlayerCheckBox.Text = "Запускать по клавише \"▶️ Воспроизвести\" в главном окне \r\nвоспроизведение в заданном плеере:";
+            startVideoInSettedPlayerCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // setVideoPlayerbutton
+            // 
+            setVideoPlayerbutton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            setVideoPlayerbutton.Location = new System.Drawing.Point(196, 184);
+            setVideoPlayerbutton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            setVideoPlayerbutton.Name = "setVideoPlayerbutton";
+            setVideoPlayerbutton.Size = new System.Drawing.Size(134, 45);
+            setVideoPlayerbutton.TabIndex = 81;
+            setVideoPlayerbutton.Text = "🎥   Выбрать \r\nисполняемый файл";
+            setVideoPlayerbutton.UseVisualStyleBackColor = false;
+            setVideoPlayerbutton.Click += setVideoPlayerbutton_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(54, 208);
+            label10.Location = new System.Drawing.Point(54, 165);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(191, 15);
@@ -401,7 +423,7 @@
             // 
             // videoplayerProcessNameTextBox
             // 
-            videoplayerProcessNameTextBox.Location = new System.Drawing.Point(57, 239);
+            videoplayerProcessNameTextBox.Location = new System.Drawing.Point(57, 196);
             videoplayerProcessNameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             videoplayerProcessNameTextBox.Name = "videoplayerProcessNameTextBox";
             videoplayerProcessNameTextBox.Size = new System.Drawing.Size(114, 23);
@@ -410,7 +432,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(28, 171);
+            label9.Location = new System.Drawing.Point(28, 142);
             label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(81, 15);
@@ -420,7 +442,7 @@
             // button4
             // 
             button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button4.Location = new System.Drawing.Point(245, 165);
+            button4.Location = new System.Drawing.Point(245, 136);
             button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(85, 27);
@@ -431,7 +453,7 @@
             // 
             // videoPlayerChangeToOriginalSubtitlesButtonTextBox
             // 
-            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 167);
+            videoPlayerChangeToOriginalSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 138);
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.Name = "videoPlayerChangeToOriginalSubtitlesButtonTextBox";
             videoPlayerChangeToOriginalSubtitlesButtonTextBox.ReadOnly = true;
@@ -442,7 +464,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(28, 137);
+            label8.Location = new System.Drawing.Point(28, 108);
             label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(75, 15);
@@ -452,7 +474,7 @@
             // button3
             // 
             button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button3.Location = new System.Drawing.Point(245, 132);
+            button3.Location = new System.Drawing.Point(245, 103);
             button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(85, 27);
@@ -463,7 +485,7 @@
             // 
             // videoPlayerChangeToBilingualSubtitlesButtonTextBox
             // 
-            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 134);
+            videoPlayerChangeToBilingualSubtitlesButtonTextBox.Location = new System.Drawing.Point(124, 105);
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.Name = "videoPlayerChangeToBilingualSubtitlesButtonTextBox";
             videoPlayerChangeToBilingualSubtitlesButtonTextBox.ReadOnly = true;
@@ -474,7 +496,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(28, 108);
+            label7.Location = new System.Drawing.Point(28, 79);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(124, 15);
@@ -484,7 +506,7 @@
             // button2
             // 
             button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button2.Location = new System.Drawing.Point(245, 65);
+            button2.Location = new System.Drawing.Point(245, 36);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(85, 27);
@@ -495,7 +517,7 @@
             // 
             // videoPlayerPauseButtonTextBox
             // 
-            videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(124, 67);
+            videoPlayerPauseButtonTextBox.Location = new System.Drawing.Point(124, 38);
             videoPlayerPauseButtonTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             videoPlayerPauseButtonTextBox.Name = "videoPlayerPauseButtonTextBox";
             videoPlayerPauseButtonTextBox.ReadOnly = true;
@@ -506,7 +528,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(28, 70);
+            label6.Location = new System.Drawing.Point(28, 41);
             label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(45, 15);
@@ -516,7 +538,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(54, 31);
+            label5.Location = new System.Drawing.Point(54, 18);
             label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(192, 15);
@@ -529,11 +551,11 @@
             processPriorityGroupBox.Controls.Add(currentProcessPriorityTextBox);
             processPriorityGroupBox.Controls.Add(label38);
             processPriorityGroupBox.Controls.Add(label37);
-            processPriorityGroupBox.Location = new System.Drawing.Point(18, 670);
+            processPriorityGroupBox.Location = new System.Drawing.Point(13, 670);
             processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             processPriorityGroupBox.Name = "processPriorityGroupBox";
             processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            processPriorityGroupBox.Size = new System.Drawing.Size(348, 74);
+            processPriorityGroupBox.Size = new System.Drawing.Size(353, 74);
             processPriorityGroupBox.TabIndex = 98;
             processPriorityGroupBox.TabStop = false;
             processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
@@ -679,27 +701,16 @@
             // 
             // groupBox12
             // 
-            groupBox12.Controls.Add(checkBox1);
             groupBox12.Controls.Add(advancedModeRadioButton);
             groupBox12.Controls.Add(notAdvancedModeRadioButton);
-            groupBox12.Location = new System.Drawing.Point(18, 14);
+            groupBox12.Location = new System.Drawing.Point(13, 14);
             groupBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox12.Name = "groupBox12";
             groupBox12.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox12.Size = new System.Drawing.Size(348, 103);
+            groupBox12.Size = new System.Drawing.Size(359, 77);
             groupBox12.TabIndex = 82;
             groupBox12.TabStop = false;
             groupBox12.Text = "Главное окно Bilingual Subtitler";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new System.Drawing.Point(28, 74);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(316, 19);
-            checkBox1.TabIndex = 62;
-            checkBox1.Text = "Включить 4-й и 5-й потоки переведенных субтитров";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // advancedModeRadioButton
             // 
@@ -732,11 +743,11 @@
             // 
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathSetButton);
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathRichTextBox);
-            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(18, 752);
+            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(13, 752);
             downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
             downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(589, 89);
+            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(594, 89);
             downloadsDirectoryGroupBox.TabIndex = 98;
             downloadsDirectoryGroupBox.TabStop = false;
             downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
@@ -798,10 +809,10 @@
             // 
             button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
             button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button11.Location = new System.Drawing.Point(18, 942);
+            button11.Location = new System.Drawing.Point(13, 942);
             button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button11.Name = "button11";
-            button11.Size = new System.Drawing.Size(273, 40);
+            button11.Size = new System.Drawing.Size(278, 40);
             button11.TabIndex = 100;
             button11.Text = "ℹ️ О программе";
             button11.UseVisualStyleBackColor = false;
@@ -871,6 +882,18 @@
             removeAnCheckBox.TabIndex = 107;
             removeAnCheckBox.Text = "removeAnCheckBox";
             removeAnCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            label18.Location = new System.Drawing.Point(229, 254);
+            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(39, 16);
+            label18.TabIndex = 115;
+            label18.Text = "[Beta]";
             // 
             // SettingsForm
             // 
@@ -958,7 +981,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button setVideoPlayerbutton;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.CheckBox gotTheYandexTranslatorAPIKeyCheckBox;
         private System.Windows.Forms.GroupBox processPriorityGroupBox;
@@ -989,7 +1012,9 @@
         private System.Windows.Forms.CheckBox fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox;
         private System.Windows.Forms.CheckBox ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox;
         private System.Windows.Forms.CheckBox notifyAboutSuccessfullySavedSubtitlesFileCheckBox;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox startVideoInSettedPlayerCheckBox;
         private System.Windows.Forms.CheckBox removeAnCheckBox;
+        private System.Windows.Forms.TextBox videoPlayerPathTextBox;
+        private System.Windows.Forms.Label label18;
     }
 }

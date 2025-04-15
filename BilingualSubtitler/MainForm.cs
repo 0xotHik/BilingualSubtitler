@@ -1265,7 +1265,7 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Не удался парсинг субтитра из\n{lines[currentLineIndex]}\n{lines[currentLineIndex+1]}\n!\n\nОшибка:{ex.ToString()}",
+                    MessageBox.Show($"Не удался парсинг субтитра из\n{lines[currentLineIndex]}\n{lines[currentLineIndex + 1]}\n!\n\nОшибка:{ex.ToString()}",
                         "Не удался парсинг субтитра", MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                 }
             }
@@ -3742,7 +3742,21 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                     GetVideoFileExtention();
             try
             {
-                OpenFile(videoFileName);
+                if (Properties.Settings.Default.StartVideoInSettedPlayer)
+                {
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo
+                    {
+                        FileName = Properties.Settings.Default.VideoPlayerPath,
+                        Arguments = $"\"{videoFileName}\"",
+                        UseShellExecute = true
+                    };
+                    p.Start();
+                }
+                else
+                {
+                    OpenFile(videoFileName);
+                }
             }
             catch (Exception ex)
             {
