@@ -158,6 +158,8 @@ namespace BilingualSubtitler
 
             videoplayerProcessNameTextBox.Text = Properties.Settings.Default.VideoPlayerProcessName;
 
+            VideoPlayerPathTextBox.Text = Properties.Settings.Default.VideoPlayerPath;
+
             richTextBoxForYandexApiKeyInSeparateForm.Text = Properties.Settings.Default.YandexTranslatorAPIKey;
             gotTheYandexTranslatorAPIKeyCheckBox.Checked = Properties.Settings.Default.YandexTranslatorAPIEnabled;
 
@@ -378,7 +380,7 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
 
             Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLIne = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
-            Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;    
+            Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 
@@ -727,7 +729,47 @@ namespace BilingualSubtitler
             subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
         }
 
+        private void videoplayerProcessNameTextBox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            {
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                string formats = "Исполняемые файлы |*.exe";
+
+                openFileDialog.Filter = formats;
+                var result = openFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+
+                    Properties.Settings.Default.VideoPlayerPath = openFileDialog.FileName;
+                    Properties.Settings.Default.Save();
+                    VideoPlayerPathTextBox.Text = Properties.Settings.Default.VideoPlayerPath;
+                }
+
+                openFileDialog.Dispose();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VideoPlayerPathTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
 
         //public partial class SettingsForm : Form
