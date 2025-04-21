@@ -784,19 +784,6 @@ namespace BilingualSubtitler
                     Properties.Settings.Default.Save();
                 }
 
-                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.VideoPlayerPath))
-                {
-
-                    string filePath = @"C:\Program Files\MPC-HC\mpc-hc64.exe";
-
-                    if (File.Exists(filePath))
-                    {
-                        Properties.Settings.Default.VideoPlayerPath = filePath;
-                    }
-
-                    Properties.Settings.Default.Save();
-                }
-
             }
             catch (Exception e)
             {
@@ -3828,29 +3815,11 @@ namespace BilingualSubtitler
         private void OpenFile(string path)
         {
             var p = new Process();
-
-
-
-            if (File.Exists(Properties.Settings.Default.VideoPlayerPath))
-            {
-                p.StartInfo = new ProcessStartInfo
-                {
-                    FileName = Properties.Settings.Default.VideoPlayerPath,
-                    Arguments = $"\"{path}\"",
-                    UseShellExecute = true
-                };
-                p.Start();
-            }
-
-            else
-
             p.StartInfo = new ProcessStartInfo(path)
             {
                 UseShellExecute = true
             };
             p.Start();
-
-
         }
 
         /// <summary>
