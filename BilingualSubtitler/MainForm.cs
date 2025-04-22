@@ -823,15 +823,15 @@ namespace BilingualSubtitler
                 fifthRussianSubtitlesColorButton.BackColor = Properties.Settings.Default.FifthRussianSubtitlesColor;
 
                 // Файлы субтитров
-                originalSubtitlesFileNameEnding.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
-                bilingualSubtitlesFileNameEnding.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
+                originalSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+                bilingualSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
                 //
-                originalSubtitlesFileNameEnding.Visible =
-                    originalSubtitlesFileNameEndingLabel.Visible =
+                originalSubtitlesFileNameEndingLabel.Visible =
+                    originalSubtitlesFileNameEndingTitleLabel.Visible =
                         Settings.Default.CreateOriginalSubtitlesFile;
                 //
-                bilingualSubtitlesFileNameEnding.Visible =
-                     bilingualSubtitlesFileNameEndingLabel.Visible =
+                bilingualSubtitlesFileNameEndingLabel.Visible =
+                     bilingualSubtitlesFileNameEndingTitleLabel.Visible =
                         Settings.Default.CreateBilingualSubtitlesFile;
 
 
@@ -3341,9 +3341,9 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
             }
 
             var originalSubtitlesPath =
-                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEnding.Text;
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEndingLabel.Text;
             var bilingualSubtitlesPath =
-                finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEnding.Text;
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + bilingualSubtitlesFileNameEndingLabel.Text;
             var bilingualSubtitlesFileExists = File.Exists(bilingualSubtitlesPath);
             var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
 
@@ -4507,7 +4507,95 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
 
         private void button2_Click_3(object sender, EventArgs e)
         {
-            var resultingFileName = finalSubtitlesFilesPathBeginningRichTextBox.Text + ".rusPack.srt";
+            // Оригинальные сабы
+
+            // Путь, по которому нужно создавать субтитры, не задан
+            if (string.IsNullOrWhiteSpace(finalSubtitlesFilesPathBeginningRichTextBox.Text))
+            {
+                MessageBox.Show("Путь, по которому нужно создавать субтитры, не задан!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            var originalSubtitlesPath =
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEndingLabel.Text;
+            var srtRusPackPath =
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + srtPackFileNameEndingLabel.Text;
+
+            var srtRusPackFileExists = File.Exists(srtRusPackPath);
+            var originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
+
+            // Проверки
+
+            if (originalSubtitlesFileExist && srtRusPackFileExists)
+            {
+                using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath, srtRusPackPath))
+                {
+                    filesAlreadyExistsForm.ShowDialog();
+                    if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                        return;
+                }
+            }
+
+
+            //var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
+            //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            //if (result != DialogResult.OK)
+            //    return;
+            else if (originalSubtitlesFileExist)
+            {
+                using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath))
+                {
+                    filesAlreadyExistsForm.ShowDialog();
+                    if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                        return;
+                }
+
+                //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                //if (result != DialogResult.OK)
+                //    return;
+            }
+            else if (srtRusPackFileExists)
+            {
+                using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(srtRusPackPath))
+                {
+                    filesAlreadyExistsForm.ShowDialog();
+                    if (filesAlreadyExistsForm.RewriteExistingFiles != true)
+                        return;
+                }
+
+                //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
+                //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                //if (result != DialogResult.OK)
+                //    return;
+            }
+
+
+            StringBuilder assSB;
+
+            if (Settings.Default.CreateOriginalSubtitlesFile)
+            {
+                assSB = GenerateASSMarkedupDocument(new[]
+                {
+                    new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.Original].Subtitles, m_subtitlesAndInfos[SubtitlesType.Original].ColorPickingButton.BackColor),
+                });
+
+                try
+                {
+                    File.WriteAllText(
+                        originalSubtitlesPath,
+                        assSB.ToString());
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Записать файл\n\n• {originalSubtitlesPath}\n\nне удалось! Исключение:\n• {exception}");
+                    return;
+                }
+
+            }
+
+            // .srt-пак переведенных субтитров
+            var resultingFileName = srtRusPackPath;
 
             var goodToGo = true;
             if (goodToGo == true)
@@ -4600,10 +4688,38 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
                 File.WriteAllLines(resultingFileName, lines.ToArray());
             }
 
-            if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
+
+            // Проверка существования итоговых файлов субтитров
+            originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
+            srtRusPackFileExists = File.Exists(srtRusPackPath);
+            //
+            if (originalSubtitlesFileExist && srtRusPackFileExists)
             {
-                CheckIfFileExistAndShowSuccessMessageAboutSubtitlesSaved(resultingFileName);
+                if (Properties.Settings.Default.NotifyAboutSuccessfullySavedSubtitlesFile)
+                {
+                    using (var subtitlesSavedSuccessfullyForm = new SubtitlesSavedSuccessfullyForm(originalSubtitlesPath, srtRusPackPath))
+                    {
+                        subtitlesSavedSuccessfullyForm.ShowDialog();
+                    }
+                }
             }
+        }
+
+        private void rewriteSubtitlesAppearanceForAndroidOnesButton_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Будет включен режим \"Переопределять установленные настройки вида субтитров\"\nи все содержащиеся там значения будут перезаписаны установленными для Android!\nПродолжить?",
+                string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+            if (dialogResult == DialogResult.OK)
+            {
+                // TODO
+            }
+        }
+
+        private void openAndroidSubtitlesAppearanceSettingsButton_Click(object sender, EventArgs e)
+        {
+            using var settingsAndroid = new SettingsAndroidForm(this);
+            settingsAndroid.ShowDialog();
         }
     }
 }

@@ -144,10 +144,10 @@
             YandexTranslateLinkLabel = new System.Windows.Forms.LinkLabel();
             groupBox4 = new System.Windows.Forms.GroupBox();
             label9 = new System.Windows.Forms.Label();
-            bilingualSubtitlesFileNameEnding = new System.Windows.Forms.Label();
-            originalSubtitlesFileNameEnding = new System.Windows.Forms.Label();
             bilingualSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
             originalSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
+            bilingualSubtitlesFileNameEndingTitleLabel = new System.Windows.Forms.Label();
+            originalSubtitlesFileNameEndingTitleLabel = new System.Windows.Forms.Label();
             selectVideoFileToGetPathForSubtitlesButton = new System.Windows.Forms.Button();
             label6 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -200,14 +200,15 @@
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
             mxPlayerGoupBox = new System.Windows.Forms.GroupBox();
+            originalSubtitlesFileNameEndingLabelCopyForAndroid = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            openAndroidSubtitlesAppearanceSettingsButton = new System.Windows.Forms.Button();
             label18 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
-            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            label16 = new System.Windows.Forms.Label();
-            checkBox2 = new System.Windows.Forms.CheckBox();
-            label11 = new System.Windows.Forms.Label();
+            srtPackFileNameEndingLabel = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
@@ -253,7 +254,6 @@
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             mxPlayerGoupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // settingsButton
@@ -1673,10 +1673,10 @@
             // 
             groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox4.Controls.Add(label9);
-            groupBox4.Controls.Add(bilingualSubtitlesFileNameEnding);
-            groupBox4.Controls.Add(originalSubtitlesFileNameEnding);
             groupBox4.Controls.Add(bilingualSubtitlesFileNameEndingLabel);
             groupBox4.Controls.Add(originalSubtitlesFileNameEndingLabel);
+            groupBox4.Controls.Add(bilingualSubtitlesFileNameEndingTitleLabel);
+            groupBox4.Controls.Add(originalSubtitlesFileNameEndingTitleLabel);
             groupBox4.Controls.Add(selectVideoFileToGetPathForSubtitlesButton);
             groupBox4.Controls.Add(label6);
             groupBox4.Controls.Add(label4);
@@ -1700,49 +1700,49 @@
             label9.TabIndex = 49;
             label9.Text = "с которым планируется просмотр,\r\nдля установки пути до него";
             // 
-            // bilingualSubtitlesFileNameEnding
-            // 
-            bilingualSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            bilingualSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            bilingualSubtitlesFileNameEnding.Location = new System.Drawing.Point(553, 111);
-            bilingualSubtitlesFileNameEnding.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            bilingualSubtitlesFileNameEnding.Name = "bilingualSubtitlesFileNameEnding";
-            bilingualSubtitlesFileNameEnding.Size = new System.Drawing.Size(186, 23);
-            bilingualSubtitlesFileNameEnding.TabIndex = 48;
-            bilingualSubtitlesFileNameEnding.Text = ".ruseng.BilingualSubtitler.ass";
-            bilingualSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // originalSubtitlesFileNameEnding
-            // 
-            originalSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            originalSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            originalSubtitlesFileNameEnding.Location = new System.Drawing.Point(553, 62);
-            originalSubtitlesFileNameEnding.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            originalSubtitlesFileNameEnding.Name = "originalSubtitlesFileNameEnding";
-            originalSubtitlesFileNameEnding.Size = new System.Drawing.Size(186, 23);
-            originalSubtitlesFileNameEnding.TabIndex = 47;
-            originalSubtitlesFileNameEnding.Text = ".eng.BilingualSubtitler.ass";
-            originalSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // bilingualSubtitlesFileNameEndingLabel
             // 
-            bilingualSubtitlesFileNameEndingLabel.AutoSize = true;
-            bilingualSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(555, 91);
+            bilingualSubtitlesFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            bilingualSubtitlesFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            bilingualSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(553, 111);
             bilingualSubtitlesFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             bilingualSubtitlesFileNameEndingLabel.Name = "bilingualSubtitlesFileNameEndingLabel";
-            bilingualSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(168, 15);
-            bilingualSubtitlesFileNameEndingLabel.TabIndex = 46;
-            bilingualSubtitlesFileNameEndingLabel.Text = "файл двуязычных субтитров:";
+            bilingualSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
+            bilingualSubtitlesFileNameEndingLabel.TabIndex = 48;
+            bilingualSubtitlesFileNameEndingLabel.Text = ".ruseng.BilingualSubtitler.ass";
+            bilingualSubtitlesFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // originalSubtitlesFileNameEndingLabel
             // 
-            originalSubtitlesFileNameEndingLabel.AutoSize = true;
-            originalSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(550, 43);
+            originalSubtitlesFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            originalSubtitlesFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            originalSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(553, 62);
             originalSubtitlesFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             originalSubtitlesFileNameEndingLabel.Name = "originalSubtitlesFileNameEndingLabel";
-            originalSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(182, 15);
-            originalSubtitlesFileNameEndingLabel.TabIndex = 45;
-            originalSubtitlesFileNameEndingLabel.Text = "файл оригинальных субтитров:";
+            originalSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
+            originalSubtitlesFileNameEndingLabel.TabIndex = 47;
+            originalSubtitlesFileNameEndingLabel.Text = ".eng.BilingualSubtitler.ass";
+            originalSubtitlesFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // bilingualSubtitlesFileNameEndingTitleLabel
+            // 
+            bilingualSubtitlesFileNameEndingTitleLabel.AutoSize = true;
+            bilingualSubtitlesFileNameEndingTitleLabel.Location = new System.Drawing.Point(555, 91);
+            bilingualSubtitlesFileNameEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            bilingualSubtitlesFileNameEndingTitleLabel.Name = "bilingualSubtitlesFileNameEndingTitleLabel";
+            bilingualSubtitlesFileNameEndingTitleLabel.Size = new System.Drawing.Size(168, 15);
+            bilingualSubtitlesFileNameEndingTitleLabel.TabIndex = 46;
+            bilingualSubtitlesFileNameEndingTitleLabel.Text = "файл двуязычных субтитров:";
+            // 
+            // originalSubtitlesFileNameEndingTitleLabel
+            // 
+            originalSubtitlesFileNameEndingTitleLabel.AutoSize = true;
+            originalSubtitlesFileNameEndingTitleLabel.Location = new System.Drawing.Point(550, 43);
+            originalSubtitlesFileNameEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            originalSubtitlesFileNameEndingTitleLabel.Name = "originalSubtitlesFileNameEndingTitleLabel";
+            originalSubtitlesFileNameEndingTitleLabel.Size = new System.Drawing.Size(182, 15);
+            originalSubtitlesFileNameEndingTitleLabel.TabIndex = 45;
+            originalSubtitlesFileNameEndingTitleLabel.Text = "файл оригинальных субтитров:";
             // 
             // selectVideoFileToGetPathForSubtitlesButton
             // 
@@ -2362,14 +2362,15 @@
             // 
             // mxPlayerGoupBox
             // 
+            mxPlayerGoupBox.Controls.Add(originalSubtitlesFileNameEndingLabelCopyForAndroid);
+            mxPlayerGoupBox.Controls.Add(label20);
+            mxPlayerGoupBox.Controls.Add(label21);
+            mxPlayerGoupBox.Controls.Add(checkBox2);
+            mxPlayerGoupBox.Controls.Add(openAndroidSubtitlesAppearanceSettingsButton);
             mxPlayerGoupBox.Controls.Add(label18);
             mxPlayerGoupBox.Controls.Add(label17);
-            mxPlayerGoupBox.Controls.Add(numericUpDown1);
-            mxPlayerGoupBox.Controls.Add(label16);
-            mxPlayerGoupBox.Controls.Add(checkBox2);
-            mxPlayerGoupBox.Controls.Add(label11);
+            mxPlayerGoupBox.Controls.Add(srtPackFileNameEndingLabel);
             mxPlayerGoupBox.Controls.Add(label13);
-            mxPlayerGoupBox.Controls.Add(label14);
             mxPlayerGoupBox.Controls.Add(label8);
             mxPlayerGoupBox.Controls.Add(button2);
             mxPlayerGoupBox.Location = new System.Drawing.Point(980, 521);
@@ -2378,6 +2379,62 @@
             mxPlayerGoupBox.TabIndex = 105;
             mxPlayerGoupBox.TabStop = false;
             mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            // 
+            // originalSubtitlesFileNameEndingLabelCopyForAndroid
+            // 
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Location = new System.Drawing.Point(163, 38);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Name = "originalSubtitlesFileNameEndingLabelCopyForAndroid";
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Size = new System.Drawing.Size(186, 23);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.TabIndex = 121;
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Text = ".eng.BilingualSubtitler.ass";
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(160, 19);
+            label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(182, 15);
+            label20.TabIndex = 119;
+            label20.Text = "файл оригинальных субтитров:";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new System.Drawing.Point(144, 61);
+            label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(15, 15);
+            label21.TabIndex = 118;
+            label21.Text = "+";
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new System.Drawing.Point(15, 163);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(407, 19);
+            checkBox2.TabIndex = 117;
+            checkBox2.Text = "Использовать установленные для Android настройки вида субтитров";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // openAndroidSubtitlesAppearanceSettingsButton
+            // 
+            openAndroidSubtitlesAppearanceSettingsButton.AllowDrop = true;
+            openAndroidSubtitlesAppearanceSettingsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            openAndroidSubtitlesAppearanceSettingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            openAndroidSubtitlesAppearanceSettingsButton.Location = new System.Drawing.Point(250, 186);
+            openAndroidSubtitlesAppearanceSettingsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            openAndroidSubtitlesAppearanceSettingsButton.Name = "openAndroidSubtitlesAppearanceSettingsButton";
+            openAndroidSubtitlesAppearanceSettingsButton.Size = new System.Drawing.Size(74, 27);
+            openAndroidSubtitlesAppearanceSettingsButton.TabIndex = 116;
+            openAndroidSubtitlesAppearanceSettingsButton.Text = "openAndroidSubtitlesAppearanceSettingsButton";
+            openAndroidSubtitlesAppearanceSettingsButton.UseVisualStyleBackColor = false;
+            openAndroidSubtitlesAppearanceSettingsButton.Click += openAndroidSubtitlesAppearanceSettingsButton_Click;
             // 
             // label18
             // 
@@ -2394,75 +2451,39 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(7, 36);
+            label17.Location = new System.Drawing.Point(7, 46);
             label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(134, 45);
             label17.TabIndex = 113;
             label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
             // 
-            // numericUpDown1
+            // srtPackFileNameEndingLabel
             // 
-            numericUpDown1.Location = new System.Drawing.Point(138, 170);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            numericUpDown1.TabIndex = 112;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(109, 172);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(23, 15);
-            label16.TabIndex = 111;
-            label16.Text = "на:";
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new System.Drawing.Point(102, 124);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(263, 34);
-            checkBox2.TabIndex = 110;
-            checkBox2.Text = "Переопределить значение \r\nразмера шрифта оригинальных субтитров";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            label11.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            label11.Location = new System.Drawing.Point(160, 58);
-            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(186, 23);
-            label11.TabIndex = 109;
-            label11.Text = ".rusPack.srt";
-            label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            srtPackFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            srtPackFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            srtPackFileNameEndingLabel.Location = new System.Drawing.Point(163, 81);
+            srtPackFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            srtPackFileNameEndingLabel.Name = "srtPackFileNameEndingLabel";
+            srtPackFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
+            srtPackFileNameEndingLabel.TabIndex = 109;
+            srtPackFileNameEndingLabel.Text = ".rusPack.srt";
+            srtPackFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(157, 32);
+            label13.Location = new System.Drawing.Point(160, 64);
             label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(180, 15);
             label13.TabIndex = 108;
             label13.Text = "файл переведенных субтитров:";
             // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(143, 51);
-            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(15, 15);
-            label14.TabIndex = 107;
-            label14.Text = "+";
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(319, 198);
+            label8.Location = new System.Drawing.Point(83, 198);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(115, 15);
             label8.TabIndex = 106;
@@ -2471,12 +2492,12 @@
             // button2
             // 
             button2.BackColor = System.Drawing.Color.Gold;
-            button2.Location = new System.Drawing.Point(7, 84);
+            button2.Location = new System.Drawing.Point(10, 108);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(339, 30);
             button2.TabIndex = 105;
-            button2.Text = "💾 Создать .srt пак";
+            button2.Text = "💾 Создать субитры для Android";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_3;
             // 
@@ -2569,7 +2590,6 @@
             groupBox1.PerformLayout();
             mxPlayerGoupBox.ResumeLayout(false);
             mxPlayerGoupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2614,8 +2634,8 @@
         private System.Windows.Forms.Label thirdRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar thirdRussianSubtitlesProgressBar;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
-        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
+        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingTitleLabel;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingTitleLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox finalSubtitlesFilesPathBeginningRichTextBox;
@@ -2628,8 +2648,8 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button openBilingualSubtitlerButton;
         private System.Windows.Forms.CheckBox redefineSubtitlesAppearanceSettingsCheckBox;
-        private System.Windows.Forms.Label bilingualSubtitlesFileNameEnding;
-        private System.Windows.Forms.Label originalSubtitlesFileNameEnding;
+        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
         private System.Windows.Forms.Button hideSecondRussianSubtitlesButton;
         private System.Windows.Forms.GroupBox translateToRussianSubtitlesGroupBox;
         private System.Windows.Forms.GroupBox primarySubtitlesExportAsDocxGroupBox;
@@ -2747,13 +2767,14 @@
         private System.Windows.Forms.GroupBox mxPlayerGoupBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label srtPackFileNameEndingLabel;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button openAndroidSubtitlesAppearanceSettingsButton;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabelCopyForAndroid;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

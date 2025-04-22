@@ -206,6 +206,11 @@ namespace BilingualSubtitler
                 yandexTranslatorGroupBox.Visible =
                 defaultDirectoryGroupBox.Visible =
                 notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Visible =
+
+                startVideoInSettedPlayerCheckBox.Visible =
+                videoPlayerPathTextBox.Visible =
+                startVideoInSettedPlayerBetaWarningLabel.Visible =
+
                 itIsAdvancedMode;
 
             if (itIsAdvancedMode)

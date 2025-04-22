@@ -50,6 +50,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Update="Properties\SubtitlesAppearanceSettingsForAndroid.settings">
+      <LastGenOutput>SubtitlesAppearanceSettingsForAndroid.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
     <None Update="Properties\SubtitlesAppearanceSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SubtitlesAppearanceSettings.Designer.cs</LastGenOutput>
@@ -100,18 +104,18 @@
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.421302">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.4" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocX" Version="4.0.25105.5786" />
     <PackageReference Include="InputSimulator" Version="1.0.4.0" />
-    <PackageReference Include="libse" Version="4.0.10" />
+    <PackageReference Include="libse" Version="4.0.12" />
     <PackageReference Include="MouseKeyHook" Version="5.7.1" />
     <PackageReference Include="NeatInput.Windows" Version="2.0.1" />
     <PackageReference Include="Octokit" Version="14.0.0" />
     <PackageReference Include="Syroot.Windows.IO.KnownFolders" Version="1.3.0" />
-    <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
-    <PackageReference Include="System.IO.Packaging" Version="9.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
+    <PackageReference Include="System.IO.Packaging" Version="9.0.4" />
     <PackageReference Include="UTF.Unknown" Version="2.5.1" />
     <PackageReference Include="WindowsAPICodePack" Version="8.0.6" />
     <PackageReference Include="zlib.net-mutliplatform" Version="1.0.8" />
@@ -136,6 +140,11 @@
   <ItemGroup>
     <Compile Update="FilesAlreadyExistsForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\SubtitlesAppearanceSettingsForAndroid.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SubtitlesAppearanceSettingsForAndroid.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="SettingsAndroidForm.cs">
       <SubType>Form</SubType>

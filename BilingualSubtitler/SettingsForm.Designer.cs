@@ -50,6 +50,7 @@
             bilingualSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             originalSubtitlesPathEndingTextBox = new System.Windows.Forms.TextBox();
             groupBox6 = new System.Windows.Forms.GroupBox();
+            startVideoInSettedPlayerBetaWarningLabel = new System.Windows.Forms.Label();
             videoPlayerPathTextBox = new System.Windows.Forms.TextBox();
             startVideoInSettedPlayerCheckBox = new System.Windows.Forms.CheckBox();
             setVideoPlayerbutton = new System.Windows.Forms.Button();
@@ -95,7 +96,6 @@
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             removeAnCheckBox = new System.Windows.Forms.CheckBox();
-            label18 = new System.Windows.Forms.Label();
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -356,7 +356,7 @@
             // 
             // groupBox6
             // 
-            groupBox6.Controls.Add(label18);
+            groupBox6.Controls.Add(startVideoInSettedPlayerBetaWarningLabel);
             groupBox6.Controls.Add(videoPlayerPathTextBox);
             groupBox6.Controls.Add(startVideoInSettedPlayerCheckBox);
             groupBox6.Controls.Add(setVideoPlayerbutton);
@@ -381,6 +381,18 @@
             groupBox6.TabIndex = 70;
             groupBox6.TabStop = false;
             groupBox6.Text = "Настройки видеоплеера";
+            // 
+            // startVideoInSettedPlayerBetaWarningLabel
+            // 
+            startVideoInSettedPlayerBetaWarningLabel.AutoSize = true;
+            startVideoInSettedPlayerBetaWarningLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            startVideoInSettedPlayerBetaWarningLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            startVideoInSettedPlayerBetaWarningLabel.Location = new System.Drawing.Point(229, 254);
+            startVideoInSettedPlayerBetaWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            startVideoInSettedPlayerBetaWarningLabel.Name = "startVideoInSettedPlayerBetaWarningLabel";
+            startVideoInSettedPlayerBetaWarningLabel.Size = new System.Drawing.Size(39, 16);
+            startVideoInSettedPlayerBetaWarningLabel.TabIndex = 115;
+            startVideoInSettedPlayerBetaWarningLabel.Text = "[Beta]";
             // 
             // videoPlayerPathTextBox
             // 
@@ -882,18 +894,7 @@
             removeAnCheckBox.TabIndex = 107;
             removeAnCheckBox.Text = "removeAnCheckBox";
             removeAnCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
-            label18.Location = new System.Drawing.Point(229, 254);
-            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(39, 16);
-            label18.TabIndex = 115;
-            label18.Text = "[Beta]";
+            removeAnCheckBox.Visible = false;
             // 
             // SettingsForm
             // 
@@ -1015,6 +1016,6 @@
         private System.Windows.Forms.CheckBox startVideoInSettedPlayerCheckBox;
         private System.Windows.Forms.CheckBox removeAnCheckBox;
         private System.Windows.Forms.TextBox videoPlayerPathTextBox;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label startVideoInSettedPlayerBetaWarningLabel;
     }
 }

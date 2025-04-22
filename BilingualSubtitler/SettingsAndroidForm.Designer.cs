@@ -32,56 +32,41 @@ namespace BilingualSubtitler
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAndroidForm));
-            buttonOk = new Button();
-            buttonCancel = new Button();
-            button5 = new Button();
+            okButton = new Button();
+            cancelButton = new Button();
             subtitlesAppearanceSettingsControl = new SubtitlesAppearanceSettings();
             checkBox1 = new CheckBox();
             SuspendLayout();
             // 
-            // buttonOk
+            // okButton
             // 
-            buttonOk.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            buttonOk.Image = Properties.Resources._16pxOkIcon;
-            buttonOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonOk.Location = new System.Drawing.Point(552, 939);
-            buttonOk.Margin = new Padding(4, 3, 4, 3);
-            buttonOk.Name = "buttonOk";
-            buttonOk.Size = new System.Drawing.Size(111, 40);
-            buttonOk.TabIndex = 5;
-            buttonOk.Text = "Применить";
-            buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            buttonOk.UseVisualStyleBackColor = false;
-            buttonOk.Click += buttonOk_Click;
+            okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            okButton.Image = Properties.Resources._16pxOkIcon;
+            okButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            okButton.Location = new System.Drawing.Point(552, 939);
+            okButton.Margin = new Padding(4, 3, 4, 3);
+            okButton.Name = "okButton";
+            okButton.Size = new System.Drawing.Size(111, 40);
+            okButton.TabIndex = 5;
+            okButton.Text = "Применить";
+            okButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            okButton.UseVisualStyleBackColor = false;
+            okButton.Click += buttonOk_Click;
             // 
-            // buttonCancel
+            // cancelButton
             // 
-            buttonCancel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            buttonCancel.Image = Properties.Resources._16pxCancelIconAnother;
-            buttonCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            buttonCancel.Location = new System.Drawing.Point(21, 939);
-            buttonCancel.Margin = new Padding(4, 3, 4, 3);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new System.Drawing.Size(86, 40);
-            buttonCancel.TabIndex = 4;
-            buttonCancel.Text = "Отмена";
-            buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            buttonCancel.UseVisualStyleBackColor = false;
-            buttonCancel.Click += buttonCancel_Click;
-            // 
-            // button5
-            // 
-            button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            button5.Location = new System.Drawing.Point(184, 939);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(273, 40);
-            button5.TabIndex = 48;
-            button5.Text = "📖  Сбросить все настройки программы\r\n к значениям по умолчанию";
-            button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            cancelButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            cancelButton.Image = Properties.Resources._16pxCancelIconAnother;
+            cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cancelButton.Location = new System.Drawing.Point(21, 939);
+            cancelButton.Margin = new Padding(4, 3, 4, 3);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new System.Drawing.Size(86, 40);
+            cancelButton.TabIndex = 4;
+            cancelButton.Text = "Отмена";
+            cancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += buttonCancel_Click;
             // 
             // subtitlesAppearanceSettingsControl
             // 
@@ -112,9 +97,8 @@ namespace BilingualSubtitler
             ClientSize = new System.Drawing.Size(676, 991);
             Controls.Add(checkBox1);
             Controls.Add(subtitlesAppearanceSettingsControl);
-            Controls.Add(button5);
-            Controls.Add(buttonOk);
-            Controls.Add(buttonCancel);
+            Controls.Add(okButton);
+            Controls.Add(cancelButton);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "SettingsAndroidForm";
@@ -127,9 +111,8 @@ namespace BilingualSubtitler
 
 
         #endregion
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonOk;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button okButton;
         private SubtitlesAppearanceSettings subtitlesAppearanceSettingsControl;
         private System.Windows.Forms.CheckBox checkBox1;
     }
