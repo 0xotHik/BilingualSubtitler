@@ -37,45 +37,21 @@ namespace BilingualSubtitler
         public SettingsAndroidForm(MainForm mainForm)
         {
             InitializeComponent();
-
             subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
 
             // Проще отключить все контролы, и потом вернуть нужные, нежели отключать руками все ненужные
             foreach (var control in GetAllChildControls(subtitlesAppearanceSettingsControl))
             {
-                control.Visible = false;    
+                control.Visible = false;
             }
 
             subtitlesAppearanceSettingsControl.Visible =
             subtitlesAppearanceSettingsControl.SubtitlesAppearanceSettingsGroupBox.Visible =
             subtitlesAppearanceSettingsControl.OriginalSubtitlesGroupBox.Visible =
 
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesGroupBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown.Visible =
-
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesBoldCheckBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesStrikeoutCheckBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesItalicCheckBox.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesUnderlineCheckBox.Visible =
-
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesFontLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageLabel.Visible =
-            //subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageLabel.Visible =
-
             subtitlesAppearanceSettingsControl.FirstRussianSubtitlesGroupBox.Visible =
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Visible = 
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox.Visible = 
+            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Visible =
+            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox.Visible =
             subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox.Visible =
 
                         subtitlesAppearanceSettingsControl.SecondRussianSubtitlesGroupBox.Visible =
@@ -108,11 +84,66 @@ namespace BilingualSubtitler
             {
                 control.Visible = true;
             }
+
+            SetFormAccordingToSubtitlesAppearanceSettings();
+
+        }
+
+        private void SetFormAccordingToSubtitlesAppearanceSettings()
+        {
+            SubtitlesAppearanceSettings.SetControlsValuesAccordingToStyleStringSplitted(Properties.SubtitlesAppearanceSettingsForAndroid.Default.OriginalSubtitlesAndroidStyleString.Split(";"),
+                    subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesBoldCheckBox,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesItalicCheckBox,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesUnderlineCheckBox,
+                subtitlesAppearanceSettingsControl.OriginalSubtitlesStrikeoutCheckBox);
+
+            var currentSubsStrStyleSplitted = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FirstRussianSubtitlesAndroidStyleString.Split(";");
+            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Checked = currentSubsStrStyleSplitted[7] == "1";
+            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox.Checked = currentSubsStrStyleSplitted.Length > 9 ? currentSubsStrStyleSplitted[9] == "1" : false;
+            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox.Checked = currentSubsStrStyleSplitted.Length > 10 ? currentSubsStrStyleSplitted[10] == "1" : false;
+            //
+            currentSubsStrStyleSplitted = Properties.SubtitlesAppearanceSettingsForAndroid.Default.SecondRussianSubtitlesAndroidStyleString.Split(";");
+            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox.Checked = currentSubsStrStyleSplitted[7] == "1";
+            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesItalicCheckBox.Checked = currentSubsStrStyleSplitted.Length > 9 ? currentSubsStrStyleSplitted[9] == "1" : false;
+            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox.Checked = currentSubsStrStyleSplitted.Length > 10 ? currentSubsStrStyleSplitted[10] == "1" : false;
+            //
+            currentSubsStrStyleSplitted = Properties.SubtitlesAppearanceSettingsForAndroid.Default.ThirdRussianSubtitlesAndroidStyleString.Split(";");
+            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked = currentSubsStrStyleSplitted[7] == "1";
+            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesItalicCheckBox.Checked = currentSubsStrStyleSplitted.Length > 9 ? currentSubsStrStyleSplitted[9] == "1" : false;
+            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox.Checked = currentSubsStrStyleSplitted.Length > 10 ? currentSubsStrStyleSplitted[10] == "1" : false;
+            //
+            currentSubsStrStyleSplitted = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FourthRussianSubtitlesAndroidStyleString.Split(";");
+            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox.Checked = currentSubsStrStyleSplitted[7] == "1";
+            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesItalicCheckBox.Checked = currentSubsStrStyleSplitted.Length > 9 ? currentSubsStrStyleSplitted[9] == "1" : false;
+            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox.Checked = currentSubsStrStyleSplitted.Length > 10 ? currentSubsStrStyleSplitted[10] == "1" : false;
+            //
+            currentSubsStrStyleSplitted = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FifthRussianSubtitlesAndroidStyleString.Split(";");
+            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox.Checked = currentSubsStrStyleSplitted[7] == "1";
+            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox.Checked = currentSubsStrStyleSplitted.Length > 9 ? currentSubsStrStyleSplitted[9] == "1" : false;
+            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox.Checked = currentSubsStrStyleSplitted.Length > 10 ? currentSubsStrStyleSplitted[10] == "1" : false;
+
         }
 
         private void ResetSubtitlesAppearanceToDefaultButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var result = MessageBox.Show("Сбросить настройки вида субтитров для Android к значениям по умолчанию?", string.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Reset();
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
+
+                SetFormAccordingToSubtitlesAppearanceSettings();
+            }
+
+
         }
 
         public static List<Control> GetAllChildControlsViaReflection(Control control)
@@ -178,7 +209,7 @@ namespace BilingualSubtitler
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            Properties.SubtitlesAppearanceSettingsForAndroid.Default.OriginalSubtitlesAndroidStyleString = GetSubtitlesStyleString(subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox,
+            Properties.SubtitlesAppearanceSettingsForAndroid.Default.OriginalSubtitlesAndroidStyleString = SettingsForm.GetSubtitlesStyleString(subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox,
                                                                        subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown,
                                                                        subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown,
                                                                        subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown,
@@ -194,31 +225,5 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
         }
 
-        private string GetSubtitlesStyleString(ComboBox subtitlesFontComboBox,
-            NumericUpDown subtitlesMarginNumericUpDown,
-            NumericUpDown subtitlesSizeNumericUpDown,
-            NumericUpDown subtitlesOutlineNumericUpDown,
-            NumericUpDown subtitlesShadowNumericUpDown,
-            NumericUpDown subtitlesTransparencyPercentageNumericUpDown,
-            NumericUpDown subtitlesShadowTransparencyPercentageNumericUpDown,
-            CheckBox subtitlesInOneLineCheckBox,
-            CheckBox boldCheckBox,
-            CheckBox italicCheckBox,
-            CheckBox underlineCheckBox,
-            CheckBox strikeoutCheckBox)
-        {
-            return $"{subtitlesFontComboBox.Text};" +
-                                                           $"{subtitlesMarginNumericUpDown.Text};" +
-                                                           $"{subtitlesSizeNumericUpDown.Value};" +
-                                                           $"{subtitlesOutlineNumericUpDown.Value};" +
-                                                           $"{subtitlesShadowNumericUpDown.Value};" +
-                                                           $"{subtitlesTransparencyPercentageNumericUpDown.Value};" +
-                                                           $"{subtitlesShadowTransparencyPercentageNumericUpDown.Value};" +
-                                                           $"{(subtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
-                                                           $"{(boldCheckBox.Checked ? 1 : 0)};" +
-                                                           $"{(italicCheckBox.Checked ? 1 : 0)};" +
-                                                           $"{(underlineCheckBox.Checked ? 1 : 0)};" +
-                                                           $"{(strikeoutCheckBox.Checked ? 1 : 0)};";
-        }
     }
 }

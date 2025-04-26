@@ -157,27 +157,27 @@
             label4.AutoSize = true;
             label4.Location = new System.Drawing.Point(398, 9);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(132, 15);
+            label4.Size = new System.Drawing.Size(106, 15);
             label4.TabIndex = 10;
-            label4.Text = "Первые переведенные";
+            label4.Text = "1-е переведенные";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new System.Drawing.Point(686, 9);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(130, 15);
+            label5.Size = new System.Drawing.Size(106, 15);
             label5.TabIndex = 11;
-            label5.Text = "Вторые переведенные";
+            label5.Text = "2-е переведенные";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Location = new System.Drawing.Point(975, 9);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(126, 15);
+            label6.Size = new System.Drawing.Size(107, 15);
             label6.TabIndex = 12;
-            label6.Text = "Третьи переведенные";
+            label6.Text = "3-и переведенные";
             // 
             // label7
             // 

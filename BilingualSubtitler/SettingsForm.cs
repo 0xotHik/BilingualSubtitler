@@ -460,7 +460,7 @@ namespace BilingualSubtitler
 
         }
 
-        private string GetSubtitlesStyleString(ComboBox subtitlesFontComboBox,
+        public static string GetSubtitlesStyleString(ComboBox subtitlesFontComboBox,
             NumericUpDown subtitlesMarginNumericUpDown,
             NumericUpDown subtitlesSizeNumericUpDown,
             NumericUpDown subtitlesOutlineNumericUpDown,

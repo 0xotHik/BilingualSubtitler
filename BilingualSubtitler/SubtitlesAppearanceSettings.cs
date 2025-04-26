@@ -127,7 +127,7 @@ namespace BilingualSubtitler
             shadowTransparencyCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.ShadowTransparencyCheckBoxChecked;
 
             var originalSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(originalSubtitlesStyle, OriginalSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(originalSubtitlesStyle, OriginalSubtitlesFontComboBox,
             OriginalSubtitlesMarginNumericUpDown,
             OriginalSubtitlesSizeNumericUpDown,
             OriginalSubtitlesOutlineNumericUpDown,
@@ -141,7 +141,7 @@ namespace BilingualSubtitler
             OriginalSubtitlesStrikeoutCheckBox);
 
             var firstRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(firstRussianSubtitlesStyle, FirstRussianSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(firstRussianSubtitlesStyle, FirstRussianSubtitlesFontComboBox,
             FirstRussianSubtitlesMarginNumericUpDown,
             FirstRussianSubtitlesSizeNumericUpDown,
             FirstRussianSubtitlesOutlineNumericUpDown,
@@ -155,7 +155,7 @@ namespace BilingualSubtitler
             FirstRussianSubtitlesStrikeoutCheckBox);
 
             var secondRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(secondRussianSubtitlesStyle, SecondRussianSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(secondRussianSubtitlesStyle, SecondRussianSubtitlesFontComboBox,
             SecondRussianSubtitlesMarginNumericUpDown,
             SecondRussianSubtitlesSizeNumericUpDown,
             SecondRussianSubtitlesOutlineNumericUpDown,
@@ -169,7 +169,7 @@ namespace BilingualSubtitler
             SecondRussianSubtitlesStrikeoutCheckBox);
 
             var thirdRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(thirdRussianSubtitlesStyle, ThirdRussianSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(thirdRussianSubtitlesStyle, ThirdRussianSubtitlesFontComboBox,
             ThirdRussianSubtitlesMarginNumericUpDown,
             ThirdRussianSubtitlesSizeNumericUpDown,
             ThirdRussianSubtitlesOutlineNumericUpDown,
@@ -183,7 +183,7 @@ namespace BilingualSubtitler
             ThirdRussianSubtitlesStrikeoutCheckBox);
 
             var fourthRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(fourthRussianSubtitlesStyle, FourthRussianSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(fourthRussianSubtitlesStyle, FourthRussianSubtitlesFontComboBox,
             FourthRussianSubtitlesMarginNumericUpDown,
             FourthRussianSubtitlesSizeNumericUpDown,
             FourthRussianSubtitlesOutlineNumericUpDown,
@@ -197,7 +197,7 @@ namespace BilingualSubtitler
             FourthRussianSubtitlesStrikeoutCheckBox);
 
             var fifthRussianSubtitlesStyle = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
-            SetControlsValuesAccordingToStyleString(fifthRussianSubtitlesStyle, FifthRussianSubtitlesFontComboBox,
+            SetControlsValuesAccordingToStyleStringSplitted(fifthRussianSubtitlesStyle, FifthRussianSubtitlesFontComboBox,
             FifthRussianSubtitlesMarginNumericUpDown,
             FifthRussianSubtitlesSizeNumericUpDown,
             FifthRussianSubtitlesOutlineNumericUpDown,
@@ -213,7 +213,7 @@ namespace BilingualSubtitler
             SetControlAccordingToCheckBoxes();
         }
 
-        private void SetControlsValuesAccordingToStyleString(string[] subtitlesStyle,
+        public static void SetControlsValuesAccordingToStyleStringSplitted(string[] subtitlesStyle,
             ComboBox subtitlesFontComboBox,
             NumericUpDown subtitlesMarginNumericUpDown,
             NumericUpDown subtitlesSizeNumericUpDown,
@@ -250,8 +250,6 @@ namespace BilingualSubtitler
             italicCheckBox.Checked = subtitlesStyle.Length > 9 ? subtitlesStyle[9] == "1" : false;
             underlineCheckBox.Checked = subtitlesStyle.Length > 10 ? subtitlesStyle[10] == "1" : false;
             strikeoutCheckBox.Checked = subtitlesStyle.Length > 11 ? subtitlesStyle[11] == "1" : false;
-
-
         }
 
         private void NumericUpDownValueChanged(object sender, EventArgs e)
