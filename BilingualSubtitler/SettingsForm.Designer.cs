@@ -38,7 +38,7 @@
             hotkeysDataGridView = new System.Windows.Forms.DataGridView();
             keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             groupBox2 = new System.Windows.Forms.GroupBox();
-            button9 = new System.Windows.Forms.Button();
+            setExtendedHotkeysSetButton = new System.Windows.Forms.Button();
             button8 = new System.Windows.Forms.Button();
             button7 = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
@@ -209,7 +209,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(button9);
+            groupBox2.Controls.Add(setExtendedHotkeysSetButton);
             groupBox2.Controls.Add(button8);
             groupBox2.Controls.Add(button7);
             groupBox2.Controls.Add(button1);
@@ -223,17 +223,17 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Горячие клавиши программы";
             // 
-            // button9
+            // setExtendedHotkeysSetButton
             // 
-            button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button9.Location = new System.Drawing.Point(19, 489);
-            button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(169, 70);
-            button9.TabIndex = 49;
-            button9.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += button9_Click;
+            setExtendedHotkeysSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            setExtendedHotkeysSetButton.Location = new System.Drawing.Point(19, 489);
+            setExtendedHotkeysSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            setExtendedHotkeysSetButton.Name = "setExtendedHotkeysSetButton";
+            setExtendedHotkeysSetButton.Size = new System.Drawing.Size(169, 70);
+            setExtendedHotkeysSetButton.TabIndex = 49;
+            setExtendedHotkeysSetButton.Text = "⌨️  Задать авторский \r\nрасширенный\r\nнабор горячих клавиш...";
+            setExtendedHotkeysSetButton.UseVisualStyleBackColor = false;
+            setExtendedHotkeysSetButton.Click += button9_Click;
             // 
             // button8
             // 
@@ -983,7 +983,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button setVideoPlayerbutton;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button setExtendedHotkeysSetButton;
         private System.Windows.Forms.CheckBox gotTheYandexTranslatorAPIKeyCheckBox;
         private System.Windows.Forms.GroupBox processPriorityGroupBox;
         private System.Windows.Forms.ComboBox targetProcessPriorityTextBox;

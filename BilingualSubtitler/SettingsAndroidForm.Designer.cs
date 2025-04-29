@@ -43,7 +43,7 @@ namespace BilingualSubtitler
             okButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             okButton.Image = Properties.Resources._16pxOkIcon;
             okButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            okButton.Location = new System.Drawing.Point(552, 939);
+            okButton.Location = new System.Drawing.Point(552, 664);
             okButton.Margin = new Padding(4, 3, 4, 3);
             okButton.Name = "okButton";
             okButton.Size = new System.Drawing.Size(111, 40);
@@ -58,7 +58,7 @@ namespace BilingualSubtitler
             cancelButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             cancelButton.Image = Properties.Resources._16pxCancelIconAnother;
             cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            cancelButton.Location = new System.Drawing.Point(21, 939);
+            cancelButton.Location = new System.Drawing.Point(21, 664);
             cancelButton.Margin = new Padding(4, 3, 4, 3);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new System.Drawing.Size(86, 40);
@@ -94,7 +94,7 @@ namespace BilingualSubtitler
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
-            ClientSize = new System.Drawing.Size(676, 991);
+            ClientSize = new System.Drawing.Size(676, 715);
             Controls.Add(checkBox1);
             Controls.Add(subtitlesAppearanceSettingsControl);
             Controls.Add(okButton);

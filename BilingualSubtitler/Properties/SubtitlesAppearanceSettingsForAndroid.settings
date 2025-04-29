@@ -6,19 +6,19 @@
       <Value Profile="(Default)">Arial;0;40;2;2;0;50;1</Value>
     </Setting>
     <Setting Name="FirstRussianSubtitlesAndroidStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0</Value>
+      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0;null</Value>
     </Setting>
     <Setting Name="SecondRussianSubtitlesAndroidStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;1</Value>
+      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;1;null</Value>
     </Setting>
     <Setting Name="ThirdRussianSubtitlesAndroidStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0</Value>
+      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0;null</Value>
     </Setting>
     <Setting Name="FourthRussianSubtitlesAndroidStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0</Value>
+      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0;null</Value>
     </Setting>
     <Setting Name="FifthRussianSubtitlesAndroidStyleString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0</Value>
+      <Value Profile="(Default)">null;null;null;null;null;null;null;1;null;0;0;null</Value>
     </Setting>
   </Settings>
 </SettingsFile>

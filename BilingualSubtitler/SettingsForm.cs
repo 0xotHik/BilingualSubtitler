@@ -211,6 +211,8 @@ namespace BilingualSubtitler
                 videoPlayerPathTextBox.Visible =
                 startVideoInSettedPlayerBetaWarningLabel.Visible =
 
+                setExtendedHotkeysSetButton.Visible =
+
                 itIsAdvancedMode;
 
             if (itIsAdvancedMode)
@@ -223,6 +225,28 @@ namespace BilingualSubtitler
                 checkUpdatesGroupBox.Left = (this.Width - checkUpdatesGroupBox.Width) / 2;
                 downloadsDirectoryGroupBox.Left = (this.Width - downloadsDirectoryGroupBox.Width) / 2;
             }
+
+            // subtitlesAppearanceSettingsControl
+            if (itIsAdvancedMode)
+            {
+                subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Visible = true;
+                subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked = Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles;
+            }
+            else
+            {
+                subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked = false;
+                subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Visible = false;
+            }
+
+            subtitlesAppearanceSettingsControl.SetTheSameValuesForAllSubtitlesCheckBox.Visible =
+                subtitlesAppearanceSettingsControl.OrLabel.Visible =
+                subtitlesAppearanceSettingsControl.ByValuesOfOriginalSubtitlesLabel.Visible =
+
+                subtitlesAppearanceSettingsControl.FourthRussianSubtitlesGroupBox.Visible =
+                subtitlesAppearanceSettingsControl.FifthRussianSubtitlesGroupBox.Visible =
+                itIsAdvancedMode;
+
+            subtitlesAppearanceSettingsControl.AutoScroll = itIsAdvancedMode;
         }
 
 

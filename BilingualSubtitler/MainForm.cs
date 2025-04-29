@@ -871,14 +871,16 @@ namespace BilingualSubtitler
                 if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
                     subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
+                ///////
                 // Advanced Mode
+                ///////
                 var advancedMode = Settings.Default.AdvancedMode;
-                //
+                // Кнопки "Перевести"
                 translateToRussianSubtitlesGroupBox.Visible =
-translateToFirstRussianSubtitlesGroupBox.Visible =
-    translateToSecondRussianSubtitlesGroupBox.Visible =
-    translateToThirdRussianSubtitlesGroupBox.Visible =
-    Settings.Default.YandexTranslatorAPIEnabled && advancedMode;
+                translateToFirstRussianSubtitlesGroupBox.Visible =
+                    translateToSecondRussianSubtitlesGroupBox.Visible =
+                    translateToThirdRussianSubtitlesGroupBox.Visible =
+                    Settings.Default.YandexTranslatorAPIEnabled && advancedMode;
                 //
                 firstRussianSubtitlesExportAsDocxButton.Visible =
                     secondRussianSubtitlesExportAsDocxButton.Visible =
@@ -1374,11 +1376,13 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
             return subtitleText;
         }
 
-        private Subtitle[] ReadSrtMarkupFromDocxLines(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLines)
+        private Subtitle[] ReadSrtMarkupFromDocxLines(System.Collections.ObjectModel.ReadOnlyCollection<Xceed.Document.NET.Paragraph> readedLParagraphs)
         {
+            string[] lineSeparators = new string[] { "\r\n", "\n" };
+
             var lines = new List<string>();
-            foreach (var line in readedLines)
-                lines.Add(line.Text);
+            foreach (var paragraph in readedLParagraphs)
+                lines.AddRange(paragraph.Text.Split(lineSeparators, StringSplitOptions.RemoveEmptyEntries));
             var subtitles = ReadSrtMarkup(lines.ToArray(), "->");
 
             #region Былое
@@ -4720,6 +4724,26 @@ translateToFirstRussianSubtitlesGroupBox.Visible =
         {
             using var settingsAndroid = new SettingsAndroidForm(this);
             settingsAndroid.ShowDialog();
+        }
+
+        private void button3_Click_3(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesIn1251(SubtitlesType.FourthRussian);
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesIn1251(SubtitlesType.FifthRussian);
+        }
+
+        private void button5_Click_3(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.FourthRussian);
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            OpenAndReadSubtitlesFromDefaultFolder(SubtitlesType.FifthRussian);
         }
     }
 }

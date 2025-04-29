@@ -389,6 +389,9 @@ namespace BilingualSubtitler
 
                 // И 3-и русские
                 SetValueToNumericUpDownFromCodeSafe(ThirdRussianSubtitlesMarginNumericUpDown, SecondRussianSubtitlesMarginNumericUpDown.Value + (2 * SecondRussianSubtitlesSizeNumericUpDown.Value) + 2);
+
+                // И 5-e русские
+                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
             }
         }
 
@@ -676,6 +679,24 @@ namespace BilingualSubtitler
             }
         }
 
+        private void FourthRussianSubtitlesMarginNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
+            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
+            {
+                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
+            }
+        }
+
+        private void FourthRussianSubtitlesSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
+            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
+            {
+                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
+            }
+        }
+
         private void sizeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             SetControlAccordingToCheckBoxes();
@@ -751,22 +772,6 @@ namespace BilingualSubtitler
 
         }
 
-        private void FourthRussianSubtitlesMarginNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
-            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
-            {
-                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
-            }
-        }
 
-        private void FourthRussianSubtitlesSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            // Если включен "Перемещать попарно" — двигаем еще 5-е русские
-            if (EnabledAndChecked(ChangeMarginsToPairSubtitlesCheckBox))
-            {
-                SetValueToNumericUpDownFromCodeSafe(FifthRussianSubtitlesMarginNumericUpDown, FourthRussianSubtitlesMarginNumericUpDown.Value + (2 * FourthRussianSubtitlesSizeNumericUpDown.Value) + 2);
-            }
-        }
     }
 }

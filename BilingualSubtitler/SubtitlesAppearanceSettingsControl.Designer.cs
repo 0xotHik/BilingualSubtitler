@@ -70,8 +70,8 @@
             label37 = new System.Windows.Forms.Label();
             label38 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
-            label5 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
+            ByValuesOfOriginalSubtitlesLabel = new System.Windows.Forms.Label();
+            OrLabel = new System.Windows.Forms.Label();
             SetTheSameValuesForAllSubtitlesCheckBox = new System.Windows.Forms.CheckBox();
             ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox = new System.Windows.Forms.CheckBox();
             shadowTransparencyCheckBox = new System.Windows.Forms.CheckBox();
@@ -665,8 +665,8 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(ByValuesOfOriginalSubtitlesLabel);
+            groupBox1.Controls.Add(OrLabel);
             groupBox1.Controls.Add(SetTheSameValuesForAllSubtitlesCheckBox);
             groupBox1.Controls.Add(ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox);
             groupBox1.Controls.Add(shadowTransparencyCheckBox);
@@ -681,25 +681,25 @@
             groupBox1.TabIndex = 102;
             groupBox1.TabStop = false;
             // 
-            // label5
+            // byValuesOfOriginalSubtitlesLabel
             // 
-            label5.AutoSize = true;
-            label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            label5.Location = new System.Drawing.Point(444, 16);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(177, 15);
-            label5.TabIndex = 106;
-            label5.Text = "(по оригинальным субтитрам)";
+            ByValuesOfOriginalSubtitlesLabel.AutoSize = true;
+            ByValuesOfOriginalSubtitlesLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            ByValuesOfOriginalSubtitlesLabel.Location = new System.Drawing.Point(444, 16);
+            ByValuesOfOriginalSubtitlesLabel.Name = "byValuesOfOriginalSubtitlesLabel";
+            ByValuesOfOriginalSubtitlesLabel.Size = new System.Drawing.Size(177, 15);
+            ByValuesOfOriginalSubtitlesLabel.TabIndex = 106;
+            ByValuesOfOriginalSubtitlesLabel.Text = "(по оригинальным субтитрам)";
             // 
-            // label4
+            // orLabel
             // 
-            label4.AutoSize = true;
-            label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            label4.Location = new System.Drawing.Point(565, -1);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(28, 15);
-            label4.TabIndex = 105;
-            label4.Text = "или";
+            OrLabel.AutoSize = true;
+            OrLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            OrLabel.Location = new System.Drawing.Point(565, -1);
+            OrLabel.Name = "orLabel";
+            OrLabel.Size = new System.Drawing.Size(28, 15);
+            OrLabel.TabIndex = 105;
+            OrLabel.Text = "или";
             // 
             // SetTheSameValuesForAllSubtitlesCheckBox
             // 
@@ -1834,9 +1834,7 @@
         public System.Windows.Forms.CheckBox shadowCheckBox;
         public System.Windows.Forms.CheckBox outlineCheckBox;
         public System.Windows.Forms.CheckBox ChangeOnTheSameDeltaValuesForAllSubtitlesCheckBox;
-        private System.Windows.Forms.Label label4;
         public System.Windows.Forms.CheckBox SetTheSameValuesForAllSubtitlesCheckBox;
-        private System.Windows.Forms.Label label5;
         public System.Windows.Forms.GroupBox FourthRussianSubtitlesGroupBox;
         public System.Windows.Forms.CheckBox FourthRussianSubtitlesInOneLineCheckBox;
         public System.Windows.Forms.NumericUpDown FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown;
@@ -1893,5 +1891,7 @@
         public System.Windows.Forms.CheckBox FirstRussianSubtitlesItalicCheckBox;
         public System.Windows.Forms.CheckBox FirstRussianSubtitlesUnderlineCheckBox;
         public System.Windows.Forms.CheckBox FirstRussianSubtitlesBoldCheckBox;
+        public System.Windows.Forms.Label OrLabel;
+        public System.Windows.Forms.Label ByValuesOfOriginalSubtitlesLabel;
     }
 }
