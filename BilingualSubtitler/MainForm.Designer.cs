@@ -214,7 +214,7 @@
             srtPackFileNameEndingLabel = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
-            button2 = new System.Windows.Forms.Button();
+            createAndroidSubtitesButton = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -2434,7 +2434,7 @@
             mxPlayerGoupBox.Controls.Add(srtPackFileNameEndingLabel);
             mxPlayerGoupBox.Controls.Add(label13);
             mxPlayerGoupBox.Controls.Add(label8);
-            mxPlayerGoupBox.Controls.Add(button2);
+            mxPlayerGoupBox.Controls.Add(createAndroidSubtitesButton);
             mxPlayerGoupBox.Location = new System.Drawing.Point(980, 521);
             mxPlayerGoupBox.Name = "mxPlayerGoupBox";
             mxPlayerGoupBox.Size = new System.Drawing.Size(368, 232);
@@ -2553,15 +2553,15 @@
             // 
             // button2
             // 
-            button2.BackColor = System.Drawing.Color.Gold;
-            button2.Location = new System.Drawing.Point(10, 108);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(339, 30);
-            button2.TabIndex = 105;
-            button2.Text = "💾 Создать субитры для Android";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_3;
+            createAndroidSubtitesButton.BackColor = System.Drawing.Color.Gold;
+            createAndroidSubtitesButton.Location = new System.Drawing.Point(10, 108);
+            createAndroidSubtitesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            createAndroidSubtitesButton.Name = "button2";
+            createAndroidSubtitesButton.Size = new System.Drawing.Size(339, 30);
+            createAndroidSubtitesButton.TabIndex = 105;
+            createAndroidSubtitesButton.Text = "💾 Создать субитры для Android";
+            createAndroidSubtitesButton.UseVisualStyleBackColor = false;
+            createAndroidSubtitesButton.Click += createAndroidSubtitesButton_Click;
             // 
             // MainForm
             // 
@@ -2828,7 +2828,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox mxPlayerGoupBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button createAndroidSubtitesButton;
         private System.Windows.Forms.Label srtPackFileNameEndingLabel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;

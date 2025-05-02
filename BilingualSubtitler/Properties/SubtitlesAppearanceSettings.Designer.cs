@@ -37,7 +37,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;189;20;2;2;0;50;0;0;0;0;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;126;20;2;2;0;50;0;0;0;0;0")]
         public string SecondRussianSubtitlesStyleString {
             get {
                 return ((string)(this["SecondRussianSubtitlesStyleString"]));
@@ -49,7 +49,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;231;20;2;2;0;50;0;0;0;0;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;168;20;2;2;0;50;0;0;0;0;0")]
         public string ThirdRussianSubtitlesStyleString {
             get {
                 return ((string)(this["ThirdRussianSubtitlesStyleString"]));
@@ -217,7 +217,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;255;20;2;2;0;50;0;0;0;0;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;210;20;2;2;0;50;0;0;0;0;0")]
         public string FourthRussianSubtitlesStyleString {
             get {
                 return ((string)(this["FourthRussianSubtitlesStyleString"]));
@@ -229,7 +229,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;0;20;2;2;0;50;0;0;0;0;0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Times New Roman;252;20;2;2;0;50;0;0;0;0;0")]
         public string FifthRussianSubtitlesStyleString {
             get {
                 return ((string)(this["FifthRussianSubtitlesStyleString"]));

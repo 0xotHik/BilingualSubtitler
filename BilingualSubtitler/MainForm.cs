@@ -30,6 +30,7 @@ using Nikse.SubtitleEdit.Core.Common;
 using System.Drawing.Printing;
 using System.Text.RegularExpressions;
 using Nikse.SubtitleEdit.Core.SubtitleFormats;
+using System.Windows.Documents;
 
 namespace BilingualSubtitler
 {
@@ -824,6 +825,7 @@ namespace BilingualSubtitler
 
                 // Файлы субтитров
                 originalSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
+                originalSubtitlesFileNameEndingLabelCopyForAndroid.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
                 bilingualSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
                 //
                 originalSubtitlesFileNameEndingLabel.Visible =
@@ -1926,7 +1928,13 @@ namespace BilingualSubtitler
             targetStrikeoutCheckBox.Checked = style.Strikeout;
         }
 
-        private StringBuilder GenerateASSMarkedupDocument(Tuple<Subtitle[], Color>[] subtitlesAndTheirColorsPairs)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="subtitlesAndTheirColorsPairs"></param>
+        /// <param name="forAndroid">Для Android -- надо брать стили из настроек для Андроида. На 30.04.2025 -- работает только для оригинальных субтитров.</param>
+        /// <returns></returns>
+        private StringBuilder GenerateAssMarkupDocument(Tuple<Subtitle[], Color>[] subtitlesAndTheirColorsPairs, bool forAndroid = false)
         {
             var assSB = new StringBuilder();
 
@@ -1974,7 +1982,10 @@ namespace BilingualSubtitler
                 string titleOfOrigin = null;
                 SubtitlesAndInfo currentSubtitles = null;
 
-                if (m_redefineSubtitlesAppearanceSettings)
+                // Если включено "Переопределять внешний вид субтитров" -- то мы будем брать внешний вид субтитров не из настроек, с формы. Для Анроида -- не надо
+                var needToGetValuesFromForm = m_redefineSubtitlesAppearanceSettings && !forAndroid;
+                //
+                if (needToGetValuesFromForm)
                 {
                     switch (i)
                     {
@@ -2044,41 +2055,49 @@ namespace BilingualSubtitler
                     //var shadow = 1;
 
                 }
-                else
+                else // Если не включено "Переопределять внешний вид субтитров" -- то мы будем брать внешний вид субтитров из настроек
                 {
                     string[] styleComponents = null;
-                    switch (i)
+
+                    if (forAndroid)
                     {
-                        case 0:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
-                                break;
-                            }
-                        case 1:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
-                                break;
-                            }
-                        case 2:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
-                                break;
-                            }
-                        case 3:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
-                                break;
-                            }
-                        case 4:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
-                                break;
-                            }
-                        case 5:
-                            {
-                                styleComponents = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
-                                break;
-                            }
+                        styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.OriginalSubtitlesAndroidStyleString.Split(';');
+                    }
+                    else
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    styleComponents = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
+                                    break;
+                                }
+                        }
                     }
 
                     font = styleComponents[0];
@@ -2113,10 +2132,11 @@ namespace BilingualSubtitler
                     color = subtitlesAndTheirColorsPairs[i].Item2;
 
                 }
-
+                //
                 currentSubtitles = null;
 
-                if (Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles) // Если включено "Сохранять названия потоков субтитров"
+                // Если включено "Сохранять названия потоков субтитров"
+                if (Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles)
                 {
                     switch (i)
                     {
@@ -3439,7 +3459,7 @@ namespace BilingualSubtitler
 
             if (Settings.Default.CreateOriginalSubtitlesFile)
             {
-                ass = GenerateASSMarkedupDocument(new[]
+                ass = GenerateAssMarkupDocument(new[]
                 {
                     new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.Original].Subtitles, m_subtitlesAndInfos[SubtitlesType.Original].ColorPickingButton.BackColor),
                 });
@@ -3470,7 +3490,7 @@ namespace BilingualSubtitler
                 new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.FifthRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.FifthRussian].ColorPickingButton.BackColor)
 
             };
-                ass = GenerateASSMarkedupDocument(listSubsPairs.ToArray());
+                ass = GenerateAssMarkupDocument(listSubsPairs.ToArray());
 
                 try
                 {
@@ -4509,7 +4529,7 @@ namespace BilingualSubtitler
 
         }
 
-        private void button2_Click_3(object sender, EventArgs e)
+        private void createAndroidSubtitesButton_Click(object sender, EventArgs e)
         {
             // Оригинальные сабы
 
@@ -4521,7 +4541,7 @@ namespace BilingualSubtitler
             }
 
             var originalSubtitlesPath =
-                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEndingLabel.Text;
+                finalSubtitlesFilesPathBeginningRichTextBox.Text + originalSubtitlesFileNameEndingLabelCopyForAndroid.Text;
             var srtRusPackPath =
                 finalSubtitlesFilesPathBeginningRichTextBox.Text + srtPackFileNameEndingLabel.Text;
 
@@ -4539,12 +4559,6 @@ namespace BilingualSubtitler
                         return;
                 }
             }
-
-
-            //var result = MessageBox.Show($"Файлы\n\n• {originalSubtitlesPath}\n\nи\n\n• {bilingualSubtitlesPath}\n\nуже существуют! Перезаписать их?",
-            //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            //if (result != DialogResult.OK)
-            //    return;
             else if (originalSubtitlesFileExist)
             {
                 using (var filesAlreadyExistsForm = new FilesAlreadyExistsForm(originalSubtitlesPath))
@@ -4553,11 +4567,6 @@ namespace BilingualSubtitler
                     if (filesAlreadyExistsForm.RewriteExistingFiles != true)
                         return;
                 }
-
-                //var result = MessageBox.Show($"Файл\n\n• {originalSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                //if (result != DialogResult.OK)
-                //    return;
             }
             else if (srtRusPackFileExists)
             {
@@ -4567,130 +4576,46 @@ namespace BilingualSubtitler
                     if (filesAlreadyExistsForm.RewriteExistingFiles != true)
                         return;
                 }
-
-                //var result = MessageBox.Show($"Файл\n\n• {bilingualSubtitlesPath}\n\nуже существует! Перезаписать его?",
-                //    String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                //if (result != DialogResult.OK)
-                //    return;
             }
 
 
             StringBuilder assSB;
 
-            if (Settings.Default.CreateOriginalSubtitlesFile)
+            // if (Settings.Default.CreateOriginalSubtitlesFile)
+            //{
+            assSB = GenerateAssMarkupDocument(new[]
             {
-                assSB = GenerateASSMarkedupDocument(new[]
-                {
                     new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.Original].Subtitles, m_subtitlesAndInfos[SubtitlesType.Original].ColorPickingButton.BackColor),
                 });
 
-                try
-                {
-                    File.WriteAllText(
-                        originalSubtitlesPath,
-                        assSB.ToString());
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show($"Записать файл\n\n• {originalSubtitlesPath}\n\nне удалось! Исключение:\n• {exception}");
-                    return;
-                }
-
+            try
+            {
+                File.WriteAllText(
+                    originalSubtitlesPath,
+                    assSB.ToString());
             }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Записать файл\n\n• {originalSubtitlesPath}\n\nне удалось! Исключение:\n• {exception}");
+                return;
+            }
+
+            //}
 
             // .srt-пак переведенных субтитров
             var resultingFileName = srtRusPackPath;
 
-            var goodToGo = true;
-            if (goodToGo == true)
-            {
-                var timeFormat = @"hh\:mm\:ss\,fff";
+            var timeFormat = @"hh\:mm\:ss\,fff";
 
-                var lines = new List<string>();
+            var lines = new List<string>();
 
-                var subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.FirstRussian];
-                var color = subtitlesInfo.ColorPickingButton.BackColor;
-                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
-                {
-                    var subtitle = subtitlesInfo.Subtitles[i];
+            lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.FirstRussian, timeFormat));
+            lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.SecondRussian, timeFormat));
+            lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.ThirdRussian, timeFormat));
+            lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.FourthRussian, timeFormat));
+            lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.FifthRussian, timeFormat));
 
-                    var subtitleText = subtitle.Text;
-                    var subtitleInOneLine = true;
-                    if (subtitleInOneLine)
-                    {
-                        subtitleText = subtitleText.Replace("\n", " ");
-                    }
-
-                    lines.Add((i + 1).ToString());
-                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
-                    lines.Add("");
-                }
-                //
-                //for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
-                //{
-                //    var subtitle = subtitlesInfo.Subtitles[i];
-
-                //    var subtitleText = subtitle.Text;
-                //    var subtitleInOneLine = true;
-                //    if (subtitleInOneLine)
-
-                //    {
-                //        subtitleText = subtitleText.Replace("\n", " ");
-                //    }
-
-                //    lines.Add((i + 1).ToString());
-                //    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                //    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">-------------------------</font>");
-                //    lines.Add("");
-                //}
-                //
-                if (ThereIsSubtitles(m_subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles))
-                {
-                    subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.SecondRussian];
-                    color = subtitlesInfo.ColorPickingButton.BackColor;
-                    for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
-                    {
-                        var subtitle = subtitlesInfo.Subtitles[i];
-
-                        var subtitleText = subtitle.Text;
-                        var subtitleInOneLine = true;
-                        if (subtitleInOneLine)
-                        {
-                            subtitleText = subtitleText.Replace("\n", " ");
-                        }
-
-                        lines.Add((i + 1).ToString());
-                        lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                        lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\"><u>{subtitleText}</u></font>");
-                        lines.Add("");
-                    }
-                }
-                //
-                if (ThereIsSubtitles(m_subtitlesAndInfos[SubtitlesType.ThirdRussian].Subtitles))
-                {
-                    subtitlesInfo = m_subtitlesAndInfos[SubtitlesType.ThirdRussian];
-                    color = subtitlesInfo.ColorPickingButton.BackColor;
-                    for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
-                    {
-                        var subtitle = subtitlesInfo.Subtitles[i];
-
-                        var subtitleText = subtitle.Text;
-                        var subtitleInOneLine = true;
-                        if (subtitleInOneLine)
-                        {
-                            subtitleText = subtitleText.Replace("\n", " ");
-                        }
-
-                        lines.Add((i + 1).ToString());
-                        lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
-                        lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
-                        lines.Add("");
-                    }
-                }
-
-                File.WriteAllLines(resultingFileName, lines.ToArray());
-            }
+            File.WriteAllLines(resultingFileName, lines.ToArray());
 
 
             // Проверка существования итоговых файлов субтитров
@@ -4707,6 +4632,76 @@ namespace BilingualSubtitler
                     }
                 }
             }
+        }
+
+        private List<string> GenerateSrtMarkupLines(SubtitlesType subtitlesType, string timeFormat)
+        {
+            var lines = new List<string>();
+            string[] styleComponents = null;
+            //
+            var subtitlesInfo = m_subtitlesAndInfos[subtitlesType];
+
+            if (ThereIsSubtitles(subtitlesInfo.Subtitles))
+            {
+                // Properties.Settings считываем
+
+                switch (subtitlesType)
+                {
+                    case SubtitlesType.FirstRussian:
+                        {
+                            styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FirstRussianSubtitlesAndroidStyleString.Split(';');
+                            break;
+                        }
+                    case SubtitlesType.SecondRussian:
+                        {
+                            styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.SecondRussianSubtitlesAndroidStyleString.Split(';');
+                            break;
+                        }
+                    case SubtitlesType.ThirdRussian:
+                        {
+                            styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.ThirdRussianSubtitlesAndroidStyleString.Split(';');
+                            break;
+                        }
+                    case SubtitlesType.FourthRussian:
+                        {
+                            styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FourthRussianSubtitlesAndroidStyleString.Split(';');
+                            break;
+                        }
+                    case SubtitlesType.FifthRussian:
+                        {
+                            styleComponents = Properties.SubtitlesAppearanceSettingsForAndroid.Default.FifthRussianSubtitlesAndroidStyleString.Split(';');
+                            break;
+                        }
+                }
+
+                var subtitleInOneLine = (styleComponents[7] == "1");
+
+                var italic = styleComponents.Length > 9 ? (styleComponents[9] == "1") : false;
+                var underline = styleComponents.Length > 10 ? (styleComponents[10] == "1") : false;
+
+
+                var color = subtitlesInfo.ColorPickingButton.BackColor;
+                for (int i = 0; i < subtitlesInfo.Subtitles.Length; i++)
+                {
+                    var subtitle = subtitlesInfo.Subtitles[i];
+
+                    var subtitleText = subtitle.Text;
+                    if (subtitleInOneLine)
+                        subtitleText = subtitleText.Replace("\n", " ");
+                    if (italic)
+                        subtitleText = $"<i>{subtitleText}</i>";
+                    if (underline)
+                        subtitleText = $"<u>{subtitleText}</u>";
+                    // А цвет -- там дальше ниже
+
+                    lines.Add((i + 1).ToString());
+                    lines.Add($"{subtitle.Start.ToString(timeFormat)} --> {subtitle.End.ToString(timeFormat)}");
+                    lines.Add($"<font color=\"#{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}\">{subtitleText}</font>");
+                    lines.Add("");
+                }
+            }
+
+            return lines;
         }
 
         private void rewriteSubtitlesAppearanceForAndroidOnesButton_Click(object sender, EventArgs e)
