@@ -40,6 +40,10 @@ namespace BilingualSubtitler
             m_inititalCheckUpdatesGroupBoxLeft = checkUpdatesGroupBox.Left;
             m_inititalDownloadsDirectoryGroupBox = downloadsDirectoryGroupBox.Left;
 
+            // Системные шрифты
+            using InstalledFontCollection fontsCollection = new InstalledFontCollection();
+            m_installedFontFamilies = fontsCollection.Families;
+
             try
             {
                 SetFormAccordingToSettings();
@@ -49,9 +53,9 @@ namespace BilingualSubtitler
                 throw new BilingualSubtitlerPropertiesLoadingException(e);
             }
 
+
             // Графика
             //
-
             m_processPriorityNamesAndValues = new Dictionary<string, ProcessPriorityClass>
             {
                 { "Низкий", ProcessPriorityClass.Idle},
@@ -119,19 +123,19 @@ namespace BilingualSubtitler
 
         public void SetFormAccordingToSettings()
         {
-            // Системные шрифты
-            using InstalledFontCollection fontsCollection = new InstalledFontCollection();
-            m_installedFontFamilies = fontsCollection.Families;
-            foreach (FontFamily font in m_installedFontFamilies)
-            {
-                subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox.Items.Add(font.Name);
-                subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            //// Системные шрифты
+            //using InstalledFontCollection fontsCollection = new InstalledFontCollection();
+            //m_installedFontFamilies = fontsCollection.Families;
+            //foreach (FontFamily font in m_installedFontFamilies)
+            //{
+            //    subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox.Items.Add(font.Name);
+            //    subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            //    subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            //    subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            //    subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            //    subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox.Items.Add(font.Name);
 
-            }
+            //}
 
             //m_flagKeyIsInvalid = true;
 
@@ -803,7 +807,7 @@ namespace BilingualSubtitler
 
             if (consolasIsIntalled)
             {
-                var appModeWasChangedToExtendedForm = new AppModeWasChangedToExtendedForm();
+                var appModeWasChangedToExtendedForm = new AppModeWasChangedToAdvancedForm();
                 appModeWasChangedToExtendedForm.ShowDialog();
 
                 var settedRussianSubtitlesStreamToSetConsolasTo = appModeWasChangedToExtendedForm.SettedRussianSubtitlesStreamToSetConsolasTo;

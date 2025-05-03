@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,18 @@ namespace BilingualSubtitler
         {
             InitializeComponent();
 
-
+            // Системные шрифты
+            using InstalledFontCollection fontsCollection = new InstalledFontCollection();
+            FontFamily[] fontFamilies = fontsCollection.Families;
+            foreach (FontFamily font in fontFamilies)
+            {
+                OriginalSubtitlesFontComboBox.Items.Add(font.Name);
+                FirstRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                SecondRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                FourthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+                FifthRussianSubtitlesFontComboBox.Items.Add(font.Name);
+            }
 
             // В тэге — храним старое значение, перед изменением
             // OG

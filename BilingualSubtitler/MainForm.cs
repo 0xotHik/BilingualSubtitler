@@ -855,18 +855,6 @@ namespace BilingualSubtitler
 
                 //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
 
-                // Настройки вида субтитров:
-                // Системные шрифты
-                using InstalledFontCollection fontsCollection = new InstalledFontCollection();
-                FontFamily[] fontFamilies = fontsCollection.Families;
-                foreach (FontFamily font in fontFamilies)
-                {
-                    subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox.Items.Add(font.Name);
-                    subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                    subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                    subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox.Items.Add(font.Name);
-                }
-
                 // Внешний вид субтитров
                 SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
                 //
@@ -3713,6 +3701,11 @@ namespace BilingualSubtitler
 
         private void showSecondRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
+            ShowSecondRussianSubtitlesAreRememberIt();
+        }
+
+        private void ShowSecondRussianSubtitlesAreRememberIt()
+        {
             secondRussianSubtitlesGroupBox.Show();
             secondRussianSubtitlesColorButton.Show();
             hideSecondRussianSubtitlesButton.Show();
@@ -3723,6 +3716,11 @@ namespace BilingualSubtitler
         }
 
         private void showThirdRussianSubtitlesButton_Click(object sender, EventArgs e)
+        {
+            ShowThirdRussianSubtitlesAreRememberIt();
+        }
+
+        private void ShowThirdRussianSubtitlesAreRememberIt()
         {
             thirdRussianSubtitlesGroupBox.Show();
             thirdRussianSubtitlesColorButton.Show();
@@ -4604,9 +4602,7 @@ namespace BilingualSubtitler
 
             // .srt-пак переведенных субтитров
             var resultingFileName = srtRusPackPath;
-
             var timeFormat = @"hh\:mm\:ss\,fff";
-
             var lines = new List<string>();
 
             lines.AddRange(GenerateSrtMarkupLines(SubtitlesType.FirstRussian, timeFormat));
