@@ -37,7 +37,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;null;0;0;null")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;0;0;0;null")]
         public string FirstRussianSubtitlesAndroidStyleString {
             get {
                 return ((string)(this["FirstRussianSubtitlesAndroidStyleString"]));
@@ -49,7 +49,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;null;0;1;null")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;1;0;1;null")]
         public string SecondRussianSubtitlesAndroidStyleString {
             get {
                 return ((string)(this["SecondRussianSubtitlesAndroidStyleString"]));
@@ -61,7 +61,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;null;0;0;null")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;1;0;0;null")]
         public string ThirdRussianSubtitlesAndroidStyleString {
             get {
                 return ((string)(this["ThirdRussianSubtitlesAndroidStyleString"]));
@@ -73,7 +73,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;null;0;0;null")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;1;0;0;null")]
         public string FourthRussianSubtitlesAndroidStyleString {
             get {
                 return ((string)(this["FourthRussianSubtitlesAndroidStyleString"]));
@@ -85,7 +85,7 @@ namespace BilingualSubtitler.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;null;0;0;null")]
+        [global::System.Configuration.DefaultSettingValueAttribute("null;null;null;null;null;null;null;1;1;0;0;null")]
         public string FifthRussianSubtitlesAndroidStyleString {
             get {
                 return ((string)(this["FifthRussianSubtitlesAndroidStyleString"]));

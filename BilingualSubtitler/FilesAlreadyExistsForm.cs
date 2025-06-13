@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,21 @@ namespace BilingualSubtitler
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool RewriteExistingFiles { get; private set; }
 
-        public FilesAlreadyExistsForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
+        public FilesAlreadyExistsForm(string originalFileName, string bilingualSubtitlesSavedFileName = null)
         {
             InitializeComponent();
 
             RewriteExistingFiles = false;
 
-            fileOrFilesLabel.Text = bilingualSubtitlesSavedFileName == null ? "Файл уже существует:" 
-                : "Файлы уже существуют:";
+            if (bilingualSubtitlesSavedFileName != null)
+            {
+                fileOrFilesLabel.Text = bilingualSubtitlesSavedFileName == null ? "Файл уже существует:"
+                    : "Файлы уже существуют:";
+            }
 
             fileNameLabel.MaximumSize = new Size(this.ClientSize.Width - 30, 0);
             fileNameLabel.AutoSize = true;
-
-            fileNameLabel.Text = savedFileName;
+            fileNameLabel.Text = originalFileName;
 
             var bottomOfTheText = fileNameLabel.Bottom;
 
@@ -56,8 +59,9 @@ namespace BilingualSubtitler
                 bottomOfTheText = bilingualFileNameLabel.Bottom;
             }
 
+
             // Перестановки
-            rewriteLabel.Top= bottomOfTheText + 10;
+            rewriteLabel.Top = bottomOfTheText + 10;
             bottomOfTheText = rewriteLabel.Bottom;
             noButton.Top = yesButton.Top = bottomOfTheText + 25;
             this.ClientSize = new System.Drawing.Size(this.Width, noButton.Bottom + 10);
@@ -67,6 +71,65 @@ namespace BilingualSubtitler
 
             System.Media.SystemSounds.Exclamation.Play();
         }
+
+        public FilesAlreadyExistsForm([NotNull] List<string> fileNames)
+        {
+            InitializeComponent();
+
+            RewriteExistingFiles = false;
+
+            fileOrFilesLabel.Text = fileNames.Count == 1
+            ? "Файл уже существует:"
+            : "Файлы уже существуют:";
+
+
+            fileNameLabel.MaximumSize = new Size(this.ClientSize.Width - 30, 0);
+            fileNameLabel.AutoSize = true;
+            fileNameLabel.Text = fileNames[0];
+
+            var bottomOfTheText = fileNameLabel.Bottom;
+
+            if ( fileNames.Count > 1)
+            {
+                for (int i = 1; i < fileNames.Count; i++)
+                {
+                    var translatedFileName = fileNames[i];
+
+                    var translatedFileNameLabel = new Label();
+                    translatedFileNameLabel.MaximumSize = fileNameLabel.MaximumSize;
+                    translatedFileNameLabel.AutoSize = fileNameLabel.AutoSize;
+                    translatedFileNameLabel.Location = new Point(fileNameLabel.Left, bottomOfTheText + 10);
+                    translatedFileNameLabel.Parent = fileNameLabel.Parent;
+                    fileNameLabel.Parent.Controls.Add(translatedFileNameLabel);
+
+                    var translatedFileDotLabel = new Label();
+                    translatedFileDotLabel.Size = dotLabel.Size;
+                    translatedFileDotLabel.Location = new Point(dotLabel.Left, bottomOfTheText + 10);
+                    translatedFileDotLabel.Text = dotLabel.Text;
+                    translatedFileDotLabel.Parent = dotLabel.Parent;
+                    dotLabel.Parent.Controls.Add(translatedFileDotLabel);
+
+                    translatedFileNameLabel.Text = translatedFileName;
+
+                    translatedFileNameLabel.Show();
+                    translatedFileDotLabel.Show();
+
+                    bottomOfTheText = translatedFileNameLabel.Bottom;
+                }
+
+                // Перестановки
+                rewriteLabel.Top = bottomOfTheText + 10;
+                bottomOfTheText = rewriteLabel.Bottom;
+                noButton.Top = yesButton.Top = bottomOfTheText + 25;
+                this.ClientSize = new System.Drawing.Size(this.Width, noButton.Bottom + 10);
+
+                yesButton.Select();
+                this.CenterToParent();
+
+                System.Media.SystemSounds.Exclamation.Play();
+            }
+        }
+
 
         private void okButton_Click(object sender, EventArgs e)
         {

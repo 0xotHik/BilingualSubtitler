@@ -507,5 +507,29 @@ namespace BilingualSubtitler.Properties {
                 this["VideoPlayerPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(".rusPack.srt")]
+        public string AndroidSrtPackOrSeparateStreamsFileNameEnding {
+            get {
+                return ((string)(this["AndroidSrtPackOrSeparateStreamsFileNameEnding"]));
+            }
+            set {
+                this["AndroidSrtPackOrSeparateStreamsFileNameEnding"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AndroidCreateSrtPack {
+            get {
+                return ((bool)(this["AndroidCreateSrtPack"]));
+            }
+            set {
+                this["AndroidCreateSrtPack"] = value;
+            }
+        }
     }
 }

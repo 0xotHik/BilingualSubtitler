@@ -204,15 +204,16 @@
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
             mxPlayerGoupBox = new System.Windows.Forms.GroupBox();
+            techLabel2 = new System.Windows.Forms.Label();
             originalSubtitlesFileNameEndingLabelCopyForAndroid = new System.Windows.Forms.Label();
             label20 = new System.Windows.Forms.Label();
             label21 = new System.Windows.Forms.Label();
-            checkBox2 = new System.Windows.Forms.CheckBox();
+            getAndroidAppearanceSettingsCheckBox = new System.Windows.Forms.CheckBox();
             openAndroidSubtitlesAppearanceSettingsButton = new System.Windows.Forms.Button();
             label18 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
-            srtPackFileNameEndingLabel = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
+            androidSrtPackOrSeparateStreamsFileEndingLabel = new System.Windows.Forms.Label();
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             createAndroidSubtitesButton = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
@@ -1727,6 +1728,7 @@
             originalSubtitlesFileNameEndingLabel.TabIndex = 47;
             originalSubtitlesFileNameEndingLabel.Text = ".eng.BilingualSubtitler.ass";
             originalSubtitlesFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            originalSubtitlesFileNameEndingLabel.Click += originalSubtitlesFileNameEndingLabel_Click;
             // 
             // bilingualSubtitlesFileNameEndingTitleLabel
             // 
@@ -2424,15 +2426,16 @@
             // 
             // mxPlayerGoupBox
             // 
+            mxPlayerGoupBox.Controls.Add(techLabel2);
             mxPlayerGoupBox.Controls.Add(originalSubtitlesFileNameEndingLabelCopyForAndroid);
             mxPlayerGoupBox.Controls.Add(label20);
             mxPlayerGoupBox.Controls.Add(label21);
-            mxPlayerGoupBox.Controls.Add(checkBox2);
+            mxPlayerGoupBox.Controls.Add(getAndroidAppearanceSettingsCheckBox);
             mxPlayerGoupBox.Controls.Add(openAndroidSubtitlesAppearanceSettingsButton);
             mxPlayerGoupBox.Controls.Add(label18);
             mxPlayerGoupBox.Controls.Add(label17);
-            mxPlayerGoupBox.Controls.Add(srtPackFileNameEndingLabel);
-            mxPlayerGoupBox.Controls.Add(label13);
+            mxPlayerGoupBox.Controls.Add(androidSrtPackOrSeparateStreamsFileEndingLabel);
+            mxPlayerGoupBox.Controls.Add(androidSrtPackOrSeparateStreamsFileEndingTitleLabel);
             mxPlayerGoupBox.Controls.Add(label8);
             mxPlayerGoupBox.Controls.Add(createAndroidSubtitesButton);
             mxPlayerGoupBox.Location = new System.Drawing.Point(980, 521);
@@ -2441,6 +2444,17 @@
             mxPlayerGoupBox.TabIndex = 105;
             mxPlayerGoupBox.TabStop = false;
             mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            // 
+            // techLabel2
+            // 
+            techLabel2.AutoSize = true;
+            techLabel2.BackColor = System.Drawing.Color.Yellow;
+            techLabel2.Location = new System.Drawing.Point(175, 76);
+            techLabel2.Name = "techLabel2";
+            techLabel2.Size = new System.Drawing.Size(121, 15);
+            techLabel2.TabIndex = 53;
+            techLabel2.Text = "Меняю программно";
+            techLabel2.Visible = false;
             // 
             // originalSubtitlesFileNameEndingLabelCopyForAndroid
             // 
@@ -2474,15 +2488,15 @@
             label21.TabIndex = 118;
             label21.Text = "+";
             // 
-            // checkBox2
+            // getAndroidAppearanceSettingsCheckBox
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new System.Drawing.Point(15, 163);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new System.Drawing.Size(407, 19);
-            checkBox2.TabIndex = 117;
-            checkBox2.Text = "Использовать установленные для Android настройки вида субтитров";
-            checkBox2.UseVisualStyleBackColor = true;
+            getAndroidAppearanceSettingsCheckBox.AutoSize = true;
+            getAndroidAppearanceSettingsCheckBox.Location = new System.Drawing.Point(15, 163);
+            getAndroidAppearanceSettingsCheckBox.Name = "getAndroidAppearanceSettingsCheckBox";
+            getAndroidAppearanceSettingsCheckBox.Size = new System.Drawing.Size(407, 19);
+            getAndroidAppearanceSettingsCheckBox.TabIndex = 117;
+            getAndroidAppearanceSettingsCheckBox.Text = "Использовать установленные для Android настройки вида субтитров";
+            getAndroidAppearanceSettingsCheckBox.UseVisualStyleBackColor = true;
             // 
             // openAndroidSubtitlesAppearanceSettingsButton
             // 
@@ -2520,27 +2534,27 @@
             label17.TabIndex = 113;
             label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
             // 
-            // srtPackFileNameEndingLabel
+            // androidSrtPackOrSeparateStreamsFileEndingLabel
             // 
-            srtPackFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            srtPackFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            srtPackFileNameEndingLabel.Location = new System.Drawing.Point(163, 81);
-            srtPackFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            srtPackFileNameEndingLabel.Name = "srtPackFileNameEndingLabel";
-            srtPackFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
-            srtPackFileNameEndingLabel.TabIndex = 109;
-            srtPackFileNameEndingLabel.Text = ".rusPack.srt";
-            srtPackFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            androidSrtPackOrSeparateStreamsFileEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Location = new System.Drawing.Point(163, 81);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Name = "androidSrtPackOrSeparateStreamsFileEndingLabel";
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Size = new System.Drawing.Size(186, 23);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.TabIndex = 109;
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Text = ".rusPack.srt";
+            androidSrtPackOrSeparateStreamsFileEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label13
+            // androidSrtPackOrSeparateStreamsFileEndingTitleLabel
             // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(160, 64);
-            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(180, 15);
-            label13.TabIndex = 108;
-            label13.Text = "файл переведенных субтитров:";
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.AutoSize = true;
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Location = new System.Drawing.Point(160, 64);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Name = "androidSrtPackOrSeparateStreamsFileEndingTitleLabel";
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Size = new System.Drawing.Size(180, 15);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.TabIndex = 108;
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Text = "файл переведенных субтитров:";
             // 
             // label8
             // 
@@ -2551,12 +2565,12 @@
             label8.TabIndex = 106;
             label8.Text = "Переносы убираем";
             // 
-            // button2
+            // createAndroidSubtitesButton
             // 
             createAndroidSubtitesButton.BackColor = System.Drawing.Color.Gold;
             createAndroidSubtitesButton.Location = new System.Drawing.Point(10, 108);
             createAndroidSubtitesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            createAndroidSubtitesButton.Name = "button2";
+            createAndroidSubtitesButton.Name = "createAndroidSubtitesButton";
             createAndroidSubtitesButton.Size = new System.Drawing.Size(339, 30);
             createAndroidSubtitesButton.TabIndex = 105;
             createAndroidSubtitesButton.Text = "💾 Создать субитры для Android";
@@ -2829,18 +2843,19 @@
         private System.Windows.Forms.GroupBox mxPlayerGoupBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button createAndroidSubtitesButton;
-        private System.Windows.Forms.Label srtPackFileNameEndingLabel;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label androidSrtPackOrSeparateStreamsFileEndingLabel;
+        private System.Windows.Forms.Label androidSrtPackOrSeparateStreamsFileEndingTitleLabel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button openAndroidSubtitlesAppearanceSettingsButton;
         private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabelCopyForAndroid;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox getAndroidAppearanceSettingsCheckBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label techLabel2;
     }
 }

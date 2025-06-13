@@ -681,22 +681,22 @@
             groupBox1.TabIndex = 102;
             groupBox1.TabStop = false;
             // 
-            // byValuesOfOriginalSubtitlesLabel
+            // ByValuesOfOriginalSubtitlesLabel
             // 
             ByValuesOfOriginalSubtitlesLabel.AutoSize = true;
             ByValuesOfOriginalSubtitlesLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             ByValuesOfOriginalSubtitlesLabel.Location = new System.Drawing.Point(444, 16);
-            ByValuesOfOriginalSubtitlesLabel.Name = "byValuesOfOriginalSubtitlesLabel";
+            ByValuesOfOriginalSubtitlesLabel.Name = "ByValuesOfOriginalSubtitlesLabel";
             ByValuesOfOriginalSubtitlesLabel.Size = new System.Drawing.Size(177, 15);
             ByValuesOfOriginalSubtitlesLabel.TabIndex = 106;
             ByValuesOfOriginalSubtitlesLabel.Text = "(по оригинальным субтитрам)";
             // 
-            // orLabel
+            // OrLabel
             // 
             OrLabel.AutoSize = true;
             OrLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             OrLabel.Location = new System.Drawing.Point(565, -1);
-            OrLabel.Name = "orLabel";
+            OrLabel.Name = "OrLabel";
             OrLabel.Size = new System.Drawing.Size(28, 15);
             OrLabel.TabIndex = 105;
             OrLabel.Text = "или";
@@ -802,6 +802,7 @@
             // 
             // ResetSubtitlesAppearanceToDefaultButton
             // 
+            ResetSubtitlesAppearanceToDefaultButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             ResetSubtitlesAppearanceToDefaultButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             ResetSubtitlesAppearanceToDefaultButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             ResetSubtitlesAppearanceToDefaultButton.Location = new System.Drawing.Point(8, 568);
