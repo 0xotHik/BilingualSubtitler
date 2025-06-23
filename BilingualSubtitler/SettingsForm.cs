@@ -207,7 +207,10 @@ namespace BilingualSubtitler
             fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Visible =
                 ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Visible =
                 processPriorityGroupBox.Visible =
+
                 yandexTranslatorGroupBox.Visible =
+                yandexTranslatorBetaLabel.Visible =
+
                 defaultDirectoryGroupBox.Visible =
                 notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Visible =
 
@@ -216,6 +219,8 @@ namespace BilingualSubtitler
                 startVideoInSettedPlayerBetaWarningLabel.Visible =
 
                 setExtendedHotkeysSetButton.Visible =
+
+                openAndroidSubtitlesAppearanceSettingsButton.Visible =
 
                 itIsAdvancedMode;
 
@@ -435,18 +440,18 @@ namespace BilingualSubtitler
                                                                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox,
                                                                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesStrikeoutCheckBox);
 
-             Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString = GetSubtitlesStyleString(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesMarginNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesOutlineNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesTransparencyPercentageNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesBoldCheckBox,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox,
-                                                                       subtitlesAppearanceSettingsControl.FifthRussianSubtitlesStrikeoutCheckBox);
+            Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString = GetSubtitlesStyleString(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesMarginNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesOutlineNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesTransparencyPercentageNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesBoldCheckBox,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox,
+                                                                      subtitlesAppearanceSettingsControl.FifthRussianSubtitlesStrikeoutCheckBox);
 
 
 
@@ -464,7 +469,7 @@ namespace BilingualSubtitler
             Properties.SubtitlesAppearanceSettings.Default.ChangeMarginsToPairSubtitles = subtitlesAppearanceSettingsControl.ChangeMarginsToPairSubtitlesCheckBox.Checked;
 
             Properties.Settings.Default.FixDotOrCommaAsTheFisrtCharOfNewLine = fixDotOrCommaAsTheFisrtCharOfNewLIneCheckBox.Checked;
-            Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;    
+            Properties.Settings.Default.ReadAndWriteTitlesOfOriginIntoFinalFiles = ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox.Checked;
 
             Properties.Settings.Default.CheckUpdates = checkUpdatesOnAppStartCheckBox.Checked;
 
@@ -763,6 +768,9 @@ namespace BilingualSubtitler
             SetFormAccordingToAdvancedModeOrNot();
         }
 
+        /// <summary>
+        /// Июнь 2025: Помни о <see cref="advancedModeRadioButton_Click(object, EventArgs)"/>
+        /// </summary>
         private void advancedModeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             notAdvancedModeRadioButton.Checked = !((RadioButton)sender).Checked;
@@ -818,7 +826,7 @@ namespace BilingualSubtitler
                     NumericUpDown targetSizeNumericUpDown = null;
 
                     switch (settedRussianSubtitlesStreamToSetConsolasTo.Value)
-                        {
+                    {
                         case 1:
                             {
                                 targetFontComboBox = subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox;
@@ -911,6 +919,12 @@ namespace BilingualSubtitler
         private void subtitlesAppearanceSettingsControl_Load(object sender, EventArgs e)
         {
             subtitlesAppearanceSettingsControl.ResetSubtitlesAppearanceToDefaultButton.Click += ResetSubtitlesAppearanceToDefaultButton_Click;
+        }
+
+        private void openAndroidSubtitlesAppearanceSettingsButton_Click(object sender, EventArgs e)
+        {
+            using var settingsAndroid = new SettingsAndroidForm();
+            var dialogResult = settingsAndroid.ShowDialog();
         }
 
 

@@ -34,7 +34,7 @@ namespace BilingualSubtitler
 
         public bool SettingsWasSaved = false;
 
-        public SettingsAndroidForm(MainForm mainForm)
+        public SettingsAndroidForm()
         {
             InitializeComponent();
             DialogResult = DialogResult.Cancel;

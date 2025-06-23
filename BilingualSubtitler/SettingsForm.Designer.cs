@@ -34,6 +34,7 @@
             buttonCancel = new System.Windows.Forms.Button();
             linkLabelYandexAPIKeysList = new System.Windows.Forms.LinkLabel();
             yandexTranslatorGroupBox = new System.Windows.Forms.GroupBox();
+            yandexTranslatorBetaLabel = new System.Windows.Forms.Label();
             gotTheYandexTranslatorAPIKeyCheckBox = new System.Windows.Forms.CheckBox();
             hotkeysDataGridView = new System.Windows.Forms.DataGridView();
             keyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +97,7 @@
             ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox = new System.Windows.Forms.CheckBox();
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             removeAnCheckBox = new System.Windows.Forms.CheckBox();
+            openAndroidSubtitlesAppearanceSettingsButton = new System.Windows.Forms.Button();
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -110,10 +112,11 @@
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
             // 
+            richTextBoxForYandexApiKeyInSeparateForm.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(340, 22);
             richTextBoxForYandexApiKeyInSeparateForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
-            richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(871, 50);
+            richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(715, 50);
             richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
             richTextBoxForYandexApiKeyInSeparateForm.Text = "";
             // 
@@ -161,6 +164,7 @@
             // 
             // yandexTranslatorGroupBox
             // 
+            yandexTranslatorGroupBox.Controls.Add(yandexTranslatorBetaLabel);
             yandexTranslatorGroupBox.Controls.Add(gotTheYandexTranslatorAPIKeyCheckBox);
             yandexTranslatorGroupBox.Controls.Add(linkLabelYandexAPIKeysList);
             yandexTranslatorGroupBox.Controls.Add(richTextBoxForYandexApiKeyInSeparateForm);
@@ -168,10 +172,22 @@
             yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1237, 87);
+            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1071, 87);
             yandexTranslatorGroupBox.TabIndex = 44;
             yandexTranslatorGroupBox.TabStop = false;
             yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
+            // 
+            // yandexTranslatorBetaLabel
+            // 
+            yandexTranslatorBetaLabel.AutoSize = true;
+            yandexTranslatorBetaLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            yandexTranslatorBetaLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            yandexTranslatorBetaLabel.Location = new System.Drawing.Point(163, 0);
+            yandexTranslatorBetaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            yandexTranslatorBetaLabel.Name = "yandexTranslatorBetaLabel";
+            yandexTranslatorBetaLabel.Size = new System.Drawing.Size(39, 16);
+            yandexTranslatorBetaLabel.TabIndex = 116;
+            yandexTranslatorBetaLabel.Text = "[Beta]";
             // 
             // gotTheYandexTranslatorAPIKeyCheckBox
             // 
@@ -896,6 +912,20 @@
             removeAnCheckBox.UseVisualStyleBackColor = true;
             removeAnCheckBox.Visible = false;
             // 
+            // openAndroidSubtitlesAppearanceSettingsButton
+            // 
+            openAndroidSubtitlesAppearanceSettingsButton.AllowDrop = true;
+            openAndroidSubtitlesAppearanceSettingsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            openAndroidSubtitlesAppearanceSettingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            openAndroidSubtitlesAppearanceSettingsButton.Location = new System.Drawing.Point(1113, 854);
+            openAndroidSubtitlesAppearanceSettingsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            openAndroidSubtitlesAppearanceSettingsButton.Name = "openAndroidSubtitlesAppearanceSettingsButton";
+            openAndroidSubtitlesAppearanceSettingsButton.Size = new System.Drawing.Size(129, 74);
+            openAndroidSubtitlesAppearanceSettingsButton.TabIndex = 117;
+            openAndroidSubtitlesAppearanceSettingsButton.Text = "📱\r\nНастройки \r\nсубтитров\r\nдля Android";
+            openAndroidSubtitlesAppearanceSettingsButton.UseVisualStyleBackColor = false;
+            openAndroidSubtitlesAppearanceSettingsButton.Click += openAndroidSubtitlesAppearanceSettingsButton_Click;
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -903,6 +933,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1264, 991);
+            Controls.Add(openAndroidSubtitlesAppearanceSettingsButton);
             Controls.Add(removeAnCheckBox);
             Controls.Add(notifyAboutSuccessfullySavedSubtitlesFileCheckBox);
             Controls.Add(ReadAndWriteTitlesOfOriginIntoFinalFilesCheckBox);
@@ -1017,5 +1048,7 @@
         private System.Windows.Forms.CheckBox removeAnCheckBox;
         private System.Windows.Forms.TextBox videoPlayerPathTextBox;
         private System.Windows.Forms.Label startVideoInSettedPlayerBetaWarningLabel;
+        private System.Windows.Forms.Label yandexTranslatorBetaLabel;
+        private System.Windows.Forms.Button openAndroidSubtitlesAppearanceSettingsButton;
     }
 }

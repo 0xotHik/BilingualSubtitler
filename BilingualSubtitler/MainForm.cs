@@ -176,7 +176,7 @@ namespace BilingualSubtitler
 
         private string m_playVideoButtonDefaultText;
 
-        private bool m_redefineSubtitlesAppearanceSettings => redefineSubtitlesAppearanceSettingsCheckBox.Visible & redefineSubtitlesAppearanceSettingsCheckBox.Checked;
+        private bool RedefineSubtitlesAppearanceSettings => redefineSubtitlesAppearanceSettingsCheckBox.Visible && redefineSubtitlesAppearanceSettingsCheckBox.Checked;
 
 
         public MainForm()
@@ -838,28 +838,20 @@ namespace BilingualSubtitler
                         Settings.Default.CreateBilingualSubtitlesFile;
 
 
-                secondRussianSubtitlesGroupBox.Visible = hideSecondRussianSubtitlesButton.Visible =
+                secondRussianSubtitlesGroupBox.Visible = secondRussianSubtitlesColorButton.Visible =  hideSecondRussianSubtitlesButton.Visible =
                     Settings.Default.SecondRussianSubtitlesIsVisible;
                 showSecondRussianSubtitlesButton.Visible = !Settings.Default.SecondRussianSubtitlesIsVisible;
 
-                thirdRussianSubtitlesGroupBox.Visible = hideThirdRussianSubtitlesButton.Visible =
+                thirdRussianSubtitlesGroupBox.Visible = thirdRussianSubtitlesColorButton.Visible = hideThirdRussianSubtitlesButton.Visible =
                     Settings.Default.ThirdRussianSubtitlesIsVisible;
                 showThirdRussianSubtitlesButton.Visible = !Settings.Default.ThirdRussianSubtitlesIsVisible;
 
                 m_translator = new Translator(Properties.Settings.Default.YandexTranslatorAPIKey);
 
-                translateToRussianSubtitlesGroupBox.Visible =
-                translateToFirstRussianSubtitlesGroupBox.Visible =
-                    translateToSecondRussianSubtitlesGroupBox.Visible =
-                    translateToThirdRussianSubtitlesGroupBox.Visible =
-                    Settings.Default.YandexTranslatorAPIEnabled;
-
-                //docXTranslationGroupBox.Visible = !Settings.Default.YandexTranslatorAPIEnabled;
-
                 // Внешний вид субтитров
                 SetNewRedefineSubtitlesAppearanceSettingsSetting(Settings.Default.RedefineSubtitlesAppearanceSettings);
                 //
-                if (atLaunch || !m_redefineSubtitlesAppearanceSettings)
+                if (atLaunch || !RedefineSubtitlesAppearanceSettings)
                     subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
                 SetFormAccordingToAndroidSettings();
@@ -873,6 +865,7 @@ namespace BilingualSubtitler
                 translateToFirstRussianSubtitlesGroupBox.Visible =
                     translateToSecondRussianSubtitlesGroupBox.Visible =
                     translateToThirdRussianSubtitlesGroupBox.Visible =
+                    translateToRussianSubtitlesBetaLabel.Visible = 
                     Settings.Default.YandexTranslatorAPIEnabled && advancedMode;
                 //
                 firstRussianSubtitlesExportAsDocxButton.Visible =
@@ -1567,7 +1560,7 @@ namespace BilingualSubtitler
 
             }
 
-            if (m_redefineSubtitlesAppearanceSettings)
+            if (RedefineSubtitlesAppearanceSettings)
             {
                 WriteSubtitlesStyleToFormControls(originalSubtitlesStyle, SubtitlesType.Original);
                 if (firstRussianSubtitlesStyle != null)
@@ -1974,7 +1967,7 @@ namespace BilingualSubtitler
                 SubtitlesAndInfo currentSubtitles = null;
 
                 // Если включено "Переопределять внешний вид субтитров" -- то мы будем брать внешний вид субтитров не из настроек, с формы. Для Анроида -- не надо
-                var needToGetValuesFromForm = m_redefineSubtitlesAppearanceSettings && !getAndroidAppearanceSettings;
+                var needToGetValuesFromForm = RedefineSubtitlesAppearanceSettings && !getAndroidAppearanceSettings;
                 //
                 if (needToGetValuesFromForm)
                 {
@@ -4651,7 +4644,9 @@ namespace BilingualSubtitler
                 {
                     new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.Original].Subtitles, m_subtitlesAndInfos[SubtitlesType.Original].ColorPickingButton.BackColor),
                 },
-                getAndroidAppearanceSettings: getAndroidAppearanceSettingsCheckBox.Checked);
+                getAndroidAppearanceSettings: 
+                // getAndroidAppearanceSettingsCheckBox.Checked
+                true);
 
             try
             {
@@ -4840,7 +4835,7 @@ namespace BilingualSubtitler
 
         private void openAndroidSubtitlesAppearanceSettingsButton_Click(object sender, EventArgs e)
         {
-            using var settingsAndroid = new SettingsAndroidForm(this);
+            using var settingsAndroid = new SettingsAndroidForm();
             var dialogResult = settingsAndroid.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
