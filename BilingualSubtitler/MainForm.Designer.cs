@@ -178,6 +178,7 @@
             videoAndSubtitlesStateComboBoxWithBorder = new VideoAndSubtitlesStateComboBoxWithBorderControl();
             appIsRunningInAdministrativeModePanelControl = new AppIsRunningInAdministrativeModePanelControl();
             translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            translateToRussianSubtitlesBetaLabel = new System.Windows.Forms.Label();
             openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             groupBox10 = new System.Windows.Forms.GroupBox();
             button5 = new System.Windows.Forms.Button();
@@ -214,7 +215,6 @@
             androidSrtPackOrSeparateStreamsFileEndingLabel = new System.Windows.Forms.Label();
             androidSrtPackOrSeparateStreamsFileEndingTitleLabel = new System.Windows.Forms.Label();
             createAndroidSubtitesButton = new System.Windows.Forms.Button();
-            translateToRussianSubtitlesBetaLabel = new System.Windows.Forms.Label();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -2109,6 +2109,18 @@
             translateToRussianSubtitlesGroupBox.TabStop = false;
             translateToRussianSubtitlesGroupBox.Text = "Перевести оригинальные субтитры через API Яндекс.Переводчика в нужный поток субтитров";
             // 
+            // translateToRussianSubtitlesBetaLabel
+            // 
+            translateToRussianSubtitlesBetaLabel.AutoSize = true;
+            translateToRussianSubtitlesBetaLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            translateToRussianSubtitlesBetaLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            translateToRussianSubtitlesBetaLabel.Location = new System.Drawing.Point(539, -2);
+            translateToRussianSubtitlesBetaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            translateToRussianSubtitlesBetaLabel.Name = "translateToRussianSubtitlesBetaLabel";
+            translateToRussianSubtitlesBetaLabel.Size = new System.Drawing.Size(39, 16);
+            translateToRussianSubtitlesBetaLabel.TabIndex = 115;
+            translateToRussianSubtitlesBetaLabel.Text = "[Beta]";
+            // 
             // openSubtitlesFromDefaultFolderGroupBox
             // 
             openSubtitlesFromDefaultFolderGroupBox.Controls.Add(groupBox10);
@@ -2453,6 +2465,7 @@
             techLabel2.TabIndex = 53;
             techLabel2.Text = "Меняю программно";
             techLabel2.Visible = false;
+            techLabel2.Click += techLabel2_Click;
             // 
             // originalSubtitlesFileNameEndingLabelCopyForAndroid
             // 
@@ -2555,18 +2568,6 @@
             createAndroidSubtitesButton.Text = "💾 \r\nСоздать файлы субтитров для Android";
             createAndroidSubtitesButton.UseVisualStyleBackColor = false;
             createAndroidSubtitesButton.Click += createAndroidSubtitesButton_Click;
-            // 
-            // translateToRussianSubtitlesBetaLabel
-            // 
-            translateToRussianSubtitlesBetaLabel.AutoSize = true;
-            translateToRussianSubtitlesBetaLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            translateToRussianSubtitlesBetaLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
-            translateToRussianSubtitlesBetaLabel.Location = new System.Drawing.Point(539, -2);
-            translateToRussianSubtitlesBetaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            translateToRussianSubtitlesBetaLabel.Name = "translateToRussianSubtitlesBetaLabel";
-            translateToRussianSubtitlesBetaLabel.Size = new System.Drawing.Size(39, 16);
-            translateToRussianSubtitlesBetaLabel.TabIndex = 115;
-            translateToRussianSubtitlesBetaLabel.Text = "[Beta]";
             // 
             // MainForm
             // 

@@ -827,7 +827,7 @@ namespace BilingualSubtitler
                 originalSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
                 originalSubtitlesFileNameEndingLabelCopyForAndroid.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
                 bilingualSubtitlesFileNameEndingLabel.Text = Properties.Settings.Default.BilingualSubtitlesFileNameEnding;
-                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
+                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
                 //
                 originalSubtitlesFileNameEndingLabel.Visible =
                     originalSubtitlesFileNameEndingTitleLabel.Visible =
@@ -838,7 +838,7 @@ namespace BilingualSubtitler
                         Settings.Default.CreateBilingualSubtitlesFile;
 
 
-                secondRussianSubtitlesGroupBox.Visible = secondRussianSubtitlesColorButton.Visible =  hideSecondRussianSubtitlesButton.Visible =
+                secondRussianSubtitlesGroupBox.Visible = secondRussianSubtitlesColorButton.Visible = hideSecondRussianSubtitlesButton.Visible =
                     Settings.Default.SecondRussianSubtitlesIsVisible;
                 showSecondRussianSubtitlesButton.Visible = !Settings.Default.SecondRussianSubtitlesIsVisible;
 
@@ -854,6 +854,7 @@ namespace BilingualSubtitler
                 if (atLaunch || !RedefineSubtitlesAppearanceSettings)
                     subtitlesAppearanceSettingsControl.SetAccordingToPropertiesSettings();
 
+                // Android
                 SetFormAccordingToAndroidSettings();
 
                 ///////
@@ -865,7 +866,7 @@ namespace BilingualSubtitler
                 translateToFirstRussianSubtitlesGroupBox.Visible =
                     translateToSecondRussianSubtitlesGroupBox.Visible =
                     translateToThirdRussianSubtitlesGroupBox.Visible =
-                    translateToRussianSubtitlesBetaLabel.Visible = 
+                    translateToRussianSubtitlesBetaLabel.Visible =
                     Settings.Default.YandexTranslatorAPIEnabled && advancedMode;
                 //
                 firstRussianSubtitlesExportAsDocxButton.Visible =
@@ -4544,20 +4545,20 @@ namespace BilingualSubtitler
             //////////
             /// Для отдельных
             ////////// 
-            var path = finalSubtitlesFilesPathBeginningRichTextBox.Text + Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
+            var path = finalSubtitlesFilesPathBeginningRichTextBox.Text + Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
             int lastDotIndex = path.LastIndexOf('.');
             // Разделяем строку на две части:
             // 1. Часть до последней точки (включая все символы ДО последней точки)
             string basePart = path.Substring(0, lastDotIndex);
             // 2. Расширение (последняя точка и всё после неё)
-            string extension = path.Substring(lastDotIndex);
+            string extensionWithDot = path.Substring(lastDotIndex);
 
             var translatedSeparateStreamsFilesNames = new List<string>();
-            var firstRussianSubtitlesSeparateStreamFileName = $"{basePart}.1{extension}";
-            var secondRussianSubtitlesSeparateStreamFileName = $"{basePart}.2{extension}";
-            var thirdRussianSubtitlesSeparateStreamFileName = $"{basePart}.3{extension}";
-            var fourthRussianSubtitlesSeparateStreamFileName = $"{basePart}.4{extension}";
-            var fifthRussianSubtitlesSeparateStreamFileName = $"{basePart}.5{extension}";
+            var firstRussianSubtitlesSeparateStreamFileName = $"{basePart}_s1{extensionWithDot}";
+            var secondRussianSubtitlesSeparateStreamFileName = $"{basePart}_s2{extensionWithDot}";
+            var thirdRussianSubtitlesSeparateStreamFileName = $"{basePart}_s3{extensionWithDot}";
+            var fourthRussianSubtitlesSeparateStreamFileName = $"{basePart}_s4{extensionWithDot}";
+            var fifthRussianSubtitlesSeparateStreamFileName = $"{basePart}_s5{extensionWithDot}";
             // 1
             var currentSubs = m_subtitlesAndInfos[SubtitlesType.FirstRussian];
             if (ThereIsSubtitlesStream(currentSubs.Subtitles))
@@ -4580,7 +4581,7 @@ namespace BilingualSubtitler
                 translatedSeparateStreamsFilesNames.Add(fifthRussianSubtitlesSeparateStreamFileName);
             //////
 
-            if (Properties.Settings.Default.AndroidCreateSrtPack)
+            if (Properties.SettingsForAndroid.Default.AndroidCreateSrtPack)
             {
                 // Проверки
                 if (originalSubtitlesFileExist && srtRusPackFileExists)
@@ -4644,7 +4645,7 @@ namespace BilingualSubtitler
                 {
                     new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.Original].Subtitles, m_subtitlesAndInfos[SubtitlesType.Original].ColorPickingButton.BackColor),
                 },
-                getAndroidAppearanceSettings: 
+                getAndroidAppearanceSettings:
                 // getAndroidAppearanceSettingsCheckBox.Checked
                 true);
 
@@ -4664,8 +4665,7 @@ namespace BilingualSubtitler
             // Переведенные сабы
             ///////////////
 
-            // .srt-пак переведенных субтитров
-            if (Properties.Settings.Default.AndroidCreateSrtPack)
+            if (Properties.SettingsForAndroid.Default.AndroidCreateSrtPack) // .srt-пак переведенных субтитров
             {
                 var resultingFileName = srtRusPackPath;
                 var timeFormat = @"hh\:mm\:ss\,fff";
@@ -4716,7 +4716,7 @@ namespace BilingualSubtitler
             originalSubtitlesFileExist = File.Exists(originalSubtitlesPath);
             srtRusPackFileExists = File.Exists(srtRusPackPath);
             //
-            if (Properties.Settings.Default.AndroidCreateSrtPack)
+            if (Properties.SettingsForAndroid.Default.AndroidCreateSrtPack)
             {
                 if (originalSubtitlesFileExist && srtRusPackFileExists)
                 {
@@ -4835,9 +4835,9 @@ namespace BilingualSubtitler
 
         private void openAndroidSubtitlesAppearanceSettingsButton_Click(object sender, EventArgs e)
         {
-            using var settingsAndroid = new SettingsAndroidForm();
-            var dialogResult = settingsAndroid.ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            using var settingsAndroidForm = new SettingsAndroidForm();
+            var dialogResult = settingsAndroidForm.ShowDialog();
+            if ((dialogResult == DialogResult.OK) && settingsAndroidForm.SettingsWasSaved)
             {
                 SetFormAccordingToAndroidSettings();
             }
@@ -4845,23 +4845,23 @@ namespace BilingualSubtitler
 
         private void SetFormAccordingToAndroidSettings()
         {
-            if (Properties.Settings.Default.AndroidCreateSrtPack)
+            if (Properties.SettingsForAndroid.Default.AndroidCreateSrtPack)
             {
                 androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Text = "файл переведенных субтитров:";
-                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
+                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
             }
             else
             {
                 androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Text = "файлы переведенных субтитров:";
 
-                int lastDotIndex = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.LastIndexOf('.');
+                int lastDotIndex = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.LastIndexOf('.');
                 // Разделяем строку на две части:
                 // 1. Часть до последней точки (включая все символы ДО последней точки)
-                string basePart = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.Substring(0, lastDotIndex);
+                string basePart = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.Substring(0, lastDotIndex);
                 // 2. Расширение (последняя точка и всё после неё)
-                string extension = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.Substring(lastDotIndex);
+                string extension = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding.Substring(lastDotIndex);
 
-                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = $"{basePart}.[1..5]{extension}";
+                androidSrtPackOrSeparateStreamsFileEndingLabel.Text = $"{basePart}_s[1..5]{extension}";
             }
         }
 
@@ -4886,6 +4886,14 @@ namespace BilingualSubtitler
         }
 
         private void originalSubtitlesFileNameEndingLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// <see cref="SetFormAccordingToAndroidSettings"></see>
+        /// </summary>
+        private void techLabel2_Click(object sender, EventArgs e)
         {
 
         }

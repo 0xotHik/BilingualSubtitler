@@ -129,11 +129,5 @@
     <Setting Name="VideoPlayerPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AndroidSrtPackOrSeparateStreamsFileNameEnding" Type="System.String" Scope="User">
-      <Value Profile="(Default)">.rusPack.srt</Value>
-    </Setting>
-    <Setting Name="AndroidCreateSrtPack" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

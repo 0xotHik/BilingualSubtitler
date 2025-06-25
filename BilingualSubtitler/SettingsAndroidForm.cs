@@ -47,7 +47,7 @@ namespace BilingualSubtitler
             }
 
             // originalSubtitlesPathEndingTextBox.Text = Properties.Settings.Default.OriginalSubtitlesFileNameEnding;
-            srtPackPathEndingTextBox.Text = Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
+            srtPackPathEndingTextBox.Text = Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding;
 
             subtitlesAppearanceSettingsControl.Visible =
             subtitlesAppearanceSettingsControl.SubtitlesAppearanceSettingsGroupBox.Visible =
@@ -96,7 +96,7 @@ namespace BilingualSubtitler
 
             SetFormAccordingToSubtitlesAppearanceSettings();
 
-            if (Properties.Settings.Default.AndroidCreateSrtPack)
+            if (Properties.SettingsForAndroid.Default.AndroidCreateSrtPack)
                 createSrtPackRadioButton.Checked = true;
             else
                 createSrtSeparateSteamsRadioButton.Checked = true;
@@ -274,11 +274,13 @@ namespace BilingualSubtitler
             //
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
 
-            Properties.Settings.Default.AndroidCreateSrtPack = createSrtPackRadioButton.Checked;
+            Properties.SettingsForAndroid.Default.AndroidCreateSrtPack = createSrtPackRadioButton.Checked;
             //
             // Properties.Settings.Default.OriginalSubtitlesFileNameEnding = originalSubtitlesPathEndingTextBox.Text;
-            Properties.Settings.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding = srtPackPathEndingTextBox.Text;
-            Properties.Settings.Default.Save();
+            Properties.SettingsForAndroid.Default.AndroidSrtPackOrSeparateStreamsFileNameEnding = srtPackPathEndingTextBox.Text;
+            Properties.SettingsForAndroid.Default.Save();
+            //
+            SettingsWasSaved = true;
 
             DialogResult = DialogResult.OK;
             this.Close();
@@ -302,6 +304,26 @@ namespace BilingualSubtitler
         private void SettingsAndroidForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Вы уверены? Все настройки для Android будут сброшены к значениям по умолчанию!", "",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Properties.SettingsForAndroid.Default.Reset();
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Reset();
+                //
+                Properties.SettingsForAndroid.Default.Save();
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
+
+                DialogResult = DialogResult.OK;
+                SettingsWasSaved = true;
+
+                Close();
+            }
         }
     }
 }

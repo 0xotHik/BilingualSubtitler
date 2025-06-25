@@ -43,6 +43,7 @@ namespace BilingualSubtitler
             label2 = new Label();
             groupBox2 = new GroupBox();
             label3 = new Label();
+            button5 = new Button();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -171,6 +172,20 @@ namespace BilingualSubtitler
             label3.TabIndex = 112;
             label3.Text = resources.GetString("label3.Text");
             // 
+            // button5
+            // 
+            button5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            button5.Location = new System.Drawing.Point(190, 759);
+            button5.Margin = new Padding(4, 3, 4, 3);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(273, 40);
+            button5.TabIndex = 113;
+            button5.Text = "📖  Сбросить все настройки для Android\r\n к значениям по умолчанию";
+            button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click_1;
+            // 
             // SettingsAndroidForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -178,6 +193,7 @@ namespace BilingualSubtitler
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(676, 813);
+            Controls.Add(button5);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(groupBox2);
@@ -212,5 +228,6 @@ namespace BilingualSubtitler
         private Label label2;
         private GroupBox groupBox2;
         private Label label3;
+        private Button button5;
     }
 }

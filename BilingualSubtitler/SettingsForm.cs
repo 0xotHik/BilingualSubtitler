@@ -553,7 +553,7 @@ namespace BilingualSubtitler
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Вы уверены? Все настройки будут сброшены к настройкам по умолчанию!", "",
+            var result = MessageBox.Show("Вы уверены? Все настройки будут сброшены к значениям по умолчанию!", "",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (result == DialogResult.OK)
@@ -567,6 +567,13 @@ namespace BilingualSubtitler
 
                 Properties.SubtitlesAppearanceSettings.Default.Reset();
                 Properties.SubtitlesAppearanceSettings.Default.Save();
+
+                // Android
+                Properties.SettingsForAndroid.Default.Reset();
+                Properties.SettingsForAndroid.Default.Save();
+                //
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Reset();
+                Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
 
                 SettingsWasSaved = true;
 

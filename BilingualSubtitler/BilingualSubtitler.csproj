@@ -46,6 +46,10 @@
     <None Update="Additional\mpc-hc-keys.reg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Update="Properties\SettingsForAndroid.settings">
+      <LastGenOutput>SettingsForAndroid.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,6 +144,11 @@
   <ItemGroup>
     <Compile Update="FilesAlreadyExistsForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\SettingsForAndroid.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>SettingsForAndroid.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Properties\SubtitlesAppearanceSettingsForAndroid.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
