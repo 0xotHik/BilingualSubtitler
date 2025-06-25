@@ -243,34 +243,39 @@ namespace BilingualSubtitler
 
             // 1
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.FirstRussianSubtitlesAndroidStyleString = "null;null;null;null;null;null;null;" +
-                                                           $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" + "null;" +
+                                                           $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
                                                            $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesBoldCheckBox.Checked ? 1 : 0)};" +
                                                            $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox.Checked ? 1 : 0)};" +
-                                                           $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" + "null;";
+                                                           $"{(subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" 
+                                                           + "null;";
             // 2
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.SecondRussianSubtitlesAndroidStyleString = "null;null;null;null;null;null;null;" +
-                                               $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" + "null;" +
+                                               $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesBoldCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesItalicCheckBox.Checked ? 1 : 0)};" +
-                                               $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" + "null;";
+                                               $"{(subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" +
+                                               "null;";
             // 3
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.ThirdRussianSubtitlesAndroidStyleString = "null;null;null;null;null;null;null;" +
-                                               $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" + "null;" +
+                                               $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesBoldCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesItalicCheckBox.Checked ? 1 : 0)};" +
-                                               $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" + "null;";
+                                               $"{(subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" +
+                                               "null;";
             // 4
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.FourthRussianSubtitlesAndroidStyleString = "null;null;null;null;null;null;null;" +
-                                               $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" + "null;" +
+                                               $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesBoldCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesItalicCheckBox.Checked ? 1 : 0)};" +
-                                               $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" + "null;";
+                                               $"{(subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" +
+                                               "null;";
             // 5
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.FifthRussianSubtitlesAndroidStyleString = "null;null;null;null;null;null;null;" +
-                                               $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" + "null;" +
+                                               $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesBoldCheckBox.Checked ? 1 : 0)};" +
                                                $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox.Checked ? 1 : 0)};" +
-                                               $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" + "null;";
+                                               $"{(subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox.Checked ? 1 : 0)};" +
+                                               "null;";
             //
             Properties.SubtitlesAppearanceSettingsForAndroid.Default.Save();
 
