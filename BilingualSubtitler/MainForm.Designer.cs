@@ -2453,7 +2453,7 @@
             mxPlayerGoupBox.Size = new System.Drawing.Size(368, 211);
             mxPlayerGoupBox.TabIndex = 105;
             mxPlayerGoupBox.TabStop = false;
-            mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android через MX Player";
+            mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android";
             // 
             // techLabel2
             // 
@@ -2518,12 +2518,12 @@
             label18.AutoSize = true;
             label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
             label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
-            label18.Location = new System.Drawing.Point(65, 14);
+            label18.Location = new System.Drawing.Point(310, -2);
             label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(39, 16);
+            label18.Size = new System.Drawing.Size(40, 16);
             label18.TabIndex = 114;
-            label18.Text = "[Beta]";
+            label18.Text = "[Бета]";
             // 
             // label17
             // 
