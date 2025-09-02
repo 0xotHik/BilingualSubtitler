@@ -19,7 +19,9 @@ namespace BilingualSubtitler
             Subtitle[] originalSubtitles,
             Subtitle[] firstRussianSubtitles,
             Subtitle[] secondRussianSubtitles,
-            Subtitle[] thirdRussianSubtitles)
+            Subtitle[] thirdRussianSubtitles,
+            Subtitle[] fourthRussianSubtitles,
+            Subtitle[] fifthRussianSubtitles)
         {
             InitializeComponent();
 
@@ -28,7 +30,9 @@ namespace BilingualSubtitler
             originalSubtitlesDataGridView,
             firstRussianSubtitlesDataGridView,
             secondRussianSubtitlesDataGridView,
-            thirdRussianSubtitlesDataGridView
+            thirdRussianSubtitlesDataGridView,
+            fourthRussianSubtitlesDataGridView,
+            fifthRussianSubtitlesDataGridView
             });
 
             showSubtitlesOnlyFirstWordsCheckBox.Checked = Properties.Settings.Default.ShowSubtitlesOnlyFirstWords;
@@ -60,10 +64,16 @@ namespace BilingualSubtitler
             var timingColumnForFirstRussianSubtitles = (DataGridViewColumn)timingColumnForOriginalSubtitles.Clone();
             var timingColumnForSecondRussianSubtitles = (DataGridViewColumn)timingColumnForOriginalSubtitles.Clone();
             var timingColumnForThirdRussianSubtitles = (DataGridViewColumn)timingColumnForOriginalSubtitles.Clone();
+            var timingColumnForFourthRussianSubtitles = (DataGridViewColumn)timingColumnForOriginalSubtitles.Clone();
+            var timingColumnForFifthRussianSubtitles = (DataGridViewColumn)timingColumnForOriginalSubtitles.Clone();
+
             //+
             var textColumnForFirstRussianSubtitles = (DataGridViewColumn)textColumnForOriginalSubtitles.Clone();
             var textColumnForSecondRussianSubtitles = (DataGridViewColumn)textColumnForOriginalSubtitles.Clone();
             var textColumnForThirdRussianSubtitles = (DataGridViewColumn)textColumnForOriginalSubtitles.Clone();
+            var textColumnForFourthRussianSubtitles = (DataGridViewColumn)textColumnForOriginalSubtitles.Clone();
+            var textColumnForFifthRussianSubtitles = (DataGridViewColumn)textColumnForOriginalSubtitles.Clone();
+
 
             // Столбцы
             originalSubtitlesDataGridView.Columns.Add(timingColumnForOriginalSubtitles);
@@ -77,6 +87,12 @@ namespace BilingualSubtitler
             //
             thirdRussianSubtitlesDataGridView.Columns.Add(timingColumnForThirdRussianSubtitles);
             thirdRussianSubtitlesDataGridView.Columns.Add(textColumnForThirdRussianSubtitles);
+            //
+            fourthRussianSubtitlesDataGridView.Columns.Add(timingColumnForFourthRussianSubtitles);
+            fourthRussianSubtitlesDataGridView.Columns.Add(textColumnForFourthRussianSubtitles);
+            //
+            fifthRussianSubtitlesDataGridView.Columns.Add(timingColumnForFifthRussianSubtitles);
+            fifthRussianSubtitlesDataGridView.Columns.Add(textColumnForFifthRussianSubtitles);
 
             originalSubtitlesDataGridView.AllowUserToAddRows = false; 
 
@@ -84,6 +100,8 @@ namespace BilingualSubtitler
             PrintSubtitles(firstRussianSubtitles, firstRussianSubtitlesDataGridView);
             PrintSubtitles(secondRussianSubtitles, secondRussianSubtitlesDataGridView);
             PrintSubtitles(thirdRussianSubtitles, thirdRussianSubtitlesDataGridView);
+            PrintSubtitles(fourthRussianSubtitles, fourthRussianSubtitlesDataGridView);
+            PrintSubtitles(fifthRussianSubtitles, fifthRussianSubtitlesDataGridView);
 
             SetStyleForEachDataGridView(m_dataGridViews);
 

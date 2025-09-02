@@ -12,7 +12,7 @@ namespace BilingualSubtitler.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -405,12 +405,12 @@ namespace BilingualSubtitler.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool FixDotOrCommaAsTheFisrtCharOfNewLIne {
+        public bool FixDotOrCommaAsTheFisrtCharOfNewLine {
             get {
-                return ((bool)(this["FixDotOrCommaAsTheFisrtCharOfNewLIne"]));
+                return ((bool)(this["FixDotOrCommaAsTheFisrtCharOfNewLine"]));
             }
             set {
-                this["FixDotOrCommaAsTheFisrtCharOfNewLIne"] = value;
+                this["FixDotOrCommaAsTheFisrtCharOfNewLine"] = value;
             }
         }
         
@@ -447,6 +447,64 @@ namespace BilingualSubtitler.Properties {
             }
             set {
                 this["NotifyAboutSuccessfullySavedSubtitlesFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color FourthRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["FourthRussianSubtitlesColor"]));
+            }
+            set {
+                this["FourthRussianSubtitlesColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color FifthRussianSubtitlesColor {
+            get {
+                return ((global::System.Drawing.Color)(this["FifthRussianSubtitlesColor"]));
+            }
+            set {
+                this["FifthRussianSubtitlesColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RemoveAn {
+            get {
+                return ((bool)(this["RemoveAn"]));
+            }
+            set {
+                this["RemoveAn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StartVideoInSettedPlayer {
+            get {
+                return ((bool)(this["StartVideoInSettedPlayer"]));
+            }
+            set {
+                this["StartVideoInSettedPlayer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VideoPlayerPath {
+            get {
+                return ((string)(this["VideoPlayerPath"]));
+            }
+            set {
+                this["VideoPlayerPath"] = value;
             }
         }
     }

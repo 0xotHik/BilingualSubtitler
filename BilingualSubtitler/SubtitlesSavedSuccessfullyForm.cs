@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,17 +14,19 @@ namespace BilingualSubtitler
 {
     public partial class SubtitlesSavedSuccessfullyForm : Form
     {
-        public SubtitlesSavedSuccessfullyForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
+        public SubtitlesSavedSuccessfullyForm(string originalFileName, string bilingualSubtitlesSavedFileName = null)
         {
             InitializeComponent();
 
-            fileOrFilesLabel.Text = bilingualSubtitlesSavedFileName == null ? "Субтитры были сохранены в файл:" 
-                : "Субтитры были сохранены в файлы:";
+            if (bilingualSubtitlesSavedFileName != null)
+            {
+                fileOrFilesLabel.Text = bilingualSubtitlesSavedFileName == null ? "Субтитры были сохранены в файл:"
+                    : "Субтитры были сохранены в файлы:";
+            }
 
             fileNameLabel.MaximumSize = new Size(this.ClientSize.Width - 30, 0);
             fileNameLabel.AutoSize = true;
-
-            fileNameLabel.Text = savedFileName;
+            fileNameLabel.Text = originalFileName;
 
             var bottomOfTheText = fileNameLabel.Bottom;
 
@@ -49,6 +52,55 @@ namespace BilingualSubtitler
                 bilingualFileDotLabel.Show();
 
                 bottomOfTheText = bilingualFileNameLabel.Bottom;
+            }
+
+            // Перестановки
+            okButton.Top = bottomOfTheText + 25;
+            this.ClientSize = new System.Drawing.Size(this.Width, okButton.Bottom + 10);
+
+            this.CenterToParent();
+        }
+
+        public SubtitlesSavedSuccessfullyForm([NotNull] List<string> fileNames)
+        {
+            InitializeComponent();
+
+            fileOrFilesLabel.Text = fileNames.Count == 1 ? "Субтитры были сохранены в файл:"
+                : "Субтитры были сохранены в файлы:";
+
+            fileNameLabel.MaximumSize = new Size(this.ClientSize.Width - 30, 0);
+            fileNameLabel.AutoSize = true;
+            fileNameLabel.Text = fileNames[0];
+
+            var bottomOfTheText = fileNameLabel.Bottom;
+
+            if (fileNames.Count > 1)
+            {
+                for (int i = 1; i < fileNames.Count; i++) 
+                {
+                    string translatedFileName = fileNames[i];
+
+                    var translatedFileNameLabel = new Label();
+                    translatedFileNameLabel.MaximumSize = fileNameLabel.MaximumSize;
+                    translatedFileNameLabel.AutoSize = fileNameLabel.AutoSize;
+                    translatedFileNameLabel.Location = new Point(fileNameLabel.Left, bottomOfTheText + 10);
+                    translatedFileNameLabel.Parent = fileNameLabel.Parent;
+                    fileNameLabel.Parent.Controls.Add(translatedFileNameLabel);
+
+                    var translatedFileDotLabel = new Label();
+                    translatedFileDotLabel.Size = dotLabel.Size;
+                    translatedFileDotLabel.Location = new Point(dotLabel.Left, bottomOfTheText + 10);
+                    translatedFileDotLabel.Text = dotLabel.Text;
+                    translatedFileDotLabel.Parent = dotLabel.Parent;
+                    dotLabel.Parent.Controls.Add(translatedFileDotLabel);
+
+                    translatedFileNameLabel.Text = translatedFileName;
+
+                    translatedFileNameLabel.Show();
+                    translatedFileDotLabel.Show();
+
+                    bottomOfTheText = translatedFileNameLabel.Bottom;
+                }
             }
 
             // Перестановки

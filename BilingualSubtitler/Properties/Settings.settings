@@ -102,7 +102,7 @@
     <Setting Name="LatestInstalledVersion" Type="System.String" Scope="User">
       <Value Profile="(Default)">1.0</Value>
     </Setting>
-    <Setting Name="FixDotOrCommaAsTheFisrtCharOfNewLIne" Type="System.Boolean" Scope="User">
+    <Setting Name="FixDotOrCommaAsTheFisrtCharOfNewLine" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ReadAndWriteTitlesOfOriginIntoFinalFiles" Type="System.Boolean" Scope="User">
@@ -113,6 +113,21 @@
     </Setting>
     <Setting Name="NotifyAboutSuccessfullySavedSubtitlesFile" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FourthRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FifthRussianSubtitlesColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RemoveAn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StartVideoInSettedPlayer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="VideoPlayerPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

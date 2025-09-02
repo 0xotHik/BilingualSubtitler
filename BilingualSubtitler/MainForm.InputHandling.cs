@@ -6,6 +6,7 @@ using Settings = BilingualSubtitler.Properties.Settings;
 
 using NeatInput.Windows;
 using NeatInput.Windows.Events;
+using System.ComponentModel;
 
 namespace BilingualSubtitler
 {
@@ -129,6 +130,7 @@ namespace BilingualSubtitler
         private string m_videoPlayerProcessName;
         private IntPtr m_videoPlayerProcessMainWindowHandle;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IntPtr VideoPlayerProcessMainWindowHandle
         {
             set => m_videoPlayerProcessMainWindowHandle = value;
@@ -140,7 +142,6 @@ namespace BilingualSubtitler
 
         private int[] m_biligualSubtitlersHotkeysCodes;
         private char[] m_biligualSubtitlersHotkeysChars;
-        private char m_videoPlayerPauseKeyChar = ' ';
 
         private Stopwatch m_stopwatch;
 

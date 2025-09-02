@@ -11,13 +11,18 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
-    public partial class ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm : Form
+    public partial class SaveFileReportSuccessAskToOpenInDefaultAppForm : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool NeedToOpenInDefaultApp { get; private set; }
 
-        public ReportSuccessfullySavedAndAskToOpenSavedFileInDefaultAppForm(string savedFileName, string bilingualSubtitlesSavedFileName = null)
+        public SaveFileReportSuccessAskToOpenInDefaultAppForm(string savedFileName, 
+            string bilingualSubtitlesSavedFileName = null,
+            bool showOpenTranslatorButton = false)
         {
             InitializeComponent();
+
+            openTranslatorButton.Visible = showOpenTranslatorButton;
 
             fileNameLabel.MaximumSize = new Size(this.ClientSize.Width - 10, 0);
             fileNameLabel.AutoSize = true;
@@ -25,10 +30,15 @@ namespace BilingualSubtitler
             fileNameLabel.Text = $"• {savedFileName}";
 
             // Перестановки
-            openFileInDefaultAppButton.Top = okButton.Top = fileNameLabel.Bottom + 50;
-            this.ClientSize = new System.Drawing.Size(this.Width, openFileInDefaultAppButton.Bottom + 10);
+            // openFileInDefaultAppButton.Top = okButton.Top = openTranslatorButton.Top = fileNameLabel.Bottom + 50;
+            this.ClientSize = new System.Drawing.Size(this.Width, fileNameLabel.Bottom + 60);
 
             this.CenterToParent();
+        }
+
+        private void SaveFileReportSuccessAskToOpenInDefaultAppForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -41,6 +51,15 @@ namespace BilingualSubtitler
         private void openFileInDefaultAppButton_Click(object sender, EventArgs e)
         {
             NeedToOpenInDefaultApp = true;
+
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm.OpenUrl("https://translate.yandex.ru/doc");
+
+            NeedToOpenInDefaultApp = false;
 
             this.Close();
         }

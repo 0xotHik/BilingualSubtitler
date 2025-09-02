@@ -34,37 +34,37 @@
             techLabel1 = new System.Windows.Forms.Label();
             groupBox3 = new System.Windows.Forms.GroupBox();
             subtitlesStreamsPanel = new System.Windows.Forms.Panel();
-            groupBox12 = new System.Windows.Forms.GroupBox();
-            groupBox13 = new System.Windows.Forms.GroupBox();
-            button11 = new System.Windows.Forms.Button();
-            button12 = new System.Windows.Forms.Button();
-            button13 = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            fifthRussianSubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
+            fifthRussianSubtitlesExportAsSrtButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesExportAsDocxButton = new System.Windows.Forms.Button();
             groupBox14 = new System.Windows.Forms.GroupBox();
-            button14 = new System.Windows.Forms.Button();
-            groupBox15 = new System.Windows.Forms.GroupBox();
-            button15 = new System.Windows.Forms.Button();
-            button16 = new System.Windows.Forms.Button();
-            button17 = new System.Windows.Forms.Button();
-            label13 = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
-            label14 = new System.Windows.Forms.Label();
-            progressBar2 = new System.Windows.Forms.ProgressBar();
+            fifthRussianSubtitlesColorButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesOpenOrCloseGroupBox = new System.Windows.Forms.GroupBox();
+            fifthRussianSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesOpenFromDownloadsButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
+            fifthRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
+            fifthRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
+            fifthRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             label15 = new System.Windows.Forms.Label();
-            groupBox5 = new System.Windows.Forms.GroupBox();
-            groupBox7 = new System.Windows.Forms.GroupBox();
-            button2 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
-            button4 = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            fourthRussianSubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
+            fourthRussianSubtitlesExportAsSrtButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesExportAsDocxButton = new System.Windows.Forms.Button();
             groupBox8 = new System.Windows.Forms.GroupBox();
-            button5 = new System.Windows.Forms.Button();
-            groupBox11 = new System.Windows.Forms.GroupBox();
-            button6 = new System.Windows.Forms.Button();
-            button9 = new System.Windows.Forms.Button();
-            button10 = new System.Windows.Forms.Button();
-            label8 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            label11 = new System.Windows.Forms.Label();
-            progressBar1 = new System.Windows.Forms.ProgressBar();
+            fourthRussianSubtitlesColorButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesOpenOrCloseGroupBox = new System.Windows.Forms.GroupBox();
+            fourthRussianSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesOpenFromDownloadsButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
+            fourthRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
+            fourthRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
+            fourthRussianSubtitlesProgressBar = new System.Windows.Forms.ProgressBar();
             label12 = new System.Windows.Forms.Label();
             primarySubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             primarySubtitlesExportAsDocxGroupBox = new System.Windows.Forms.GroupBox();
@@ -76,7 +76,7 @@
             openOrClosePrimarySubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             originalSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
             openPrimarySubtitlesFromDownloadsButton = new System.Windows.Forms.Button();
-            openOrClosePrimarySubtitlesButton = new System.Windows.Forms.Button();
+            primarySubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
             primarySubtitlesActionLabel = new System.Windows.Forms.Label();
             primarySubtitlesTextBox = new System.Windows.Forms.TextBox();
             primarySubtitlesProgressLabel = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             openOrCloseFirstRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             firstRussianSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
             firstRussianSubtitlesOpenFromDownloadsButton = new System.Windows.Forms.Button();
-            openOrCloseFirstRussianSubtitlesButton = new System.Windows.Forms.Button();
+            firstRussianSubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
             firstRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
             firstRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
             firstRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
@@ -110,7 +110,7 @@
             openOrCloseSecondRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
             secondRussianSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
             secondRussianSubtitlesOpenFromDownloadsButton = new System.Windows.Forms.Button();
-            openOrCloseSecondRussianSubtitlesButton = new System.Windows.Forms.Button();
+            secondRussianSubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
             groupBox20 = new System.Windows.Forms.GroupBox();
             secondRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
             secondRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
@@ -126,10 +126,10 @@
             thirdRussianSubtitlesExportAsDocxButton = new System.Windows.Forms.Button();
             thirdRussianSubtitlesColorGroupBox = new System.Windows.Forms.GroupBox();
             thirdRussianSubtitlesColorButton = new System.Windows.Forms.Button();
-            openOrCloseThirdRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            thirdRussianSubtitlesOpenOrCloseGroupBox = new System.Windows.Forms.GroupBox();
             thirdRussianSubtitlesOpenFromClipboardButton = new System.Windows.Forms.Button();
             thirdRussianSubtitlesOpenFromDownloadsButton = new System.Windows.Forms.Button();
-            openOrCloseThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesOpenOrCloseButton = new System.Windows.Forms.Button();
             thirdRussianSubtitlesActionLabel = new System.Windows.Forms.Label();
             thirdRussianSubtitlesTextBox = new System.Windows.Forms.TextBox();
             thirdRussianSubtitlesProgressLabel = new System.Windows.Forms.Label();
@@ -141,13 +141,13 @@
             label45 = new System.Windows.Forms.Label();
             docXTranslationGroupBox = new System.Windows.Forms.GroupBox();
             googleTranslatorLinkLabel = new System.Windows.Forms.LinkLabel();
-            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            YandexTranslateLinkLabel = new System.Windows.Forms.LinkLabel();
             groupBox4 = new System.Windows.Forms.GroupBox();
             label9 = new System.Windows.Forms.Label();
-            bilingualSubtitlesFileNameEnding = new System.Windows.Forms.Label();
-            originalSubtitlesFileNameEnding = new System.Windows.Forms.Label();
             bilingualSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
             originalSubtitlesFileNameEndingLabel = new System.Windows.Forms.Label();
+            bilingualSubtitlesFileNameEndingTitleLabel = new System.Windows.Forms.Label();
+            originalSubtitlesFileNameEndingTitleLabel = new System.Windows.Forms.Label();
             selectVideoFileToGetPathForSubtitlesButton = new System.Windows.Forms.Button();
             label6 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -158,18 +158,18 @@
             label46 = new System.Windows.Forms.Label();
             openBilingualSubtitlerButton = new System.Windows.Forms.Button();
             openSecondRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
-            openThirdRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesOpenFromDefaultFolderButton = new System.Windows.Forms.Button();
             openFirstRussianSubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
             openPrimarySubtitlesFromDefaultFolderButton = new System.Windows.Forms.Button();
             translateToFirstRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
-            translateToFirstRussianSubtitlesButton = new System.Windows.Forms.Button();
-            translateWordByWordToFirstRussianSubtitlesButton = new System.Windows.Forms.Button();
+            firstRussianSubtitlesTranslateToSubtitlesButton = new System.Windows.Forms.Button();
+            firstRussianSubtitlesTranslateWordByWordToButton = new System.Windows.Forms.Button();
             translateToSecondRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
-            translateWordByWordToSecondRussianSubtitlesButton = new System.Windows.Forms.Button();
-            translateToSecondRussianSubtitlesButton = new System.Windows.Forms.Button();
+            secondRussianSubtitlesTranslateWordByWordToButton = new System.Windows.Forms.Button();
+            secondRussianSubtitlesTranslateToSubtitlesButton = new System.Windows.Forms.Button();
             translateToThirdRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
-            translateWordByWordToThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
-            translateToThirdRussianSubtitlesButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesTranslateWordByWordToButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesTranslateToButton = new System.Windows.Forms.Button();
             redefineSubtitlesAppearanceSettingsCheckBox = new System.Windows.Forms.CheckBox();
             button1 = new System.Windows.Forms.Button();
             notifyIcon = new System.Windows.Forms.NotifyIcon(components);
@@ -178,15 +178,20 @@
             videoAndSubtitlesStateComboBoxWithBorder = new VideoAndSubtitlesStateComboBoxWithBorderControl();
             appIsRunningInAdministrativeModePanelControl = new AppIsRunningInAdministrativeModePanelControl();
             translateToRussianSubtitlesGroupBox = new System.Windows.Forms.GroupBox();
+            translateToRussianSubtitlesBetaLabel = new System.Windows.Forms.Label();
             openSubtitlesFromDefaultFolderGroupBox = new System.Windows.Forms.GroupBox();
             groupBox10 = new System.Windows.Forms.GroupBox();
+            fourthRussianSubtitlesOpenFromDefaultFolderButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesOpenFromDefaultFolderButton = new System.Windows.Forms.Button();
             showSubtitlesButton = new System.Windows.Forms.Button();
             subtitlesAppearanceSettingsControl = new SubtitlesAppearanceSettings();
             openSubtitlesIn1251GroupBox = new System.Windows.Forms.GroupBox();
             groupBox9 = new System.Windows.Forms.GroupBox();
+            fourthRussianSubtitlesOpenIn1251Button = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesOpenIn1251Button = new System.Windows.Forms.Button();
             openFirstRussianSubtitlesIn1251Button = new System.Windows.Forms.Button();
-            openSecondRussianSubtitlesIn1251Button = new System.Windows.Forms.Button();
-            openThirdRussianSubtitlesIn1251Button = new System.Windows.Forms.Button();
+            secondRussianSubtitlesOpenIn1251Button = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesOpenIn1251Button = new System.Windows.Forms.Button();
             openPrimarySubtitlesIn1251Button = new System.Windows.Forms.Button();
             removePostfixGroupBox = new System.Windows.Forms.GroupBox();
             button7 = new System.Windows.Forms.Button();
@@ -199,16 +204,27 @@
             label10 = new System.Windows.Forms.Label();
             playVideoButton = new System.Windows.Forms.Button();
             minimizeToTrayButton = new System.Windows.Forms.Button();
+            mxPlayerGoupBox = new System.Windows.Forms.GroupBox();
+            techLabel2 = new System.Windows.Forms.Label();
+            originalSubtitlesFileNameEndingLabelCopyForAndroid = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            openAndroidSubtitlesAppearanceSettingsButton = new System.Windows.Forms.Button();
+            label18 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            androidSrtPackOrSeparateStreamsFileEndingLabel = new System.Windows.Forms.Label();
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel = new System.Windows.Forms.Label();
+            createAndroidSubtitesButton = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
-            groupBox12.SuspendLayout();
-            groupBox13.SuspendLayout();
+            fifthRussianSubtitlesGroupBox.SuspendLayout();
+            fifthRussianSubtitlesExportAsDocxGroupBox.SuspendLayout();
             groupBox14.SuspendLayout();
-            groupBox15.SuspendLayout();
-            groupBox5.SuspendLayout();
-            groupBox7.SuspendLayout();
+            fifthRussianSubtitlesOpenOrCloseGroupBox.SuspendLayout();
+            fourthRussianSubtitlesGroupBox.SuspendLayout();
+            fourthRussianSubtitlesExportAsDocxGroupBox.SuspendLayout();
             groupBox8.SuspendLayout();
-            groupBox11.SuspendLayout();
+            fourthRussianSubtitlesOpenOrCloseGroupBox.SuspendLayout();
             primarySubtitlesGroupBox.SuspendLayout();
             primarySubtitlesExportAsDocxGroupBox.SuspendLayout();
             primarySubtitlesColorGroupBox.SuspendLayout();
@@ -224,7 +240,7 @@
             thirdRussianSubtitlesGroupBox.SuspendLayout();
             thirdRussianSubtitlesExportAsDocxGroupBox.SuspendLayout();
             thirdRussianSubtitlesColorGroupBox.SuspendLayout();
-            openOrCloseThirdRussianSubtitlesGroupBox.SuspendLayout();
+            thirdRussianSubtitlesOpenOrCloseGroupBox.SuspendLayout();
             additionalOpenExportSubtitlesButtonsGroupBox.SuspendLayout();
             docXTranslationGroupBox.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -241,6 +257,7 @@
             removePostfixGroupBox.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            mxPlayerGoupBox.SuspendLayout();
             SuspendLayout();
             // 
             // settingsButton
@@ -285,8 +302,10 @@
             // 
             // subtitlesStreamsPanel
             // 
-            subtitlesStreamsPanel.Controls.Add(groupBox12);
-            subtitlesStreamsPanel.Controls.Add(groupBox5);
+            subtitlesStreamsPanel.AutoScroll = true;
+            subtitlesStreamsPanel.AutoScrollMinSize = new System.Drawing.Size(822, 592);
+            subtitlesStreamsPanel.Controls.Add(fifthRussianSubtitlesGroupBox);
+            subtitlesStreamsPanel.Controls.Add(fourthRussianSubtitlesGroupBox);
             subtitlesStreamsPanel.Controls.Add(primarySubtitlesGroupBox);
             subtitlesStreamsPanel.Controls.Add(firstRussianSubtitlesGroupBox);
             subtitlesStreamsPanel.Controls.Add(showSecondRussianSubtitlesButton);
@@ -295,81 +314,84 @@
             subtitlesStreamsPanel.Controls.Add(thirdRussianSubtitlesGroupBox);
             subtitlesStreamsPanel.Location = new System.Drawing.Point(7, 25);
             subtitlesStreamsPanel.Name = "subtitlesStreamsPanel";
-            subtitlesStreamsPanel.Size = new System.Drawing.Size(822, 392);
+            subtitlesStreamsPanel.Size = new System.Drawing.Size(844, 392);
             subtitlesStreamsPanel.TabIndex = 103;
             // 
-            // groupBox12
+            // fifthRussianSubtitlesGroupBox
             // 
-            groupBox12.Controls.Add(groupBox13);
-            groupBox12.Controls.Add(groupBox14);
-            groupBox12.Controls.Add(groupBox15);
-            groupBox12.Controls.Add(label13);
-            groupBox12.Controls.Add(textBox2);
-            groupBox12.Controls.Add(label14);
-            groupBox12.Controls.Add(progressBar2);
-            groupBox12.Controls.Add(label15);
-            groupBox12.Location = new System.Drawing.Point(0, 500);
-            groupBox12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox12.Name = "groupBox12";
-            groupBox12.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox12.Size = new System.Drawing.Size(822, 93);
-            groupBox12.TabIndex = 40;
-            groupBox12.TabStop = false;
-            groupBox12.Text = "1-й поток переведенных субтитров";
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesExportAsDocxGroupBox);
+            fifthRussianSubtitlesGroupBox.Controls.Add(groupBox14);
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesOpenOrCloseGroupBox);
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesActionLabel);
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesTextBox);
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesProgressLabel);
+            fifthRussianSubtitlesGroupBox.Controls.Add(fifthRussianSubtitlesProgressBar);
+            fifthRussianSubtitlesGroupBox.Controls.Add(label15);
+            fifthRussianSubtitlesGroupBox.Location = new System.Drawing.Point(0, 500);
+            fifthRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesGroupBox.Name = "fifthRussianSubtitlesGroupBox";
+            fifthRussianSubtitlesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesGroupBox.Size = new System.Drawing.Size(822, 93);
+            fifthRussianSubtitlesGroupBox.TabIndex = 40;
+            fifthRussianSubtitlesGroupBox.TabStop = false;
+            fifthRussianSubtitlesGroupBox.Text = "5-й поток переведенных субтитров";
             // 
-            // groupBox13
+            // fifthRussianSubtitlesExportAsDocxGroupBox
             // 
-            groupBox13.Controls.Add(button11);
-            groupBox13.Controls.Add(button12);
-            groupBox13.Controls.Add(button13);
-            groupBox13.Location = new System.Drawing.Point(635, 10);
-            groupBox13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox13.Name = "groupBox13";
-            groupBox13.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox13.Size = new System.Drawing.Size(178, 78);
-            groupBox13.TabIndex = 19;
-            groupBox13.TabStop = false;
-            groupBox13.Text = "Сохранить субтитры в файл";
+            fifthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fifthRussianSubtitlesExportAsSrtButton);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fifthRussianSubtitlesExportAsDocxIntoDownloadsButton);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fifthRussianSubtitlesExportAsDocxButton);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Location = new System.Drawing.Point(635, 10);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Name = "fifthRussianSubtitlesExportAsDocxGroupBox";
+            fifthRussianSubtitlesExportAsDocxGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesExportAsDocxGroupBox.Size = new System.Drawing.Size(178, 78);
+            fifthRussianSubtitlesExportAsDocxGroupBox.TabIndex = 19;
+            fifthRussianSubtitlesExportAsDocxGroupBox.TabStop = false;
+            fifthRussianSubtitlesExportAsDocxGroupBox.Text = "Сохранить субтитры в файл";
             // 
-            // button11
+            // fifthRussianSubtitlesExportAsSrtButton
             // 
-            button11.AllowDrop = true;
-            button11.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button11.Location = new System.Drawing.Point(86, 46);
-            button11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button11.Name = "button11";
-            button11.Size = new System.Drawing.Size(84, 27);
-            button11.TabIndex = 19;
-            button11.Text = "как 💬.srt";
-            button11.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsSrtButton.AllowDrop = true;
+            fifthRussianSubtitlesExportAsSrtButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesExportAsSrtButton.Location = new System.Drawing.Point(86, 46);
+            fifthRussianSubtitlesExportAsSrtButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesExportAsSrtButton.Name = "fifthRussianSubtitlesExportAsSrtButton";
+            fifthRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(84, 27);
+            fifthRussianSubtitlesExportAsSrtButton.TabIndex = 19;
+            fifthRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
+            fifthRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsSrtButton.Click += fifthRussianSubtitlesExportAsSrtButton_Click;
             // 
-            // button12
+            // fifthRussianSubtitlesExportAsDocxIntoDownloadsButton
             // 
-            button12.AllowDrop = true;
-            button12.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button12.Location = new System.Drawing.Point(86, 16);
-            button12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button12.Name = "button12";
-            button12.Size = new System.Drawing.Size(84, 27);
-            button12.TabIndex = 18;
-            button12.Text = "в 📥 — .docx";
-            button12.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.AllowDrop = true;
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Location = new System.Drawing.Point(86, 16);
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Name = "fifthRussianSubtitlesExportAsDocxIntoDownloadsButton";
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Size = new System.Drawing.Size(84, 27);
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.TabIndex = 18;
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Text = "в 📥 — .docx";
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsDocxIntoDownloadsButton.Click += fifthRussianSubtitlesExportAsDocxIntoDownloadsButton_Click;
             // 
-            // button13
+            // fifthRussianSubtitlesExportAsDocxButton
             // 
-            button13.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            button13.Location = new System.Drawing.Point(7, 16);
-            button13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button13.Name = "button13";
-            button13.Size = new System.Drawing.Size(79, 57);
-            button13.TabIndex = 17;
-            button13.Text = "🖴\r\nСохранить\r\nкак .docx";
-            button13.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsDocxButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesExportAsDocxButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            fifthRussianSubtitlesExportAsDocxButton.Location = new System.Drawing.Point(7, 16);
+            fifthRussianSubtitlesExportAsDocxButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesExportAsDocxButton.Name = "fifthRussianSubtitlesExportAsDocxButton";
+            fifthRussianSubtitlesExportAsDocxButton.Size = new System.Drawing.Size(79, 57);
+            fifthRussianSubtitlesExportAsDocxButton.TabIndex = 17;
+            fifthRussianSubtitlesExportAsDocxButton.Text = "🖴\r\nСохранить\r\nкак .docx";
+            fifthRussianSubtitlesExportAsDocxButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesExportAsDocxButton.Click += fifthRussianSubtitlesExportAsDocxButton_Click;
             // 
             // groupBox14
             // 
-            groupBox14.Controls.Add(button14);
+            groupBox14.Controls.Add(fifthRussianSubtitlesColorButton);
             groupBox14.Location = new System.Drawing.Point(560, 10);
             groupBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox14.Name = "groupBox14";
@@ -379,107 +401,111 @@
             groupBox14.TabStop = false;
             groupBox14.Text = "Цвет:";
             // 
-            // button14
+            // fifthRussianSubtitlesColorButton
             // 
-            button14.BackColor = System.Drawing.Color.Silver;
-            button14.Location = new System.Drawing.Point(12, 22);
-            button14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button14.Name = "button14";
-            button14.Size = new System.Drawing.Size(42, 42);
-            button14.TabIndex = 9;
-            button14.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesColorButton.BackColor = System.Drawing.Color.Silver;
+            fifthRussianSubtitlesColorButton.Location = new System.Drawing.Point(12, 22);
+            fifthRussianSubtitlesColorButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesColorButton.Name = "fifthRussianSubtitlesColorButton";
+            fifthRussianSubtitlesColorButton.Size = new System.Drawing.Size(42, 42);
+            fifthRussianSubtitlesColorButton.TabIndex = 9;
+            fifthRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesColorButton.Click += colorPickingButton_Click;
             // 
-            // groupBox15
+            // fifthRussianSubtitlesOpenOrCloseGroupBox
             // 
-            groupBox15.Controls.Add(button15);
-            groupBox15.Controls.Add(button16);
-            groupBox15.Controls.Add(button17);
-            groupBox15.Location = new System.Drawing.Point(399, 10);
-            groupBox15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox15.Name = "groupBox15";
-            groupBox15.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox15.Size = new System.Drawing.Size(156, 78);
-            groupBox15.TabIndex = 17;
-            groupBox15.TabStop = false;
-            groupBox15.Text = "Открыть субтитры";
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fifthRussianSubtitlesOpenFromClipboardButton);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fifthRussianSubtitlesOpenFromDownloadsButton);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fifthRussianSubtitlesOpenOrCloseButton);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Location = new System.Drawing.Point(399, 10);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Name = "fifthRussianSubtitlesOpenOrCloseGroupBox";
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Size = new System.Drawing.Size(156, 78);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.TabIndex = 17;
+            fifthRussianSubtitlesOpenOrCloseGroupBox.TabStop = false;
+            fifthRussianSubtitlesOpenOrCloseGroupBox.Text = "Открыть субтитры";
             // 
-            // button15
+            // fifthRussianSubtitlesOpenFromClipboardButton
             // 
-            button15.AllowDrop = true;
-            button15.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            button15.Location = new System.Drawing.Point(79, 46);
-            button15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button15.Name = "button15";
-            button15.Size = new System.Drawing.Size(74, 27);
-            button15.TabIndex = 14;
-            button15.Text = "Из 📋";
-            button15.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenFromClipboardButton.AllowDrop = true;
+            fifthRussianSubtitlesOpenFromClipboardButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesOpenFromClipboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            fifthRussianSubtitlesOpenFromClipboardButton.Location = new System.Drawing.Point(79, 46);
+            fifthRussianSubtitlesOpenFromClipboardButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenFromClipboardButton.Name = "fifthRussianSubtitlesOpenFromClipboardButton";
+            fifthRussianSubtitlesOpenFromClipboardButton.Size = new System.Drawing.Size(74, 27);
+            fifthRussianSubtitlesOpenFromClipboardButton.TabIndex = 14;
+            fifthRussianSubtitlesOpenFromClipboardButton.Text = "Из 📋";
+            fifthRussianSubtitlesOpenFromClipboardButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenFromClipboardButton.Click += fifthRussianSubtitlesOpenFromClipboardButton_Click;
             // 
-            // button16
+            // fifthRussianSubtitlesOpenFromDownloadsButton
             // 
-            button16.AllowDrop = true;
-            button16.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button16.Font = new System.Drawing.Font("Segoe UI", 9F);
-            button16.Location = new System.Drawing.Point(79, 16);
-            button16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button16.Name = "button16";
-            button16.Size = new System.Drawing.Size(74, 27);
-            button16.TabIndex = 17;
-            button16.Text = "файл из 📥";
-            button16.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenFromDownloadsButton.AllowDrop = true;
+            fifthRussianSubtitlesOpenFromDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesOpenFromDownloadsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            fifthRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(79, 16);
+            fifthRussianSubtitlesOpenFromDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenFromDownloadsButton.Name = "fifthRussianSubtitlesOpenFromDownloadsButton";
+            fifthRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(74, 27);
+            fifthRussianSubtitlesOpenFromDownloadsButton.TabIndex = 17;
+            fifthRussianSubtitlesOpenFromDownloadsButton.Text = "файл из 📥";
+            fifthRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenFromDownloadsButton.Click += fifthRussianSubtitlesOpenFromDownloadsButton_Click;
             // 
-            // button17
+            // fifthRussianSubtitlesOpenOrCloseButton
             // 
-            button17.AllowDrop = true;
-            button17.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button17.Location = new System.Drawing.Point(7, 16);
-            button17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button17.Name = "button17";
-            button17.Size = new System.Drawing.Size(72, 57);
-            button17.TabIndex = 16;
-            button17.Text = "📁 \r\nОткрыть \r\nиз файла";
-            button17.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenOrCloseButton.AllowDrop = true;
+            fifthRussianSubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            fifthRussianSubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenOrCloseButton.Name = "fifthRussianSubtitlesOpenOrCloseButton";
+            fifthRussianSubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            fifthRussianSubtitlesOpenOrCloseButton.TabIndex = 16;
+            fifthRussianSubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            fifthRussianSubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenOrCloseButton.Click += fifthRussianSubtitlesOpenOrCloseButton_Click;
             // 
-            // label13
+            // fifthRussianSubtitlesActionLabel
             // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(9, 48);
-            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(13, 15);
-            label13.TabIndex = 9;
-            label13.Text = "1";
-            label13.Visible = false;
+            fifthRussianSubtitlesActionLabel.AutoSize = true;
+            fifthRussianSubtitlesActionLabel.Location = new System.Drawing.Point(9, 48);
+            fifthRussianSubtitlesActionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            fifthRussianSubtitlesActionLabel.Name = "fifthRussianSubtitlesActionLabel";
+            fifthRussianSubtitlesActionLabel.Size = new System.Drawing.Size(13, 15);
+            fifthRussianSubtitlesActionLabel.TabIndex = 9;
+            fifthRussianSubtitlesActionLabel.Text = "1";
+            fifthRussianSubtitlesActionLabel.Visible = false;
             // 
-            // textBox2
+            // fifthRussianSubtitlesTextBox
             // 
-            textBox2.AllowDrop = true;
-            textBox2.Location = new System.Drawing.Point(7, 22);
-            textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(383, 23);
-            textBox2.TabIndex = 1;
+            fifthRussianSubtitlesTextBox.AllowDrop = true;
+            fifthRussianSubtitlesTextBox.Location = new System.Drawing.Point(7, 22);
+            fifthRussianSubtitlesTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesTextBox.Name = "fifthRussianSubtitlesTextBox";
+            fifthRussianSubtitlesTextBox.Size = new System.Drawing.Size(383, 23);
+            fifthRussianSubtitlesTextBox.TabIndex = 1;
             // 
-            // label14
+            // fifthRussianSubtitlesProgressLabel
             // 
-            label14.Location = new System.Drawing.Point(217, 48);
-            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(170, 15);
-            label14.TabIndex = 2;
-            label14.Text = "firstRussianSubtitlesLabel";
-            label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            label14.Visible = false;
+            fifthRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(217, 48);
+            fifthRussianSubtitlesProgressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            fifthRussianSubtitlesProgressLabel.Name = "fifthRussianSubtitlesProgressLabel";
+            fifthRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(170, 15);
+            fifthRussianSubtitlesProgressLabel.TabIndex = 2;
+            fifthRussianSubtitlesProgressLabel.Text = "firstRussianSubtitlesLabel";
+            fifthRussianSubtitlesProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            fifthRussianSubtitlesProgressLabel.Visible = false;
             // 
-            // progressBar2
+            // fifthRussianSubtitlesProgressBar
             // 
-            progressBar2.Location = new System.Drawing.Point(7, 67);
-            progressBar2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            progressBar2.Name = "progressBar2";
-            progressBar2.Size = new System.Drawing.Size(384, 12);
-            progressBar2.TabIndex = 3;
-            progressBar2.Visible = false;
+            fifthRussianSubtitlesProgressBar.Location = new System.Drawing.Point(7, 67);
+            fifthRussianSubtitlesProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesProgressBar.Name = "fifthRussianSubtitlesProgressBar";
+            fifthRussianSubtitlesProgressBar.Size = new System.Drawing.Size(384, 12);
+            fifthRussianSubtitlesProgressBar.TabIndex = 3;
+            fifthRussianSubtitlesProgressBar.Visible = false;
             // 
             // label15
             // 
@@ -491,78 +517,81 @@
             label15.Text = "Цвет";
             label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox5
+            // fourthRussianSubtitlesGroupBox
             // 
-            groupBox5.Controls.Add(groupBox7);
-            groupBox5.Controls.Add(groupBox8);
-            groupBox5.Controls.Add(groupBox11);
-            groupBox5.Controls.Add(label8);
-            groupBox5.Controls.Add(textBox1);
-            groupBox5.Controls.Add(label11);
-            groupBox5.Controls.Add(progressBar1);
-            groupBox5.Controls.Add(label12);
-            groupBox5.Location = new System.Drawing.Point(0, 400);
-            groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox5.Size = new System.Drawing.Size(822, 93);
-            groupBox5.TabIndex = 39;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "1-й поток переведенных субтитров";
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesExportAsDocxGroupBox);
+            fourthRussianSubtitlesGroupBox.Controls.Add(groupBox8);
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesOpenOrCloseGroupBox);
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesActionLabel);
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesTextBox);
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesProgressLabel);
+            fourthRussianSubtitlesGroupBox.Controls.Add(fourthRussianSubtitlesProgressBar);
+            fourthRussianSubtitlesGroupBox.Controls.Add(label12);
+            fourthRussianSubtitlesGroupBox.Location = new System.Drawing.Point(0, 400);
+            fourthRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesGroupBox.Name = "fourthRussianSubtitlesGroupBox";
+            fourthRussianSubtitlesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesGroupBox.Size = new System.Drawing.Size(822, 93);
+            fourthRussianSubtitlesGroupBox.TabIndex = 39;
+            fourthRussianSubtitlesGroupBox.TabStop = false;
+            fourthRussianSubtitlesGroupBox.Text = "4-й поток переведенных субтитров";
             // 
-            // groupBox7
+            // fourthRussianSubtitlesExportAsDocxGroupBox
             // 
-            groupBox7.Controls.Add(button2);
-            groupBox7.Controls.Add(button3);
-            groupBox7.Controls.Add(button4);
-            groupBox7.Location = new System.Drawing.Point(635, 10);
-            groupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox7.Name = "groupBox7";
-            groupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox7.Size = new System.Drawing.Size(178, 78);
-            groupBox7.TabIndex = 19;
-            groupBox7.TabStop = false;
-            groupBox7.Text = "Сохранить субтитры в файл";
+            fourthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fourthRussianSubtitlesExportAsSrtButton);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fourthRussianSubtitlesExportAsDocxIntoDownloadsButton);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Controls.Add(fourthRussianSubtitlesExportAsDocxButton);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Location = new System.Drawing.Point(635, 10);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Name = "fourthRussianSubtitlesExportAsDocxGroupBox";
+            fourthRussianSubtitlesExportAsDocxGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesExportAsDocxGroupBox.Size = new System.Drawing.Size(178, 78);
+            fourthRussianSubtitlesExportAsDocxGroupBox.TabIndex = 19;
+            fourthRussianSubtitlesExportAsDocxGroupBox.TabStop = false;
+            fourthRussianSubtitlesExportAsDocxGroupBox.Text = "Сохранить субтитры в файл";
             // 
-            // button2
+            // fourthRussianSubtitlesExportAsSrtButton
             // 
-            button2.AllowDrop = true;
-            button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button2.Location = new System.Drawing.Point(86, 46);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(84, 27);
-            button2.TabIndex = 19;
-            button2.Text = "как 💬.srt";
-            button2.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsSrtButton.AllowDrop = true;
+            fourthRussianSubtitlesExportAsSrtButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesExportAsSrtButton.Location = new System.Drawing.Point(86, 46);
+            fourthRussianSubtitlesExportAsSrtButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesExportAsSrtButton.Name = "fourthRussianSubtitlesExportAsSrtButton";
+            fourthRussianSubtitlesExportAsSrtButton.Size = new System.Drawing.Size(84, 27);
+            fourthRussianSubtitlesExportAsSrtButton.TabIndex = 19;
+            fourthRussianSubtitlesExportAsSrtButton.Text = "как 💬.srt";
+            fourthRussianSubtitlesExportAsSrtButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsSrtButton.Click += fourthRussianSubtitlesExportAsSrtButton_Click;
             // 
-            // button3
+            // fourthRussianSubtitlesExportAsDocxIntoDownloadsButton
             // 
-            button3.AllowDrop = true;
-            button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button3.Location = new System.Drawing.Point(86, 16);
-            button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(84, 27);
-            button3.TabIndex = 18;
-            button3.Text = "в 📥 — .docx";
-            button3.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.AllowDrop = true;
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Location = new System.Drawing.Point(86, 16);
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Name = "fourthRussianSubtitlesExportAsDocxIntoDownloadsButton";
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Size = new System.Drawing.Size(84, 27);
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.TabIndex = 18;
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Text = "в 📥 — .docx";
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsDocxIntoDownloadsButton.Click += fourthRussianSubtitlesExportAsDocxIntoDownloadsButton_Click;
             // 
-            // button4
+            // fourthRussianSubtitlesExportAsDocxButton
             // 
-            button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            button4.Location = new System.Drawing.Point(7, 16);
-            button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(79, 57);
-            button4.TabIndex = 17;
-            button4.Text = "🖴\r\nСохранить\r\nкак .docx";
-            button4.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsDocxButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesExportAsDocxButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            fourthRussianSubtitlesExportAsDocxButton.Location = new System.Drawing.Point(7, 16);
+            fourthRussianSubtitlesExportAsDocxButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesExportAsDocxButton.Name = "fourthRussianSubtitlesExportAsDocxButton";
+            fourthRussianSubtitlesExportAsDocxButton.Size = new System.Drawing.Size(79, 57);
+            fourthRussianSubtitlesExportAsDocxButton.TabIndex = 17;
+            fourthRussianSubtitlesExportAsDocxButton.Text = "🖴\r\nСохранить\r\nкак .docx";
+            fourthRussianSubtitlesExportAsDocxButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesExportAsDocxButton.Click += fourthRussianSubtitlesExportAsDocxButton_Click;
             // 
             // groupBox8
             // 
-            groupBox8.Controls.Add(button5);
+            groupBox8.Controls.Add(fourthRussianSubtitlesColorButton);
             groupBox8.Location = new System.Drawing.Point(560, 10);
             groupBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox8.Name = "groupBox8";
@@ -572,107 +601,111 @@
             groupBox8.TabStop = false;
             groupBox8.Text = "Цвет:";
             // 
-            // button5
+            // fourthRussianSubtitlesColorButton
             // 
-            button5.BackColor = System.Drawing.Color.Silver;
-            button5.Location = new System.Drawing.Point(12, 22);
-            button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(42, 42);
-            button5.TabIndex = 9;
-            button5.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesColorButton.BackColor = System.Drawing.Color.Silver;
+            fourthRussianSubtitlesColorButton.Location = new System.Drawing.Point(12, 22);
+            fourthRussianSubtitlesColorButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesColorButton.Name = "fourthRussianSubtitlesColorButton";
+            fourthRussianSubtitlesColorButton.Size = new System.Drawing.Size(42, 42);
+            fourthRussianSubtitlesColorButton.TabIndex = 9;
+            fourthRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesColorButton.Click += colorPickingButton_Click;
             // 
-            // groupBox11
+            // fourthRussianSubtitlesOpenOrCloseGroupBox
             // 
-            groupBox11.Controls.Add(button6);
-            groupBox11.Controls.Add(button9);
-            groupBox11.Controls.Add(button10);
-            groupBox11.Location = new System.Drawing.Point(399, 10);
-            groupBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox11.Name = "groupBox11";
-            groupBox11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox11.Size = new System.Drawing.Size(156, 78);
-            groupBox11.TabIndex = 17;
-            groupBox11.TabStop = false;
-            groupBox11.Text = "Открыть субтитры";
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fourthRussianSubtitlesOpenFromClipboardButton);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fourthRussianSubtitlesOpenFromDownloadsButton);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(fourthRussianSubtitlesOpenOrCloseButton);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Location = new System.Drawing.Point(399, 10);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Name = "fourthRussianSubtitlesOpenOrCloseGroupBox";
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Size = new System.Drawing.Size(156, 78);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.TabIndex = 17;
+            fourthRussianSubtitlesOpenOrCloseGroupBox.TabStop = false;
+            fourthRussianSubtitlesOpenOrCloseGroupBox.Text = "Открыть субтитры";
             // 
-            // button6
+            // fourthRussianSubtitlesOpenFromClipboardButton
             // 
-            button6.AllowDrop = true;
-            button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            button6.Location = new System.Drawing.Point(79, 46);
-            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(74, 27);
-            button6.TabIndex = 14;
-            button6.Text = "Из 📋";
-            button6.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenFromClipboardButton.AllowDrop = true;
+            fourthRussianSubtitlesOpenFromClipboardButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesOpenFromClipboardButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            fourthRussianSubtitlesOpenFromClipboardButton.Location = new System.Drawing.Point(79, 46);
+            fourthRussianSubtitlesOpenFromClipboardButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenFromClipboardButton.Name = "fourthRussianSubtitlesOpenFromClipboardButton";
+            fourthRussianSubtitlesOpenFromClipboardButton.Size = new System.Drawing.Size(74, 27);
+            fourthRussianSubtitlesOpenFromClipboardButton.TabIndex = 14;
+            fourthRussianSubtitlesOpenFromClipboardButton.Text = "Из 📋";
+            fourthRussianSubtitlesOpenFromClipboardButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenFromClipboardButton.Click += fourthRussianSubtitlesOpenFromClipboardButton_Click;
             // 
-            // button9
+            // fourthRussianSubtitlesOpenFromDownloadsButton
             // 
-            button9.AllowDrop = true;
-            button9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            button9.Location = new System.Drawing.Point(79, 16);
-            button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(74, 27);
-            button9.TabIndex = 17;
-            button9.Text = "файл из 📥";
-            button9.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenFromDownloadsButton.AllowDrop = true;
+            fourthRussianSubtitlesOpenFromDownloadsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesOpenFromDownloadsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            fourthRussianSubtitlesOpenFromDownloadsButton.Location = new System.Drawing.Point(79, 16);
+            fourthRussianSubtitlesOpenFromDownloadsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenFromDownloadsButton.Name = "fourthRussianSubtitlesOpenFromDownloadsButton";
+            fourthRussianSubtitlesOpenFromDownloadsButton.Size = new System.Drawing.Size(74, 27);
+            fourthRussianSubtitlesOpenFromDownloadsButton.TabIndex = 17;
+            fourthRussianSubtitlesOpenFromDownloadsButton.Text = "файл из 📥";
+            fourthRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenFromDownloadsButton.Click += fourthRussianSubtitlesOpenFromDownloadsButton_Click;
             // 
-            // button10
+            // fourthRussianSubtitlesOpenOrCloseButton
             // 
-            button10.AllowDrop = true;
-            button10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button10.Location = new System.Drawing.Point(7, 16);
-            button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(72, 57);
-            button10.TabIndex = 16;
-            button10.Text = "📁 \r\nОткрыть \r\nиз файла";
-            button10.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenOrCloseButton.AllowDrop = true;
+            fourthRussianSubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            fourthRussianSubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenOrCloseButton.Name = "fourthRussianSubtitlesOpenOrCloseButton";
+            fourthRussianSubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            fourthRussianSubtitlesOpenOrCloseButton.TabIndex = 16;
+            fourthRussianSubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            fourthRussianSubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenOrCloseButton.Click += fourthRussianSubtitlesOpenOrCloseButton_Click;
             // 
-            // label8
+            // fourthRussianSubtitlesActionLabel
             // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(8, 48);
-            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(13, 15);
-            label8.TabIndex = 9;
-            label8.Text = "1";
-            label8.Visible = false;
+            fourthRussianSubtitlesActionLabel.AutoSize = true;
+            fourthRussianSubtitlesActionLabel.Location = new System.Drawing.Point(8, 48);
+            fourthRussianSubtitlesActionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            fourthRussianSubtitlesActionLabel.Name = "fourthRussianSubtitlesActionLabel";
+            fourthRussianSubtitlesActionLabel.Size = new System.Drawing.Size(13, 15);
+            fourthRussianSubtitlesActionLabel.TabIndex = 9;
+            fourthRussianSubtitlesActionLabel.Text = "1";
+            fourthRussianSubtitlesActionLabel.Visible = false;
             // 
-            // textBox1
+            // fourthRussianSubtitlesTextBox
             // 
-            textBox1.AllowDrop = true;
-            textBox1.Location = new System.Drawing.Point(7, 22);
-            textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(383, 23);
-            textBox1.TabIndex = 1;
+            fourthRussianSubtitlesTextBox.AllowDrop = true;
+            fourthRussianSubtitlesTextBox.Location = new System.Drawing.Point(7, 22);
+            fourthRussianSubtitlesTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesTextBox.Name = "fourthRussianSubtitlesTextBox";
+            fourthRussianSubtitlesTextBox.Size = new System.Drawing.Size(383, 23);
+            fourthRussianSubtitlesTextBox.TabIndex = 1;
             // 
-            // label11
+            // fourthRussianSubtitlesProgressLabel
             // 
-            label11.Location = new System.Drawing.Point(217, 48);
-            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(170, 15);
-            label11.TabIndex = 2;
-            label11.Text = "firstRussianSubtitlesLabel";
-            label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            label11.Visible = false;
+            fourthRussianSubtitlesProgressLabel.Location = new System.Drawing.Point(217, 48);
+            fourthRussianSubtitlesProgressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            fourthRussianSubtitlesProgressLabel.Name = "fourthRussianSubtitlesProgressLabel";
+            fourthRussianSubtitlesProgressLabel.Size = new System.Drawing.Size(170, 15);
+            fourthRussianSubtitlesProgressLabel.TabIndex = 2;
+            fourthRussianSubtitlesProgressLabel.Text = "firstRussianSubtitlesLabel";
+            fourthRussianSubtitlesProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            fourthRussianSubtitlesProgressLabel.Visible = false;
             // 
-            // progressBar1
+            // fourthRussianSubtitlesProgressBar
             // 
-            progressBar1.Location = new System.Drawing.Point(7, 67);
-            progressBar1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new System.Drawing.Size(384, 12);
-            progressBar1.TabIndex = 3;
-            progressBar1.Visible = false;
+            fourthRussianSubtitlesProgressBar.Location = new System.Drawing.Point(7, 67);
+            fourthRussianSubtitlesProgressBar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesProgressBar.Name = "fourthRussianSubtitlesProgressBar";
+            fourthRussianSubtitlesProgressBar.Size = new System.Drawing.Size(384, 12);
+            fourthRussianSubtitlesProgressBar.TabIndex = 3;
+            fourthRussianSubtitlesProgressBar.Visible = false;
             // 
             // label12
             // 
@@ -783,7 +816,7 @@
             // 
             openOrClosePrimarySubtitlesGroupBox.Controls.Add(originalSubtitlesOpenFromClipboardButton);
             openOrClosePrimarySubtitlesGroupBox.Controls.Add(openPrimarySubtitlesFromDownloadsButton);
-            openOrClosePrimarySubtitlesGroupBox.Controls.Add(openOrClosePrimarySubtitlesButton);
+            openOrClosePrimarySubtitlesGroupBox.Controls.Add(primarySubtitlesOpenOrCloseButton);
             openOrClosePrimarySubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
             openOrClosePrimarySubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openOrClosePrimarySubtitlesGroupBox.Name = "openOrClosePrimarySubtitlesGroupBox";
@@ -821,18 +854,18 @@
             openPrimarySubtitlesFromDownloadsButton.UseVisualStyleBackColor = false;
             openPrimarySubtitlesFromDownloadsButton.Click += openPrimarySubtitlesFromDownloadsButton_Click;
             // 
-            // openOrClosePrimarySubtitlesButton
+            // primarySubtitlesOpenOrCloseButton
             // 
-            openOrClosePrimarySubtitlesButton.AllowDrop = true;
-            openOrClosePrimarySubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openOrClosePrimarySubtitlesButton.Location = new System.Drawing.Point(7, 16);
-            openOrClosePrimarySubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrClosePrimarySubtitlesButton.Name = "openOrClosePrimarySubtitlesButton";
-            openOrClosePrimarySubtitlesButton.Size = new System.Drawing.Size(72, 57);
-            openOrClosePrimarySubtitlesButton.TabIndex = 11;
-            openOrClosePrimarySubtitlesButton.Text = "📁 \r\nОткрыть \r\nиз файла";
-            openOrClosePrimarySubtitlesButton.UseVisualStyleBackColor = false;
-            openOrClosePrimarySubtitlesButton.Click += openOrClosePrimarySubtitlesButton_Click;
+            primarySubtitlesOpenOrCloseButton.AllowDrop = true;
+            primarySubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            primarySubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            primarySubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            primarySubtitlesOpenOrCloseButton.Name = "primarySubtitlesOpenOrCloseButton";
+            primarySubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            primarySubtitlesOpenOrCloseButton.TabIndex = 11;
+            primarySubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            primarySubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            primarySubtitlesOpenOrCloseButton.Click += openOrClosePrimarySubtitlesButton_Click;
             // 
             // primarySubtitlesActionLabel
             // 
@@ -985,7 +1018,7 @@
             // 
             openOrCloseFirstRussianSubtitlesGroupBox.Controls.Add(firstRussianSubtitlesOpenFromClipboardButton);
             openOrCloseFirstRussianSubtitlesGroupBox.Controls.Add(firstRussianSubtitlesOpenFromDownloadsButton);
-            openOrCloseFirstRussianSubtitlesGroupBox.Controls.Add(openOrCloseFirstRussianSubtitlesButton);
+            openOrCloseFirstRussianSubtitlesGroupBox.Controls.Add(firstRussianSubtitlesOpenOrCloseButton);
             openOrCloseFirstRussianSubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
             openOrCloseFirstRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openOrCloseFirstRussianSubtitlesGroupBox.Name = "openOrCloseFirstRussianSubtitlesGroupBox";
@@ -1023,18 +1056,18 @@
             firstRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             firstRussianSubtitlesOpenFromDownloadsButton.Click += firstRussianSubtitlesOpenFromDownloadsButton_Click;
             // 
-            // openOrCloseFirstRussianSubtitlesButton
+            // firstRussianSubtitlesOpenOrCloseButton
             // 
-            openOrCloseFirstRussianSubtitlesButton.AllowDrop = true;
-            openOrCloseFirstRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openOrCloseFirstRussianSubtitlesButton.Location = new System.Drawing.Point(7, 16);
-            openOrCloseFirstRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrCloseFirstRussianSubtitlesButton.Name = "openOrCloseFirstRussianSubtitlesButton";
-            openOrCloseFirstRussianSubtitlesButton.Size = new System.Drawing.Size(72, 57);
-            openOrCloseFirstRussianSubtitlesButton.TabIndex = 16;
-            openOrCloseFirstRussianSubtitlesButton.Text = "📁 \r\nОткрыть \r\nиз файла";
-            openOrCloseFirstRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            openOrCloseFirstRussianSubtitlesButton.Click += openOrCloseFirstRussianSubtitlesButton_Click;
+            firstRussianSubtitlesOpenOrCloseButton.AllowDrop = true;
+            firstRussianSubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            firstRussianSubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            firstRussianSubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            firstRussianSubtitlesOpenOrCloseButton.Name = "firstRussianSubtitlesOpenOrCloseButton";
+            firstRussianSubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            firstRussianSubtitlesOpenOrCloseButton.TabIndex = 16;
+            firstRussianSubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            firstRussianSubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            firstRussianSubtitlesOpenOrCloseButton.Click += openOrCloseFirstRussianSubtitlesButton_Click;
             // 
             // firstRussianSubtitlesActionLabel
             // 
@@ -1216,7 +1249,7 @@
             // 
             openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(secondRussianSubtitlesOpenFromClipboardButton);
             openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(secondRussianSubtitlesOpenFromDownloadsButton);
-            openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(openOrCloseSecondRussianSubtitlesButton);
+            openOrCloseSecondRussianSubtitlesGroupBox.Controls.Add(secondRussianSubtitlesOpenOrCloseButton);
             openOrCloseSecondRussianSubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
             openOrCloseSecondRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openOrCloseSecondRussianSubtitlesGroupBox.Name = "openOrCloseSecondRussianSubtitlesGroupBox";
@@ -1254,18 +1287,18 @@
             secondRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             secondRussianSubtitlesOpenFromDownloadsButton.Click += secondRussianSubtitlesOpenFromDownloadsButton_Click;
             // 
-            // openOrCloseSecondRussianSubtitlesButton
+            // secondRussianSubtitlesOpenOrCloseButton
             // 
-            openOrCloseSecondRussianSubtitlesButton.AllowDrop = true;
-            openOrCloseSecondRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openOrCloseSecondRussianSubtitlesButton.Location = new System.Drawing.Point(7, 16);
-            openOrCloseSecondRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrCloseSecondRussianSubtitlesButton.Name = "openOrCloseSecondRussianSubtitlesButton";
-            openOrCloseSecondRussianSubtitlesButton.Size = new System.Drawing.Size(72, 57);
-            openOrCloseSecondRussianSubtitlesButton.TabIndex = 41;
-            openOrCloseSecondRussianSubtitlesButton.Text = "📁 \r\nОткрыть \r\nиз файла";
-            openOrCloseSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            openOrCloseSecondRussianSubtitlesButton.Click += openOrCloseSecondRussianSubtitlesButton_Click;
+            secondRussianSubtitlesOpenOrCloseButton.AllowDrop = true;
+            secondRussianSubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            secondRussianSubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            secondRussianSubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            secondRussianSubtitlesOpenOrCloseButton.Name = "secondRussianSubtitlesOpenOrCloseButton";
+            secondRussianSubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            secondRussianSubtitlesOpenOrCloseButton.TabIndex = 41;
+            secondRussianSubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            secondRussianSubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            secondRussianSubtitlesOpenOrCloseButton.Click += openOrCloseSecondRussianSubtitlesButton_Click;
             // 
             // groupBox20
             // 
@@ -1347,7 +1380,7 @@
             thirdRussianSubtitlesGroupBox.Controls.Add(hideThirdRussianSubtitlesButton);
             thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesExportAsDocxGroupBox);
             thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesColorGroupBox);
-            thirdRussianSubtitlesGroupBox.Controls.Add(openOrCloseThirdRussianSubtitlesGroupBox);
+            thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesOpenOrCloseGroupBox);
             thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesActionLabel);
             thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesTextBox);
             thirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesProgressLabel);
@@ -1451,19 +1484,19 @@
             thirdRussianSubtitlesColorButton.UseVisualStyleBackColor = false;
             thirdRussianSubtitlesColorButton.Click += colorPickingButton_Click;
             // 
-            // openOrCloseThirdRussianSubtitlesGroupBox
+            // thirdRussianSubtitlesOpenOrCloseGroupBox
             // 
-            openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesOpenFromClipboardButton);
-            openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesOpenFromDownloadsButton);
-            openOrCloseThirdRussianSubtitlesGroupBox.Controls.Add(openOrCloseThirdRussianSubtitlesButton);
-            openOrCloseThirdRussianSubtitlesGroupBox.Location = new System.Drawing.Point(399, 10);
-            openOrCloseThirdRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrCloseThirdRussianSubtitlesGroupBox.Name = "openOrCloseThirdRussianSubtitlesGroupBox";
-            openOrCloseThirdRussianSubtitlesGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrCloseThirdRussianSubtitlesGroupBox.Size = new System.Drawing.Size(156, 78);
-            openOrCloseThirdRussianSubtitlesGroupBox.TabIndex = 43;
-            openOrCloseThirdRussianSubtitlesGroupBox.TabStop = false;
-            openOrCloseThirdRussianSubtitlesGroupBox.Text = "Открыть субтитры";
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(thirdRussianSubtitlesOpenFromClipboardButton);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(thirdRussianSubtitlesOpenFromDownloadsButton);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Controls.Add(thirdRussianSubtitlesOpenOrCloseButton);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Location = new System.Drawing.Point(399, 10);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Name = "thirdRussianSubtitlesOpenOrCloseGroupBox";
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Size = new System.Drawing.Size(156, 78);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.TabIndex = 43;
+            thirdRussianSubtitlesOpenOrCloseGroupBox.TabStop = false;
+            thirdRussianSubtitlesOpenOrCloseGroupBox.Text = "Открыть субтитры";
             // 
             // thirdRussianSubtitlesOpenFromClipboardButton
             // 
@@ -1493,18 +1526,18 @@
             thirdRussianSubtitlesOpenFromDownloadsButton.UseVisualStyleBackColor = false;
             thirdRussianSubtitlesOpenFromDownloadsButton.Click += thirdRussianSubtitlesOpenFromDownloadsButton_Click;
             // 
-            // openOrCloseThirdRussianSubtitlesButton
+            // thirdRussianSubtitlesOpenOrCloseButton
             // 
-            openOrCloseThirdRussianSubtitlesButton.AllowDrop = true;
-            openOrCloseThirdRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openOrCloseThirdRussianSubtitlesButton.Location = new System.Drawing.Point(7, 16);
-            openOrCloseThirdRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openOrCloseThirdRussianSubtitlesButton.Name = "openOrCloseThirdRussianSubtitlesButton";
-            openOrCloseThirdRussianSubtitlesButton.Size = new System.Drawing.Size(72, 57);
-            openOrCloseThirdRussianSubtitlesButton.TabIndex = 42;
-            openOrCloseThirdRussianSubtitlesButton.Text = "📁 \r\nОткрыть \r\nиз файла";
-            openOrCloseThirdRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            openOrCloseThirdRussianSubtitlesButton.Click += openOrCloseThirdRussianSubtitlesButton_Click;
+            thirdRussianSubtitlesOpenOrCloseButton.AllowDrop = true;
+            thirdRussianSubtitlesOpenOrCloseButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            thirdRussianSubtitlesOpenOrCloseButton.Location = new System.Drawing.Point(7, 16);
+            thirdRussianSubtitlesOpenOrCloseButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesOpenOrCloseButton.Name = "thirdRussianSubtitlesOpenOrCloseButton";
+            thirdRussianSubtitlesOpenOrCloseButton.Size = new System.Drawing.Size(72, 57);
+            thirdRussianSubtitlesOpenOrCloseButton.TabIndex = 42;
+            thirdRussianSubtitlesOpenOrCloseButton.Text = "📁 \r\nОткрыть \r\nиз файла";
+            thirdRussianSubtitlesOpenOrCloseButton.UseVisualStyleBackColor = false;
+            thirdRussianSubtitlesOpenOrCloseButton.Click += openOrCloseThirdRussianSubtitlesButton_Click;
             // 
             // thirdRussianSubtitlesActionLabel
             // 
@@ -1572,21 +1605,21 @@
             // additionalOpenExportSubtitlesButtonsLabel
             // 
             additionalOpenExportSubtitlesButtonsLabel.AutoSize = true;
-            additionalOpenExportSubtitlesButtonsLabel.Location = new System.Drawing.Point(844, 135);
+            additionalOpenExportSubtitlesButtonsLabel.Location = new System.Drawing.Point(865, 134);
             additionalOpenExportSubtitlesButtonsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             additionalOpenExportSubtitlesButtonsLabel.Name = "additionalOpenExportSubtitlesButtonsLabel";
-            additionalOpenExportSubtitlesButtonsLabel.Size = new System.Drawing.Size(103, 60);
+            additionalOpenExportSubtitlesButtonsLabel.Size = new System.Drawing.Size(72, 75);
             additionalOpenExportSubtitlesButtonsLabel.TabIndex = 49;
-            additionalOpenExportSubtitlesButtonsLabel.Text = "Дополнительные\r\nклавиши \r\nоткрытия/\r\nсохранения";
+            additionalOpenExportSubtitlesButtonsLabel.Text = "Дополни-\r\nтельные\r\nклавиши \r\nоткрытия/\r\nсохранения";
             // 
             // additionalOpenExportSubtitlesButtonsGroupBox
             // 
             additionalOpenExportSubtitlesButtonsGroupBox.Controls.Add(label45);
-            additionalOpenExportSubtitlesButtonsGroupBox.Location = new System.Drawing.Point(836, 194);
+            additionalOpenExportSubtitlesButtonsGroupBox.Location = new System.Drawing.Point(858, 209);
             additionalOpenExportSubtitlesButtonsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             additionalOpenExportSubtitlesButtonsGroupBox.Name = "additionalOpenExportSubtitlesButtonsGroupBox";
             additionalOpenExportSubtitlesButtonsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            additionalOpenExportSubtitlesButtonsGroupBox.Size = new System.Drawing.Size(114, 178);
+            additionalOpenExportSubtitlesButtonsGroupBox.Size = new System.Drawing.Size(89, 178);
             additionalOpenExportSubtitlesButtonsGroupBox.TabIndex = 15;
             additionalOpenExportSubtitlesButtonsGroupBox.TabStop = false;
             additionalOpenExportSubtitlesButtonsGroupBox.Text = "субтитров:";
@@ -1594,7 +1627,7 @@
             // label45
             // 
             label45.AutoSize = true;
-            label45.Location = new System.Drawing.Point(5, 25);
+            label45.Location = new System.Drawing.Point(1, 31);
             label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label45.Name = "label45";
             label45.Size = new System.Drawing.Size(87, 135);
@@ -1604,12 +1637,12 @@
             // docXTranslationGroupBox
             // 
             docXTranslationGroupBox.Controls.Add(googleTranslatorLinkLabel);
-            docXTranslationGroupBox.Controls.Add(linkLabel1);
-            docXTranslationGroupBox.Location = new System.Drawing.Point(836, 25);
+            docXTranslationGroupBox.Controls.Add(YandexTranslateLinkLabel);
+            docXTranslationGroupBox.Location = new System.Drawing.Point(858, 25);
             docXTranslationGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             docXTranslationGroupBox.Name = "docXTranslationGroupBox";
             docXTranslationGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            docXTranslationGroupBox.Size = new System.Drawing.Size(114, 107);
+            docXTranslationGroupBox.Size = new System.Drawing.Size(92, 107);
             docXTranslationGroupBox.TabIndex = 14;
             docXTranslationGroupBox.TabStop = false;
             docXTranslationGroupBox.Text = "Перевести .docx";
@@ -1618,7 +1651,7 @@
             // 
             googleTranslatorLinkLabel.AutoSize = true;
             googleTranslatorLinkLabel.LinkColor = System.Drawing.Color.CornflowerBlue;
-            googleTranslatorLinkLabel.Location = new System.Drawing.Point(7, 59);
+            googleTranslatorLinkLabel.Location = new System.Drawing.Point(3, 59);
             googleTranslatorLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             googleTranslatorLinkLabel.Name = "googleTranslatorLinkLabel";
             googleTranslatorLinkLabel.Size = new System.Drawing.Size(87, 30);
@@ -1627,27 +1660,27 @@
             googleTranslatorLinkLabel.Text = "• Google \r\nПереводчик →";
             googleTranslatorLinkLabel.LinkClicked += linkLabel2_LinkClicked;
             // 
-            // linkLabel1
+            // YandexTranslateLinkLabel
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = System.Drawing.Color.Red;
-            linkLabel1.Location = new System.Drawing.Point(7, 19);
-            linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new System.Drawing.Size(87, 30);
-            linkLabel1.TabIndex = 0;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "• Яндекс.\r\nПереводчик →";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            YandexTranslateLinkLabel.AutoSize = true;
+            YandexTranslateLinkLabel.LinkColor = System.Drawing.Color.Red;
+            YandexTranslateLinkLabel.Location = new System.Drawing.Point(3, 19);
+            YandexTranslateLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            YandexTranslateLinkLabel.Name = "YandexTranslateLinkLabel";
+            YandexTranslateLinkLabel.Size = new System.Drawing.Size(87, 30);
+            YandexTranslateLinkLabel.TabIndex = 0;
+            YandexTranslateLinkLabel.TabStop = true;
+            YandexTranslateLinkLabel.Text = "• Яндекс.\r\nПереводчик →";
+            YandexTranslateLinkLabel.LinkClicked += linkLabel1_LinkClicked;
             // 
             // groupBox4
             // 
             groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox4.Controls.Add(label9);
-            groupBox4.Controls.Add(bilingualSubtitlesFileNameEnding);
-            groupBox4.Controls.Add(originalSubtitlesFileNameEnding);
             groupBox4.Controls.Add(bilingualSubtitlesFileNameEndingLabel);
             groupBox4.Controls.Add(originalSubtitlesFileNameEndingLabel);
+            groupBox4.Controls.Add(bilingualSubtitlesFileNameEndingTitleLabel);
+            groupBox4.Controls.Add(originalSubtitlesFileNameEndingTitleLabel);
             groupBox4.Controls.Add(selectVideoFileToGetPathForSubtitlesButton);
             groupBox4.Controls.Add(label6);
             groupBox4.Controls.Add(label4);
@@ -1671,49 +1704,50 @@
             label9.TabIndex = 49;
             label9.Text = "с которым планируется просмотр,\r\nдля установки пути до него";
             // 
-            // bilingualSubtitlesFileNameEnding
-            // 
-            bilingualSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            bilingualSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            bilingualSubtitlesFileNameEnding.Location = new System.Drawing.Point(553, 111);
-            bilingualSubtitlesFileNameEnding.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            bilingualSubtitlesFileNameEnding.Name = "bilingualSubtitlesFileNameEnding";
-            bilingualSubtitlesFileNameEnding.Size = new System.Drawing.Size(186, 23);
-            bilingualSubtitlesFileNameEnding.TabIndex = 48;
-            bilingualSubtitlesFileNameEnding.Text = ".ruseng.BilingualSubtitler.ass";
-            bilingualSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // originalSubtitlesFileNameEnding
-            // 
-            originalSubtitlesFileNameEnding.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
-            originalSubtitlesFileNameEnding.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            originalSubtitlesFileNameEnding.Location = new System.Drawing.Point(553, 62);
-            originalSubtitlesFileNameEnding.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            originalSubtitlesFileNameEnding.Name = "originalSubtitlesFileNameEnding";
-            originalSubtitlesFileNameEnding.Size = new System.Drawing.Size(186, 23);
-            originalSubtitlesFileNameEnding.TabIndex = 47;
-            originalSubtitlesFileNameEnding.Text = ".eng.BilingualSubtitler.ass";
-            originalSubtitlesFileNameEnding.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // bilingualSubtitlesFileNameEndingLabel
             // 
-            bilingualSubtitlesFileNameEndingLabel.AutoSize = true;
-            bilingualSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(555, 91);
+            bilingualSubtitlesFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            bilingualSubtitlesFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            bilingualSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(553, 111);
             bilingualSubtitlesFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             bilingualSubtitlesFileNameEndingLabel.Name = "bilingualSubtitlesFileNameEndingLabel";
-            bilingualSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(168, 15);
-            bilingualSubtitlesFileNameEndingLabel.TabIndex = 46;
-            bilingualSubtitlesFileNameEndingLabel.Text = "файл двуязычных субтитров:";
+            bilingualSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
+            bilingualSubtitlesFileNameEndingLabel.TabIndex = 48;
+            bilingualSubtitlesFileNameEndingLabel.Text = ".ruseng.BilingualSubtitler.ass";
+            bilingualSubtitlesFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // originalSubtitlesFileNameEndingLabel
             // 
-            originalSubtitlesFileNameEndingLabel.AutoSize = true;
-            originalSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(550, 43);
+            originalSubtitlesFileNameEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            originalSubtitlesFileNameEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            originalSubtitlesFileNameEndingLabel.Location = new System.Drawing.Point(553, 62);
             originalSubtitlesFileNameEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             originalSubtitlesFileNameEndingLabel.Name = "originalSubtitlesFileNameEndingLabel";
-            originalSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(182, 15);
-            originalSubtitlesFileNameEndingLabel.TabIndex = 45;
-            originalSubtitlesFileNameEndingLabel.Text = "файл оригинальных субтитров:";
+            originalSubtitlesFileNameEndingLabel.Size = new System.Drawing.Size(186, 23);
+            originalSubtitlesFileNameEndingLabel.TabIndex = 47;
+            originalSubtitlesFileNameEndingLabel.Text = ".eng.BilingualSubtitler.ass";
+            originalSubtitlesFileNameEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            originalSubtitlesFileNameEndingLabel.Click += originalSubtitlesFileNameEndingLabel_Click;
+            // 
+            // bilingualSubtitlesFileNameEndingTitleLabel
+            // 
+            bilingualSubtitlesFileNameEndingTitleLabel.AutoSize = true;
+            bilingualSubtitlesFileNameEndingTitleLabel.Location = new System.Drawing.Point(555, 91);
+            bilingualSubtitlesFileNameEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            bilingualSubtitlesFileNameEndingTitleLabel.Name = "bilingualSubtitlesFileNameEndingTitleLabel";
+            bilingualSubtitlesFileNameEndingTitleLabel.Size = new System.Drawing.Size(168, 15);
+            bilingualSubtitlesFileNameEndingTitleLabel.TabIndex = 46;
+            bilingualSubtitlesFileNameEndingTitleLabel.Text = "файл двуязычных субтитров:";
+            // 
+            // originalSubtitlesFileNameEndingTitleLabel
+            // 
+            originalSubtitlesFileNameEndingTitleLabel.AutoSize = true;
+            originalSubtitlesFileNameEndingTitleLabel.Location = new System.Drawing.Point(550, 43);
+            originalSubtitlesFileNameEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            originalSubtitlesFileNameEndingTitleLabel.Name = "originalSubtitlesFileNameEndingTitleLabel";
+            originalSubtitlesFileNameEndingTitleLabel.Size = new System.Drawing.Size(182, 15);
+            originalSubtitlesFileNameEndingTitleLabel.TabIndex = 45;
+            originalSubtitlesFileNameEndingTitleLabel.Text = "файл оригинальных субтитров:";
             // 
             // selectVideoFileToGetPathForSubtitlesButton
             // 
@@ -1819,7 +1853,7 @@
             // 
             openSecondRussianSubtitlesFromDefaultFolderButton.AllowDrop = true;
             openSecondRussianSubtitlesFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openSecondRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(75, 18);
+            openSecondRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(53, 18);
             openSecondRussianSubtitlesFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openSecondRussianSubtitlesFromDefaultFolderButton.Name = "openSecondRussianSubtitlesFromDefaultFolderButton";
             openSecondRussianSubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(40, 27);
@@ -1828,19 +1862,19 @@
             openSecondRussianSubtitlesFromDefaultFolderButton.UseVisualStyleBackColor = false;
             openSecondRussianSubtitlesFromDefaultFolderButton.Click += openSecondRussianSubtitlesFromDefaultFolderButton_Click;
             // 
-            // openThirdRussianSubtitlesFromDefaultFolderButton
+            // thirdRussianSubtitlesOpenFromDefaultFolderButton
             // 
-            openThirdRussianSubtitlesFromDefaultFolderButton.AllowDrop = true;
-            openThirdRussianSubtitlesFromDefaultFolderButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            openThirdRussianSubtitlesFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openThirdRussianSubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(138, 18);
-            openThirdRussianSubtitlesFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openThirdRussianSubtitlesFromDefaultFolderButton.Name = "openThirdRussianSubtitlesFromDefaultFolderButton";
-            openThirdRussianSubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(40, 27);
-            openThirdRussianSubtitlesFromDefaultFolderButton.TabIndex = 44;
-            openThirdRussianSubtitlesFromDefaultFolderButton.Text = "№3";
-            openThirdRussianSubtitlesFromDefaultFolderButton.UseVisualStyleBackColor = false;
-            openThirdRussianSubtitlesFromDefaultFolderButton.Click += openThirdRussianSubtitlesFromDefaultFolderButton_Click;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.AllowDrop = true;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Location = new System.Drawing.Point(94, 17);
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Name = "thirdRussianSubtitlesOpenFromDefaultFolderButton";
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Size = new System.Drawing.Size(40, 27);
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.TabIndex = 44;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Text = "№3";
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.UseVisualStyleBackColor = false;
+            thirdRussianSubtitlesOpenFromDefaultFolderButton.Click += openThirdRussianSubtitlesFromDefaultFolderButton_Click;
             // 
             // openFirstRussianSubtitlesFromDefaultFolderButton
             // 
@@ -1860,10 +1894,10 @@
             openPrimarySubtitlesFromDefaultFolderButton.AllowDrop = true;
             openPrimarySubtitlesFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             openPrimarySubtitlesFromDefaultFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            openPrimarySubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(46, 45);
+            openPrimarySubtitlesFromDefaultFolderButton.Location = new System.Drawing.Point(19, 45);
             openPrimarySubtitlesFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openPrimarySubtitlesFromDefaultFolderButton.Name = "openPrimarySubtitlesFromDefaultFolderButton";
-            openPrimarySubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(189, 27);
+            openPrimarySubtitlesFromDefaultFolderButton.Size = new System.Drawing.Size(226, 27);
             openPrimarySubtitlesFromDefaultFolderButton.TabIndex = 13;
             openPrimarySubtitlesFromDefaultFolderButton.Text = "Оригинальные";
             openPrimarySubtitlesFromDefaultFolderButton.UseVisualStyleBackColor = false;
@@ -1871,8 +1905,8 @@
             // 
             // translateToFirstRussianSubtitlesGroupBox
             // 
-            translateToFirstRussianSubtitlesGroupBox.Controls.Add(translateToFirstRussianSubtitlesButton);
-            translateToFirstRussianSubtitlesGroupBox.Controls.Add(translateWordByWordToFirstRussianSubtitlesButton);
+            translateToFirstRussianSubtitlesGroupBox.Controls.Add(firstRussianSubtitlesTranslateToSubtitlesButton);
+            translateToFirstRussianSubtitlesGroupBox.Controls.Add(firstRussianSubtitlesTranslateWordByWordToButton);
             translateToFirstRussianSubtitlesGroupBox.Location = new System.Drawing.Point(14, 17);
             translateToFirstRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             translateToFirstRussianSubtitlesGroupBox.Name = "translateToFirstRussianSubtitlesGroupBox";
@@ -1882,37 +1916,37 @@
             translateToFirstRussianSubtitlesGroupBox.TabStop = false;
             translateToFirstRussianSubtitlesGroupBox.Text = "В 1-й поток переведенных";
             // 
-            // translateToFirstRussianSubtitlesButton
+            // firstRussianSubtitlesTranslateToSubtitlesButton
             // 
-            translateToFirstRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateToFirstRussianSubtitlesButton.Image = Properties.Resources._smallTranslateToRus;
-            translateToFirstRussianSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            translateToFirstRussianSubtitlesButton.Location = new System.Drawing.Point(7, 17);
-            translateToFirstRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateToFirstRussianSubtitlesButton.Name = "translateToFirstRussianSubtitlesButton";
-            translateToFirstRussianSubtitlesButton.Size = new System.Drawing.Size(120, 57);
-            translateToFirstRussianSubtitlesButton.TabIndex = 4;
-            translateToFirstRussianSubtitlesButton.Text = "Перевести\r\n";
-            translateToFirstRussianSubtitlesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            translateToFirstRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateToFirstRussianSubtitlesButton.Click += button3_Click;
+            firstRussianSubtitlesTranslateToSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            firstRussianSubtitlesTranslateToSubtitlesButton.Image = Properties.Resources._smallTranslateToRus;
+            firstRussianSubtitlesTranslateToSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            firstRussianSubtitlesTranslateToSubtitlesButton.Location = new System.Drawing.Point(7, 17);
+            firstRussianSubtitlesTranslateToSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            firstRussianSubtitlesTranslateToSubtitlesButton.Name = "firstRussianSubtitlesTranslateToSubtitlesButton";
+            firstRussianSubtitlesTranslateToSubtitlesButton.Size = new System.Drawing.Size(120, 57);
+            firstRussianSubtitlesTranslateToSubtitlesButton.TabIndex = 4;
+            firstRussianSubtitlesTranslateToSubtitlesButton.Text = "Перевести\r\n";
+            firstRussianSubtitlesTranslateToSubtitlesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            firstRussianSubtitlesTranslateToSubtitlesButton.UseVisualStyleBackColor = false;
+            firstRussianSubtitlesTranslateToSubtitlesButton.Click += button3_Click;
             // 
-            // translateWordByWordToFirstRussianSubtitlesButton
+            // firstRussianSubtitlesTranslateWordByWordToButton
             // 
-            translateWordByWordToFirstRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateWordByWordToFirstRussianSubtitlesButton.Location = new System.Drawing.Point(127, 17);
-            translateWordByWordToFirstRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateWordByWordToFirstRussianSubtitlesButton.Name = "translateWordByWordToFirstRussianSubtitlesButton";
-            translateWordByWordToFirstRussianSubtitlesButton.Size = new System.Drawing.Size(51, 57);
-            translateWordByWordToFirstRussianSubtitlesButton.TabIndex = 10;
-            translateWordByWordToFirstRussianSubtitlesButton.Text = "По-\r\nслов-\r\nно";
-            translateWordByWordToFirstRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateWordByWordToFirstRussianSubtitlesButton.Click += button2_Click;
+            firstRussianSubtitlesTranslateWordByWordToButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            firstRussianSubtitlesTranslateWordByWordToButton.Location = new System.Drawing.Point(127, 17);
+            firstRussianSubtitlesTranslateWordByWordToButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            firstRussianSubtitlesTranslateWordByWordToButton.Name = "firstRussianSubtitlesTranslateWordByWordToButton";
+            firstRussianSubtitlesTranslateWordByWordToButton.Size = new System.Drawing.Size(51, 57);
+            firstRussianSubtitlesTranslateWordByWordToButton.TabIndex = 10;
+            firstRussianSubtitlesTranslateWordByWordToButton.Text = "По-\r\nслов-\r\nно";
+            firstRussianSubtitlesTranslateWordByWordToButton.UseVisualStyleBackColor = false;
+            firstRussianSubtitlesTranslateWordByWordToButton.Click += button2_Click;
             // 
             // translateToSecondRussianSubtitlesGroupBox
             // 
-            translateToSecondRussianSubtitlesGroupBox.Controls.Add(translateWordByWordToSecondRussianSubtitlesButton);
-            translateToSecondRussianSubtitlesGroupBox.Controls.Add(translateToSecondRussianSubtitlesButton);
+            translateToSecondRussianSubtitlesGroupBox.Controls.Add(secondRussianSubtitlesTranslateWordByWordToButton);
+            translateToSecondRussianSubtitlesGroupBox.Controls.Add(secondRussianSubtitlesTranslateToSubtitlesButton);
             translateToSecondRussianSubtitlesGroupBox.Location = new System.Drawing.Point(234, 17);
             translateToSecondRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             translateToSecondRussianSubtitlesGroupBox.Name = "translateToSecondRussianSubtitlesGroupBox";
@@ -1922,37 +1956,37 @@
             translateToSecondRussianSubtitlesGroupBox.TabStop = false;
             translateToSecondRussianSubtitlesGroupBox.Text = "Во 2-й поток переведенных";
             // 
-            // translateWordByWordToSecondRussianSubtitlesButton
+            // secondRussianSubtitlesTranslateWordByWordToButton
             // 
-            translateWordByWordToSecondRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateWordByWordToSecondRussianSubtitlesButton.Location = new System.Drawing.Point(127, 17);
-            translateWordByWordToSecondRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateWordByWordToSecondRussianSubtitlesButton.Name = "translateWordByWordToSecondRussianSubtitlesButton";
-            translateWordByWordToSecondRussianSubtitlesButton.Size = new System.Drawing.Size(51, 57);
-            translateWordByWordToSecondRussianSubtitlesButton.TabIndex = 13;
-            translateWordByWordToSecondRussianSubtitlesButton.Text = "По-\r\nслов-\r\nно";
-            translateWordByWordToSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateWordByWordToSecondRussianSubtitlesButton.Click += button5_Click_1;
+            secondRussianSubtitlesTranslateWordByWordToButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            secondRussianSubtitlesTranslateWordByWordToButton.Location = new System.Drawing.Point(127, 17);
+            secondRussianSubtitlesTranslateWordByWordToButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            secondRussianSubtitlesTranslateWordByWordToButton.Name = "secondRussianSubtitlesTranslateWordByWordToButton";
+            secondRussianSubtitlesTranslateWordByWordToButton.Size = new System.Drawing.Size(51, 57);
+            secondRussianSubtitlesTranslateWordByWordToButton.TabIndex = 13;
+            secondRussianSubtitlesTranslateWordByWordToButton.Text = "По-\r\nслов-\r\nно";
+            secondRussianSubtitlesTranslateWordByWordToButton.UseVisualStyleBackColor = false;
+            secondRussianSubtitlesTranslateWordByWordToButton.Click += button5_Click_1;
             // 
-            // translateToSecondRussianSubtitlesButton
+            // secondRussianSubtitlesTranslateToSubtitlesButton
             // 
-            translateToSecondRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateToSecondRussianSubtitlesButton.Image = (System.Drawing.Image)resources.GetObject("translateToSecondRussianSubtitlesButton.Image");
-            translateToSecondRussianSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            translateToSecondRussianSubtitlesButton.Location = new System.Drawing.Point(7, 17);
-            translateToSecondRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateToSecondRussianSubtitlesButton.Name = "translateToSecondRussianSubtitlesButton";
-            translateToSecondRussianSubtitlesButton.Size = new System.Drawing.Size(120, 57);
-            translateToSecondRussianSubtitlesButton.TabIndex = 4;
-            translateToSecondRussianSubtitlesButton.Text = "Перевести";
-            translateToSecondRussianSubtitlesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            translateToSecondRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateToSecondRussianSubtitlesButton.Click += button5_Click;
+            secondRussianSubtitlesTranslateToSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            secondRussianSubtitlesTranslateToSubtitlesButton.Image = (System.Drawing.Image)resources.GetObject("secondRussianSubtitlesTranslateToSubtitlesButton.Image");
+            secondRussianSubtitlesTranslateToSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            secondRussianSubtitlesTranslateToSubtitlesButton.Location = new System.Drawing.Point(7, 17);
+            secondRussianSubtitlesTranslateToSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            secondRussianSubtitlesTranslateToSubtitlesButton.Name = "secondRussianSubtitlesTranslateToSubtitlesButton";
+            secondRussianSubtitlesTranslateToSubtitlesButton.Size = new System.Drawing.Size(120, 57);
+            secondRussianSubtitlesTranslateToSubtitlesButton.TabIndex = 4;
+            secondRussianSubtitlesTranslateToSubtitlesButton.Text = "Перевести";
+            secondRussianSubtitlesTranslateToSubtitlesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            secondRussianSubtitlesTranslateToSubtitlesButton.UseVisualStyleBackColor = false;
+            secondRussianSubtitlesTranslateToSubtitlesButton.Click += button5_Click;
             // 
             // translateToThirdRussianSubtitlesGroupBox
             // 
-            translateToThirdRussianSubtitlesGroupBox.Controls.Add(translateWordByWordToThirdRussianSubtitlesButton);
-            translateToThirdRussianSubtitlesGroupBox.Controls.Add(translateToThirdRussianSubtitlesButton);
+            translateToThirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesTranslateWordByWordToButton);
+            translateToThirdRussianSubtitlesGroupBox.Controls.Add(thirdRussianSubtitlesTranslateToButton);
             translateToThirdRussianSubtitlesGroupBox.Location = new System.Drawing.Point(458, 17);
             translateToThirdRussianSubtitlesGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             translateToThirdRussianSubtitlesGroupBox.Name = "translateToThirdRussianSubtitlesGroupBox";
@@ -1962,32 +1996,32 @@
             translateToThirdRussianSubtitlesGroupBox.TabStop = false;
             translateToThirdRussianSubtitlesGroupBox.Text = "В 3-й поток переведенных";
             // 
-            // translateWordByWordToThirdRussianSubtitlesButton
+            // thirdRussianSubtitlesTranslateWordByWordToButton
             // 
-            translateWordByWordToThirdRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateWordByWordToThirdRussianSubtitlesButton.Location = new System.Drawing.Point(130, 17);
-            translateWordByWordToThirdRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateWordByWordToThirdRussianSubtitlesButton.Name = "translateWordByWordToThirdRussianSubtitlesButton";
-            translateWordByWordToThirdRussianSubtitlesButton.Size = new System.Drawing.Size(51, 57);
-            translateWordByWordToThirdRussianSubtitlesButton.TabIndex = 16;
-            translateWordByWordToThirdRussianSubtitlesButton.Text = "По-\r\nслов-\r\nно";
-            translateWordByWordToThirdRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateWordByWordToThirdRussianSubtitlesButton.Click += button8_Click;
+            thirdRussianSubtitlesTranslateWordByWordToButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            thirdRussianSubtitlesTranslateWordByWordToButton.Location = new System.Drawing.Point(130, 17);
+            thirdRussianSubtitlesTranslateWordByWordToButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesTranslateWordByWordToButton.Name = "thirdRussianSubtitlesTranslateWordByWordToButton";
+            thirdRussianSubtitlesTranslateWordByWordToButton.Size = new System.Drawing.Size(51, 57);
+            thirdRussianSubtitlesTranslateWordByWordToButton.TabIndex = 16;
+            thirdRussianSubtitlesTranslateWordByWordToButton.Text = "По-\r\nслов-\r\nно";
+            thirdRussianSubtitlesTranslateWordByWordToButton.UseVisualStyleBackColor = false;
+            thirdRussianSubtitlesTranslateWordByWordToButton.Click += button8_Click;
             // 
-            // translateToThirdRussianSubtitlesButton
+            // thirdRussianSubtitlesTranslateToButton
             // 
-            translateToThirdRussianSubtitlesButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            translateToThirdRussianSubtitlesButton.Image = (System.Drawing.Image)resources.GetObject("translateToThirdRussianSubtitlesButton.Image");
-            translateToThirdRussianSubtitlesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            translateToThirdRussianSubtitlesButton.Location = new System.Drawing.Point(7, 17);
-            translateToThirdRussianSubtitlesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            translateToThirdRussianSubtitlesButton.Name = "translateToThirdRussianSubtitlesButton";
-            translateToThirdRussianSubtitlesButton.Size = new System.Drawing.Size(120, 57);
-            translateToThirdRussianSubtitlesButton.TabIndex = 4;
-            translateToThirdRussianSubtitlesButton.Text = "Перевести";
-            translateToThirdRussianSubtitlesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            translateToThirdRussianSubtitlesButton.UseVisualStyleBackColor = false;
-            translateToThirdRussianSubtitlesButton.Click += button7_Click;
+            thirdRussianSubtitlesTranslateToButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            thirdRussianSubtitlesTranslateToButton.Image = (System.Drawing.Image)resources.GetObject("thirdRussianSubtitlesTranslateToButton.Image");
+            thirdRussianSubtitlesTranslateToButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            thirdRussianSubtitlesTranslateToButton.Location = new System.Drawing.Point(7, 17);
+            thirdRussianSubtitlesTranslateToButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesTranslateToButton.Name = "thirdRussianSubtitlesTranslateToButton";
+            thirdRussianSubtitlesTranslateToButton.Size = new System.Drawing.Size(120, 57);
+            thirdRussianSubtitlesTranslateToButton.TabIndex = 4;
+            thirdRussianSubtitlesTranslateToButton.Text = "Перевести";
+            thirdRussianSubtitlesTranslateToButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            thirdRussianSubtitlesTranslateToButton.UseVisualStyleBackColor = false;
+            thirdRussianSubtitlesTranslateToButton.Click += button7_Click;
             // 
             // redefineSubtitlesAppearanceSettingsCheckBox
             // 
@@ -2062,6 +2096,7 @@
             // 
             // translateToRussianSubtitlesGroupBox
             // 
+            translateToRussianSubtitlesGroupBox.Controls.Add(translateToRussianSubtitlesBetaLabel);
             translateToRussianSubtitlesGroupBox.Controls.Add(translateToFirstRussianSubtitlesGroupBox);
             translateToRussianSubtitlesGroupBox.Controls.Add(translateToThirdRussianSubtitlesGroupBox);
             translateToRussianSubtitlesGroupBox.Controls.Add(translateToSecondRussianSubtitlesGroupBox);
@@ -2073,6 +2108,18 @@
             translateToRussianSubtitlesGroupBox.TabIndex = 98;
             translateToRussianSubtitlesGroupBox.TabStop = false;
             translateToRussianSubtitlesGroupBox.Text = "Перевести оригинальные субтитры через API Яндекс.Переводчика в нужный поток субтитров";
+            // 
+            // translateToRussianSubtitlesBetaLabel
+            // 
+            translateToRussianSubtitlesBetaLabel.AutoSize = true;
+            translateToRussianSubtitlesBetaLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            translateToRussianSubtitlesBetaLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            translateToRussianSubtitlesBetaLabel.Location = new System.Drawing.Point(539, -2);
+            translateToRussianSubtitlesBetaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            translateToRussianSubtitlesBetaLabel.Name = "translateToRussianSubtitlesBetaLabel";
+            translateToRussianSubtitlesBetaLabel.Size = new System.Drawing.Size(39, 16);
+            translateToRussianSubtitlesBetaLabel.TabIndex = 115;
+            translateToRussianSubtitlesBetaLabel.Text = "[Beta]";
             // 
             // openSubtitlesFromDefaultFolderGroupBox
             // 
@@ -2087,15 +2134,44 @@
             // 
             // groupBox10
             // 
+            groupBox10.Controls.Add(fourthRussianSubtitlesOpenFromDefaultFolderButton);
+            groupBox10.Controls.Add(fifthRussianSubtitlesOpenFromDefaultFolderButton);
             groupBox10.Controls.Add(openFirstRussianSubtitlesFromDefaultFolderButton);
             groupBox10.Controls.Add(openSecondRussianSubtitlesFromDefaultFolderButton);
-            groupBox10.Controls.Add(openThirdRussianSubtitlesFromDefaultFolderButton);
-            groupBox10.Location = new System.Drawing.Point(46, 78);
+            groupBox10.Controls.Add(thirdRussianSubtitlesOpenFromDefaultFolderButton);
+            groupBox10.Location = new System.Drawing.Point(7, 78);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new System.Drawing.Size(189, 49);
+            groupBox10.Size = new System.Drawing.Size(245, 49);
             groupBox10.TabIndex = 45;
             groupBox10.TabStop = false;
             groupBox10.Text = "Переведенные, поток";
+            // 
+            // fourthRussianSubtitlesOpenFromDefaultFolderButton
+            // 
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.AllowDrop = true;
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Location = new System.Drawing.Point(157, 17);
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Name = "fourthRussianSubtitlesOpenFromDefaultFolderButton";
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Size = new System.Drawing.Size(40, 27);
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.TabIndex = 47;
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Text = "№4";
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenFromDefaultFolderButton.Click += button5_Click_3;
+            // 
+            // fifthRussianSubtitlesOpenFromDefaultFolderButton
+            // 
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.AllowDrop = true;
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Location = new System.Drawing.Point(198, 17);
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Name = "fifthRussianSubtitlesOpenFromDefaultFolderButton";
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Size = new System.Drawing.Size(40, 27);
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.TabIndex = 48;
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Text = "№5";
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenFromDefaultFolderButton.Click += button6_Click_1;
             // 
             // showSubtitlesButton
             // 
@@ -2113,7 +2189,7 @@
             // subtitlesAppearanceSettingsControl
             // 
             subtitlesAppearanceSettingsControl.AutoScroll = true;
-            subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(654, 541);
+            subtitlesAppearanceSettingsControl.AutoScrollMinSize = new System.Drawing.Size(934, 608);
             subtitlesAppearanceSettingsControl.Location = new System.Drawing.Point(971, 45);
             subtitlesAppearanceSettingsControl.Name = "subtitlesAppearanceSettingsControl";
             subtitlesAppearanceSettingsControl.Size = new System.Drawing.Size(672, 318);
@@ -2133,15 +2209,44 @@
             // 
             // groupBox9
             // 
+            groupBox9.Controls.Add(fourthRussianSubtitlesOpenIn1251Button);
+            groupBox9.Controls.Add(fifthRussianSubtitlesOpenIn1251Button);
             groupBox9.Controls.Add(openFirstRussianSubtitlesIn1251Button);
-            groupBox9.Controls.Add(openSecondRussianSubtitlesIn1251Button);
-            groupBox9.Controls.Add(openThirdRussianSubtitlesIn1251Button);
-            groupBox9.Location = new System.Drawing.Point(28, 64);
+            groupBox9.Controls.Add(secondRussianSubtitlesOpenIn1251Button);
+            groupBox9.Controls.Add(thirdRussianSubtitlesOpenIn1251Button);
+            groupBox9.Location = new System.Drawing.Point(7, 64);
             groupBox9.Name = "groupBox9";
-            groupBox9.Size = new System.Drawing.Size(189, 49);
+            groupBox9.Size = new System.Drawing.Size(245, 49);
             groupBox9.TabIndex = 45;
             groupBox9.TabStop = false;
             groupBox9.Text = "Переведенные, поток";
+            // 
+            // fourthRussianSubtitlesOpenIn1251Button
+            // 
+            fourthRussianSubtitlesOpenIn1251Button.AllowDrop = true;
+            fourthRussianSubtitlesOpenIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fourthRussianSubtitlesOpenIn1251Button.Location = new System.Drawing.Point(157, 18);
+            fourthRussianSubtitlesOpenIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fourthRussianSubtitlesOpenIn1251Button.Name = "fourthRussianSubtitlesOpenIn1251Button";
+            fourthRussianSubtitlesOpenIn1251Button.Size = new System.Drawing.Size(40, 27);
+            fourthRussianSubtitlesOpenIn1251Button.TabIndex = 45;
+            fourthRussianSubtitlesOpenIn1251Button.Text = "№4";
+            fourthRussianSubtitlesOpenIn1251Button.UseVisualStyleBackColor = false;
+            fourthRussianSubtitlesOpenIn1251Button.Click += button3_Click_3;
+            // 
+            // fifthRussianSubtitlesOpenIn1251Button
+            // 
+            fifthRussianSubtitlesOpenIn1251Button.AllowDrop = true;
+            fifthRussianSubtitlesOpenIn1251Button.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            fifthRussianSubtitlesOpenIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            fifthRussianSubtitlesOpenIn1251Button.Location = new System.Drawing.Point(198, 18);
+            fifthRussianSubtitlesOpenIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            fifthRussianSubtitlesOpenIn1251Button.Name = "fifthRussianSubtitlesOpenIn1251Button";
+            fifthRussianSubtitlesOpenIn1251Button.Size = new System.Drawing.Size(40, 27);
+            fifthRussianSubtitlesOpenIn1251Button.TabIndex = 46;
+            fifthRussianSubtitlesOpenIn1251Button.Text = "№5";
+            fifthRussianSubtitlesOpenIn1251Button.UseVisualStyleBackColor = false;
+            fifthRussianSubtitlesOpenIn1251Button.Click += button4_Click_1;
             // 
             // openFirstRussianSubtitlesIn1251Button
             // 
@@ -2156,42 +2261,42 @@
             openFirstRussianSubtitlesIn1251Button.UseVisualStyleBackColor = false;
             openFirstRussianSubtitlesIn1251Button.Click += button4_Click;
             // 
-            // openSecondRussianSubtitlesIn1251Button
+            // secondRussianSubtitlesOpenIn1251Button
             // 
-            openSecondRussianSubtitlesIn1251Button.AllowDrop = true;
-            openSecondRussianSubtitlesIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openSecondRussianSubtitlesIn1251Button.Location = new System.Drawing.Point(75, 18);
-            openSecondRussianSubtitlesIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openSecondRussianSubtitlesIn1251Button.Name = "openSecondRussianSubtitlesIn1251Button";
-            openSecondRussianSubtitlesIn1251Button.Size = new System.Drawing.Size(40, 27);
-            openSecondRussianSubtitlesIn1251Button.TabIndex = 43;
-            openSecondRussianSubtitlesIn1251Button.Text = "№2";
-            openSecondRussianSubtitlesIn1251Button.UseVisualStyleBackColor = false;
-            openSecondRussianSubtitlesIn1251Button.Click += button6_Click;
+            secondRussianSubtitlesOpenIn1251Button.AllowDrop = true;
+            secondRussianSubtitlesOpenIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            secondRussianSubtitlesOpenIn1251Button.Location = new System.Drawing.Point(53, 18);
+            secondRussianSubtitlesOpenIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            secondRussianSubtitlesOpenIn1251Button.Name = "secondRussianSubtitlesOpenIn1251Button";
+            secondRussianSubtitlesOpenIn1251Button.Size = new System.Drawing.Size(40, 27);
+            secondRussianSubtitlesOpenIn1251Button.TabIndex = 43;
+            secondRussianSubtitlesOpenIn1251Button.Text = "№2";
+            secondRussianSubtitlesOpenIn1251Button.UseVisualStyleBackColor = false;
+            secondRussianSubtitlesOpenIn1251Button.Click += button6_Click;
             // 
-            // openThirdRussianSubtitlesIn1251Button
+            // thirdRussianSubtitlesOpenIn1251Button
             // 
-            openThirdRussianSubtitlesIn1251Button.AllowDrop = true;
-            openThirdRussianSubtitlesIn1251Button.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            openThirdRussianSubtitlesIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            openThirdRussianSubtitlesIn1251Button.Location = new System.Drawing.Point(138, 18);
-            openThirdRussianSubtitlesIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            openThirdRussianSubtitlesIn1251Button.Name = "openThirdRussianSubtitlesIn1251Button";
-            openThirdRussianSubtitlesIn1251Button.Size = new System.Drawing.Size(40, 27);
-            openThirdRussianSubtitlesIn1251Button.TabIndex = 44;
-            openThirdRussianSubtitlesIn1251Button.Text = "№3";
-            openThirdRussianSubtitlesIn1251Button.UseVisualStyleBackColor = false;
-            openThirdRussianSubtitlesIn1251Button.Click += button5_Click_2;
+            thirdRussianSubtitlesOpenIn1251Button.AllowDrop = true;
+            thirdRussianSubtitlesOpenIn1251Button.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            thirdRussianSubtitlesOpenIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            thirdRussianSubtitlesOpenIn1251Button.Location = new System.Drawing.Point(94, 18);
+            thirdRussianSubtitlesOpenIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            thirdRussianSubtitlesOpenIn1251Button.Name = "thirdRussianSubtitlesOpenIn1251Button";
+            thirdRussianSubtitlesOpenIn1251Button.Size = new System.Drawing.Size(40, 27);
+            thirdRussianSubtitlesOpenIn1251Button.TabIndex = 44;
+            thirdRussianSubtitlesOpenIn1251Button.Text = "№3";
+            thirdRussianSubtitlesOpenIn1251Button.UseVisualStyleBackColor = false;
+            thirdRussianSubtitlesOpenIn1251Button.Click += button5_Click_2;
             // 
             // openPrimarySubtitlesIn1251Button
             // 
             openPrimarySubtitlesIn1251Button.AllowDrop = true;
             openPrimarySubtitlesIn1251Button.BackColor = System.Drawing.SystemColors.ControlLightLight;
             openPrimarySubtitlesIn1251Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            openPrimarySubtitlesIn1251Button.Location = new System.Drawing.Point(28, 32);
+            openPrimarySubtitlesIn1251Button.Location = new System.Drawing.Point(19, 32);
             openPrimarySubtitlesIn1251Button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             openPrimarySubtitlesIn1251Button.Name = "openPrimarySubtitlesIn1251Button";
-            openPrimarySubtitlesIn1251Button.Size = new System.Drawing.Size(189, 27);
+            openPrimarySubtitlesIn1251Button.Size = new System.Drawing.Size(226, 27);
             openPrimarySubtitlesIn1251Button.TabIndex = 13;
             openPrimarySubtitlesIn1251Button.Text = "Оригинальные";
             openPrimarySubtitlesIn1251Button.UseVisualStyleBackColor = false;
@@ -2331,6 +2436,139 @@
             minimizeToTrayButton.UseVisualStyleBackColor = false;
             minimizeToTrayButton.Click += minimizeToTrayButton_Click;
             // 
+            // mxPlayerGoupBox
+            // 
+            mxPlayerGoupBox.Controls.Add(techLabel2);
+            mxPlayerGoupBox.Controls.Add(originalSubtitlesFileNameEndingLabelCopyForAndroid);
+            mxPlayerGoupBox.Controls.Add(label20);
+            mxPlayerGoupBox.Controls.Add(label21);
+            mxPlayerGoupBox.Controls.Add(openAndroidSubtitlesAppearanceSettingsButton);
+            mxPlayerGoupBox.Controls.Add(label18);
+            mxPlayerGoupBox.Controls.Add(label17);
+            mxPlayerGoupBox.Controls.Add(androidSrtPackOrSeparateStreamsFileEndingLabel);
+            mxPlayerGoupBox.Controls.Add(androidSrtPackOrSeparateStreamsFileEndingTitleLabel);
+            mxPlayerGoupBox.Controls.Add(createAndroidSubtitesButton);
+            mxPlayerGoupBox.Location = new System.Drawing.Point(980, 521);
+            mxPlayerGoupBox.Name = "mxPlayerGoupBox";
+            mxPlayerGoupBox.Size = new System.Drawing.Size(368, 211);
+            mxPlayerGoupBox.TabIndex = 105;
+            mxPlayerGoupBox.TabStop = false;
+            mxPlayerGoupBox.Text = "📱Создать файл субтитров для просмотра на Android";
+            // 
+            // techLabel2
+            // 
+            techLabel2.AutoSize = true;
+            techLabel2.BackColor = System.Drawing.Color.Yellow;
+            techLabel2.Location = new System.Drawing.Point(175, 76);
+            techLabel2.Name = "techLabel2";
+            techLabel2.Size = new System.Drawing.Size(121, 15);
+            techLabel2.TabIndex = 53;
+            techLabel2.Text = "Меняю программно";
+            techLabel2.Visible = false;
+            techLabel2.Click += techLabel2_Click;
+            // 
+            // originalSubtitlesFileNameEndingLabelCopyForAndroid
+            // 
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Location = new System.Drawing.Point(163, 38);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Name = "originalSubtitlesFileNameEndingLabelCopyForAndroid";
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Size = new System.Drawing.Size(186, 23);
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.TabIndex = 121;
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.Text = ".eng.BilingualSubtitler.ass";
+            originalSubtitlesFileNameEndingLabelCopyForAndroid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(160, 19);
+            label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(182, 15);
+            label20.TabIndex = 119;
+            label20.Text = "файл оригинальных субтитров:";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new System.Drawing.Point(144, 61);
+            label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(15, 15);
+            label21.TabIndex = 118;
+            label21.Text = "+";
+            // 
+            // openAndroidSubtitlesAppearanceSettingsButton
+            // 
+            openAndroidSubtitlesAppearanceSettingsButton.AllowDrop = true;
+            openAndroidSubtitlesAppearanceSettingsButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            openAndroidSubtitlesAppearanceSettingsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            openAndroidSubtitlesAppearanceSettingsButton.Location = new System.Drawing.Point(14, 108);
+            openAndroidSubtitlesAppearanceSettingsButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            openAndroidSubtitlesAppearanceSettingsButton.Name = "openAndroidSubtitlesAppearanceSettingsButton";
+            openAndroidSubtitlesAppearanceSettingsButton.Size = new System.Drawing.Size(90, 89);
+            openAndroidSubtitlesAppearanceSettingsButton.TabIndex = 116;
+            openAndroidSubtitlesAppearanceSettingsButton.Text = "⚙️\r\nНастройки \r\nсубтитров\r\nдля Android";
+            openAndroidSubtitlesAppearanceSettingsButton.UseVisualStyleBackColor = false;
+            openAndroidSubtitlesAppearanceSettingsButton.Click += openAndroidSubtitlesAppearanceSettingsButton_Click;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            label18.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
+            label18.Location = new System.Drawing.Point(310, -2);
+            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(40, 16);
+            label18.TabIndex = 114;
+            label18.Text = "[Бета]";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(7, 46);
+            label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(134, 45);
+            label17.TabIndex = 113;
+            label17.Text = "Начальная часть пути, \r\nотображается в блоке \r\n\"🗃️ Итоговые файлы\",";
+            // 
+            // androidSrtPackOrSeparateStreamsFileEndingLabel
+            // 
+            androidSrtPackOrSeparateStreamsFileEndingLabel.BackColor = System.Drawing.Color.FromArgb(217, 210, 171);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Location = new System.Drawing.Point(163, 81);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Name = "androidSrtPackOrSeparateStreamsFileEndingLabel";
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Size = new System.Drawing.Size(186, 23);
+            androidSrtPackOrSeparateStreamsFileEndingLabel.TabIndex = 109;
+            androidSrtPackOrSeparateStreamsFileEndingLabel.Text = ".rusPack.srt";
+            androidSrtPackOrSeparateStreamsFileEndingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // androidSrtPackOrSeparateStreamsFileEndingTitleLabel
+            // 
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.AutoSize = true;
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Location = new System.Drawing.Point(160, 64);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Name = "androidSrtPackOrSeparateStreamsFileEndingTitleLabel";
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Size = new System.Drawing.Size(180, 15);
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.TabIndex = 108;
+            androidSrtPackOrSeparateStreamsFileEndingTitleLabel.Text = "файл переведенных субтитров:";
+            // 
+            // createAndroidSubtitesButton
+            // 
+            createAndroidSubtitesButton.BackColor = System.Drawing.Color.Gold;
+            createAndroidSubtitesButton.Location = new System.Drawing.Point(112, 108);
+            createAndroidSubtitesButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            createAndroidSubtitesButton.Name = "createAndroidSubtitesButton";
+            createAndroidSubtitesButton.Size = new System.Drawing.Size(237, 89);
+            createAndroidSubtitesButton.TabIndex = 105;
+            createAndroidSubtitesButton.Text = "💾 \r\nСоздать файлы субтитров для Android";
+            createAndroidSubtitesButton.UseVisualStyleBackColor = false;
+            createAndroidSubtitesButton.Click += createAndroidSubtitesButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2338,6 +2576,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1646, 871);
+            Controls.Add(mxPlayerGoupBox);
             Controls.Add(minimizeToTrayButton);
             Controls.Add(groupBox2);
             Controls.Add(openBilignualSubtitlesGroupBox);
@@ -2364,16 +2603,16 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             subtitlesStreamsPanel.ResumeLayout(false);
-            groupBox12.ResumeLayout(false);
-            groupBox12.PerformLayout();
-            groupBox13.ResumeLayout(false);
+            fifthRussianSubtitlesGroupBox.ResumeLayout(false);
+            fifthRussianSubtitlesGroupBox.PerformLayout();
+            fifthRussianSubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             groupBox14.ResumeLayout(false);
-            groupBox15.ResumeLayout(false);
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
-            groupBox7.ResumeLayout(false);
+            fifthRussianSubtitlesOpenOrCloseGroupBox.ResumeLayout(false);
+            fourthRussianSubtitlesGroupBox.ResumeLayout(false);
+            fourthRussianSubtitlesGroupBox.PerformLayout();
+            fourthRussianSubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             groupBox8.ResumeLayout(false);
-            groupBox11.ResumeLayout(false);
+            fourthRussianSubtitlesOpenOrCloseGroupBox.ResumeLayout(false);
             primarySubtitlesGroupBox.ResumeLayout(false);
             primarySubtitlesGroupBox.PerformLayout();
             primarySubtitlesExportAsDocxGroupBox.ResumeLayout(false);
@@ -2393,7 +2632,7 @@
             thirdRussianSubtitlesGroupBox.PerformLayout();
             thirdRussianSubtitlesExportAsDocxGroupBox.ResumeLayout(false);
             thirdRussianSubtitlesColorGroupBox.ResumeLayout(false);
-            openOrCloseThirdRussianSubtitlesGroupBox.ResumeLayout(false);
+            thirdRussianSubtitlesOpenOrCloseGroupBox.ResumeLayout(false);
             additionalOpenExportSubtitlesButtonsGroupBox.ResumeLayout(false);
             additionalOpenExportSubtitlesButtonsGroupBox.PerformLayout();
             docXTranslationGroupBox.ResumeLayout(false);
@@ -2408,6 +2647,7 @@
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             translateToRussianSubtitlesGroupBox.ResumeLayout(false);
+            translateToRussianSubtitlesGroupBox.PerformLayout();
             openSubtitlesFromDefaultFolderGroupBox.ResumeLayout(false);
             groupBox10.ResumeLayout(false);
             openSubtitlesIn1251GroupBox.ResumeLayout(false);
@@ -2417,6 +2657,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            mxPlayerGoupBox.ResumeLayout(false);
+            mxPlayerGoupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -2429,8 +2671,8 @@
         private System.Windows.Forms.Button showThirdRussianSubtitlesButton;
         private System.Windows.Forms.GroupBox firstRussianSubtitlesGroupBox;
         private System.Windows.Forms.GroupBox translateToFirstRussianSubtitlesGroupBox;
-        private System.Windows.Forms.Button translateToFirstRussianSubtitlesButton;
-        private System.Windows.Forms.Button translateWordByWordToFirstRussianSubtitlesButton;
+        private System.Windows.Forms.Button firstRussianSubtitlesTranslateToSubtitlesButton;
+        private System.Windows.Forms.Button firstRussianSubtitlesTranslateWordByWordToButton;
         private System.Windows.Forms.Label firstRussianSubtitlesActionLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox firstRussianSubtitlesTextBox;
@@ -2444,8 +2686,8 @@
         private System.Windows.Forms.ProgressBar primarySubtitlesProgressBar;
         private System.Windows.Forms.GroupBox secondRussianSubtitlesGroupBox;
         private System.Windows.Forms.GroupBox translateToSecondRussianSubtitlesGroupBox;
-        private System.Windows.Forms.Button translateWordByWordToSecondRussianSubtitlesButton;
-        private System.Windows.Forms.Button translateToSecondRussianSubtitlesButton;
+        private System.Windows.Forms.Button secondRussianSubtitlesTranslateWordByWordToButton;
+        private System.Windows.Forms.Button secondRussianSubtitlesTranslateToSubtitlesButton;
         private System.Windows.Forms.Label secondRussianSubtitlesActionLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox secondRussianSubtitlesTextBox;
@@ -2453,16 +2695,16 @@
         private System.Windows.Forms.ProgressBar secondRussianSubtitlesProgressBar;
         private System.Windows.Forms.GroupBox thirdRussianSubtitlesGroupBox;
         private System.Windows.Forms.GroupBox translateToThirdRussianSubtitlesGroupBox;
-        private System.Windows.Forms.Button translateWordByWordToThirdRussianSubtitlesButton;
-        private System.Windows.Forms.Button translateToThirdRussianSubtitlesButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesTranslateWordByWordToButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesTranslateToButton;
         private System.Windows.Forms.Label thirdRussianSubtitlesActionLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox thirdRussianSubtitlesTextBox;
         private System.Windows.Forms.Label thirdRussianSubtitlesProgressLabel;
         private System.Windows.Forms.ProgressBar thirdRussianSubtitlesProgressBar;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
-        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
+        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingTitleLabel;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingTitleLabel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox finalSubtitlesFilesPathBeginningRichTextBox;
@@ -2470,13 +2712,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox docXTranslationGroupBox;
         private System.Windows.Forms.LinkLabel googleTranslatorLinkLabel;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel YandexTranslateLinkLabel;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button openBilingualSubtitlerButton;
         private System.Windows.Forms.CheckBox redefineSubtitlesAppearanceSettingsCheckBox;
-        private System.Windows.Forms.Label bilingualSubtitlesFileNameEnding;
-        private System.Windows.Forms.Label originalSubtitlesFileNameEnding;
+        private System.Windows.Forms.Label bilingualSubtitlesFileNameEndingLabel;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabel;
         private System.Windows.Forms.Button hideSecondRussianSubtitlesButton;
         private System.Windows.Forms.GroupBox translateToRussianSubtitlesGroupBox;
         private System.Windows.Forms.GroupBox primarySubtitlesExportAsDocxGroupBox;
@@ -2486,23 +2728,23 @@
         private System.Windows.Forms.Button primarySubtitlesColorButton;
         private System.Windows.Forms.GroupBox openOrClosePrimarySubtitlesGroupBox;
         private System.Windows.Forms.Button openPrimarySubtitlesFromDownloadsButton;
-        private System.Windows.Forms.Button openOrClosePrimarySubtitlesButton;
+        private System.Windows.Forms.Button primarySubtitlesOpenOrCloseButton;
         private System.Windows.Forms.GroupBox firstRussianSubtitlesColorGroupBox;
         private System.Windows.Forms.Button firstRussianSubtitlesColorButton;
         private System.Windows.Forms.GroupBox openOrCloseFirstRussianSubtitlesGroupBox;
         private System.Windows.Forms.Button firstRussianSubtitlesOpenFromDownloadsButton;
-        private System.Windows.Forms.Button openOrCloseFirstRussianSubtitlesButton;
+        private System.Windows.Forms.Button firstRussianSubtitlesOpenOrCloseButton;
         private System.Windows.Forms.GroupBox secondRussianSubtitlesColorGroupBox;
         private System.Windows.Forms.Button secondRussianSubtitlesColorButton;
         private System.Windows.Forms.GroupBox openOrCloseSecondRussianSubtitlesGroupBox;
         private System.Windows.Forms.Button secondRussianSubtitlesOpenFromDownloadsButton;
-        private System.Windows.Forms.Button openOrCloseSecondRussianSubtitlesButton;
+        private System.Windows.Forms.Button secondRussianSubtitlesOpenOrCloseButton;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.GroupBox thirdRussianSubtitlesColorGroupBox;
         private System.Windows.Forms.Button thirdRussianSubtitlesColorButton;
-        private System.Windows.Forms.GroupBox openOrCloseThirdRussianSubtitlesGroupBox;
+        private System.Windows.Forms.GroupBox thirdRussianSubtitlesOpenOrCloseGroupBox;
         private System.Windows.Forms.Button thirdRussianSubtitlesOpenFromDownloadsButton;
-        private System.Windows.Forms.Button openOrCloseThirdRussianSubtitlesButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesOpenOrCloseButton;
         private System.Windows.Forms.GroupBox firstRussianSubtitlesExportAsDocxGroupBox;
         private System.Windows.Forms.Button firstRussianSubtitlesExportAsDocxIntoDownloadsButton;
         private System.Windows.Forms.Button firstRussianSubtitlesExportAsDocxButton;
@@ -2515,7 +2757,7 @@
         private System.Windows.Forms.Button openFirstRussianSubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openPrimarySubtitlesFromDefaultFolderButton;
         private System.Windows.Forms.Button openSecondRussianSubtitlesFromDefaultFolderButton;
-        private System.Windows.Forms.Button openThirdRussianSubtitlesFromDefaultFolderButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesOpenFromDefaultFolderButton;
         private System.Windows.Forms.GroupBox additionalOpenExportSubtitlesButtonsGroupBox;
         private System.Windows.Forms.Label additionalOpenExportSubtitlesButtonsLabel;
         private System.Windows.Forms.Label label45;
@@ -2536,8 +2778,8 @@
         private System.Windows.Forms.GroupBox openSubtitlesIn1251GroupBox;
         private System.Windows.Forms.Button openPrimarySubtitlesIn1251Button;
         private System.Windows.Forms.Button openFirstRussianSubtitlesIn1251Button;
-        private System.Windows.Forms.Button openThirdRussianSubtitlesIn1251Button;
-        private System.Windows.Forms.Button openSecondRussianSubtitlesIn1251Button;
+        private System.Windows.Forms.Button thirdRussianSubtitlesOpenIn1251Button;
+        private System.Windows.Forms.Button secondRussianSubtitlesOpenIn1251Button;
         private System.Windows.Forms.GroupBox removePostfixGroupBox;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -2559,37 +2801,53 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button minimizeToTrayButton;
         private System.Windows.Forms.Panel subtitlesStreamsPanel;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.GroupBox fifthRussianSubtitlesGroupBox;
+        private System.Windows.Forms.GroupBox fifthRussianSubtitlesExportAsDocxGroupBox;
+        private System.Windows.Forms.Button fifthRussianSubtitlesExportAsSrtButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesExportAsDocxIntoDownloadsButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesExportAsDocxButton;
         private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Button fifthRussianSubtitlesColorButton;
+        private System.Windows.Forms.GroupBox fifthRussianSubtitlesOpenOrCloseGroupBox;
+        private System.Windows.Forms.Button fifthRussianSubtitlesOpenFromClipboardButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesOpenFromDownloadsButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesOpenOrCloseButton;
+        private System.Windows.Forms.Label fifthRussianSubtitlesActionLabel;
+        private System.Windows.Forms.TextBox fifthRussianSubtitlesTextBox;
+        private System.Windows.Forms.Label fifthRussianSubtitlesProgressLabel;
+        private System.Windows.Forms.ProgressBar fifthRussianSubtitlesProgressBar;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox fourthRussianSubtitlesGroupBox;
+        private System.Windows.Forms.GroupBox fourthRussianSubtitlesExportAsDocxGroupBox;
+        private System.Windows.Forms.Button fourthRussianSubtitlesExportAsSrtButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesExportAsDocxIntoDownloadsButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesExportAsDocxButton;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button fourthRussianSubtitlesColorButton;
+        private System.Windows.Forms.GroupBox fourthRussianSubtitlesOpenOrCloseGroupBox;
+        private System.Windows.Forms.Button fourthRussianSubtitlesOpenFromClipboardButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesOpenFromDownloadsButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesOpenOrCloseButton;
+        private System.Windows.Forms.Label fourthRussianSubtitlesActionLabel;
+        private System.Windows.Forms.TextBox fourthRussianSubtitlesTextBox;
+        private System.Windows.Forms.Label fourthRussianSubtitlesProgressLabel;
+        private System.Windows.Forms.ProgressBar fourthRussianSubtitlesProgressBar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox mxPlayerGoupBox;
+        private System.Windows.Forms.Button createAndroidSubtitesButton;
+        private System.Windows.Forms.Label androidSrtPackOrSeparateStreamsFileEndingLabel;
+        private System.Windows.Forms.Label androidSrtPackOrSeparateStreamsFileEndingTitleLabel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button openAndroidSubtitlesAppearanceSettingsButton;
+        private System.Windows.Forms.Label originalSubtitlesFileNameEndingLabelCopyForAndroid;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button fourthRussianSubtitlesOpenIn1251Button;
+        private System.Windows.Forms.Button fifthRussianSubtitlesOpenIn1251Button;
+        private System.Windows.Forms.Button fourthRussianSubtitlesOpenFromDefaultFolderButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesOpenFromDefaultFolderButton;
+        private System.Windows.Forms.Label techLabel2;
+        private System.Windows.Forms.Label translateToRussianSubtitlesBetaLabel;
     }
 }

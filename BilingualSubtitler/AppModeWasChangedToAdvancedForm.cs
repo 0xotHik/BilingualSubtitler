@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace BilingualSubtitler
 {
-    public partial class AppModeWasChangedToExtendedForm : Form
+    public partial class AppModeWasChangedToAdvancedForm : Form
     {
         public int? SettedRussianSubtitlesStreamToSetConsolasTo = null;
-        public AppModeWasChangedToExtendedForm()
+        public int? SettedRussianSubtitlesStreamToSetUndelineTo = null;
+
+        public AppModeWasChangedToAdvancedForm()
         {
             InitializeComponent();
 
@@ -24,12 +26,20 @@ namespace BilingualSubtitler
         private void button1_Click(object sender, EventArgs e)
         {
             SettedRussianSubtitlesStreamToSetConsolasTo = int.Parse(numericUpDown1.Value.ToString());
+            SettedRussianSubtitlesStreamToSetUndelineTo = int.Parse(numericUpDown2.Value.ToString());
+
+            Properties.Settings.Default.SecondRussianSubtitlesIsVisible = true;
+            Properties.Settings.Default.ThirdRussianSubtitlesIsVisible = true;
+            //
+            Properties.Settings.Default.Save();
+
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             SettedRussianSubtitlesStreamToSetConsolasTo = null;
+            SettedRussianSubtitlesStreamToSetUndelineTo = null;
             this.Close();
         }
 
