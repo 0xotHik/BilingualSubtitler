@@ -47,6 +47,28 @@
             label8 = new System.Windows.Forms.Label();
             fifthRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
             fourthRussianSubtitlesDataGridView = new System.Windows.Forms.DataGridView();
+            originalSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            originalSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            firstRussianSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            firstRussianSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            secondRussianSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            secondRussianSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            thirdRussianSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            fourthRussianSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesPlusTimeButton = new System.Windows.Forms.Button();
+            fifthRussianSubtitlesMinusTimeButton = new System.Windows.Forms.Button();
+            timingDeltaNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)originalSubtitlesDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)firstRussianSubtitlesDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)secondRussianSubtitlesDataGridView).BeginInit();
@@ -55,38 +77,43 @@
             ((System.ComponentModel.ISupportInitialize)showSubtitlesOnlyFirstWordsCountNumericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fifthRussianSubtitlesDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fourthRussianSubtitlesDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)timingDeltaNumericUpDown).BeginInit();
             SuspendLayout();
             // 
             // originalSubtitlesDataGridView
             // 
+            originalSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             originalSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             originalSubtitlesDataGridView.Location = new System.Drawing.Point(42, 40);
             originalSubtitlesDataGridView.Name = "originalSubtitlesDataGridView";
-            originalSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            originalSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             originalSubtitlesDataGridView.TabIndex = 0;
             // 
             // firstRussianSubtitlesDataGridView
             // 
+            firstRussianSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             firstRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             firstRussianSubtitlesDataGridView.Location = new System.Drawing.Point(329, 40);
             firstRussianSubtitlesDataGridView.Name = "firstRussianSubtitlesDataGridView";
-            firstRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            firstRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             firstRussianSubtitlesDataGridView.TabIndex = 1;
             // 
             // secondRussianSubtitlesDataGridView
             // 
+            secondRussianSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             secondRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             secondRussianSubtitlesDataGridView.Location = new System.Drawing.Point(616, 40);
             secondRussianSubtitlesDataGridView.Name = "secondRussianSubtitlesDataGridView";
-            secondRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            secondRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             secondRussianSubtitlesDataGridView.TabIndex = 2;
             // 
             // thirdRussianSubtitlesDataGridView
             // 
+            thirdRussianSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             thirdRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             thirdRussianSubtitlesDataGridView.Location = new System.Drawing.Point(903, 40);
             thirdRussianSubtitlesDataGridView.Name = "thirdRussianSubtitlesDataGridView";
-            thirdRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            thirdRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             thirdRussianSubtitlesDataGridView.TabIndex = 3;
             // 
             // vScrollBar1
@@ -94,7 +121,7 @@
             vScrollBar1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             vScrollBar1.Location = new System.Drawing.Point(9, 40);
             vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new System.Drawing.Size(17, 360);
+            vScrollBar1.Size = new System.Drawing.Size(17, 591);
             vScrollBar1.TabIndex = 4;
             vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
@@ -110,10 +137,11 @@
             // 
             // panel1
             // 
+            panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(showSubtitlesOnlyFirstWordsCountNumericUpDown);
             panel1.Controls.Add(showSubtitlesOnlyFirstWordsCheckBox);
-            panel1.Location = new System.Drawing.Point(34, 413);
+            panel1.Location = new System.Drawing.Point(1423, 644);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(328, 25);
             panel1.TabIndex = 6;
@@ -199,25 +227,284 @@
             // 
             // fifthRussianSubtitlesDataGridView
             // 
+            fifthRussianSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             fifthRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             fifthRussianSubtitlesDataGridView.Location = new System.Drawing.Point(1481, 40);
             fifthRussianSubtitlesDataGridView.Name = "fifthRussianSubtitlesDataGridView";
-            fifthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            fifthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             fifthRussianSubtitlesDataGridView.TabIndex = 14;
             // 
             // fourthRussianSubtitlesDataGridView
             // 
+            fourthRussianSubtitlesDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             fourthRussianSubtitlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             fourthRussianSubtitlesDataGridView.Location = new System.Drawing.Point(1194, 40);
             fourthRussianSubtitlesDataGridView.Name = "fourthRussianSubtitlesDataGridView";
-            fourthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 360);
+            fourthRussianSubtitlesDataGridView.Size = new System.Drawing.Size(270, 537);
             fourthRussianSubtitlesDataGridView.TabIndex = 13;
+            // 
+            // originalSubtitlesPlusTimeButton
+            // 
+            originalSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            originalSubtitlesPlusTimeButton.Location = new System.Drawing.Point(267, 578);
+            originalSubtitlesPlusTimeButton.Name = "originalSubtitlesPlusTimeButton";
+            originalSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            originalSubtitlesPlusTimeButton.TabIndex = 17;
+            originalSubtitlesPlusTimeButton.Text = "+";
+            originalSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            originalSubtitlesPlusTimeButton.Click += originalSubtitlesPlusTimeButton_Click;
+            // 
+            // originalSubtitlesMinusTimeButton
+            // 
+            originalSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            originalSubtitlesMinusTimeButton.Location = new System.Drawing.Point(267, 603);
+            originalSubtitlesMinusTimeButton.Name = "originalSubtitlesMinusTimeButton";
+            originalSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            originalSubtitlesMinusTimeButton.TabIndex = 18;
+            originalSubtitlesMinusTimeButton.Text = "-";
+            originalSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            originalSubtitlesMinusTimeButton.Click += originalSubtitlesMinusTimeButton_Click;
+            // 
+            // firstRussianSubtitlesPlusTimeButton
+            // 
+            firstRussianSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            firstRussianSubtitlesPlusTimeButton.Location = new System.Drawing.Point(551, 578);
+            firstRussianSubtitlesPlusTimeButton.Name = "firstRussianSubtitlesPlusTimeButton";
+            firstRussianSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            firstRussianSubtitlesPlusTimeButton.TabIndex = 19;
+            firstRussianSubtitlesPlusTimeButton.Text = "+";
+            firstRussianSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            firstRussianSubtitlesPlusTimeButton.Click += firstRussianSubtitlesPlusTimeButton_Click;
+            // 
+            // firstRussianSubtitlesMinusTimeButton
+            // 
+            firstRussianSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            firstRussianSubtitlesMinusTimeButton.Location = new System.Drawing.Point(551, 603);
+            firstRussianSubtitlesMinusTimeButton.Name = "firstRussianSubtitlesMinusTimeButton";
+            firstRussianSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            firstRussianSubtitlesMinusTimeButton.TabIndex = 20;
+            firstRussianSubtitlesMinusTimeButton.Text = "-";
+            firstRussianSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            firstRussianSubtitlesMinusTimeButton.Click += firstRussianSubtitlesMinusTimeButton_Click;
+            // 
+            // secondRussianSubtitlesPlusTimeButton
+            // 
+            secondRussianSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            secondRussianSubtitlesPlusTimeButton.Location = new System.Drawing.Point(838, 578);
+            secondRussianSubtitlesPlusTimeButton.Name = "secondRussianSubtitlesPlusTimeButton";
+            secondRussianSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            secondRussianSubtitlesPlusTimeButton.TabIndex = 21;
+            secondRussianSubtitlesPlusTimeButton.Text = "+";
+            secondRussianSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            secondRussianSubtitlesPlusTimeButton.Click += secondRussianSubtitlesPlusTimeButton_Click;
+            // 
+            // secondRussianSubtitlesMinusTimeButton
+            // 
+            secondRussianSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            secondRussianSubtitlesMinusTimeButton.Location = new System.Drawing.Point(838, 603);
+            secondRussianSubtitlesMinusTimeButton.Name = "secondRussianSubtitlesMinusTimeButton";
+            secondRussianSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            secondRussianSubtitlesMinusTimeButton.TabIndex = 22;
+            secondRussianSubtitlesMinusTimeButton.Text = "-";
+            secondRussianSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            secondRussianSubtitlesMinusTimeButton.Click += secondRussianSubtitlesMinusTimeButton_Click;
+            // 
+            // thirdRussianSubtitlesPlusTimeButton
+            // 
+            thirdRussianSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            thirdRussianSubtitlesPlusTimeButton.Location = new System.Drawing.Point(1124, 578);
+            thirdRussianSubtitlesPlusTimeButton.Name = "thirdRussianSubtitlesPlusTimeButton";
+            thirdRussianSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            thirdRussianSubtitlesPlusTimeButton.TabIndex = 23;
+            thirdRussianSubtitlesPlusTimeButton.Text = "+";
+            thirdRussianSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            thirdRussianSubtitlesPlusTimeButton.Click += thirdRussianSubtitlesPlusTimeButton_Click;
+            // 
+            // thirdRussianSubtitlesMinusTimeButton
+            // 
+            thirdRussianSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            thirdRussianSubtitlesMinusTimeButton.Location = new System.Drawing.Point(1124, 603);
+            thirdRussianSubtitlesMinusTimeButton.Name = "thirdRussianSubtitlesMinusTimeButton";
+            thirdRussianSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            thirdRussianSubtitlesMinusTimeButton.TabIndex = 24;
+            thirdRussianSubtitlesMinusTimeButton.Text = "-";
+            thirdRussianSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            thirdRussianSubtitlesMinusTimeButton.Click += thirdRussianSubtitlesMinusTimeButton_Click;
+            // 
+            // fourthRussianSubtitlesPlusTimeButton
+            // 
+            fourthRussianSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            fourthRussianSubtitlesPlusTimeButton.Location = new System.Drawing.Point(1418, 578);
+            fourthRussianSubtitlesPlusTimeButton.Name = "fourthRussianSubtitlesPlusTimeButton";
+            fourthRussianSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            fourthRussianSubtitlesPlusTimeButton.TabIndex = 25;
+            fourthRussianSubtitlesPlusTimeButton.Text = "+";
+            fourthRussianSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            fourthRussianSubtitlesPlusTimeButton.Click += fourthRussianSubtitlesPlusTimeButton_Click;
+            // 
+            // fourthRussianSubtitlesMinusTimeButton
+            // 
+            fourthRussianSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            fourthRussianSubtitlesMinusTimeButton.Location = new System.Drawing.Point(1418, 603);
+            fourthRussianSubtitlesMinusTimeButton.Name = "fourthRussianSubtitlesMinusTimeButton";
+            fourthRussianSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            fourthRussianSubtitlesMinusTimeButton.TabIndex = 26;
+            fourthRussianSubtitlesMinusTimeButton.Text = "-";
+            fourthRussianSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            fourthRussianSubtitlesMinusTimeButton.Click += fourthRussianSubtitlesMinusTimeButton_Click;
+            // 
+            // fifthRussianSubtitlesPlusTimeButton
+            // 
+            fifthRussianSubtitlesPlusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            fifthRussianSubtitlesPlusTimeButton.Location = new System.Drawing.Point(1708, 578);
+            fifthRussianSubtitlesPlusTimeButton.Name = "fifthRussianSubtitlesPlusTimeButton";
+            fifthRussianSubtitlesPlusTimeButton.Size = new System.Drawing.Size(33, 23);
+            fifthRussianSubtitlesPlusTimeButton.TabIndex = 27;
+            fifthRussianSubtitlesPlusTimeButton.Text = "+";
+            fifthRussianSubtitlesPlusTimeButton.UseVisualStyleBackColor = true;
+            fifthRussianSubtitlesPlusTimeButton.Click += fifthRussianSubtitlesPlusTimeButton_Click;
+            // 
+            // fifthRussianSubtitlesMinusTimeButton
+            // 
+            fifthRussianSubtitlesMinusTimeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            fifthRussianSubtitlesMinusTimeButton.Location = new System.Drawing.Point(1708, 603);
+            fifthRussianSubtitlesMinusTimeButton.Name = "fifthRussianSubtitlesMinusTimeButton";
+            fifthRussianSubtitlesMinusTimeButton.Size = new System.Drawing.Size(33, 23);
+            fifthRussianSubtitlesMinusTimeButton.TabIndex = 28;
+            fifthRussianSubtitlesMinusTimeButton.Text = "-";
+            fifthRussianSubtitlesMinusTimeButton.UseVisualStyleBackColor = true;
+            fifthRussianSubtitlesMinusTimeButton.Click += fifthRussianSubtitlesMinusTimeButton_Click;
+            // 
+            // timingDeltaNumericUpDown
+            // 
+            timingDeltaNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            timingDeltaNumericUpDown.Increment = new decimal(new int[] { 100, 0, 0, 0 });
+            timingDeltaNumericUpDown.Location = new System.Drawing.Point(200, 643);
+            timingDeltaNumericUpDown.Maximum = new decimal(new int[] { -1, -1, 0, 0 });
+            timingDeltaNumericUpDown.Name = "timingDeltaNumericUpDown";
+            timingDeltaNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            timingDeltaNumericUpDown.TabIndex = 29;
+            timingDeltaNumericUpDown.Value = new decimal(new int[] { 200, 0, 0, 0 });
+            timingDeltaNumericUpDown.ValueChanged += timingDeltaNumericUpDown_ValueChanged;
+            // 
+            // label9
+            // 
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(200, 589);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(61, 30);
+            label9.TabIndex = 30;
+            label9.Text = "Изменить\r\nтайминг:";
+            // 
+            // label10
+            // 
+            label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(42, 645);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(150, 15);
+            label10.TabIndex = 31;
+            label10.Text = "Шаг изменения тайминга:";
+            // 
+            // label11
+            // 
+            label11.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(329, 645);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(81, 15);
+            label11.TabIndex = 32;
+            label11.Text = "миллисекунд";
+            // 
+            // label12
+            // 
+            label12.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(482, 589);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(61, 30);
+            label12.TabIndex = 33;
+            label12.Text = "Изменить\r\nтайминг:";
+            // 
+            // label13
+            // 
+            label13.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(771, 589);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(61, 30);
+            label13.TabIndex = 34;
+            label13.Text = "Изменить\r\nтайминг:";
+            // 
+            // label14
+            // 
+            label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(1057, 589);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(61, 30);
+            label14.TabIndex = 35;
+            label14.Text = "Изменить\r\nтайминг:";
+            // 
+            // label15
+            // 
+            label15.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(1351, 589);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(61, 30);
+            label15.TabIndex = 36;
+            label15.Text = "Изменить\r\nтайминг:";
+            // 
+            // label16
+            // 
+            label16.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(1641, 589);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(61, 30);
+            label16.TabIndex = 37;
+            label16.Text = "Изменить\r\nтайминг:";
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(445, 461);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(323, 30);
+            button1.TabIndex = 38;
+            button1.Text = "🗌 Вернуть значение шага изменения по умолчанию";
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
+            button1.Click += button1_Click;
             // 
             // ShowSubtitlesForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1764, 450);
+            ClientSize = new System.Drawing.Size(1764, 681);
+            Controls.Add(button1);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(timingDeltaNumericUpDown);
+            Controls.Add(fifthRussianSubtitlesMinusTimeButton);
+            Controls.Add(fifthRussianSubtitlesPlusTimeButton);
+            Controls.Add(fourthRussianSubtitlesMinusTimeButton);
+            Controls.Add(fourthRussianSubtitlesPlusTimeButton);
+            Controls.Add(thirdRussianSubtitlesMinusTimeButton);
+            Controls.Add(thirdRussianSubtitlesPlusTimeButton);
+            Controls.Add(secondRussianSubtitlesMinusTimeButton);
+            Controls.Add(secondRussianSubtitlesPlusTimeButton);
+            Controls.Add(firstRussianSubtitlesMinusTimeButton);
+            Controls.Add(firstRussianSubtitlesPlusTimeButton);
+            Controls.Add(originalSubtitlesMinusTimeButton);
+            Controls.Add(originalSubtitlesPlusTimeButton);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(fifthRussianSubtitlesDataGridView);
@@ -237,6 +524,7 @@
             Name = "ShowSubtitlesForm";
             Tag = "Сайз был 1200; 489";
             Text = "Показать субтитры";
+            Load += ShowSubtitlesForm_Load;
             ((System.ComponentModel.ISupportInitialize)originalSubtitlesDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)firstRussianSubtitlesDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)secondRussianSubtitlesDataGridView).EndInit();
@@ -246,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)showSubtitlesOnlyFirstWordsCountNumericUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)fifthRussianSubtitlesDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)fourthRussianSubtitlesDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)timingDeltaNumericUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -270,5 +559,27 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView fifthRussianSubtitlesDataGridView;
         private System.Windows.Forms.DataGridView fourthRussianSubtitlesDataGridView;
+        private System.Windows.Forms.Button originalSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button originalSubtitlesMinusTimeButton;
+        private System.Windows.Forms.Button firstRussianSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button firstRussianSubtitlesMinusTimeButton;
+        private System.Windows.Forms.Button secondRussianSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button secondRussianSubtitlesMinusTimeButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button thirdRussianSubtitlesMinusTimeButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button fourthRussianSubtitlesMinusTimeButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesPlusTimeButton;
+        private System.Windows.Forms.Button fifthRussianSubtitlesMinusTimeButton;
+        private System.Windows.Forms.NumericUpDown timingDeltaNumericUpDown;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button1;
     }
 }
