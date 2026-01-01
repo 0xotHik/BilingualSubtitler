@@ -485,11 +485,6 @@ namespace BilingualSubtitler
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var form1 = new Form1(m_subtitlesAndInfos
-    );
-            form1.Width = this.Width;
-            form1.Location = new Point(this.Location.X, this.Bottom);
-            form1.Show();
         }
     }
 }

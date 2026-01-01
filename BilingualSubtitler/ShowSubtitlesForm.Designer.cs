@@ -69,7 +69,6 @@
             label15 = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
             subtitleTimelineControl = new SubtitleTimelineControl();
             ((System.ComponentModel.ISupportInitialize)originalSubtitlesDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)firstRussianSubtitlesDataGridView).BeginInit();
@@ -480,21 +479,11 @@
             button1.Visible = false;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new System.Drawing.Point(1034, 649);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(75, 23);
-            button2.TabIndex = 39;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // subtitleTimelineControl
             // 
             subtitleTimelineControl.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             subtitleTimelineControl.AutoScroll = true;
-            subtitleTimelineControl.Location = new System.Drawing.Point(43, 379);
+            subtitleTimelineControl.Location = new System.Drawing.Point(43, 376);
             subtitleTimelineControl.Name = "subtitleTimelineControl";
             subtitleTimelineControl.Size = new System.Drawing.Size(1709, 367);
             subtitleTimelineControl.TabIndex = 40;
@@ -505,7 +494,6 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1764, 808);
             Controls.Add(subtitleTimelineControl);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label16);
             Controls.Add(label15);
@@ -604,7 +592,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private SubtitleTimelineControl subtitleTimelineControl;
     }
 }
