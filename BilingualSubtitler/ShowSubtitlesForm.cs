@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 
 namespace BilingualSubtitler
 {
@@ -19,6 +20,8 @@ namespace BilingualSubtitler
 
     public partial class ShowSubtitlesForm : Form
     {
+        Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitlesAndInfos;
+
         private List<DataGridView> m_dataGridViews;
         private Subtitle[] m_originalSubtitles;
         private Subtitle[] m_firstRussianSubtitles;
@@ -27,22 +30,18 @@ namespace BilingualSubtitler
         private Subtitle[] m_fourthRussianSubtitles;
         private Subtitle[] m_fifthRussianSubtitles;
 
-        public ShowSubtitlesForm(
-            Subtitle[] originalSubtitles,
-            Subtitle[] firstRussianSubtitles,
-            Subtitle[] secondRussianSubtitles,
-            Subtitle[] thirdRussianSubtitles,
-            Subtitle[] fourthRussianSubtitles,
-            Subtitle[] fifthRussianSubtitles)
+        public ShowSubtitlesForm(Dictionary<SubtitlesType, SubtitlesAndInfo> subtitlesAndInfos)
         {
             InitializeComponent();
 
-            m_originalSubtitles = originalSubtitles;
-            m_firstRussianSubtitles = firstRussianSubtitles;
-            m_secondRussianSubtitles = secondRussianSubtitles;
-            m_thirdRussianSubtitles = thirdRussianSubtitles;
-            m_fourthRussianSubtitles = fourthRussianSubtitles;
-            m_fifthRussianSubtitles = fifthRussianSubtitles;
+            m_subtitlesAndInfos = subtitlesAndInfos;
+
+            m_originalSubtitles = subtitlesAndInfos[SubtitlesType.Original].Subtitles;
+            m_firstRussianSubtitles = subtitlesAndInfos[SubtitlesType.FirstRussian].Subtitles;
+            m_secondRussianSubtitles = subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles;
+            m_thirdRussianSubtitles = subtitlesAndInfos[SubtitlesType.ThirdRussian].Subtitles;
+            m_fourthRussianSubtitles = subtitlesAndInfos[SubtitlesType.FourthRussian].Subtitles;
+            m_fifthRussianSubtitles = subtitlesAndInfos[SubtitlesType.FifthRussian].Subtitles;
 
             m_dataGridViews = (new List<DataGridView> {
 
@@ -115,12 +114,12 @@ namespace BilingualSubtitler
 
             originalSubtitlesDataGridView.AllowUserToAddRows = false;
 
-            PrintSubtitles(originalSubtitles, originalSubtitlesDataGridView);
-            PrintSubtitles(firstRussianSubtitles, firstRussianSubtitlesDataGridView);
-            PrintSubtitles(secondRussianSubtitles, secondRussianSubtitlesDataGridView);
-            PrintSubtitles(thirdRussianSubtitles, thirdRussianSubtitlesDataGridView);
-            PrintSubtitles(fourthRussianSubtitles, fourthRussianSubtitlesDataGridView);
-            PrintSubtitles(fifthRussianSubtitles, fifthRussianSubtitlesDataGridView);
+            PrintSubtitles(m_originalSubtitles, originalSubtitlesDataGridView);
+            PrintSubtitles(m_firstRussianSubtitles, firstRussianSubtitlesDataGridView);
+            PrintSubtitles(m_secondRussianSubtitles, secondRussianSubtitlesDataGridView);
+            PrintSubtitles(m_thirdRussianSubtitles, thirdRussianSubtitlesDataGridView);
+            PrintSubtitles(m_fourthRussianSubtitles, fourthRussianSubtitlesDataGridView);
+            PrintSubtitles(m_fifthRussianSubtitles, fifthRussianSubtitlesDataGridView);
 
             SetStyleForEachDataGridView(m_dataGridViews);
 
@@ -128,6 +127,29 @@ namespace BilingualSubtitler
 
             timingDeltaNumericUpDown.Value = Properties.Settings.Default.ChangeSubtitlesTimingDelta;
 
+            SetSubtitlesTimelineTrack(SubtitlesType.Original, 0);
+            SetSubtitlesTimelineTrack(SubtitlesType.FirstRussian, 1);
+            SetSubtitlesTimelineTrack(SubtitlesType.SecondRussian, 2);
+            SetSubtitlesTimelineTrack(SubtitlesType.ThirdRussian, 3);
+            SetSubtitlesTimelineTrack(SubtitlesType.FourthRussian, 4);
+            SetSubtitlesTimelineTrack(SubtitlesType.FifthRussian, 5);
+            //
+            RefreshTimelineKeepView();
+            subtitleTimelineControl.Focus();
+
+        }
+
+        private void SetSubtitlesTimelineTrack(SubtitlesType type, int idOnTimeline)
+        {
+            var currentSubtitles = m_subtitlesAndInfos[type];
+            if (ThereAreSubtitles(currentSubtitles.Subtitles))
+            {
+                subtitleTimelineControl.Tracks[idOnTimeline] = new()
+                {
+                    Subtitles = currentSubtitles.Subtitles,
+                    Color = currentSubtitles.ColorPickingButton.BackColor
+                };
+            }
         }
 
         private void SetStyleForEachDataGridView(List<DataGridView> dataGridViews)
@@ -198,7 +220,7 @@ namespace BilingualSubtitler
         }
 
 
-        private bool ThereIsSubtitles(Subtitle[] subtitlesArrayInQuestion)
+        private bool ThereAreSubtitles(Subtitle[] subtitlesArrayInQuestion)
         {
             if ((subtitlesArrayInQuestion != null) && (subtitlesArrayInQuestion.Length > 0))
                 return true;
@@ -303,6 +325,27 @@ namespace BilingualSubtitler
             }
 
             PrintSubtitles(subtitles, dataGridView);
+            RefreshTimelineKeepView();
+        }
+
+        private void RefreshTimelineKeepView()
+        {
+            var subtitlesAndInfos = m_subtitlesAndInfos;
+
+            var currentSubtitles = subtitlesAndInfos[SubtitlesType.Original];
+            subtitleTimelineControl.Tracks[0].Subtitles = currentSubtitles.Subtitles;
+            currentSubtitles = subtitlesAndInfos[SubtitlesType.FirstRussian];
+            subtitleTimelineControl.Tracks[1].Subtitles = currentSubtitles.Subtitles;
+            currentSubtitles = subtitlesAndInfos[SubtitlesType.SecondRussian];
+            subtitleTimelineControl.Tracks[2].Subtitles = currentSubtitles.Subtitles;
+            currentSubtitles = subtitlesAndInfos[SubtitlesType.ThirdRussian];
+            subtitleTimelineControl.Tracks[3].Subtitles = currentSubtitles.Subtitles;
+            currentSubtitles = subtitlesAndInfos[SubtitlesType.FourthRussian];
+            subtitleTimelineControl.Tracks[4].Subtitles = currentSubtitles.Subtitles;
+            currentSubtitles = subtitlesAndInfos[SubtitlesType.FifthRussian];
+            subtitleTimelineControl.Tracks[5].Subtitles = currentSubtitles.Subtitles;
+
+            subtitleTimelineControl.RefreshTimelineKeepView();
         }
 
         private void originalSubtitlesPlusTimeButton_Click(object sender, EventArgs e)
@@ -438,6 +481,15 @@ namespace BilingualSubtitler
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form1 = new Form1(m_subtitlesAndInfos
+    );
+            form1.Width = this.Width;
+            form1.Location = new Point(this.Location.X, this.Bottom);
+            form1.Show();
         }
     }
 }

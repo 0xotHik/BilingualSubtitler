@@ -4187,19 +4187,8 @@ namespace BilingualSubtitler
 
         private void showLastSubtitleOfFirstRussianSubtitlesButton_Click(object sender, EventArgs e)
         {
-            var originalSubtitles = m_subtitlesAndInfos[SubtitlesType.Original].Subtitles;
-            var firstRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.FirstRussian].Subtitles;
-            var secondRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles;
-            var thirdRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.ThirdRussian].Subtitles;
-            var fourthRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.FourthRussian].Subtitles;
-            var fifthRussianSubtitles = m_subtitlesAndInfos[SubtitlesType.FifthRussian].Subtitles;
 
-            var showSubtitlesForm = new ShowSubtitlesForm(originalSubtitles,
-                firstRussianSubtitles,
-                secondRussianSubtitles,
-                thirdRussianSubtitles,
-                fourthRussianSubtitles,
-                fifthRussianSubtitles);
+            var showSubtitlesForm = new ShowSubtitlesForm(m_subtitlesAndInfos);
             showSubtitlesForm.ShowDialog();
             //ShowLastSubtitleOfSubtitles(SubtitlesType.FirstRussian);
         }
@@ -4894,6 +4883,11 @@ namespace BilingualSubtitler
         /// <see cref="SetFormAccordingToAndroidSettings"></see>
         /// </summary>
         private void techLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
         {
 
         }

@@ -176,6 +176,14 @@ namespace BilingualSubtitler
             }
         }
 
+        public static bool ThereAreSubtitles(Subtitle[] subtitlesArrayInQuestion)
+        {
+            if ((subtitlesArrayInQuestion != null) && (subtitlesArrayInQuestion.Length > 0))
+                return true;
+
+            return false;
+        }
+
         public SubtitlesAndInfo(ProgressBar progressBar,
             Label progressLabel,
             Button buttonOpen,
