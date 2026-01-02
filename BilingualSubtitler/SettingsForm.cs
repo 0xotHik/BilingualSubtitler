@@ -222,6 +222,8 @@ namespace BilingualSubtitler
 
                 openAndroidSubtitlesAppearanceSettingsButton.Visible =
 
+                filesCreatingOptionsGroupBox.Visible =
+
                 itIsAdvancedMode;
 
             if (itIsAdvancedMode)

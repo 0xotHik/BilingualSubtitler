@@ -44,7 +44,7 @@
             button7 = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
             button5 = new System.Windows.Forms.Button();
-            groupBox5 = new System.Windows.Forms.GroupBox();
+            filesCreatingOptionsGroupBox = new System.Windows.Forms.GroupBox();
             label4 = new System.Windows.Forms.Label();
             CreateBilingualSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             CreateOriginalSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
@@ -101,7 +101,7 @@
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
-            groupBox5.SuspendLayout();
+            filesCreatingOptionsGroupBox.SuspendLayout();
             groupBox6.SuspendLayout();
             processPriorityGroupBox.SuspendLayout();
             checkUpdatesGroupBox.SuspendLayout();
@@ -182,12 +182,12 @@
             yandexTranslatorBetaLabel.AutoSize = true;
             yandexTranslatorBetaLabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
             yandexTranslatorBetaLabel.ForeColor = System.Drawing.Color.FromArgb(64, 0, 64);
-            yandexTranslatorBetaLabel.Location = new System.Drawing.Point(163, 0);
+            yandexTranslatorBetaLabel.Location = new System.Drawing.Point(156, -2);
             yandexTranslatorBetaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             yandexTranslatorBetaLabel.Name = "yandexTranslatorBetaLabel";
-            yandexTranslatorBetaLabel.Size = new System.Drawing.Size(39, 16);
+            yandexTranslatorBetaLabel.Size = new System.Drawing.Size(40, 16);
             yandexTranslatorBetaLabel.TabIndex = 116;
-            yandexTranslatorBetaLabel.Text = "[Beta]";
+            yandexTranslatorBetaLabel.Text = "[Бета]";
             // 
             // gotTheYandexTranslatorAPIKeyCheckBox
             // 
@@ -301,22 +301,22 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
-            // groupBox5
+            // filesCreatingOptionsGroupBox
             // 
-            groupBox5.Controls.Add(label4);
-            groupBox5.Controls.Add(CreateBilingualSubtitlesFileCheckBox);
-            groupBox5.Controls.Add(CreateOriginalSubtitlesFileCheckBox);
-            groupBox5.Controls.Add(bilingualSubtitlesPathEndingTextBox);
-            groupBox5.Controls.Add(originalSubtitlesPathEndingTextBox);
-            groupBox5.Location = new System.Drawing.Point(13, 411);
-            groupBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox5.Size = new System.Drawing.Size(359, 145);
-            groupBox5.TabIndex = 69;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Создавать файлы:";
-            groupBox5.Enter += groupBox5_Enter;
+            filesCreatingOptionsGroupBox.Controls.Add(label4);
+            filesCreatingOptionsGroupBox.Controls.Add(CreateBilingualSubtitlesFileCheckBox);
+            filesCreatingOptionsGroupBox.Controls.Add(CreateOriginalSubtitlesFileCheckBox);
+            filesCreatingOptionsGroupBox.Controls.Add(bilingualSubtitlesPathEndingTextBox);
+            filesCreatingOptionsGroupBox.Controls.Add(originalSubtitlesPathEndingTextBox);
+            filesCreatingOptionsGroupBox.Location = new System.Drawing.Point(13, 411);
+            filesCreatingOptionsGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            filesCreatingOptionsGroupBox.Name = "filesCreatingOptionsGroupBox";
+            filesCreatingOptionsGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            filesCreatingOptionsGroupBox.Size = new System.Drawing.Size(359, 145);
+            filesCreatingOptionsGroupBox.TabIndex = 69;
+            filesCreatingOptionsGroupBox.TabStop = false;
+            filesCreatingOptionsGroupBox.Text = "Создавать файлы:";
+            filesCreatingOptionsGroupBox.Enter += groupBox5_Enter;
             // 
             // label4
             // 
@@ -406,9 +406,9 @@
             startVideoInSettedPlayerBetaWarningLabel.Location = new System.Drawing.Point(229, 254);
             startVideoInSettedPlayerBetaWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             startVideoInSettedPlayerBetaWarningLabel.Name = "startVideoInSettedPlayerBetaWarningLabel";
-            startVideoInSettedPlayerBetaWarningLabel.Size = new System.Drawing.Size(39, 16);
+            startVideoInSettedPlayerBetaWarningLabel.Size = new System.Drawing.Size(40, 16);
             startVideoInSettedPlayerBetaWarningLabel.TabIndex = 115;
-            startVideoInSettedPlayerBetaWarningLabel.Text = "[Beta]";
+            startVideoInSettedPlayerBetaWarningLabel.Text = "[Бета]";
             // 
             // videoPlayerPathTextBox
             // 
@@ -946,7 +946,7 @@
             Controls.Add(checkUpdatesGroupBox);
             Controls.Add(processPriorityGroupBox);
             Controls.Add(groupBox6);
-            Controls.Add(groupBox5);
+            Controls.Add(filesCreatingOptionsGroupBox);
             Controls.Add(button5);
             Controls.Add(groupBox2);
             Controls.Add(yandexTranslatorGroupBox);
@@ -963,8 +963,8 @@
             yandexTranslatorGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).EndInit();
             groupBox2.ResumeLayout(false);
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
+            filesCreatingOptionsGroupBox.ResumeLayout(false);
+            filesCreatingOptionsGroupBox.PerformLayout();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             processPriorityGroupBox.ResumeLayout(false);
@@ -991,7 +991,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn keyColumn;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox filesCreatingOptionsGroupBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox CreateBilingualSubtitlesFileCheckBox;
         private System.Windows.Forms.CheckBox CreateOriginalSubtitlesFileCheckBox;
