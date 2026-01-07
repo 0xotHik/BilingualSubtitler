@@ -1,15 +1,15 @@
 ; 1. Битность
 ; 2. Поменять версию
 ; 3. Чекнуть набор файлов
-;#define Architecture = "x64"
-;#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
+#define Architecture = "x64"
+#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler-dev\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
 ;
 #define Architecture = "x86";
-#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
+#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler-dev\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
-#define MyAppVersion "13.1"
-#define MajorVersion = "13"
-#define MinorVersion = "1"
+#define MyAppVersion "14.0"
+#define MajorVersion = "14"
+#define MinorVersion = "0"
 
 #define MyAppName "Bilingual Subtitler"
 #define MyAppPublisher "0xotHik"
@@ -28,10 +28,13 @@ Source: "{#SourceFolder}\BilingualSubtitler.runtimeconfig.json"; DestDir: "{app}
 Source: "{#SourceFolder}\Gma.System.MouseKeyHook.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\libse.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\libSkiaSharp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\Microsoft.Bcl.AsyncInterfaces.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.Bcl.HashCode.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.Extensions.ObjectPool.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourceFolder}\System.ServiceModel.NetFramingBase.dll"; DestDir: "{app}"; Flags: ignoreversion
+
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Sensors.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -52,7 +55,6 @@ Source: "{#SourceFolder}\System.DirectoryServices.AccountManagement.dll"; DestDi
 Source: "{#SourceFolder}\System.DirectoryServices.Protocols.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.IO.Ports.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Management.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#SourceFolder}\System.Private.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Reflection.Context.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.Runtime.Caching.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\System.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -72,6 +74,8 @@ Source: "{#SourceFolder}\Xceed.Drawing.NET.dll"; DestDir: "{app}"; Flags: ignore
 Source: "{#SourceFolder}\Xceed.Words.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\YandexLinguistics.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourceFolder}\zlib.net.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+
 ;
 ; Папки
 Source: "{#SourceFolder}\cs\*"; DestDir: "{app}\cs\"; Flags: ignoreversion recursesubdirs createallsubdirs
