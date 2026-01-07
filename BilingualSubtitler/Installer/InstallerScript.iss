@@ -4,8 +4,8 @@
 #define Architecture = "x64"
 #define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler-dev\BilingualSubtitler\bin\Publish\Framework-dependent\x64\BilingualSubtitler"
 ;
-#define Architecture = "x86";
-#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler-dev\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
+;#define Architecture = "x86";
+;#define SourceFolder = "C:\Users\0xothik\Documents\BilingualSubtitler-dev\BilingualSubtitler\bin\Publish\Framework-dependent\x86\BilingualSubtitler"
 ;
 #define MyAppVersion "14.0"
 #define MajorVersion = "14"

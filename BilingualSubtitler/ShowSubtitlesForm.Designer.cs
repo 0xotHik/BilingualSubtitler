@@ -126,7 +126,7 @@
             vScrollBar1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             vScrollBar1.Location = new System.Drawing.Point(9, 40);
             vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new System.Drawing.Size(17, 664);
+            vScrollBar1.Size = new System.Drawing.Size(17, 245);
             vScrollBar1.TabIndex = 4;
             vScrollBar1.Scroll += vScrollBar1_Scroll;
             // 
