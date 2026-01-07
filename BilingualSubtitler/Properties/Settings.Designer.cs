@@ -507,5 +507,17 @@ namespace BilingualSubtitler.Properties {
                 this["VideoPlayerPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public ulong ChangeSubtitlesTimingDelta {
+            get {
+                return ((ulong)(this["ChangeSubtitlesTimingDelta"]));
+            }
+            set {
+                this["ChangeSubtitlesTimingDelta"] = value;
+            }
+        }
     }
 }

@@ -16,8 +16,8 @@ namespace BilingualSubtitler
 {
     public class Subtitle
     {
-        public TimeSpan Start { get; private set; }
-        public TimeSpan End { get; private set; }
+        public TimeSpan Start;
+        public TimeSpan End;
 
         /// <summary>
         /// Здесь должен лежать текст в обычном виде, чтобы нормально переводился через Яндекс.Переводчик
@@ -174,6 +174,14 @@ namespace BilingualSubtitler
                 fromFile = !value;
                 fromClipboard = value;
             }
+        }
+
+        public static bool ThereAreSubtitles(Subtitle[] subtitlesArrayInQuestion)
+        {
+            if ((subtitlesArrayInQuestion != null) && (subtitlesArrayInQuestion.Length > 0))
+                return true;
+
+            return false;
         }
 
         public SubtitlesAndInfo(ProgressBar progressBar,

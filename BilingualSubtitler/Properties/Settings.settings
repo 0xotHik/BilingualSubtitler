@@ -129,5 +129,8 @@
     <Setting Name="VideoPlayerPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="ChangeSubtitlesTimingDelta" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
