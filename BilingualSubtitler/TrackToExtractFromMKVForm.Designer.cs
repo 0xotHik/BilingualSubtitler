@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackToExtractFromMKVForm));
             this.labelTrackToOpen = new System.Windows.Forms.Label();
-            this.dataGridViewSubTracks = new System.Windows.Forms.DataGridView();
+            this.mkvTracksDGW = new System.Windows.Forms.DataGridView();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Language = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrackName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubTracks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkvTracksDGW)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTrackToOpen
@@ -51,24 +51,24 @@
             // 
             // dataGridViewSubTracks
             // 
-            this.dataGridViewSubTracks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mkvTracksDGW.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSubTracks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSubTracks.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
-            this.dataGridViewSubTracks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubTracks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mkvTracksDGW.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.mkvTracksDGW.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
+            this.mkvTracksDGW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mkvTracksDGW.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Language,
             this.TrackName});
-            this.dataGridViewSubTracks.Location = new System.Drawing.Point(19, 35);
-            this.dataGridViewSubTracks.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridViewSubTracks.MultiSelect = false;
-            this.dataGridViewSubTracks.Name = "dataGridViewSubTracks";
-            this.dataGridViewSubTracks.ReadOnly = true;
-            this.dataGridViewSubTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSubTracks.Size = new System.Drawing.Size(652, 228);
-            this.dataGridViewSubTracks.TabIndex = 1;
+            this.mkvTracksDGW.Location = new System.Drawing.Point(19, 35);
+            this.mkvTracksDGW.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mkvTracksDGW.MultiSelect = false;
+            this.mkvTracksDGW.Name = "dataGridViewSubTracks";
+            this.mkvTracksDGW.ReadOnly = true;
+            this.mkvTracksDGW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mkvTracksDGW.Size = new System.Drawing.Size(652, 228);
+            this.mkvTracksDGW.TabIndex = 1;
             // 
             // buttonOk
             // 
@@ -128,14 +128,14 @@
             this.ClientSize = new System.Drawing.Size(684, 335);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.dataGridViewSubTracks);
+            this.Controls.Add(this.mkvTracksDGW);
             this.Controls.Add(this.labelTrackToOpen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TrackToExtractFromMKVForm";
             this.Text = "Выберите трек субтитров";
             this.Load += new System.EventHandler(this.TrackToExtractFromMKVForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubTracks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mkvTracksDGW)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +144,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTrackToOpen;
-        private System.Windows.Forms.DataGridView dataGridViewSubTracks;
+        private System.Windows.Forms.DataGridView mkvTracksDGW;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;

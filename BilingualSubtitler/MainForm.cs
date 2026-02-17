@@ -1,36 +1,37 @@
-﻿using System;
+﻿using Aspose.Zip;
+using Aspose.Zip.Rar;
+using Gma.System.MouseKeyHook;
+using Nikse.SubtitleEdit.Core.Common;
+using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
+using Nikse.SubtitleEdit.Core.SubtitleFormats;
+using NonInvasiveKeyboardHookLibrary;
+using Octokit;
+using Syroot.Windows.IO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using WindowsInput;
-using Nikse.SubtitleEdit.Core.ContainerFormats.Matroska;
+using Xceed.Words.NET;
 using YandexLinguistics.NET;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using Label = System.Windows.Forms.Label;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Settings = BilingualSubtitler.Properties.Settings;
 using VirtualKeyCode = WindowsInput.Native.VirtualKeyCode;
-using Xceed.Words.NET;
-using Octokit;
-using Label = System.Windows.Forms.Label;
-using System.Threading;
-using System.Security.Principal;
-using System.Drawing.Text;
-using System.IO.Compression;
-using Syroot.Windows.IO;
-using NonInvasiveKeyboardHookLibrary;
-using Gma.System.MouseKeyHook;
-using System.Linq;
-using Aspose.Zip.Rar;
-using Aspose.Zip;
-using Nikse.SubtitleEdit.Core.Common;
-using System.Drawing.Printing;
-using System.Text.RegularExpressions;
-using Nikse.SubtitleEdit.Core.SubtitleFormats;
-using System.Windows.Documents;
 
 namespace BilingualSubtitler
 {
@@ -4886,6 +4887,72 @@ namespace BilingualSubtitler
         private void button2_Click_3(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_4(object sender, EventArgs e)
+        {
+            //using (var createAiSubtitlesForm = new CreateAiSubtitlesForm())
+            //{
+            //    createAiSubtitlesForm.Show();
+            //}
+
+            string formats = "Файлы Matroska Video (.mkv); файлы SubRip Text (.srt); файлы DocX (.docx); архивы Zip, содержащие субтитры в формате SubRip Text (.zip, внутри .srt); архивы Rar, содержащие субтитры в формате SubRip Text (.rar, внутри .srt) |*.mkv; *.srt; *.docx; *.zip; *.rar|Все файлы (*.*)|*.*";
+            //
+
+            using var openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = formats;
+
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+
+                var mkvFile = new MatroskaFile(openFileDialog.FileName);
+                var tracks = mkvFile.GetTracks(false);
+
+                // Вызов формы для выбора трека субтитров
+                var trackSelectionForm = new TrackToExtractFromMKVForm(tracks);
+                //
+                var dialogResult = trackSelectionForm.ShowDialogInForeground();
+                if (dialogResult == DialogResult.OK)
+                {
+                    var trackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
+                    var trackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
+                    var trackTitle = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
+
+                    // Перевести тайтл трека в "безопасный" вариант для названия файла
+                    string outFileAudio;
+                    string directory = Path.GetDirectoryName(openFileDialog.FileName)!;
+                    string fileNameWithoutExt = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+
+                    string transliterated = FileNameHelper.Transliterate(trackTitle);
+
+                    // всё кроме букв, цифр и пробелов → пробел
+                    transliterated = Regex.Replace(transliterated, @"[^a-zA-Z0-9\s]", " ");
+
+                    // пробелы → _
+                    transliterated = Regex.Replace(transliterated.Trim(), @"\s+", "_");
+
+                    // убираем повторяющиеся _
+                    transliterated = Regex.Replace(transliterated, @"_+", "_");
+
+                    string newFileName = $"{fileNameWithoutExt}.{transliterated}.mka";
+
+                    outFileAudio = Path.Combine(directory, newFileName);
+                    // Извлечь аудио + Сделать Шепот
+                    string strCmdText;
+                    strCmdText = $"/C " +
+                        $"\"D:\\Program Files\\MKVToolNix\\mkvextract.exe\" tracks {mkvFile} {trackNumber}:{outFileAudio} && " +
+                        $"\"M:\\Soft\\Installed\\Faster-Whisper-XXL\\faster-whisper-xxl.exe\" {outFileAudio} --beep_off --check_files --language ru --model large-v3-turbo --output_dir source --output_format srt --standard --print_progress";
+                    System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+
+                    // Удалить файл аудио
+                    File.Delete(outFileAudio);
+
+                    // MessageBox.Show($"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}, {trackSelectionForm.SelectedTrackIdLangTitle.Item3}");
+
+                }
+            }
         }
     }
 }

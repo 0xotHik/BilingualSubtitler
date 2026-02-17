@@ -215,6 +215,7 @@
             androidSrtPackOrSeparateStreamsFileEndingLabel = new System.Windows.Forms.Label();
             androidSrtPackOrSeparateStreamsFileEndingTitleLabel = new System.Windows.Forms.Label();
             createAndroidSubtitesButton = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
             groupBox3.SuspendLayout();
             subtitlesStreamsPanel.SuspendLayout();
             fifthRussianSubtitlesGroupBox.SuspendLayout();
@@ -2569,6 +2570,20 @@
             createAndroidSubtitesButton.UseVisualStyleBackColor = false;
             createAndroidSubtitesButton.Click += createAndroidSubtitesButton_Click;
             // 
+            // button2
+            // 
+            button2.AllowDrop = true;
+            button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button2.Location = new System.Drawing.Point(1355, 622);
+            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(90, 89);
+            button2.TabIndex = 117;
+            button2.Text = "👂\r\nСубтитры \r\nчерез ИИ \r\nиз mkv";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_4;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2576,6 +2591,7 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1646, 871);
+            Controls.Add(button2);
             Controls.Add(mxPlayerGoupBox);
             Controls.Add(minimizeToTrayButton);
             Controls.Add(groupBox2);
@@ -2849,5 +2865,6 @@
         private System.Windows.Forms.Button fifthRussianSubtitlesOpenFromDefaultFolderButton;
         private System.Windows.Forms.Label techLabel2;
         private System.Windows.Forms.Label translateToRussianSubtitlesBetaLabel;
+        private System.Windows.Forms.Button button2;
     }
 }

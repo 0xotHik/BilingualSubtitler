@@ -1,0 +1,24 @@
+<p>Для создания субтитров из аудиодорожки, при помощи нейросети Whisper, нам понадобится приложение <strong><a href="https://www.nikse.dk/subtitleedit">Subtitle Edit</a></strong>.</p>
+<p>В нём нужно выбрать:</p>
+
+<!-- wp:paragraph -->
+<p><em>В верхнем меню:</em><br>Видео → Аудио в текст (Whisper)<br><br><em>В окне "Аудио в текст" (эти настройки сохранятся):</em><br>Движок: <strong>Purfview's Faster-Whisper-XXL</strong><br>Язык: <strong>Russian</strong> (или необходимый)<br>Модель: <strong>large-v3-turbo</strong> / <strong>large-v3</strong><br><br><em>В области <strong>Вход — Имя файла</strong>:</em> нужно нажать <strong>Добавить</strong> и выбрать интересующий файл (-ы)<br><br>Нажимайте <strong>Создать</strong> и ожидайте окна о окончании процесса :)</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"id":7208,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://0xothik.wordpress.com/wp-content/uploads/2026/01/image.png"><img src="https://0xothik.wordpress.com/wp-content/uploads/2026/01/image.png?w=734" alt="" class="wp-image-7208" /></a></figure>
+<!-- /wp:image -->
+
+<hr />
+<ul>
+    <li>Качество получающихся субтитров — хорошее, но, конечно, не "Как если бы субтитры были сделаны вручную". Бывают ошибки распознавания, "сливающиеся реплики", галлюцинации нейросетевой модели.<br />Поэтому я лично потокам субтитров, сделанных через нейросеть, устанавливаю в настройках Bilingual Subtitler начертание <em>курсивом</em> - чтобы понимать, что в субтитрах возможны ошибки по не зависящим от переводчика причинам :)</li>
+    <li>Модель <strong>large-v3 </strong>в моих тестах показывала лучшие результаты по сравнению с <strong>large-v3-turbo </strong>— но разница была не столь велика; однако модель turbo и памяти занимает меньше, и выдает результат куда быстрее.</li>
+    <li>Я проводил все тесты нейросетей на NVidia GeForce 2060 с 6 ГиБ видеопамяти.<br />Примерная скорость работы:<br />Распознавание дорожки "болтливого" фильма хронометражем 1 час 40 минут.<br />- 11 минут — <strong>large-v3-turbo</strong><br />- 1 час 20 минут — <strong>large-v3</strong></li>
+    <li>Специально для удобства подгонки субтитров распознанных авторских переводов (где реплики перевода нередко не совпадают с репликами оригинала) было сделано графическое отображение занимаемых субтитрами временных отрезков — в окне «👁️ Показать считанные субтитры» - и были добавлены кнопки для изменения тайминга потоков субтитров<br /><a href="https://0xothik.wordpress.com/wp-content/uploads/2026/01/bisub-showsubs.jpg"><img class="alignright size-post-thumbnail wp-image-7213" src="https://0xothik.wordpress.com/wp-content/uploads/2026/01/bisub-showsubs.jpg?w=1200" alt="" width="1200" height="534" /></a></li>
+    <li>Распознается первая доступная дорожка из файла, например, .mkv, выбора дорожки нет — так что если выхотите распознать идущий не №1 аудиотрек — вам нужно его перепаковать отдельно; например, через <a href="https://mkvtoolnix.download/downloads.html#windows"><strong>MKVToolNix</strong></a></li>
+    <li><em>На Reddit видел сообщения о том, что если использовать <strong>Purfview's Faster-Whisper-XXL </strong>напрямую, а не через Subtitle Edit, то результаты получаются заметно лучшими. </em><br /><em>В моих тестах — я разницы между запусками через SE и напрямую не заметил. Но, на всякий случай, запуск напрямую выглядит примерно так:</em></li>
+</ul>
+<pre><span style="color: #ff9900"><strong>"путь/к/faster-whisper-xxl.exe"</strong></span> <span style="color: #333399"><strong>"путь/к/фильму.mkv"</strong> <span style="color: #808000"><span style="color: #339966">--model</span> <span style="color: #17e317">large-v3-turbo</span></span></span> <span style="color: #800000">--language</span> <span style="color: #ff0000">ru</span> --output_dir source --output_format srt --beep_off --check_files --standard --print_progress </pre>
+
+<!-- wp:paragraph -->
+<p><em>Огромное спасибо пользователю <strong>SlyFox0ne </strong>за подсказку по организации процесса 🤓</em></p>
+<!-- /wp:paragraph -->

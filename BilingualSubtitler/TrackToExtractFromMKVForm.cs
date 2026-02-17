@@ -20,45 +20,53 @@ namespace BilingualSubtitler
         public int SelectedTrackNumber;
         public Tuple<string, string, string> SelectedTrackIdLangTitle;
 
-        public TrackToExtractFromMKVForm(List<MatroskaTrackInfo> tracks)
+        public TrackToExtractFromMKVForm(List<MatroskaTrackInfo> tracks, bool audio = false)
         {
             InitializeComponent();
 
             buttons = new List<Button> { buttonOk, buttonCancel };
 
-            dataGridViewSubTracks.RowHeadersVisible = false;
+            mkvTracksDGW.RowHeadersVisible = false;
             //
-            dataGridViewSubTracks.Columns[0].Width = "99".Length * 20;
-            dataGridViewSubTracks.Columns[1].Width = "99".Length * 60;
+            mkvTracksDGW.Columns[0].Width = "99".Length * 20;
+            mkvTracksDGW.Columns[1].Width = "99".Length * 60;
             //dataGridViewSubTracks.Columns[3].Width = "99".Length * 60;
-            dataGridViewSubTracks.Columns[2].Width = (dataGridViewSubTracks.Width 
-                - dataGridViewSubTracks.Columns[0].Width 
-                - dataGridViewSubTracks.Columns[1].Width
+            mkvTracksDGW.Columns[2].Width = (mkvTracksDGW.Width 
+                - mkvTracksDGW.Columns[0].Width 
+                - mkvTracksDGW.Columns[1].Width
                 //- dataGridViewSubTracks.Columns[3].Width
                 );
             //
-            dataGridViewSubTracks.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewSubTracks.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridViewSubTracks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewSubTracks.CellDoubleClick += DataGridViewSubTracks_CellDoubleClick;
+            mkvTracksDGW.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            mkvTracksDGW.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            mkvTracksDGW.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            mkvTracksDGW.CellDoubleClick += DataGridViewSubTracks_CellDoubleClick;
 
-            dataGridViewSubTracks.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
+            mkvTracksDGW.DefaultCellStyle.ForeColor = SystemColors.ActiveCaptionText;
 
             for (int i = 0; i < tracks.Count; i++)
             {
                 var track = tracks[i];
 
                 //Пишем в датаГрид
-                dataGridViewSubTracks.Rows.Add(track.TrackNumber, track.Language, track.Name);
-                                                                                  //track.CodecId);
-                if (track.CodecId != "S_TEXT/UTF8")
-                    dataGridViewSubTracks.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(181, 196, 208);
+                mkvTracksDGW.Rows.Add(track.TrackNumber, track.Language, track.Name);
+
+                if (audio)
+                {
+                    if (track.IsAudio == false)
+                        mkvTracksDGW.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(181, 196, 208);
+                }
+                else
+                {
+                    if (track.CodecId != "S_TEXT/UTF8")
+                        mkvTracksDGW.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(181, 196, 208);
+                }
 
                 //dataGridViewSubTracks.Rows[i].Cells[0].Value = track.TrackNumber;
                 //dataGridViewSubTracks.Rows[i].Cells[1].Value = track.Language;
                 //dataGridViewSubTracks.Rows[i].Cells[2].Value = track.Name;
 
-                dataGridViewSubTracks.Rows[i].Tag = new Tuple<int, string> (track.TrackNumber, track.CodecId);
+                mkvTracksDGW.Rows[i].Tag = new Tuple<int, string> (track.TrackNumber, track.CodecId);
             }
         }
 
@@ -142,7 +150,7 @@ namespace BilingualSubtitler
             {
                 if (tracks[i].Contains("subtitles (SubRip/SRT)"))
                 {
-                    dataGridViewSubTracks.Rows.Add();
+                    mkvTracksDGW.Rows.Add();
                     AddValues(tracks[i], strings);
                     strings++;
 
@@ -169,9 +177,9 @@ namespace BilingualSubtitler
                     trackName = track.Substring("track_name:".Length, (track.IndexOf(' ') - "track_name:".Length));
                 }
                 //Пишем всё в датаГрид
-                dataGridViewSubTracks.Rows[strings].Cells[0].Value = ID;
-                dataGridViewSubTracks.Rows[strings].Cells[1].Value = lang;
-                dataGridViewSubTracks.Rows[strings].Cells[2].Value = trackName;
+                mkvTracksDGW.Rows[strings].Cells[0].Value = ID;
+                mkvTracksDGW.Rows[strings].Cells[1].Value = lang;
+                mkvTracksDGW.Rows[strings].Cells[2].Value = trackName;
             }
             catch (Exception ex)
             {
@@ -192,13 +200,13 @@ namespace BilingualSubtitler
 
         private void DataGridViewSubTracks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewSubTracks.Rows[e.RowIndex].Selected = true;
+            mkvTracksDGW.Rows[e.RowIndex].Selected = true;
             FormClosingWithCodecCheckAndSuccess();
         }
 
         private void FormClosingWithCodecCheckAndSuccess()
         {
-            Tuple<int, string> selectedRowTagContent = ((Tuple<int, string>)dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Tag);
+            Tuple<int, string> selectedRowTagContent = ((Tuple<int, string>)mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Tag);
             SelectedTrackNumber = selectedRowTagContent.Item1;
             var selectedTrackCodecId = selectedRowTagContent.Item2;
 
@@ -211,7 +219,7 @@ namespace BilingualSubtitler
                     return;
             }
 
-            var cells = dataGridViewSubTracks.Rows[dataGridViewSubTracks.CurrentRow.Index].Cells;
+            var cells = mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Cells;
             SelectedTrackIdLangTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
 
             this.DialogResult = DialogResult.OK;
