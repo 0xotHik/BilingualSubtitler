@@ -13,16 +13,22 @@ namespace BilingualSubtitler
 {
     public partial class TrackToExtractFromMKVForm : Form
     {
+        private bool m_audio;
         private List<Button> buttons;
         private string mkvtollnixOutput;
         private Color previousButtonColor;
 
         public int SelectedTrackNumber;
-        public Tuple<string, string, string> SelectedTrackIdLangTitle;
+        public Tuple<string, string, string> SelectedTrackNumberLangAndTitle;
 
         public TrackToExtractFromMKVForm(List<MatroskaTrackInfo> tracks, bool audio = false)
         {
             InitializeComponent();
+
+            if (!audio)
+                ArgsRichTextBox.Hide();
+
+            m_audio = audio;
 
             buttons = new List<Button> { buttonOk, buttonCancel };
 
@@ -31,8 +37,8 @@ namespace BilingualSubtitler
             mkvTracksDGW.Columns[0].Width = "99".Length * 20;
             mkvTracksDGW.Columns[1].Width = "99".Length * 60;
             //dataGridViewSubTracks.Columns[3].Width = "99".Length * 60;
-            mkvTracksDGW.Columns[2].Width = (mkvTracksDGW.Width 
-                - mkvTracksDGW.Columns[0].Width 
+            mkvTracksDGW.Columns[2].Width = (mkvTracksDGW.Width
+                - mkvTracksDGW.Columns[0].Width
                 - mkvTracksDGW.Columns[1].Width
                 //- dataGridViewSubTracks.Columns[3].Width
                 );
@@ -66,7 +72,7 @@ namespace BilingualSubtitler
                 //dataGridViewSubTracks.Rows[i].Cells[1].Value = track.Language;
                 //dataGridViewSubTracks.Rows[i].Cells[2].Value = track.Name;
 
-                mkvTracksDGW.Rows[i].Tag = new Tuple<int, string> (track.TrackNumber, track.CodecId);
+                mkvTracksDGW.Rows[i].Tag = new Tuple<int, string>(track.TrackNumber, track.CodecId);
             }
         }
 
@@ -210,20 +216,28 @@ namespace BilingualSubtitler
             SelectedTrackNumber = selectedRowTagContent.Item1;
             var selectedTrackCodecId = selectedRowTagContent.Item2;
 
-            var desiredSubtitlesType = "S_TEXT/UTF8";
-            if (selectedTrackCodecId != desiredSubtitlesType)
+            // TODO
+            if (m_audio) // TODO TEMP audio
             {
-                var result = MessageBox.Show($"Тип данных субтитров — {selectedTrackCodecId} — отличается от совместимого с Bilingual Subtitler — {desiredSubtitlesType}.\nВсё равно продолжить с данными субтитрами?\n\n\n\n(Вы можете извлечь данные субтитры и сохранить их в формате SubRipText (srt) в стороннем приложении — например, Subtitle Edit)", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
-
-                if (result != DialogResult.Yes)
-                    return;
+                MessageBox.Show(ArgsRichTextBox.Text, String.Empty, buttons: MessageBoxButtons.OKCancel, icon: MessageBoxIcon.Question);
             }
+            else
+            {
+                var desiredSubtitlesType = "S_TEXT/UTF8";
+                if (selectedTrackCodecId != desiredSubtitlesType)
+                {
+                    var result = MessageBox.Show($"Тип данных субтитров — {selectedTrackCodecId} — отличается от совместимого с Bilingual Subtitler — {desiredSubtitlesType}.\nВсё равно продолжить с данными субтитрами?\n\n\n\n(Вы можете извлечь данные субтитры и сохранить их в формате SubRipText (srt) в стороннем приложении — например, Subtitle Edit)", string.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
 
-            var cells = mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Cells;
-            SelectedTrackIdLangTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
+                    if (result != DialogResult.Yes)
+                        return;
+                }
+}
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+var cells = mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Cells;
+SelectedTrackNumberLangAndTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
+
+this.DialogResult = DialogResult.OK;
+this.Close();
         }
     }
 }

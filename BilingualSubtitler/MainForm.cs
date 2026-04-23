@@ -1502,46 +1502,46 @@ namespace BilingualSubtitler
 
                     }
                     else
-                    // Стиль
-                    if (lines[currentStringIndex].StartsWith("Style: "))
-                    {
-                        var style = new SubtitlesStyle(lines[currentStringIndex]);
-
-                        var numberFirstCharacterInStyleName = int.Parse(lines[currentStringIndex].Substring("Style: ".Length, 1));
-                        switch (numberFirstCharacterInStyleName)
+                        // Стиль
+                        if (lines[currentStringIndex].StartsWith("Style: "))
                         {
-                            case 0:
-                                {
-                                    originalSubtitlesStyle = style;
-                                    break;
-                                }
-                            case 1:
-                                {
-                                    firstRussianSubtitlesStyle = style;
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    secondRussianSubtitlesStyle = style;
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    thirdRussianSubtitlesStyle = style;
-                                    break;
-                                }
-                            case 4:
-                                {
-                                    fourthRussianSubtitlesStyle = style;
-                                    break;
-                                }
-                            case 5:
-                                {
-                                    fifthRussianSubtitlesStyle = style;
-                                    break;
-                                }
+                            var style = new SubtitlesStyle(lines[currentStringIndex]);
+
+                            var numberFirstCharacterInStyleName = int.Parse(lines[currentStringIndex].Substring("Style: ".Length, 1));
+                            switch (numberFirstCharacterInStyleName)
+                            {
+                                case 0:
+                                    {
+                                        originalSubtitlesStyle = style;
+                                        break;
+                                    }
+                                case 1:
+                                    {
+                                        firstRussianSubtitlesStyle = style;
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        secondRussianSubtitlesStyle = style;
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        thirdRussianSubtitlesStyle = style;
+                                        break;
+                                    }
+                                case 4:
+                                    {
+                                        fourthRussianSubtitlesStyle = style;
+                                        break;
+                                    }
+                                case 5:
+                                    {
+                                        fifthRussianSubtitlesStyle = style;
+                                        break;
+                                    }
+                            }
                         }
-                    }
                 }
 
                 currentStringIndex++;
@@ -1711,7 +1711,15 @@ namespace BilingualSubtitler
                 if (components[3] == originalSubStreamName)
                     originalSubStream.Add(subtitle);
                 else if (components[3] == firstRussianSubStreamName)
+                {
+                    // TODO MachineTranslateTEMP
+                    if ((subtitle.Text[0] == '<')
+                        && (subtitle.Text[subtitle.Text.Length - 1] == '>'))
+                    {
+                        subtitle.Text = subtitle.Text.Substring(1, subtitle.Text.Length - 2);
+                    }
                     firstRussianSubStream.Add(subtitle);
+                }
                 else if (components[3] == secondRussianSubStreamName)
                     secondRussianSubStream.Add(subtitle);
                 else if (components[3] == thirdRussianSubStreamName)
@@ -2216,64 +2224,78 @@ namespace BilingualSubtitler
 
             // Dialogue: 0,0:01:25.29,0:01:28.52,Копировать из Копировать из Default,,0,0,0,,Эй! Сюда! Тут человек!
             var assTimeFormat = @"h\:mm\:ss\.ff";
-            for (int i = 0; i < subtitlesAndTheirColorsPairs.Length; i++)
+            for (int subsStreamIdx = 0; subsStreamIdx < subtitlesAndTheirColorsPairs.Length; subsStreamIdx++)
             {
-                var subtitles = subtitlesAndTheirColorsPairs[i].Item1;
+                var subtitles = subtitlesAndTheirColorsPairs[subsStreamIdx].Item1;
                 if (subtitles != null)
                 {
-                    for (int j = 0; j < subtitles.Length; j++)
+                    for (int subIdx = 0; subIdx < subtitles.Length; subIdx++)
                     {
-                        var subtitle = subtitles[j];
+                        var subtitle = subtitles[subIdx];
                         if (subtitle != null)
                         {
                             string subtitleText = null;
 
                             // Если активно "Подцеплять"
-                            if ((checkBox1.Checked) && (i != 0) && (i != 1))
+                            //if ((checkBox1.Checked) && (i != 0) && (i != 1))
+                            //{
+                            //    if (j + 1 < subtitles.Length)
+                            //    {
+                            //        if ((subtitles[j + 1].Start - subtitle.End) < TimeSpan.FromSeconds(2))
+                            //        {
+                            //            subtitleText = ((string)subtitle.Text.Clone()).Replace("\n", " ")
+                            //                + " {\\i1}"
+                            //                + ((string)subtitles[j + 1].Text.Clone()).Replace("\n", " ")
+                            //                + "{\\i0}";
+                            //        }
+                            //    }
+                            //}
+
+                            // Перенос
+                            if (subtitle.Text.Contains("\n"))
                             {
-                                if (j + 1 < subtitles.Length)
+                                subtitleText = (string)subtitle.Text.Clone();
+
+                                if (subtitleInOneLine[subsStreamIdx])
                                 {
-                                    if ((subtitles[j + 1].Start - subtitle.End) < TimeSpan.FromSeconds(2))
-                                    {
-                                        subtitleText = ((string)subtitle.Text.Clone()).Replace("\n", " ")
-                                            + " {\\i1}"
-                                            + ((string)subtitles[j + 1].Text.Clone()).Replace("\n", " ")
-                                            + "{\\i0}";
-                                    }
+                                    subtitleText = subtitleText.Replace("\n", " ");
+                                }
+                                else
+                                {
+                                    subtitleText = subtitleText.Replace("\n", "\\N");
                                 }
                             }
                             else
                             {
-
-                                // Перенос
-                                if (subtitle.Text.Contains("\n"))
-                                {
-                                    subtitleText = (string)subtitle.Text.Clone();
-
-                                    if (subtitleInOneLine[i])
-                                    {
-                                        subtitleText = subtitleText.Replace("\n", " ");
-                                    }
-                                    else
-                                    {
-                                        subtitleText = subtitleText.Replace("\n", "\\N");
-                                    }
-                                }
-                                else
-                                {
-                                    subtitleText = subtitle.Text;
-                                }
-
-                                if (Properties.Settings.Default.RemoveAn)
-                                    subtitleText = Regex.Replace(subtitleText, @"{\\an+\d+}", string.Empty, RegexOptions.Singleline);
+                                subtitleText = subtitle.Text;
                             }
 
+                            if (Properties.Settings.Default.RemoveAn)
+                                subtitleText = Regex.Replace(subtitleText, @"{\\an+\d+}", string.Empty, RegexOptions.Singleline);
 
+                            var subtitleEnd = subtitle.End;
+                            if (subsStreamIdx != 0)
+                            {
+                                // TODO ProlongationTEMP
+                                if (subIdx < subtitles.Length - 1)
+                                {
+                                    subtitleEnd = subtitles[subIdx + 1].Start.Subtract(TimeSpan.FromMilliseconds(2));
+                                }
+                            }
 
-                            assSB.AppendLine($"Dialogue: 0," +
+                            // TODO MachineTranslateTEMP
+                            if (subsStreamIdx == 1)
+                                assSB.AppendLine($"Dialogue: 0," +
+                                                $"{subtitle.Start.ToString(assTimeFormat)}," +
+                                                $"{subtitleEnd.ToString(assTimeFormat)}," +
+                                                $"{subsStreamIdx}{m_subtitleStyleNamePostfix}," +
+                                                $",0,0,0,," +
+                                                $"<{subtitleText}>");
+                            else
+                                assSB.AppendLine($"Dialogue: 0," +
                                              $"{subtitle.Start.ToString(assTimeFormat)}," +
-                                             $"{subtitle.End.ToString(assTimeFormat)}," +
-                                             $"{i}{m_subtitleStyleNamePostfix}," +
+                                             $"{subtitleEnd.ToString(assTimeFormat)}," +
+                                             $"{subsStreamIdx}{m_subtitleStyleNamePostfix}," +
                                              $",0,0,0,," +
                                              $"{subtitleText}");
                         }
@@ -2787,13 +2809,13 @@ namespace BilingualSubtitler
                                 // Заполняеми информацию
                                 FillTheBasicSubtitlesInformationFromBackgroundWorker(filePath, subtitlesInfo);
                                 //
-                                var trackInfo = $"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}";
-                                if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackIdLangTitle.Item3)))
-                                    trackInfo += $", \"{trackSelectionForm.SelectedTrackIdLangTitle.Item3}\"";
+                                var trackInfo = $"Трек {trackSelectionForm.SelectedTrackNumberLangAndTitle.Item1}, {trackSelectionForm.SelectedTrackNumberLangAndTitle.Item2}";
+                                if (!string.IsNullOrWhiteSpace((trackSelectionForm.SelectedTrackNumberLangAndTitle.Item3)))
+                                    trackInfo += $", \"{trackSelectionForm.SelectedTrackNumberLangAndTitle.Item3}\"";
                                 //
-                                subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
-                                subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
-                                subtitlesInfo.TrackName = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
+                                subtitlesInfo.TrackNumber = trackSelectionForm.SelectedTrackNumberLangAndTitle.Item1;
+                                subtitlesInfo.TrackLanguage = trackSelectionForm.SelectedTrackNumberLangAndTitle.Item2;
+                                subtitlesInfo.TrackName = trackSelectionForm.SelectedTrackNumberLangAndTitle.Item3;
 
                                 //GUI
                                 var outputTextBoxText = $"{trackInfo} из {subtitlesInfo.FileNameWithoutExtention + subtitlesInfo.FileExtention}";
@@ -3468,7 +3490,7 @@ namespace BilingualSubtitler
                 new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.FirstRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.FirstRussian].ColorPickingButton.BackColor),
                 new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.SecondRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.SecondRussian].ColorPickingButton.BackColor),
                 new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.ThirdRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.ThirdRussian].ColorPickingButton.BackColor),
-                                new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.FourthRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.FourthRussian].ColorPickingButton.BackColor),
+                new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.FourthRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.FourthRussian].ColorPickingButton.BackColor),
                 new Tuple<Subtitle[], Color>(m_subtitlesAndInfos[SubtitlesType.FifthRussian].Subtitles, m_subtitlesAndInfos[SubtitlesType.FifthRussian].ColorPickingButton.BackColor)
 
             };
@@ -4911,14 +4933,15 @@ namespace BilingualSubtitler
                 var tracks = mkvFile.GetTracks(false);
 
                 // Вызов формы для выбора трека субтитров
-                var trackSelectionForm = new TrackToExtractFromMKVForm(tracks);
+                var trackSelectionForm = new TrackToExtractFromMKVForm(tracks, audio: true);
                 //
                 var dialogResult = trackSelectionForm.ShowDialogInForeground();
                 if (dialogResult == DialogResult.OK)
                 {
-                    var trackNumber = trackSelectionForm.SelectedTrackIdLangTitle.Item1;
-                    var trackLanguage = trackSelectionForm.SelectedTrackIdLangTitle.Item2;
-                    var trackTitle = trackSelectionForm.SelectedTrackIdLangTitle.Item3;
+                    var trackNumber = int.Parse(trackSelectionForm.SelectedTrackNumberLangAndTitle.Item1);
+                    var trackId = trackNumber - 1;
+                    var trackLanguage = trackSelectionForm.SelectedTrackNumberLangAndTitle.Item2;
+                    var trackTitle = trackSelectionForm.SelectedTrackNumberLangAndTitle.Item3;
 
                     // Перевести тайтл трека в "безопасный" вариант для названия файла
                     string outFileAudio;
@@ -4940,14 +4963,37 @@ namespace BilingualSubtitler
 
                     outFileAudio = Path.Combine(directory, newFileName);
                     // Извлечь аудио + Сделать Шепот
-                    string strCmdText;
-                    strCmdText = $"/C " +
-                        $"\"D:\\Program Files\\MKVToolNix\\mkvextract.exe\" tracks {mkvFile} {trackNumber}:{outFileAudio} && " +
-                        $"\"M:\\Soft\\Installed\\Faster-Whisper-XXL\\faster-whisper-xxl.exe\" {outFileAudio} --beep_off --check_files --language ru --model large-v3-turbo --output_dir source --output_format srt --standard --print_progress";
-                    System.Diagnostics.Process.Start("CMD.exe", strCmdText);
+                    var mkvExtractPath = @"D:\Program Files\MKVToolNix\mkvextract.exe";
+                    var whisperPath = @"M:\Soft\Installed\Faster-Whisper-XXL\faster-whisper-xxl.exe";
 
-                    // Удалить файл аудио
-                    File.Delete(outFileAudio);
+                    var mkvExtractCmd = $"\"{mkvExtractPath}\" tracks \"{openFileDialog.FileName}\" {trackId}:\"{outFileAudio}\"";
+                    var whisperCmd = $"\"{whisperPath}\" \"{outFileAudio}\" {trackSelectionForm.ArgsRichTextBox.Text}";
+                    var deleteTempCmd = $"timeout /t 1 >nul && del /f \"{outFileAudio}\"";
+
+                    string command =
+                        $"echo === MKVEXTRACT === && " +
+                        $"echo {mkvExtractCmd} && " +
+                        $"echo ====== && " +
+                        $"{mkvExtractCmd} && " +
+
+                        $"echo. && echo === WHISPER === && " +
+                        $"echo {whisperCmd} && " +
+                        $"echo ====== && " +
+                        $"{whisperCmd} & " +
+
+                        $"echo. & echo === DELETE TEMP FILE === & " +
+                        $"{deleteTempCmd}";
+
+                    var psi = new ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = $"/K \"{command}\"",
+                        UseShellExecute = false,
+                        CreateNoWindow = false
+                    };
+
+                    Process.Start(psi);
+
 
                     // MessageBox.Show($"Трек {trackSelectionForm.SelectedTrackIdLangTitle.Item1}, {trackSelectionForm.SelectedTrackIdLangTitle.Item2}, {trackSelectionForm.SelectedTrackIdLangTitle.Item3}");
 
