@@ -122,7 +122,7 @@
             ArgsRichTextBox.Name = "ArgsRichTextBox";
             ArgsRichTextBox.Size = new System.Drawing.Size(419, 63);
             ArgsRichTextBox.TabIndex = 8;
-            ArgsRichTextBox.Text = "--check_files --language ru --output_dir source --output_format srt --standard --print_progress --model large-v3";
+            ArgsRichTextBox.Text = "--check_files --language ru --output_dir source --output_format srt --standard --print_progress --model large-v2";
             // 
             // TrackToExtractFromMKVForm
             // 

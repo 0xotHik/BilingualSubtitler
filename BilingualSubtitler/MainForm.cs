@@ -2274,7 +2274,7 @@ namespace BilingualSubtitler
                                 subtitleText = Regex.Replace(subtitleText, @"{\\an+\d+}", string.Empty, RegexOptions.Singleline);
 
                             var subtitleEnd = subtitle.End;
-                            if (subsStreamIdx != 0)
+                            if (subsStreamIdx != 0 && subsStreamIdx != 1)
                             {
                                 // TODO ProlongationTEMP
                                 if (subIdx < subtitles.Length - 1)

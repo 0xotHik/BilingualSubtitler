@@ -219,7 +219,9 @@ namespace BilingualSubtitler
             // TODO
             if (m_audio) // TODO TEMP audio
             {
-                MessageBox.Show(ArgsRichTextBox.Text, String.Empty, buttons: MessageBoxButtons.OKCancel, icon: MessageBoxIcon.Question);
+                var dialogResult = MessageBox.Show(ArgsRichTextBox.Text, String.Empty, buttons: MessageBoxButtons.OKCancel, icon: MessageBoxIcon.Question);
+                if (dialogResult != DialogResult.OK)
+                    return;
             }
             else
             {
@@ -231,13 +233,13 @@ namespace BilingualSubtitler
                     if (result != DialogResult.Yes)
                         return;
                 }
-}
+            }
 
-var cells = mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Cells;
-SelectedTrackNumberLangAndTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
+            var cells = mkvTracksDGW.Rows[mkvTracksDGW.CurrentRow.Index].Cells;
+            SelectedTrackNumberLangAndTitle = new Tuple<string, string, string>($"{cells[0].Value}", $"{cells[1].Value}", $"{cells[2].Value ?? string.Empty}");
 
-this.DialogResult = DialogResult.OK;
-this.Close();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
