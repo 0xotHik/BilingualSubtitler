@@ -1713,7 +1713,8 @@ namespace BilingualSubtitler
                 else if (components[3] == firstRussianSubStreamName)
                 {
                     // TODO MachineTranslateTEMP
-                    if ((subtitle.Text[0] == '<')
+                    if (subtitle.Text.Length >= 2 
+                        && (subtitle.Text[0] == '<')
                         && (subtitle.Text[subtitle.Text.Length - 1] == '>'))
                     {
                         subtitle.Text = subtitle.Text.Substring(1, subtitle.Text.Length - 2);

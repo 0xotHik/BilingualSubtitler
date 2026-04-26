@@ -360,7 +360,7 @@ namespace BilingualSubtitler
                     return;
 
                 var firstTrack = _owner.Tracks[0];
-                if (firstTrack.Subtitles.Length == 0)
+                if (firstTrack.Subtitles == null || firstTrack.Subtitles.Length == 0)
                     return;
 
                 int top = 0;
