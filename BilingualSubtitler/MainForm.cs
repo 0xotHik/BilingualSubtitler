@@ -1713,7 +1713,7 @@ namespace BilingualSubtitler
                 else if (components[3] == firstRussianSubStreamName)
                 {
                     // TODO MachineTranslateTEMP
-                    if (subtitle.Text.Length >= 2 
+                    if (subtitle.Text.Length >= 2
                         && (subtitle.Text[0] == '<')
                         && (subtitle.Text[subtitle.Text.Length - 1] == '>'))
                     {
@@ -2274,8 +2274,44 @@ namespace BilingualSubtitler
                             if (Properties.Settings.Default.RemoveAn)
                                 subtitleText = Regex.Replace(subtitleText, @"{\\an+\d+}", string.Empty, RegexOptions.Singleline);
 
+                            string[] styleComponents = null;
                             var subtitleEnd = subtitle.End;
-                            if (subsStreamIdx != 0 && subsStreamIdx != 1)
+                            switch (subIdx)
+                            {
+                                case 0:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                                case 1:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                                case 4:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                                case 5:
+                                    {
+                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
+                                        break;
+                                    }
+                            }
+
+                            var italic = styleComponents.Length > 9 ? (styleComponents[9] == "1") : false;
+                            if (italic)
                             {
                                 // TODO ProlongationTEMP
                                 if (subIdx < subtitles.Length - 1)
@@ -2284,7 +2320,7 @@ namespace BilingualSubtitler
                                 }
                             }
 
-                            // TODO MachineTranslateTEMP
+                            // TODO MachineTranslate<>TEMP
                             if (subsStreamIdx == 1)
                                 assSB.AppendLine($"Dialogue: 0," +
                                                 $"{subtitle.Start.ToString(assTimeFormat)}," +
