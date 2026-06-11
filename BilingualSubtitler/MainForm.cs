@@ -2276,47 +2276,96 @@ namespace BilingualSubtitler
 
                             string[] styleComponents = null;
                             var subtitleEnd = subtitle.End;
-                            switch (subIdx)
+                            SubtitlesAndInfo currentSubtitles = null;
+
+                            // Если включено "Переопределять внешний вид субтитров" -- то мы будем брать внешний вид субтитров не из настроек, с формы. Для Анроида -- не надо
+                            var getValuesFromForm = RedefineSubtitlesAppearanceSettings && !getAndroidAppearanceSettings;
+                            if (getValuesFromForm)
                             {
-                                case 0:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
-                                case 1:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
-                                case 3:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        styleComponents = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
-                                        break;
-                                    }
+                                switch (subsStreamIdx)
+                                {
+                                    case 0: //Оригинальные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.Original];
+                                            break;
+                                        }
+                                    case 1: //1-е переведенные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.FirstRussian];
+                                            break;
+                                        }
+                                    case 2: //2-е переведенные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.SecondRussian];
+                                            break;
+                                        }
+                                    case 3: //3-и переведенные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.ThirdRussian];
+                                            break;
+                                        }
+                                    case 4: //4-и переведенные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.FourthRussian];
+                                            break;
+                                        }
+                                    case 5: //5-и переведенные
+                                        {
+                                            currentSubtitles = m_subtitlesAndInfos[SubtitlesType.FifthRussian];
+                                            break;
+                                        }
+                                }
+                            }
+                            else
+                            {
+                                switch (subsStreamIdx)
+                                {
+                                    case 0:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.OriginalSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.FirstRussianSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.SecondRussianSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.ThirdRussianSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.FourthRussianSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            styleComponents = Properties.SubtitlesAppearanceSettings.Default.FifthRussianSubtitlesStyleString.Split(';');
+                                            break;
+                                        }
+                                }
                             }
 
-                            var italic = styleComponents.Length > 9 ? (styleComponents[9] == "1") : false;
+                            var italic = getValuesFromForm ? 
+                                currentSubtitles.ItalicCheckBoxInSubtitleAppearanceControlOnMainForm.Checked ? true : false:
+                                styleComponents.Length > 9 ? (styleComponents[9] == "1") : false;
+
                             if (italic)
                             {
                                 // TODO ProlongationTEMP
                                 if (subIdx < subtitles.Length - 1)
                                 {
-                                    subtitleEnd = subtitles[subIdx + 1].Start.Subtract(TimeSpan.FromMilliseconds(2));
+                                    var nextSubStartMinus2Ms = subtitles[subIdx + 1].Start.Subtract(TimeSpan.FromMilliseconds(2));
+                                    subtitleEnd = nextSubStartMinus2Ms.Subtract(subtitle.Start) <= TimeSpan.FromMilliseconds(8000) ? // Короче получающийся продленный до следующего субтитра титр 8 секунд?
+                                        nextSubStartMinus2Ms
+                                        : subtitle.Start.Add(TimeSpan.FromMilliseconds(8000));
                                 }
                             }
 
