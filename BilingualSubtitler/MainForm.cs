@@ -88,12 +88,9 @@ namespace BilingualSubtitler
         private int m_initialOpenStylesFromBilingualsTubtitlesButtonLeft;
         private int m_initialYandexTranslateLinkLabelLocationY;
 
-
         private Dictionary<SubtitlesType, SubtitlesAndInfo> m_subtitlesAndInfos;
 
         private Translator m_translator;
-
-
 
         private int m_changeSubtitlesToBilingualHotkeyCode;
         private VirtualKeyCode? m_changeSubtitlesToBilingualHotkeyModifierKeyVirtualKeyCode;
@@ -159,9 +156,6 @@ namespace BilingualSubtitler
                 "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
         };
         private string m_subtitleStyleNamePostfix = "_sub_stream";
-
-
-
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
@@ -240,24 +234,19 @@ namespace BilingualSubtitler
             new ToolStripMenuItem[] {
 
                 new ToolStripMenuItem("Развернуть", null, ((sender, e) =>
-                {
+                    {
                     // возвращаем отображение окна в панели
-            this.ShowInTaskbar = true;
-            //разворачиваем окно
-            WindowState = FormWindowState.Normal;
+                    this.ShowInTaskbar = true;
+                    //разворачиваем окно
+                    WindowState = FormWindowState.Normal;
                 })),
 
-                new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) => MinimizeWindowToTray()
-
-            )),
-
-
-
+                new ToolStripMenuItem("Свернуть в трей", null, ((sender, e) => MinimizeWindowToTray())),
                 new ToolStripMenuItem("Завершить работу Bilingual Subtitler", null, ((sender, e) =>
-                {
+                    {
                     System.Windows.Forms.Application.Exit();
                     }))
-            });
+                });
 
             var currentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             if (currentVersion > Version.Parse(Properties.Settings.Default.LatestInstalledVersion))
@@ -325,14 +314,6 @@ namespace BilingualSubtitler
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.Items.Add(m_videoPausedWithBilingualSubtitlesComboBoxItem);
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedIndex = 0;
             videoAndSubtitlesStateComboBoxWithBorder.VideoAndSubtitlesStateComboBox.SelectedValueChanged += videoAndSubtitlesStateComboBox_SelectedValueChanged;
-            //
-            //m_videoAndSubtitlesStatesAndRelatedComboBoxItems = new Dictionary<Tuple<VideoState, SubtitlesState>, ComboboxItem>
-            //{
-            //    { m_videoPlayingWithOriginalSubtitlesState, m_videoPlayingWithOriginalSubtitlesComboBoxItem},
-            //    { m_videoPlayingWithBilingualSubtitlesState, m_videoPlayingWithBilingualSubtitlesComboBoxItem},
-            //    { m_videoPausedWithOriginalSubtitlesState, m_videoPausedWithOriginalSubtitlesComboBoxItem},
-            //    { m_videoPausedWithBilingualSubtitlesState, m_videoPausedWithBilingualSubtitlesComboBoxItem}
-            //};
 
             m_subtitlesAndInfos = new Dictionary<SubtitlesType, SubtitlesAndInfo>
             {
@@ -354,17 +335,17 @@ namespace BilingualSubtitler
                         primarySubtitlesExportAsDocxIntoDownloadsButton,
                         openPrimarySubtitlesIn1251Button,
                         subtitlesAppearanceSettingsControl.OriginalSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.OriginalSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.OriginalSubtitlesStrikeoutCheckBox
 
                         )
                 },
@@ -386,17 +367,17 @@ namespace BilingualSubtitler
                         firstRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         openFirstRussianSubtitlesIn1251Button,
                         subtitlesAppearanceSettingsControl.FirstRussianSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.FirstRussianSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.FirstRussianSubtitlesStrikeoutCheckBox
 
                         )
                 },
@@ -418,17 +399,17 @@ namespace BilingualSubtitler
                         secondRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         secondRussianSubtitlesOpenIn1251Button,
                         subtitlesAppearanceSettingsControl.SecondRussianSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.SecondRussianSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.SecondRussianSubtitlesStrikeoutCheckBox
 
                         )
                 },
@@ -451,17 +432,17 @@ namespace BilingualSubtitler
                         thirdRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         thirdRussianSubtitlesOpenIn1251Button,
                         subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.ThirdRussianSubtitlesStrikeoutCheckBox
 
                         )
                 },
@@ -486,17 +467,17 @@ namespace BilingualSubtitler
                         fourthRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         fourthRussianSubtitlesOpenIn1251Button,
                         subtitlesAppearanceSettingsControl.FourthRussianSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.FourthRussianSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.FourthRussianSubtitlesStrikeoutCheckBox
 
                         )
                 },
@@ -521,17 +502,17 @@ namespace BilingualSubtitler
                         fifthRussianSubtitlesExportAsDocxIntoDownloadsButton,
                         fifthRussianSubtitlesOpenIn1251Button,
                         subtitlesAppearanceSettingsControl.FifthRussianSubtitlesFontComboBox,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesMarginNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesOutlineNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesBoldCheckBox,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox,
-            subtitlesAppearanceSettingsControl.FifthRussianSubtitlesStrikeoutCheckBox
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesMarginNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesSizeNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesOutlineNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesShadowTransparencyPercentageNumericUpDown,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesInOneLineCheckBox,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesBoldCheckBox,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesItalicCheckBox,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesUnderlineCheckBox,
+                        subtitlesAppearanceSettingsControl.FifthRussianSubtitlesStrikeoutCheckBox
 
                         )
                 }
@@ -551,32 +532,19 @@ namespace BilingualSubtitler
                 settingsButton
             };
 
-            //foreach (var button in m_buttons)
-            //{
-            //    button.MouseEnter += button_MouseEnter;
-            //    button.MouseLeave += button_MouseLeave;
-            //}
+            // ToolTip'ы для названий треков
+            var subtitlesTypes = Enum.GetValues<SubtitlesType>();
+            foreach (var subtitleType in subtitlesTypes)
+            {
+                m_subtitlesAndInfos[subtitleType].OutputTextBox.MouseHover += (s, e) =>
+                {
+                    var toolTip = new ToolTip();
+                    toolTip.IsBalloon = true;
+                    toolTip.SetToolTip((TextBox)s, ((TextBox)s).Text);
+                };
+            }
 
             InputHandlingConstructor();
-
-            //
-            //Properties.Settings.Default.Hotkeys = new StringCollection
-            //{
-            //    $"UP@{(int) VirtualKeyCode.UP}",
-            //    $"DOWN@{(int) VirtualKeyCode.DOWN}",
-            //    $"LEFT@{(int) VirtualKeyCode.LEFT}",
-            //    $"RIGHT@{(int) VirtualKeyCode.RIGHT}",
-            //    $"CONTROL@{(int) VirtualKeyCode.CONTROL}",
-            //    $"NUMPAD0@{(int) VirtualKeyCode.NUMPAD0}",
-            //    $"SUBTRACT@{(int) VirtualKeyCode.SUBTRACT}",
-            //    $"SUBTRACT@{(int) VirtualKeyCode.ADD}",
-            //    $"SUBTRACT@{(int) VirtualKeyCode.RETURN}"
-            //};
-            //Settings.Default.VideoPlayerChangeToBilingualSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S).ToString();
-            //Settings.Default.VideoPlayerChangeToOriginalSubtitlesHotkeyString = new Hotkey(VirtualKeyCode.VK_S, VirtualKeyCode.SHIFT).ToString();
-            //Settings.Default.VideoPlayerPauseButtonString = new Hotkey(VirtualKeyCode.SPACE).ToString();
-
-            //Properties.Settings.Default.Save();
 
             // Работаем с настройками
             try
@@ -2353,8 +2321,8 @@ namespace BilingualSubtitler
                                 }
                             }
 
-                            var italic = getValuesFromForm ? 
-                                currentSubtitles.ItalicCheckBoxInSubtitleAppearanceControlOnMainForm.Checked ? true : false:
+                            var italic = getValuesFromForm ?
+                                currentSubtitles.ItalicCheckBoxInSubtitleAppearanceControlOnMainForm.Checked ? true : false :
                                 styleComponents.Length > 9 ? (styleComponents[9] == "1") : false;
 
                             if (italic)
