@@ -98,6 +98,12 @@
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox = new System.Windows.Forms.CheckBox();
             removeAnCheckBox = new System.Windows.Forms.CheckBox();
             openAndroidSubtitlesAppearanceSettingsButton = new System.Windows.Forms.Button();
+            button6 = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            checkBox1 = new System.Windows.Forms.CheckBox();
             yandexTranslatorGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)hotkeysDataGridView).BeginInit();
             groupBox2.SuspendLayout();
@@ -108,6 +114,8 @@
             groupBox12.SuspendLayout();
             downloadsDirectoryGroupBox.SuspendLayout();
             defaultDirectoryGroupBox.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // richTextBoxForYandexApiKeyInSeparateForm
@@ -116,7 +124,7 @@
             richTextBoxForYandexApiKeyInSeparateForm.Location = new System.Drawing.Point(340, 22);
             richTextBoxForYandexApiKeyInSeparateForm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             richTextBoxForYandexApiKeyInSeparateForm.Name = "richTextBoxForYandexApiKeyInSeparateForm";
-            richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(715, 50);
+            richTextBoxForYandexApiKeyInSeparateForm.Size = new System.Drawing.Size(528, 50);
             richTextBoxForYandexApiKeyInSeparateForm.TabIndex = 2;
             richTextBoxForYandexApiKeyInSeparateForm.Text = "";
             // 
@@ -172,7 +180,7 @@
             yandexTranslatorGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             yandexTranslatorGroupBox.Name = "yandexTranslatorGroupBox";
             yandexTranslatorGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            yandexTranslatorGroupBox.Size = new System.Drawing.Size(1071, 87);
+            yandexTranslatorGroupBox.Size = new System.Drawing.Size(884, 87);
             yandexTranslatorGroupBox.TabIndex = 44;
             yandexTranslatorGroupBox.TabStop = false;
             yandexTranslatorGroupBox.Text = "Ключ Яндекс.Переводчика";
@@ -204,6 +212,7 @@
             // 
             // hotkeysDataGridView
             // 
+            hotkeysDataGridView.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             hotkeysDataGridView.BackgroundColor = System.Drawing.Color.DarkGoldenrod;
             hotkeysDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             hotkeysDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { keyColumn });
@@ -213,7 +222,7 @@
             hotkeysDataGridView.Name = "hotkeysDataGridView";
             hotkeysDataGridView.RowHeadersVisible = false;
             hotkeysDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            hotkeysDataGridView.Size = new System.Drawing.Size(169, 366);
+            hotkeysDataGridView.Size = new System.Drawing.Size(169, 343);
             hotkeysDataGridView.TabIndex = 45;
             // 
             // keyColumn
@@ -234,15 +243,16 @@
             groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox2.Size = new System.Drawing.Size(210, 565);
+            groupBox2.Size = new System.Drawing.Size(210, 542);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
             groupBox2.Text = "Горячие клавиши программы";
             // 
             // setExtendedHotkeysSetButton
             // 
+            setExtendedHotkeysSetButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             setExtendedHotkeysSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            setExtendedHotkeysSetButton.Location = new System.Drawing.Point(19, 489);
+            setExtendedHotkeysSetButton.Location = new System.Drawing.Point(19, 466);
             setExtendedHotkeysSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             setExtendedHotkeysSetButton.Name = "setExtendedHotkeysSetButton";
             setExtendedHotkeysSetButton.Size = new System.Drawing.Size(169, 70);
@@ -253,8 +263,9 @@
             // 
             // button8
             // 
+            button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             button8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button8.Location = new System.Drawing.Point(19, 456);
+            button8.Location = new System.Drawing.Point(19, 433);
             button8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button8.Name = "button8";
             button8.Size = new System.Drawing.Size(169, 27);
@@ -265,8 +276,9 @@
             // 
             // button7
             // 
+            button7.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             button7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            button7.Location = new System.Drawing.Point(19, 428);
+            button7.Location = new System.Drawing.Point(19, 405);
             button7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button7.Name = "button7";
             button7.Size = new System.Drawing.Size(169, 27);
@@ -579,19 +591,20 @@
             processPriorityGroupBox.Controls.Add(currentProcessPriorityTextBox);
             processPriorityGroupBox.Controls.Add(label38);
             processPriorityGroupBox.Controls.Add(label37);
-            processPriorityGroupBox.Location = new System.Drawing.Point(13, 670);
+            processPriorityGroupBox.Location = new System.Drawing.Point(11, 756);
             processPriorityGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             processPriorityGroupBox.Name = "processPriorityGroupBox";
             processPriorityGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            processPriorityGroupBox.Size = new System.Drawing.Size(353, 74);
+            processPriorityGroupBox.Size = new System.Drawing.Size(353, 86);
             processPriorityGroupBox.TabIndex = 98;
             processPriorityGroupBox.TabStop = false;
             processPriorityGroupBox.Text = "Приоритет процесса Bilingual Subtitler";
             // 
             // targetProcessPriorityTextBox
             // 
+            targetProcessPriorityTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             targetProcessPriorityTextBox.FormattingEnabled = true;
-            targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 44);
+            targetProcessPriorityTextBox.Location = new System.Drawing.Point(177, 50);
             targetProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             targetProcessPriorityTextBox.Name = "targetProcessPriorityTextBox";
             targetProcessPriorityTextBox.Size = new System.Drawing.Size(150, 23);
@@ -600,7 +613,8 @@
             // 
             // currentProcessPriorityTextBox
             // 
-            currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 45);
+            currentProcessPriorityTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            currentProcessPriorityTextBox.Location = new System.Drawing.Point(19, 51);
             currentProcessPriorityTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             currentProcessPriorityTextBox.Name = "currentProcessPriorityTextBox";
             currentProcessPriorityTextBox.ReadOnly = true;
@@ -611,8 +625,9 @@
             // 
             // label38
             // 
+            label38.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label38.AutoSize = true;
-            label38.Location = new System.Drawing.Point(174, 21);
+            label38.Location = new System.Drawing.Point(174, 27);
             label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label38.Name = "label38";
             label38.Size = new System.Drawing.Size(71, 15);
@@ -621,8 +636,9 @@
             // 
             // label37
             // 
+            label37.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(15, 21);
+            label37.Location = new System.Drawing.Point(15, 27);
             label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label37.Name = "label37";
             label37.Size = new System.Drawing.Size(59, 15);
@@ -771,20 +787,21 @@
             // 
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathSetButton);
             downloadsDirectoryGroupBox.Controls.Add(downloadsFolderPathRichTextBox);
-            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(13, 752);
+            downloadsDirectoryGroupBox.Location = new System.Drawing.Point(382, 752);
             downloadsDirectoryGroupBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsDirectoryGroupBox.Name = "downloadsDirectoryGroupBox";
             downloadsDirectoryGroupBox.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(594, 89);
+            downloadsDirectoryGroupBox.Size = new System.Drawing.Size(424, 89);
             downloadsDirectoryGroupBox.TabIndex = 98;
             downloadsDirectoryGroupBox.TabStop = false;
             downloadsDirectoryGroupBox.Text = "Путь к папке \"Загрузки\":";
             // 
             // downloadsFolderPathSetButton
             // 
+            downloadsFolderPathSetButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             downloadsFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             downloadsFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            downloadsFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
+            downloadsFolderPathSetButton.Location = new System.Drawing.Point(340, 21);
             downloadsFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsFolderPathSetButton.Name = "downloadsFolderPathSetButton";
             downloadsFolderPathSetButton.Size = new System.Drawing.Size(71, 57);
@@ -795,18 +812,20 @@
             // 
             // downloadsFolderPathRichTextBox
             // 
+            downloadsFolderPathRichTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             downloadsFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
             downloadsFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             downloadsFolderPathRichTextBox.Name = "downloadsFolderPathRichTextBox";
-            downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(481, 57);
+            downloadsFolderPathRichTextBox.Size = new System.Drawing.Size(311, 57);
             downloadsFolderPathRichTextBox.TabIndex = 2;
             downloadsFolderPathRichTextBox.Text = "";
             // 
             // defaultFolderPathSetButton
             // 
+            defaultFolderPathSetButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             defaultFolderPathSetButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             defaultFolderPathSetButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            defaultFolderPathSetButton.Location = new System.Drawing.Point(510, 21);
+            defaultFolderPathSetButton.Location = new System.Drawing.Point(354, 21);
             defaultFolderPathSetButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             defaultFolderPathSetButton.Name = "defaultFolderPathSetButton";
             defaultFolderPathSetButton.Size = new System.Drawing.Size(71, 57);
@@ -826,10 +845,11 @@
             // 
             // defaultFolderPathRichTextBox
             // 
+            defaultFolderPathRichTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             defaultFolderPathRichTextBox.Location = new System.Drawing.Point(15, 21);
             defaultFolderPathRichTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             defaultFolderPathRichTextBox.Name = "defaultFolderPathRichTextBox";
-            defaultFolderPathRichTextBox.Size = new System.Drawing.Size(481, 57);
+            defaultFolderPathRichTextBox.Size = new System.Drawing.Size(325, 57);
             defaultFolderPathRichTextBox.TabIndex = 5;
             defaultFolderPathRichTextBox.Text = "";
             // 
@@ -861,9 +881,9 @@
             defaultDirectoryGroupBox.Controls.Add(defaultFolderPathSetButton);
             defaultDirectoryGroupBox.Controls.Add(defaultFolderPathRichTextBox);
             defaultDirectoryGroupBox.Controls.Add(label42);
-            defaultDirectoryGroupBox.Location = new System.Drawing.Point(661, 752);
+            defaultDirectoryGroupBox.Location = new System.Drawing.Point(813, 752);
             defaultDirectoryGroupBox.Name = "defaultDirectoryGroupBox";
-            defaultDirectoryGroupBox.Size = new System.Drawing.Size(589, 89);
+            defaultDirectoryGroupBox.Size = new System.Drawing.Size(437, 89);
             defaultDirectoryGroupBox.TabIndex = 103;
             defaultDirectoryGroupBox.TabStop = false;
             defaultDirectoryGroupBox.Text = "Путь к папке для открытия файлов по умолчанию:";
@@ -894,7 +914,7 @@
             // notifyAboutSuccessfullySavedSubtitlesFileCheckBox
             // 
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.AutoSize = true;
-            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Location = new System.Drawing.Point(350, 585);
+            notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Location = new System.Drawing.Point(353, 577);
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Name = "notifyAboutSuccessfullySavedSubtitlesFileCheckBox";
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.Size = new System.Drawing.Size(240, 34);
             notifyAboutSuccessfullySavedSubtitlesFileCheckBox.TabIndex = 106;
@@ -904,7 +924,7 @@
             // removeAnCheckBox
             // 
             removeAnCheckBox.AutoSize = true;
-            removeAnCheckBox.Location = new System.Drawing.Point(18, 653);
+            removeAnCheckBox.Location = new System.Drawing.Point(382, 645);
             removeAnCheckBox.Name = "removeAnCheckBox";
             removeAnCheckBox.Size = new System.Drawing.Size(134, 19);
             removeAnCheckBox.TabIndex = 107;
@@ -926,6 +946,74 @@
             openAndroidSubtitlesAppearanceSettingsButton.UseVisualStyleBackColor = false;
             openAndroidSubtitlesAppearanceSettingsButton.Click += openAndroidSubtitlesAppearanceSettingsButton_Click;
             // 
+            // button6
+            // 
+            button6.AllowDrop = true;
+            button6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            button6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            button6.Location = new System.Drawing.Point(955, 854);
+            button6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(129, 74);
+            button6.TabIndex = 118;
+            button6.Text = "👂\r\nНастройки \r\nраспознавания с помощью ИИ";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(numericUpDown1);
+            groupBox1.Controls.Add(checkBox1);
+            groupBox1.Location = new System.Drawing.Point(14, 653);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(358, 97);
+            groupBox1.TabIndex = 119;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "     Продлевать переведенные субтитры ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(252, 66);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(22, 15);
+            label2.TabIndex = 134;
+            label2.Text = "мс";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(14, 58);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(126, 30);
+            label1.TabIndex = 133;
+            label1.Text = "Максимальная длина\r\nитогового субтитра:";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new System.Drawing.Point(147, 64);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new System.Drawing.Size(98, 23);
+            numericUpDown1.TabIndex = 132;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(6, 17);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(231, 19);
+            checkBox1.TabIndex = 131;
+            checkBox1.Text = "Продлевать переведенные субтитры ";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.Visible = false;
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -933,6 +1021,8 @@
             AutoScroll = true;
             BackColor = System.Drawing.SystemColors.ControlLightLight;
             ClientSize = new System.Drawing.Size(1264, 991);
+            Controls.Add(groupBox1);
+            Controls.Add(button6);
             Controls.Add(openAndroidSubtitlesAppearanceSettingsButton);
             Controls.Add(removeAnCheckBox);
             Controls.Add(notifyAboutSuccessfullySavedSubtitlesFileCheckBox);
@@ -976,6 +1066,9 @@
             downloadsDirectoryGroupBox.ResumeLayout(false);
             defaultDirectoryGroupBox.ResumeLayout(false);
             defaultDirectoryGroupBox.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1050,5 +1143,11 @@
         private System.Windows.Forms.Label startVideoInSettedPlayerBetaWarningLabel;
         private System.Windows.Forms.Label yandexTranslatorBetaLabel;
         private System.Windows.Forms.Button openAndroidSubtitlesAppearanceSettingsButton;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

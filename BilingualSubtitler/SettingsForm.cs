@@ -936,6 +936,17 @@ namespace BilingualSubtitler
             var dialogResult = settingsAndroid.ShowDialog();
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using var settingsAiRecognitionForm = new SettingsAiRecognitionForm();
+            var dialogResult = settingsAiRecognitionForm.ShowDialog();
+        }
+
 
 
 

@@ -206,7 +206,7 @@ namespace BilingualSubtitler
             Margin = new Padding(4, 3, 4, 3);
             Name = "SettingsAndroidForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Настройки программы";
+            Text = "Настройки субтитров для Android";
             Load += SettingsAndroidForm_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();

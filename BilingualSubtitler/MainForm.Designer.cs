@@ -2578,9 +2578,9 @@
             button2.Location = new System.Drawing.Point(1355, 622);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(90, 89);
+            button2.Size = new System.Drawing.Size(90, 110);
             button2.TabIndex = 117;
-            button2.Text = "👂\r\nСубтитры \r\nчерез ИИ \r\nиз mkv";
+            button2.Text = "👂\r\nСубтитры \r\nчерез ИИ — \r\nиз .mkv";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_4;
             // 
