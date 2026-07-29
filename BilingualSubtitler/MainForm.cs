@@ -2327,17 +2327,22 @@ namespace BilingualSubtitler
 
                             if (italic)
                             {
+                                // Продлим субтитры в потоке, установленном курсивом
+                                //
                                 // TODO ProlongationTEMP
-                                if (subIdx < subtitles.Length - 1)
+                                if (subsStreamIdx != 1)
                                 {
-                                    var nextSubStartMinus2Ms = subtitles[subIdx + 1].Start.Subtract(TimeSpan.FromMilliseconds(2));
-                                    subtitleEnd = nextSubStartMinus2Ms.Subtract(subtitle.Start) <= TimeSpan.FromMilliseconds(8000) ? // Короче получающийся продленный до следующего субтитра титр 8 секунд?
-                                        nextSubStartMinus2Ms
-                                        : subtitle.Start.Add(TimeSpan.FromMilliseconds(8000));
+                                    if (subIdx < subtitles.Length - 1)
+                                    {
+                                        var nextSubStartMinus2Ms = subtitles[subIdx + 1].Start.Subtract(TimeSpan.FromMilliseconds(2));
+                                        subtitleEnd = nextSubStartMinus2Ms.Subtract(subtitle.Start) <= TimeSpan.FromMilliseconds(8000) ? // Короче получающийся продленный до следующего субтитра титр 8 секунд?
+                                            nextSubStartMinus2Ms
+                                            : subtitle.Start.Add(TimeSpan.FromMilliseconds(8000));
+                                    }
                                 }
                             }
 
-                            // TODO MachineTranslate<>TEMP
+                            // TODO Машинный перевод:"<text>" TEMP
                             if (subsStreamIdx == 1)
                                 assSB.AppendLine($"Dialogue: 0," +
                                                 $"{subtitle.Start.ToString(assTimeFormat)}," +
