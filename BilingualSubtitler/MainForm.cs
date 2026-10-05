@@ -2996,7 +2996,7 @@ namespace BilingualSubtitler
                                     }
                                 }
 
-                                var lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                                var lines = text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
 
                                 subtitlesInfo.Subtitles = ReadSrtMarkup(lines);
                             }
@@ -3640,8 +3640,8 @@ namespace BilingualSubtitler
             var colorPickingDialog = new ColorDialog();
             colorPickingDialog.Color = senderButton.BackColor;
             colorPickingDialog.CustomColors = new int[] {
-                ColorTranslator.ToOle(Color.Gold),
-                ColorTranslator.ToOle(Color.DeepSkyBlue)
+                System.Drawing.ColorTranslator.ToOle(Color.Gold),
+                System.Drawing.ColorTranslator.ToOle(Color.DeepSkyBlue)
             };
             colorPickingDialog.FullOpen = true;
             var dialogResult = colorPickingDialog.ShowDialog();

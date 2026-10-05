@@ -1,5 +1,4 @@
-﻿using Nikse.SubtitleEdit.Core.AudioToText;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
